@@ -115,7 +115,7 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\u{1}\0\0 \u{1f}97\rZs5FC\u{1f}Zbf/g4j(\u{2}\\`c?\u{8}\u{15}F`C:tzl\u{1f}H#\u{7f}\n\01bqb\u{b}n/Vb>G/g\0[W\u{10}$=4ifxB2\u{7f}\u{e}JKm\u{7f}\u{18}x]nX\u{13}u)T\"r\u{1a}IkX\u{1}\u{c}&u=buQ]3toU2JiuNjF\t\u{1b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\u{1}\0\0 \u{1f}}\u{17}\tZs5F#`Oz$+q\0`W9\u{1c}kIwW;\u{15}g\u{b}fa{;\u{16}_~XfC}%RT\0J-e\tn\u{10}3s\u{1d}g\u{11}bo\u{17}=N\u{f}PQ-\u{17}B/c\u{e},Lz.\u{18}\u{f}J\u{b}\u{1d}M[\u{1e}^j(\u{4}.$*\u{14}yh`7Z}hM\u{1b}\u{11}ht<d`}\u{6}|fo\u{1}" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

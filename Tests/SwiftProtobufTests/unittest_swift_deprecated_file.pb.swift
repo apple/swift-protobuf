@@ -300,7 +300,7 @@ extension SwiftProtoTesting_DeprecatedFile_MyEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0*\0swift_proto_testing.deprecated_file.MyEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "`\0\0\0\u{10}?bsm\u{6}&pmNE53g/_\u{6}=j\u{5}[B.\u{1b}\\G\u{19}\u{f}xv4\u{4}w8[*j\u{12}\u{10}B88.*)(L,<BCO-H9\u{6}Fa\u{19}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -316,7 +316,7 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$\u{c}u|[X\u{13}i\u{12}*0\u{15}!U)qc\u{1f}eL0M6N6\u{6}\u{3}(&Sj\u{4}x\u{c}cMd\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}wU\u{f}kn'\u{1b}gg\u{14}\\6\u{8}sJ)+\u{1e}\u{1d}LH\u{13}\u{1d}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -341,7 +341,7 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

@@ -122,7 +122,7 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPa@CV{m\u{10}aa@R3^\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp3,mV>R1\u{11}s4\u{13}|9c\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -175,7 +175,7 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "t\0\0\0pg@z0p\u{11}}\ru\u{1c}i)rJ3\u{12}\u{11}u\u{7}mf{\u{3}HoR@z1B\u{16}W;\u{8}\u{1e}%%w\u{1a}\u{13}\"=t\u{2}I`Z{c\u{3}3u\no\tt\u{5}ie\u{1c}\r\u{e}M9\\bQBY3\u{5}*`\u{12}!\u{f}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "x\0\0\0`\tqx<p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{OXEOs2\u{19}Gy\0NY1+&a-zwKG0yS\u{15}X\0V$\nTjVdx m0#$(94Tkr\u{1d}h\u{7f}\u{13}gC\u{17}P\06\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

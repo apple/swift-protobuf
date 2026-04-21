@@ -252,7 +252,7 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}FPeZ3'E\u{15}\\h\u{5};\u{c}v\u{b}j\u{18}~q/W\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -277,7 +277,7 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}FPeZ3'E\u{15}\\h\u{5};\u{c}v\u{b}j\u{18}~q/W\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -302,7 +302,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "|\0\0\0`+avHJ%\u{4}u\u{1a}u\tg\u{1d}@P+<tba^[\u{1e}n$\u{12}q$tpb\u{1c}\u{7f}<s=t6B\u{11}*#gg\u{1a}&LL&l>Sw{P\u{b}\u{b}j$rA\u{c}|&dFIS\r\u{b}\nG\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\0\u{1}\0\0 \u{7f}\u{1}pEZC#D#`O/o\u{16}VS\ttwN=AK^|[c6\u{c}|+u6p\0h&V\r_(\u{2}6.Z|W\u{16}*_O\u{5}\u{15}u\t\u{12}\\WHCc!X!&m)(S\0$7C\u{13}}T\u{19}\u{3}" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -363,7 +363,7 @@ extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}*\u{10}\u{8}tx8H\u{13}hG%\u{1a}9\u{2}R\u{19}\u{12}\u{13}So/\u{6}\u{19}2\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}B$f}|\u{7f}k<8@)P2Z\u{1c}l=\u{12}\u{7}t_\u{14}\u{5}l\u{5}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

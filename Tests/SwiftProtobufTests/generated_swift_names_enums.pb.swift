@@ -5827,7 +5827,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum DataEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum data: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneData // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -5851,7 +5851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.DataEnum] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.data] = [
       .noneData,
     ]
 
@@ -8467,7 +8467,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum extensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum ExtensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneExtensionStorage // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -8491,7 +8491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionStorage] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionStorage] = [
       .noneExtensionStorage,
     ]
 
@@ -12157,7 +12157,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum hasBit: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum HasBit: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneHasBit // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -12181,7 +12181,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasBit] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.HasBit] = [
       .noneHasBit,
     ]
 
@@ -18277,7 +18277,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum mapEntrySchema: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum MapEntrySchema: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneMapEntrySchema // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -18301,7 +18301,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mapEntrySchema] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MapEntrySchema] = [
       .noneMapEntrySchema,
     ]
 
@@ -18637,7 +18637,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum messageSchemaEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum MessageSchema: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneMessageSchema // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -18661,7 +18661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSchemaEnum] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageSchema] = [
       .noneMessageSchema,
     ]
 
@@ -20077,36 +20077,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum OneOf_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneOneOfKind // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneOneOfKind
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneOneOfKind
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneOneOfKind: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
-      .noneOneOfKind,
-    ]
-
-  }
-
   enum oneofDecl: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneOneofDecl // = 0
@@ -20253,6 +20223,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofs] = [
       .noneOneofs,
+    ]
+
+  }
+
+  enum OneOf_Kind: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneOneOfKind // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneOneOfKind
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneOneOfKind
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneOneOfKind: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
+      .noneOneOfKind,
     ]
 
   }
@@ -21577,452 +21577,32 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum protobuf_ensureUniqueStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
-    case noneProtobufEnsureUniqueStorage // = 0
+    case noneProtobufApiversionCheck // = 0
     case UNRECOGNIZED(Swift.Int)
 
     init() {
-      self = .noneProtobufEnsureUniqueStorage
+      self = .noneProtobufApiversionCheck
     }
 
     init?(rawValue: Swift.Int) {
       switch rawValue {
-      case 0: self = .noneProtobufEnsureUniqueStorage
+      case 0: self = .noneProtobufApiversionCheck
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Swift.Int {
       switch self {
-      case .noneProtobufEnsureUniqueStorage: return 0
+      case .noneProtobufApiversionCheck: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage] = [
-      .noneProtobufEnsureUniqueStorage,
-    ]
-
-  }
-
-  enum protobuf_enumSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufEnumSchemaString // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufEnumSchemaString
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufEnumSchemaString
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufEnumSchemaString: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString] = [
-      .noneProtobufEnumSchemaString,
-    ]
-
-  }
-
-  enum protobuf_extensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufExtensionStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufExtensionStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufExtensionStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufExtensionStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage] = [
-      .noneProtobufExtensionStorage,
-    ]
-
-  }
-
-  enum protobuf_extensionStorageImpl: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufExtensionStorageImpl // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufExtensionStorageImpl
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufExtensionStorageImpl
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufExtensionStorageImpl: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl] = [
-      .noneProtobufExtensionStorageImpl,
-    ]
-
-  }
-
-  enum protobuf_mapEntrySchema: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMapEntrySchema // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMapEntrySchema
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMapEntrySchema
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMapEntrySchema: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapEntrySchema] = [
-      .noneProtobufMapEntrySchema,
-    ]
-
-  }
-
-  enum protobuf_messageSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMessageSchemaString // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMessageSchemaString
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMessageSchemaString
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMessageSchemaString: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString] = [
-      .noneProtobufMessageSchemaString,
-    ]
-
-  }
-
-  enum protobuf_messageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufMessageStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufMessageStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufMessageStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufMessageStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage] = [
-      .noneProtobufMessageStorage,
-    ]
-
-  }
-
-  enum protobuf_package: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufPackage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufPackage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufPackage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufPackage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_package] = [
-      .noneProtobufPackage,
-    ]
-
-  }
-
-  enum protobuf_performNontrivialFieldOperation: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufPerformNontrivialFieldOperation // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufPerformNontrivialFieldOperation
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufPerformNontrivialFieldOperation
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufPerformNontrivialFieldOperation: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation] = [
-      .noneProtobufPerformNontrivialFieldOperation,
-    ]
-
-  }
-
-  enum protobuf_performOnMapEntry: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufPerformOnMapEntry // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufPerformOnMapEntry
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufPerformOnMapEntry
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufPerformOnMapEntry: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnMapEntry] = [
-      .noneProtobufPerformOnMapEntry,
-    ]
-
-  }
-
-  enum protobuf_performOnRawEnumValues: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufPerformOnRawEnumValues // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufPerformOnRawEnumValues
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufPerformOnRawEnumValues
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufPerformOnRawEnumValues: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues] = [
-      .noneProtobufPerformOnRawEnumValues,
-    ]
-
-  }
-
-  enum protobuf_performOnSubmessageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufPerformOnSubmessageStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufPerformOnSubmessageStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufPerformOnSubmessageStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufPerformOnSubmessageStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage] = [
-      .noneProtobufPerformOnSubmessageStorage,
-    ]
-
-  }
-
-  enum protobuf_reflectionData: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufReflectionData // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufReflectionData
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufReflectionData
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufReflectionData: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData] = [
-      .noneProtobufReflectionData,
-    ]
-
-  }
-
-  enum protobuf_uniqueExtensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufUniqueExtensionStorage // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufUniqueExtensionStorage
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufUniqueExtensionStorage
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufUniqueExtensionStorage: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage] = [
-      .noneProtobufUniqueExtensionStorage,
-    ]
-
-  }
-
-  enum protobuf_uniqueExtensionStorageImpl: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufUniqueExtensionStorageImpl // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufUniqueExtensionStorageImpl
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufUniqueExtensionStorageImpl
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufUniqueExtensionStorageImpl: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl] = [
-      .noneProtobufUniqueExtensionStorageImpl,
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
+      .noneProtobufApiversionCheck,
     ]
 
   }
@@ -22053,36 +21633,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2] = [
       .noneProtobufApiversion2,
-    ]
-
-  }
-
-  enum ProtobufAPIVersionCheck: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Swift.Int
-    case noneProtobufApiversionCheck // = 0
-    case UNRECOGNIZED(Swift.Int)
-
-    init() {
-      self = .noneProtobufApiversionCheck
-    }
-
-    init?(rawValue: Swift.Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufApiversionCheck
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Swift.Int {
-      switch self {
-      case .noneProtobufApiversionCheck: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
-      .noneProtobufApiversionCheck,
     ]
 
   }
@@ -22533,6 +22083,456 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapUInt64Field] = [
       .noneProtobufMapUint64Field,
+    ]
+
+  }
+
+  enum protobuf_ensureUniqueStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufEnsureUniqueStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufEnsureUniqueStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufEnsureUniqueStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufEnsureUniqueStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage] = [
+      .noneProtobufEnsureUniqueStorage,
+    ]
+
+  }
+
+  enum protobuf_enumSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufEnumSchemaString // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufEnumSchemaString
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufEnumSchemaString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufEnumSchemaString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString] = [
+      .noneProtobufEnumSchemaString,
+    ]
+
+  }
+
+  enum protobuf_extensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufExtensionStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufExtensionStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufExtensionStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufExtensionStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage] = [
+      .noneProtobufExtensionStorage,
+    ]
+
+  }
+
+  enum protobuf_extensionStorageImpl: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufExtensionStorageImpl // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufExtensionStorageImpl
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufExtensionStorageImpl
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufExtensionStorageImpl: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl] = [
+      .noneProtobufExtensionStorageImpl,
+    ]
+
+  }
+
+  enum protobuf_mapEntrySchema: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMapEntrySchema // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMapEntrySchema
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMapEntrySchema
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMapEntrySchema: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapEntrySchema] = [
+      .noneProtobufMapEntrySchema,
+    ]
+
+  }
+
+  enum protobuf_messageSchemaString: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMessageSchemaString // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMessageSchemaString
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMessageSchemaString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMessageSchemaString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString] = [
+      .noneProtobufMessageSchemaString,
+    ]
+
+  }
+
+  enum protobuf_messageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufMessageStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufMessageStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufMessageStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufMessageStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage] = [
+      .noneProtobufMessageStorage,
+    ]
+
+  }
+
+  enum protobuf_package: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufPackage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufPackage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufPackage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufPackage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_package] = [
+      .noneProtobufPackage,
+    ]
+
+  }
+
+  enum protobuf_performNontrivialFieldOperation: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufPerformNontrivialFieldOperation // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufPerformNontrivialFieldOperation
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufPerformNontrivialFieldOperation
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufPerformNontrivialFieldOperation: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation] = [
+      .noneProtobufPerformNontrivialFieldOperation,
+    ]
+
+  }
+
+  enum protobuf_performOnMapEntry: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufPerformOnMapEntry // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufPerformOnMapEntry
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufPerformOnMapEntry
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufPerformOnMapEntry: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnMapEntry] = [
+      .noneProtobufPerformOnMapEntry,
+    ]
+
+  }
+
+  enum protobuf_performOnRawEnumValues: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufPerformOnRawEnumValues // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufPerformOnRawEnumValues
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufPerformOnRawEnumValues
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufPerformOnRawEnumValues: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues] = [
+      .noneProtobufPerformOnRawEnumValues,
+    ]
+
+  }
+
+  enum protobuf_performOnSubmessageStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufPerformOnSubmessageStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufPerformOnSubmessageStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufPerformOnSubmessageStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufPerformOnSubmessageStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage] = [
+      .noneProtobufPerformOnSubmessageStorage,
+    ]
+
+  }
+
+  enum protobuf_reflectionData: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufReflectionData // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufReflectionData
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufReflectionData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufReflectionData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData] = [
+      .noneProtobufReflectionData,
+    ]
+
+  }
+
+  enum protobuf_uniqueExtensionStorage: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufUniqueExtensionStorage // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufUniqueExtensionStorage
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufUniqueExtensionStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufUniqueExtensionStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage] = [
+      .noneProtobufUniqueExtensionStorage,
+    ]
+
+  }
+
+  enum protobuf_uniqueExtensionStorageImpl: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Swift.Int
+    case noneProtobufUniqueExtensionStorageImpl // = 0
+    case UNRECOGNIZED(Swift.Int)
+
+    init() {
+      self = .noneProtobufUniqueExtensionStorageImpl
+    }
+
+    init?(rawValue: Swift.Int) {
+      switch rawValue {
+      case 0: self = .noneProtobufUniqueExtensionStorageImpl
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Swift.Int {
+      switch self {
+      case .noneProtobufUniqueExtensionStorageImpl: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl] = [
+      .noneProtobufUniqueExtensionStorageImpl,
     ]
 
   }
@@ -24637,7 +24637,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum SelfEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum selfEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneSelf // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -24661,7 +24661,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SelfEnum] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.selfEnum] = [
       .noneSelf,
     ]
 
@@ -29647,7 +29647,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
 
   }
 
-  enum version: SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum Version: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case noneVersion // = 0
     case UNRECOGNIZED(Swift.Int)
@@ -29671,7 +29671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: @unchecked Swift
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.version] = [
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Version] = [
       .noneVersion,
     ]
 
@@ -30425,7 +30425,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: SwiftProtobuf
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\0\0\0\0\u{7f}\u{f}\tA\u{7}2x6B&d\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -30438,7 +30438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.accessToken {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.accessToken" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnTMJ\ry\u{1d}z8Ph'4+0\u{1}I\u{1d}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57S-WI\u{12}+RPJ\u{1}GZ\u{19})D\u{4}m\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30446,7 +30446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.addPath {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.addPath" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnTS^tmS\u{2}\u{1a}yhoO8\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0woB\u{6}%\u{16}c\u{16}3I/Zsl\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30454,7 +30454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.adjusted {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.adjusted" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnTSF\u{6}2\u{5}-yWq\rP\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{f}CSR\u{18}8%?\u{6}C0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30462,7 +30462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.aggregateValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.aggregateValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnTe\ni;U(C8K\u{f}_pfbG\0\u{1}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SM\u{1c}K:\u{7f}7cB\u{12}UUQ)by\u{7f}L\u{3}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30470,7 +30470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.allCases {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.allCases" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT\u{1}73k\u{11}Am\0Wyg?6 \0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wOl\u{1b}\u{14}\u{4}\u{f}\u{6}\u{5}\u{1d}7G\u{11}B\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30478,7 +30478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.allowAlias {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.allowAlias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT\u{1}+;%\u{c}I:\u{1b}d\u{8}$c9M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wOl\u{f}\u{1e}}9$\u{2}\u{1e},|=C\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30486,7 +30486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alreadyReadVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.alreadyReadValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7j@Q\"\u{f},^,CZ;\u{8}LrQ2Rv\u{1}%\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57[\u{1d}\u{3}!V-\tt\tF=\u{11}nGd\u{4}n\u{8} \u{c}+\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30494,7 +30494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintEnu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7j@/{\u{1e}w+8kV\u{1d}\0\u{7}\u{12}j56U:mWww_\u{7f}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57[-\u{3}Kqt`\u{11}\u{16}\u{16}y=eb~I\u{f}S\u{2}\u{1c}ml(\\LJ\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30502,7 +30502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.alwaysPrintInt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7j@/{\u{1e}w+8kVuLtAZ0\u{6}4=Hyf9Fy\u{7}Q03\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0w/m\u{16}a\u{17}X\u{6}X]4\u{11}\u{1a}+TJ\u{18}O*G]\no_h!B\u{c}\rq\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30510,7 +30510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.annotation {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.annotation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT\r\u{3}9-@\rgvR-_\u{1a}P\u{f}\u{17}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wovxR*HHO\"yl2l\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30518,7 +30518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.any {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.any" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnT\r_\u{1c}\u{3}\u{6}in\u{7f}\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0wow\u{1e}|\u{1d}\u{14}7dW]\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30526,7 +30526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyObject {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AnyObject" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnj{\0t[4nz\u{8}8\u{1}28l.[\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}$OM#55LO\u{6}\u{5}>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30534,7 +30534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AnyUnpackError
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AnyUnpackError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnj{\u{4}|\u{19}L\u{1}+/\u{f}\u{c}D\u{15}g%\u{4}@J\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;cb\u{5}(%*x*\u{14}owH\u{1e}\u{3}us6\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30542,7 +30542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.append {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.append" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnT\u{17}Sn\u{15}e(Dw\u{8} \u{1f}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}0\u{1}WV*o5)\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30550,7 +30550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appendUIntHex 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.appendUIntHex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT\u{17}Sn5e_\rHp6\0g=ky5;\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[-(%\u{c}/H++\u{1a}:;4>\u{f}5\u{1e}K\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30558,7 +30558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appendUnknown 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.appendUnknown" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT\u{17}Sn5\u{5}_CH\u{11}\u{f}DQ\u{4}\u{1}ZE\u{1f}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[-(%\u{c}/8\u{1b}B2\u{16}4?j\\B\u{1c})\u{17}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30566,7 +30566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.appendValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.appendValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT\u{17}Sn5e`\"GU\u{18})\u{b}N\u{7f}x{\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[-(%\u{c}/dsy5k\t;\u{b}\u{14}Rd\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30574,7 +30574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Array {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Array" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnj\u{11}Y;g\0\u{10}\u{b}f_77\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}$#vgS.\u{1b}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30582,7 +30582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.arrayDepth {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.arrayDepth" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT#'<\u{c}i\u{7}Z;!GLU\u{f}\u{6})\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}p\u{b}<y\u{e}G\rx1\u{7f}\\`>@\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30590,7 +30590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.arrayLiteral {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.arrayLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT#'<|\u{e}'mY\rF.#F%#%A\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[}J#u?mq)x\u{6}R8U\u{4}MZS\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30598,7 +30598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.arraySeparator
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.arraySeparator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT#'<<\u{15}47\u{6}B&dV9\u{1e}xa\0\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[}Jcul\u{2}C\u{e}I\u{8}Z\t\u{7f}TdsC\u{1e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30606,7 +30606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.as" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CnT';}\u{b}ix\tc\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0\u{7}p\u{f}%\u{12}n\u{19}l.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30614,7 +30614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asciiValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.asciiValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT'76\u{1e}(\u{1e}\u{4}/ZF8stP\u{1a}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{10}\u{10}\u{15}o\r\u{18}$\tT\0\0`\u{14}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30622,7 +30622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.asciiZero {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.asciiZero" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT'76N\t\n>X\0B\u{7}\u{8}\u{16}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{10}\u{10}\u{15}o\u{1b}!qX7:>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30630,7 +30630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.assumedPresent
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.assumedPresentStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7jTU=\u{1c}\\CZ\u{6}4q\rI\u{14}dD\u{12}\u{19}'J:\u{10})iy\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57[-,H\u{6}Pvvl\u{18}BcMpv40F\u{e}EYpd7v\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30638,7 +30638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.assumedPresent
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.assumedPresentValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7jTU=\u{1c}\\CZ\u{6}4q\r!\u{17}zGa\u{15}?}-jD1\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57[-,H\u{6}Pvvl\u{18}BcMe?K@cBt\u{19}\u{16}\u{c}\u{1c}4\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30646,7 +30646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.async {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.async" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnT)#u\u{c}K\"\u{c}m|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}P\u{11}\"55VH-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30654,7 +30654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AsyncIterator 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AsyncIterator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnj\u{17}UD\u{7}yt\u{14}\u{f}<V /I_~6-\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c\"lW\u{b}$A=B|\u{16}\u{13}H<Fw>\t\u{1c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30662,7 +30662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AsyncIteratorP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AsyncIteratorProtocol" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7uK*bC<:J\u{7}\u{1e}-hPP1*j-~\u{4}-8\t2\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;c\"lW\u{b}$A=B|\u{16}S{e\u{1f}j\u{1f}D\u{14}cB'1&\u{e}\"\u{1e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30670,7 +30670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.AsyncMessageSe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.AsyncMessageSequence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7uK*bk<97-H=Q!\u{4}\u{1}ZDtH\u{17}iT=&:" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;c\"lW\u{b}4M\u{17}\u{1b}\u{1f}'G\u{1d}vS&J^\u{10}G\"\u{2}1\u{13}\u{1e}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30678,7 +30678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.at {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.at" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CnT-\u{3}\u{c}\u{18}\t@I@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0\u{7}pTw3t\u{19}o.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30686,7 +30686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.atByteOffset {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.atByteOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnT/c|X78VBMdYF})xFj\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57[]\rr:mz\u{8}:QG\u{14}}2V\u{12}.\u{8}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30694,7 +30694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.available {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.available" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnT9#\tScX\u{f}u\u{4}\u{1d}Kh\u{10}%\u{1e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}0_,\t\u{17}WqbQ\u{e}u!\u{1}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30702,7 +30702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.b {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.b" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CnUYEx\u{7}xW3a\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0G\u{10}11\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30710,7 +30710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Base {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Base" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnjY?p.\u{b}\u{1f}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}g$Y\u{15}\0& \u{18}\u{7}2\0c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30718,7 +30718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.base64Values {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.base64Values" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnUeEZ\u{18}J\nv4zu&|\u{7f}G{d\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57k=\u{17}NX\raF'p0\0Wx%T\u{13}\u{11}\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30726,7 +30726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.baseAddress {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.baseAddress" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnUeEZg3aP{KCu0\u{1f}\u{1e}>\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57k=\u{17}\u{e}=B\r7t\u{1a}whtU\u{1e}3\0\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30734,7 +30734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.begin {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.begin" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnU\u{7f}a?\u{e}\u{1e}rr>;Eq\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0WPU\u{10}Va\u{c}N}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30742,7 +30742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryDecoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryDecoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnk\u{5}4{\\D\"\u{c}\u{6};RKO&?}b\u{7}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{rB\u{b}(\u{f}\u{8}zvm\u{18}C\u{3}@m>db\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30750,7 +30750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryDecoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryDecodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wu\u{2}Z=.\"\u{11}\u{6}C\u{1d}ie7\u{18}\u{1f}t\u{3}\u{13}>04=m;\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{rB\u{b}(\u{f}\u{8}zvm\u{18}\u{3}\u{4}\u{1c}]%q-+J^Lye+\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30758,7 +30758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryDecoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryDecodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wu\u{2}Z=.\"\u{11}\u{6}C\u{1d}iewi\u{12}\u{18}F\u{7}\n\u{14}\u{2}NIK\u{5}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{rB\u{b}(\u{f}\u{8}zvm\u{18}\u{3}\u{4}[-o\rM\u{1b}!^M\u{4}\u{3}|a\u{18}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30766,7 +30766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryDelimite
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryDelimited" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wu\u{2}Z=.\"QF$cQ:'\u{1f}\"\u{6}Qx!d\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{rB\u{b}(\u{f}\u{8}\u{12}\u{7f}\u{14}(G\rH1]=h\u{e}\u{c}.\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30774,7 +30774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoder 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryEncoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnk\u{5}4{\\dcYSI%547ky5;\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{rB\u{b}(\u{f},*'x\u{f}G;\u{1b} i\u{c}a\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30782,7 +30782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryEncodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wu\u{2}Z=.rqlidj\u{7f}c0\u{b}?Ah' \\M~\u{12}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{rB\u{b}(\u{f},*'xo=08I\u{4}c\u{12}CLLxK\u{b}\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30790,7 +30790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryEncodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wu\u{2}Z=.rqlidj\u{7f}\u{b}:JKw*x4\u{16}Pw\u{17}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{rB\u{b}(\u{f},*'xo=1HRm\u{1f}48\u{1f}\u{18}iJ~\u{18}!\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30798,7 +30798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.binaryProtobuf
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.binaryProtobufDelimitedMessages" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnU\u{17}\u{6}\u{4}QWo;\0\u{1a}\u{7f}\u{7f}$PQ\u{3}roU'Kzw\u{5};%ii20fIY\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFd{AJ\u{12}\"l5A@(\u{17}@g)R9\u{1}po\r\0r,%4\u{18}SS\u{17}Z,?(\u{15}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30806,7 +30806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryStreamDe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BinaryStreamDecoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wu\u{2}Z=.\"[r^I)C\u{f}J\u{7}\u{19}tO\"\u{1}uB Rh\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{rB\u{b}(\u{10}\u{14}z\u{10}4,<\u{1e}nY\u{f}n6o\u{17}L\u{1b}.}V{\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30814,7 +30814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.binaryStreamDe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.binaryStreamDecodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wj\u{b}\u{3}Bh;yLW\u{11}\0\u{14}aAYh}A\03uIm>\"d\u{15}P_\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0WPjCEN)b\u{1a}U1#\u{5}=Hh+\rnCK~\u{16}v\u{8}R=\u{11}\u{1a}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30822,7 +30822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Bit7Reader {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Bit7Reader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnk\u{5}<M\u{13}I\u{7}\u{e}4,mNKS\u{1}*\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}wDBf\u{10}u,[=DdVJ\u{19}I\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30830,7 +30830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bitCount {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bitCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnU\u{17}veM2\u{c}\u{13}6y\u{e}P\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W\u{10}+\u{1c}Z\u{1a}\u{e}\u{3}\ry/1\u{1}.I\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30838,7 +30838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bitPattern {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bitPattern" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnU\u{17}~u\u{1e};P\u{16})AQ\u{7f}\u{7}\u{18}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W\u{10}+#C\u{f}}5g\u{1c}*>f0J\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30846,7 +30846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BitwiseCopyabl
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BitwiseCopyable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wu\u{2}Rn]CNSbj\u{1d}\u{2}.|\tK\u{7f}\u{13}T\u{5} \n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{\u{2}\u{3}\u{1}R`u[s\u{e}P\u{1}wS&,Cp$|E\"\u{1}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30854,7 +30854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.body {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.body" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnU9\u{1a}x\u{18}G\nG{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gp\u{8}Jn^B\\$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30862,7 +30862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BoolEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Bool" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnk'l\"\u{18}:-\u{e}w\u{11}S\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}w\u{4}ax!:\u{11}6Y\0B?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30870,7 +30870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.booleanLiteral
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.booleanLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnU9:k\u{c}|+J.,jK804<\u{e}T\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57smjA\u{17}Ac3]1>G$Z-K4A\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30878,7 +30878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BooleanLiteral
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.BooleanLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wu\u{13}61b+4x=#\tw!,\u{c}4V\n8\u{14}\u{16}\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{R*\u{19}>ha\u{1d}Bo\u{f}%B\u{19}w\r g\u{e})Z\n\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30886,7 +30886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.boolValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.boolValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnU9:3?KCwp<\0\u{14},\u{16}\u{10}\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gPI>Q\",G\n\u{16}\u{1e}|h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30894,7 +30894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.buffer {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.buffer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnU[\u{6}Hf>U.GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gp't\u{c}\u{18}$q%N*Qh\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30902,7 +30902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.byParsingJSONF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.byParsingJSONFrom" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wj9\u{1b}W\u{18},j) \u{14}\u{1c}-Yi\u{10}T \u{e},\u{7f}|\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57s\u{1d}\u{18}wC\\\u{17}H\u{1c}i\u{1e}l\u{1f}\\)\u{19}7\u{16}I|vl\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30910,7 +30910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.byParsingTextF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.byParsingTextFormatFrom" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wj9\u{1b}W\u{18},j)#As,LA/\u{15}VO\u{19}|dC\"J'\u{1a}m)\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0g0\u{7f}(\u{e}\u{1f}rK5mKI9=-]L+C\r\u{16}\u{12}\u{c}\u{1a}ye\u{7f};A\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30918,7 +30918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.byte {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.byte" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnUq6~\u{15}\u{11}\u{1f}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gP=\u{18}y\u{3}C\u{1a}\u{7}2\0c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30926,7 +30926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.byteOffset {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.byteOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnUq6&5\u{7f}9\u{14}>#\u{12}pX\u{13}`+\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gP=\u{18}//\\:3,r@\u{10}r)\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30934,7 +30934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bytes {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnUq6Nd>I\u{10}b~%i\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gP=\u{18}d<uO}+p;$\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30942,7 +30942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bytesInGroup {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bytesInGroup" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnUq6VTE[C\u{12}z\"u`yQ+-Q(\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57sm\u{17}\u{12}4^Ns0[\u{12}Or1KSPN\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30950,7 +30950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bytesNeeded {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bytesNeeded" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnUq6VDFC6BS\u{1}JTB]C\u{1e}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57sm\u{17}\u{12}4tDGWhXd\u{1e}x\u{1a}{:\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30958,7 +30958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.bytesRead {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.bytesRead" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnUq6VT\u{7}@\u{1e}DvM\r\t\u{1c}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gP=\u{18}ff@\u{14}n{\n>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30966,7 +30966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.c {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.c" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CnV\u{7f}\u{14}|7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0'Q~\u{6}\u{17}*w5\u{f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30974,7 +30974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.canonical {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.canonical" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV\u{b}],u\0\u{13}d\u{1c}&\n(DAZ\u{1b}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07Q\t9 AMRe6mx(Y\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30982,7 +30982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cardinality {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.cardinality" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnV\u{b}m-=g\u{17}Xh:\u{1e}i\u{19}x@\u{4}\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}\u{1e}\u{1b}@wf-v^83)\u{14}7\tl\u{1f}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30990,7 +30990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CaseIterable {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.CaseIterable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnk\u{7f}\u{e}\u{4}~2d)5G*'W]\u{6}\u{1d}\u{14}%\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{b}#|7\u{b}\u{f}a6\u{11}\u{4}=\u{7f}\u{15}\u{1}$bi|\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -30998,7 +30998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ccEnableArenas
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ccEnableArenas" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnV\u{1b}\u{15}1C:\u{1}!'<\u{10}\u{1}\\[pw6!\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}N~D%<g*a&\u{7}X\u{1e}K/s0n\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31006,7 +31006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ccGenericServi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ccGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kM.Mn&l'S*I4w\u{6}1\"\0\u{f}u\u{f}=\u{5}" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}N>r\u{f}j\u{1c}px\u{8}nXXY\u{14}a}\u{1c}\0\u{14}t\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31014,7 +31014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Character {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Character" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnk%7D&I(h\u{1d}>\u{4}\u{1b}a!M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}WEI.6\u{b}lJ.EC{\04\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31022,7 +31022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chars {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.chars" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnV7]\u{14}E6t\tbla>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07qqRn\u{19}fH-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31030,7 +31030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.chunk {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.chunk" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnV9\u{1d}sIzD,\u{1e} 'O\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0713:6>r\u{1d}~\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31038,7 +31038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.classEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.class" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnVMyN\u{7}<K*VK|'\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0GQF\u{1d}K@]@Ft:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31046,7 +31046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearAggregate
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearAggregateValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xJ^U\u{4}\"si:\u{18}$@\"K\u{18}[TS]j\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>f@ow\"EEzk)\u{e}-X/w\\QS?\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31054,7 +31054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearAllowAlia
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearAllowAlias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}xJ>x\u{c} K+argr2X\u{7f}V1\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>gP0\u{14}H\u{1e}7\u{16}\u{c}\u{c}\u{1}/~t\u{12}u\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31062,7 +31062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearBegin {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearBegin" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-p%\u{1d}<xSsKJ2x\u{2}c\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}8k\u{1}V\u{1a}.sPE0\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31070,7 +31070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearCcEnableA
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearCcEnableArenas" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xbnF>Dr\u{5}Bsa.\u{1}H\"@1o\"\u{17}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>o\u{1e}QuR@\u{1e}\u{1a}O\u{5}\nw[E~g\u{12}?>\t\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31078,7 +31078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearCcGeneric
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearCcGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xb~\u{6}P\u{1f}s+\u{f}1\u{15}~)]\"\n'?\u{11}\u{e}\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>o E\\c\u{15}f\u{15}t<,Gd>X\u{1c}f\\\u{13}\u{11}\t\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31086,7 +31086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearClientStr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearClientStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xb.LZW\u{1c}2g\09li5W\u{10}cxb\u{e}65\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>o8[\u{c}\u{17}\u{1e}='F4So&kB&j/:Z\u{c}\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31094,7 +31094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearCsharpNam
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearCsharpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xb~0\u{1d}W\u{13}~cF)#*Q\u{c}~z\u{c}\u{17}P/\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>p(i,8!H\u{1b}\u{4}#e)vvs)\u{c}r\u{10}<\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31102,7 +31102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearCtype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearCtype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-pE\u{1d}#Z\u{e}E\u{1d}9\u{1f}WwI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}LGf0\u{1a}6_2-Y\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31110,7 +31110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDebugReda
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDebugRedact" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}xj~qn\u{8}\0(H<\u{17}A0.)\u{1c}wK\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>s\u{e}g\u{1c}O\u{2}^-/\u{f}>/\u{18}0?n)\u{1}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31118,7 +31118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDefaultSy
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDefaultSymbolVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnVO-pU\u{1d}$6=xPspE\u{19}XVYx%4Iak\u{7f}\u{1c}\u{4}\u{6}}\u{1d}JO\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}ZKD>Z+0I\u{f}C\u{17}^&\u{1d}Mb?j\u{11}q\u{5}uM$iY\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31126,7 +31126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDefaultVa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDefaultValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}xj\u{e}\u{12}[\u{1e}<j)Ya\u{14}\u{b}\u{1}\u{1e}N\u{c}P\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>s\u{12}+\u{6}\u{8}.3\u{7f}I\u{2}.\u{18}\u{1}\u{5},\u{13}>\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31134,7 +31134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecate
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDeprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}xj\u{1e}re.\u{18}3]U9{\n<xmc\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>s\u{1a}oc$\u{7f}\u{b},\u{1a}\u{e}4Yy\u{19}R\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31142,7 +31142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecate
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0a\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp}5@\u{1c}\u{13}#N*QK\u{6}\u{1d}7\u{1c}S;% gmc\u{1f}>K\u{c}G\u{1c}\u{4}Sw\u{1c}f}9*\u{18}iR\u{6}] ;D5\u{19}K,4\u{12}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\0\0\0P\u{12}.3uKx\u{18}8 S/\u{c}a2J%cu>s\u{1a}oc$\u{7f}K+E{\u{3}5\"L T\u{b}yr9\u{1}$jA^\u{12}\0.RvSf0Q@\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31150,7 +31150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDeprecati
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDeprecationWarning" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}xj\u{1e}re.\u{18}3-\u{17}pUN/\0KEEB~O\u{1c}Hu\\\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}Zk\u{1c}\u{4}D!/dl\u{14}D4S6\u{3}M5g<\u{3}\u{3}`oc\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31158,7 +31158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearDoubleVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearDoubleValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}xj>X\u{6}1Qd{\0MDz\u{1f}\u{1e}I3\u{6}\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>tZ\rOq}`Fgn.X \u{16}uM\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31166,7 +31166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEdition {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pe=>`m|\u{12}\n\u{13}8\u{b}\"O\\\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>xn9X4{O+\u{f}!Zj\u{3}\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31174,7 +31174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionDe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEditionDeprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xr\u{1e}\u{1f}p6>w\u{4}#GNA\u{15}=\"zjCTU\u{1a}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>xn9X4;\to\u{e}\u{8}E\u{1a}\u{e}_\u{16} \t@vFN\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31182,7 +31182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionIn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEditionIntroduced" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xr\u{1e}\u{1f}p6>y\u{1c}G\u{6}\u{13}\u{1}03w\u{16}W\u{1e}`%O\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>xn9X4[J\u{12}\u{1f}vE^^r\u{8}!\u{1f}\u{2}\\Q\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31190,7 +31190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionRe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEditionRemoved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xr\u{1e}\u{1f}p6>\u{7f}4\u{b}8r!?\u{f}A\u{14}\u{3}Jz\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>xn9X4;\u{c}\u{1e}d\u{5}~0\u{7f}>?~%\u{1e}\u{8}\u{14}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31198,7 +31198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnd {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEnd" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-pu=\u{17}jJail\u{17}5N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}r'\u{3}op0?\u{18})-\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31206,7 +31206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceNa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEnforceNamingStyle" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}xzn+DuS\u{10}\u{18}P\rT<H\"#<$V9:\u{17}}tW\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{13}r/\u{b}wZ?x\n\u{1d}#\\9!\u{4}\u{3}N9j\n[F!\u{4}*\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31214,7 +31214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnumType 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearEnumType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pu}\u{17}wWn\u{19}!\u{8}Z+x'S\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>y\u{2}[\u{1e}!Gg\u{7}\u{16}\u{17}}./\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31222,7 +31222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearExtendee 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearExtendee" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pu\u{1d}/\u{7}V<\u{1d}2L&?ZB\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>zX?Y]\r\u{1}< ^Jy\u{4}\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31230,7 +31230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFeatures 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-p\u{15}^_zkQVRqI\"Qj_\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\0-7\u{7},g@\u{1c}\n.C\u{13}\n\u{14}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31238,7 +31238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFeatureSu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearFeatureSupport" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}x\no/}u(\u{7f}\t\u{6}\u{5}\u{1}u3.\u{7}\\dzk\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\0-7\u{7},g\u{1e}\u{4}OgxT&'S\u{2}P\u{e}Xa\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31246,7 +31246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFieldPres
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearFieldPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}x\nOrF)zL#VtJ9gS9KH\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>\u{1}7\u{18}\u{1b}\0\u{1}M\u{3}\u{1a}\u{6}\u{5}Kh@*>\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31254,7 +31254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFixedFeat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearFixedFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}x\n_rQqO\u{16}\u{1e}\u{1d}<(k6P,99\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>\u{1}?pP\u{3}\u{b}QYU\u{4}\u{1d}U\u{b}d.N\\\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31262,7 +31262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearFullName 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearFullName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-p\u{15}~s$80>z]~|!u\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{1}7\u{b}h$6KE~\u{b}~Rg\u{f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31270,7 +31270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearGoPackage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearGoPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-p5~\0Sy\u{f} \r\u{4}#6O\u{1f}x\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{5}9\u{13}\u{15}b{\t6\u{11}/r\u{1e}F\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31278,7 +31278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearIdempoten
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearIdempotencyLevel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}x*/\r\u{18}s/X9w3vR\u{11}&P\u{1c}2RZk\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\r3\u{f}/\u{3}\u{1b}\u{e}!NtFPE;o..Ej\u{15}K\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31286,7 +31286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearIdentifie
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearIdentifierValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}x*/-X\u{1e}i=\u{18}f\u{b}\u{17}x\u{1}C&0yb\u{e}65\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\r3\u{13}'\u{14}d5m{\tUJ+bV|1\n'-\u{e}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31294,7 +31294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearInputType
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearInputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pU>'5J.\u{12}#IlT\u{16}Bb$\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{e}\u{7f}qP\u{4}Eu)\u{11}rPe%\u{1f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31302,7 +31302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearIsExtensi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearIsExtension" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}x*\u{7f}v\u{1c}(Z\u{16}shL@'c6\0\u{7}U\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>\u{e}'kZXfRlzz\t:-k@\0U\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31310,7 +31310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaGener
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaGenerateEqualsAndHash" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnVO-pe~iZ7\r\u{11}7{pM!V\u{1e}h|W1\u{14}q^#Fw\u{19}\\\u{c}\u{1c}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}RPMj \u{3}5\u{5}\u{14}#i;^ \u{1}buMO\\\u{2}-\u{1f}[t`\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31318,7 +31318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaGener
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}x2\u{7f}4m[FHc-4y{\u{1d}L9\u{8}'*m>O&:s\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}RPMj \u{3}5\u{f}Hd\u{1c}7U][DVC\u{1b}n*\u{8}\u{1}D\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31326,7 +31326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaMulti
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaMultipleFiles" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}x2\u{7f}4-ff_n@r\u{2}m%Q\t3&Ovzu\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\u{11}q\u{7}4O\u{2}f\u{1e}\u{12}]\u{4}\u{1e}zd 5}Kn\u{1f}@\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31334,7 +31334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaOuter
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaOuterClassname" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}x2\u{7f}4mlmGH\u{1a}!~,\t&d\u{15}\u{1}O'\0DVI\u{13}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}RPMZ\u{1a}1\u{6}WrEk\0&A%>+\u{5}C^\u{12}\u{1e}M\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31342,7 +31342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaPacka
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}x2\u{7f}4mnhSv-N'rqf%<\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>\u{11}q\u{b}L\u{12}L\u{1a}\":I9I_\u{4}Y\u{7}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31350,7 +31350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJavaStrin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJavaStringCheckUtf8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}x2\u{7f}4msP5]U\u{e}\u{1c}^jI8\u{b}:; 0?\u{11}\u{f}!x\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}RPU\u{1a}\u{5}\u{11}*'md2\u{4}2N\u{12}\tn\nb:=m\u{1c}\u{1b}l\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31358,7 +31358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJsonForma
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJsonFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}x:o@\u{12}Ec)YbzZ|\u{2}0?N\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>\u{13}UHW\u{15}^1J7\u{3}^!\u{19}0*R\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31366,7 +31366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJsonName 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJsonName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pu^\u{1}%\u{f}\u{17}5:\u{7}\0aPK\u{14}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{13}UHG\u{16}\u{7}\t\u{1b}Q5\u{3}3\u{6}\u{1c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31374,7 +31374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearJstype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearJstype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pu^AT!],\nXT\u{11}>=\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{13}Yx\u{10}{\u{8}qA;h\u{1d}\\\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31382,7 +31382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearLabel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearLabel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-p\u{15}\u{1f}Qj+\u{1c}o#3U/p\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}tx/eOH\u{4}@}\0\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31390,7 +31390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearLazy {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearLazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-p\u{15}\u{7f}Qa\u{c}D\u{1}\u{f}\t\u{1c}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}v@(l\u{18}n=yU\"\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31398,7 +31398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearLeadingCo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearLeadingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xJ_K-oe\u{2}3];UaE\r0U\r+\re0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\u{1a}m\u{17}d',L\u{7}6/\u{e}^&IR\u{13}\u{5}\u{7}p'/\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31406,7 +31406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMapEntry 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearMapEntry" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-p%_%7\u{1d}\u{15}\u{1a}>g&ky5;\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>\u{1f}\rhQ\u{1a}Fd~\u{5}\u{7}\u{16}:d\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31414,7 +31414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMaximumEd
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearMaximumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xR\u{7f}2U\u{1e}\u{f}*\u{1e}y'\\F\0F\u{1e}\u{1b}t_G\u{7}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\u{1f}\u{13}PHa\u{15}w^LTm\u{7}69-Cls\u{1e}o\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31422,7 +31422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMessageEn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearMessageEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xR\u{f}v@b])>W\n.0\u{17}\u{1}\u{1c}C\u{c}\u{18}M\u{11}!\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\u{1f}3-\0)I\rCi\u{b}jQs\u{15}zm&\u{7f}4\u{10}\u{10}\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31430,7 +31430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMessageSe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearMessageSetWireFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}xR\u{f}v@b]YJ\u{1d}z\u{1d}\u{1e}Z\u{1f}v#s\u{1d}&[\u{7}$7=\\\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}\u{8}mJdAUX\u{8}a\u{16}n\0ZzH~\u{17}g*\\\u{18}H\u{15}\u{14}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31438,7 +31438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMinimumEd
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearMinimumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xR?8Th\";)Qf3\u{4}O|eDaZ5\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>\u{1f}/F\u{15};\"S\r*=_5%?B\u{18}\u{16}76Y\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31446,7 +31446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-p5_>Qd\u{16}\u{b}#\u{4}Yq\u{18}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}\u{18}\u{19}\u{7}\u{10}D\nuY0\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31454,7 +31454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearNamePart 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearNamePart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-p5_~Q3S\u{7}\u{1a}HRFq\u{1b}\u{1f}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>#E\"E#\u{2}\u{12}\u{15}%\nB%H\u{1a}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31462,7 +31462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearNegativeI
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearNegativeIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xb?(?%rV+Y+`%Z\u{f}g/\u{5}x}sj\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>$!rZO_,\u{12}\u{f}4\u{4}1jd+h$\u{1f}5\u{13}+\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31470,7 +31470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearNoStandar
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0[\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearNoStandardDescriptorAccessor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnVO-pE\u{1f}x\"c2bN/\u{13}\u{1c}8Li\0rWn\u{1c}>9Wp.wXE\u{b}\u{1b}\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aF|+iu>*K+\u{19}<UC}T\u{5}Q\u{b}:\u{1d}7%>9OwV\u{1f}.#~*Y8k\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31478,7 +31478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearNumber {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-pU_L'oS}!n/rX8\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>')Vq\u{4}\\~;#5q0\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31486,7 +31486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearObjcClass
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearObjcClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}xzo=C\u{19}=UEvW\u{10}d&Dv=\u{1d}\u{5}b*O\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>0\u{7f}z.1y\u{1a}=4\u{1a}pd}\rG\r\u{1f}lGE\u{8}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31494,7 +31494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOneofInde
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearOneofIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|\u{2}0M\u{12}I,\u{5}RQ=;G\u{e}^c.\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>2+\t\u{1c})\u{13}4@z\u{f},T\u{1e}ucg\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31502,7 +31502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOptimizeF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearOptimizeFor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|\u{2}`O@N\u{18}F\u{1f}\u{c}L\u{17}Oj)6n.\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>2#n?\u{1f}x\u{7f}\t\u{10}+i\u{5}]hmuD\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31510,7 +31510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOptions {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-x\u{5}@\u{1f}\u{1}\u{1f}W\u{8}TGi$\u{1}{$\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>2#no\u{7f}_V{'B3>O\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31518,7 +31518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOutputTyp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearOutputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|\u{2}\0\u{16}\u{12}[]hT>bU\u{11}oE;\u{1c}\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>3i4\u{e}>\\\u{12}\u{5}k\u{5}\u{1e}^(\rQU\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31526,7 +31526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearOverridab
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearOverridableFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}|\u{2}`66\u{14}=yf`\u{12}M*\"(j\"|gSF\u{17}V'.\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}XYXb\u{2}\u{17}d*TI6*]_#^e\u{7f}f\u{6}O\0=@\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31534,7 +31534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-x%`\u{1c}IW&t1u2\u{12}A%\u{18}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>9A\\5[f\u{11}~U\u{11}\u{1a}*D\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31542,7 +31542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPacked {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPacked" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-x%`\u{1c}If\u{4}\u{1a}(\u{f}3K*C\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>9A\\%NWZQ\u{15}x\u{4}l\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31550,7 +31550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPhpClassP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPhpClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|\u{12}`s\u{2}P\u{19}\u{8}\u{1f}\u{c}\u{1f}\u{2}>.)\u{1c}eeF\"\u{17}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>9Uf!9Z\u{4},\"37/fQ\u{2}r%h\n7\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31558,7 +31558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPhpMetada
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPhpMetadataNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}|\u{12}`3C1\0oZusqN\u{1b}Ue5^\u{1d}\u{15}n\u{1a}!b\u{18}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}p%6\nF\u{6}<\u{16}YwkJ[a3\u{e}\u{7f}@`4*hQl\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31566,7 +31566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPhpNamesp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPhpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|\u{12}`3\u{3}FK\"DBN3\u{1b}\0\u{1b}f\u{c}P\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>9U~\u{19}82\u{c}ZX\u{2}\"e\u{7f}\u{5}?=\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31574,7 +31574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPopulated
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPopulatedOneofMember" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}|\u{12}pW'jE(y\nf~~c-Y=sj\u{14}Np\u{1d}`&I\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}r\tM\u{13}ggj{>;|\u{b}s\t/;]<c\u{13})[\u{3}md\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31582,7 +31582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPositiveI
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPositiveIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|\u{12}p74*9ch3V<\u{1c}H$%e\u{f}\u{16}(\u{c}\u{11}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>:/L\u{4}\r\u{1}Q*#r\u{c}[\u{11}8k\u{1d}6T%o\u{1}\u{17}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31590,7 +31590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearProto3Opt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearProto3Optional" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|\u{12}P9\n]cc\u{5}\u{17}h+\u{1a}31\u{3}\u{19}.},\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>:\u{5}mU\u{1b}%R\u{c}r\u{15}}6~\\\rV\u{19}F^!\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31598,7 +31598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearPyGeneric
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearPyGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|\u{12}`}p\\R06\u{18}2r7\u{1f}\\2/SOX\"\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>:_2l!$(\u{1e}3D\u{10}2\u{18}\u{15}Ct|]l\u{10}\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31606,7 +31606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRemovalEr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearRemovalError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|*P\u{5},m[\u{7}h\\dix`3$\u{1a}H\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>BWpmnCK$\u{16}\u{1d}UFp\u{7f}\u{1b}W\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31614,7 +31614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRepeated 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearRepeated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-xU K}Uyt*0iD\u{e}\u{f}B\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>BY(]c|kG\u{11}]~IH\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31622,7 +31622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRepeatedF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearRepeatedFieldEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7kg\u{16}|*Pe~j<<\u{1}SVR\u{1c},5\u{e}O\"Iv90CD\u{18}\u{13}\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}\u{12}vM\n\u{4}Ff\u{4}\u{1b}=\u{1d}\u{1a}\u{14}jAi6\u{15}s\u{c}#L\u{1c}j\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31630,7 +31630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearReserved 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-xU@\u{b}3;Tq5EdD4\u{16}F\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>B[h\u{17}W;|s\u{6}\\~IH\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31638,7 +31638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRetention
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearRetention" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-xU@\u{b}@6}=P;,\u{18}z\u{19}+\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>B]8\"r\u{1d}$;\u{2}\u{2}i\u{c}a\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31646,7 +31646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearRubyPacka
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearRubyPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|*0\u{f}+YFoNP4[t]^\u{2}(\u{e}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>CQ(CCx}\u{11}B{sk\u{f}-O\u{2}3\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31654,7 +31654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSemantic 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSemantic" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-xe _;o8/z{97w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>F\r&z1JRqa\u{12}i\u{1e}M\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31662,7 +31662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearServerStr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearServerStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|2`O\u{3}a[\u{1}4\0F\u{1c}\u{3}&\"G\u{1a}+\u{15}\u{4}xc\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>F\u{11}\u{16})?\u{7}\0 Dv>\u{3})eWZ\u{1d}U\u{2}N\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31670,7 +31670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSourceCod
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSourceCodeInfo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|2p\u{15}UMDZ@\u{7}=\u{13}\u{c}_t\";1'99\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>GO4^@FH'Pq7[\076[0052\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31678,7 +31678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSourceCon
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSourceContext" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|2p\u{15}UMD\\Dh?Yn&AJ\u{10}U\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>GO4^@F\u{8}Ue;\u{2} Ss\u{17}SB\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31686,7 +31686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSourceFil
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSourceFile" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|2p\u{15}UMDz&4t\u{1a}/g*+o\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>GO4^Pfo'~:.W]j\\5\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31694,7 +31694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearStart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearStart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-xe`q\u{17}$\0q,\u{b}`xR\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}(\u{12}zbBV-\u{8}xh\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31702,7 +31702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearStringVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearStringValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|2\0Y\u{10}\u{4}?0+qR\u{3}]\09i\u{16}1\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>Gq-\\6#i%:NT/4\t7ev\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31710,7 +31710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSwiftPref
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSwiftPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|2@Z\u{14}9Y&9?6\u{13}3b9O{\"\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>G?\u{1e}5\u{8},^\u{1f}j\u{19}^XKyC\u{13}~\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31718,7 +31718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearSyntax {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearSyntax" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-xe w\u{4}^GMnb)AnW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>Gwn&\u{10}\u{1f}\t8suL#\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31726,7 +31726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearTrailingC
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearTrailingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|B \u{1} \u{1a}\u{6}_Xa_\u{8}e\u{17}6\u{11}6\u{14}M~\t\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>KOZ:Y\u{2};@nqXMp3\u{14}2*\u{17};\u{1e}n\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31734,7 +31734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-x\u{5}\u{1}\u{b}wR^\u{1}x\u{8}\u{2}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}:z#$\u{15}\u{11}6XXH\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31742,7 +31742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearTypeName 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearTypeName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnVO-x\u{5}\u{1}\u{b}w\u{4}5\u{19}$rEC=\r'\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>\n_>L-\u{14}.oNN)\u{7f}LF*\n\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31750,7 +31750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUnverifie
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearUnverifiedLazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|J I1fNqV}<Kch_4w\u{1a}\u{8}(3\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>O\u{1f}_Tv$\u{7f}\u{3}Mt\u{c}i\\K6\t\u{2}F.~\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31758,7 +31758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUtf8Valid
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearUtf8Validation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kg\u{16}|Jpl\rnu_20\u{4}\r^rr,\u{1d}:\u{15}`\u{17}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}>\n_>PW\u{c}\u{1e}}\u{2})\u{e} *9\u{1d}4MCE3\u{1e}\u{8}\u{14}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31766,7 +31766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-x%a\u{14}F\u{3},i\u{5}l\u{17}w\u{16}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}V*nMD5\u{7f}8>\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31774,7 +31774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearVerificat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearVerification" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|RPm\u{1a}6*Y\u{11}#b\u{2} \u{1a}\u{6}$\u{16}@\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>S/\u{1a}\u{f}AfiqX\u{19}R_rKZXx\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31782,7 +31782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearVisibilit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kg\u{16}|R\u{10}0\u{f}-VVi\u{1f}-'_k\u{c}T0\u{6}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}>\n_>S17qP7B\u{f};8>q\u{1e}\u{7f}\u{8}?\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31790,7 +31790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearWeak {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clearWeak" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnVO-x5A.y\u{11}\u{5}\0\u{14},\u{16}\u{10}\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{6}>\u{14}jB\u{18} r\u{7}|01\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31798,7 +31798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clientStreamin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.clientStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kgb\\o-eI*\tC.;Nr\0Q\u{6}\u{10}d\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}NJAT\n\riHrM?\u{f}}Ww\u{11}\u{12}S5G\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31806,7 +31806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.code {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.code" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnV_]CO%\u{18}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G1V\u{16}kjJX$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31814,7 +31814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.codePoint {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.codePoint" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_]s~m\u{1e}Ak_3{X%2n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G1V\u{16}&\"2%.V:>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31822,7 +31822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.codeUnits {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.codeUnits" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_]\u{3}ON\u{5}u\u{b}\u{4}2R$-B/\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G1V\u{16}4\0qu72\u{1a}e8x!\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31830,7 +31830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Collection {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Collection" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnkMG%s\u{17} Qee\u{11}~uM\u{1b}\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}W%.b2hm-E\nVv%;:\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31838,7 +31838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.complete {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.complete" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_9\u{16}}}\u{12}\u{2}=-9\u{1}'XH3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{16}L^\t8&)Sl#Ia\u{7}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31846,7 +31846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.compressed {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.compressed" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_96=r:~R!\u{11}\u{1a}e:h;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gq\u{16}Lvqf\u{2}B<q\u{17}%\u{13}i\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31854,7 +31854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.consumedBytes 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.consumedBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnV_a.KW*\u{2}\u{16}#aUG!Yk! \u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}>N3\u{b}=m[\u{1b}\u{1a}YQ<\u{16}7W:d\u{13}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31862,7 +31862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.contains {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.contains" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_a^L\u{12}qwuA\rP\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0GqVom/Bb[W^0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31870,7 +31870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.contentsOf {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.contentsOf" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV_an,t\u{1}GG\u{1a}fi\u{c}?9^\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0GqVo{\u{7f}as(*\u{c}\u{5}\u{8}xh\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31878,7 +31878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ContiguousByte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ContiguousBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wuf\u{b};S\0\u{19}\u{1f}@`\u{1}1\03RF0x\r\u{e}\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}3.\u{b}\u{16}h/WZ\r&\u{6}\u{1d}>~KDFf\u{f}\"\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31886,7 +31886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.copy {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.copy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnV_Y'@S\u{1}z\u{17}x\u{1e}\u{7}\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G\u{11}\u{17}XI~A\\$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31894,7 +31894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.count {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.count" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnVa\r\t]i\\\tm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G1W{]~UL}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31902,7 +31902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.countVarintsIn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.countVarintsInBuffer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7kpFDN\u{19}/\"UFTn\u{14}R \r\u{16}\0-\u{4}f\u{3}W\u{8}\u{c}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}Nn6\u{13}%[Eh\u{f}z\t52e.z`i\u{11}\u{2}\u{8}\u{1f}N\r-\u{1f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31910,7 +31910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.csharpNamespac
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.csharpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7kzH'q/SQ\u{16}QMC\u{f}N%S3\u{19}g5\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{b}N\u{13}\u{1b}\u{1d}V!:Af<\u{c}\"Ylle&\u{f}\u{1e}u\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31918,7 +31918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ctype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ctype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnV}\t\u{3}])%\u{5}m|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0GQq \u{13}w\u{4}K-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31926,7 +31926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cumulative {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.cumulative" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV\u{1}f\u{15}.\\B+c\r!M2x\u{2}c\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0Gqu=8DRx\u{1a}`(\u{f}Eq#\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31934,7 +31934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.cumulativeFreq
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.cumulativeFrequency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7k\0s\n\u{17}.aUqGA:T%5>0\u{4}zk\u{e}=$>\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{b}\u{1e}665Z\u{19}GA!\t\u{c}\u{1f}d8E\u{1c}\u{1e}<=tK0~\u{16}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31942,7 +31942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.current {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.current" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV\u{1}\"Wm\u{7f}\u{7}>\u{b}k:c+\u{15};\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G\u{11}6eo\u{2}e>\u{e}1A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31950,7 +31950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.currentOffset 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.currentOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnV\u{1}\"Wm\u{1f}\u{7}c\u{1a}zs(\u{7f}8+T7X\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{b}.6 V\u{1d}\u{1}x(;1\u{10}gC:X\u{13}C\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31958,7 +31958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.currentSum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.currentSum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnV\u{1}\"Wm?\u{7}'\r$\0\u{19}e:h;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G\u{11}6eo\u{2}-F6\u{f}V.%\u{13}i\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31966,7 +31966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CustomDebugStr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.CustomDebugStringConvertible" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnko\u{7f}F\u{5}[+2so<\0jpr\u{2}QR@\u{2}\u{1a}:\u{10}\u{1}\u{c}\u{1a}%\t\u{12}l\u{8}G&\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}geMB\nf\0\u{7f}\u{e}0b\u{1d}n|\u{7f}|\u{1}5zOsTg(s\u{1}nVPX;x\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31974,15 +31974,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.CustomStringCo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.CustomStringConvertible" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wuw?cB}_FZ\u{18}\u{1f}\u{1f}b*Ux\u{3}sfN7,\u{5}XNQ|\r\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}geMB\nj$\u{7f}WQgN=[f\u{f}\u{14}PL\u{3}*%X^\u{2}LP\u{7}\u{18}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.DataEnum {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.data {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Data" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.data" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnl'\u{2}pn$\u{f}\u{e}BC0\u{1d}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}2WS\u{c}:@6Y\0B?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31990,7 +31990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.date {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.date" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnW3\u{c}jp2\u{1d}zSdC]\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}2WU_\nKX$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -31998,7 +31998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.daySec {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.daySec" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnW3\\[\u{f}E\\rX?KE\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r\u{17}\u{12}\u{7}4D<R\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32006,7 +32006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.daysSinceEpoch
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.daysSinceEpoch" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnW3P[c`Kf}ivl{W\u{1}N7\u{12}R\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{1b}~\u{1e}8X*h!9\r+10CKPf%\u{1f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32014,7 +32014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.debugDescripti
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.debugDescription" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk&>&G\u{7}I8bEa\u{11}Aq>en\u{5}\tE+#\u{16}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#\u{e}e\u{17}I\u{12}\u{4}ZkO\u{7f}\u{14}&g\u{19}3\u{1d} dm\u{14}m\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32022,7 +32022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.debugRedact {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.debugRedact" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnWM|L~q8\"u'aw$\u{15}|fh\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#\u{e}e\u{17}I`6s{\u{1a}!=s8\n\n\u{1a}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32030,7 +32030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.declaration {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.declaration" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnWM E$y!TyYsxRM\u{11}>=\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#\u{e}%\u{1f}T>\u{16}jQI\u{8}N7d~F\u{b}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32038,7 +32038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.decode {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.decode" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnWM M*c\0@\0$e\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r/sLT,-%&\u{4}V\u{c}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32046,7 +32046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.decoded {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.decoded" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWM M*#^,)\u{13}\u{1b}KwO\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r/sLZ\u{10}\u{15}/uh\u{1}H[\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32054,7 +32054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.decodeNextExte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.decodeNextExtension" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wk&P&m\u{1}BGw%\u{14}B lFR,Psu\u{1b}\u{3}6\u{1f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57#\u{e}E\u{1f}|S.\u{19}7K\u{10}fV2t\u{b}T\u{2}kh\u{10}\u{1b}b<\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32062,7 +32062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.decoder {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.decoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWM M:cen\u{13}\u{1a}g~\u{13}\t4\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r/sLh|&Wg=Zr\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32070,7 +32070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.decompress {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.decompress" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWM m:R\\S\r\u{1a}Cz5.o\u{1d}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r/sj\0v\u{10}\u{1f}\u{1a}I\u{16}`>@\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32078,7 +32078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.defaultEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.default" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWMX&A\u{c}9@~BPV7~2\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}20\u{15}8Mr\u{1c}?8~Q\u{2}\u{16}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32086,7 +32086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.defaultAnyType
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wk&,S &\u{1c}Q\u{b}\u{18}\u{14}\\c\nIy\u{1c}\rKs\n\u{1f}1B\u{1}\u{f}.c\u{7f}\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0\u{17}20\u{15}8M:t\u{17}W82$J>\t()$q%\u{3}\u{6}t.r\u{4})\u{19}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32094,7 +32094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.defaults {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.defaults" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWMX&A,8dw#C/T\u{4}gX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}20\u{15}8M.<'\u{8}w\u{13}z\r_\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32102,7 +32102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.defaultSymbolV
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.defaultSymbolVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wk&,S 6\\Z\u{2}:#ud+<V\0no%\u{7f}m~\u{16}\u{6}t\nk\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0\u{17}20\u{15}8MVL{\u{1}$,T}8JtJ&xEuI\u{e}3^\\'\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32110,7 +32110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.defaultValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.defaultValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnWMX&Al8FW\u{11}V\u{1}/AxF'\u{14}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#\u{1e}%Hg\u{1d}ssu^AuYN\u{1b}X\u{11}!\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32118,7 +32118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deinitializeFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.deinitializeField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk&h\u{17}L\u{1a}7{96\u{5}\u{11}oE\\,\u{4}>#A\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#\u{1e}E#TTD\rDS\u{10}\u{17}\u{10}l\"\u{4}M\u{1e}'\u{13}o\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32126,7 +32126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.denseBelow {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.denseBelow" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWO\u{10}iIQ\u{2}TX?\u{3}7\t\u{12}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r0-\u{19}i\n{\u{7}\u{f})nu@\n\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32134,7 +32134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dependency {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.dependency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWOTq\n&n\u{f}6\"\u{1f}{&\rYX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}r0j2-=?+C!-(e\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32142,7 +32142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecated {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.deprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWO\\aGA\u{f}\n\0@/Uc-M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}rpp@p\u{c}R\u{1c}:-n)cj\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32150,7 +32150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecatedLega
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0\\\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnWO\\aGA\u{f}\n\u{4} 1_z17hye\u{b};* wA\r>v!Z\u{e}ba|m1\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aF\u{14}\u{1c}$66C(^7%s\u{19}\nF\u{7}#\u{1f}\u{1b}b\u{1b}`ma[Si\\O@\u{12}Q\u{7f}21\\%\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32158,7 +32158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.deprecationWar
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.deprecationWarning" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk'npc`'Ey\0T!E\u{10}E\u{18}Q/r,$\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#.E\u{1f}6C(vgt|\";\u{12}/6<[;Pa$\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32166,7 +32166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.descriptionEnu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.description" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnWOD:<lx8X\u{8}oRDk\u{f}n\u{1b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#.\u{5}wd>PV0_-X7d~F\u{b}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32174,7 +32174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.dictionaryLite
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.dictionaryLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk1`Ozkw&\u{1b}[;@a^\u{8}5&wL=\u{17}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#\u{1e}\n}5|\u{f}\rwp\u{8}co<f\u{1}He5E@\u{8}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32182,7 +32182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digit {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digit" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnWex\u{18}f\u{7f}&K\u{10}h$0\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{11}H.\u{1b}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32190,7 +32190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digit0 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digit0" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnWex \u{16}U@&\u{14}\u{16}J\u{1a}\u{e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{16}\u{16}<r\"N*Qh\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32198,7 +32198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digit1 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digit1" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnWex 65(tGB\0z\n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{16}8 5'\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32206,7 +32206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digitCount {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digitCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWex &+:\u{12}f=@~uM\u{1b}\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{14}\u{c}\u{8}\u{e}H$Tl\u{c}1\n\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32214,7 +32214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digits {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digits" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnWex VG\u{1c}=GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{13}\u{8}\t0*N*Qh\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32222,7 +32222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.digitValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.digitValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWex friwF8l\u{1c}RtL\u{f}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'r\u{4}d\u{15}\"J_)V\u{5}wh@p\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32230,7 +32230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.disallowingNul
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.disallowingNull" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk20B\u{4}\u{11}RU\u{16}>\u{10}J\u{3}h?u.\u{17},~\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#Nj\u{13}\u{14}\u{1c}\u{1f}/%Z8SO@\u{1e}*KG\u{19}\u{10}`\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32238,7 +32238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.discardableRes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.discardableResult" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wk20&&)gNlK@H'8C>\n]\u{11}%\t\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#NjSx\\\u{1}(8yoF\u{f}$\u{1a}vDSi7\u{1d}n\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32246,7 +32246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.discardUnknown
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.discardUnknownFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wk20&&\thI-\u{f}Mv\\Yv.\n>X\u{8}*\u{17}\u{5}W\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57#NjSx\\%|u9rKjTKI]\u{1f}\u{19}Z~\u{1f}a4vd\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32254,7 +32254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.DoubleEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Double" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnlu\n\u{c}_4i>\u{19}Z\0f\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}7F<\u{6}7>aH4B\u{3}_v\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32262,7 +32262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.doubleValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.doubleValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnW\u{7}YdS](N\u{15}#B\u{5}Au\u{8}?J\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#.\u{12}0@*g|\u{7}n-\u{2}\u{1}k3/k\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32270,7 +32270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duration {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.duration" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnW)i\u{1a}\u{1b}s<r8\u{10}j/'uj]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07R\u{3}3\u{19}Z2IV.m\u{13}z\r_\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32278,7 +32278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.e {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.e" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CnWM7{7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0w2Y1\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32286,7 +32286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.edition {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.edition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnWi\u{17}^+!G4$\u{5}nxrG\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wRs4u~\nji)A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32294,7 +32294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.EditionDefault
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.EditionDefault" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnm{!`S[og%hfd\rF\0$\u{f}NB\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;C\u{13}N3)<>Z\u{12}iu\u{12}(A\u{e}mY`\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32302,7 +32302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDefault
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.editionDefaults" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wkt\u{b}oU\u{10}\u{3}O\u{16}wx!.74I\u{6}!\0X,\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;.FpMeZ\u{8}Xec\u{7}DLy #t^\u{13}D\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32310,7 +32310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDepreca
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.editionDeprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wkt\u{b}oU\u{10}\u{3}O$\u{7f}=5\u{1f}ntW4\rH,\0\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;.FpMeZ\u{8}\u{8}k@L\r\u{18}-%\u{1}{waHr\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32318,7 +32318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionIntrodu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.editionIntroduced" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wkt\u{b}oU\u{10}c73\u{13}[\u{3}#0\0ja\rZid\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;.FpMe^\u{14}\0NhWR3\u{1f}w\\j75``\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32326,7 +32326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionRemoved
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.editionRemoved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnWi\u{17}^+aF\u{c}UUc:Y_\u{1e}Z`p\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;.FpMed\u{1c}\u{1f}N-\u{19}b\u{7}}B4,\u{10}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32334,7 +32334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Element {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Element" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnmS\u{e}vJ\u{1c}\u{f})\u{4})0\u{1a}\u{5}\u{2}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}'g<-\u{7}\u{10}3; \u{5}%\u{1d}\u{2}A\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32342,7 +32342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elements {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.elements" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX\u{1b}4w\u{c}#@\u{7f}\u{3}uWGW%<v\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}SaT(+\u{13}nN=8PIa\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32350,7 +32350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elementsBuffer
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.elementsBuffer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX\u{1b}4w\u{c}#\0k81\u{10}t8-H'`\0\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;~QO\u{19}V\u{1b}Zk\u{2}}\u{18}h%O 4 \u{10}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32358,7 +32358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.elementsReader
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.elementsReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX\u{1b}4w\u{c}#@tY=7\0\u{19}C!\tsc\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;~QO\u{19}V\u{1b}FMC?8\u{1d}]\u{15}Pjf\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32366,7 +32366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitExtensionF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emitExtensionFieldName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7l\u{10}ZgN\n=YS5Oo\u{1f}U\u{f}au\u{1d}lW\u{1b}o)'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57;.\u{13}\u{10}r\u{17}@p;zdU)Td\u{f}VE\u{17}eOX_15D\u{1c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32374,7 +32374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitFieldName 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emitFieldName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX!4W-'{Z\u{f}t7BN*o!y.\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;.\u{13}\u{10}s\tfWX\u{16}\u{11}^SG\u{b}~Rg\u{f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32382,7 +32382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitFieldNumbe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emitFieldNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{10}ZkVS=m\u{8}y\u{13}<}8C\u{16}\u{7f}Yy\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;.\u{13}\u{10}s\tfW\u{8}\u{7}\r\u{10}\t%+^\u{15}t\u{12}d#\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32390,7 +32390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitRepeatedFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emitRepeatedField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{10}Z\u{3}?\u{4}\u{8}s?jHlE\0\0\u{15}LD8A\u{1e}\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;.\u{13}\u{10}}\u{1f}!c\u{4}=BMP9'x+4W:\u{17}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32398,7 +32398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emitValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emitValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX!4\u{f}\u{e}|\u{5}\u{14}\u{16}\u{f} KxP\u{14}v\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}gLwJ\u{f}jkL5>&X!\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32406,7 +32406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.emptyAnyTypeUR
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.emptyAnyTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{11}r@\u{16}\t{.L(8\u{12}y*BAa\u{1e}\u{18}|\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;>\u{13}\u{14}xL5\u{6}F2I\u{b}!qosvQ\u{e}j\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32414,7 +32414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.encodeAsBytes 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.encodeAsBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX'p;G\u{3}\u{18}8+\u{14}`W8\u{1d}AYw\u{1d}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;>4k(!dHKB5\0:yVu{\u{c}\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32422,7 +32422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.encoded {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.encoded" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX'p;7C q`0S\u{8}($$\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}sk/t*\u{f}Z>VA0Y\u{8}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32430,7 +32430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.encodedSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.encodedSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX'p;7C\u{1f}>z+Q\u{3}\u{1f}E\u{1f}!R\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;>4k(\u{1e},%@\u{6}vd\u{f}*G|8\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32438,7 +32438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.encoder {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.encoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX'p;GC\u{6}\"\0ZA9\nV\"\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}sk/t2W(QZ.g5\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32446,7 +32446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.end {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.end" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX'0,|>hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}ski\u{c}AVM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32454,7 +32454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.endArray {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.endArray" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX'\u{1c}<\u{17}7\u{1d}\u{1c}y\u{7}kl\u{17}5N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}skV.?DfnZA0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32462,7 +32462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.endMessageFiel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.endMessageField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{13}\u{12}2xs\u{f}1 _ \u{17}`\u{14}\u{12}%\u{2}\u{7f}V1\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;>Tv\u{c}\"$Wb\u{7}\u{5}:F\u{1}x]+~pG^\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32470,7 +32470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.endRegularFiel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.endRegularField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{13}\u{14}\" {T\u{19}?E9v?7[j^S\u{1e}_\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;>47Ebv\u{c}V8T4Lm)rqQ\u{e}j\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32478,7 +32478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceNamingS
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enforceNamingStyle" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l\u{13}Dj\u{1b};y\"\u{18}H;891\\; P k|\u{c}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57;N4M9,\u{1a} -=%\u{19}JcpGF6Cmr\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32486,7 +32486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX)h!`\u{f} zSdC]\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mSp'\u{7}z.\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32494,7 +32494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumCase {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enumCase" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX)d\u{19}\u{1f}yke,u_\u{3}'7N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mS|f\tD\u{1a}-{0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32502,7 +32502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enumName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX)dA/Uu\u{4}.?\u{c}\u{7f}&\u{1b}\u{2}!\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mS\u{1d}\u{11}:bIs\u{1b}@3b\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32510,7 +32510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.EnumReservedRa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.EnumReservedRange" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wv6\u{1b}\u{11}\n\u{c}2U:Yn\u{7f}\u{1d}\u{1a}Tg.\u{1d}syh\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;KChMLT\u{4}N\u{1a}`9^\u{12}Hh\u{c}YzmaHr\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32518,7 +32518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumSchema {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enumSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX)dYO\u{1c}&_7a*\u{1d}e:h;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mS3Oq\u{17}n\u{12}8\u{8}y#B\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32526,7 +32526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enumType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX)dao-\u{1e}$@s\u{17}\0'7N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mS7\u{13}d\0h>t#\u{8}qC\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32534,7 +32534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumvalue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.enumvalue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX)d\u{1}O^\n{&#\u{2}Dix\u{12}\u{1f}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{13}mSixPi5\u{3}\u{f}\u{e}03i\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32542,7 +32542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.equalSoFar {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.equalSoFar" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX94=\t}izA)~#\u{15}Vs<\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}S|E\u{5}]lxBx\u{11}YF\u{19}\u{19}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32550,7 +32550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.EquatableEnum 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Equatable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnm\u{f}S)|tE\u{1a};\u{4}'{b%M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7GrZo\u{1a}\u{16}%cd\u{c}|01\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32558,7 +32558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Error {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Error" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnm\u{19}O,\u{c}\nud\u{5}j:\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}7G|\nr\u{10}X%s\u{b} \u{4}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32566,7 +32566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.escapeModel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.escapeModel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXCLtb@W@SE\u{1d} A%#g\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;~Z]\u{13}U[\u{15}\u{c}|\u{12}WPQY\u{6}Z\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32574,7 +32574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.expectedSchema
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.expectedSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXaD1f\u{7}\rbe\u{1b}XE\u{f}a+Z`p\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57C^\u{1}I\u{5}N$\u{1c}x4ePBHR\u{15}4(\u{10}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32582,7 +32582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.explicitPresen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.explicitPresenceCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7l0d\u{c}{|\u{1b})\u{2}A\u{17}Go-$>tBB`d\u{15}\u{7f}AE\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57C^a\t@X\u{4}<e;\u{1c}\u{1f}mHN)\u{8}j$4\u{15}$\\I\u{c}\n\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32590,7 +32590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExpressibleByA
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wvn\u{7f}Tv\u{7}\u{6}Svmb&i)~U\u{1e}\u{7f}\0@VJ-\u{f}c\"A`\u{15}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}G\u{7}:W'\u{7f}`\u{12}8\u{3}S\u{5}0\u{12}r4(h\u{13}Ib}bm)5\u{1}u@\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32598,7 +32598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ext {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ext" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnXa|bl\"hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}S c9aVM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32606,7 +32606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extendedGraphe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnXa\\jF\tB_\u{2}8+$#;\n\u{11}\u{12}PMRA3J\u{b}\u{12}\u{1d}\u{1c}8\u{16}mc\u{7}H\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0\u{17}S`E\nk%E\u{15}t<Vd=Ny\nlO4V}E9Vp\u{1a}\u{f}\u{7f}5_\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32614,7 +32614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtendedGraphe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0\\\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtendedGraphemeClusterLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnm]#\u{14}\u{16}{\u{18}\u{1e}O bN[j\u{1f}q\u{1e}xl{B-6T<O\u{17}$\u{1f}}R\u{c}E\u{7})\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\\\u{1}EKLA@}S'`\u{15}QK,s)\u{6}CH[{+;\u{10}\nL\u{c}j$<\u{18}1&#?\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32622,7 +32622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extendedMessag
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extendedMessage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l0.5c\u{4}A2%1]e<f\u{17}\u{e}\u{13}\u{8}\u{6}q\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57C^\u{1}k\u{1c}%v\u{15}mcVk O\u{1c}2Yd\u{1e}g\u{19}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32630,7 +32630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtendedMessag
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtendedMessageSchemaProducer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnm]#\u{14}\u{16}{X!W-)\u{19}\u{8}CCNXb\u{7}\u{c}xzXY\u{1e}\u{3}\"V\u{17}@,s\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GG:Zh}\u{7}@\u{15} f\u{c}\u{b}\u{5}F\"J\u{10}\u{12}#f0*L34\u{1e}R'g!\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32638,7 +32638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extendee {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extendee" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXa\\jFI\u{2}\u{1f}iHt\u{1}\u{1b}A$\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}S`E\nkI\u{5}\\\u{15}\u{3}S\u{8}2\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32646,7 +32646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionEnum 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extension" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXa\\j6oZj\u{1d}\u{c}'{b%M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}S`E\u{b}_\u{2}P\tKe{X\u{1d}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32654,7 +32654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionMap {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtensionMap" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnm]#\u{1c}f@\u{7}l\u{3})1\0\u{2}(.?\u{1f}:\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;S#\u{2}zLU)\u{1}.=\u{7f}\u{c}{PZ\u{14}mg\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32662,7 +32662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionRange
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extensionRange" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXa\\j6oZj\u{11}kIf4Az7D6\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57C^\u{1}k\u{1c}B\u{5}Wm<\u{1})W*^<|\t\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32670,7 +32670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensions {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extensions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXa\\j6oZjQ@2aLFeF\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}S`E\u{b}_\u{2}Xyq3i#MC\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32678,15 +32678,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionSchem
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtensionSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wvn\u{11}\u{e}3`\u{3}vJV\u{12}|\u{b}\u{14}\u{10}W\u{6}!\0X,\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;S#\u{2}zLU)\u{5}f\u{10}Gqg\u{14}M\u{c}0CdV\u{18}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionStorage {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionStorage {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.extensionStorage" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtensionStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7l0.5[7-5J\u{14}N:o\u{7}v\u{1d}L\u{15};4\u{14}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;S#\u{2}zLU)\u{5}n0{gdPBMn4\u{1f}Z\u{19}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32694,7 +32694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ExtensionValueStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wvn\u{11}\u{e}3`\u{3}vMGRP'\u{1d}\u{e}E;\u{3}di\u{5}U\u{c}\u{15}H\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;S#\u{2}zLU)\u{5}v\u{1}dw%\u{3}DH\"\u{6}b2C\u{10}%;a&\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32702,7 +32702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.falseEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.false" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX\u{7f}\u{2}\u{7}\u{1d}Y\u{3}\u{5}\u{1e}|n\u{1f}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0WSqwn\u{8}UO-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32710,7 +32710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.features {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.features" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX\u{15}3Uhx/}omjl\u{17}5N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS\u{5}\n'V\u{13}O)Rz\u{13}\u{b}4\u{2}\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32718,7 +32718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FeatureSetEdit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FeatureSetEditionDefault" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!ww\u{17}P;K\u{12}RP1xRjL']\u{e}}\u{18}]\u{15}\u{10}Hg\u{6}1\u{1a}o<[\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}Wh/\u{e}I&b\tB\u{1f}>Xz?.e~%3yF{q,\u{7}}' \u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32726,7 +32726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.featureSupport
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.featureSupport" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX\u{15}3Uhxp\u{1d}\u{2}c)~z1\u{7}uT\0\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57S\u{1e}K-2\u{1c}Gb\u{12}y12B#os0n\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32734,7 +32734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.field {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX1+gdI\"\u{c}m|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gS_*>uTH-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32742,7 +32742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldCount {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX1+gD/-\u{c}\u{3}C\u{18}*lMnw\u{13}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?Wq2eIkegr\u{8}\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32750,7 +32750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldHasPresen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldHasPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7lXU3\"H\u{8}\u{5}pjE FO2\u{c}&\u{6}m3W\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57SnQ\u{2}{\u{4}\u{1c}n&Sbh?\u{12}:\u{c}-\u{15}lQ,b\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32758,7 +32758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FieldMaskError
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FieldMaskError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnoGP\u{2}'s\u{15}C7\nL+v\u{7f}hr\u{1b}Z\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;s3U\u{1d}[d\u{15}M-\u{e}?\u{c}VS\u{7}\u{7f}f\"\u{19}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32766,7 +32766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldMode {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldMode" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX1+g41H^)R&\u{b}c?M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?\u{15}\u{7f}e-<?|h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32774,7 +32774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX1+gD1M7:\u{8}\u{6}!L\u{1}Sp\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?##\u{1f}\u{4}:\u{16}:x\u{14}b\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32782,7 +32782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldNameCount
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldNameCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX1+gD1M7,i[prE\u{11}pZg\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnQ\u{2}{\u{1e}TGK\u{17}\u{18}G\u{1f}qx\u{1b}\u{17}I\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32790,7 +32790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldNum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldNum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX1+gT\u{11}\u{1c}\u{1d}ZiuqmA1H\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*?3_&\u{3}\u{e}6\tx+_\u{3}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32798,7 +32798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldNumber {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX1+gT\u{11}\\\nS\u{b}*a~\u{7}\u{19}Zq\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnQ\u{2}{\"J\u{b}\u{1b}x}y+*@\u{5}G\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32806,7 +32806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldOffset {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX1+g\u{4}RU\u{14}o\u{8}\u{6}>H0uk\u{6}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnQ\u{2}{,4>(y\u{e}+$L\"L\u{4}\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32814,7 +32814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldPresence 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX1+g42C#)u\u{11};Q \u{1a}mb6\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnQ\u{2}{56NdbtU\u{17}(n}@)\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32822,7 +32822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fields {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX1+gt-\u{11}.\"\u{4}r\u{11}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gS_*?%4<_\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32830,7 +32830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FieldSchema {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FieldSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnoGP\u{2}g4K=]\u{10}\u{12}P@\t\u{1e}!\u{e}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;s3U][\u{b}&2\u{1a}\u{7}br7Wh\u{1d}\\\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32838,7 +32838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldSchemaSiz
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldSchemaSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7lXU32\u{19}5A@\u{e}Cq\t\u{5}\u{f}Wd\u{e}{\r\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57SnQ\u{2}{A8Z\u{13}f\u{1b}BWK)AX7+DI\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32846,7 +32846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fieldSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fieldSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX1+gd24F#!1\u{8}b#M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS_*@10\0\u{e}#[{X\u{1d}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32854,7 +32854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FieldTag {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FieldTag" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnoGP\u{2}w\u{14}\u{1d}qd~h/'uj]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}gH\u{4}\\C\u{1b}^\u{3}/Kc\u{13}z\r_\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32862,7 +32862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.file {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.file" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX3{)Zu%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g\u{13}`WAC\u{18}X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32870,7 +32870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fileName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fileName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX3{I){\0\u{1b}*J\u{b}x:/7$\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g\u{13}`Wm.\u{3}\u{10}C.\u{10}u4>\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32878,7 +32878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.final {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.final" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX3Gj`7z%b~%i\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g3`\u{19}1<\u{c}Mp\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32886,7 +32886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.finiteOnly {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.finiteOnly" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX3K:S\u{17}'8>3\u{c}3\u{c}nQ9\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g3`\u{1d}G\u{8}t\u{b}c'\u{1f}aB.\u{19}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32894,7 +32894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.first {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.first" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnX3g+JE\u{15}Fm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gS *U\u{18}\u{4}&{\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32902,7 +32902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.firstItem {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.firstItem" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnX3g+:\u{c}0\u{12}\0\u{19}5;y\u{14}\u{1f}'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS *Vv\u{1d})M,4>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32910,7 +32910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.firstNontrivia
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.firstNontrivialStorageOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnX3g+*M2x3od\u{1b}K$\u{2}SpgdKpw6b()Ze|fd\u{15}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0gS *VR\u{16}ed/J\u{1a}C\u{14})Ob\"K\u{8}\u{8}o-*\u{19}I\u{1f}\u{3}\0Sg\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32918,7 +32918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fixed2ByteBase
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fixed2ByteBase128" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7lYa~3<(\u{15}v-G+@\u{19}=<\nDZ\r\u{13}\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57S\u{e}\u{12}4p\u{c}9\u{8}\rJA3{h+C?TS_\t\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32926,7 +32926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fixed3ByteBase
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fixed3ByteBase128" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7lYa~;<r\u{8}M-Ik6j1\u{1e}!Zl\u{1c}\u{1c}{\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57S\u{e}\u{12}4p\u{10}o\u{1}\nJA3{h_\u{6}^L4\u{f}6\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32934,7 +32934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fixedFeatures 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fixedFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnX3C}wS1)j\\\u{15}: Wv<eG\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57S\u{e}\u{12}4p\u{10}~n\u{7f}6\u{1e}@f+kX=\t\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32942,7 +32942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FloatEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Float" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnoY@a\t,\u{7f}\u{1d}szi\u{1d}\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}gh\u{14}C\t'\u{4}M}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32950,7 +32950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.floatLiteral {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.floatLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXC?6]\u{19},Y7\u{11}U\u{11}.\u{16}un`x\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnulNK\u{15}\u{1e}z\u{7f}&k,[\u{15}jep\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32958,7 +32958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FloatLiteralTy
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FloatLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!ww,`pdIc\u{b}\rhR@X\u{12}nE\u{14}|\u{1d}lp\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;s39?d=O*\u{13}\u{7f}$8\u{1d}a9\u{16}\u{1d}:\u{c}7ev\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32966,7 +32966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.for" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnXU+Sw\u{1c}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gS\u{7f}/M\u{3}uJhW]\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32974,7 +32974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forCumulativeF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forCumulativeFrequency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7ljK1kOI\u{1a}j\\Y|+qM`0\u{16}9W/\u{8}z\u{18}s\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57Sn9\u{f}8[\u{3}\u{13})\"t\u{8}?W#S\u{11}MKV\u{1f}C.c0\u{b}\u{e}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32982,7 +32982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forEnumCase {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forEnumCase" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{17}{\u{1a}%\u{5}CxSvk^M\u{11}\u{13}D\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnYO+\r-s\u{1f}}\u{1e}m7Wh\u{1d}\\\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32990,7 +32990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forFieldNumber
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forFieldNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{17}+.r\u{6}\u{1e}K0\u{c}T7`I\u{b}\u{1b}Z\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57Sny\u{f}\u{b}Bj*A/\u{1b}\u{7f};l\u{7}@\u{1d}+\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -32998,7 +32998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ForGeneratedCo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ForGeneratedCodeOnly" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!ww4\u{c}/.1\\tbT?[\u{1f}~z{&T\u{15}\"2Vpn\u{15}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;s3=\"U\u{13}@mw=D4)3nGi,M~\u{1c}R\0-\u{12}\u{7}\u{1c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33006,7 +33006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forJSONName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forJSONName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{1b}+w/\u{17}3J=\u{1d}AJ0uk\u{6}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57Sn9P\u{5}\u{17}B\\\u{18}\u{1}P8fS\r^w\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33014,7 +33014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forMapEntryWit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forMapEntryWithValueType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7ljM}%`\u{e}\u{4}Y>d^n ='\u{14}`\u{1b}5lBm0i\r%l4\u{b}\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0gS?\"^}\u{1c}~\u{1d}8Z|\0\nu$%-gM#\u{1}w:\u{15};\u{19}\tQi\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33022,7 +33022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.formatDuration
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.formatDuration" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{f}[\u{2}mXMv!HN\0i\u{6}zB*\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57Sn9MH\u{10}!\u{10}\r#6Z\u{1c}q\"]\u{14}#\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33030,7 +33030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.formatTimestam
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.formatTimestamp" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7ljG-AfVn\u{13}xdTx+$\u{11}]\u{14}-\u{e}\u{6}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57Sn9MH\u{11};xV8{\u{6}\u{2}(ohI\u{16}ucg\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33038,7 +33038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forMessageName
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forMessageName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{1b}\u{3}|t?\n'1I:i\u{5}+{N\\\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnYP\t(>\u{11};a\u{7}_0 ?\u{1a}%\u{c}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33046,7 +33046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.formUnion {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.formUnion" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXU\u{f}\u{b}\u{4}'@-z'.\u{8}b#M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS?\u{16}\u{12}%wuc]x{X\u{1d}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33054,7 +33054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forTextName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forTextName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU\u{1f}c?m`Fj59;1K9\u{8}\r\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SnYQ0Z&\"\"MPL\nXUm=\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33062,7 +33062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forTypeURL {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXU#+PU]6O\u{17}]|%\u{7f}q/\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gS\u{7f}&;\u{7f}S\u{e}\u{1e}9yY\0>R\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33070,7 +33070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ForwardParser 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ForwardParser" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnoi\u{14}v$\u{13}\u{7f}~j)9>4zX*\u{1e}\u{1a}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;s3\u{1d}!=\u{1e}N\t>\u{2}HlxP\\~IH\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33078,7 +33078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forWritingInto
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.forWritingInto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXU#\u{b}VEw\u{7};2\u{7}1I7t~]@\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57Sny\u{11}`\t[\u{1e}A`X_C\u{11}?\u{1c} j\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33086,7 +33086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.frequencies {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.frequencies" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXe+**DiSM0Pg\u{18}c,\u{13}A\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57S>\u{1d}\u{14}\u{12}4\u{1c}\u{1}\u{1}\u{17}>N%QY\u{6}Z\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33094,7 +33094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.frequency {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.frequency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXe+**DiV=\u{f}k|X%2n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{13}N\u{13}\u{f}9U\u{14}\u{1a}D\u{e}>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33102,7 +33102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.FrequencyModel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.FrequencyModel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnoyPm\u{1c}\u{1a}(\u{5} \u{8}G`/=\u{14}907\u{11}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{\u{3}anq\u{1d}M5j\u{16}\u{e}sI_\",WN\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33110,7 +33110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.frequencyRange
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.frequencyRange" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXe+**DiVw?\u{6}Rc\u{7}\u{7}\u{c}\"h\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57S>\u{1d}\u{14}\u{12}4\u{1c}Qq/\u{3}<@Af>f\u{5}\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33118,7 +33118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.from {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.from" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnXeK\u{15}Y\u{6})G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0wsN\u{6}&D\t_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33126,7 +33126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fromAscii2 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fromAscii2" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXeK\u{5}hYAa)9\u{2}\"\u{19}WwI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0ws\u{e}\u{6}-\u{5}}TjZg+b!\n\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33134,7 +33134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fromAscii4 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fromAscii4" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXeK\u{5}hYAa+7bQ\u{17}WwI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0ws\u{e}\u{6}-\u{5}}T*<f\u{1}b!\n\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33142,7 +33142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fromByteOffset
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fromByteOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXeK\rX'w}ZYd\u{19}d1\u{13}*[\0\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SN\u{1d}1\u{12}!M2CH,\u{1d}~\u{11}d\u{7}j\u{5}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33150,7 +33150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fromHexDigit {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fromHexDigit" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnXeK\u{1d}8\u{1e}wG/U\rCT\u{18}7_k]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57SN\u{1d}q\u{16}^IHDYIZ@\u{1a}<&p8\u{17}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33158,7 +33158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fullName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.fullName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXw/\u{8}\u{14}]mwX!^e\u{b}3s]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{13}\u{1e}\u{18}\u{12}##C ev{TG\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33166,7 +33166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.funcEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.func" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnXwsho63G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w\u{13}^WX\u{18}hW\u{14}\u{1d}\u{1f}?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33174,7 +33174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.function {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.function" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnXwsH. lw:y{j\u{7}\u{18}$E\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{13}\u{1e}WH#Nr\u{1c}\tf0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33182,7 +33182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.get {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.get" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnY=:\u{1f}R\u{8}in\u{7f}\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G4T<g\u{1}WM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33190,7 +33190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Any" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >\u{19}\u{1b}\u{14}>N&y\u{2}\u{18}Q;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}wY\u{7}}/\u{14}mD6\u{17}\u{1f}F\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33198,7 +33198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Api" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >\u{19}[\\%$=<\nR*'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}wY_\u{1f}A>\u{1a}y*-]z\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33206,7 +33206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_BoolValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >9\u{1b}]\u{6}Rr\u{e}@\u{1a}]bE\r~\u{5}\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKzzS\u{1f}\rSN^[{i\rjy\u{c}&\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33214,7 +33214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_BytesValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >9{t\"gT\u{c}627,(\nP'U\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKzz[\u{f};!.7jRq\u{4}ve*;&P\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33222,7 +33222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_DescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|r7(\u{1}%8d\u{15}.\u{4}\tAAo$\\mz,\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMpm\u{1a}uP9~vZ\u{12}mYP\u{1d}.@6ok\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33230,7 +33230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_DoubleValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|r7U\u{14}\u{e}\u{7f}C)R0:Y\u{b}#pBR9\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|+\0v\tp92Q\u{e}=\u{f}Bkw\u{10}1\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33238,7 +33238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Duration" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >y;:J\u{2}> $|\u{13}s9e\u{1a}\t{\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|/xy\u{2}#+\u{11}\u{f}7\u{4}e~\nE=\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33246,7 +33246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Edition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >\u{19}<!\u{e}X6\t&e#=D[\u{7f}n\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|O8^k\u{8}5\u{10}AzbC\u{18}\u{7}j\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33254,7 +33254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Empty" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >)\u{1c}\u{8}\u{e}g&(\u{11}Dt(\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x\u{7}xyO\u{6}QX$D\u{4}<#\u{17}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33262,7 +33262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Enum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >)\u{1c}\u{b}iu`y<Zy.R\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x\u{7}x2n>AW;w\u{5}1^\u{f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33270,7 +33270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_EnumDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/=pcm\u{12}MhI\u{3}$\u{f}M1trx8m\u{b}XtY\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMp{\nt\u{1d}\u{14}Nw]Eb\u{4}\u{4}D\t}|M\u{15}qeK#\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33278,7 +33278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_EnumOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|R8\u{16}R{\u{8}LD%%F{Vy(I\u{8}\nJ\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|_x\" P|;V)t\u{1e}X]\u{12}R\u{8}V\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33286,7 +33286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_EnumValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >)\u{1c}\u{b}iMp2\u{18}+wXjB\u{c}FZ\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|_x\"@#\u{1f},`4mNN/\u{19}|\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33294,7 +33294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0b\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp}5@\u{1c}\u{13}#N*QX'X/=2]:I\u{1d} \n/\u{1d}P\u{1d}_!s3zlp\u{1a}wj\u{4}ZL\u{1b}Fs_\u{14}D$=7[\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\0\0\0P\u{12}.3uKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMp{\n|m\u{2};\u{6}b7<:`.Y~\nl$A#\u{b}a@!'r\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33302,7 +33302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Z\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|R8\u{16}R\u{1b}ae`v.5je.O1f&n}u:\u{6}" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMp\u{5}\u{1b}oj\u{2};\u{6}c\u{15}GkV#Q<tT\u{1a} t|\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33310,7 +33310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0_\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_ExtensionRangeOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/M\u{10}\u{16}\u{f}\u{6}\u{1f}aW\n:O$#l\u{4}|n$|nLB\\E\n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMp\u{7f}jKtQ(U[\u{c}\u{f}\u{5}\u{7}\u{1b}\u{4}'\u{15}V02d\u{1e}b K\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33318,7 +33318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FeatureSet" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >Y\u{1c}&\u{13}\u{b}\u{7}\u{5}MrE\u{b}0\u{14}\u{2}`;\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|#)\\LKsc\\nqRKcbV\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33326,7 +33326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0\\\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FeatureSetDefaults" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|29L&\u{16}\u{e}\n\u{1a}e\u{1c}*~[\u{f}$v\u{1}pb+.\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMp\u{17}kuHQSH\u{3}\u{1f}\u{3}3B0;WE4y?!\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33334,7 +33334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >Y<pQ\u{e}Y\u{7}\u{e}Hq:\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x\u{19}lLSDk;7|>#a\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33342,7 +33342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0^\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FieldDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/}\u{10}\tWx9x*oS\"x\u{10}\0\n\\\u{e}Q[T2F\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMp\r\u{7f}E`p*+\u{5}\t|\u{1b}\u{b}jpJyu\u{15}m\u{12}4\u{19}F\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33350,7 +33350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FieldMask" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >Y<pQ\u{10}=<[+\u{f}\u{1c}t}X\n!\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|')ydvV<#*1\u{18}y;7<\u{4}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33358,7 +33358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FieldOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|2y`#!Z\u{19}eM\u{1b}Fv\u{4}r^~\u{1c}Y\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|')y\u{4}w\r]\u{c}G%\u{15}X5 b!J\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33366,7 +33366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/}0I/19 m\u{c}\u{18}'q'M\u{16}07\u{1c}\\^tn\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMp\r\u{3}^Koi+\tq'#\u{10}`\u{10},{:\u{f}\u{2}k.\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33374,7 +33374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0[\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorSet" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|29aT\u{10}\u{5}C'jm\u{1c}\u{17}%\u{c}@\u{1}O\u{3}Bu;\u{16}\u{4}" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMp\u{19}\u{13}IXo\u{2}E\u{f}]pz31\u{1}W>\u{11}(@.\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33382,7 +33382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FileOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|29aTPAAPo\u{17}wf=V\\D\u{1c}\nJ\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|'A9q@H]<\u{f}4Nv#L\u{2}\u{12}H\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33390,7 +33390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_FloatValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >Y<uZ%y\u{19}\u{6}$A\u{13}Yn6fD\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|'I?m\u{19}.( ohoP\u{e}\u{3}\n\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33398,7 +33398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0[\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_GeneratedCodeInfo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|ryo/)Th\u{7f}\u{1f}GLFEa\u{1c}/\u{6}JX]B\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMp#KL<\"lx\u{e}M\u{5}_\u{c}\u{7}+\n\u{b}b-\u{19}*\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33406,7 +33406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Int32Value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >i}\u{12}\u{17}\u{18};\u{1a}\nTg\u{7}1&\u{1e}M#\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|W\u{12}49Laq|:5S\u{1}FfM=\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33414,7 +33414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Int64Value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >i}R\u{17})\u{17}\u{f}MQg\u{7}1&\u{1e}M#\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|W\u{12}\u{4}\u{1a}\u{14}1/|:5S\u{1}FfM=\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33422,7 +33422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_ListValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >I^\\x\u{11}<U;n@Ox]Gj\u{3}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|S;\u{c}6k\u{16}\u{7f}5\u{17};nDl@\t@\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33430,7 +33430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_MessageOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|R=2>Q\u{4}k\u{6}\\o (C\u{19}^|R\u{1f}!\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|{{[\u{13}*zM\u{b}~#\u{1e}\u{7f}7\u{6}\u{2}\u{2}X\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33438,7 +33438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Method" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >i\u{1e}\u{19}o\u{1a}\u{1e}\u{17}B$d\u{16}0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}xol\u{1a}yLpph\u{14}vSi\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33446,7 +33446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0_\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_MethodDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/}r1y\u{7f}v\u{f}&\u{18}Hp\"Z\u{1d}\u{7}#okL;p\u{8}y\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMpm\u{b}\u{17}GM&q\u{16}\u{12}r\"?\u{7}\u{6}ud\u{f}<w\u{14}6#G\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33454,7 +33454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_MethodOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|R=2^5\0\u{1f}sY5:\u{1d}DDXUFtg<\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|{\u{3},g\u{14}gN\u{2}~}>yp\"\u{4}\u{15}\u{3}f\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33462,7 +33462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Mixin" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >i\u{1e}#>~L\u{6}E09vA\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}xo|\u{1d}4V\u{14}L\u{1b}\u{1f}gCD\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33470,7 +33470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_NullValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x >)\u{7f}gEe\u{f}ad1|\u{1e}\u{5}s4\u{2}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|SL\u{12}\u{6}\u{18}}\u{15}l+\u{15}znD\u{7f}\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33478,7 +33478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0^\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_OneofDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/\rtz\u{7f}n~@fS\u{1a}c*b$\u{1d}+\u{2}v\u{f}g7C\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMq\u{1d}L\n\u{17}\u{15}$s\u{7}U8V\"DH\u{7}w~\u{7f}_s=\u{1}b" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33486,7 +33486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_OneofOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA|r?DR\rV4\u{1c}(\u{1b}]_xj%+\u{e}nW\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|7%G\"!1\u{e}cH-Q\u{12}S9\u{7}ia\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33494,7 +33494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Option" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x >y_4gW#\u{e}'f(ay\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x\u{1f}\u{19}dMw.9\u{6}\u{15}vSi\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33502,7 +33502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0`\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_ServiceDescriptorProto" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/MUpax\niNU\u{1a}_\u{6}&)\\ 56$}'p\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMqY\u{1c}\u{16}\u{b}\u{1f}\u{1d}\u{1e}\u{1b}+_\u{5}\u{1b}Piy\u{10}%\u{2}\u{8}#BkC\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33510,7 +33510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_ServiceOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}sB/#\u{7f}.Z\u{3}]\u{c}g`\u{15}|\u{8}elT\u{11}m\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|+\u{7}B\u{14}?\u{16}d\\\u{11}\u{4}I'\0\\\u{14}\"\u{8}A\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33518,7 +33518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_SourceCodeInfo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}sB\\\u{e}g(?\u{f}r\u{c}\t2\u{19}u1SCh,\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|/\u{17}\u{1e}\u{5})&*!\nYN\u{f}\na~t\u{1a}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33526,7 +33526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_SourceContext" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}sB\\\u{e}g(G_\u{1c}\u{e}\n\u{f}d\t\u{1d}2(_9\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|/\u{17}\u{1e}\u{5})&0'%eL&>D1 Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33534,7 +33534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_StringValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}sBv\u{1a}TmM&,vg{\u{6}A/\u{16}RA>\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|3/\u{1e}d[hRfI9[\n\riI#%\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33542,7 +33542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Struct" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x F9!{\u{14},\u{2}M_\u{4}'Yy\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x]\u{15}MH>E\u{5}\"yyFB\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33550,7 +33550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Z\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_SymbolVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}\u{13}\u{3}\n\u{2}t\u{10}`j@q\u{16}Cg*x;TZ1\u{1}'\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJ\u{1c}b#\n\"~\u{17}c5'TuMq]4dCWR\u{15}79\u{10}n\u{4}0yx9\u{18}\u{18}N6\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33558,7 +33558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Syntax" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x FI\u{1}E\u{b}0\u{19}gFn'R+\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x_\u{1d}P8$G\r%6Xs#\u{f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33566,7 +33566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Timestamp" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7x\u{8}$\\(xWLq!x FYagC,)\u{1d}\u{c}LZ\u{11}\0{+~q\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz|W\u{7}JD\u{1d}Z+EB@02uLHh\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33574,7 +33574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Type" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x Fi!\u{b}I',}O\u{7f}*c]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}xi1C%X\u{5}]ju\u{f}!\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33582,7 +33582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_UInt32Value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}\u{13}DF#6\u{17}9:\u{16}7\\OB>\u{1b}YJge\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz~\u{13}(H\n&L\\\u{11}Mf:ULpI )\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33590,7 +33590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_UInt64Value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnp\u{11}H8Qp/\u{19}cCpA\u{c}\u{13}DF#<7(9\u{3}7\\OB>\u{1b}YJge\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}GIqt7^\u{1d}Ky2PKz~\u{13}(HJi\u{1f}\u{7}\u{1}L6\n?\0\u{1b}-.v\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33598,7 +33598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_UninterpretedOption" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{10}\tB1;2]:I\u{1d} \n/\u{1d}VOg+\u{15}\u{e}Mfk<aB7`jt3\u{b}Mk0\u{8}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2J\u{b}Z\u{f}\"~\u{17}c5'TuMqq$:0kZn I\u{7}.S\u{8}[\u{15}T6*\t\u{1a}S)X\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33606,7 +33606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Google_Protobu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Google_Protobuf_Value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7x\u{8}$\\(xWLq!x F\u{19}B\"k\u{6}27\u{1d}\u{10}\u{3}1\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{4}a8\"~)P\r\u{13}D\u{b}\u{13}x{q -$\u{1d}1o>\u{8}\u{1b}d\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33614,7 +33614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.goPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.goPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnY}~^gGh|\u{4}H\u{7}d\0^\u{e}V\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0WtN\u{1a}\u{1b}^\u{1d},';\u{6}|01\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33622,7 +33622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.groupFieldNumb
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.groupFieldNumberStack" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wlFO\\]ES3}\u{2}\u{19}\rs\0\u{1f}g ZA?%\u{19}aj\u{13}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57s.al/\u{1b}7PaVd*\u{1e}!Ob5>G|C\u{6},yY(\u{11}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33630,7 +33630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hadFieldsOther
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hadFieldsOtherThanValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7mfjQ\u{18}\u{1a}!\u{1e} \u{1e}V}77\\_d\\c*Gz\u{7f}\u{14}wCLT\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'uKw._9\u{b}\u{c}\tu\u{1e}[[%!`Q\u{1b}-\\{\u{1d}#gA~\u{14}N\u{1}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33638,7 +33638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasAggregateVa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasAggregateValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18} \"x}\u{13},`\u{1d}`Vf6I\u{7}\u{e}f3A\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\rq x\u{1d}7cP(3QU\u{13}:BnR&\u{1f}f\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33646,7 +33646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasAllowAlias 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasAllowAlias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO1P$_^\u{13}jyVr3q9_2J\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\r1%VbZ\u{15} G FE]~IH\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33654,7 +33654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasAvailableDa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasAvailableData" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18}<jUb2{),dlR\u{17}0\u{1c}'n>s\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\rq,D\u{4}#OyO?6\u{7f}*z}I{<D\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33662,15 +33662,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasBegin {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasBegin" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO18\u{16})W\u{18}sOj.T\u{4}gX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{13}u^\0\u{3}F{]\u{13}z\r_\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasBit {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.HasBit {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasBit" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.HasBit" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZO1H&\u{c}~U\"\u{4}r\u{11}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\nwub\u{7f}\u{7}\nE^\u{2}-\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33678,7 +33678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasCcEnableAre
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasCcEnableArenas" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18}\u{18}\u{4}sXTX\u{17}\u{2}dO\u{1e}:y)&\u{2}\u{6}R\u{e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-q\u{c}[\u{18}b\u{1d}\u{1}?.\u{1d}\u{1e}w\r:T3+}\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33686,7 +33686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasCcGenericSe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasCcGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{18}\u{18}$\u{13}H}y/\"V\u{4}ycIa![\u{7}\u{4}d\u{10}oX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o-q\u{c}gD0s$Y\0\u{11},dsa\u{1e}?Q/w u'\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33694,7 +33694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasClientStrea
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasClientStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18}(\\\u{1}y\n\u{f}75QC+5:!\u{1b}OivK\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-1\u{13}3Y\u{b}5\u{17}t'\0v6\u{14}~Q&e!\u{1e}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33702,7 +33702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasCsharpNames
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasCsharpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18}0\\o\u{16}+hYVz\u{15}Q\nk\u{19}\u{e}\u{19}ro\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-1\u{18}{H\u{1e}\u{1e}@/\u{e}\"\u{5}d{RkO$4\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33710,7 +33710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasCtype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasCtype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO1h\u{8}[\u{e}Deh4x}jj]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{14}\01\u{18}P%UB\u{13}mu\\\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33718,7 +33718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDebugRedact
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDebugRedact" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO10zL\u{1f};Hp: R'Mt\th\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-qDB\u{f}/>\u{16}C6\t,\tedI\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33726,7 +33726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDefaultSymb
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDefaultSymbolVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7mg\u{18}\u{18}mf\u{14}w\rI2\u{1b}VVH\u{17}%`\u{8}\u{2}\u{e}kR\u{14}\u{8}&)\u{1b}E\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{14},\u{12}\u{19}d}\rK\u{15}\"\u{13}%\u{17}\"g\u{e}ar\05$\u{1e}e=pv\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33734,7 +33734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDefaultValu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDefaultValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18}\u{18}mf\u{14}w\rQ\u{1e}\u{b}\\~O9f*+o\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-qDW\u{1}1c\u{1b}\u{2}\u{1c}Mas6i\u{1e}ME.\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33742,7 +33742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecated 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDeprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO10JO\u{1a}%4(Do5\u{f}Ao\u{14}\u{16}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-1E\u{8}t4\u{15}0Bp.XVu{\u{c}\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33750,7 +33750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecatedL
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0_\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#NjU\u{4}\u{14}'gc$zn%q3%;}\u{7f}d\u{5}=\u{1f}\u{f}Gxw2XW/\08jVz\n\0M\u{1c}\u{1}\u{7f}\u{1c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2Bf\u{6}\u{8}E\u{8}t4\u{15}0b0:\u{8}1`\u{7}3Rp^~\0o\u{1}<~=&H\u{f}kY\u{14}\u{1e}.3iL\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33758,7 +33758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDeprecation
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDeprecationWarning" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{18}\u{18}e'M\u{12}\u{1a}\u{15}bM;(Y9/y%e\u{2}\\\u{17}qW\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o-1E\u{8}t4\u{15}PBLJ-\u{3}1a\u{7}GVC<N\u{14}i\"\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33766,7 +33766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasDoubleValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasDoubleValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO1Pz^wyl1b#\u{17}d;D4u\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-qLH\u{e}\u{13}\r6Uv\u{1e}j)J4A\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33774,7 +33774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEdition {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO1@\\#q13.~(\u{8}72\u{1c}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{15}\u{16}Z\u{c}sZ$`,\u{1b}\u{1b}i\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33782,7 +33782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionDepr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEditionDeprecated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{18} nQx\u{18}\u{1a}\u{7f}\u{e}rEZG4&,R\u{8}\\U@`r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o-q\u{7f}=\u{12}5qm\u{11}\u{e}X\u{b}\u{3}`\u{6}24Ifi Yu9\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33790,7 +33790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionIntr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEditionIntroduced" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{18} nQx\u{18}\u{1a}*\u{7f}\u{b}\u{1d}\u{c}*@w3Z\u{1c}\"8\u{f}]p\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o-q\u{7f}=\u{12}5ym\u{1}Cj\u{17}l>\u{8}4qsw;%\0`<\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33798,7 +33798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionRemo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEditionRemoved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{18} nQx\u{18}\u{1a}s3x]Nop\"\u{18}U$J\u{e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-q\u{7f}=\u{12}5y-\\\u{f}b\\E?u3NgTJ\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33806,7 +33806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnd {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEnd" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZO1\0-\u{1e}\u{17}14d9x\n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{15}R 44)\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33814,7 +33814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceNami
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEnforceNamingStyle" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{18}@Fo\u{6}I/:i#>'\\\r\u{10}j3$):B\u{15}g\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}oMq\u{e}_jG|Dqm\u{17}YRx=5lxSa\u{4}\u{1a}\tD\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33822,7 +33822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnumType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasEnumType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO1\u{8}}\u{4}\u{14}g[[R*M\u{6}\u{19}X\u{1}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oMq\u{e}|%USq\u{e}nxH\u{1e}$p\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33830,7 +33830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasExtendee {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasExtendee" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO1P\u{1d}!`q;jcn\u{1b}VGg\u{1d}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM1\u{1e}8r\u{2}iHILie\u{2}Q6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33838,7 +33838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFeatures {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5(P#>\u{f}gbUI,0\u{1}I\u{1d}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM1j]\u{4}N\u{12}f?;M0\u{6}\u{7}R\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33846,7 +33846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFeatureSupp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasFeatureSupport" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{14}h\u{11}_\u{7}46P5\u{16}hV#\u{3}\u{4}P\u{c}\\\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}oM1j]\u{4}N*6H\u{14}Q!\u{b}x%/\u{1d}\u{b}D:\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33854,7 +33854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFieldPresen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasFieldPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{1c}PBb?{K)~\u{b}s\u{5}xO\u{13}\u{1f}$|\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}oMqmT~vcU\u{7f}h:5K\u{1c}5\u{6}3;]E\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33862,7 +33862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFixedFeatur
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasFixedFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{1c}0d\u{18}l{*8\u{c};$D\n.\u{2}l3W\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}oMqm4\u{3}p`(\u{16}\\\u{f}.ELi\u{17}lQ,b\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33870,7 +33870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasFullName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasFullName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5`p.mu<\u{2}E`x(Z$/\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oMqv`\u{8}i)*=$r\0O 5\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33878,7 +33878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasGoPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasGoPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5HR,!)]'O{kzKQ\u{e}\u{12}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}om1)\u{12}\t`0\u{1b}VMh\u{10}9wu\u{6}\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33886,7 +33886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hash {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hash" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZO%P^7\u{19}\u{e}w\u{11}S\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{b}&<\u{2}0\u{19}@z\u{1b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33894,7 +33894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.HashableEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Hashable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnpiryB\u{e}8\\NUqQhW?Y\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\nwlF7wD:\u{10}f0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33902,7 +33902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasher {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasher" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZO%\u{18}kuG.GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\n+!\u{14}s%\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33910,7 +33910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasIdempotency
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasIdempotencyLevel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1a}\u{c}3W*~\u{1}\u{7f}o\u{10}\u{1}VL=r*\u{7}\u{1c}y\u{1d}n\u{19}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\rr\u{e}7\u{5}\u{1d}vgQ0d !6}\u{14}\u{3}Xe+,#h\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33918,7 +33918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasIdentifierV
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasIdentifierValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{c}3'\u{b}[_\u{e}#hcP\u{1d}G@)AQ\rv\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\rr\u{e}7#5\u{11}\u{5}%xLB] Iq]Ieb\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33926,7 +33926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasInputType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasInputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO58&_\u{7}b7ScA\u{4}\u{11}7_k]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\rr\u{16}\u{13}Vmj\u{16}VU1T8X\u{19}K\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33934,7 +33934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasIsExtension
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasIsExtension" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5PV\u{8}|':\u{c}/\u{f}]\u{19}\u{1e}u6|\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\r2\u{1a}]u\u{b}C^\u{10}qf>x'u\0\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33942,7 +33942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaGenerat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaGenerateEqualsAndHash" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnZO5\u{8}h\u{14}xn?qf~_4)eJK9po\u{1c}yG %7(j0g(\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{17}!*t2j\u{15}\rS\u{1}vXGgd\\UF^{e\u{18}7f;rc+\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33950,7 +33950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaGeneric
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1a}\u{4}4\n<w_8E[`\u{7}VoXQ\u{5}R<rXW&\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\rrC2\u{e}Es8ZD%\u{4}9\u{e}w^\u{1d}\u{4}^E\u{11}5\u{7}A\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33958,7 +33958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaMultipl
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaMultipleFiles" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1a}\u{4}4:\u{1c}G/]R>\u{4}\u{c}\u{11}P\"3@vPr]\u{18})\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\rrC2\u{1c}!\\#\u{6}u\u{7f}\r%&oRwY\0JI(\u{10}\u{2}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33966,7 +33966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaOuterCl
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaOuterClassname" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1a}\u{4}4J<]0Y\u{4}\tsA\u{12}?@_\u{14}lAXR[\u{12}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\rrC2$!6X\u{7f}R4\u{19}=#gLG\u{1d}/\u{13}\u{18}/r\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33974,7 +33974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaPackage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5\u{8}h\u{14}yp_A1.[2\u{14}q\u{17}\u{1c}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\rrC2(\rQs#v]\u{1e}'\u{1e}\u{1a}#\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33982,7 +33982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJavaStringC
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJavaStringCheckUtf8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1a}\u{4}4Z|yl^T1[2%F$'\u{1b}\u{f}NgCq&2\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\rrC2.uR\u{6}N\u{6}sD\u{7}`R$HIA\u{e}r\0$J\u{17}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33990,7 +33990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJsonFormat 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJsonFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5H\u{8}u\u{10}\u{17}vM\u{5}HI)+w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\r2QrL?\u{7}bL\u{19}H>\u{1b}w=+\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -33998,7 +33998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJsonName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJsonName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5H\u{8}\u{15}Q\u{c}BiVa8\th#/\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o\r2QrRW\u{e}WYVB[5%{\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34006,7 +34006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasJstype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasJstype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO5H8w\u{4}a\u{1f}k0<y\u{14}\u{1f}'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{17}W:/`#\u{11}\u{6};Ha \u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34014,7 +34014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasLabel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasLabel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO5\0<r\u{8}?\u{1}OqQhW?Y\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{18}VyRg\u{3}Hz\u{13}\u{b}4\u{2}\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34022,7 +34022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasLazy {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasLazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO5\0\u{c}{CX%\u{4}n(\u{1a}S\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{18}X\tzl\u{7},A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34030,7 +34030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasLeadingComm
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasLeadingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{8}vhvP\u{16}\u{19}fs)M2b\u{c}+\u{c}\r\u{c}<\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-r4\u{1f}k.\u{17}\"r\u{6}-tu, \u{14}+.\u{7}b\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34038,7 +34038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMapEntry {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasMapEntry" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO5\0ni\u{13}@N:(V\u{b}w\u{1f}*\u{15}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-rh\u{1b}\r@Tk^|\u{6}+,k,\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34046,7 +34046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMaximumEdit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasMaximumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\0/\u{6}$e\nw4I-Gz'\u{12}\u{3}\n\u{1}/\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-rhf'_a;\u{e}\u{1f}sy5k\u{18}w5aC\u{1c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34054,7 +34054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMessageEnco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasMessageEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{8}oC\u{15}%Pc'\u{13}aK]7\u{c}rP\u{c}\\\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-2l2.G%\u{7}Ix9MJJ\u{6}JyD\tJ\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34062,7 +34062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMessageSetW
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasMessageSetWireFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7mg\u{1a}\u{8}oC\u{15}eQ\u{b}3L,*\u{1f}t]zB/D4Q\\\u{7}w\u{1c}1\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{18}@w1&~oREm*%`\u{8}VN`T84u\u{f}%62E\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34070,7 +34070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMinimumEdit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasMinimumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1a}\u{10}g#\u{16}Z\u{f}L$*\u{1e}=T\ti-\u{10}\u{7}J\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-2o~IJ\u{1}2\u{18}5[8\u{e}\"5^U3\u{1a}`\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34078,7 +34078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO9\u{8}\0\u{1a},M4p_\u{1f}\u{1}\u{1b}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{19}\u{1b}{\u{1f}2a'0\u{11}l\u{1d}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34086,7 +34086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNamePart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNamePart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9\u{8}\0:j\u{3}.|\u{6}puP~-p\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM2#`|=Zq\\~[:\u{15}f\u{1d}\u{f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34094,7 +34094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNegativeInt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNegativeIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1c}\u{1c}\u{18}8<*6\u{e}7G\n`97R'\u{1a}\0A0@'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}oMr,N\u{15}\u{13}0+\u{7f}:\u{19}\u{c}\u{5}H\\|h|(2\u{5}\u{5}r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34102,7 +34102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNextElement
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNextElement" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO98pyq9'\"H%Qb\u{b}G\\2\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM2-J3V%0\u{19}\u{1a}\u{4}q\"B\u{13}\n\u{14}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34110,7 +34110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNonEmptyNul
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNonEmptyNullRepresentation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnZO9 A\u{7f}3i.U4+}\u{1d}o\u{12}lYuI\u{18}a>gpV \u{7}\\rEgM\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{19}\u{1e}\u{e}@Px\u{17}*'k[\u{1a}oGeJ@\u{7f}V\u{1c}I\u{2}8,|eE2\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34118,7 +34118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNoStandardD
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNoStandardDescriptorAccessor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnZO9(\u{11}2/)VV_a\u{1c}s\u{4}OaG?G\u{1b}K6\u{c}]\u{14}7|Y2\u{11}P\n\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFtl,I{W\u{7f}-u@E\u{10}\u{1d}!BgX4\u{5}@N}w@`t6SM\n6E&\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34126,7 +34126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasNumber {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO9hq\u{e}\u{19}\u{c}I;bKm2\r\\\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{19}W\nf,.\u{2}\u{7}]\u{4}\u{7}Y\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34134,7 +34134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasObjcClassPr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasObjcClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}\03O<Xi\u{1b}\r1s~*Jj\u{3}\u{1b}6\u{18}*\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}om2I\u{7f}X2sre\u{12}:^Uw\u{11}%p\u{11}\u{7}6\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34142,7 +34142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOneofIndex 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOneofIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9X6M\u{11}\u{19}V\u{5}\u{13}\u{e}\u{e}7+w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}om2[\u{15}`>lJ\u{3}>,@\u{f}\u{1}\r`\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34150,7 +34150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOptimizeFor
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOptimizeFor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9h\u{6}GoNY]^lWWu$Bb$\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}om2^4\u{14}\u{1}\u{10}v]\u{17}]2Nf1\u{7}\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34158,7 +34158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOptions {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO9h\u{6}G/j/\u{1b})HuA\u{1b}\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{1a}\u{4}\u{3};\u{19}X>\u{19}ByVr\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34166,7 +34166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOutputType 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOutputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9\u{10}\u{17}\u{2}xD\u{18}\u{c}\u{1b}b9\u{1d}Sw\u{b}\u{8}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}om2f4Yqs\u{7f}+b\u{b}&\u{1f}vkO\u{19}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34174,7 +34174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasOverridable
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasOverridableFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1c}H#\u{b}T4\u{17}\u{7f}\r\r7T\u{6},\u{1e}4>7\u{6} v\u{e}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}om2gb\u{19}xp\u{1d}q i#\\\u{11}\u{10}_\u{18}5#i\u{18}.\u{1d}\u{6}\u{18}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34182,7 +34182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO9h)sO\u{13}\u{4}V\n5i\u{16}\u{1a}<\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1b}W\u{1b}\u{1f}o]x7_\n6a\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34190,7 +34190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPacked {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPacked" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO9h)sOk\u{11}q\u{2}?\t\u{10}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1b}W\u{1b}37cwLqHa \u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34198,7 +34198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPhpClassPre
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPhpClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}\0eosT\u{14}4D\u{17}hIB&:\u{3}\n\u{1}/\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\rs8dQAOOLr\u{19},$9k6ZxRB\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34206,7 +34206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPhpMetadata
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPhpMetadataNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7mg\u{1c}\0e\u{1f}\u{1f}1`\r\u{19}\u{1a}xWT-vpI_MR&fM\u{17}/\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1b}ny\u{16}Q=J\u{14}A\u{f}4?9G\r9Mi(j{n0\u{12}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34214,7 +34214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPhpNamespac
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPhpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}\0m/ \na]]7n6&ueub'\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\rs8eY>\u{2}\u{b};?d\u{1b}XWI/D(\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34222,7 +34222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPositiveInt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPositiveIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1c}\u{10}\u{15}RRbiV4%\0)0yt&4pV\u{17}p\n\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\r3>\u{1d};\u{5}o\u{f}\u{11}WA)\u{b}uP\r^%B\u{3}p/g\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34230,7 +34230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasProto3Optio
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasProto3Optional" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}\u{14}\u{15}e\u{1d}c-\u{1}kH/!s1\u{1}B\u{10}Q.\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o\r3@)k\n\u{8}qle%+\0\u{5}%4\u{1a}\"~\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34238,7 +34238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasPyGenericSe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasPyGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1c} ]j\u{5}WB!l\u{10}%xx\"[)\u{11}W7\u{1}~#q\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}o\r3F\t\u{10}\n\u{f}qaq`PJF;\u{14}ClT\u{12}t\u{5}]\u{8}\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34246,7 +34246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRemovalErro
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasRemovalError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}xf\u{1c}\u{11}\u{18}.|\0,#\u{7f}>\0g\u{e}\u{1d}L\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-s$GOr\u{c}r}/\u{1}d[_P\u{3}\r0 \0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34254,7 +34254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRepeated {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasRepeated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9p\r\u{1a}\u{10}~/n&\u{1}$\u{11}Q\u{11}a\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-s$T\u{5}\u{14}o\u{16}{pYI4q0\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34262,7 +34262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRepeatedFie
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasRepeatedFieldEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7mg\u{1c}x\u{6}\r\u{8}\u{7f}\u{17}.ao\u{e}U>mh\u{12}{).\u{1a}:lF\u{12}1OS\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1c}\u{1c}[Svq\u{1e}8\u{3}\u{11}f\t\u{1e}i\u{1d}\u{15}!S]\u{f}Pm\tBf\u{5}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34270,7 +34270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasReserved {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9pMZT*V\u{3}\u{4}\u{16}n\u{17}Q\u{11}a\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-s$a\u{1}f2\u{7}&\u{c}7u\u{1f}xq\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34278,7 +34278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRetention {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasRetention" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9pm:4[f\r2\u{14}rHYh1\u{11}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-s$i\u{1b}k+1)VQf\u{1}qFO\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34286,7 +34286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasRubyPackage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasRubyPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO90N`|qe]^r\u{1c}W\u{12}907\u{11}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-31[\u{1e}K\u{12}1,Ycf\u{1f}XWH\u{11}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34294,7 +34294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSeenValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSeenValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9p/*''/]\ttsb)g+o\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-s[SG\u{c}\\@}\u{8}Le\u{10}PF\u{f}\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34302,7 +34302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSemantic {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSemantic" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO9p\u{7f}\u{b}H\u{7}ar6i4e8#m\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-s[|oRb\u{1b}(ko(\u{c}=D\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34310,7 +34310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasServerStrea
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasServerStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1c}x7&c]9\u{2}$x,o\u{14}NikX\u{1d}E\u{e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-3\\\u{13}0/\u{1b}\tZ SD\u{17}MsQ\u{15}\"~\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34318,7 +34318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSourceCodeI
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSourceCodeInfo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1e}\u{8}x\rd\u{14}]eK\u{1}r\u{7f}\u{12}{rO\\N\u{1e}\u{6}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-scL(1\u{f}oT<q\u{8}O\u{15}M;w)\u{15}(\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34326,7 +34326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSourceConte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSourceContext" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1e}\u{8}x\rd\u{14}]e+7R\u{10}N5\u{c}\u{10}g?u\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}o-scL(1\u{f}\u{f}\u{15}\rnrb\u{14}{>\u{7}l\u{e}p\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34334,7 +34334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSourceFile 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSourceFile" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO=\u{10}p\u{1b}H)<77JCw\u{2}:sD\u{19}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-scL(1?\u{7f}\u{11}bn:\"X\u{e}J\u{17}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34342,7 +34342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasStart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasStart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO=(P\u{5}q\u{16}>\u{f}\u{1c}\u{10}\u{8}/h5\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{1c}&!FzP}F\u{f}4U\u{1b}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34350,7 +34350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasStringValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasStringValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO=(`\u{8}\n\u{7}\u{17}RR\u{1e}N}\u{12}ey|\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-sgz$((=\u{15}\u{2}\u{1c}AH\u{10}-j\u{f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34358,7 +34358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSwiftPrefix
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSwiftPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO=0\u{10}.JCb%K_O9\0z@e\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}o-sitb\u{e}\\u\u{8}'\u{1}\u{12}@{d\u{f}\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34366,7 +34366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasSyntax {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasSyntax" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO=8pH\u{f}Q['\u{1c}k'=B\u{17}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{1c}4\u{13}ks|>'=6s\u{13}\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34374,7 +34374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasTrailingCom
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasTrailingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7mg\u{1e}\u{c}IhP\u{1c}NW\u{f}OBq0l\u{1c}9%\u{1f}MT\u{3}:\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{3}oMs\u{1c}<b\u{18}[]k~OV$\u{1d}RbZrM\u{3}p/g\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34382,7 +34382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO=0B;b.t#t>/\u{1f}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1d}\u{10}W-\u{8}[s\u{2}|d\u{11}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34390,7 +34390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasTypeName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasTypeName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO=0B{aee]z\u{2}&v\u{1}IF\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oM3\"\n;.rZxe\"#5q0\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34398,7 +34398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUnverifiedL
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasUnverifiedLazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1e}\u{4}rIl\u{13}Kr#tG^52r\\\u{13}v\rn\u{17}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}oM3Q[8)*Wij1$/o~\u{16}\u{1}\u{14}3H\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34406,7 +34406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUtf8Validat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasUtf8Validation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1e}\u{10}Z%?)(\u{1b}j=\u{12}\u{4}~\0hT;AJ\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}oMsU0}o\u{f}ocpaL$u?\u{2}q8sZ\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34414,7 +34414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO=XeD\r\u{1d}$+p\t\u{14}*Vw\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}M\u{1d}}Ss\u{6}bG\u{1}kc}O\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34422,7 +34422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasVerificatio
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasVerification" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7mg\u{1e}traq\u{1}\u{6}g\u{6}1\ty`5/)O'\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{3}om3\u{1}5O$V7E\u{1e}`\u{5}9O;\u{1c}GuX\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34430,7 +34430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasVisibility 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasVisibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnZO=xeDK`qr(A\u{19}k\u{4}ZE\u{1f}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57\u{3}oms\u{4}\u{1d}k\u{19}q\u{1c}\u{1c}\u{11}%P\\~IH\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34438,7 +34438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasWeak {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hasWeak" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnZO=`wR#.([A*TV\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'\u{15}\r\u{1e}f]\u{14}EL=A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34446,7 +34446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.high {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.high" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZ\u{7f}\u{11}G<%\u{19}\u{e}w\u{11}S\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'Uz\u{17}2}\u{2}0\u{19}@z\u{1b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34454,7 +34454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hour {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.hour" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnZ#\"\u{1b}\u{8}^\0Ga @]\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07UZ)7~\0[$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34462,7 +34462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.i {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.i" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn[ity7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{16}O\u{7}\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34470,7 +34470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.idempotencyLev
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.idempotencyLevel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmBJ\u{15}+Ja-,L\u{10}j3\u{6}yC&>\u{1c}\u{10}I\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{1b}\u{1f}50K\u{18}\u{19}eFS,=^S{\u{1f})\u{3}-O\u{2}3\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34478,7 +34478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.identifierValu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.identifierValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmBJ\u{19}\\\u{c}zV>vt\u{b}\u{13}Ay%6\08\"\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57\u{1b}\u{1f}U0\u{5}-L2s\u{f}9\u{1}2\u{1}/ht\u{1a}vu*\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34486,7 +34486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.idx {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.idx" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[\u{7})q\u{15}\0)Z:+r\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}6j\u{1c}N}\u{17}GL]cy\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34494,7 +34494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ifEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.if" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn[\u{f}Y\u{1e}\u{12}\t@I@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0\u{7}v2MDt\u{19}o.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34502,7 +34502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoreUnknownE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ignoreUnknownExtensionFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cn[\u{17}e\u{19}n+O\u{c}aOu\u{16}M!1Sw]AJ]m^\u{7f}Cco\rR\u{6}B3\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{16}y)v\u{2}\u{19}@XD\u{12}H0~HC%Q#\u{1b}b8BB.DAw*e\u{1}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34510,7 +34510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ignoreUnknownF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ignoreUnknownFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wmKr\u{c}wU'Fpg:ov\u{1b}\u{18}\u{17}y\u{3}jA/},\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57\u{1b}/9K\u{1}L,a\u{8}oG)k\u{f}Z\u{b}WW\u{1c}Is\u{16}76Y\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34518,7 +34518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.inEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.in" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn[CU)\u{f}ix\tc\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6!4mn\u{19}l.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34526,7 +34526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.incrementFrequ
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.incrementFrequency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wma\u{18}Y>To_&*\u{19}a-Lt?}`&\0\u{f}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#?CVNGH3[5$8#\\\u{1b}\09T~!>\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34534,7 +34534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.index {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.index" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[CQ\"H\u{15}\"8b~%i\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}Va\"*L\u{7f}N}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34542,7 +34542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.initEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.init" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[C%\u{4}tj\u{18}\u{e}w\u{11}S\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}v!^s\u{12}\u{12}6Y\0B?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34550,7 +34550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.inoutEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.inout" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[CI\u{6}S\u{b}`\tm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6bbh\u{4}-I-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34558,7 +34558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.input {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.input" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[Cm~J\u{11}`\tm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}Vb\u{4}*\"UL}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34566,7 +34566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.inputType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.inputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[Cm~j\u{1a}X9>+9{X%2n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}Vb\u{4},tD\u{8}j2.>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34574,7 +34574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.insert {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.insert" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[CU']p\u{12}\u{19}P\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}V\"b \u{1e}h[Y\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34582,7 +34582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.IntEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Int" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnqY\"3g\u{2}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}kG1N`VM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34590,7 +34590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Int32Enum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Int32" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnqY\u{1e}S\u{8}\u{7}8:m&\u{13}\u{1d}\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}kG-jY\u{5}N}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34598,7 +34598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Int64Enum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Int64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnqY\u{1e}K\u{e}\u{18}43b~%i\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}k\u{7}/\u{2}ANH-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34606,7 +34606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Int8 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Int8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnqY\"c\"\u{8}/G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}k\u{7}0SH2\\$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34614,7 +34614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.integerLiteral
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.integerLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[C}w$J\rauK.O\u{3}[Pn7\u{2}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#_#vwQzo\u{14}\u{e}I\u{6}.7mBNe\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34622,7 +34622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.IntegerLiteral
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.IntegerLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wx,A5@r\u{14}\u{3}T\u{19}t\u{1e}\u{15}!Qw\u{e}\u{1d}\\l2\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;C4\u{7}I\r$U+]D\u{e}}\"K\u{1b}\u{19}uOJ\u{17}k.\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34630,7 +34630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.intersect {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.intersect" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[C}\u{1f}E5GeO\u{b}r\u{5}#AU/\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}vb\u{3}b\u{1d}`\u{5}\u{b}\t9|h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34638,7 +34638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.into {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.into" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[E\u{1}\u{18}~\u{1e}W)\u{e}k$8\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}v\"\tAs9Z$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34646,7 +34646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ints {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ints" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[E\u{5}\u{10}v\u{7}W)\u{e}k$8\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}v\"\u{b}/\u{2}\u{1b}[$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34654,7 +34654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.invalidAnyType
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.invalidAnyTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmb\"@nM\u{1a};\u{10};8V3w9j4\u{7f}\u{1f}6\u{18}*\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#o\u{3}\u{7}\"+\u{e}C)\u{3}\u{1f}=\u{5}W-\u{1f}HF9GY\u{1e}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34662,7 +34662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.invalidValues 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.invalidValues" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[EE\0]{u>|4*9\rX&w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#o\u{3}\u{7}\"+\u{1e};\u{12}r,75n\u{f}5\u{1e}K\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34670,7 +34670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isA {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isA" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn[a\t[o1hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{16}}+#\u{2}uJhW]\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34678,7 +34678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isEqual {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isEqual" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[a\u{11}\u{14}yIFr\u{18}\u{4}*xrG\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6=#\u{1a}\r|Rm\u{8}+\u{18}\u{4}S\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34686,7 +34686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isEqualTo {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isEqualTo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[a\u{11}\u{14}y\t\u{6}g\u{16}Pp;y\u{14}\u{1f}'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6=#\u{1a}\rDz~4\u{5}>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34694,7 +34694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isExtension {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isExtension" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[a\u{19}L\u{18}]\\@\u{1}\u{2}\u{17}]Y\u{3} \u{1f}\u{1e}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#?\n\r\u{7f}u'l5e\u{4}V3O{\u{e}(\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34702,7 +34702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isField {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[aQl`kh::\u{5}nxrG\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6}Z2qzC\r\r+\u{18}\u{4}S\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34710,7 +34710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isFieldInitial
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isFieldInitialized" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmp(6puszQJ\u{1a}uz.P\u{7}*\u{6}\u{12}wr\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#?*\u{19}r\u{4}5m\u{12}X*bt1\u{15}]\r\u{19}\u{1f}>X\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34718,7 +34718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isFieldNameRes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isFieldNameReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wmp(6p\u{5}t\u{1a}z|\u{4}\u{c}cw{\u{b}9~\\b\\3\u{1a}\u{18}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57#?*\u{19}r\u{4}7E?e\u{13}\nD\u{1f}m9\u{15}'qNQ\u{8}Qz\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34726,7 +34726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isFieldNumberR
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isFieldNumberReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wmp(6p\u{5}4!\u{17}C\u{18}\"\tmO2e\u{16}N\u{1c}n`<\u{c}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57#?*\u{19}r\u{4}9}QBL$nx\u{b}#\u{14}Do1O0rB7\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34734,7 +34734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isFieldPresent
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isFieldPresent" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[aQl`\u{b}({<\u{e}fu\u{1a}9+p\u{1f}x\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#?*\u{19}r\u{4};\u{15}\r?5@\u{13}V\r\u{5}&\u{e}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34742,7 +34742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isFieldRequire
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isFieldRequired" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmp(6p\u{15}4\t{\u{c}\u{10}\u{4}\u{14}D{\u{14}~Yy\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#?*\u{19}r\u{4}=uA\"+H\u{1d}c$X0<\u{18}}#\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34750,7 +34750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isInitializedE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isInitialized" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[aE=Tt\u{1f}@6&v/R;\u{2}g\u{8}\n\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#?Js?],dcJ@7\u{14}:,;n(\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34758,7 +34758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isNameReserved
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isNameReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[a}>\u{19}\u{2}.K%lQP8\"\u{1c}ZE\u{1f}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#O\n\u{1d}9\u{4}\u{1f}O\u{5}\u{1a}xY|h^2\u{12}l\u{1f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34766,7 +34766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isNegative {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isNegative" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[a\u{5}Op+\u{c},u\u{12}'\u{15}b!M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}v=mG+VP\u{17}'Bch8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34774,7 +34774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isNumberReserv
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isNumberReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmpNg=\u{1a};Bq\u{17}[ALtW)\u{15}T`|8\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#O\n$l\u{15}TYUS{\u{18}A7\u{1}\u{b}\u{15}\u{1a}\u{17}\u{1}O\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34782,7 +34782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isPacked {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isPacked" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[c9\u{18}hg.4wV\u{1}?X~j]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6~\u{f}\u{1c}?]m\njDQ(\u{f}\u{19}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34790,7 +34790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isPathValid {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isPathValid" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[c9P\u{18}}z\u{10}E8\"@eZ\u{5}u\u{1e}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#_\nGRGig\u{b}'1#\t)Vt$\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34798,7 +34798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isPresent {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isPresent" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[cA`[\0B6\tH5\u{1b}b=M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6~\u{17}\u{f}J\u{6}`e\u{12};|h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34806,7 +34806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isPrintableASC
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isPrintableASCII" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmq t\u{15}K\u{13}`}\u{10}\u{6}9}0{5\u{18}\u{12}e\u{6}\0\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#_\n\t)3\u{3}5_P&U-tKn\ne_\u{b}y\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34814,7 +34814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isReserved {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isReserved" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[c\t1pXT{>|\t\u{16}-\u{14}\u{10}\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}6>U=}\u{8}Q)W-T\u{1}[k\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34822,7 +34822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isTrackingGrou
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isTrackingGroup" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wmql\\U0^dT<N\u{17}[|n\u{14}\u{1}X\u{1f}\u{1d}\u{6}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57#_\nk(aA\n\u{1f}\u{4}EtSPg{o\u{8}lK\\\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34830,7 +34830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isTypeURLValid
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isTypeURLValid" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn[c]Qk#\nNoww\u{f}%q{F\u{1}S.\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57#_jkl##\u{15}`\u{1d}j\u{6}J//v\u{6}A\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34838,7 +34838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isValid {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.isValid" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[c\u{1d}\u{12}x+66^ZAb{A\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}V>[C^~^B_]\u{e}\u{19}n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34846,7 +34846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.iterator {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.iterator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn[e)zsb]\u{6}\u{7f}G5;\u{c}M +\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'V@9kh>U\u{15},u\u{f}4U\u{1b}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34854,7 +34854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaGenerateEq
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaGenerateEqualsAndHash" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7n\u{e}\u{1a}<*\u{1b}LG\u{7}c(WA$\u{18}c\u{2}\u{17}pi@j:#.\u{12}q2\u{1f}\n\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0g\u{16}h\u{17}C/\u{1}}>x<GjtMs#aEaKX\\}5=G!v\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34862,7 +34862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaGenericSer
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7n\u{e}\u{1a}<*\u{1b}LG\u{12}lB;'(\u{f}\u{f}VtNED\u{e}a\u{19}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;573/\u{15}}\u{16}\r\0E\u{1a}ewxk+1W5M\u{1}0HxP\u{b}4\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34870,7 +34870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaMultipleFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaMultipleFiles" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7n\u{e}\u{1a}Pj\u{1b}\r,<ub'!NO-_PM=\u{17}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;573/\u{15}=\u{1f})&t\u{2} 4\\>_(\tRr%xZl\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34878,7 +34878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaOuterClass
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaOuterClassname" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7n\u{e}\u{1a}`j\u{3}\"\u{b}F8v]&#V>EL\u{12}J(\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;573/\u{15}=%\u{b}\u{1a}\u{1e}%pOG?k\u{1c}n=\u{8} \u{19}D\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34886,7 +34886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn\\\u{1d}4HEKq\u{16}\u{16}I%eH0uk\u{6}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;573/\u{15}}&icqp`5\u{16}=1IXe\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34894,7 +34894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.javaStringChec
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.javaStringCheckUtf8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7n\u{e}\u{1a}p\"P(\u{f}KCHT\u{6}v\u{12}Y\u{1a}4X\u{8}L\u{3}x3\r" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;573/\u{15}=+m=\0Xuq%52\u{10}\u{c}\u{16}Ns\u{1b}FS}fz\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34902,7 +34902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONDecoder {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONDecoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnrM\u{7}:V(\n8_:}gTHB\\a\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c\u{14}\u{1a}\\\u{12}\u{18}4?\u{1c}\u{1a}%#\ntw#\u{1b}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34910,7 +34910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONDecoding {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONDecoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnrM\u{7}:V(\n8mz|\tW\t|Q.\0\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c\u{14}\u{1a}\\\u{12}\u{18}4?l|`a\u{14}*Y8db\u{1f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34918,7 +34918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONDecodingEr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONDecodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7yf\u{3}\u{1d}+\u{14}\u{5}\\6=btuw')\u{11}@_4W\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;c\u{14}\u{1a}\\\u{12}\u{18}4?l|`\u{17}K?+,\noa<W\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34926,7 +34926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONDecodingOp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONDecodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7yf\u{3}\u{1d}+\u{14}\u{5}\\6=ll<K*u}JV%yd!\u{3}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;c\u{14}\u{1a}\\\u{12}\u{18}4?l| \u{1b}!(\u{b}h\u{8}1N3[0052\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34934,7 +34934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncoder {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONEncoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnrOc\u{19}W72E[\u{1c}hsO\u{f}\u{1e}e#\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;cT:\u{2}X$\u{17}b}+h'Z\u{4};pW\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34942,7 +34942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncoding {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnrOc\u{19}W72El<\u{18}\06Y\u{e}\u{1a}aT\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;cT:\u{2}X$\u{17}f\u{15}\u{10}<Ob@hD/\u{19}\u{b}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34950,7 +34950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncodingEr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONEncodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7ygqLk\u{1b}Y\"6\u{1d}:\u{17}C#i\u{2}pftk\u{13}\u{1}" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;cT:\u{2}X$\u{17}f\u{15}\0\\(\u{12}\u{18}I\u{b}sA.\u{5}L\r\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34958,7 +34958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncodingOp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONEncodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7ygqLk\u{1b}Y\"6\u{1d}VOB\u{10}\\\u{2}=\u{3}y=Z\u{4};+\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;cT:\u{2}X$\u{17}f\u{15}\0<uBY6/M/<y9Q\0\0c\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34966,7 +34966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONEncodingVi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONEncodingVisitor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7ygqLk\u{1b}Y\"6\u{1d}f\u{17}Oz-l>\u{3};s3<+\u{1b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;cT:\u{2}X$\u{17}f\u{15}\0<=\u{16}5+\u{11}<4lR%4,J\u{15}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34974,7 +34974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonFormat {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\\\u{7}Q\u{2}G\u{14}=@,G\u{4}Fb/\u{b}a\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}W\t/:;,\u{1}\u{1}\"\u{1a}ZPE0\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34982,7 +34982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\\\u{7}Q\u{1a}'z\u{10}5\0\tuqmA1H\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}W\t/OU\u{1e}:8UP\u{19}Ga*\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34990,7 +34990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonPath {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonPath" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\\\u{7}Q*':2\u{7f}!F6x}jj]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}W\t/]}p2?+k\u{13}z\r_\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -34998,7 +34998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonPaths {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonPaths" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\\\u{7}Q*':rzTXcxX%2n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}W\t/]}pz{C\u{5}\u{15}XXH\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35006,7 +35006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONReader {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnrM\u{7}RYh;\u{8};7\u{1f}lb)M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}'LPV\u{e}uq4\0\u{18}\0|\ta\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35014,7 +35014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.JSONScanner {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.JSONScanner" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnrM\u{7}b9Xj\\i&{\u{f}+0pu`\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c\u{14}\u{1a}\\m&\u{10}\u{1d}\u{19}\u{14}\0\u{e}\u{15}\0\u{6}@\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35022,7 +35022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonString {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonString" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\\\u{7}Q:wDq.dZw^o/\u{b}a\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}W\t/f\u{3}M\u{2}bM\u{13}vPE0\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35030,7 +35030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonUTF8Bytes 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonUTF8Bytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn\\\u{7}QBgc)z<er?\nhZ_\\i\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;o-sAtY\u{f}khV<F\u{6}a\u{f}\u{5}D\u{1b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35038,7 +35038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jsonUTF8Data {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jsonUTF8Data" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn\\\u{7}QBgciz\u{1} \u{2}O mnl-h\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57;o-sAtY\u{13}\u{1b}v\u{5}v\u{17}o\u{3}?<5\u{1a}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35046,7 +35046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.jstype {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.jstype" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn\\\u{7}9t\u{7f}BxX~o{\u{4}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{17}\n\05*v[\\\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35054,7 +35054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.k {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.k" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn\\7\u{17}y\u{7}xW3a\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0Gwi2\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35062,7 +35062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.kChunkSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.kChunkSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn]e8\u{1d}\u{f}\u{c}?U)@\u{5}\u{11}c.\u{7}T\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{17}J2\u{16}KQ.=\u{4}\")({`\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35070,7 +35070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Key {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Key" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnsu\0\u{19}22+\u{3}\u{c}Tq\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}GLt\u{1e}o}\u{17}GL]cy\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35078,7 +35078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.keyLessThan {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.keyLessThan" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn\\Y'/</\u{17}s\u{e}\u{1e}u+\u{12}Tp4 \u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57K/>r^\u{e}TyEw=.\u{4}6IG>\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35086,7 +35086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.kind {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.kind" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn\\o\u{f}\u{16}\u{c}O,G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W\u{17}\u{1e}tH\\\n_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35094,7 +35094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.label {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.label" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]i:\u{19}Xy\u{17}\u{3}VK|'\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\078A}Rv.\u{19}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35102,7 +35102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.layout {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.layout" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]kNxj6\u{12}\u{1}t>IE\r\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07\u{18}\u{3}/1d5\u{1b}U\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35110,7 +35110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lazy {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]kzpw;\u{11}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07\u{18}CU\u{13}\u{1a}*\\$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35118,7 +35118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.leadingComment
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.leadingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wn?E5b\u{2}>T=\u{b}nx;<+[\u{2}0?N\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;57k_\u{1}\u{c}I^[V\u{7}\u{1b}bb\0t(%6MBm\u{7f}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35126,7 +35126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.leadingDetache
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.leadingDetachedComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wn?E5b\u{2}\u{1e}\u{17}2U! tt\u{1f}L3R>\u{14}^U\u{1f}\u{15}KMdo\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\07\u{18}\u{16}\u{3}\u{13}Q_\u{17}r\u{11}NO\u{13}*\u{1c}\u{1}0\u{e}!\ne{~\u{1b}c5V3&\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35134,7 +35134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.leadingZeroBit
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.leadingZeroBitCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wn?E5b\u{12}>m'\u{11}m;f4@\u{3}2\u{14}$\u{15}\u{15}($\t\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;57k_\u{1}\u{c}I^ej\u{1a}V\u{6}M\u{17}@`(VL_hE\u{1e}N'O\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35142,7 +35142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.length {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.length" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]\u{7f}F'bN\u{b}H\u{1e}\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07\u{18}W\0&_py_\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35150,7 +35150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lengthBits {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lengthBits" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn]\u{7f}F'bN.!^hy}JS\u{1}*\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07\u{18}W\0&e\u{c}Vs[\u{15}RPE0\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35158,7 +35158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lengthModel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lengthModel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn]\u{7f}F'b.{\u{3}2Y\u{1}\n\u{11}Ya,0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57k\u{7f}\u{1}\u{c}\u{b}\u{6}\u{8}jx\u{17}_a\u{14}7\tl\u{1f}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35166,7 +35166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.letEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.let" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]\u{1}K\u{19}R\u{8}in\u{7f}\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\078\u{17}hg\u{1}WM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35174,7 +35174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.lhs {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.lhs" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]\u{11}wTn\"hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07x&>\u{8}aVM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35182,7 +35182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.line {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.line" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]\u{17}_\u{11}>a%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07X+J$\u{2}\u{19}X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35190,7 +35190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.listValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.listValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn]\u{17}'sX\u{1c}\u{5}5\u{1c}3L\r\t\u{1c}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07x+{)(\u{6}\u{15}-l\u{16}>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35198,7 +35198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.littleEndian {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.littleEndian" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn]\u{17}K\u{13}>\u{1c}\u{5}\u{5}+QD?\u{3}\0\\K\u{5}4\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;57k\u{1f}']:i.9\u{10}G\u{2}\u{1f}*)2X\u{1a}\u{12}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35206,7 +35206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.load {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.load" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]=\u{17}c+i%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0GxN\u{f},#\u{19}X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35214,7 +35214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.location {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.location" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn]=cC\u{2}\"\"=^p\u{f}P\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0GxNQ5V9'5Xz\u{13}\u{b}4\u{2}\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35222,7 +35222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.low {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.low" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn]?G2/:hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G8\u{10}Z\u{18}aWM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35230,7 +35230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.M {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.M" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cnt\u{1f}'z7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}n.b\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35238,7 +35238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mainModel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mainModel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn^\u{f}\u{1a}/$\u{15})ye}99d23d\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}9OD\u{5}ID\u{5}\u{5}\u{10},~8\u{14}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35246,7 +35246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mainModelSize 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mainModelSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^\u{f}\u{1a}/$\u{15}iy\u{2}v\u{1f}\u{b}\u{1a}S\u{15}|^P\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}  w~\u{1}O\u{1}\u{14}X\u{1f}dq=\u{13}0,.\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35254,7 +35254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.major {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.major" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^\u{f}>_-- Mm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}9OfemVO-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35262,7 +35262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeAsyncItera
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.makeAsyncIterator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7o\u{7}o\u{f}'g\u{15}ge+X\u{e}:\u{10}<SQ\\5?x\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}0 G\u{17}9\u{1f}cbq}9IMSlz\u{7},-\u{10}>\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35270,7 +35270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeIterator {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.makeIterator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^\u{f}^?.\u{3}Iy9i-,:Jp-AS\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}0 \u{7}\u{1e}\"\u{4}<%\nkZq\u{f}\u{14}F\u{7f}'\u{1f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35278,7 +35278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.malformedLengt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.malformedLength" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7o\u{8}\u{3}t\u{b}Fn4ohN#YT\u{15}*\u{c}o\u{c}}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}0`OF_>~\"O>!A)P2VY.\u{17}%\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35286,7 +35286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mapEntry {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mapEntry" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn^\u{11}R\u{19}u2~Z`\u{1b}p\t\u{14}*Vw\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}y\u{f}[\r\\t\u{1d}4pr#Ia\u{7}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35294,15 +35294,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MapEntryPerfor
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MapEntryPerformer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7zUMQ%0%h+c 0Q\u{2}\u{13}jV,6S<\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;#5%'Q@@tR\u{16}r\u{1})\"=-RsAZXx\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mapEntrySchema {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MapEntrySchema {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mapEntrySchema" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MapEntrySchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^\u{11}R\u{19}u2>Wy)Lq\u{f}&Jy}-\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#5%'Q@@\0\u{13}6X\\\u{12}\u{3}\u{11}Q9'\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35310,7 +35310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mapEntryWorkin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mapEntryWorkingSpace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7o\u{8}iL:\u{19}\u{1f},)\n\u{5}re\u{8}\u{5}D\u{11}\u{1d}\u{1e}hkl[8@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{3}0 }\u{1f}V{|B{:7\r\u{1e}Ff\u{15}\u{b}G'1\u{13}ZyAx\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35318,7 +35318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mask {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mask" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^\u{11}:R\"_6G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{19}\u{10}7g\u{1f}Vy.\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35326,7 +35326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.maximumEdition
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.maximumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^\u{11}v\u{3}5@)fp<7[ub\u{16}mb6\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}@@>i\\_ cZ_\u{15}nV]HF`\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35334,7 +35334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.maxMatchLength
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.maxMatchLength" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^\u{11}\u{6}d%hq\u{17}2\u{e}\u{e}&\u{8};\u{f}C\u{18}{\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P\0ByNhV\u{1}EhB^gCs\u{e}!\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35342,7 +35342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mdayStart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mdayStart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn^!\u{1e}\u{8}W\u{1f}TFH\r\u{e}\u{f}b#M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}9\u{1e}\u{10}\u{1d}a\u{1a}\u{f}lJ[{X\u{1d}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35350,7 +35350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.merge {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.merge" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^'.L!n?&OW_(\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}Yd]yV\u{7}\t\u{b}\u{8}!$~\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35358,7 +35358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MergeOptions {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MergeOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CntAwU\t9T*;\u{1f}9,s1.?\u{1f}:\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#UJR\u{2}f\u{1e}$:\0\u{16}e\u{e}\u{6}e/\u{1a}2\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35366,7 +35366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Message {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Message" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CntA#\u{1e}\t44{\u{c}\u{6}d~\u{13}\t4\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}n\u{e}g?g\u{7f}\u{e}\\\u{6}5>0[\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35374,7 +35374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageDepthLi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageDepthLimit" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7o\u{13}-J\u{11}fuf@Fq`\u{e}V\u{1f}\u{15}\u{17}\u{6}$\u{16}@\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}P%q>@Mh~)D\"\t Ha\u{4}\u{19}B|`X\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35382,7 +35382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageEncodin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7o\u{13}-J\u{11}f59;\u{18}\u{11}&b<f,\u{11}*\\Y\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}P%q>@O\u{8}f\u{b}1E4_&[@x-|>\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35390,15 +35390,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^'Z\u{14}#\u{c},qn]l}\"\u{16}\u{10}\u{1b}^\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@]48=WQ\0:(/\u{16}\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSchemaEnum {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageSchema {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageSchema" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^'Z\u{14}#L,E\u{3},\u{19}pijD4\u{16}F\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zN\u{11}i6^vk`-{\u{7f}&\u{f}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35406,7 +35406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSetWire
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageSetWireFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7o\u{13}-J\u{11}&v\"r>%mHU6\u{4}]]H=Y;_d\u{7}" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{3}P%q>@g0Z6\u{18}\"S\u{e}p<\u{8}\u{16}\u{1d}*n=CtC\u{1a}\u{1a}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35414,7 +35414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^'Z\u{14}#L,H\0\u{e}\tCt1y(\u{2}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@gdrQ\u{1e}\u{1f}\u{11}l\rb)\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35422,7 +35422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageStorage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CntA#\u{1e}\t43LL:\u{19}0\u{7f}8\u{19}Ujp\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zNAzg#3}LW5\u{1a}P\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35430,7 +35430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.MessageStorage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.MessageStorageToken" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7z`\u{11}O\u{4}Z\u{19}&&]\u{c}l\u{1f} )5\u{15}rJue+\r\u{14}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;#U*\u{1c}\u{17}zNAzgCs\u{4}05}F4\u{12}N\t\u{7}=v>\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35438,7 +35438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.messageType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.messageType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^'Z\u{14}#LlhBRN\"5hAx/\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}P%q>@i\u{18}\u{11}\u{6}\u{1a}ZdP+\u{1a}\u{7}\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35446,7 +35446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.method {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.method" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^'zdS5\\r \u{6}&5\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}yd!}k%}Ns\u{19}2,\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35454,7 +35454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.methods {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.methods" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn^'zdSU5~\u{14}\u{16}@\u{13}lw0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}yd!}qY9l#\0\tj|\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35462,7 +35462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.min {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.min" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^=R\u{5}3\u{5}in\u{7f}\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{19}y<_AUM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35470,7 +35470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumEdition
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.minimumEdition" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^=2}d\u{b}4exg@X>u!,Sx\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}`Ja=1\u{17}\u{6}il\u{1a}\"uv>\u{13}R\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35478,7 +35478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minMatchLength
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.minMatchLength" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn^=B%g)\u{1f}Od0n!7W@D\u{f}&\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}`\n%yzix\u{6}CF;:S\u{10}Nf$\u{17}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35486,7 +35486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minor {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.minor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^=6=V* Mm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{19}y$8\u{f}\u{1c}K-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35494,7 +35494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mixins {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mixins" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^?.@40\"/GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}Yys9'\u{b}2*N*Qh\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35502,7 +35502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.month {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.month" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn^e\u{2}s,k\u{c}~m|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0'\u{19}\u{1d}G\0H\u{15}N}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35510,7 +35510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mutating {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.mutating" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn^\u{7}\u{7}$J\u{13}*VqUqQhW?Y\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0'9<x\u{1a}\t8M6N<K\u{1}gf\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35518,7 +35518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.n {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.n" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn_+\u{5}|7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0w\u{19}\u{12}3\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35526,7 +35526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.name {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.name" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn_7y\u{1b}\u{f}\u{8}\u{1f}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w\u{19}\u{1d}\u{1d}sf2X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35534,7 +35534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NamePart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.NamePart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnuk\u{2}qk\u{e}L\u{13}Pf\u{8}Xz;7$\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}wn]j\n\u{13}d#l\u{14}\u{1c}[{>\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35542,7 +35542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nanos {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nanos" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn_71TC\u{5}\u{11}\u{13}[{}'\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w\u{19}\u{1d}L~X=\u{18}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35550,7 +35550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.negativeIntVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.negativeIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wof\u{18}6b_\u{7f}Wgya+$w\u{e}O\u{8}!\u{14}\u{3}#\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}\u{10}I|~+b+t\u{12}\u{8}J\u{1f}w\u{18}\u{18}I\u{19}lQ,b\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35558,7 +35558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nestedType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nestedType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_O)\u{10}GIN\\([,$d6M\u{1e}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{19}r[\u{19}VO1\u{2}S\u{1}d\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35566,7 +35566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.newTotal {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.newTotal" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_OQ92eF\u{1}J**wp\u{1a}+\u{1f}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w9ro~I~V5bd\r3Q\u{1b}\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35574,7 +35574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.newValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.newValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_OQy5y\u{1c}G-Jyj\u{7}\u{18}$E\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w9rp\t'B{y[l#Ia\u{7}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35582,7 +35582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.next {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.next" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn_OeQ.\u{14}3G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}I%\n_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35590,7 +35590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextByte {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextByte" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_OeI-U\u{7f}\u{8}\u{12}\u{e}\u{4}-C\u{3}0@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}SN=z#p|\u{f}4U\u{1b}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35598,7 +35598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextFieldNumbe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextFieldNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wogrl>Y]i\u{1e}\u{1b}\u{b}u#zM4f+3\u{19}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}@\tX$#k\"RP\u{13}p\\R\\J\u{13}7\u{1})^\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35606,7 +35606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextLengthDeli
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextLengthDelimitedSlice" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wogrt~\u{7f}R\u{1c}Q_\u{15}\\;\u{1b}\u{7}~5\u{7}IPDN\u{15}\u{8}\u{19}bmJ\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}p\u{12}KqP\u{f}4\u{1c}k|hy\u{12}u\u{4}U\u{7f}S!Q_F(\u{19}7\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35614,7 +35614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextLittleEndi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextLittleEndianUInt32" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wogrx.@\u{7f}8r.\u{1c}\u{17}h\u{1f}/Ok\u{5}&+qOJ+\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{1b}@\tX(huB)^BMHNTU4\"+X5\u{1b}|r\u{16}\t\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35622,7 +35622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextLittleEndi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextLittleEndianUInt64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wogrx.@\u{7f}8r.\u{1c}\u{17}h\u{1f}/OkCjVk5L[\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{1b}@\tX(huB)^BMHNTU4\u{2}9\u{1}11|r\u{16}\t\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35630,7 +35630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextTag {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextTag" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_Oe\u{11}^M6R\u{16}l|\u{4}Ky\u{16}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}\u{e})\u{b}g0\">J-{\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35638,7 +35638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextVarInt {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextVarInt" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_Oe\u{19}^\u{7}\u{13}\u{11}5nI\u{1d}.\u{3}\r\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0wYr\u{4}\u{14}'mJR'O; \u{17}i\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35646,7 +35646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nextVarintAsVa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0^\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nextVarintAsValidatedDelimitedLength" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{7}\u{15}\u{b}\u{14}*+\u{7f}^\rx=L6#\tt;}\u{1a}<\u{18}qH\u{17}\u{5}\u{6}qs.Gomo\u{8},&;\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2Z7bn2\n<[pq+0o2\u{13}T[,`\u{2}$^\u{16}\u{17}ANA\u{7f}Lrr\u{19}\n@U&Ab\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35654,7 +35654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nilEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nil" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn_e-\u{10}k3hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}:F,\u{19}aTm>i\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35662,7 +35662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nilLiteral {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nilLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_e\u{1d}PMQa\\PJ*;.\u{3}\r\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}:F\u{1e}e\u{19}:rjm]H\u{c}\r\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35670,7 +35670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noBytesAvailab
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.noBytesAvailable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wo\u{6}G\u{19}N\u{1}w\0d\u{2}\u{3}\0\to<\u{1c}1\u{3}.g$\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}`wy0&EG/OA\u{8}Y%ELKV\u{1e}/p^\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35678,7 +35678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NontrivialExte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.NontrivialExtensionOperation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnvW@<\u{16}v<\t\u{7}\u{18}f\u{7f}SW0\u{f}\u{18}\u{1c}K&\u{4}X5tR%f\u{1e}\u{6}u\u{1b}?\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}'ov\n&rL\u{1}\u{6}\u{6}tbC\u{f}\u{13}\u{1d}]O:u\u{14}Q\u{b}\u{1e}ark{s8\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35686,7 +35686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NontrivialExte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0_\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.NontrivialExtensionOperationPerformer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{13},JSz$aK:2\u{14}}\u{1c}PI\u{1a}\u{2}:=b-%N\u{1a}\u{2}xz\u{4}&0t\u{12}>W*;b\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2\"}!\u{8}b&y{\u{c}>}2K+(mRyZ/`kwkfEkqG]U\u{2}=\u{2}ZH~\u{19}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35694,7 +35694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NontrivialFiel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.NontrivialFieldOperation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7{+ \u{1e}\u{b};^D\u{3}\u{19}\u{1f}pK/*%+\u{c}6\u{1b}\u{5}\rOdg:\u{3}\u{10}\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}'ov\n&rL\u{1}\u{16}\u{6}\u{6};l\u{c}/p:'zMu\u{1f}ov/W:4M\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35702,7 +35702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.NontrivialFiel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0[\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.NontrivialFieldOperationPerformer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnvW@<\u{16}v<\t\u{7}2>`\u{17}_TJV\u{18}l.*\u{15}+Qi$+\u{10}\u{7}e/>\"N\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aJTs'\u{8}b&y{\u{14}.\u{5}h! k\\d,Ts$_\u{6}I:M\u{18}e\u{17}\u{7}rs\u{1}\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35710,7 +35710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.noStandardDesc
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.noStandardDescriptorAccessor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cn_\u{f}*q8t@8\u{6}z@a|l\n:y\u{1d}s\u{3}.y'>T\u{1f}Jhk\u{6}l\u{2}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0\u{7}zl_\\NiVN5\u{13}2\u{1d}3H\u{14}8:PDx@_\u{f}7\u{8}X?\u{16}\u{e}g\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35718,7 +35718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.nullValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.nullValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn_-\u{6}e:\05\t$O\r\\h\u{c}%\u{1e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{17}:\t\"1\u{6}1\u{1b}pJ\u{14}u!\u{1}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35726,7 +35726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.number {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.number" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn_-&%l'\u{11}YF\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}:\t?:(\u{1a}y:B\u{3}_v\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35734,7 +35734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.numberValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.numberValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn_-&%|'\rGu2&M\u{11}Ya,0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b} \u{7f}q\u{1b}'35\u{18}\u{19}\u{8}\u{13}Noyk\u{15}\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35742,7 +35742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.objcClassPrefi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.objcClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7p1N&\u{7f}Z^,<DU_\u{11}\u{e}u\u{2}*1\u{12}bs\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3\u{10}IKtF\u{1c}\u{7f}rsfF+m\u{13}'O\u{14}\u{19}pA\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35750,7 +35750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.of {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.of" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn`y8<R\u{6}}O@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0g:\u{3}NDt\u{19}o.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35758,7 +35758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.offset {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.offset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn`y\u{10}ng\u{18}\r(GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gzC\u{10}L=U7#\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35766,7 +35766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.offsetModel {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.offsetModel" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn`y\u{10}nw8,\u{5}V\u{7}j\u{6}/4K*C\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3 .\u{2}T^\u{5}\u{1a}Ks\u{3}*~\u{b}@\"d\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35774,15 +35774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ofTagWithField
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ofTagWithFieldNumber" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7p>f)o8\u{16}~mZ\\RI\u{b}\u{1d}\u{15}@Q\u{6}EdFh>Ch\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OneOf_Kind" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnxcYwf\u{13}Ik!\\\u{18}1BCZ\u{1b}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;3\0o\u{4}\u{18}\u{5}T]\u{7}LH\"\u{1}%fw\u{15}$+\u{19}5 \u{8}y<\u{10}\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35790,7 +35782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofDecl {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofDecl" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn`'\u{15}\u{2}JV\u{11}\u{5}\u{15}(\0\u{14},\u{16}\u{10}\u{19}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gzlw\u{19}~WfUD\u{14};B\u{1e}\u{1a}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35798,7 +35790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofIndex {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn`'\u{15}\u{2}J\u{18}X\u{19}1\u{1f}'5l\u{b}w\u{16}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gzlw\u{1a}T\u{15}2ci\u{11}\u{19}\u{8}xh\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35806,7 +35798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofOffset {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofOffset" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn`'\u{15}\u{2}\u{1a}{\u{15})axhD\u{1d}\u{7f}\u{4}Q\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3@X0\u{13}\u{1a}-\u{e}H\u{18}IS\u{1d}1\u{1d}P{\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35814,7 +35806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneofPresence 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OneofPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnxc=G#>\u{7}m7R\u{2}KdxaZim\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{b}F8i\u{1a}\r?\u{1a}%\u{7}*|`\u{1f}\u{1f}Y1-\u{15}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35822,7 +35814,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofs {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.oneofs" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn`'\u{15}\u{2}zRQzGB\0z\n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0gzlw\u{19}\0mp.N*Qh\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OneOf_Kind {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OneOf_Kind" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7q\u{7f}fx(w]i\u{14}\n=m\r\u{12}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35830,7 +35830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.optimizeFor {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.optimizeFor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn`9mj%\n5\u{19}}$;Itu9\tp\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3`|\u{5})\0\u{13}.\tv\u{12}X\u{3}\rcG>\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35838,7 +35838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OptimizeMode {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OptimizeMode" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnx}\u{11}+\u{13}B[h\\\nt\u{7f}\u{16}Ijn`x\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{b}&>Tz_\tyaMxO[RA\u{7f}p\u{8}\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35846,7 +35846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.optionDependen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.optionDependency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7p\\6yz#\u{2}e\u{5}aN_O\u{f}\u{1b}Y\u{1e}\u{1b}N\u{6}b\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3`|E*\"3`\u{13}#0\u{5}b`\u{17}\u{7f}HKW!\u{7}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35854,7 +35854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OptionRetentio
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OptionRetention" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7|~HYy+,U\u{16}\u{14}G3>}\u{7}=IK\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{b}&>T}\u{15}qP\u{14}cA`lJ^\u{8}\u{5}EB#\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35862,7 +35862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.options {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.options" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn`9mre'm't\u{7}eU]B4\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0gZ}+\u{3}kU&A\u{4}k\u{e}\u{19}n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35870,7 +35870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.OptionTargetTy
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.OptionTargetType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7|~HYy+\u{e}-T;AN6u3!PY\u{5} r\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{b}&>T}\u{15}[\u{5}\u{1d}k_\u{1}\u{7}kVF\u{15}tQn+\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35878,7 +35878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.other {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.other" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn`Oq8OkW]Q@%/\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w:\u{11}\u{1a}\n<eK-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35886,7 +35886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.out {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.out" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn`UI\u{1b}Y#+\u{3}\u{c}Uq\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w:WBV`VM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35894,7 +35894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.output {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.output" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn`U-[j\u{17}oP\u{e}q>{\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w:\u{17}*Z\"o>\u{13}\u{8},O*\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35902,7 +35902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.outputType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.outputType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn`U-[*\u{18}\u{18}Zi\u{14}Y3\u{c}nQ9\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w:\u{17}*ZRojn\u{16}g\u{2}=<k\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35910,7 +35910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.overridableFea
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.overridableFeatures" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7plJbFSqlN'<|g\u{2}\u{b}\u{19}WzV(\u{16}+Y1\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;; DAgJ]5\u{11};\\\u{19}8s\u{b}cF\u{19}'n[Fyk\u{c}\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35918,7 +35918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ownerSchema {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ownerSchema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn`_-VsNb~lUc\u{1b}\u{1b}P\u{b}fk\u{15}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;;Pec\"%\u{5}[TAM\u{17}?K4O#\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35926,7 +35926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.p {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.p" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn`y's'zjBc\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\07{,^\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35934,7 +35934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.package {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.package" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna\u{5} P{[}$F\u{4}n(\u{1a}S\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07\u{1b}7x\u{14}\u{14}F1WN.g5\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35942,7 +35942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packed {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.packed" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cna\u{5} h\u{1b}\u{7}0(f\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07\u{1b}7x$z)\u{7f}V\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35950,7 +35950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.padding {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.padding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna\u{5}D84h9%\u{7f}ZA*TV\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07;w\u{16}<h1L`3A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35958,7 +35958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parse {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parse" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cna\u{5}\u{4}]<\\\u{3}\u{5}\u{1e}|n\u{1f}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07;x\u{19}zK~K-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35966,7 +35966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseDuration 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parseDuration" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna\u{5}\u{4}e,\"(Ni\u{17}0G%\u{1c}Gy'h\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KPK}eMH[~/B\u{18}Zihv>\t\u{1c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35974,7 +35974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseJSONBuffe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parseJSONBuffer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp\u{2}B2f1I \u{1}\u{1a}\u{18}' Zqsz\u{3}\u{11}\u{6}\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;KPK}em\\#\"\r\u{13}X8HcQ5\u{15}\u{4}\u{f}\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35982,7 +35982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parseTimestamp
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.parseTimestamp" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna\u{5}\u{4}eLE'4\u{4}\u{f}\u{10}\u{f}\nu\u{5}uT\0\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KPK}e$Yd{-K\u{2}\\`\u{19}z\u{16}\n\u{19}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35990,7 +35990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.partial {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.partial" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna\u{5}\u{4}m~Ba\u{4}n5~\u{16}g!\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07;8\u{1a}a\r}BL=A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -35998,7 +35998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.path {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.path" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cna\u{5}L]\u{14}n\nG{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07;xX\u{16}R{X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36006,7 +36006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.paths {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.paths" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cna\u{5}L5S\u{8}\u{1d}Mm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07;8X\u{4}\u{b}EI-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36014,7 +36014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.perform {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.perform" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna\u{1b}\u{18}w/;Hb\u{11}a~\u{6}%\u{15};\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G{L]@%$dC=A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36022,7 +36022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.performNontriv
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.performNontrivialExtensionOperation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{8};f\u{e}Ow\u{6}\u{12}5/L-+2C*LPUAEZLi\u{8}\u{1f}>1\u{7}3\u{11}t<]QB\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2\nhIoT\u{13}0YR'dIk\u{14}$M]dQ\u{c}\u{b}&~%\u{12}\u{7}\u{15}\u{17}{?U~\u{b}\u{f}\u{13}\u{5}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36030,7 +36030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.performNontriv
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.performNontrivialFieldOperation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cna\u{1b}\u{18}w/[\u{7}f\u{1}_qm(\u{2}7\n\u{e}Oho7!\u{1f}[(X\u{1c}\r@%l!B\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aF<nOoT\u{13}0YR'dIk\u{14}$\u{11}\u{6}!>\u{12}Js*\u{18}8D'\u{5}tj\u{1e}M4\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36038,7 +36038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.performOnMapEn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.performOnMapEntry" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp\rL{W}#\u{5}!\u{10}o~\u{e}s\u{e}E>'aeV\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;KppXT\u{13}0%\u{1f}q@`\u{1d}tcg\\h\u{b}npf\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36046,7 +36046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.performOnRawEn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.performOnRawEnumValues" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wp\rL{W}#\u{5}*\u{8}\u{19}\u{1c}\0x\tv\u{7f}xwlq\0.\u{10}\u{8}l\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;KppXT\u{13}0%Odd?@`q=8v%~xjeP\u{10}&\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36054,7 +36054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.performOnSubme
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.performOnSubmessageStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp\rL{W}#E+/PHO\tm\u{8}hik03U\"d\u{c}\u{c}\u{1f}\u{16}`\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0G{L]@%\\c(Q >DQ@fC\u{11}\u{1}KeVF2\r+K2`\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36062,7 +36062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.phpClassPrefix
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.phpClassPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna-\u{18}\u{12}\u{f}1'e\u{5}}V#Q\u{16}W|~\u{17}\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K`4K\u{c}?W\tVW!nkO!{d\u{f}\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36070,7 +36070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.phpMetadataNam
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.phpMetadataNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wp\u{16}\u{12}\tM^<N*:\u{7f}o\u{6}T!\u{16}/\u{1c}SZ\n\u{1b}y,\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;K`TM>\u{1f}\n}\u{13}?Lj\u{3}9\u{5}EU\u{c}\u{2}\u{1}df\u{12}l_\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36078,7 +36078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.phpNamespace {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.phpNamespace" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna-$\u{12}Nij22'Wj@4\u{2}k\u{1a}7\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K`t\r-U\u{2}\u{f}7H\u{4}P\u{12}\u{19}U\u{1b}U\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36086,7 +36086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pointer {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnaSD]1e\u{10}8Jm|\u{14}Jy\u{16}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G{?&!c[ZJJUEy2\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36094,7 +36094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pointerWidth32
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pointerWidth32" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnaSD]1EPEOOM')y95*b$\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KP=$\u{18}.E\u{7f}}\u{14}<#ru-rb%\u{1f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36102,7 +36102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pointerWidth64
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pointerWidth64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnaSD]1EPEOOQOc\u{14}6Y*b$\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KP=$\u{18}.E\u{7f}}\u{14}|#Z\n\u{10}'ai\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36110,7 +36110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.populatedOneof
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.populatedOneofMember" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wp*\u{2}\u{18}:G(p=\u{1f}\\\u{1b}1OY\u{1b}5/H\u{12}r?\u{c}\u{1c}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;K`}+u\u{1d}\u{1f}\u{16}-`B\u{1e}-\u{6}6\u{3}S<V\u{18}\u{8}9>\u{1c}\u{1b}J\u{1e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36118,7 +36118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pos {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pos" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnaU(Ac\u{2}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W[\0Vn\u{2}uJhW]\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36126,7 +36126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.positiveIntVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.positiveIntValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp*DL\u{1a}\u{7f}5}9\u{3}UQ5\u{13}\u{1}\u{14}'[&F\u{6}\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;Kp]I]\u{19}\rO}fj\u{f}}R\u{15}>wU0;r.\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36134,7 +36134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.possibleWKTVal
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.possibleWKTValueJSON" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wp*F0V<Q`7%w]p\u{15}i('.\\B\u{18}\t)\u{b}W\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;Kp}Jo+tCH\u{14}sC1T2l(Q\u{1f}]\u{1e}9\u{7}p'/\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36142,7 +36142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.prefix {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.prefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnaiD&BvCW\u{8}\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W\u{1b}Te\u{1e}F7_R\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36150,7 +36150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.presence {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.presence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnaiH^\u{7f}\\CY.<)\u{10}e\u{5}\u{7f}.\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W\u{1b}Tkl;0|]\u{19}d{TG\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36158,7 +36158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.preserveProtoF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.preserveProtoFieldNames" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp4$o//>(=\u{3}I=O3 vg\u{13}'`Q\u{10}\u{5}w\u{17}+l<\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W\u{1b}Tkl\u{7f}mmO\u{2}y>%\u{1c}To\u{6}4-[K>oq\u{17}#1\u{1c}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36166,7 +36166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.printUnknownFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.printUnknownFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp4p\u{f}qV\0\tE1]W307\u{4}nd8\u{1c}N\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;Sp\u{2}A:\u{b}WsjI\u{7f}v\u{f}fq\u{8}C`O\n\u{3}\u{1c}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36174,135 +36174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.proto3Optional
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.proto3Optional" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnakH91\u{1c}cSq\u{1}1Z1\n5\u{8}vT\u{2}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnakH9\u{1}GR-3U \u{12}bsZ\0\u{8}TI\u{1e}\\C\u{13}y\u{8}5\u{11}\u{14}/.\u{b},f\u{1}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_enumSchemaString" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#iVY*~IM[f\u{11}}N\u{5}\u{8}4\u{1e}GdSr\u{4}mS\u{4}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorage" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#iVY\u{b}1rp\t/a5;\u{1b}j?/K\u{1c}ja\u{13}\u{19}1\u{3}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnakH9\u{1}GR-3\u{17}bda\u{13}^Bkv6T/?D>heH.*\u{13}X\u{11}V\u{1}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapEntrySchema {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_mapEntrySchema" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#i\u{16}b?9eR\u{1}t~x\u{13}#\u{14}tskA~\u{15}IL\u{2}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageSchemaString" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CnakH9\u{1}GR-D=W0)\nBiIR*Qj5]\u{19}>7;m\u{16}y\u{1a}:T\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageStorage" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#i\u{16}b^+X\u{14}\u{5}!9p\u{15}+(J@\u{c}.\u{1}F\\5\u{5}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_package {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_package" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp5d\\@#i\u{16}gE\u{13}zd5\u{3}B9P\0$=\u{5}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0b\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp}5@\u{1c}\u{13}#N*\u{11}QT~\u{1f}\u{11}x:|Kg2/\u{3}/joceL-\u{19}\u{10}4\u{2}x\u{7}zhul39Hc{'R\u{17}\u{12}\u{12}S\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnMapEntry {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnMapEntry" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#iVg\u{5}x0P?~@x\u{19}L^\u{f}crvVOk8\u{8}\u{5}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnakH9\u{1}GR-O\u{b}pa \u{7f}<\u{3}@V1\u{4}zg\u{1a}.\u{1e}-\u{13}\u{13}o\tO/[$\u{1}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{8}b~\u{1f}\u{11}x:|Kg2/\u{3}o+\u{e}\n\u{4}-Wux1W3U\u{1a}a aIS\u{1c}\u{6}T\u{c}\u{7}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_reflectionData" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wp5d\\@#i\u{16}j\u{7f}w\u{6}Usxn+\t(\u{17}/`yxXa\u{1}y\u{3}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7CnakH9\u{1}GR-_i\u{19}Ex<\u{13}\u{7f})OOv_\u{7}\u{1f}N_\u{8}\\6\0\u{3}\"Tm\u{5}\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{8}b~\u{1f}\u{11}x:|SW)\u{1d};\\ 4k8rkj:1\u{7}<\tQ\"-Q^\u{7f}\u{1e}:\u{7f}U)\u{3}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2 {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersion_2" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk:?L\u{f}Fq\u{e}\u{2}\u{6}]CC\u{19}\u{10}\"P\u{17}r\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4vI\u{1a}G\n04^I\\VQaG\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36310,7 +36182,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVer
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!w|yqW)Jk:?L\u{f}Fq\u{e}\u{2}\u{6}/2CW\u{12}\u{13}q4\n\u{2}\u{16}\u{12}{\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w\u{12}\"qz\u{2}\u{1d}6+Ytz.\u{18}c*-T{c\u{5}-\u{11}`\u{15}H\u{e}\u{18}\u{4}\0\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2 {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufAPIVersion_2" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}kSwqC\u{2}VX\u{1e}\u{1d}O`mqm\u{1c}!s\u{1a}\u{13}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36318,7 +36198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobufBytes 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobufBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnakH9\u{1}G\u{12})d.{|':H}\n\0\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f.=<(Xiz\u{18}t.'\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36326,7 +36206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobufData {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobufData" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnakH9\u{1}G\u{12})j+Rl7[Yh1\u{11}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spb4u\u{8}f65VE^W;\u{14}Nsm\u{16}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36334,7 +36214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapBoo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapBoolField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k\u{1}t\u{c}(^\u{5}x>2t\u{18}-b\u{3}_\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}m\u{1b}UF\u{16}^k1>\u{1e}P\u{11}[5p#/\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36342,7 +36222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapDat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapDataField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k#|\u{18}{:){%:\u{18}} \u{13}#9\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}m\u{1b}!\u{10}\rCiB1aY!Fh\\SG\u{10}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36350,7 +36230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapDou
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapDoubleField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k%h\u{1f}t?\u{10}68=\r}wCk\u{16}\u{3}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}m;b*\u{18}$:\u{13}bBu6\u{18}f\u{5}8(\u{17}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36358,7 +36238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapEnu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapEnumField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k;$?\u{4}u\u{14}#~Ijh\n\u{14}]|D\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}m\u{1b}*Sw\u{4}~))6{^\u{16}+\u{b}?W\u{7}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36366,7 +36246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapFlo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapFloatField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k]00\u{19}uAC!H\tE\u{1c}i\"T\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}m{5\u{18}DVt6#\u{10}\u{7f}3\u{8}vJh$\u{11}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36374,7 +36254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapInt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapInt32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k\u{13}\u{5}V(\u{c}((<`m:\u{7}\u{b}F\tP\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}}[\ti!-Glk$vA~\u{1a}\u{14}\r#D\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36382,7 +36262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapInt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapInt64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k\u{13}\u{5}\u{e}9w\u{2}2&\u{11}\0\u{10}\u{c}R\u{e}?X\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}}[\ti0EZ\riDva~\u{1a}\u{14}\r#D\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36390,7 +36270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapKey
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapKey" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnysc/S\u{14}Ww}Vo\"`QO>qRP\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}}\u{1b}VAJ9\u{8}Z8M\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36398,7 +36278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapMes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapMessageField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!w|yqW)Jk{>k]]!c\\g%W\u{1e}Wy\u{19} \0?\u{11}\u{f}!x\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w\u{12}\"qz\u{2}\u{1d}~<,\u{3}\u{18}9Nb2\u{e}\u{18}p\u{16}\u{6}r\r%+%\u{1e}=t\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36406,7 +36286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapPar
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapParticipant" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k[zh]\u{17}f7\u{f}wFl~\u{2}jq\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}\r\u{1c}\u{11}G/4:e(\u{c}\u{e}t)\u{1d}\u{1c}NJ\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36414,7 +36294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapStr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapStringField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>k)\u{7f}Al{oQe\u{1c}:5L?y\u{12}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}\r\u{1c}mpCM\u{1b}PP\u{1d}\u{7}\u{1a}P\0R^\u{1}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36422,7 +36302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapUIn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapUInt32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>kQKShW\u{1}d[l98N- )H\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}\r\\{i\u{15}M\u{8}Z\u{15}eE>\u{6}-y\u{14}SN\u{14}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36430,7 +36310,127 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtobufMapUIn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ProtobufMapUInt64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w|yqW)Jk{>kQKS8z\t\u{13}(n\u{4}Zz\u{12}\u{1}5*\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;;v\u{11}\0UQ\u{1}\u{1b}\u{14}\r\\{i\u{15}\u{1f}\t\u{17}4mE>\u{6}-y\u{14}SN\u{14}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_ensureUniqueStorage" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ]<\ns\u{2}Mj\u{4}\u{3}t=,b||f\u{3}a`&0fN\u{e}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_enumSchemaString {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_enumSchemaString" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;dQ}<)\u{12}\u{f}['':\u{10}J1T\u{7}ick2Wx\u{8}\u{2}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorage {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorage" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;d\u{1}\u{1e}KD;50\u{1a}\u{f}\u{18}W^V\u{1a}\u{13}i\u{1b}0>4,\0\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_extensionStorageImpl" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;d\u{1}\u{1e}KD;50\u{1a}\u{f}\u{18}W^V0'\u{1d})wq6n\u{14}wA\n\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_mapEntrySchema {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_mapEntrySchema" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;lq*!S2x\u{8} Pn%1cNt*?{5=\u{1e}\u{1}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageSchemaString {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageSchemaString" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}@V\u{b}u\u{b}a)_|DZi`o\u{14}a#m\u{b}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_messageStorage {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_messageStorage" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{1}+N[p\u{1f}D>Q7Y&'\u{f}\n)W\u{1d}Ht\0\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_package {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_package" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;Spb4u\u{8}f\"\u{e}}\u{c}9\u{1c}{\u{7}\u{7}wj4\u{7f}C\u{e}\u{1}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0b\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performNontrivialFieldOperation" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\0\0\0P\u{12}.3uKx\u{18}8 S/\u{c}a2\nx[\u{b}u\u{8}f&\u{e}mUJ=`\n/9$\u{15}\u{13}iNW ZiUn\u{10}#:\u{8}}\u{18}ZNc,\u{1b}P\u{6}\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnMapEntry {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnMapEntry" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;lQR\u{8}?zzwUW\u{e}\u{13}\u{19}5\u{1b}N\u{17}\u{19},hZ$\u{1}\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnRawEnumValues" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f&\u{e}mUJ=`DW5u0\u{1f}F/3L\u{13}h\tT\u{18}$(O92\u{13}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_performOnSubmessageStorage" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2\nx[\u{b}u\u{8}f&\u{e}mUJ=`D[\u{1d}##C]I,\u{2}BoY|W)S\u{16}Y\u{1e}{\u{18}v\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_reflectionData {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_reflectionData" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?v(;l\u{11}\u{17}AU:<{S3KZfDtS\u{17}yy_\u{4}0\u{1}\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Y\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorage" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aFD~A\u{b}u\u{8}f*\u{1e}\0ecXY2\u{10}Im|\u{f}4,\r\tT<r0\u{1}KB#k\u{8}\0\0" }
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl {
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0]\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protobuf_uniqueExtensionStorageImpl" }
+  @_alwaysEmitIntoClient @inline(__always)
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2\nx[\u{b}u\u{8}f*\u{1e}\0ecXX\u{c}{\u{3}b<\u{11}ttyV>(\r}xRJ\u{5}U;i3S#\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36438,7 +36438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protocolEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protocol" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnakH9!'$.G\u{1e}_e\u{b}3s]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?vF/M\u{2}U|3\u{f}c.\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36446,7 +36446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protoMessageNa
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protoMessageName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp5d\\@*\u{c}^|)a\u{5}u\u{11}C\u{3}q\u{8}L\u{7}\u{3}\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;Spbtu|(;Yy}\u{18}=K;\\7.\u{f}6\u{17}Y\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36454,7 +36454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protoPaths {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.protoPaths" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnakH9qV\u{7f}P(\u{b}\u{1a}o\u{13}\u{6}T[\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W{\u{14}?zB@\u{19}qIl-\u{1b}\u{1b}i\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36462,7 +36462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.publicEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.public" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cna{(Q\nB\0\u{10}p\neT\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W;#z]\u{10}F;R\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36470,7 +36470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.publicDependen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.publicDependency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp=T(\u{5}Q\u{12}}\u{1c}\u{7}0\\b+\t3\u{f}c%<r\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;SPfJr:>\u{2}ks\u{1d}YB\u{4}v\u{18}\u{7}\u{c}r=NQ\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36478,7 +36478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putBoolValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putBoolValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}'e~E]EP{\r\"*zh1\u{11}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Sp&.op}OW$\u{6}6J#_e.\u{1b}\u{18}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36486,7 +36486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putBytesValue 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putBytesValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}W\u{5}H7\u{e}B(2\u{6}\u{7}\u{10}\t|\u{6}/\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Sp&.xs!\u{8}A?\r`mQ(uUf\u{f}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36494,7 +36494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putDoubleValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putDoubleValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}'ydU%`\u{18}~*\\q>z\u{19}+\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;SpFn]\u{3}Ch\\d K912k\\\u{4}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36502,7 +36502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putEnumValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putEnumValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}OkP*i#\u{12}\u{1b}\u{14}\\\nm\u{11}Or\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spfn\u{1e}r$u\u{11}-1'I0{IdO\u{18}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36510,7 +36510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putFixedUInt32
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putFixedUInt32" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}\u{7}\u{7f}\u{e}_M<#\u{10}b$A\u{e}d7`X\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spfn~r7\u{12}\u{3}hh0Hd_JZ8M\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36518,7 +36518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putFixedUInt64
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putFixedUInt64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}\u{7}\u{7f}\u{e}_M<#\u{10}ryn<x74\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spfn~r7\u{12}\u{3}h\u{8}1<nt&1c\u{18}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36526,7 +36526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putFloatValue 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putFloatValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{4}\u{f}osc)\u{5}2o\u{1e}~vVX`\u{4}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Sp\u{6}o\0`[\u{8}H\u{19}+J\u{13}(^PaG\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36534,7 +36534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putInt64 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putInt64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna{\u{8}\u{f}\u{5}F//:\u{1}\u{e}P\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W{$\t\u{1d}d0\u{1a}K$3:XnH\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36542,7 +36542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putStringValue
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putStringValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{c}w~Q=?Q<\u{3}X#\u{6}\u{15}jO0\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;SpF0y\u{b}DG6\u{e}\u{1a}4T/,x$\r\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36550,7 +36550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putUInt64 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putUInt64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna{\u{10}'c{V\u{e}F+N\u{7f}\u{8}\u{2}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W{d\u{f}?\u{16}pEJ}9\u{15}`s\u{8}\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36558,7 +36558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putUInt64Hex {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putUInt64Hex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cna{\u{10}'c{V\u{e}o\u{5}N\u{7f}\u{8}\u{1a}*\n\r\\\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;Spf0sW_)\u{13}b>qUD}(\u{1d}\u{b}\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36566,7 +36566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putVarInt {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putVarInt" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cna{\u{10}/t\"%sm\u{15}ch'=B\u{17}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W{d\u{f}2\u{f}\u{2}_\u{2}\u{1f}\u{17}\u{14}6s\u{13}\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36574,7 +36574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.putZigZagVarIn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.putZigZagVarInt" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wp=H\u{1b}~8n'\u{1f}\u{2}n8I[fhX\u{1c}\u{8}w\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;Sp&1rth\u{13}C$\u{18}J.\u{1a}x\u{10}l\u{3}Luf\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36582,7 +36582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.pyGenericServi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.pyGenericServices" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wpIfn|k`ldR%>X,Z1T\r\u{1e}Yu\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;S0\u{c}H\u{c}l2&L^\u{6}2r gg3rWKk0\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36590,7 +36590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.R {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.R" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn{U%\u{7f}7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\u{8}'4\u{1a}\u{e}\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36598,7 +36598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rangeDecoder {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rangeDecoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnbSb2ic1\u{8}>I#l5V\u{6}\u{1d}\u{14}%\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{\u{10}\u{13}\u{7}[xI\\`\u{b}m\u{1d}\u{3}\u{10}1\u{19}D\u{7f}\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36606,7 +36606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rawBufferPoint
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rawBufferPointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7q)u*#NIE\ru`\u{6}$\u{e}DvLT\u{2}(\u{e}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{ S^g\u{6}\tF\u{10}w<\u{7f}T\"5]\u{1a}\u{1f}A&\u{1a}\u{18}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36614,7 +36614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rawChars {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rawChars" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbSj%Xx\t3?\u{f}NI0tX \0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=Sr`t\u{b}s\u{1a}Y\u{17}\u{f}>\tc\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36622,7 +36622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RawEnumValuesP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.RawEnumValuesPerformer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!w}q\u{12}9a4^5F`_FN0_vtz\u{b}GRr\u{4}j1\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;k6c8ZzWE*_(\u{19}Xve\u{1b}r\u{15}\u{b}\u{c}i^s-;H\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36630,7 +36630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rawFieldType {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rawFieldType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnbSn\u{1d}`oZ\u{b}\u{e}\u{16}O\u{4}\u{11}D\u{11}\u{5}\u{7}#\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ \u{13}\u{1f}r(\u{b}\u{1c}\u{f}jj\u{1b}\u{e}HE*q[\u{1c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36638,7 +36638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rawPresence {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rawPresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnbSr\r*TZx2\t6\u{11}t\u{1a}\u{3}\u{1f}\u{7}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ S`Dl\u{f}\u{3}_\u{e}\u{5}\u{f}zu\u{1f}xq\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36646,7 +36646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RawRepresentab
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.RawRepresentable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w}q\u{16}}9{>f|WJtmX7v@Ov\u{10}\u{e}\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;k6Czv\u{1a}\r\u{4}Z!0Ga;\u{5}\u{10}bf\u{18}9_U\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36654,7 +36654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rawValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rawValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbSv=u[#\u{1d}\u{1}+p\t\u{14}*Vw\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=S|\u{6}.\u{4}0DRz\u{13}\u{b}4\u{2}\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36662,7 +36662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.read4HexDigits
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.read4HexDigits" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnbij\u{18}&qf\u{1}Am N^TR;\u{2}'c\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{\0X,p[`\u{11}|`C\u{15}dH~:\u{1d}i\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36670,7 +36670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.readBytes {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.readBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnbij(%*t\n^\u{f}UzX%2n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}]&\u{4}KK\u{1c}e &\r>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36678,7 +36678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.reader {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.reader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnbijX\u{4}\tv0m\u{11}MU\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}]&\u{4}\u{7}!D/$&\u{4}V\u{c}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36686,7 +36686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.recursionBudge
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.recursionBudget" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7q4_\u{18}\u{1d}M\u{1c}L]\u{17}\u{1b}\\;*8u\u{4}u~M\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{\0X\u{7f}h:M\u{19})$\u{1e}(PHpX\tzp\u{7}2\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36694,7 +36694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.reflection {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.reflection" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbiR\nF\u{11}d3Xl3YCS\u{1}*\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}&SD#{q\u{c}n?10\u{1f} \u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36702,7 +36702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ReflectionTabl
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.ReflectionTable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w}{X\u{7}c\u{8}Q\0\u{1b}\"qr%\u{16}\u{3}U\u{12}SZc\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;k6\u{8}\u{3}<|a0/ \nx\u{7}BPTu4*%t\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36710,7 +36710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.register {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.register" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbivJ(L?\00\u{f}\u{4}-C\u{3}0@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}&t&Rl9\u{16} u\u{f}4U\u{1b}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36718,7 +36718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.release {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.release" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnbi2|3<r\u{15}\u{17}(7\u{e}\u{5}y8\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=g\u{1a}\u{14}uK\u{13}\u{e}J\u{3}h)\n\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36726,7 +36726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removalError {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.removalError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnbi^\u{1c}T`91B*DC\u{17}Ur]\u{7f}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ 8\\y+\u{1a}q4T\u{1}?kRO\u{7}_\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36734,7 +36734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.remove {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.remove" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnbi^\u{1c}$!}3]\u{8}\u{1c}V\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=gA_\u{7}nu+\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36742,7 +36742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.removingAllFie
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.removingAllFieldsOf" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7q4/\u{e}\n\u{1}\u{18})\u{7f}\"\u{15}A\u{13},D)IV\u{16}b\t\u{6}'3\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{ 8\\yRB\u{6}\u{8}6)\u{e}'\u{1}X6iB-c\u{1b}ls\u{1e}o\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36750,7 +36750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeated {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.repeated" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbiJe#T\u{14}H\u{1c}\u{13}\tXz;7$\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}]'\"\u{1d}\u{17}y\taXy{TG\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36758,7 +36758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFieldE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.repeatedFieldEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7q4er\u{11}*\n[>:r\u{1}kNp@mX,\u{10}\u{f}@\u{1e}\u{1b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{ XtXT+X0\\`Q=\u{19}uO\n\u{1a}#:1nH);!\u{1a}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36766,7 +36766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeating {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.repeating" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbiJe#\u{14}!`t\u{14}r>\t\u{10}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}]'\"\u{1d}\u{19}\u{5}4><?>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36774,7 +36774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.replaceRepeate
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.replaceRepeatedFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7q4gbaRoVR[\u{8}o\u{1d}$\u{4}\u{19}t\u{18}l\u{7f}\u{4}\"<'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{ Xu\u{f}v9@\u{8}\u{1e}Hl\"\u{b}<wH_e\u{8}lX\u{2}2B\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36782,7 +36782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.requestStreami
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.requestStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7q4}R\u{10}h\u{1e}%?J5Kw`\u{1c}\u{3}<O\u{2}T\u{b}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{ \u{18}\u{7f}r46k\u{19}\u{7}|i)a\u{13}/\u{1d}x\u{10}0\tE\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36790,7 +36790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.requestTypeURL
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.requestTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnbiz%!P}X1\"\u{17}\u{11}\u{5}\u{1b}dI\u{13}r\u{14}\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ \u{18}\u{7f}r46StOR:<Tn\u{18}\u{17}I\u{14}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36798,7 +36798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.requiredCount 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.requiredCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnbiz5a,\u{14}0_Ya37\u{1c}\0\0\u{13}\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ \u{18}\u{7f}u$)\u{13}\u{2}\u{3}\u{10}DC\u{12}\u{f}\u{1}\r`\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36806,7 +36806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.requiredSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.requiredSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnbiz5a,T6C\u{11}#\u{13}#-\u{12}A%\u{18}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{ \u{18}\u{7f}u$)/3\u{1f}?FWwx\u{1}f\u{19}\u{12}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36814,7 +36814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.responseStream
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.responseStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7q43g-\u{5}%f\u{b}3^-%)\u{10}~\n'\u{13}=h\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{0x\u{17}|]\u{1c}x\u{18}\078\r_\n\u{7f}\u{8}~Ux2l\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36822,7 +36822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.responseTypeUR
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.responseTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7q43g-\u{5}%&cG/(V\u{3}C3]\u{12}5*\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{0x\u{17}|]\u{1c}\0\u{1}\"\u{15}Z6xZBu\0\u{12}]\u{3}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36830,7 +36830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.result {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.result" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnbij.YE}N\"\u{4}r\u{11}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}'2\u{b}P\u{f};_\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36838,7 +36838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.retention {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.retention" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnbi\u{6}'\u{c}6Dp;\u{2}\n\u{8}a}[^\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}gK9I+\nd0\u{15}w\u{11}-\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36846,7 +36846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rethrowsEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rethrows" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnbi\noct\u{14}/\u{1a}trQhW?Y\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}}gM\u{4}\u{c}0pLk\u{5}\u{7}<\0#\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36854,7 +36854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.revision {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.revision" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnbiVgU(\u{14}\u{17}l@\u{e}P\u{8}3N3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{1d}h\u{11}h4yp7}K#\u{15}\u{3}\n\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36862,7 +36862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rhs {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rhs" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnb{VRn\"hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}=7?\u{8}aVM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36870,7 +36870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.root {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.root" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnb![^\u{13}n\u{6}tx\u{1a}_\u{4}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{17}\u{1d}[*\u{7f}S/Wz76\u{e}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36878,7 +36878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.rubyPackage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.rubyPackage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnbIS\u{18}\t[hU=7D2JF\u{19}K\u{17}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}\u{11}\u{e}BHpj!O=+#\u{6}\u{11}\u{11}J\u{16}\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36886,7 +36886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.S {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.S" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn|}tz7;a$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}Ugc\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36894,7 +36894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawBackslash {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawBackslash" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc{9\u{11}&`\u{7}\u{4}[G\u{8}cr\u{1b}_\u{1c}}A\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{1}7YXJ.=QL\u{1}\u{4}rZ,F!9\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36902,7 +36902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawEndGroup {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawEndGroup" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc{9a\u{c}\\\u{1d}!\u{14}/%}El0\u{16}\u{18}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{1}wY\u{12}CX\u{5}S%.dMZ\u{1e}\u{17}Q\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36910,7 +36910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection4Cha
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawSection4Characters" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq}`l_\u{10}\u{18}'\u{1f}*eVY\u{1}}MEP+`S\u{12}\u{7f}AE\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{1}W\u{1b}a}XNp\u{8}xj''\u{1f}U.PL\u{1}\n\u{2}o(yC\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36918,7 +36918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sawSection5Cha
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sawSection5Characters" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq}`l_\u{10}\u{18}'\u{1f}-\u{13}8\u{c}0k|^s\t*\u{4}hD\u{8}f\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{1}W\u{1b}a}XNpX\u{18}Ig'\u{1f}U.PL\u{1}\n\u{2}o(yC\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36926,7 +36926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Scalar {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Scalar" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|\u{13}\r\u{c}^@DXGB\0z\n\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{15}<=l/R'}.\u{13}r\u{16}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36934,7 +36934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scalarStride {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.scalarStride" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{3}.\u{f}n`6i\u{14}\u{b}Yl=d,439\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}y9a\u{13}6j\u{5}(CA3:\u{11}{A:\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36942,7 +36942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scan {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.scan" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc\u{3}2o#S\u{1b}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g]i9n.\"Z$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36950,7 +36950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scanArray {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.scanArray" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{3}2g\u{2}\u{6}_7k)s$c9M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g])9uOE\u{c}{m3|U\u{11}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36958,7 +36958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scanner {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.scanner" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{3}27bbj?TZAb{A\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g])9L\u{17}``pK.g5\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36966,7 +36966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.scanPossibleAr
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.scanPossibleArray" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq\u{1}YOi\rpe|\u{19}K9C\u{6}[W<)f:a\u{6}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}\u{11}\u{19}zp\u{6}\u{17}U'\"d{5\u{2}_gl}zj\u{f}>\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36974,7 +36974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.schema {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.schema" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc\u{5}Z\u{19}nW$F DJ\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}*DH0YrW\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36982,7 +36982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.schemaForMapEn
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0[\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.schemaForMapEntryWithScalarValues" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t5;f\u{6}7Cnc\u{5}Z\u{19}~w\u{c}R;Pu~yf5*:;FKC}\u{13}\u{5}|gC\u{4}!tv\u{1f}?\u{1b}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]Kx\u{18}8 S/\u{c}aF\u{4}/xS<2A\u{1a}\u{1c}\u{13}7V\u{3}r\u{b}tw<|7=\0>gh17\u{1}>9Y\u{1e}El\\,\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -36990,15 +36990,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.seconds {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.seconds" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{f}\n=,?Ds\u{18}H}\u{16}g!\u{6}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}t\"mFA?|9A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SelfEnum {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.selfEnum {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Self" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.self" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|\u{1f}a\\I4\u{18}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g]tq\u{11}h\u{8}_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37006,7 +37006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.semantic {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.semantic" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{11}&0$\nX\t1'h.$\u{e}gX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g}t\u{10}\u{e}<m\u{10}y\u{f}R\u{13}mu\\\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37014,7 +37014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SendableEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Sendable" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn|\u{1f}-m14\u{10}\t%A:\u{1}'XH3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}5G86v\u{1}\u{7}(\u{b}]#\u{15}\u{3}\n\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37022,7 +37022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Sequence {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Sequence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn|\u{1f}%&O{|Y.<)\u{10}e\u{5}\u{7f}.\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}U\u{7}&T\u{1}rx]\u{19}d{TG\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37030,7 +37030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serialize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serialize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{11}f9\r\\RT\u{1d}XS\u{1f}b=M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}u=d\u{1e}\u{1e}5Gp\u{f}|h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37038,7 +37038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeBoolF
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeBoolField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq\u{8}s\\\u{6}.)*5*dB\"T\u{c}2TF?\u{14}T\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"i\u{11}\u{16}mS^p)\u{1e}!e<W\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37046,7 +37046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeBytes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{11}f9\r\\RTjh)Yo/\u{1f}z\u{19}+\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"q\u{11}qv-8\u{16}'E\u{2}\u{16}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37054,7 +37054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeBytes
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeBytesField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*5tTtWgWj|:3[3\u{1d}];\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"q\u{11}q60\u{b}15\u{1f}(ds7\u{f}WF|\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37062,7 +37062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializedByte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializedBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq\u{8}s\\\u{6}.)*\u{15}4\u{f}<8\u{f}\0`^S\u{1e}_\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\u{1e}qEO@SoS/nLKn1\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37070,7 +37070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializedByte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializedBytesSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*\u{15}4\u{f}< \u{7f}\u{e}vOL~o\u{7} D\u{1e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\u{1e}qEO@Sh;\u{3}h7\u{13}Gaq$$\u{6}\u{e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37078,7 +37078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializedData
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializedData" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{11}f9\r\\RT*zn&lZgwBN\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\u{1e}q\u{15}sEd\u{b}\u{1f}\0\r`\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37086,7 +37086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeDoubl
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeDoubleField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*7)\0\r8\u{4}H^=\u{e}[!5'C-+\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"I\"\u{17}A.<xkDJc)%!}kz\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37094,7 +37094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializedSize
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializedSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{11}f9\r\\RT+nx\04,mP]q\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\u{1e}yU\u{1f}n:\u{18}Y!H\u{15}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37102,7 +37102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeFixed
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeFixed32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)j9t\u{3}*SJ\u{7f})\u{6}V\u{5}iY`*\u{1e}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"Y\u{13}f\u{18}\u{c}\u{13}x[\u{1c}0\u{12}FS>]:5\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37110,7 +37110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeFixed
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeFixed64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)j9t\u{3}*k\u{1e}#gB<%XUai=\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"Y\u{13}f\u{18}\u{c}\u{19}U\u{4}K;\u{12}FS>]:5\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37118,7 +37118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeFloat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeFloatField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*:\u{e}LW9%m\u{19}\u{8}\u{14}ZR,\u{17}N\u{1c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"YsO\u{14}\n\u{8}%gV_ 2*%\u{4}W:\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37126,7 +37126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeInt32
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeInt32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*=\u{1c}nkF.R=\r\u{6}!\\\\\u{3}\n<\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"i4WlFNS$y:E\u{4}t\u{1e}6\u{1b}\u{19}\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37134,7 +37134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeInt64
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeInt64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*=\u{1c}p[}\u{19}?\u{e}+mw\u{18}jLF&\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"i4\u{17}-.b\u{13}J?xl;wK0~\u{16}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37142,7 +37142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeJSON 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeJSON" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{11}f9\r\\RT}\u{14}por9\u{2}g\u{8}\n\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"1eo\r1\\,;n(\u{1b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37150,7 +37150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializePacke
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializePackedFixedField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wq\u{8}s\\\u{6}.)jF\u{1d}\u{5}\u{1b}N\u{6}Fc)J>r;G\u{13}\u{1b}^\u{6}d@\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}u=d\u{1e}\u{1e}M'\u{4}l\u{14}z\t\u{16}\tFR#lhb(5q_Z6\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37158,7 +37158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializePacke
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializePackedVarintsField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cnc\u{11}f9\r\\RT\r;\n6<\rhQ\u{8}z`Sq&n\u{11}\u{7}\u{1d}\u{1e}#V\u{1}b0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}u=d\u{1e}\u{1e}M'\u{4}l\u{14}z!\u{1e}W3d\r\tp:|;:\u{f} H8>\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37166,7 +37166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeSFixe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeSFixed32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*J\u{14}cLLZkXlDw\u{5}Gx0-\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"iI\rb\u{18}n=\u{1}2WJ\u{c}O5\u{7}\u{10}\u{17}\r\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37174,7 +37174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeSFixe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeSFixed64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*J\u{14}cLT:Cb\u{1e}U#3L\u{1d}&?\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"iI\rb\u{18}o)\u{7}Ws\u{16}\nP\u{14}sQ~\u{6}\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37182,7 +37182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeSInt3
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeSInt32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*J&i\u{1b}E\u{1f}p\u{13}Caa7zg@\u{1c}?\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"i9\u{14}mj\u{15}(;}wd\u{c}Z+\tO;u\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37190,7 +37190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeSInt6
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeSInt64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*J&i'ug\u{1e}U\u{6}Q1ht_\u{1}%\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"i9\u{14}-mIr&\u{7f}wd\u{c}Z+\tO;u\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37198,7 +37198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeStrin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeStringField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*J?(/A0kGrm<y<Zy.R\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"aInO,DH\"b\u{15}P0Sj&0;J\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37206,7 +37206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeText 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeText" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc\u{11}f9\r\\RT\u{15}}\"t~\u{1b}\u{4}w(C\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"\u{1}Z\u{1f}ouJVyq.\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37214,7 +37214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeUInt3
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeUInt32Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*L$IKM\u{f}o\u{1b}Caa7zg@\u{1c}?\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"I*UOj\u{15}(;}wd\u{c}Z+\tO;u\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37222,7 +37222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serializeUInt6
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serializeUInt64Field" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{8}s\\\u{6}.)*L$IW}W\u{1d}u\u{6}JG.,1\u{1e}K\u{14}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{13}\u{11}|\0m]a\"I*U\u{f}mIr&\u{7f}wd\u{c}Z+\tO;u\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37230,7 +37230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.serverStreamin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.serverStreaming" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq\u{8}wL}c9\u{11}gH\u{14}xu\u{2}\u{5}k\u{1f}0\u{1c}\u{b}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{13}\u{11}\\\u{2}+\u{6}B_pv\u{2}s\u{c}*;c?V\"g;\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37238,7 +37238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.service {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.service" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnc\u{11}n)\u{b}bbuBY)xrG\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g\u{1d}5DZR\u{1}Q@M.g5\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37246,7 +37246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Set {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Set" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|\u{1f}1'j\u{2}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}u\u{7}\"%`VM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37254,7 +37254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.shift {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.shift" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc!f\u{2}\u{3}E\u{1}Fk$`>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w\u{1d}D\u{2}E\u{19}UI-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37262,7 +37262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.size {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.size" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc'VF}g%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w=\n7=\u{2}\u{18}xqjb\u{19}\\\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37270,7 +37270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Slice {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Slice" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|G9\u{11}u~\u{3}\u{5}\u{1e}|n\u{1f}\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\u{15}k.C?4H-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37278,7 +37278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sliceBySkippin
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sliceBySkippingField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wq\u{1b}-N\"Rbg\u{7}?3\u{16}JDX4\u{13}\u{1c}c\u{7}=i\nHu\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;\u{1b}\u{1}E\r=T-z\u{2}D& \rsy\u{14}z\u{6}[Sm;\\v\u{6}\u{3}\t\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37286,7 +37286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.some {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.some" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncIF\u{1}oo%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w=(*$#\u{18}X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37294,7 +37294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.source {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.source" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncIJ,\u{18}\u{11}'6f\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w\u{1d}i\u{2}t>({V\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37302,7 +37302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sourceCodeInfo
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sourceCodeInfo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CncIJ,(\u{11}KH\u{f}fXjO\u{1a}1x\u{f}\u{c}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}\u{11}i\u{b}y\u{13}\u{14}\u{b}]\u{b}#N2l\u{5}W\u{16}!\t\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37310,7 +37310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sourceContext 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sourceContext" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CncIJ,(\u{11}\u{b}J1\u{19}q4XG&|A\r\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}\u{11}i\u{b}y\u{13}\u{14}7}.%(X\u{18}\rw=+\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37318,7 +37318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sourceEncoding
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sourceEncoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CncIJ,(1Mdoa\u{19}X^k\u{2}zB*\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}\u{11}i\u{b}y\u{13}P?#'{w\u{8},\r9KC\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37326,7 +37326,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sourceFile {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sourceFile" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CncIJ,(1\u{f}\u{6}^|LfMS\u{1}*\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0w\u{1d}i\u{2}tF\\\u{1b}\u{b}Qc\u{5}P\u{5}\u{8}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37334,7 +37334,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SourceLocation
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SourceLocation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn|Y\u{5}10KT+\u{7}-l]jFbz\u{1b}>\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}'yewg\u{8}Yoj\u{14}(Cy\u{18}\u{b}?*\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37342,7 +37342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.span {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.span" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncMJD\u{7f} \"G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w]lj@\u{8}\u{8}_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37350,7 +37350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.spi {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.spi" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncM\u{1a}\u{1f} <hI\u{14}\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w=m\u{12}w\\\u{17}\u{7f}=i\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37358,7 +37358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.split {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.split" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncMjoYF^\rA}}/\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0w=-\\dEDK-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37366,7 +37366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.start {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.start" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnci2]rQ\u{7}gVK|'\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^F\u{8}CQ\r\u{1d}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37374,7 +37374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.startArray {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.startArray" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnci2]b\\\u{b}2\u{2}wr`%\u{15}YX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^F\u{8}EQ>\u{2}\u{c}yuD`fR\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37382,7 +37382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.startField {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.startField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnci2]R>'\u{6}nT*o\u{7}PnQ\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^F\u{8}F\u{1d}(\u{b}\u{7}m\r!P\u{5}\u{8}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37390,7 +37390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.startIndex {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.startIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnci2]R?)]\u{19}:rz\u{12}WwI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^F\u{8}F\u{7}\u{11}\u{14}\u{16}l\u{f}:PE0\u{5}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37398,7 +37398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.startMessageFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.startMessageField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq4Y29 {\u{19}\u{12}\u{7}\u{13}A\u{18}G:m\u{8}\n^4W\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}A\u{10}\u{1c}]4T,VhbC\u{11}\u{7}\u{2}\u{10}\u{13}t\u{1}\u{13}bT\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37406,7 +37406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.startRegularFi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.startRegularField" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq4Y2aQ\u{1a}8]|T0b_\u{3}oH%2<5\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}A\u{10}\u{1c}]y cb\u{18}\u{6}b\u{6}\u{c}-r\u{17}/LT\u{7f}\u{8}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37414,7 +37414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.staticEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.static" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnci2MXpb\u{1f}GtlV\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^\u{6}\nPn3k\u{4}X\u{1c}\u{3}`\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37422,7 +37422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.StaticString {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.StaticString" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn|sI;J>\u{1a}&\u{15}\u{8}&d^@d;yS\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{3}7_g_t\u{1f}I=[\\\u{1b}NV\u{7}LtT\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37430,7 +37430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.storage {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.storage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnckF9Q\u{8}EO\"l|\u{4}Ky\u{16}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}>\u{7}c$h\u{4}}&<~Q\u{2}\u{16}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37438,7 +37438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.storageSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.storageSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnckF9QhDBuvF[QM\u{11}>=\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}a\u{10}S_qIB`-\u{15}@wWh\u{1d}\\\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37446,7 +37446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.StringEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.String" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|uI`iw_p \u{6}&5\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}'uTv\\'\\\u{1c}Q\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37454,7 +37454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stringLiteral 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.stringLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnck2ru7\u{e}T\u{16}?\u{e}ZDhjtR,\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}aPkF#`}]ThR\u{1f}\u{10}Ji\u{c}a\u{15}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37462,7 +37462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.StringLiteralT
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.StringLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7~z$p|[&]YJ%l4?\"bHT7 \u{e}\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{3}W\u{7f}vW6\u{6}\0f\u{b}\u{19}n+QR~|O:t\u{7}\u{e}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37470,7 +37470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stringResult {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.stringResult" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnck2ruw\u{17}\u{14}2S\rAlg,439\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}aPkF#TW!:-hTd<i\u{3}!\u{17}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37478,7 +37478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.stringValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.stringValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnck2ruw\u{1b}^]n\u{b}'R\u{11}\u{16}~D\u{1c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}aPkF$> o7J~,\u{13}]Ti\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37486,7 +37486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.structEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.struct" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnck:\u{1a}32\u{1a}\u{7f}\u{18}Sw\"\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^GJ:{$5$\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37494,7 +37494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.structValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.structValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnck:\u{1a}S2RZ$1y8\u{17}x@\u{4}\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}a\u{10}-y\u{f}(qK_\u{6}\u{1d}oE\tl\u{1f}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37502,7 +37502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.submessageInde
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.submessageIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wq7\r\"f17\u{1e}m\u{13}a\u{1b}\tj*p=\u{17};]\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}a1;'<\"M\n\u{6}7A\u{2}#Tw\rS\u{b}L\u{11}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37510,7 +37510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SubmessageStor
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SubmessageStoragePerformer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7~|\u{1a}\u{19}`!+_L&xx1&U\u{6})\u{14}s:AF\u{1b})q\u{1e}Q22\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}'\u{15}Y-\r|2m\u{f} ?)lLQt\u{17}\u{12}\u{b}\u{3}\u{1b}AbE$\u{1c}\u{1c}\0)\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37518,7 +37518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subReader {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnco.D5\u{7}ie\u{3};b?\t\u{10}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}~K\njAdC_2>>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37526,7 +37526,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subscriptEnum 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subscript" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnco\u{1e}4X\u{1b}#%Z\u{14}@KxP\u{14}v\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^K}]\u{16}(q!\t+>R4\u{b}\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37534,7 +37534,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subTerminator 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subTerminator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnco.<)\u{f}`|,3\\\u{1f};`^1\r\u{3}3\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}aQ?\u{c}l\u{8}DI'\\\u{1}NR^Y\u{1f}K\u{1b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37542,7 +37542,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.subtract {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.subtract" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnco\u{1e}L,[uW|Ixj\u{7}\u{18}$E\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^K~.\u{8}\u{11}\u{4}n\u{8}h0ZkM\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37550,7 +37550,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.sum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.sum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CncoZgh\u{13}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}^L\tF\\\u{14}\u{7f}=i\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37558,7 +37558,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SwiftEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Swift" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn|\u{5}Jq\u{10}%1Mm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}'u#<l\u{7f}~H-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37566,7 +37566,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.swiftPrefix {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.swiftPrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnc{.\u{3}]\u{1a}7KDVl3\u{1d}X@R\u{12}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{1b}A4dT/v/.i3#J)tt3\u{f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37574,7 +37574,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SwiftProtobufE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SwiftProtobuf" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn|\u{5}Jq@\r{x\u{c}\u{1d}\u{16})[#\u{1f}w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;\u{b}7C/kJA3W*\u{2}DF\u{17}\u{1f}\u{3}d%\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37582,7 +37582,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SwiftProtobufC
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0V\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SwiftProtobufContiguousBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cn|\u{5}Jq@\r{x\u{c}\u{1d}\u{16}ANW.>\\`E;<i\u{6}'\u{c}7J@2\u{7};\u{12}$\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}'u#<nw5A5#\u{3}\u{5}\u{e}5\u{1c}M\u{f} |Q5jg<mLY\u{7}OZ?:\u{8}" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37590,7 +37590,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SwiftProtobufE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.SwiftProtobufError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7~\u{2}e8`F=<F\u{e}K,o:[\"`b\u{11}Is\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{b}7C/kJA3W*\"D\u{11}ch\"`u,eY8\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37598,7 +37598,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.symbol {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.symbol" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc\u{7}S\u{1}m\u{14}\u{17}U(\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{1e}a4\\mQ_^\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37606,7 +37606,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.syntax {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.syntax" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnc\u{7}\u{3}\u{2}\u{c}]9\n DJ\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0\u{7}\u{1e}!_\u{1a}\u{f}*<X\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37614,7 +37614,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.T {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.T" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cn}#D~g<q$K\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\u{8}g\u{15}59\u{18}L}E\n\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37622,7 +37622,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.table {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.table" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd\u{1f}=nERaAm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G~l,=\u{6}?O}\u{1c}\u{1b}[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37630,7 +37630,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tag {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.tag" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd!\u{19}0\u{12}.K.\u{2}u;\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G\u{1e}moFAWM?u\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37638,7 +37638,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.target {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.target" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd!\u{19}\u{13}Iy\u{12}\u{13}A Z#\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G~-H7bY~&\u{13}\u{e}kF\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37646,7 +37646,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.targets {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.targets" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd!\u{19}\u{13}Y\u{19}Cw\u{8}Hu>j<*\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0G~-H7li-E3A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37654,7 +37654,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.terminator {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.terminator" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd79M%Z}74D\u{1}-6.o\u{1d}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W^B\u{14}k7r\\\u{1a}\u{1}E\u{18}`>@\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37662,7 +37662,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.testReader {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.testReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd7ae_`,4\u{5}wF)pQRI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W^B:\u{e}\u{b}\u{b}nDu=<h8\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37670,7 +37670,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.text {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.text" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd7EO>1\u{8}\u{e}BC0\u{1d}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W\u{1e}C\u{5}?\u{b}\u{13}6Y\0B?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37678,7 +37678,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDeco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0L\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatDecoding" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w~#\0\u{2}* D\u{16}\u{17}p4e4@!;xi,kkT\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}\u{17}0Rkz\u{c}\u{1f}[\u{5}B\0lb\u{17}c\u{2}O$o\u{b}\u{6}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37686,7 +37686,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textFormatDeco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.textFormatDecodingError" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7r[b/.X3DN\u{6}\u{10}l:6\u{13}QBHV8\u{13}\"2\u{6}FqV\u{11}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0W\u{1e}\u{3}\u{5}m}#\u{1f}/\n\u{12}j\rc\u{c}\u{3}\u{13}O,-F\u{10}\u{14}n=\"-_i\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37694,7 +37694,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatDeco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatDecodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!w~#\0\u{2}* D\u{16}\u{17}p4e4@A{\u{13}_/\0Nm-\u{b}0Z`\u{1f}\\\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w5\u{15}h@\u{1d}Qv7Qxt\u{c},c\u{e}g|\u{1a}\u{1d}$\u{8}vM.\u{15}4at\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37702,7 +37702,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatEnco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatEncoder" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w~#\0\u{2}* D\u{16}\u{17}t\\qfEXWKbU$J\u{e}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}\u{17}0Rkz\u{c}\u{1f}[5#<BZo\u{10}\u{2}_(\u{7}\u{12}N\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37710,7 +37710,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatEnco
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0S\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatEncodingOptions" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!w~#\0\u{2}* D\u{16}\u{17}t\\qfE>1~sw`\u{7f}]L\u{5}Z\u{14}6*\u{1}\u{b}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w5\u{15}h@\u{1d}Qv7Q>WP\u{5}\u{7}{\u{18}\tDdflrqo+6] ]\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37718,7 +37718,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textFormatName
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.textFormatName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnd7E_\\0g\u{8}\u{1d}g!\u{c}.b:ZE\u{1f}\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;+q?x~<\u{1b}d?\u{7f}+G#xpu9b\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37726,7 +37726,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatRead
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w~#\0\u{2}* D\u{16}\u{17}*G,\r\u{1}?q$q\u{6}\u{c}R\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}\u{17}0Rkz\u{c}\u{1f}[%W\u{2}\nO|\u{1b}GP\u{1b}O#\u{1b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37734,7 +37734,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TextFormatScan
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TextFormatScanner" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w~#\0\u{2}* D\u{16}\u{17}-7\u{10}6$i\u{10}4z\u{5}i^\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;\u{1b}\u{17}0Rkz\u{c}\u{1f}[%xqm?\u{1f}UL\u{15}\u{1e}\u{f}\u{1a}\u{12}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37742,7 +37742,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textFormatStri
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.textFormatString" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7r[b/.X3DN>Uvy\u{1e}f\u{14}\u{1b}lT\u{16}:\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;+q?x~<\u{1b}dGO\u{7}A\0:?\u{8};\u{5}\u{1a}%\u{e}-\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37750,7 +37750,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.textName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.textName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd7E\u{f}=\u{1c}+o\u{11}D?Kgof=\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W\u{1e}C\u{5}\u{19}^@~\u{e}=u&2I\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37758,7 +37758,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.throwOrIgnore 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.throwOrIgnore" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CndI\r1^ \u{4}@9+(\u{7}H3\u{2}g\u{8}\n\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3a\u{3}B\u{3}\tey?S\0'U(,wcM\n\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37766,7 +37766,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.throwsEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.throws" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CndI\r)\u{e}<=H DJ\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W\u{1e}R\r4&j|Z\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37774,7 +37774,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.timeInterval {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.timeInterval" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CndM\u{11}.=|\u{5}5\u{7}R.\u{1b}[i,439\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3qD-\u{10}2nYh\")6\u{3})\u{1d}\n+\u{4}\u{11}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37782,7 +37782,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.timeIntervalSi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0O\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.timeIntervalSince1970" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7rf\u{8}W\u{1e}~BZ\u{3})O!Qp\u{18}~!FC49qtx\tM\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;3qD-\u{10}2nYh\"i2F\u{14}TXE \"?\u{19}G^,xhK*\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37790,7 +37790,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.timeIntervalSi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0X\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.timeIntervalSinceReferenceDate" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7CndM\u{11}.=|\u{5}5\u{7}R\u{1e}C\"a1n|%\u{c}\u{16}n.9X{Rk4Pj\u{10}=\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\0W~\u{16}2?\u{4}BLm//$=\u{4}={Gl\"\u{10}$w\u{10}V\n`Z(e\u{7}2\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37798,7 +37798,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tmp {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.tmp" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CndeA9++hIy\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W^k\u{7f}%T]9\u{5}]}%\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37806,7 +37806,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.to {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0<\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.to" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7CndoE)\u{f}ix\tc\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\0W~t`mt\u{19}o.\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37814,7 +37814,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.token {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.token" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CndoIT}0\u{7}bm|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W^u;|*gJ-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37822,7 +37822,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tooLarge {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.tooLarge" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cndo\t\u{6}\u{1b}d\\K%\u{1}sQhW?Y\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W~ue\0\u{c}Jp\u{19}W\u{16}kc}O\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37830,7 +37830,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.total {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.total" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CndoE?\u{19}\u{15}&82j\\?\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0W>v\rx\u{4}\u{e}\u{1e}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37838,7 +37838,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalArrayDept
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.totalArrayDepth" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7rwbc\u{4}Pv0A?5F\u{2}D\u{b}Sj[A'\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3a\u{c}t\u{15}jBBp/x~2Etl^GKn1\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37846,7 +37846,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalEntriesSi
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.totalEntriesSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7rwbc\\0Sv!|\u{16}\u{1f}7\u{6}\"]\0?\u{14}\u{3}#\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3a\u{c}t\u{15}\u{e}\r\u{7}\u{10}3\u{2}PIp\r\u{18}0{#s&\u{19}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37854,7 +37854,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalEnumsSize
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.totalEnumsSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CndoEG9\u{1}g+\u{18}\\}h\u{18}so\u{7}cH\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3a\u{c}t\u{15}\u{e}\u{f};|$\u{19}S\r57Ic%\u{1f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37862,7 +37862,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalMessagesS
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.totalMessagesSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7rwbc\u{14}\"*_XAS{Rb8\u{c})06wo\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3a\u{c}t\u{15}Z}4:,h?TLnD\"88H\u{13}\u{8}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37870,7 +37870,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.totalSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.totalSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CndoEG)'D\u{e}\u{c}nO]%^\u{8}n\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0W>v\r||<1M8\t>\u{10}\\`\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37878,7 +37878,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trailingCommen
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.trailingComments" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7r\u{7f}R\u{16}~LI\u{18}Fw~OlM|{W\u{3}\0<\u{4}\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;310P,\u{8}c!iVQ?\u{7}H\u{7}ULWimuD\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37886,7 +37886,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TrampolineFiel
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TrampolineFieldOperation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!w~G\u{4}A\u{1a}f\u{12}!H0q\t\u{1e}<\\\u{13}#\u{12}{\u{10}\u{1d}p\"N1F\u{1e}$j\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}vVi\tb\t$\u{5}\0/Z,\\BH)al07#\u{17}\\*eY`\u{15}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37894,7 +37894,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trampolineInde
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.trampolineIndex" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7r\u{7f}T\u{16}\u{12}<%/rF\u{10}M\u{11}\u{c}sIy^/\u{18}\u{5}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;31p\u{10}\u{c}\0TQAY\u{1d}~=E*0\\z\0U[\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37902,7 +37902,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TrampolineToke
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TrampolineToken" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w~G\u{4}A\u{1a}f\u{12}!HJQW\u{10}j,\u{17}<{P7\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;#G 3\u{c}\0TQI\u{19}e\u{18}a\0\ru-1\nHT\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37910,7 +37910,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trim {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.trim" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd\u{7f}Y/E\u{1d})G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g~Ds6e\u{b}W\u{4}w7w\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37918,7 +37918,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.trueEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.true" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd\u{1}jsBj%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g~\u{5}J\u{1b}c\u{1a}X$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37926,7 +37926,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.tryEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.try" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd\u{1}\"M\u{7}\u{6}in\u{7f}\u{11}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g\u{1e}\u{6}o_ Tm>i\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37934,7 +37934,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.type {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.type" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnd-\u{16}&<a%G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0g^nqU\0\t_$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37942,7 +37942,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.typealiasEnum 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.typealias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd-\u{16}6:N\u{1f}@|)H}\u{8}\u{2}JW\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g^.q\ty\r}vp\u{7}JXXH\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37950,7 +37950,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.TypeEnumEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.TypeEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn}71\u{4}`1M\u{3}\u{1c}< \u{6}\u{12}\u{15}\u{16}>\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{16}|#B+F$y\u{14}]#\u{15}\u{3}\n\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37958,7 +37958,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.typeName {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.typeName" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd-\u{16}F{&w7\u{8}Xoc\u{b}3s]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g^nq\u{1}j#'\u{7}\u{14}\0[[6\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37966,7 +37966,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.typePrefix {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.typePrefix" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd-\u{16}V\u{b}\n?\u{e}Ny\nua\u{e}\u{6}\u{8}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g^nq\u{10}XDU\u{e}O\u{4}\u{7f}/u\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37974,7 +37974,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.typeStart {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.typeStart" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd-\u{16}^+Q\u{1d}\r83Z&L\u{1}Sp\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g^nq\u{18}ru]9Z\":@\u{11}J\u{7}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37982,7 +37982,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.typeURL {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.typeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnd-\u{16}f\u{1b}P.g$l|\u{4}Ky\u{16}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\0g^nq\u{1e}~\u{7f}C%\u{2})kXu\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37990,7 +37990,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UInt16 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UInt16" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn~\u{1b}I\u{7f}TAe> DJ\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{17}BH7\u{17}q\u{11}T\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -37998,7 +37998,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UInt32Enum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UInt32" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn~\u{1b}I\u{7f}d\u{1a}RM\0\u{4}r\u{11}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{17}BH<;v 3B\u{3}_v\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38006,7 +38006,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UInt64Enum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UInt64" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn~\u{1b}I\u{f}u!r9 DJ\u{10}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{17}BHDU[*[\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38014,7 +38014,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UInt8 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UInt8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn~\u{1b}I\u{f}Upyam|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{17}BHH5|\u{8}#:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38022,7 +38022,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unchecked {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unchecked" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cne\u{f}%\u{f}ZW\u{18}'JG\u{1c}\u{b}b#M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\07?=0*[{\u{f}n\u{1d}lv|-\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38030,7 +38030,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Unicode {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Unicode" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn~\u{1f}d]-;`6\u{4}#\0gSX0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}g\u{16}\u{10}\u{7f}&\u{4}y\u{16}W3~Q\u{2}\u{16}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38038,7 +38038,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unicodeScalarL
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unicodeScalarLiteral" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wrHB\u{10}\u{7f}d3\u{3}\"ZvJ\u{17}5Bt?\u{e}gY;EQ\u{6}@\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;K\u{1}O1\u{16}a\u{1f}\u{6}!\u{3}q(_N7+-U8z\\i\u{13}n*\u{17}\u{1d}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38046,7 +38046,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnicodeScalarL
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnicodeScalarLiteralType" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7\u{7f}\u{f}rnV\r0Q\u{7}{u|\t\u{1a}r\u{19}Stb|r#Q\u{15}t\u{c}+~:\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}g\u{16}\u{10}\u{7f}&\u{4}Y>\u{c},ow.\u{1f}^\u{4}\u{7}\u{15}]> x'\u{c}X\u{11}\u{c}5gt\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38054,7 +38054,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unicodeScalars
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unicodeScalars" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{11}\u{5}!~Ig\u{6}D4m-NAn\u{7f}!}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K\u{1}O1\u{16}a\u{1f}\u{6}!\u{3}q(M^Bsc%\u{1f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38062,7 +38062,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnicodeScalarV
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnicodeScalarView" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7\u{7f}\u{f}rnV\r0Q\u{7}{u$:08_\u{15}D=@\u{1b}\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;3'\u{1f}\u{14}\u{13}\u{16}\u{12}A\u{b}/\0\u{16},r\u{8}F#\0$t\u{7}\u{e}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38070,7 +38070,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.uninterpretedO
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0M\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.uninterpretedOption" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wrHF(C?+{\u{12}U\u{16}YX0z\u{13}DN(<%\\j\u{14}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;K\u{1}or?y>f\r:\u{14}~H \u{7f}JGN\u{4}V(M\u{4}\u{4}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38078,7 +38078,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.union {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.union" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cne\u{11}\ri\u{19}\u{3}4;f_77\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\07_=\u{7f}%LoZ*R\u{f}^\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38086,7 +38086,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.uniqueStorage 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.uniqueStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{11}\ry]\u{1e}m768X:\\D\u{3}}Ei\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K\u{1}/3\u{c}%uJ@<eG6*Mt.'\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38094,7 +38094,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unknownAnyType
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unknownAnyTypeURL" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wrHl\u{14}S8\u{7}\r!o9-1GeO\u{2}\u{17}\u{10}Q.\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;K\u{11}oC;T\u{11}Ve)3M\u{13}bo\u{1c}'{Ux2l\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38102,7 +38102,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unknownFieldsE
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unknownFields" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{11}Y)&1\u{f}\u{5}x\u{12}:Z(8\u{1e}>\u{11}s\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K\u{11}oC;T\u{1d}\u{12}<D.l\\\u{b}ES^d\u{1a}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38110,7 +38110,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnknownStorage
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnknownStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn~\u{1f}8neAK_\"RF.!\u{1f}\u{f}=^P\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;3'?f7\u{b}3wa!\u{11}\u{7}X%a\u{1}[o\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38118,7 +38118,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeMutableP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafeMutablePointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7\u{7f}\u{10}D<8d\u{17}:2\t\u{7}Dd\u{1f}wm5\u{1a}a\u{10}!F1\u{6}Q\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;37?1(\r!\u{7}\u{6}\u{8}S>\u{1b}IFv\u{13}\t8\\Upu\u{c}CC\u{18}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38126,7 +38126,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unsafeMutableP
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0U\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unsafeMutablePointerToValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cne\u{11})<!:4i\u{b}X\"\u{15}QY+\n6ijXF \u{11}\u{18}\u{1c}\u{1e}'Ify3\u{16}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\07?~l\"%E2QT3\u{13}\u{7f}/Z4SF,U1\u{13}3+\u{5}Pq_|\u{4}S\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38134,7 +38134,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeMutableR
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0W\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafeMutableRawBufferPointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r5;f\u{6}7Cn~!\u{8}ypH/td\u{12}\u{e}\u{18}y\"]i!/93\u{15}-\0\"\u{c}\nF-Z8fyB\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pm\u{e}\u{6}8m;!\u{8}gvPr'U~tAv%_D`KA\u{b}cx\u{4}M\u{c}.<TbT!}$.\u{13}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38142,7 +38142,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafePointer 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafePointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cn~!\u{8}yph5\\a]&+\u{1c}R\u{15}|^P\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;37?1(\u{e}C\u{8}y\u{1d}5\u{b}\\w\u{2}\u{14}\u{13}E\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38150,7 +38150,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unsafePointerT
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0d\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unsafePointerToSubmessageWithUniqueStorage" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp}5@\u{1c}\u{13}#N*\u{11}Sh4MVQ\u{4}\"8 Kat,\u{1e}-uf]\u{13}vU\\)7@nrh<p\u{c}]Z;w^\u{1d}\u{18}\0R\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\0\0\0P\u{12}.3uKx\u{18}8 S/\u{c}a2\n\u{19}H%/C)k\u{7}Il.121\u{1b}_\u{12}J\u{15}D\u{c}\u{4}{\u{18},\u{10}\u{1d}\u{1b}\u{13}\"\nJe\u{1a}d$=s9U\u{6}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38158,7 +38158,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unsafePointerT
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0N\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unsafePointerToValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!wrH\u{14}^\u{10}-]g#!\u{16}!\u{13}=\\eJC5@\u{1c}\nW\u{1a}g\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;K!o\u{e}/C\u{f}\u{b}\u{13}l-3?$\"0'^?Bi6n.e\u{18}\u{b}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38166,7 +38166,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeRawBuffe
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafeRawBufferPointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7\u{7f}\u{10}D<8t[Mw\u{1b};O\u{10}\u{1b}Ds\u{3}\\ \\>5\u{8}/(\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;37?1(\u{e}s\\k1B9pt\u{1b}>\u{15}\u{c}-\u{8}+|}Rm$\u{11}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38174,7 +38174,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UnsafeRawPoint
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UnsafeRawPointer" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7\u{7f}\u{10}D<8t{M\0}^!\u{b}\u{16}}p,\u{8}~Og\u{2}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;37?1(\u{e}s\\\u{13}%\u{1e}E0/3$'\\-V\u{14}\u{2}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38182,7 +38182,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.unverifiedLazy
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.unverifiedLazy" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{11}AE)ePoy>A\u{1e}563K\n\u{4}4\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;K!/1\u{1a}GpbM\u{1a}0q[,Fyd\u{f}\u{c}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38190,7 +38190,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updatePopulate
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0T\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.updatePopulatedOneofMember" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wrM*Be5hYd\u{16}_y eTmBl\u{1e}$W.\t8el{e'\u{e}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0G_GsA{u\"/>[;Hz`c\u{19}\u{3}\u{b}m|Ip7\u{2}\u{15}Drf\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38198,7 +38198,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updatePresence
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.updatePresence" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{1b}U\u{4}Kk\u{10}M<7\u{1e}OP4\u{7f}!<\u{1d}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KA\u{11}5v\u{2}6\u{13}1l\u{4}\u{f}J\u{8}oOMn\u{14}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38206,7 +38206,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updateValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0E\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.updateValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne\u{1b}U\u{4}KkV[N}&HH5K*C\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KA\u{11}5v\u{3}R@2\u{10}9w^]\u{15}\u{c}:\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38214,7 +38214,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.uppercasedAssu
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.uppercasedAssumingASCII" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wrN\u{10}(owF:b+Z\u{1b}{\"\u{15}}U;\u{3}R~v)\".(\u{7f}*\u{4}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0G_H\u{e}\u{1f}i\nL Y\u{18}m\u{1e}\u{e}6\u{1a}x[Eb'\u{3}-\u{c}M\u{8}\u{c}+0\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38222,7 +38222,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.url {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.url" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cne'9\u{4}\u{1}%+\u{3}\u{c}Uq\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G_\u{12}G\u{7}{@D\u{1c}\u{6}\u{1f}\"\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38230,7 +38230,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.usableFromInli
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.usableFromInline" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!wrU\\W=\u{7f}G<ri\u{7f}/;z'9d{2;[\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;K1Ua\u{13}\u{1}|40BbMFx8\u{16}{\0O\u{5}mt\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38238,7 +38238,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.useDeterminist
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0R\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.useDeterministicOrdering" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!wrV0\u{8}\u{13}8I\u{b}P#JKg+\u{f}\u{4}qlH\u{2}Jt6`Q)Ww\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\0G?W\u{1a}EOx5T\0v\u{1f}p^S\"\u{e}4:C'}x?wHw@\\\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38246,7 +38246,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.utf8" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cne1a\u{7}E\tm%{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\0G_\\\u{1f}\u{2}:q7\"\u{1d}\u{1f}?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38254,7 +38254,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8ToDouble {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.utf8ToDouble" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne1a?DX\u{c}h&i=m\u{15}\u{18}/#\u{19}|\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KaVj@\u{1d}I'c~,d~\u{1f}9*\u{5}\u{7f}\u{1e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38262,7 +38262,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8Validation
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.utf8Validation" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cne1aGtO\u{1c}Y;\rToOF6\u{7f}@:\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;KaV*B\u{1c}<_x\u{2})5\u{1}Q!$\u{19}\u{c}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38270,7 +38270,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.UTF8View {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.UTF8View" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn~m\u{15}\u{11}6Vu\u{7}#f7x}jj]\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}W\u{b}eXUN\0[e.v\u{10}'^\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38278,7 +38278,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.v {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0;\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.v" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)5;f\u{6}7Cnec\u{7}y\u{7}xW3a\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7} =_\u{17}*w5\u{f}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38286,7 +38286,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.value {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.value" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cneo_\u{8}Ge<\u{5}m|b>\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17} \u{8}.\u{7}\u{f}\u{17}L-:\u{1d}c\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38294,7 +38294,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.valueCount {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.valueCount" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cneo_\u{8}7+EFy`9o\u{f}PnQ\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17} \u{8}.\u{8}qW,9\u{1f}/\u{3}<d:\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38302,7 +38302,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.values {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0@\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.values" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cneo_\u{8}7I\u{3}YF\u{5}R\u{b}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17} \u{8}.\u{8}\u{1d}\u{12}}Z\t\u{1}yB\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38310,7 +38310,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.varEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0=\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.var" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cneo[j\t\u{17}iml\u{10}b\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}`H\u{f}\u{1d}\u{1c}\u{16}\u{7f}=i\u{8}\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38318,7 +38318,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.verification {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.verification" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnf\u{5}TT\rI.\u{1f}f'\u{1f}jnlKQ\u{e}\u{12}\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c!\u{7}qq\u{10}^)w0?\\\u{1}n|\u{5}|\u{1c}\u{1a}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38326,15 +38326,15 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.VerificationSt
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.VerificationState" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7\u{7f}J[hF$W\u{f}sS\u{1}m6CG\u{1e}mnj4Q\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;KGWSq\u{10}^)w0\u{1f}W\t\u{1c}LW:ga<W\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.version {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Version {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.version" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Version" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnf\u{5}\\4sz\u{1e}\u{4}\u{14}#\0gSX0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}7woGl76k\r&~Q\u{2}\u{16}\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38342,7 +38342,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.versionString 
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0G\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.versionString" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnf\u{5}\\4s:^x&.l\u{1e}\u{c}$+w*;\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;c!'rQ\u{1f}sMl8U\u{1f}\u{c}f\"w=+\r\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38350,7 +38350,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.visibility {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.visibility" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnf\u{1b}\u{18}\u{f}D\u{4}PA*`{g%\u{15}YX\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\0r)Z\u{b}QM\u{18}L'-(e\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38358,7 +38358,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.VisibilityFeat
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0K\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.VisibilityFeature" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7\u{7f}U}\u{5}\"\u{2}h \u{12}V+.V\u{17}0K\u{1}\u{16}%\u{16}@\t\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;KW|8\\v\u{17}\u{19}:\u{3}B\u{1f}!$K\u{1c}(ed\u{17}e\u{16}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38366,7 +38366,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.visitor {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.visitor" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cnf\u{1b}\u{18}\u{17}eF@6\u{13}uUC\u{14}?4\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{17}\02*M~{z'C:\u{e}wz\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38374,7 +38374,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Void {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Void" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cn~K\u{7f}'-\u{5}W)\u{e}k$8\u{6}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}Gwb'@\u{7f}\0P\u{14}\u{1d}\u{1f}?\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38382,7 +38382,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.weak {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.weak" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnf+\u{7f}\u{12}\u{16}|/G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}w@i3\u{1d}B[Y$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38390,7 +38390,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.weakDependency
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.weakDependency" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnf+\u{7f}\u{12}5SU!lgv(bJ\u{13}|k\u{8}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{a*\u{13}\u{11}&s~U<  \u{5}\u{1e}NQaG\u{5}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38398,7 +38398,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.whereEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0?\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.where" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnf;o7\u{16}\u{10}xU}`@z\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}w 95H''\u{1b}Kt:F\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38406,7 +38406,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.willBeSet {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0C\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.willBeSet" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnfCch5,^Q-kE\u{c}b#M\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}w\0?\u{14}\u{1d}%:[>L/|(7\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38414,7 +38414,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.windowSize {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.windowSize" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnfC+aRt|iRs\u{15}1F\u{7f}Vk\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}w\0\u{7f}Sh{'MdBZv\u{17}@A\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38422,7 +38422,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.windowSizeBits
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0H\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.windowSizeBits" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7CnfC+aRt|iS+i\u{5}w\u{14}\u{16})2b\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{\u{11}\u{10}&K\nEOHx\u{c}2:\u{7f}/\u{10}\u{1d}(\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38430,7 +38430,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wireFormat {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0D\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.wireFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnfCC\u{2}uR\n7\u{f}D(x\u{12}WwI\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}w ?\\\0(q\u{7}1x,g\u{10}ai\u{3}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38438,7 +38438,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.WireFormatRead
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0J\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.WireFormatReader" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!w\u{7f}\u{1b}3/I\u{17}Az\u{1c}.8\toC\u{12}t\u{12}\"; {\r\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;k7`*\u{14}\u{10}B\u{1e}K0#!P;zIrZ\u{1a}Pr\u{b}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38446,7 +38446,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.with {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.with" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnfC\u{f}c{U\u{11}G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}w@?!\u{7f}H_W}\n\u{1f}@\u{19}\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38454,7 +38454,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.withReaderForN
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.withReaderForNextGroup" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7saGM\u{5}[%d\u{e})_I\u{1d}\u{14}c7\u{17}u}}\u{7}\u{1d}*?a\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{!PYFb31!'&\u{e})[\u{1b}kMX\u{7f}\u{19}\u{5}$\r,'@\u{1e}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38462,7 +38462,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.withReaderForN
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0_\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.withReaderForNextLengthDelimitedSlice" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`NM74\u{1c}\u{13}#Nj\u{15}\u{b}\u{f}j(/_A7\u{15} ~\ry^iE\u{5}Y|\"H\u{17}\u{18}0vvW\u{17}\u{e}!M{2WL\u{7f}\"\u{8}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKx\u{18}8 S/\u{c}a2:\u{19})pGC\u{c}T '&\u{e}*\u{14}\u{3}\u{16}\u{7f}I(\u{8}$\u{b}>gA\u{c}<y\u{2}\u{f}RaX?\u{3}Q6$\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38470,7 +38470,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.withReaderForN
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0Q\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.withReaderForNextObject" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'\u{14}\u{1d}3C[!7saGM\u{5}[%d\u{e})_I\u{1d}\u{14}c?\u{3}j,e\u{16}\u{b}o(E]eC\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8m;!\u{8}w@?!?\u{16}Cl~\u{2}o\u{11}X{eu\u{2}\u{1f}wxow0\u{1d}?\u{b}\u{15}g)\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38478,7 +38478,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.withUnsafeByte
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0I\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.withUnsafeBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+|\u{1c}3C[!7saGQ-OzncW:q\u{12}i\u{6}\\BG,\u{1a}\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1J\0)x@\u{8}/;5;{!P\u{19}I5BM,v$,\u{1e}\u{b}'\u{13}^\u{1f}[iy\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38486,7 +38486,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.withUnsafeMuta
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0P\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.withUnsafeMutableBytes" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)\u{8}\u{1d}3C[!7saGQ-Oznci\u{c}*!\u{2}yID9\u{e}\n\tyzq\u{7}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)x@\u{8}/;5;{!P\u{19}I5BM,V+\u{8}CJr'\u{8}CdV='a+6\u{5}\u{12}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38494,7 +38494,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.work {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.work" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7CnfeoI\u{1a}!=G{~R\u{1c}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}!\u{1e}NU:+Y$\0[Q\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38502,7 +38502,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Wrapped {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.Wrapped" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7Cn\u{7f}S\"{Y`$\u{b}\u{15}\u{1a}9 \u{8}*\u{b}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}'\u{18}?k\u{19}'\u{4}O\u{12}&\u{5}D(L\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38510,7 +38510,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wrappedValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0F\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.wrappedValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}5;f\u{6}7Cnfu\u{1b} Z\u{1}>+\u{e}y\u{14}cW@\u{19}Q\u{19}\n\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)x@\u{8}/;5;{Q;A0/\"\u{1b}wB\u{c}2K#8\u{4}v}\u{8}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38518,7 +38518,7 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.written {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.written" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!5;f\u{6}7CnfuOj\u{3}M\u{14},^\u{4}n(\u{1a}S\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m;!\u{8}\u{7}\u{1}mw\u{1}\u{14}\u{11}R%,A0J6\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -38526,6 +38526,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.yday {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0>\0swift_proto_testing.generated.GeneratedSwiftReservedEnums.yday" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;f\u{6}7Cnhs]KWl\u{1f}\u{e}w\u{11}S\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m;!\u{8}7\"?\u{12}Py\r\u{19}\u{c}%X`\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

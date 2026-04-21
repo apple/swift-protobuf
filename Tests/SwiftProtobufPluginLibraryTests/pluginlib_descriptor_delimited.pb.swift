@@ -114,7 +114,7 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{1c}\u{2}\0\0\0? e-ZOr:z\u{7}SCZ?\u{19}\"x<Dn\u{19}\u{7}G`\u{f}f$'1_\u{13}\u{7f}n=\u{17}}N\u{1d}g\u{15}[\t]iSp5$UK13WVe.]&m]r\u{19}\n11\u{19}D\u{1b}}$\u{5}gBO\u{11}+\u{1b}\u{b}cN9\u{7f}M\u{6}\u{c}|\u{1e}\u{15}g\"\u{7}\r,0\u{6}[\u{1f}\u{15}\u{e}C#yRa\u{19}G2\u{f}Goll\u{b}\u{8}c Uroh\u{3}{$1xH7X\tjck09\\\u{13}\u{c}`\0a5\u{17}\n$F\u{5} W\u{1e}\nN\u{b}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { " \u{2}\0\0\0?dE)ZO\u{2}+\rPLN1,V2\u{7f}7+3o%B%\u{b}n=gt2*n\u{8}i\\Pw\u{5}cS\u{11}:Ij~#&sP<]\u{1f},gr\u{3}\u{5}\u{8}'m~$6r+,w\\dd$\u{10}~V2@]V\0\u{1f}'\u{c}uQc\u{10}zA./ZV(\u{1}W1Wu*:\u{16}\nH?e6>c\u{10}\"Si_\u{3} R_RIzm\u{e}<xJ|&Kb\u{5}<*-F;7\u{19}az8hK\u{f}y8_:e\u{14}\rn\u{7}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

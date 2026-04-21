@@ -692,7 +692,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{14}\0\0\0_Pcn\u{8}ub;\u{8}fgy+\u{7f}\tTX\u{b}wWOJj\u{16}g>_\u{15}\u{f}t@{W\u{3}p)%\u{16}\u{b}5\n`gYH$CEF\u{15}2W*8\u{1c}\u{14}@Xl\u{11}{L2`\u{1e}-HC\u{1d}\u{1b}e\u{7}z$\u{5} \nQD%|*Xw2rN5eND5&$,\u{19}\"m0\n6=\u{3}EFL\u{1c}oB5L%\tN\u{7}\u{3} QnRu\u{7}Z\u{16}\u{12})f\u{1d} ,[ju=\u{5}fC\u{7f}A\n#q7*1_Q&o;&U?r.\u{8}\"(_\u{13}62z8P=\u{14}\u{18}\u{e}q5GQ5u\u{1e}/\u{14}\u{1d}pVb2\u{7f}\u{5}t\u{3}b\u{1b}[\u{c}&\u{4}\u{6}:B\u{12}q5\u{18}o\u{1d}'\"\n9w$[\u{11}1@&rbg,(cUGzNK=\u{1d}\u{5}\u{13}Zu,IO\u{7f}<G@\u{f}k \u{f}@\u{12}s\u{15}ZeV\u{7f}\nRfjyg\u{8}5J:Y\u{1f}]:\u{5}A2I+\u{5}ea~ngO\u{1d}L|\u{19}\t\u{7f}u\u{2}Y\u{1e}3\u{13}\u{3}7s5\u{8}SJz<1_\u{b}P5\u{f}}\u{18}\0\u{1b}BE\"+\u{10}qM0Q\u{12}\u{8}\u{f}\"g<c\"eO\\\u{12}+U\u{1d}\0_F,X\u{13}e5QIxa\u{1f}t`\u{11}-a\u{19}G$&=Dq9Z\u{3}\u{1}\tnce\u{b}\u{10}U}+U\u{8}L\\8/ u6\u{16}\u{1c}Ki\u{7f}\u{16}f#T\u{c}\u{1e}vU^\"\0jS@\u{f}\u{17}^M~mtY+qgE\u{11}\u{2}s\r Oq<en\\E\rb\0i<]4\u{c}KW\0\u{13}Uy\u{15}q9\u{5};A.W\u{15}BQ&`% G7\u{1e}\u{c}OK~7?:\u{15}\u{11}3Hz y\u{1b}1\u{e}f0$@4w\u{1b}nh\u{12}%'jY\u{c}\u{12}LW;e\u{17}+W[k\u{1}h~{Eu\u{c}\u{b}cq@\u{1e}\u{1e}-$6\u{1a}vA7lYs\u{7f}\u{7}<m\rS4\u{e}3%\u{4}G `Y\u{1}U_.O\u{17}X\"\u{19}B9 Doq?{:a.#B^g\u{11}t\nBU~sw{_yZ/\u{7f}\u{3}%WG\u{1e}Y\u{16}xAi\u{f}\u{f}g(\u{5}v\u{12}\u{12}A\u{19}[\0\u{1c}\u{1f}\u{14}3)\u{12}X\u{1d}TN\u{18}-{\u{5}\u{1}#Ux?(\u{4}C:\u{14}y\u{3}E\u{10}Zy6\u{5}\u{c}F\u{5}[. kM\u{1a}<ks\"Au51zqZeg?UkS]I0\u{5}|v\u{c}3C8\u{11}\u{2}Mo\t,y\u{7}Tu \u{8}_o@:n\t\u{1c}\0Z#\u{1d}~pK\u{1b}\nP2\u{2}q\u{1}0dZpb[%']\u{1a}[(;\u{4}V77U\u{17}\u{1}\u{4}{\u{1a}\n}HcN_M\u{3}y-WF \u{1c}y\tY\u{16}1D(ji\u{f}Q>\u{8}n\u{e}\\\u{15}\u{17}vEz\u{1e}:\u{7}VW=\u{8}\u{1e}\u{13}\u{1a}Rp\u{17}R$7[}nlZ\u{18}ky =c\u{17}8\u{8},XBMSA'H\r5K'%\u{19}\u{18}\u{7f}k=\u{6}\roJ$,\n0yXaw,0\u{16}.w=Q4p\u{1a}\r\u{1}/\u{1d}Z\n!9Nk+\u{1b}~!5)?S:\u{6}3\u{1e}{!\u{8}\u{11}+\u{14}ERo@hT\u{14}y4/,\tk~!\\J}0nNc$\u{12}B\tBo3\u{1e}v$wc7T7Lx|qBczBI\u{1e}\u{4}3wZg\u{18}\u{7f}\\?\u{18}P4Zn\u{6}02\u{11}\ttihCOdU`\u{b}?]\nh'0o\u{c}-q\\K(Ac,6mjH\u{19}\u{15}2uJ\u{1e}\u{2}-\u{15}\u{e}\tC\rm)O>zc3\u{1a}A*@b0\u{11}\t\u{5}Yn$}\u{12}\u{12}&e\u{7f};_I\u{13}]\u{5}#N-D\u{3}bIv\u{1b}j}6u\u{1}\u{1d}Z'+v\u{7f}@.ec*;X(u)\u{11}\u{11}/D\u{7}x#:m\u{6}@HE[I\u{10}D_`|\u{11}An5S!\u{16}\\p\u{14}\rWd\u{5}n6lD}v;>fD4iT(\u{8}F?PR\u{18}e7DHD2\\o@IIg\u{10}9`\u{1b}S}\u{b}1K\u{7f}/.\t_\u{f}r\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{14}\0\0\0_\u{14}DK*\u{f}jk\"JG\u{10}&hh+~\u{2}-G\u{5}3n]pd\u{19}8\u{1d}?Is$XVL Ia ib9l8\u{15}\u{2}C\u{1e}h4B\u{12}%\u{1e}e\u{1c}\u{17}l<\u{b}\u{13}C4\"U)TH\"rkf\u{4}h^vC\rnIl*ll|o\u{f})o\u{1}\u{b}y*hz{7if*jUb\n5?\\\"Soj\u{e};\u{5}]\u{4}bX$h\u{1e}*\u{1b}`\u{b}_\u{13}T\u{1}5t^( y\u{14} @QYgE\u{1d}\u{1b}\u{1a}tqY0LB\\8U\u{12}iA>zJlKA|O4 .sW}H9TYW>\u{10}3\u{3}Eu*m+TD-_NDsx.\u{c}F\u{1f}\u{4}w\".Hq!Pb\n\u{13}:)j\u{8}k\u{c}:-=\u{1a}vO\u{7}\t7A,i>v9\nsSdi\n\u{b}>-j,\u{7f}+\u{6}#\r\0\";sQY.S$W\u{f}}\u{3}\u{2}>-,DU~e1f&\u{18}>_3\\'\u{1d}8|\u{17}=d2WK8}Z\u{15}\rOz3x\tvXsi\0E\npU>\u{1e}\u{e}\u{2}\u{1d}p\u{1a}h5\u{5})W&i\u{3}\u{c}~wsfj\u{13}..Y!dwn8hWh%\u{c}CB\nMzntQ\u{3}]L93\u{12}f\r\u{7}\u{15}Vv,cuR\u{19}cMz+4CjLR\u{3}\u{15}1}{\"-54Q\u{14}zDW)_Y'\\Ui*gg+\u{5}\u{1a}S\u{7f}kF\u{5}$1[\u{1a}\t\u{11}v&'F0q+;\u{1a}i\u{18}lR\\\u{1}6\u{e}8B##0\\Q\u{1c}\nbpn\u{3}\u{17}.\u{19}bp(x\"CK =e3c:z\r\0ja;S\ny,:\u{18}_(a\u{13}\u{10}\u{5}2eczO\u{4}l\u{2}\u{17}T`\u{1c}jJD\u{3}K\0=\u{12}@e\u{1}\\7pa\u{18}7\\\u{e}Y\u{7}\u{1d}\u{11}d\u{13}\\4\u{1a}z\u{19}1V)\u{b}[}oj\u{18}\\b\\d\n]bm@ [iA\u{2}et*YE\u{7f}\u{7}\u{8}y\u{10};\u{1b}Tm<GOw\u{12}Fo1\u{17}Ell9\u{1f}Ps\u{10}e9\0%\u{10}5`\u{1b}<\u{11}y,\n+aP8,w\\7XQ(\u{6}:;u\u{17}\u{4}~`R\u{1e}\u{16}QY-BC$\0F\u{f}hL@\u{12}Euu\u{1b}qQ\u{b}\u{f}\u{f}(\u{1}$y 5\u{7})\rS\u{7f}6jh=3\nKd,m\u{2}\u{5}I\u{17}ep2\r~\u{c}|d\\z\u{12}7CA\u{13}\u{1b}~1Q.w\u{15}M\u{19}{\07\u{1f}yOm)Kyo8s\u{f}\u{1b}\u{13}z8#Ob\u{14}l&/$\u{10}\u{18}[~JBV[?I\u{1a}n\u{18}z ~)\u{13}.aH\r%U&\"M\u{e}O.EG\u{e}P\u{11}z%\u{1b}osP1Y\u{1}G\r,&\u{1e}(\u{19}\nuMjGo\u{f}yG\u{17}3%T%2SV3\u{b}&I-t\u{5}*Xjg\u{7}\u{15}s)<\rU#\u{1}s_%TG\u{17}Y\r3\u{1c}]+:\u{19}\n\u{b}\u{1b}kR@A\u{1b}\0\u{1a}ge\u{14}?;P\u{19}\u{8}\u{1c}&\\J$\u{13}7$\n0~\u{18}u\u{1a}inr\u{7f}'8m+V9oo9\u{19}<DIp\u{11}^\r\tf\u{5}e\u{17}\u{15}\u{19}_9\u{1f}F\u{7}6U\rB>F\r5j}vqX<izf{Q_J#~\u{7f}GW\u{14}rG\u{1d}\u{c}\u{11}\tL\u{f}\u{c}\"%V1E\u{11}X\0d`\u{15}%T\\qm\u{16}\tW\u{f}j\u{13}\u{18}\u{e}\u{15}$zsty:k7\u{18}@\u{14}Q]{W\u{7}v\u{4}\u{7f}\u{1a}a\\\"\u{2}p|{&E..Q\u{15}aod\u{18}\u{e}l2P\u{7}.rYvSR{eD\u{16}\u{7}\tGKG_[!^<u\u{1a}fd]l6\u{18}.\r'\u{15}\u{3}hcx\tZ/*\u{1e}\u{17}\r],/nH\u{1c}\u{f}A\u{13}YbW \u{14}\u{2}Lv[X[hZM3j\u{1b}2bS.fu{\0*A-Q~+8W\u{1b}\u{15}X|O\n\u{11}t\u{7}\u{1}5aFRZckT\nG\u{17}' \u{1}\"\u{f}I(\r\u{1d}}Bw6y;nJNMT$\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -755,7 +755,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{4}\0\0\0\03\0swift_proto_testing.TestAllRequiredTypes.NestedEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\\\0\0\0@x~-\u{19}Jx\u{18}(`g8Gl,/01uZ=DB~y\u{15}\u{14}b/O\u{1f}dnI?\u{2}\u{11}-X{n\nx\u{1b}W\u{8}\u{19}\u{17}\u{e}-!,\u{12}\u{5}6=\rQDw\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "`\0\0\0\u{10}?bsm\u{6}*\u{10}8r\u{17}\u{11}|xa\u{15}\u{8}\t1V|hIP}2)\u{1}\u{1e}a5}B\u{1e}^w!\u{17}j\u{16}V\u{3}\u{2}xTj ^e;mjf\u{6}31D\u{1e}2\u{1f}N\u{8}\u{b}\u{3}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -771,7 +771,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Me
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FPY$p:Vt(@(\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpO\u{13}1$\u{1}!C\t0\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -796,7 +796,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Me
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { " \0\0\0\0?ck-\u{7}6PT\0BPX|\u{f}\u{6}c\u{1a}; ]\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&p\rM$\"@Eg~/#\u{17}7w}H!Jr2\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -821,7 +821,7 @@ extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "X\u{2}\0\0\07\u{7f}\t\u{11}H\u{16}m0E%\u{7f}\u{1a}<\0Ne\u{16}\u{1c}\r\rmJCH\u{5}H\u{8}\u{4}\u{17},\u{19}q.%\u{15},J$0|ZSPy^i5x)~>\u{8}tz(Io:\u{2}\u{6}@(jWU\u{7}!q)j\u{17}$1e\u{7f}}\u{7}N9\u{18}\u{1d}Y[^\u{1b}x<P`'?p\"h\u{11}.\u{12}\u{1}z\u{3}icF%P\u{11}V\u{1b}\u{1f}\n[\u{12}\u{e}\"\u{4}#{\u{1d}S:\u{14}\"r'T6:a,J[`\u{f}\\4}\u{7}[\u{11}V\u{19}%F2gVl\u{12}\u{12}]@d>K*\u{19},`:\u{e}\u{f}\r\u{1b}\"/\u{b}\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\\\u{2}\0\0\0Yo\u{7}\u{1e}Riu[,s\u{19}K\u{1a}\u{7}\u{7f}4l8A/\0t8}s\u{7}\\;i(8#\u{1b}x]O*2iot_\u{17}A'+]u!\u{1a}u@\u{11}o^>\u{b}'\u{1a}-J|\u{12}NT\nuqE\u{11}\nEeW>pQ\u{f}\u{1d}KG(]GE\u{c}}+X6c\t(r\u{1f}{=8L\"\u{1d}R5U{A=4~,D\u{16}\u{1d}\u{e}nO`Q\u{13}QI\u{c}Z\u{c} \u{e}\u{1e}'F=\u{4}d\u{19}SrzL\"Cl\n8og\u{14}h\u{7}j'\u{6}\n}_w\u{7f}[\u{12}\u{1}\n;:gD?\u{c}AR\u{b}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -870,6 +870,6 @@ extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\04\0swift_proto_testing.TestSomeRequiredTypes.NestedEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FPq \u{2}\n\u{4}lbj\rQ\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpk%+*x\u{1c}H\u{11}3\u{4}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

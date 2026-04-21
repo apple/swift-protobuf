@@ -112,7 +112,7 @@ extension E {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0\u{1}\0E" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp}5#\u{6}ze\u{17}\u{7}0V\u{b}\u{2}\u{1e}DN;%\u{8}\u{7f}Db\u{6}{\u{18} \\\u{1a}\u{5}\u{1e}gmd\u{14}.o\\Bl=>H\u{18}\u{1f}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@TJg@.sR\u{7f}2C|W\\0;Z'\"(\u{6}Q\u{1e})\\]`QPL\u{18}gwI|\u{11}\u{14}\0" }
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -128,7 +128,7 @@ extension A: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { " \0\0\0\0?ck-\u{7}&pm\u{e}FP\\fP\u{12}\u{3}\u{1b}sCT\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wps\u{13}3\u{11}N%6c'\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

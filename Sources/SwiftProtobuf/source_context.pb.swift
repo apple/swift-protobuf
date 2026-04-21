@@ -100,7 +100,7 @@ extension Google_Protobuf_SourceContext: Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@\\[%.MI2u9\u{5}V!T}66;\u{3}\u{3}/UEG/}LO\u{1c}$|&`\u{12}[40i\u{1e}\u{5}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hGliX\u{18}j9Rre(lk/\t\u{3}\u{1b}^\u{1}u\u{f}\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

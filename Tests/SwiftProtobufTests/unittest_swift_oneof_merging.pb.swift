@@ -256,7 +256,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "`\u{1}\0\00?`{e[OfC\u{2}&B\u{1b}On|}K}\u{1d}\u{b}sd\u{15}j\0\u{c}W] 1\u{1e}\u{1c}Z.\u{f}ph+Q{\u{1e}{jvE\u{1c}Q\u{3}9h2l]\u{1a}\u{7}EQUX`YT\u{18}JP(,>mpRJ$X~u\u{7}.\u{2}\u{1f}\u{14}\u{b}>?\u{c}{6yG{sN2)2f?s?G\u{16}wOe\u{b}$(cr6m]<CV'\u{1c}Y\u{17}ch\u{b}j\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "d\u{1}\0\00?$\\a[\u{7}\u{f}kj#W\u{1a}eyA4\u{c}\u{7}AF?+{\u{6})\u{e}s{\u{1c}#9\u{1b}YJxls\u{1d}'F\t\u{1e}\rqNZk\u{1c}m\u{1f}k\u{11}/psG1\u{15}D45?ExTum\u{1c}/\u{1}TW5TkoUe\u{11}%\u{b}y'Ye\u{12}~\u{7}M;Ys\u{17}5\u{b}WkesW%v\u{7}3\u{12}'5H\u{13}w@\u{4}d\u{7}\u{17}Np\u{7f}\u{12}f\\\u{1f}9\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -309,7 +309,7 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Mes
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}&pmNE54\u{3}\\GAX'\u{14}S7Xg\u{13}\u{b}`Au\"a\u{1e}\\\u{15}\"n\u{19}q\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "H\0\0\0`N\r7]KTZV{n GMwYY&|FK\u{e}gz\u{12}\rb gl^\u{1}K>\u{1c}y;? \u{1d}\u{b}\u{b}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -330,7 +330,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\0\u{1}\0\0 \u{7f}\u{1}pEZ[,EC\u{1f}Zbf/gd\u{19}N\u{10}1\u{b}E?ec\u{1b}\u{19}^\u{12}wds`Yb+1L?\u{6}\u{8}\u{b}Yg`+_/p'\u{1e}\u{5}\u{15}}G\u{f}QG\tx4\u{e}\u{1d}>L\u{3}@YF\u{6}<\u{2}\u{c}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{4}\u{1}\0\0 \u{7f}EPAZ[,%L\u{6}\u{10}al;t5(F\\0n\u{b}uM\u{4}LZ3VSb\u{1a}#C;\u{f}Ft9W2^r\"\"6<\"b\u{15}h\u{11}9\"!z#jvP0%f5`PM\u{1a}.u\u{1c}t\u{1}\u{c}|\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -385,7 +385,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: Sw
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\0\0\0@^O'=J\0)h\0]8Gn\u{10}8xlI&a%~s;47\"C3?]\tz\u{5}`sy\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HaJ=gYe\u{17}O/Q9\u{19}^\u{18} ~\u{8}OKdIzU\u{12}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

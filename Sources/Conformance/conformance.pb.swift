@@ -557,7 +557,7 @@ extension Conformance_WireFormat {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{5}\0\0\0\0\u{16}\0conformance.WireFormat" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{8}\u{1}\0\0 \u{7f}I8Ez\"\u{13}\u{8}M$\u{1d}+u`\u{2}\u{17}]<LaD\u{1a}#ur\u{c}\\yWTe\\8 \u{10}4T\u{5}\u{5}\u{2}aidKSLC\\p^J+q\u{1e})\u{b}}_Z\u{1d}RYxG\u{10}\u{6}I=J\u{1d}\r\nK\u{12}^AT5EF\u{8}\u{11}I\\r\u{3}>N\u{1a}\u{17}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}~#p*K!cg'vsE*~f\\2j_j;@\u{1}ADpqQ\u{7}_\t\t)p<]l,io*c\u{1e}\u{f}@f1=N_\u{7f}\\\u{10}a\u{1d}?}\u{e}>F\u{7}\u{12}gS*y:\u{e}HG#p\u{c}d'J\t|\u{19}\u{6}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -565,7 +565,7 @@ extension Conformance_TestCategory {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{6}\0\0\0\0\u{18}\0conformance.TestCategory" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "P\u{1}\0\00\u{7f}\u{10}\u{1}}'~hxTXWCLz{\u{14}L5#($:\u{11}x\u{7f}S-v{\0\u{3}k\u{1c}~S?\u{18}M`o7juDU$R\nof[\0 1\u{6}\u{5}La\u{13},\u{1a}\u{7f}82\u{14}(\u{12}d4LML\u{1e},\u{b}OO\u{6}*%\u{4}\u{1c}D!?\u{f}\u{e}wrGM{Pe\u{6}V\rd\u{8}XyQ'0~/W{llS\u{16}erx\u{7f}L\u{17}q\u{19}\u{8}!\u{1f}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "T\u{1}\0\00_Tay\u{7}*p\u{1d}Ju0u{0?\u{5}1phe#Ug\u{8}<D(pb*& a\u{1}H\u{2}\u{10}\u{2}_C`FV\u{7f}\u{f}J\u{1c}`f\tg_j>| \u{10},w\u{1d}b{~!u~*I\u{11}\u{e}\u{e}K\u{1e}\twq\0\u{5} Y\u{18}YO\u{17}\u{19}gnm];3i^>WOZ$lA\u{2}qbA0kfx3\u{1e}IB\u{10}.W+g3^\u{11}=\u{18}\\_\u{15}l\u{13}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -581,7 +581,7 @@ extension Conformance_TestStatus: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{1}\0\0 \u{7f}M\u{11}9Z[,EC\u{1f}Zbf;\u{7}\u{1a}\u{17}JJ\u{8}G;u>p1j\u{1f}jr\u{4}\\.:bscbpfC@E:\u{6}D1=<1\u{f}NT\\>M-W/QsXu'h*^0^U't+{dW\u{11}\u{2}d\u{14}=L$YXY(\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{1}\0\0 _\u{11}r5Z[,E\u{3} r4S/sd7j'/y\u{7}sv([8|a\"?\u{15}\u{13}bcE4+R\u{19}3DaE}&e\u{3}\u{2}xQ\u{12}\u{1f}Vx\u{7f}v\u{7f}I\u{f}\u{3}[[bG<36@@RQ\t]\0cDa@j0A~[H)+=\u{5}%" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -602,7 +602,7 @@ extension Conformance_FailureSet: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?'L)\u{7}*(a\u{5}\u{7f}\n\u{16}\u{c}#:|{\u{1c}\u{1c}5H\u{2}\u{c}S\u{f}f\u{18}S\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "0\0\0\0\0?k,%\u{7}&p\rM$\u{13}\u{4}\u{11}f~/#\u{1a}\nX\u{3}\u{2}p\u{11}#V\u{14}M\u{3}\"\u{7}" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -655,7 +655,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{4}\u{4}\0\00 tgRq\u{1}%9I\u{2}@3u\u{1}\u{18}\u{2}C\u{13}A}\rg\n\u{14}Zdk\"\u{2}TXC\u{3}wOs}6\u{2}\u{18}\u{b}M\tU5Sf*\u{10}l\u{1d}\u{1}1\u{b}c6\u{1c}24\\^\u{7f}\u{12}\u{12}|>{u\u{2}NtFG?8MW|u4\u{10}odlZ\u{f}\n&GD\u{1d}\u{f}$t\0\u{2}-9_$rHN\u{7}k4Oy\u{8}\u{12}\t*I|Fc@{8\u{7f}D\u{1d}'\u{1a}]vc4\u{18}D`\r\u{10}c{+\u{1e}\u{3}ids\n>9\u{1c}&D\"_ez\u{16}\u{11}d|\u{11}y[H!yf\"\u{1d}`UP\u{16}s\u{8}\rBU@_\u{1a}\ttE\u{1e}\u{8}L\u{f}<D>D\u{10}[_Q(y!BPW\u{f}whl6\u{13}DM*2\u{b}B1mi7\u{f}5KRP_7<T4\u{c}j\u{8}\u{12}3@3(ZW\u{15}\u{10}Hpli=jPS}\u{6}&\u{3} k!\u{1e}vD\u{18}{&\u{11}A\u{1c}e>==\u{1}\u{1c}Jl&h\u{14}G\n_-fX]5\\\"s\u{1}\u{8}\u{2}G\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{8}\u{4}\0\0\0\u{7f}L\u{2}`89s&\u{1}Zj\u{16}.j}\u{1a});I\u{4}p\u{6}T\u{1d}I\0\u{f}\na\u{12}\u{1a}\u{e}\u{11}xIrLttVOI^\u{1a}\rW[sw\u{1d}\u{e}X\nQZU\u{18}\u{17}s\u{16}YU|\u{19}'\u{10}ha~o\u{e}`yn`\u{1a},R\u{4}\u{4}Z(\u{1a}F>.nf=CK/e\u{1c}\u{b}3-;|~\tb\u{16}RYkI\u{16}\u{10}l1+\u{1b}._X\u{f}7*4'w\u{18}\n`[.\u{8}\u{12}W`D9&\u{1d};<\u{6}vm\u{1a}\u{15}DTiF\\)Vr>htk>QN,\u{6}\u{f}gAgWV-9\\\u{e}\u{11}E\u{1e}9g!5|hoMtM\u{4}\u{1c}2\u{1f}K\u{11}~<:V\u{1d}\u{1d}8F\"*`\u{6}5\n\u{7}^,<\u{5}xT2a[F0y8$_7ISpLbf\0U>}}Aj\u{14}aV4\0=.v\\Qm\u{c}k\u{7f}_x\u{13}\u{1}\u{7f}9^_\u{19}s[r_-IJqo??v3kqE\u{2}O0CmBx\u{e}W4\0t\u{15}9g\u{6}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -712,7 +712,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\u{3}\0\0 \u{7f}}x\r[kq1CbR#x~T\u{1}t.xx]T#qJ\u{8}\u{18}\u{17}\u{f}q7A\u{1b}Q\u{14}\\&|\u{1d}\u{15};\u{7f}sO#m2<rm21\u{5}\u{3}>pu\u{1e}>D=\u{1a}6\u{c}}\0\u{13}8ed\u{7}\u{1a}<\u{b}\u{1f}2k\u{1f}BV|'K| l\0h\u{7}J6rO\u{2}S::k\u{12}I\u{8}HhM\u{1c}bk[rH\u{19}6g|u\u{1a}R<tg*Fd\u{2}\u{e}aw\"QRrI-{\u{1a}.\u{b}\u{7f}9Q=a<02Gs: \u{13}\u{10}\u{18}\\\u{1e}|\u{16}\"\u{1}BdW\u{2}E\u{2}<pJ\u{1a}Md\u{7f}wUR6k\u{18}\u{c}~O\"3\u{1e}W\u{13}LcaEiR\u{1d}q\u{19}7\u{7}Gg9\u{e}NI\u{1c}Gf\u{11}yr}\u{2}V\u{18}a]\u{1f}\n\0/?6S|Jd*\u{e}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\u{3}\0\00\u{7f}\u{1}Y\t[S\u{2}B\u{4}\u{13}X\u{2}7!\u{2}\u{1}t\u{2}^\u{4}\u{5}{{P>\u{b}w4\u{16}W\u{1c}\"'42~VyLibpw\u{1a}&O1h\u{1e}UK\u{1c}\tk\u{1e}Ae\n+\u{1c}D\0r,j%N\u{16}iMm\u{4}\u{e}\\/{8##z\u{17}\\_\u{1b}8&S[sY?y\u{17}\u{1}\u{1c}\u{13}\u{10}b\u{8}do\u{2};\u{2}TDUB[\u{14}$U\u{1d}<\u{12}\u{5}LJ\u{11}fO\u{1}\u{c}0(\u{b}u2w\u{18}>x+,]:\u{15}\u{7}B\u{5}P7\u{19}Q_CJ\u{5}\n;SBIP,Si*\u{18}\u{e}#<*\u{6}$\u{3}NL#}p\0Rxp\u{f}p\u{11}L]#a!\u{16}<'<Rs\u{14}&%=M\u{2}*3\u{11}}3%\u{2}MHV\u{5}d>m! G'.VF\u{18}\u{b}:YH!T\n\u{1b}p<\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -733,7 +733,7 @@ extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "T\0\0\0PTZ-~LI2u9\u{5}V!T}66;\u{1e}2S\u{10}'\u{6}eF\u{c}\n=v5\u{1a}}9R?.)AY|9\ra\u{1c}\nL\u{7}`-Z8t]'+\u{4}8a\\\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\0\0\0PvJ+\nMIJww:\u{16}+|8_h:W\u{17}yR\u{1e},0CR\u{c}PE\u{1f}\u{12}\u{f}\\C=fP<\u{1d}-ei\u{6}(\u{18}mJ\u{12}>B\u{16})P7\"w!Rg\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

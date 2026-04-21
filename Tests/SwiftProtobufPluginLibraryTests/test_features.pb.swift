@@ -180,7 +180,7 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}&pmNE53g/G\u{2};j\u{5}[BB\u{1}\"\u{1b}bwQ{\"\u{1d}/($Wiq\n\u{12}\u{15}/Yi5M\u{17}|D!\u{1d}Eso]w\u{1b}\u{b}N3t(s~\u{15}\"&/,MHWp@\u{1}\u{18}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{1}\0\0 _Qy=\u{6}*HKI\u{13}\u{11}|xa\u{15}X\"llA\u{f}s\u{11}stf\u{14}\u{7}+K\u{6}\u{f}\u{5}Pc2c\\\u{f}z\u{19}V$w\u{2}i1Z. i;\u{1f}_'?G\n\u{18}s\u{7f}\u{2}\u{c}~G;^@%\u{8}|\u{e}7 \u{b}|\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -225,6 +225,6 @@ extension SwiftFeatureTest_TestFeatures.EnumFeature {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{2}\0\0\0_\u{10}c>8=m6qH|! \u{4}r\u{2}C-`Of\u{18}E7\u{f}C\"\u{1b}\u{7}VSL\t\u{18}nd\u{10}8|0VxXPUm]VQ\u{4}\u{13}7d7\u{19}\u{1b}\u{7}\"O\t\n\u{19}\u{8}<c^j/Wd-R\u{1}X{\u{17};\u{f}\u{1}l\t\u{17}:W\u{1d}T0\u{16}\u{1e}Fjdvj\u{16}YT\u{7f}1y+&8B\u{18}ee0g\u{f}s\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{2}\0\0\0_TC:85-\u{b}ijxDl?=5\u{7f}U\u{1b}\u{19}\u{7f}lfQ@#D%y|x\u{11}\u{b}U|euo^\u{14}@\u{e}9\u{1}ovT<D\u{11}[|(_\u{10}x\u{1f}|Vp^DONFz0jb.\u{1f}{0\u{14}M\u{e}J\t0^U\u{c}G@wh1\u{7}M\u{1f}\u{5}0\u{1}\u{18}9\u{4}Uf\\J\u{12}\u{f}\u{f}rgQ\u{6}!lO\u{f}\u{1a}:\u{3}\u{8}#3\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

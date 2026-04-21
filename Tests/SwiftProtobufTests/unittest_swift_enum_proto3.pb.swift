@@ -319,7 +319,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "l\0\0\0p#$\u{2}\u{1b}K\0)h\0]8Gn0\u{8}?>ty\u{5}jce+\u{1e}D\\X\u{11}Pv5\t\u{13}\u{8}\u{2}\u{b}\u{5}..St\"MgSkog\u{11}'Oe\u{e}I\u{1d}&\u{15}T`\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "p\0\0\0pE\u{14}\0'KH+\u{1e}\u{17}d GMwQ\tT\0\u{1}9)rw*h!_I>^\\5XP\u{6}\u{7f}V a9#`\u{c}\u{7f}Gn*\u{7f}\u{c}\u{1f}`\u{17}d{22\u{b}i\u{1d}[\u{1c}\u{2}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -370,7 +370,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{2}\0\0\0\01\0swift_proto_testing.enum3.SwiftEnumTest.EnumTest1" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "`\0\0\0\u{10}?bsmz\"K\u{1b}$ )]\u{7f}\u{12}\u{e}gv \u{b}u{-\u{19}\u{2}/\u{1e}\u{1e}{-E+TI\u{14}TxO\u{12}xaGr\u{17}5_Ur\u{e}5=#{\u{16}\u{18}\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "d\0\0\0\u{10}?&Ti\u{6}*(a\u{5}\u{7f}\n9Neb\u{1d}bp\u{6}G0xG<^#HJOOJQ3!c'v<LST\rt^m_D6U.`\u{e}#\u{1c}y\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -378,7 +378,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2 {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{2}\0\0\0\01\0swift_proto_testing.enum3.SwiftEnumTest.EnumTest2" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "T\0\0\0P4^1;\u{6}f&?ar+\u{19}oG{Q\u{6}g0\\*\u{11}K\tdkh]x%o.,vJ\n\u{1c}\u{1a}dw.\u{1b};Hg\u{17}]v\u{b}\u{7}\u{7}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\0\0\0PVN/\rJdQ_:YxC\u{1}Ra29\u{1}^[,D3g@4`iRQe84\u{7f}Q\u{1}2g{T\u{2}+.\u{12}~\u{1f}.2`iU\u{10}\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -386,7 +386,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{2}\0\0\0\06\0swift_proto_testing.enum3.SwiftEnumTest.EnumTestNoStem" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "T\0\0\0P4^1;\u{6}f&?\u{1}2Q9nG{Q\u{6}g0\\*\u{11}K\t$g\u{8}~kUDUv/\twi58!\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\0\0\0PVN/\rJdQ_:Yx@\u{17}\u{11}e29\u{1}^[,D3g@t_/\u{1d}L\u{2}f{}Aj\u{1a}\u{7}\u{c}\\b_:\0\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -394,7 +394,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{2}\0\0\0\0<\0swift_proto_testing.enum3.SwiftEnumTest.EnumTestReservedWord" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "p\0\0\0pE\u{14}\0a\u{7}~6\u{1f}b(\u{6}@\u{c}\0&-\u{5}Q5{En\u{1b}\u{11}0O\u{1d}rgGfuY-@09\u{1f}tD o; ;1\rKMe\u{11}.\u{1f}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "t\0\0\0pG\u{4}~3K(Y\u{2}5.*\u{16}\u{8}YM\np\u{8}E_\u{11}!M$Bk`'\u{f}qT\u{7f}\tLi\u{10}dtQ_\"bP\u{8}1Wq6ywlm|\u{2}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -410,7 +410,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message 
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}_z>*\u{12}6\u{e}?5.\u{1a}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -455,6 +455,6 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0>\0swift_proto_testing.enum3.SwiftEnumWithAliasTest.EnumWithAlias" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "h\0\0\0p\u{1}4\u{4}I\u{7}~6\u{1f}B%n\t\u{18}\u{16}\u{19}(\u{12}\u{4}&t?Pk\u{1f}&5W1A-tp\u{c} \u{6}p\u{1a}&m8xx~t'fn1\u{1c}QJ\u{f}*H/&\u{7}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "l\0\0\0p#$\u{2}\u{1b}K8$v\n\u{8}1d.cVJ-L|k\u{19}=Q\u{12}y\u{8}\u{1c}m\u{7}f!\u{18}\u{e}\u{11}\u{8}1}#;V5\u{7}/iXgp\u{19}\u{1b}x\u{1e}F\u{14},X\u{19}%v@U\u{1}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

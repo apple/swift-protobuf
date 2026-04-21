@@ -444,7 +444,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{8}\u{3}\0\0 \u{7f}\n\u{12}A[S\u{2}BD\u{18}SCZ?aq r \u{15}+-Yuz4uqG:\u{7}\rByGs,\u{c}\u{1b}w\0\u{8}Rp\u{18}D\u{7f}\u{5}PbDQ\t''Z\u{7}[*9`J\u{5}/\rE];@0V^\u{7f}v*~\u{b}^\u{5}@~\u{5}]9OH\nkG=Fr4IX<#t1NgbL@^VU\u{f}<o 2j{X(+%DK~ \u{16}h\u{11}^+Xap\u{1f})]`]\u{16}-8VGFp \u{1f}$z\u{16}}oWrWMF3r\u{8}6\u{17}?%s[\u{5}.RJV0(h\ry\u{16}\n.\r\u{16}\u{b}}9Sv$IPjY\u{6}\u{2}z\u{1d}j\u{19}\u{2}To\"*}z{/(7bGf\u{12}\0\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{c}\u{3}\0\0 _Nr=[ky!Vj@4\u{19}Hs\t>\u{1f}8ujI-1\u{14}\nd,^[\u{b}QAQiA\u{1e}\u{c}s\u{8}U1\u{4}@9gNrKe\u{f}-_GTz\u{1e}wfYixc'J\u{14}x^v? ~:1\u{13}6_2\u{1c}\u{f}jw`\0-zHoF;? B.?+?9woGC\u{7f}\u{10}QN[/0v)EPXY\u{1d}x[JDQ\u{5}uC|t\u{7}3\u{1a}:,\u{7f}gWv\u{8}yD{\u{13}QiGUokx\nB\u{8}mRJD\u{c}dcsIQ9o\u{3}V#)\u{1b}x\u{2}\0s)@B\u{19}09S\u{2}@<3h^G$,SEhV\u{3}D`Ah=*9\t\u{6}R\u{10}X|vH5_\u{16}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -501,7 +501,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%J\0)h\0]8Gl\u{8}_\u{19}\u{6}a\u{e}Cbn-\u{1d}\u{18}\u{1e}SU\u{1c}@c\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}PLUCBU\u{13}iR\u{13}(e<\u{11}dOOnh\u{14}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
@@ -522,7 +522,7 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\u{1}\0\0 \u{1f}5^\u{19}\u{6}&pmN\u{5}N\u{14}V)oq\u{2}7[G\u{3};y/~RO\u{2})7\u{2}uO8%rz6owcU\u{15})\u{8}N11\n\u{14}S\"\u{11}mc)\u{e}e\u{15}W[P\u{18}HQiw\u{1a}y/\u{3}\\U:X<Y]L;U\u{f}\u{15}Z<YU;y]Vot~qpC\u{f}XVjQWdY\u{6}SD\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\u{1}\0\0 \u{1f}y>\u{15}\u{6}. \tF\u{2}\u{11}tt)%\t7[\"j\u{4}\0{ZsB^\u{1e}\u{8}\u{16}wdiD)\u{4}\u{13}'O&7\u{1b}E!B\u{1d}>,R\"k\u{17}{u?\u{15}\u{3}\u{8}>2\rCt\"~OyUa?i\u{c}\u{4}\u{1e}'sC0\u{e}J<5MU\u{1c}$!iTPE\u{5}`8Bhwkp^UCL8ps\u{6}#\u{1}\u{19}\u{1}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }

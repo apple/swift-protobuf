@@ -273,7 +273,7 @@ extension SwiftProtoTesting_Proto2MapEnum {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0!\0swift_proto_testing.Proto2MapEnum" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "x\0\0\0`i4|y\u{7}:lJ\u{3}G^Gx)\u{11}\u{13}\tt)\u{e}/\u{1a}\u{8}d\u{1d}\u{f}W\u{18}\u{14}.e\u{16}s%\u{1a}:&\u{7}I\u{17}y]=*t\0\u{2}DuQX}\u{b}\u{8},Z\u{1f}\u{1d}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "|\0\0\0`\u{b}%zKK\u{14}\u{1a}:m&\u{1}q+\u{7f}l{\u{15}7B\\HF\0\t\u{1e}sZ>s4EEMVp!3`A=m3=j\u{10}M\tj,/\u{f}\u{1f}cD.`V<.\u{1e}}Z}\u{4}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -281,7 +281,7 @@ extension SwiftProtoTesting_Proto2MapEnumPlusExtra {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{4}\0\0\0\0*\0swift_proto_testing.Proto2MapEnumPlusExtra" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\u{1}\0\0 ?i<%z\"\u{13}\u{8}M$'Sma\u{2}\u{17}=\u{7f}\0<HU]?xYs\u{16},cR-'<h\u{3}\u{1f}?\u{16}\u{e}e]iOG\u{b}HAB\u{2}\u{17}Q\u{10}/\u{4}\u{1b}sv*\r1~\u{1f}?Tvh8 [s55I*DX;\u{3}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\u{1}\0\0 ?-\u{1d}!\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>\u{4}bt7!c\u{f}8R)\u{13}*fBR\u{12}\u{6}\u{4}\r\u{11}S \u{2}rjE%<-ji\u{12}\",r\u{7}Sc9\n[>ylB9V7>1J\u{10}51/!y{Vc~\u{1a}*j\u{12} m\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -297,7 +297,7 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "T\u{7}\0\00_U;2\u{17}'\u{14}P8#<\u{1d}R+\u{1d}\u{7}+\u{f}~f\u{1b}+lXzQ\n//'\u{1b}L?R+H]x\u{b}\0$>=\u{15},l\u{e}\u{13}n\u{3}\u{18}OC\u{1e}\n>BX\u{1e}^bmUWA\n-`\u{12}NMi~E\u{16}o\u{8}.4k>i&+mo\u{1c}\tD\u{1b}l.:LG?\u{1d}\r\u{12}S.W\"\u{e}e[JW)>6g}59E,H\u{10}\u{6}mfM\u{1e}\u{11}Q>US,N*j\r4IaCe5*\u{14}F\u{2}TA\u{7f}1\u{1d}\u{1d}k\u{11}\u{10}Z_\u{15}?\u{18}HBF\u{11}M2\r\u{15}/w\"oS\u{b}\\rH\u{1c}\u{18}Gw.Mu\u{19}L[R-\u{18}|\rnk*p(h+gR\u{4} g\u{1d}~(XndGKt\nm)1wt\u{1e}`\u{6}\u{13},nv%\"Hl\u{1f}C+B\u{7}\u{e}6uD;D\u{2}\u{6}\u{18}O &Y`!S\"6N,\t x\nd\u{1f}o\nU*MO\u{7}3X\u{1c}$oG\u{13}C\u{1a}\u{19}?\u{1}Z\u{1b}V\tT\u{1b}d#4P\u{1}_\u{1e}3 {\u{14}\u{13}G04\u{f}u?&q\ngI2\u{b}o%*/7&q?M$P-V'p>\u{19}r(Ad\u{2}-\u{6}\u{1a}\u{10}K$\u{16}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\u{7}\0\00_\u{19}\u{1c}.\u{17}'$`\u{b}B}\u{c}\",b{+MSj\\\\\u{8}S\u{7}Q\u{2}\"R7$2(\u{e}\u{1c}F\u{11}<`d2L-~O3#kES\u{1f}zFU5\t;9\u{b}<N\u{13}xP\u{14}e?\0|Lt':yPVK\t`HP{^\u{5}HyH0m\u{6}]d\u{10}nY\\9\u{11}\u{1e}2<*I!V\u{1f}\\1\u{11})w=\u{1f}[p\u{17}\u{c}t>Wx<\u{7f}(2oA<tg3,HqHK\u{7}f\u{13},,\u{7}\u{2}\u{5}}H%1-\u{7f}^\u{1}jmjf\rT9\u{19}~\u{2}\u{f}6w\u{c}!%\u{1}j9S\u{e}e)?Q\u{1c}\u{1b}\u{7}\u{8}\u{18}\u{17}8\u{8}L\u{c};W/wT4,Z\u{14}S)E\u{6}!E\u{1a}xX5P780\\Ea.\u{1}\"\u{1b}\u{19}^jE\u{f}\u{12}2Kt\"cYaX\u{1e}sXtAt\u{16}YmNt\nZ\u{1f}\u{15}'to\u{1}`htwU%^\u{10}v7F\u{13}2Z\n\u{1f}l\u{5}#fYU:H+i<%l\u{14};U)~#SSo96nP4\u{1e}BH\0+\r1wY5\0\u{7f}\u{14}e.mF>u'ptXT\u{f}b\u{1}\u{1}:Tvpq0)I,\u{16}z|Y2T\u{14}#\"\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -380,7 +380,7 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "T\u{7}\0\00_U;2\u{17}'\u{14}P8#<\u{1d}R+\u{1d}\u{7}+\u{f}~f\u{1b}+lXzQ\n//'\u{1b}L?R+H]x\u{b}\0$>=\u{15},l\u{e}\u{13}n\u{3}\u{18}OC\u{1e}\n>BX\u{1e}^bmUWA\n-`\u{12}NMi~E\u{16}o\u{8}.4k>i&+mo\u{1c}\tD\u{1b}l.:LG?\u{1d}\r\u{12}S.W\"\u{e}e[JW)>6g}59E,H\u{10}\u{6}mfM\u{1e}\u{11}Q>US,N*j\r4IaCe5*\u{14}F\u{2}TA\u{7f}1\u{1d}\u{1d}k\u{11}\u{10}Z_\u{15}?\u{18}HBF\u{11}M2\r\u{15}/w\"oS\u{b}\\rH\u{1c}\u{18}Gw.Mu\u{19}L[R-\u{18}|\rnk*p(h+gR\u{4} g\u{1d}~(XndGKt\nm)1wt\u{1e}`\u{6}\u{13},nv%\"Hl\u{1f}C+B\u{7}\u{e}6uD;D\u{2}\u{6}\u{18}O &Y`!S\"6N,\t x\nd\u{1f}o\nU*MO\u{7}3X\u{1c}$oG\u{13}C\u{1a}\u{19}?\u{1}Z\u{1b}V\tT\u{1b}d#4P\u{1}_\u{1e}3 {\u{14}\u{13}G04\u{f}u?&q\ngI2\u{b}o%*/7&q?M$P-V'p>\u{19}r(Ad\u{2}-\u{6}\u{1a}\u{10}K$\u{16}\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\u{7}\0\00_\u{19}\u{1c}.\u{17}'$`\u{b}B}\u{c}\",b{+MSj\\\\\u{8}S\u{7}Q\u{2}\"R7$2(\u{e}\u{1c}F\u{11}<`d2L-~O3#kES\u{1f}zFU5\t;9\u{b}<N\u{13}xP\u{14}e?\0|Lt':yPVK\t`HP{^\u{5}HyH0m\u{6}]d\u{10}nY\\9\u{11}\u{1e}2<*I!V\u{1f}\\1\u{11})w=\u{1f}[p\u{17}\u{c}t>Wx<\u{7f}(2oA<tg3,HqHK\u{7}f\u{13},,\u{7}\u{2}\u{5}}H%1-\u{7f}^\u{1}jmjf\rT9\u{19}~\u{2}\u{f}6w\u{c}!%\u{1}j9S\u{e}e)?Q\u{1c}\u{1b}\u{7}\u{8}\u{18}\u{17}8\u{8}L\u{c};W/wT4,Z\u{14}S)E\u{6}!E\u{1a}xX5P780\\Ea.\u{1}\"\u{1b}\u{19}^jE\u{f}\u{12}2Kt\"cYaX\u{1e}sXtAt\u{16}YmNt\nZ\u{1f}\u{15}'to\u{1}`htwU%^\u{10}v7F\u{13}2Z\n\u{1f}l\u{5}#fYU:H+i<%l\u{14};U)~#SSo96nP4\u{1e}BH\0+\r1wY5\0\u{7f}\u{14}e.mF>u'ptXT\u{f}b\u{1}\u{1}:Tvpq0)I,\u{16}z|Y2T\u{14}#\"\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 

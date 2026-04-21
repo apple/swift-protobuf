@@ -278,7 +278,7 @@ extension Google_Protobuf_NullValue {
   @_alwaysEmitIntoClient @inline(__always)
   private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0\u{19}\0google.protobuf.NullValue" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%5;fF\u{17}G#g45\u{11}ub;w&R\rw\u{4}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m\u{7f})\u{18}v\u{1e}ip\"-q\u{19}\u{1}\u{5}1:\0\0\0" }
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
@@ -294,7 +294,7 @@ extension Google_Protobuf_Struct: Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FP\\:UW\u{12}ujA{Q_{\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps+\u{b}&2I\\PX\u{14}]\0(\0\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -357,7 +357,7 @@ extension Google_Protobuf_Value: Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "(\u{2}\0\0\0?l\u{6}!ZO\"\r\u{13}8SCZ?\u{19}\"x<DnGy@`\u{f}f$8_\u{16}\u{14}\u{7f}niIisVZ\u{17}D8$\u{7}\u{3}\u{12}\0pY4c\u{f}\u{1a}E' \u{2}A{4?\"zIn2umF\u{19}.\u{8}/]\rV\u{e}@[R#\u{15}u\u{1c}o\u{5}Gz3\rzt=\u{15}fII^wt}xsI!g\u{1b}\u{1}\u{19}\u{c}N/CC.\u{18}\u{1e}!:\u{13}\u{8}_^9\u{1e}_\0a~>'DosX8Jc$8\u{1d}P\u{8}6m4tk0&\u{1}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { ",\u{2}\0\0\0\u{1f}0g\u{1d}ZO2\r&@LKM\u{19}r)?@\u{1b}=m\u{5}>)\u{e}n=g@\u{17}Jfh)+S>a\u{1}F\u{3}3\u{19}\u{2}^\tNp.[=0\u{10}\u{17}N#*=J\u{15}[0h\u{10}\u{7f}~X~-\u{11}VL]\u{1f}BlY\u{19}hL\u{e}A\u{b}\u{2}\u{11}'xcc}#>\u{1a}2\u{c}w5\u{13}C/{.-=H\0]A_9p5\u{7}wM\u{1f}\u{7f}\u{3}S=a\u{15}?\u{1b}Pb\"\u{7}cb\u{6}\"7p[xw\u{15}i.TnI$0x:_:Y\u{5}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
@@ -414,7 +414,7 @@ extension Google_Protobuf_ListValue: Message {
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPi,\u{14}_z>*\u{12}6\u{e}?5.\u{1a}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
