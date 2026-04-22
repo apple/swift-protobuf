@@ -644,7 +644,9 @@ internal struct JSONScanner {
         }
 
         // Optional leading minus sign
+        var sawMinus = false
         if c == asciiMinus {  // -
+            sawMinus = true
             source.formIndex(after: &index)
             if index == end {
                 index = start
@@ -671,7 +673,7 @@ internal struct JSONScanner {
             // First digit can be zero only if not followed by a digit
             source.formIndex(after: &index)
             if index == end {
-                return 0.0
+                return sawMinus ? -0.0 : 0.0
             }
             c = source[index]
             if c == asciiBackslash {
