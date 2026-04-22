@@ -121,11 +121,17 @@ extension MessageStorage {
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
                 .read,
-                false  // useDeterministicOrdering
+                true  // useDeterministicOrdering
             ) {
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startMessageField()
-                $0.serializeText(into: &encoder, options: options)
+                let mapEntrySchema = $0.schema
+                if let keyField = mapEntrySchema[fieldNumber: 1] {
+                    $0.serializeField(keyField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+                }
+                if let valueField = mapEntrySchema[fieldNumber: 2] {
+                    $0.serializeField(valueField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
+                }
                 encoder.endMessageField()
                 return true
             }

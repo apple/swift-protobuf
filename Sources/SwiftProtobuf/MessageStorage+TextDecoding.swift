@@ -129,14 +129,6 @@ extension MessageStorage {
                     let mapEntrySchema = submessageStorage.schema
                     try reader.withReaderForNextObject(expectedSchema: mapEntrySchema) { subReader in
                         try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
-
-                        // Throw an error if the key or the value was missing.
-                        guard
-                            submessageStorage.isPresent(mapEntrySchema[fieldNumber: 1]!)
-                                && submessageStorage.isPresent(mapEntrySchema[fieldNumber: 2]!)
-                        else {
-                            throw TextFormatDecodingError.malformedText
-                        }
                     }
                     return true
                 }
