@@ -228,6 +228,11 @@ internal struct JSONEncoder {
     }
 
     internal mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema, alwaysPrintEnumsAsInts: Bool) {
+        // When encoding, treat `NULL_VALUE` from the `NullValue` WKT as JSON null.
+        if rawValue == 0 && CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
+            putNullValue()
+            return
+        }
         // JSON names of enum cases are equivalent to their text format names.
         if !alwaysPrintEnumsAsInts, let name = enumSchema.textName(forEnumCase: rawValue) {
             putStringValue(value: name)

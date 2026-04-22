@@ -301,10 +301,24 @@ extension MessageStorage {
             }
 
         case .enum:
+            // If we're decoding a `NullValue` well-known type, `null` should be
+            // stored as the `NULL_VALUE` value, not clear the field.
             if isNull {
-                // We don't have the concrete type information for the enum here, but that's
-                // fine because we store the raw value for singular enum fields.
-                clearValue(of: field, type: Int32.self)
+                var isNullValueWKT = false
+                try! schema.performOnRawEnumValues(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    .read
+                ) { enumSchema, _ in
+                    isNullValueWKT = CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue
+                    return false
+                } /*onInvalidValue*/ _: { _ in }
+                if isNullValueWKT {
+                    updateValue(of: field, to: Int32(0))
+                } else {
+                    clearValue(of: field, type: Int32.self)
+                }
                 break
             }
             do {
@@ -512,6 +526,15 @@ extension MessageStorage {
                 return false
             }
             hasSeenValue = true
+
+            if reader.scanner.skipOptionalNull() {
+                if CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
+                    value = 0
+                    return true
+                } else {
+                    throw JSONDecodingError.illegalNull
+                }
+            }
 
             if let name = try reader.scanner.nextOptionalQuotedString() {
                 guard let number = enumSchema.enumCase(forTextName: name) else {
