@@ -197,7 +197,11 @@ extension MessageStorage {
                     appendValue(try reader.scanner.nextDouble(), to: field)
 
                 case .enum:
-                    try scanEnumValue(field, from: &reader, operation: .append)
+                    do {
+                        try scanEnumValue(field, from: &reader, operation: .append)
+                    } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                        // Ignore unknown enum values if requested.
+                    }
 
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextUInt()
@@ -288,7 +292,11 @@ extension MessageStorage {
                 clearValue(of: field, type: Int32.self)
                 break
             }
-            try scanEnumValue(field, from: &reader, operation: .mutate)
+            do {
+                try scanEnumValue(field, from: &reader, operation: .mutate)
+            } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                // Ignore unknown enum values if requested.
+            }
 
         case .fixed32, .uint32:
             if isNull {
