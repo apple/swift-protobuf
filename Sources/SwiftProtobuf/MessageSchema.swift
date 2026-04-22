@@ -391,7 +391,12 @@ extension MessageSchema {
 
     /// The storage size of the message in bytes.
     var storageSize: Int {
-        fixed3ByteBase128(in: schema, atByteOffset: 1)
+        fixed3ByteBase128(in: schema, atByteOffset: 1) & ~(1 << 20)
+    }
+
+    /// Returns true if the message is a map entry pseudo-message.
+    var isMapEntry: Bool {
+        (schema.load(fromByteOffset: 3, as: UInt8.self) & 0x40) != 0
     }
 
     /// The number of non-extension fields defined by the message.
@@ -791,6 +796,6 @@ func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffse
 @_alwaysEmitIntoClient @inline(__always)
 func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
     let lowBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
-    let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt8.self)
-    return Int((lowBits & 0x00007f) | ((lowBits & 0x007f00) >> 1)) | Int((highBits << 16))
+    let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset + 2, as: UInt8.self)
+    return Int((lowBits & 0x7f) | ((lowBits & 0x7f00) >> 1)) | (Int(highBits & 0x7f) << 14)
 }

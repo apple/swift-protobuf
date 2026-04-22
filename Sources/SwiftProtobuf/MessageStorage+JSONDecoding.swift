@@ -321,10 +321,12 @@ extension MessageStorage {
                 }
                 break
             }
+            let ignoreUnknown = reader.options.ignoreUnknownFields && !schema.isMapEntry
             do {
                 try scanEnumValue(field, from: &reader, operation: .mutate)
-            } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
-                // Ignore unknown enum values if requested.
+            } catch JSONDecodingError.unrecognizedEnumValue where ignoreUnknown {
+                // Ignore unknown enum values if requested, unless this is a map entry.
+                
             }
 
         case .fixed32, .uint32:
