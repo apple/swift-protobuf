@@ -166,9 +166,20 @@ extension MessageStorage {
             case .enum:
                 switch tag.wireFormat {
                 case .varint:
-                    try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: true)
+                    try updateEnumValue(
+                        of: field,
+                        from: &reader,
+                        fieldNumber: tag.fieldNumber,
+                        isRepeated: true,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 case .lengthDelimited:
-                    try appendPackedEnumValues(from: &reader, to: field, fieldNumber: tag.fieldNumber)
+                    try appendPackedEnumValues(
+                        from: &reader,
+                        to: field,
+                        fieldNumber: tag.fieldNumber,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 default:
                     return false
                 }
@@ -302,7 +313,13 @@ extension MessageStorage {
 
             case .enum:
                 guard tag.wireFormat == .varint else { return false }
-                try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: false)
+                try updateEnumValue(
+                    of: field,
+                    from: &reader,
+                    fieldNumber: tag.fieldNumber,
+                    isRepeated: false,
+                    discardUnknownFields: discardUnknownFields
+                )
 
             case .fixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
@@ -459,7 +476,8 @@ extension MessageStorage {
         of field: FieldSchema,
         from reader: inout WireFormatReader,
         fieldNumber: Int,
-        isRepeated: Bool
+        isRepeated: Bool,
+        discardUnknownFields: Bool
     ) throws {
         var alreadyReadValue = false
         try schema.performOnRawEnumValues(
@@ -477,6 +495,8 @@ extension MessageStorage {
             alreadyReadValue = true
             return true
         } /*onInvalidValue*/ _: { rawValue in
+            guard !discardUnknownFields else { return }
+
             // Serialize the invalid values into a binary blob that will be passed as a single
             // varint field into unknown fields.
             //
@@ -505,7 +525,8 @@ extension MessageStorage {
     private func appendPackedEnumValues(
         from reader: inout WireFormatReader,
         to field: FieldSchema,
-        fieldNumber: Int
+        fieldNumber: Int,
+        discardUnknownFields: Bool
     ) throws {
         assert(field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
 
@@ -534,9 +555,8 @@ extension MessageStorage {
             invalidValues.append($0)
         }
 
-        if invalidValues.isEmpty {
-            return
-        }
+        // If there were no invalid values, or if we're discarding them, there's nothing more to do.
+        guard !invalidValues.isEmpty && !discardUnknownFields else { return }
 
         // Serialize all of the invalid values into a binary blob that will be passed as a
         // single length-delimited field into unknown fields.
