@@ -52,7 +52,10 @@ class MapEntryGenerator {
         let fieldsSortedByNumber = fields.sorted { $0.number < $1.number }
 
         self.entrySchemaCalculator = MessageSchemaCalculator(
-            fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
+            fullyQualifiedName: descriptor.fullName,
+            fieldsSortedByNumber: fieldsSortedByNumber,
+            isMapEntry: true
+        )
 
         keyParticipantType = participantTypeName(for: keyDescriptor, namer: namer)
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
