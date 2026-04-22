@@ -318,12 +318,13 @@ final class Test_JSON_Conformance: XCTestCase {
     }
 
     func testNestedAny() {
+        Google_Protobuf_Any.register(messageType: SwiftProtoTesting_Test3_TestAllTypesProto3.self)
         let start =
             ("{\n"
                 + "        \"optionalAny\": {\n"
                 + "          \"@type\": \"type.googleapis.com/google.protobuf.Any\",\n"
                 + "          \"value\": {\n"
-                + "            \"@type\": \"type.googleapis.com/swift_proto_testing.test3.TestAllTypes\",\n"
+                + "            \"@type\": \"type.googleapis.com/swift_proto_testing.test3.TestAllTypesProto3\",\n"
                 + "            \"optionalInt32\": 12345\n"
                 + "          }\n"
                 + "        }\n"
