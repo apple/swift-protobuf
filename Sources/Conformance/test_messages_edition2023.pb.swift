@@ -1166,69 +1166,69 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.M
   private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     case 10:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry")
     case 11:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry")
     case 12:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry")
     case 13:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry")
     case 14:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry")
     case 15:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry")
     case 16:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry")
     case 17:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
+        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 18:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
+        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 19:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage.self)
     case 20:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: ProtobufTestMessages_Editions_ForeignMessageEdition2023.self)
     case 21:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum.self, enumSchema: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum.enumSchema)
     case 22:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
       #else
         #error("Unsupported platform")
       #endif

@@ -965,51 +965,51 @@ extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message {
   private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     case 6:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32Int32Entry")
     case 7:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt64Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt64Int64Entry")
     case 8:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}A\0swift_proto_testing.test3.TestAllTypesProto3.MapUint32Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}A\0swift_proto_testing.test3.TestAllTypesProto3.MapUint32Uint32Entry")
     case 9:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}A\0swift_proto_testing.test3.TestAllTypesProto3.MapUint64Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}A\0swift_proto_testing.test3.TestAllTypesProto3.MapUint64Uint64Entry")
     case 10:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}?\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32FloatEntry")
     case 11:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}@\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}@\0swift_proto_testing.test3.TestAllTypesProto3.MapInt32DoubleEntry")
     case 12:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}=\0swift_proto_testing.test3.TestAllTypesProto3.MapBoolBoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}=\0swift_proto_testing.test3.TestAllTypesProto3.MapBoolBoolEntry")
     case 13:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}A\0swift_proto_testing.test3.TestAllTypesProto3.MapStringStringEntry"
+        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}A\0swift_proto_testing.test3.TestAllTypesProto3.MapStringStringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}A\0swift_proto_testing.test3.TestAllTypesProto3.MapStringStringEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}A\0swift_proto_testing.test3.TestAllTypesProto3.MapStringStringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 14:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}@\0swift_proto_testing.test3.TestAllTypesProto3.MapStringBytesEntry"
+        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}@\0swift_proto_testing.test3.TestAllTypesProto3.MapStringBytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}@\0swift_proto_testing.test3.TestAllTypesProto3.MapStringBytesEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}@\0swift_proto_testing.test3.TestAllTypesProto3.MapStringBytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 15:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}H\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedMessageEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}H\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedMessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}H\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedMessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}H\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedMessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage.self)
     case 16:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedEnumEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedEnumEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedEnumEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.test3.TestAllTypesProto3.MapStringNestedEnumEntry"
       #else
         #error("Unsupported platform")
       #endif

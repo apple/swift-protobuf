@@ -293,6 +293,7 @@ message GeneratedSwiftReservedMessages {
   message featureSupport { int32 featureSupport = 1; }
   message field { int32 field = 1; }
   message fieldCount { int32 fieldCount = 1; }
+  message fieldData { int32 fieldData = 1; }
   message fieldHasPresence { int32 fieldHasPresence = 1; }
   message FieldMaskError { int32 FieldMaskError = 1; }
   message fieldMode { int32 fieldMode = 1; }
@@ -544,8 +545,10 @@ message GeneratedSwiftReservedMessages {
   message isFieldPresent { int32 isFieldPresent = 1; }
   message isFieldRequired { int32 isFieldRequired = 1; }
   message isInitialized { int32 isInitialized = 1; }
+  message isMapEntry { int32 isMapEntry = 1; }
   message isNameReserved { int32 isNameReserved = 1; }
   message isNegative { int32 isNegative = 1; }
+  message isNullValueWKT { int32 isNullValueWKT = 1; }
   message isNumberReserved { int32 isNumberReserved = 1; }
   message isPacked { int32 isPacked = 1; }
   message isPathValid { int32 isPathValid = 1; }
@@ -813,6 +816,7 @@ message GeneratedSwiftReservedMessages {
   message S { int32 S = 1; }
   message sawBackslash { int32 sawBackslash = 1; }
   message sawEndGroup { int32 sawEndGroup = 1; }
+  message sawMinus { int32 sawMinus = 1; }
   message sawSection4Characters { int32 sawSection4Characters = 1; }
   message sawSection5Characters { int32 sawSection5Characters = 1; }
   message Scalar { int32 Scalar = 1; }

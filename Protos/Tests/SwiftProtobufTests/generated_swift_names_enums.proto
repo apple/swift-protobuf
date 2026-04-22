@@ -293,6 +293,7 @@ message GeneratedSwiftReservedEnums {
   enum featureSupport { NONE_featureSupport = 0; }
   enum field { NONE_field = 0; }
   enum fieldCount { NONE_fieldCount = 0; }
+  enum fieldData { NONE_fieldData = 0; }
   enum fieldHasPresence { NONE_fieldHasPresence = 0; }
   enum FieldMaskError { NONE_FieldMaskError = 0; }
   enum fieldMode { NONE_fieldMode = 0; }
@@ -544,8 +545,10 @@ message GeneratedSwiftReservedEnums {
   enum isFieldPresent { NONE_isFieldPresent = 0; }
   enum isFieldRequired { NONE_isFieldRequired = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
+  enum isMapEntry { NONE_isMapEntry = 0; }
   enum isNameReserved { NONE_isNameReserved = 0; }
   enum isNegative { NONE_isNegative = 0; }
+  enum isNullValueWKT { NONE_isNullValueWKT = 0; }
   enum isNumberReserved { NONE_isNumberReserved = 0; }
   enum isPacked { NONE_isPacked = 0; }
   enum isPathValid { NONE_isPathValid = 0; }
@@ -813,6 +816,7 @@ message GeneratedSwiftReservedEnums {
   enum S { NONE_S = 0; }
   enum sawBackslash { NONE_sawBackslash = 0; }
   enum sawEndGroup { NONE_sawEndGroup = 0; }
+  enum sawMinus { NONE_sawMinus = 0; }
   enum sawSection4Characters { NONE_sawSection4Characters = 0; }
   enum sawSection5Characters { NONE_sawSection5Characters = 0; }
   enum Scalar { NONE_Scalar = 0; }

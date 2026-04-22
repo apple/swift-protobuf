@@ -2840,216 +2840,216 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message {
   private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     case 8:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}3\0swift_proto_testing.fuzz.Message.MapInt32Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}3\0swift_proto_testing.fuzz.Message.MapInt32Int32Entry")
     case 9:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}3\0swift_proto_testing.fuzz.Message.MapInt32Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}3\0swift_proto_testing.fuzz.Message.MapInt32Int64Entry")
     case 10:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}4\0swift_proto_testing.fuzz.Message.MapInt32Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}4\0swift_proto_testing.fuzz.Message.MapInt32Uint32Entry")
     case 11:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}4\0swift_proto_testing.fuzz.Message.MapInt32Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}4\0swift_proto_testing.fuzz.Message.MapInt32Uint64Entry")
     case 12:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}3\0swift_proto_testing.fuzz.Message.MapInt32FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}3\0swift_proto_testing.fuzz.Message.MapInt32FloatEntry")
     case 13:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}4\0swift_proto_testing.fuzz.Message.MapInt32DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}4\0swift_proto_testing.fuzz.Message.MapInt32DoubleEntry")
     case 14:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}2\0swift_proto_testing.fuzz.Message.MapInt32BoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}2\0swift_proto_testing.fuzz.Message.MapInt32BoolEntry")
     case 15:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt32StringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt32StringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt32StringEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt32StringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 16:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt32BytesEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt32BytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt32BytesEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt32BytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 17:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.fuzz.Message.MapInt32AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.fuzz.Message.MapInt32AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
     case 18:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt32MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt32MessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt32MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt32MessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Fuzz_Message.self)
     case 19:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}3\0swift_proto_testing.fuzz.Message.MapInt64Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}3\0swift_proto_testing.fuzz.Message.MapInt64Int32Entry")
     case 20:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}3\0swift_proto_testing.fuzz.Message.MapInt64Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}3\0swift_proto_testing.fuzz.Message.MapInt64Int64Entry")
     case 21:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}4\0swift_proto_testing.fuzz.Message.MapInt64Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}4\0swift_proto_testing.fuzz.Message.MapInt64Uint32Entry")
     case 22:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}4\0swift_proto_testing.fuzz.Message.MapInt64Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}4\0swift_proto_testing.fuzz.Message.MapInt64Uint64Entry")
     case 23:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}3\0swift_proto_testing.fuzz.Message.MapInt64FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}3\0swift_proto_testing.fuzz.Message.MapInt64FloatEntry")
     case 24:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{1}4\0swift_proto_testing.fuzz.Message.MapInt64DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{1}4\0swift_proto_testing.fuzz.Message.MapInt64DoubleEntry")
     case 25:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}2\0swift_proto_testing.fuzz.Message.MapInt64BoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}2\0swift_proto_testing.fuzz.Message.MapInt64BoolEntry")
     case 26:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt64StringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt64StringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt64StringEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}4\0swift_proto_testing.fuzz.Message.MapInt64StringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 27:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt64BytesEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt64BytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt64BytesEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}3\0swift_proto_testing.fuzz.Message.MapInt64BytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 28:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.fuzz.Message.MapInt64AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.fuzz.Message.MapInt64AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
     case 29:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt64MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt64MessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt64MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{14}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.Message.MapInt64MessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Fuzz_Message.self)
     case 30:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}4\0swift_proto_testing.fuzz.Message.MapUint32Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}4\0swift_proto_testing.fuzz.Message.MapUint32Int32Entry")
     case 31:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}4\0swift_proto_testing.fuzz.Message.MapUint32Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}4\0swift_proto_testing.fuzz.Message.MapUint32Int64Entry")
     case 32:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}5\0swift_proto_testing.fuzz.Message.MapUint32Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}5\0swift_proto_testing.fuzz.Message.MapUint32Uint32Entry")
     case 33:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}5\0swift_proto_testing.fuzz.Message.MapUint32Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}5\0swift_proto_testing.fuzz.Message.MapUint32Uint64Entry")
     case 34:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}4\0swift_proto_testing.fuzz.Message.MapUint32FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}4\0swift_proto_testing.fuzz.Message.MapUint32FloatEntry")
     case 35:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}5\0swift_proto_testing.fuzz.Message.MapUint32DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}5\0swift_proto_testing.fuzz.Message.MapUint32DoubleEntry")
     case 36:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}3\0swift_proto_testing.fuzz.Message.MapUint32BoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}3\0swift_proto_testing.fuzz.Message.MapUint32BoolEntry")
     case 37:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint32StringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint32StringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint32StringEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint32StringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 38:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint32BytesEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint32BytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint32BytesEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint32BytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 39:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}5\0swift_proto_testing.fuzz.Message.MapUint32AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}5\0swift_proto_testing.fuzz.Message.MapUint32AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
     case 40:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint32MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint32MessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint32MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint32MessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Fuzz_Message.self)
     case 41:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}4\0swift_proto_testing.fuzz.Message.MapUint64Int32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}4\0swift_proto_testing.fuzz.Message.MapUint64Int32Entry")
     case 42:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}4\0swift_proto_testing.fuzz.Message.MapUint64Int64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}4\0swift_proto_testing.fuzz.Message.MapUint64Int64Entry")
     case 43:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}5\0swift_proto_testing.fuzz.Message.MapUint64Uint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}5\0swift_proto_testing.fuzz.Message.MapUint64Uint32Entry")
     case 44:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}5\0swift_proto_testing.fuzz.Message.MapUint64Uint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}5\0swift_proto_testing.fuzz.Message.MapUint64Uint64Entry")
     case 45:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}4\0swift_proto_testing.fuzz.Message.MapUint64FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}4\0swift_proto_testing.fuzz.Message.MapUint64FloatEntry")
     case 46:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{1}5\0swift_proto_testing.fuzz.Message.MapUint64DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{1}5\0swift_proto_testing.fuzz.Message.MapUint64DoubleEntry")
     case 47:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}3\0swift_proto_testing.fuzz.Message.MapUint64BoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}3\0swift_proto_testing.fuzz.Message.MapUint64BoolEntry")
     case 48:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint64StringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint64StringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint64StringEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}5\0swift_proto_testing.fuzz.Message.MapUint64StringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 49:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint64BytesEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint64BytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint64BytesEntry"
+        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}4\0swift_proto_testing.fuzz.Message.MapUint64BytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 50:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}5\0swift_proto_testing.fuzz.Message.MapUint64AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}5\0swift_proto_testing.fuzz.Message.MapUint64AnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
     case 51:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint64MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint64MessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint64MessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{14}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}6\0swift_proto_testing.fuzz.Message.MapUint64MessageEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Fuzz_Message.self)
     case 52:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}2\0swift_proto_testing.fuzz.Message.MapBoolInt32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}2\0swift_proto_testing.fuzz.Message.MapBoolInt32Entry")
     case 53:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}2\0swift_proto_testing.fuzz.Message.MapBoolInt64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}2\0swift_proto_testing.fuzz.Message.MapBoolInt64Entry")
     case 54:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}3\0swift_proto_testing.fuzz.Message.MapBoolUint32Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}3\0swift_proto_testing.fuzz.Message.MapBoolUint32Entry")
     case 55:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}3\0swift_proto_testing.fuzz.Message.MapBoolUint64Entry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}3\0swift_proto_testing.fuzz.Message.MapBoolUint64Entry")
     case 56:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}2\0swift_proto_testing.fuzz.Message.MapBoolFloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{2}2\0swift_proto_testing.fuzz.Message.MapBoolFloatEntry")
     case 57:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}3\0swift_proto_testing.fuzz.Message.MapBoolDoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}3\0swift_proto_testing.fuzz.Message.MapBoolDoubleEntry")
     case 58:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}1\0swift_proto_testing.fuzz.Message.MapBoolBoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}1\0swift_proto_testing.fuzz.Message.MapBoolBoolEntry")
     case 59:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}3\0swift_proto_testing.fuzz.Message.MapBoolStringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}3\0swift_proto_testing.fuzz.Message.MapBoolStringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}3\0swift_proto_testing.fuzz.Message.MapBoolStringEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}3\0swift_proto_testing.fuzz.Message.MapBoolStringEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 60:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}2\0swift_proto_testing.fuzz.Message.MapBoolBytesEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}2\0swift_proto_testing.fuzz.Message.MapBoolBytesEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}2\0swift_proto_testing.fuzz.Message.MapBoolBytesEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}2\0swift_proto_testing.fuzz.Message.MapBoolBytesEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
     case 61:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}3\0swift_proto_testing.fuzz.Message.MapBoolAnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}3\0swift_proto_testing.fuzz.Message.MapBoolAnEnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Fuzz_AnEnum.self, enumSchema: SwiftProtoTesting_Fuzz_AnEnum.enumSchema)
     case 62:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}4\0swift_proto_testing.fuzz.Message.MapBoolMessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}4\0swift_proto_testing.fuzz.Message.MapBoolMessageEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}4\0swift_proto_testing.fuzz.Message.MapBoolMessageEntry"
+        let schemaString: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}4\0swift_proto_testing.fuzz.Message.MapBoolMessageEntry"
       #else
         #error("Unsupported platform")
       #endif

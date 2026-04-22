@@ -1013,162 +1013,162 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message {
     switch token.index {
     case 1:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Any.self)
     case 2:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Api.self)
     case 3:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Duration.self)
     case 4:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Empty.self)
     case 5:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_FieldMask.self)
     case 6:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_SourceContext.self)
     case 7:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Struct.self)
     case 8:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Timestamp.self)
     case 9:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Type.self)
     case 10:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_DoubleValue.self)
     case 11:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_FloatValue.self)
     case 12:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Int64Value.self)
     case 13:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_UInt64Value.self)
     case 14:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_Int32Value.self)
     case 15:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_UInt32Value.self)
     case 16:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_BoolValue.self)
     case 17:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
       #else
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtobuf.Google_Protobuf_StringValue.self)
     case 18:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
       #else
         #error("Unsupported platform")
       #endif

@@ -329,20 +329,20 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
   private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     case 1:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 2:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 3:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 4:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 5:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 6:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
       #else
         #error("Unsupported platform")
       #endif
@@ -412,20 +412,20 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
   private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
     switch token.index {
     case 1:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 2:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 3:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 4:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 5:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 6:
       #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
+        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
+        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
       #else
         #error("Unsupported platform")
       #endif
