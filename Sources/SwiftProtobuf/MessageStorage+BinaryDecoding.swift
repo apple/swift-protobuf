@@ -126,7 +126,8 @@ extension MessageStorage {
         switch field.fieldMode.cardinality {
         case .map:
             guard tag.wireFormat == .lengthDelimited else { return false }
-            _ = try schema.performOnMapEntry(
+            let slice = try reader.nextLengthDelimitedSlice()
+            let success = try schema.performOnMapEntry(
                 MessageSchema.TrampolineToken(index: field.submessageIndex),
                 field,
                 self,
@@ -135,14 +136,29 @@ extension MessageStorage {
                 // Deterministic ordering doesn't apply to decoding.
                 false
             ) { workingSpace in
-                try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                    try workingSpace.merge(
-                        byReadingFrom: &subReader,
-                        extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: true)
+                var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
+                try workingSpace.merge(
+                    byReadingFrom: &subReader,
+                    extensions: extensions,
+                    partial: partial,
+                    discardUnknownFields: false
+                )
+                // If we saw any unknown enum cases, they will end up in unknown fields, so return
+                // that to indicate that the entire map entry should be moved there.
+                return workingSpace.unknownFields.data.isEmpty
+            }
+            if !success {
+                // Re-parse the entire map entry as unknown fields.
+                let fieldTag = FieldTag(fieldNumber: tag.fieldNumber, wireFormat: .lengthDelimited)
+                let bodySize = slice.count
+                let fieldSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(bodySize)) + bodySize
+                var fieldData = Data(count: fieldSize)
+                fieldData.withUnsafeMutableBytes { body in
+                    var encoder = BinaryEncoder(forWritingInto: body)
+                    encoder.startField(tag: fieldTag)
+                    encoder.putBytesValue(value: Data(bytes: slice.baseAddress!, count: slice.count))
+                    unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
                 }
-                return true
             }
 
         case .array:

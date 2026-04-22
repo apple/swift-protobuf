@@ -625,6 +625,7 @@ extension MessageStorage {
             // handle missing fields in the map entry correctly.
             K.clearValue(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
             V.clearValue(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+            workingSpace.unknownFields = UnknownStorage()
 
             let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1)
             if !isPresent(field) {
