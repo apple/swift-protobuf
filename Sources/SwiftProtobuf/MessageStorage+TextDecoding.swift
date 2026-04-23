@@ -192,7 +192,22 @@ extension MessageStorage {
                 updateValue(of: field, to: try reader.scanner.nextBytesValue())
 
             case .double:
-                updateValue(of: field, to: try reader.scanner.nextDouble())
+                // Special case: If the text format value is negative zero, we need to preserve
+                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
+                // equality, so we need to manually manage the presence here.
+                let d = try reader.scanner.nextDouble()
+                let offset = field.offset
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    updateValue(
+                        at: offset,
+                        to: d,
+                        willBeSet: schema.fieldHasPresence(field) ? true : (d != 0 || d.sign == .minus),
+                        hasBit: (hasByteOffset, hasMask)
+                    )
+                case .oneOfMember(let oneofOffset):
+                    updateValue(at: offset, to: d, oneofPresence: (oneofOffset, field.fieldNumber))
+                }
 
             case .enum:
                 try scanEnumValue(field, from: &reader, operation: .mutate)
@@ -208,7 +223,22 @@ extension MessageStorage {
                 updateValue(of: field, to: try reader.scanner.nextUInt())
 
             case .float:
-                updateValue(of: field, to: try reader.scanner.nextFloat())
+                // Special case: If the text format value is negative zero, we need to preserve
+                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
+                // equality, so we need to manually manage the presence here.
+                let f = try reader.scanner.nextFloat()
+                let offset = field.offset
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    updateValue(
+                        at: offset,
+                        to: f,
+                        willBeSet: schema.fieldHasPresence(field) ? true : (f != 0 || f.sign == .minus),
+                        hasBit: (hasByteOffset, hasMask)
+                    )
+                case .oneOfMember(let oneofOffset):
+                    updateValue(at: offset, to: f, oneofPresence: (oneofOffset, field.fieldNumber))
+                }
 
             case .group, .message:
                 try scanSubmessageValue(field, from: &reader, operation: .mutate)
