@@ -349,10 +349,10 @@ extension Google_Protobuf_Value: Message {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Value"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0P\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\08\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0P\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\08\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\04\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\04\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value" }
   #else
     #error("Unsupported platform")
   #endif

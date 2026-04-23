@@ -313,10 +313,10 @@ extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: SwiftProtobuf.Message 
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a}(\0\0\u{3}\0\u{3}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}1\0swift_proto_testing.unknown_enum.proto3.MyMessage" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a}(\0\0\u{3}\0\u{3}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}1\0swift_proto_testing.unknown_enum.proto3.MyMessage" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{1c}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{3}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}1\0swift_proto_testing.unknown_enum.proto3.MyMessage" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{1c}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{3}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}1\0swift_proto_testing.unknown_enum.proto3.MyMessage" }
   #else
     #error("Unsupported platform")
   #endif
@@ -370,10 +370,10 @@ extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: SwiftProtobuf
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMessagePlusExtra"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a}(\0\0\u{3}\0\u{2}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}:\0swift_proto_testing.unknown_enum.proto3.MyMessagePlusExtra" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a}(\0\0\u{3}\0\u{2}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}:\0swift_proto_testing.unknown_enum.proto3.MyMessagePlusExtra" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{1c}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{2}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}:\0swift_proto_testing.unknown_enum.proto3.MyMessagePlusExtra" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{18}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{1c}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{2}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}:\0swift_proto_testing.unknown_enum.proto3.MyMessagePlusExtra" }
   #else
     #error("Unsupported platform")
   #endif
