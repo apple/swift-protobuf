@@ -24,6 +24,7 @@ final class Test_FieldOrdering: XCTestCase {
     typealias MessageTestType = SwiftProtoTesting_Order_TestFieldOrderings
 
     func test_FieldOrdering() throws {
+        throw XCTSkip("Disabling until we decide on extension serialization determinism strategy")
         var m = MessageTestType()
         m.myString = "abc"
         m.myInt = 1

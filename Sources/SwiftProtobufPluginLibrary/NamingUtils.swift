@@ -38,22 +38,15 @@ private let reservedTypeNames: Set<String> = {
     // class properties:
     names.insert("protoMessageName")
 
-    // Methods on Message that we need to avoid shadowing.  Testing
-    // shows we do not need to avoid `serializedData` or `isEqualTo`,
-    // but it's not obvious to me what's different about them.  Maybe
-    // because these two are generic?  Because they throw?
-    names.insert("decodeMessage")
-    names.insert("traverse")
-
     // Basic Message properties we don't want to shadow:
     names.insert("isInitialized")
     names.insert("unknownFields")
+    names.insert("messageSchema")
 
     // Standard Swift property names we don't want
     // to conflict with:
     names.insert("debugDescription")
     names.insert("description")
-    names.insert("dynamicType")
     names.insert("hashValue")
 
     // We don't need to protect all of these keywords, just the ones
@@ -107,12 +100,12 @@ private let reservedFieldNames: Set<String> = {
     // Basic Message properties that we don't want to shadow
     names.insert("isInitialized")
     names.insert("unknownFields")
+    names.insert("messageSchema")
 
     // Standard Swift property names we don't want
     // to conflict with:
     names.insert("debugDescription")
     names.insert("description")
-    names.insert("dynamicType")
     names.insert("hashValue")
     names.insert("init")
     names.insert("self")
@@ -140,7 +133,6 @@ private let quotableEnumCases: Set<String> = {
     // that interfere with enum cases:
     // names = names.union(swiftKeywordsReservedInParticularContexts)
     names.insert("associativity")
-    names.insert("dynamicType")
     names.insert("optional")
     names.insert("required")
 
@@ -163,11 +155,13 @@ private let reservedEnumCases: Set<String> = [
     "allCases",
     "debugDescription",
     "description",
-    "dynamicType",
     "hashValue",
     "init",
     "rawValue",
     "self",
+
+    // Don't conflict with static members of the `Enum` protocol:
+    "enumSchema",
 ]
 
 ///

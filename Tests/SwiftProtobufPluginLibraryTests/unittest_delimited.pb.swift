@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct EditionsUnittest_LengthPrefixed: @unchecked Sendable {
+struct EditionsUnittest_LengthPrefixed: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -30,7 +30,7 @@ struct EditionsUnittest_LengthPrefixed: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -39,7 +39,7 @@ struct EditionsUnittest_LengthPrefixed: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -59,11 +59,11 @@ struct EditionsUnittest_LengthPrefixed: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct EditionsUnittest_NotGroupLikeScope: @unchecked Sendable {
+struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct EditionsUnittest_NotGroupLikeScope: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -82,7 +82,7 @@ struct EditionsUnittest_NotGroupLikeScope: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -102,11 +102,11 @@ struct EditionsUnittest_NotGroupLikeScope: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct EditionsUnittest_GroupLikeFileScope: @unchecked Sendable {
+struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -116,7 +116,7 @@ struct EditionsUnittest_GroupLikeFileScope: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
-  var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -125,7 +125,7 @@ struct EditionsUnittest_GroupLikeFileScope: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `b` has been explicitly set.
-  var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -145,11 +145,11 @@ struct EditionsUnittest_GroupLikeFileScope: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct EditionsUnittest_TestDelimited: @unchecked Sendable {
+struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -160,7 +160,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lengthprefixed` has been explicitly set.
-  var hasLengthprefixed: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasLengthprefixed: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `lengthprefixed`. Subsequent reads from it will return its default value.
   mutating func clearLengthprefixed() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: EditionsUnittest_TestDelimited.LengthPrefixed.self, hasBit: (0, 1)) }
 
@@ -170,7 +170,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nested` has been explicitly set.
-  var hasNested: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasNested: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
   mutating func clearNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: EditionsUnittest_TestDelimited.self, hasBit: (0, 2)) }
 
@@ -180,7 +180,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `groupLike` has been explicitly set.
-  var hasGroupLike: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasGroupLike: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `groupLike`. Subsequent reads from it will return its default value.
   mutating func clearGroupLike() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 4)) }
 
@@ -190,7 +190,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `notgrouplike` has been explicitly set.
-  var hasNotgrouplike: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasNotgrouplike: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `notgrouplike`. Subsequent reads from it will return its default value.
   mutating func clearNotgrouplike() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 16), type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 8)) }
 
@@ -200,7 +200,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `notgrouplikescope` has been explicitly set.
-  var hasNotgrouplikescope: Bool { _storage.isPresent(hasBit: (0, 16)) }
+  var hasNotgrouplikescope: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `notgrouplikescope`. Subsequent reads from it will return its default value.
   mutating func clearNotgrouplikescope() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(40, 20), type: EditionsUnittest_NotGroupLikeScope.self, hasBit: (0, 16)) }
 
@@ -210,7 +210,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `messageimport` has been explicitly set.
-  var hasMessageimport: Bool { _storage.isPresent(hasBit: (0, 32)) }
+  var hasMessageimport: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
   mutating func clearMessageimport() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 24), type: EditionsUnittest_MessageImport.self, hasBit: (0, 32)) }
 
@@ -222,7 +222,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     }
   }
 
-  struct LengthPrefixed: @unchecked Sendable {
+  struct LengthPrefixed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -232,7 +232,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+    var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -241,7 +241,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+    var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -261,11 +261,11 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  struct GroupLike: @unchecked Sendable {
+  struct GroupLike: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -275,7 +275,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `a` has been explicitly set.
-    var hasA: Bool { _storage.isPresent(hasBit: (0, 1)) }
+    var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
@@ -284,7 +284,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `b` has been explicitly set.
-    var hasB: Bool { _storage.isPresent(hasBit: (0, 2)) }
+    var hasB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
@@ -304,8 +304,8 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   init() {}
@@ -316,8 +316,8 @@ struct EditionsUnittest_TestDelimited: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in unittest_delimited.proto.
@@ -470,85 +470,85 @@ let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
 fileprivate let _protobuf_package = "editions_unittest"
 
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".LengthPrefixed"
+  static let protoMessageName: Swift.String = _protobuf_package + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".NotGroupLikeScope"
+  static let protoMessageName: Swift.String = _protobuf_package + ".NotGroupLikeScope"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".GroupLikeFileScope"
+  static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeFileScope"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestDelimited"
+  static let protoMessageName: Swift.String = _protobuf_package + ".TestDelimited"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "L\u{1}\0\00\u{7f}\u{c}\u{19}y[?s'LtW2\u{4}H|\u{13}xR2@@7\tHs%?~kJ+pi?O\u{f}V\u{e}EA4?\u{16}\u{13}Z75DY|o\u{6}]\u{10}\"5\u{19}hx\u{13}=jK3nOG\u{1e}sy\u{4}+j8e\u{4}(\"Y\u{2}GP\u{18}9o\u{17}JI\u{1d}E\"V,007?j\u{5}H<\u{19}!\u{8}X-\u{2}#vJ\r\u{1d}\u{10}[\02EP{Li6a:5rt\t\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "P\u{1}\0\00_Pyu[\u{7}c\0\u{4}\t\\J\u{1c}\u{18}5vDC\u{3}\u{e} \u{1}*Ccol(\u{1c}Z\u{1d}\u{14}%B(k\"W\u{18}u\u{b}*a_-)\u{2}UM>VIT*Du\\0X\rl\0p5cD\u{12},IoJYk?YY\\)b;|\u{1}K\u{1c}d\u{12}]j46{\u{1f}Z\u{2}wS2Q/7m81Vi2\"9N*znM&\u{1d} SPh\u{5}\rk\u{6}BGu}\u{c}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_TestDelimited.LengthPrefixed.self)
     case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_TestDelimited.self)
@@ -559,7 +559,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_TestDelimited.LengthPrefixed.self, perform: perform)
     case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_TestDelimited.self, perform: perform)
@@ -570,7 +570,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -582,59 +582,59 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message {
-  static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
+  static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message {
-  static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
+  static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pmNE54\u{5}\u{14}*`D\u{7f}:9+\u{1c}gS[0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

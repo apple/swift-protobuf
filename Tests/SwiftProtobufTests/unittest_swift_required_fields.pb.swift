@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Just a single reserved field.
-struct SwiftProtoTesting_Required1: @unchecked Sendable {
+struct SwiftProtoTesting_Required1: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,7 +47,7 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -56,7 +56,7 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
@@ -65,7 +65,7 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `opt3` has been explicitly set.
-  var hasOpt3: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasOpt3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `opt3`. Subsequent reads from it will return its default value.
   mutating func clearOpt3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
@@ -74,7 +74,7 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `opt4` has been explicitly set.
-  var hasOpt4: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasOpt4: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `opt4`. Subsequent reads from it will return its default value.
   mutating func clearOpt4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
@@ -94,12 +94,12 @@ struct SwiftProtoTesting_Required1: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A full byte's worth of reserved fields.
-struct SwiftProtoTesting_Required8: @unchecked Sendable {
+struct SwiftProtoTesting_Required8: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -109,7 +109,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -118,7 +118,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req2` has been explicitly set.
-  var hasReq2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req2`. Subsequent reads from it will return its default value.
   mutating func clearReq2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
@@ -127,7 +127,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
@@ -136,7 +136,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req4` has been explicitly set.
-  var hasReq4: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq4: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req4`. Subsequent reads from it will return its default value.
   mutating func clearReq4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
@@ -145,7 +145,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 16)) }
+  var hasReq5: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 16)) }
 
@@ -154,7 +154,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `req6` has been explicitly set.
-  var hasReq6: Bool { _storage.isPresent(hasBit: (0, 32)) }
+  var hasReq6: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `req6`. Subsequent reads from it will return its default value.
   mutating func clearReq6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 32)) }
 
@@ -163,7 +163,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 64)) }
+  var hasReq7: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 64)) }
 
@@ -172,7 +172,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `req8` has been explicitly set.
-  var hasReq8: Bool { _storage.isPresent(hasBit: (0, 128)) }
+  var hasReq8: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `req8`. Subsequent reads from it will return its default value.
   mutating func clearReq8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
@@ -181,7 +181,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `req9` has been explicitly set.
-  var hasReq9: Bool { _storage.isPresent(hasBit: (1, 1)) }
+  var hasReq9: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `req9`. Subsequent reads from it will return its default value.
   mutating func clearReq9() { _uniqueStorage().clearValue(at: 72, type: Int64.self, hasBit: (1, 1)) }
 
@@ -190,7 +190,7 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `req10` has been explicitly set.
-  var hasReq10: Bool { _storage.isPresent(hasBit: (1, 2)) }
+  var hasReq10: Swift.Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `req10`. Subsequent reads from it will return its default value.
   mutating func clearReq10() { _uniqueStorage().clearValue(at: 80, type: Int64.self, hasBit: (1, 2)) }
 
@@ -210,12 +210,12 @@ struct SwiftProtoTesting_Required8: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A full byte's worth of reserved fields, plus some overflow.
-struct SwiftProtoTesting_Required9: @unchecked Sendable {
+struct SwiftProtoTesting_Required9: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -225,7 +225,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -234,7 +234,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req2` has been explicitly set.
-  var hasReq2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req2`. Subsequent reads from it will return its default value.
   mutating func clearReq2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 2)) }
 
@@ -243,7 +243,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 4)) }
 
@@ -252,7 +252,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req4` has been explicitly set.
-  var hasReq4: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq4: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req4`. Subsequent reads from it will return its default value.
   mutating func clearReq4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 8)) }
 
@@ -261,7 +261,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 16)) }
+  var hasReq5: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 16)) }
 
@@ -270,7 +270,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `req6` has been explicitly set.
-  var hasReq6: Bool { _storage.isPresent(hasBit: (0, 32)) }
+  var hasReq6: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `req6`. Subsequent reads from it will return its default value.
   mutating func clearReq6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 32)) }
 
@@ -279,7 +279,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 64)) }
+  var hasReq7: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 64)) }
 
@@ -288,7 +288,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `req8` has been explicitly set.
-  var hasReq8: Bool { _storage.isPresent(hasBit: (0, 128)) }
+  var hasReq8: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `req8`. Subsequent reads from it will return its default value.
   mutating func clearReq8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
@@ -297,7 +297,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 72, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `req9` has been explicitly set.
-  var hasReq9: Bool { _storage.isPresent(hasBit: (1, 1)) }
+  var hasReq9: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `req9`. Subsequent reads from it will return its default value.
   mutating func clearReq9() { _uniqueStorage().clearValue(at: 72, type: Int64.self, hasBit: (1, 1)) }
 
@@ -306,7 +306,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 80, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `req10` has been explicitly set.
-  var hasReq10: Bool { _storage.isPresent(hasBit: (1, 2)) }
+  var hasReq10: Swift.Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `req10`. Subsequent reads from it will return its default value.
   mutating func clearReq10() { _uniqueStorage().clearValue(at: 80, type: Int64.self, hasBit: (1, 2)) }
 
@@ -315,7 +315,7 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 88, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `req11` has been explicitly set.
-  var hasReq11: Bool { _storage.isPresent(hasBit: (1, 4)) }
+  var hasReq11: Swift.Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `req11`. Subsequent reads from it will return its default value.
   mutating func clearReq11() { _uniqueStorage().clearValue(at: 88, type: Int64.self, hasBit: (1, 4)) }
 
@@ -335,12 +335,12 @@ struct SwiftProtoTesting_Required9: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Reserved fields intermixed with optional fields.
-struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
+struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -350,7 +350,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -359,7 +359,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 16)) }
+  var hasOpt2: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: Int64.self, hasBit: (0, 16)) }
 
@@ -368,7 +368,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `req3` has been explicitly set.
-  var hasReq3: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasReq3: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `req3`. Subsequent reads from it will return its default value.
   mutating func clearReq3() { _uniqueStorage().clearValue(at: 24, type: Int64.self, hasBit: (0, 2)) }
 
@@ -377,7 +377,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `opt4` has been explicitly set.
-  var hasOpt4: Bool { _storage.isPresent(hasBit: (0, 32)) }
+  var hasOpt4: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `opt4`. Subsequent reads from it will return its default value.
   mutating func clearOpt4() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 32)) }
 
@@ -386,7 +386,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 40, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `req5` has been explicitly set.
-  var hasReq5: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasReq5: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `req5`. Subsequent reads from it will return its default value.
   mutating func clearReq5() { _uniqueStorage().clearValue(at: 40, type: Int64.self, hasBit: (0, 4)) }
 
@@ -395,7 +395,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `opt6` has been explicitly set.
-  var hasOpt6: Bool { _storage.isPresent(hasBit: (0, 64)) }
+  var hasOpt6: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `opt6`. Subsequent reads from it will return its default value.
   mutating func clearOpt6() { _uniqueStorage().clearValue(at: 48, type: Int64.self, hasBit: (0, 64)) }
 
@@ -404,7 +404,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 56, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `req7` has been explicitly set.
-  var hasReq7: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasReq7: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `req7`. Subsequent reads from it will return its default value.
   mutating func clearReq7() { _uniqueStorage().clearValue(at: 56, type: Int64.self, hasBit: (0, 8)) }
 
@@ -413,7 +413,7 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 64, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `opt8` has been explicitly set.
-  var hasOpt8: Bool { _storage.isPresent(hasBit: (0, 128)) }
+  var hasOpt8: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `opt8`. Subsequent reads from it will return its default value.
   mutating func clearOpt8() { _uniqueStorage().clearValue(at: 64, type: Int64.self, hasBit: (0, 128)) }
 
@@ -433,12 +433,12 @@ struct SwiftProtoTesting_RequiredMixedOrder: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A required submessage field that has required fields.
-struct SwiftProtoTesting_RequiredWithNested: @unchecked Sendable {
+struct SwiftProtoTesting_RequiredWithNested: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -448,7 +448,7 @@ struct SwiftProtoTesting_RequiredWithNested: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nested` has been explicitly set.
-  var hasNested: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasNested: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
   mutating func clearNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_NestedRequired.self, hasBit: (0, 1)) }
 
@@ -468,12 +468,12 @@ struct SwiftProtoTesting_RequiredWithNested: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A repeated submessage field that has required fields.
-struct SwiftProtoTesting_RequiredWithRepeatedNested: @unchecked Sendable {
+struct SwiftProtoTesting_RequiredWithRepeatedNested: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -499,11 +499,11 @@ struct SwiftProtoTesting_RequiredWithRepeatedNested: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftProtoTesting_NestedRequired: @unchecked Sendable {
+struct SwiftProtoTesting_NestedRequired: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -513,7 +513,7 @@ struct SwiftProtoTesting_NestedRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `req1` has been explicitly set.
-  var hasReq1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasReq1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `req1`. Subsequent reads from it will return its default value.
   mutating func clearReq1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -533,11 +533,11 @@ struct SwiftProtoTesting_NestedRequired: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
+struct SwiftProtoTesting_NoneRequired: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -547,7 +547,7 @@ struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -556,7 +556,7 @@ struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedNoneRequired.self, hasBit: (0, 2)) }
 
@@ -576,11 +576,11 @@ struct SwiftProtoTesting_NoneRequired: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftProtoTesting_NestedNoneRequired: @unchecked Sendable {
+struct SwiftProtoTesting_NestedNoneRequired: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -590,7 +590,7 @@ struct SwiftProtoTesting_NestedNoneRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -610,11 +610,11 @@ struct SwiftProtoTesting_NestedNoneRequired: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
+struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -624,7 +624,7 @@ struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `opt1` has been explicitly set.
-  var hasOpt1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasOpt1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `opt1`. Subsequent reads from it will return its default value.
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
@@ -633,7 +633,7 @@ struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
-  var hasOpt2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasOpt2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `opt2`. Subsequent reads from it will return its default value.
   mutating func clearOpt2() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_NestedRequired.self, hasBit: (0, 2)) }
 
@@ -653,11 +653,11 @@ struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
-struct SwiftProtoTesting_MapWithNestedRequiredValues: @unchecked Sendable {
+struct SwiftProtoTesting_MapWithNestedRequiredValues: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -683,8 +683,8 @@ struct SwiftProtoTesting_MapWithNestedRequiredValues: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -692,136 +692,136 @@ struct SwiftProtoTesting_MapWithNestedRequiredValues: @unchecked Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_Required1: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Required1"
+  static let protoMessageName: Swift.String = _protobuf_package + ".Required1"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0(\0\0\u{4}\0\0\u{1}\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required1" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0(\0\0\u{4}\0\0\u{1}\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required1" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0(\0\0\u{4}\0\0\u{1}\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required1" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0(\0\0\u{4}\0\0\u{1}\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required1" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{18}\u{1}\0\0 _\u{19}3-Z\u{b}?GC\u{1f}Zbf/g4j(\u{2}\\\u{14}+n,\u{4}\rNb\tN'dss+\u{16}\u{13}\u{1}N\u{3}y7i\u{3}\u{b}=5i{V!\u{10}\u{17}\u{12}jY#et~'50\u{1a}IP\u{19}^k\u{14}9ES((\u{4}Al\u{6}dw^|)*U P\u{1e}\u{11}b:^\u{1e}\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{1c}\u{1}\0\0 _]\u{13})Z\u{b}?'L\u{6}\u{10}al;tE#Cwg,KK\u{7}'l,j[\u{f}\u{f}\u{6}H$\u{15}#|\r\u{5},\u{10}\u{1a}\u{6}\u{15}\u{19}w[t\u{14}\u{1b}\u{2}>Vx\u{f})5-\u{f}KF\nO#he\u{19}5`@@n[;Y8gDGe8Jx}'O6\u{7}Ex6+\u{5}~\u{1}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_Required8: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Required8"
+  static let protoMessageName: Swift.String = _protobuf_package + ".Required8"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0X\0\0\u{a}\0\0\u{8}\0\0\u{a}\0\0\u{b}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required8" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0X\0\0\u{a}\0\0\u{8}\0\0\u{a}\0\0\u{b}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required8" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0X\0\0\u{a}\0\0\u{8}\0\0\u{a}\0\0\u{b}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required8" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0X\0\0\u{a}\0\0\u{8}\0\0\u{a}\0\0\u{b}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required8" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "l\u{2}\0\00d\u{14}\\ S1?O,g;0T_6T.F\u{1e}'9\u{f}E\u{10}FW v,u*~\u{1d}.!\u{c}(}.\u{1c}E<v\u{1e}X\u{1f};l8%$\u{1f}!lT0\u{13}zoZJ\u{7}\u{10}\u{e}Me\tAbr^=\u{3}RtCAPt`=.;,~\u{5}\";\\d<,\u{1}y$\0\"\u{4}+\u{16}}b}w%:<7\u{c}Jhza{w\u{4}x\u{14}JNtqR\u{6}\u{b}@\u{5}<%E(\u{13}\u{1e}]b\u{16}*O\u{1c}w!\u{b}\u{1c}\u{18}\u{10}KH\"4\r\t/y\u{1a})/\u{6}B\u{7f}\u{7f}xF8\t#{Oik\t@+e\u{e}7jY;0\u{11}p\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "p\u{2}\0\00\u{6}\u{5}Z,S5\u{7}\u{18}%#\u{1a}\u{c}X|D6\rZq\u{10}\u{11}\u{2}H.V\u{17}-\u{8}m9\0\u{4}l5+xr%co\u{1b}UN<\u{12}\u{1b}~\u{12}u{J\u{7f}\u{12}8Y6\u{1d}'ohJcM\\\\\u{12}\u{7}A\u{c}}\u{2}\u{1e}\t@SD\u{8}\u{1e}F\0\u{11}R\u{2}j#\u{3}z8Or*&\u{1e}@\u{17}6$a+\u{16}\u{7}o\t\u{19}!o/#\u{1b}zkW7\u{f}LH*n\u{1b}\u{e}5D\u{4}B\u{1d}5\u{7f}Q}^\u{7}\u{1a}joQ\u{5}R-\u{1c}\"_\u{12}%@\u{5}p\u{14}*]\u{13}P\u{e}\u{13}B4Gt$dqxBk\u{1e}\u{1b}WL2(*v\\0(*\u{1c}_h#\u{19}1:\u{3}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_Required9: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Required9"
+  static let protoMessageName: Swift.String = _protobuf_package + ".Required9"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0`\0\0\u{b}\0\0\u{9}\0\0\u{b}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{b}\0\0\0\0X\0\0\u{a}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required9" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{b}\0\0\u{9}\0\0\u{b}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{b}\0\0\0\0X\0\0\u{a}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required9" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0`\0\0\u{b}\0\0\u{9}\0\0\u{b}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{b}\0\0\0\0X\0\0\u{a}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required9" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{b}\0\0\u{9}\0\0\u{b}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{6}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{3}\u{a}\0\0\0\0P\0\0\u{9}\0\0\0\u{3}\u{b}\0\0\0\0X\0\0\u{a}\0\0\0\u{3}\u{1d}\0swift_proto_testing.Required9" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{14}\u{3}\0\0 _V35[S\nY.)SCZ?a1 qD;z}XSf)}gb\t\u{1b}P%+MjQOOW\u{2}EXe~WppA\u{12}GH\u{8}XC^\u{4}<\u{1e}Ll\u{b}\u{11}o\u{1d}zr\u{1f}\tJ\u{7}y(d\u{7}\u{7}u\u{1c}\u{b}\u{6}Nk6Rq\u{1a}vL\u{1a}jPJ^A4W#\u{1}\u{12}\u{3}@7\u{7}2K\u{1e}.\u{4}j|@\u{c}(J';\t6[9A\u{1d}\"E1\u{1d}\u{6}sF7\rX\u{10}n(h2l\u{1a}\u{7f}\u{7f}~2\r\u{b}jT\u{17}Oyfey \u{1f}[0%QO]|\u{1d}U\u{1f}:%HS5>\u{c}\0IB`+\u{1b}9'R&MW9(r`*H(+\u{16}\u{4}F%\0\u{1a}\0\u{2}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{18}\u{3}\0\0 _\u{1a}\u{14}1[S\u{1a}IAqLN1,V\"^\u{15}C\0)r\u{3}k\u{11}H0Mbe\t,nCF;@\u{1e}g\u{8}E%]O\u{8}NEQ\u{1f}/S\rPx4UV\t[D5R^K\u{5}s\u{b}\u{10}g{yv_\u{6}\u{1c}\u{11}YO,iHJ,v\u{1d}-W?4tJ\"d`ud[W~8P\u{b}gK#\u{c}PHKPl\u{10}\u{b}2`co9\u{1c}U\u{16}.~\u{1c}\u{1b}\u{7f}\t\u{15}8n\u{7}7,qzr\u{12}1\u{c}Wi{UN>\u{8}-=\u{12}pA>!\u{c}.|z5Uh.|8Rqq^#p&*~\u{b}l:iiPy1o\u{1e}sm\u{15}$\u{8}g.g{\u{11}D{cUMi\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_RequiredMixedOrder: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".RequiredMixedOrder"
+  static let protoMessageName: Swift.String = _protobuf_package + ".RequiredMixedOrder"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0H\0\0\u{8}\0\0\u{4}\0\0\u{8}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{5}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{6}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{3}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}&\0swift_proto_testing.RequiredMixedOrder" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{8}\0\0\u{4}\0\0\u{8}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{5}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{6}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{3}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}&\0swift_proto_testing.RequiredMixedOrder" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0H\0\0\u{8}\0\0\u{4}\0\0\u{8}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{5}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{6}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{3}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}&\0swift_proto_testing.RequiredMixedOrder" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{8}\0\0\u{4}\0\0\u{8}\0\0\u{9}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{3}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{3}\u{4}\0\0\0\0 \0\0\u{5}\0\0\0\u{3}\u{5}\0\0\0\0(\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\00\0\0\u{6}\0\0\0\u{3}\u{7}\0\0\0\08\0\0\u{3}\0\0\0\u{3}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{3}&\0swift_proto_testing.RequiredMixedOrder" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\u{2}\0\0\0?(&%ZS\u{2}BD\u{18}SCZ?\u{19}\"x<Dm\u{1f}bD`\u{f}&$f_X\"\u{1f}\u{b}A&(\u{11}$Za@\u{14}Fov\u{13}i~Bo5r\u{1e}v\u{7}Gezgs\u{1}_\r\u{10}Y\u{15}7\u{1b}A\u{8}uN+\u{16}\u{e}awO}h_ld\u{5}^ZX\u{3}sE$\u{1d}v?Mi2o\"\0(\u{c}\u{7}J\u{b}kg&\nIpH]q\"X]<w\u{1d}\u{b}x\"2I\u{b}TnQL>c\u{c}R5h|x~*K\u{18}t\u{1e}fen>\u{18}iq\rE\u{7f}\u{2}UI\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\u{2}\0\0\0?l\u{6}!ZS\n2w`LN1,V2\u{7f}7+3k9+c\u{5}n=f\n\u{8}\u{15}\u{1d}u\0e{D7\"]\u{3}r\u{1a}%pz\u{7}\u{1e}WE/\u{c}\u{11}}-(3c\u{b},\u{1f}N`JD}3+n/;\\\u{18}X\u{18}D92>t\u{17}\u{3}w\u{6}1Ae\u{c}n\u{1b}\u{15}qu\u{f}\u{1a}\u{8}\u{7f}{?:pP~&i eN-F\"\u{12}A\u{4}d\u{15}\u{12}9<L(\u{10}M<\u{17}\u{18}EaO\r\u{6}\u{1f}1r\"e\u{f}WZj_dFh\0\u{1a}g$Yn[\u{6}\u{6}Q\u{16}}\u{8}_#\t\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".RequiredWithNested"
+  static let protoMessageName: Swift.String = _protobuf_package + ".RequiredWithNested"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}&\0swift_proto_testing.RequiredWithNested" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}&\0swift_proto_testing.RequiredWithNested" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}&\0swift_proto_testing.RequiredWithNested" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}&\0swift_proto_testing.RequiredWithNested" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@m.W~\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?|t\"kuA26aN\u{11}\u{15}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_NestedRequired.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_NestedRequired.self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -833,52 +833,52 @@ extension SwiftProtoTesting_RequiredWithNested: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".RequiredWithRepeatedNested"
+  static let protoMessageName: Swift.String = _protobuf_package + ".RequiredWithRepeatedNested"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}.\0swift_proto_testing.RequiredWithRepeatedNested" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}.\0swift_proto_testing.RequiredWithRepeatedNested" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}.\0swift_proto_testing.RequiredWithRepeatedNested" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}.\0swift_proto_testing.RequiredWithRepeatedNested" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}FPbrfKbIu@m.W~\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?|t\"kuA26aN\u{11}\u{15}\0\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_NestedRequired].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_NestedRequired].self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -890,77 +890,77 @@ extension SwiftProtoTesting_RequiredWithRepeatedNested: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_NestedRequired: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".NestedRequired"
+  static let protoMessageName: Swift.String = _protobuf_package + ".NestedRequired"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\"\0swift_proto_testing.NestedRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\"\0swift_proto_testing.NestedRequired" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\"\0swift_proto_testing.NestedRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\"\0swift_proto_testing.NestedRequired" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xfb0c3\u{2}\u{12}YS\u{17}Cu`'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@:k'\"MIJww:\u{16}+|8_X:u\\=[L8.I\u{1a}Ul\u{18}gsq\u{1f}>\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".NoneRequired"
+  static let protoMessageName: Swift.String = _protobuf_package + ".NoneRequired"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b} \0swift_proto_testing.NoneRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b} \0swift_proto_testing.NoneRequired" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b} \0swift_proto_testing.NoneRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b} \0swift_proto_testing.NoneRequired" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "T\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS;2\u{1b}!-g\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\0\0\0PvJ+\ns9[\0RbnUw}Rq]\u{19}=\u{1b}&n\u{1a}xT\u{5}\u{1f}W@ST;U,mm\u{18}5![:Ko&W!bccsYx*\u{1b}\\\u{6}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_NestedNoneRequired.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_NestedNoneRequired.self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -972,69 +972,69 @@ extension SwiftProtoTesting_NoneRequired: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension SwiftProtoTesting_NestedNoneRequired: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".NestedNoneRequired"
+  static let protoMessageName: Swift.String = _protobuf_package + ".NestedNoneRequired"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}&\0swift_proto_testing.NestedNoneRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}&\0swift_proto_testing.NestedNoneRequired" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}&\0swift_proto_testing.NestedNoneRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}&\0swift_proto_testing.NestedNoneRequired" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"x^rf|6\u{17}\u{12}YS\u{17}Cu`'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@:k'\"MIJww:\u{16}+|8_X:u\\<\t;#/p\u{7}\u{15}\u{18}6{rq\u{1f}>\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".NoneRequiredButNestedRequired"
+  static let protoMessageName: Swift.String = _protobuf_package + ".NoneRequiredButNestedRequired"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}1\0swift_proto_testing.NoneRequiredButNestedRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}1\0swift_proto_testing.NoneRequiredButNestedRequired" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}1\0swift_proto_testing.NoneRequiredButNestedRequired" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{14}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}1\0swift_proto_testing.NoneRequiredButNestedRequired" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "T\0\0\0PTZ-~r5C~S-o9BI3\u{12}q4{\u{f}\u{1e}z\u{b}HsR@z1vu23\u{5}m.-s&6o.\u{1c}d\u{1b}R\u{c}oS;2\u{1b}!-g\u{1}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "X\0\0\0PvJ+\ns9[\0RbnUw}Rq]\u{19}=\u{1b}&n\u{1a}xT\u{5}\u{1f}W@ST;U,mm\u{18}5![:Ko&W!bccsYx*\u{1b}\\\u{6}\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_NestedRequired.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_NestedRequired.self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -1046,52 +1046,52 @@ extension SwiftProtoTesting_NoneRequiredButNestedRequired: SwiftProtobuf.Message
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 
 }
 
 extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MapWithNestedRequiredValues"
+  static let protoMessageName: Swift.String = _protobuf_package + ".MapWithNestedRequiredValues"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}/\0swift_proto_testing.MapWithNestedRequiredValues" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}/\0swift_proto_testing.MapWithNestedRequiredValues" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}/\0swift_proto_testing.MapWithNestedRequiredValues" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}/\0swift_proto_testing.MapWithNestedRequiredValues" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "0\0\0\0\0\u{1f}3f\u{15}[?s'L4PX;\u{3}usBm\"xZn:v9\u{2}\u{12}YS\u{17}Cu`'\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@:k'\"MIJww:\u{16}+|8_X:u\\<gA*;d\u{2}\u{15}\u{18}6{rq\u{1f}>\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_NestedRequired].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Int32: SwiftProtoTesting_NestedRequired].self, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
@@ -1101,9 +1101,9 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message {
     switch token.index {
     case 1:
       #if _pointerBitWidth(_64)
-        let schemaString: StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}9\0swift_proto_testing.MapWithNestedRequiredValues.Map1Entry"
+        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}9\0swift_proto_testing.MapWithNestedRequiredValues.Map1Entry"
       #elseif _pointerBitWidth(_32)
-        let schemaString: StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}9\0swift_proto_testing.MapWithNestedRequiredValues.Map1Entry"
+        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}9\0swift_proto_testing.MapWithNestedRequiredValues.Map1Entry"
       #else
         #error("Unsupported platform")
       #endif
@@ -1112,7 +1112,7 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     case 1: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_NestedRequired>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
@@ -1120,9 +1120,9 @@ extension SwiftProtoTesting_MapWithNestedRequiredValues: SwiftProtobuf.Message {
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Bool {
+  public var isInitialized: Swift.Bool {
     return _storage.isInitialized
   }
 

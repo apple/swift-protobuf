@@ -139,7 +139,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// the Joda Time's [`ISODateTimeFormat.dateTime()`](
 /// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
 /// ) to obtain a formatter capable of generating timestamps in this format.
-public struct Google_Protobuf_Timestamp: @unchecked Sendable {
+public struct Google_Protobuf_Timestamp: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,8 +178,8 @@ public struct Google_Protobuf_Timestamp: @unchecked Sendable {
     return _storage
   }
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  public func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  public mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  public func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  public mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -187,22 +187,22 @@ public struct Google_Protobuf_Timestamp: @unchecked Sendable {
 fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Timestamp: Message {
-  public static let protoMessageName: String = _protobuf_package + ".Timestamp"
+  public static let protoMessageName: Swift.String = _protobuf_package + ".Timestamp"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "<\0\0\0@^O'=J\0)h\0]8Gn0\u{10}\u{1f}\u{11}'MS\u{18}cXX>`D,\tc\u{12}\u{19}\u{16}|kV\u{11}h\u{3}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HqLj\u{1d}N\"Q(x$Py,Fqy1b<\u{14}'X\u{7}NW`\u{4}\0\0" }
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
   public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

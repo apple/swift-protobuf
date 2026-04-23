@@ -140,7 +140,7 @@ extension MessageStorage {
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
                 .read,
-                false  // useDeterministicOrdering
+                options.useDeterministicOrdering
             ) { mapEntryStorage in
                 if !firstItem {
                     encoder.comma()

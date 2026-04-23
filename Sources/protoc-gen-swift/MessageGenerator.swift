@@ -148,7 +148,7 @@ class MessageGenerator {
         // property is a class type with mutable state. However, the generated code ensures that
         // there are no data races because it uses `isKnownUniquelyReferenced` to implement
         // copy-on-write behavior.
-        conformances.append("@unchecked Sendable")
+        conformances.append("@unchecked Swift.Sendable")
 
         p.print(
             "",
@@ -220,10 +220,10 @@ class MessageGenerator {
                 "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }"
             )
             p.print(
-                "\(visibility)func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }"
+                "\(visibility)func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }"
             )
             p.print(
-                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }"
+                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }"
             )
         }
         p.print("}")
@@ -237,19 +237,19 @@ class MessageGenerator {
         p.withIndentation { p in
             if let parent = parent {
                 p.print(
-                    "\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
+                    "\(visibility)static let protoMessageName: Swift.String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
                 )
             } else if !descriptor.file.package.isEmpty {
                 p.print(
-                    "\(visibility)static let protoMessageName: String = _protobuf_package + \".\(descriptor.name)\""
+                    "\(visibility)static let protoMessageName: Swift.String = _protobuf_package + \".\(descriptor.name)\""
                 )
             } else {
-                p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
+                p.print("\(visibility)static let protoMessageName: Swift.String = \"\(descriptor.name)\"")
             }
             generateMessageSchema(printer: &p)
             p.print(
                 "",
-                "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }",
+                "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }",
                 ""
             )
             generateIsInitialized(printer: &p)
@@ -270,12 +270,12 @@ class MessageGenerator {
         messageSchemaCalculator.schemaLiterals.printConditionalBlocks(to: &p) { value, _, p in
             p.print(
                 "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_messageSchemaString: StaticString { "\#(value)" }"#
+                #"private static var _protobuf_messageSchemaString: Swift.StaticString { "\#(value)" }"#
             )
         }
         p.print(
             "@_alwaysEmitIntoClient @inline(__always)",
-            #"private static var _protobuf_reflectionData: StaticString { "\#(compressedReflectionData)" }"#
+            #"private static var _protobuf_reflectionData: Swift.StaticString { "\#(compressedReflectionData)" }"#
         )
 
         let trampolineFields = messageSchemaCalculator.trampolineFields
@@ -303,7 +303,7 @@ class MessageGenerator {
             )
             p.print(
                 "",
-                "private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {"
+                "private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
@@ -323,7 +323,7 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {"
+                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
@@ -362,7 +362,7 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {"
+                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
@@ -408,7 +408,7 @@ class MessageGenerator {
 
             p.print(
                 "",
-                "private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {"
+                "private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
@@ -444,7 +444,7 @@ class MessageGenerator {
             return
         }
 
-        p.print("public var isInitialized: Bool {")
+        p.print("public var isInitialized: Swift.Bool {")
         p.withIndentation { p in
             p.print("return _storage.isInitialized")
         }

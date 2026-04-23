@@ -156,8 +156,8 @@ extension ReflectionTable {
         let fieldTableSize = fieldCount &* 2 &* MemoryLayout<UInt32>.size
         return number(
             for: name,
-            inTableStartingAt: firstSectionStart &+ MemoryLayout<UInt32>.size &+ fieldTableSize,
-            count: fieldCount &+ reservedNameCount
+            inTableStartingAt: 3 &* MemoryLayout<UInt32>.size &+ fieldTableSize,
+            count: textNameTableCount
         ) == 0
     }
 
@@ -205,12 +205,20 @@ extension ReflectionTable {
         }
     }
 
+    /// Returns the total count of entries in the text name to number table.
+    @inline(__always) @_alwaysEmitIntoClient
+    private var textNameTableCount: Int {
+        data.withUnsafeBytes { bytes in
+            Int(loadUInt16(from: bytes, at: firstSectionStart &+ 4))
+        }
+    }
+
     /// The offset of the name table within the reflection data.
     @inline(__always) @_alwaysEmitIntoClient
     private var nameTableOffset: Int {
-        2 &* MemoryLayout<UInt32>.size
+        3 &* MemoryLayout<UInt32>.size
             &+ 2 &* fieldCount &* MemoryLayout<UInt32>.size
-            &+ 2 &* (fieldCount &+ reservedNameCount) &* MemoryLayout<UInt32>.size
+            &+ 2 &* textNameTableCount &* MemoryLayout<UInt32>.size
             &+ 2 &* distinctJSONNameCount &* MemoryLayout<UInt32>.size
     }
 
@@ -219,18 +227,18 @@ extension ReflectionTable {
         let fieldTableSize = fieldCount &* 2 &* MemoryLayout<UInt32>.size
         return number(
             for: name,
-            inTableStartingAt: firstSectionStart &+ MemoryLayout<UInt32>.size &+ fieldTableSize,
-            count: fieldCount &+ reservedNameCount
+            inTableStartingAt: 3 &* MemoryLayout<UInt32>.size &+ fieldTableSize,
+            count: textNameTableCount
         )
     }
 
     /// Returns the field or enum case number associated with the given JSON name.
     private func rawNumber(forJSONName name: String) -> UInt32? {
         let fieldTableSize = fieldCount &* 2 &* MemoryLayout<UInt32>.size
-        let textTableSize = (fieldCount &+ reservedNameCount) &* 2 &* MemoryLayout<UInt32>.size
+        let textTableSize = textNameTableCount &* 2 &* MemoryLayout<UInt32>.size
         return number(
             for: name,
-            inTableStartingAt: firstSectionStart &+ MemoryLayout<UInt32>.size &+ fieldTableSize &+ textTableSize,
+            inTableStartingAt: 3 &* MemoryLayout<UInt32>.size &+ fieldTableSize &+ textTableSize,
             count: distinctJSONNameCount
         )
     }
@@ -249,7 +257,7 @@ extension ReflectionTable {
             while low <= high {
                 let mid = (low &+ high) / 2
                 let bounds = sectionBounds(forSection: 0)
-                let offset = bounds.start &+ MemoryLayout<UInt32>.size &+ mid &* (2 &* MemoryLayout<UInt32>.size)
+                let offset = bounds.start &+ 2 &* MemoryLayout<UInt32>.size &+ mid &* (2 &* MemoryLayout<UInt32>.size)
                 let currentNumber = loadUInt32(from: bytes, at: offset)
 
                 if currentNumber == fieldNumber {
@@ -324,8 +332,11 @@ extension ReflectionTable {
         ReflectionTable(
             fieldCount: 2,
             data: [
-                52, 0, 0, 0,  // Offset of reserved numbers section (unused)
-                0, 0, 0, 0,  // Number of fields with distinct JSON names (0)
+                56, 0, 0, 0,  // Offset to Section 1
+                0, 0,         // distinctJSONNameCount (0)
+                0, 0,         // reservedNameCount (0)
+                2, 0,         // textNameTableCount (2)
+                0, 0,         // Padding
                 // Field number to text offset table
                 1, 0, 0, 0,  // field 1
                 0, 0, 0, 0,  // offset 0
@@ -342,7 +353,7 @@ extension ReflectionTable {
                 UInt8(ascii: "e"), 0,
                 // Alignment padding
                 0, 0,
-                56, 0, 0, 0,  // Offset of default values section (unused)
+                60, 0, 0, 0,  // Offset of Section 2
             ]
         )
     }()

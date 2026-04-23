@@ -227,7 +227,7 @@ struct WireFormatReader {
     ///
     /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input.
     mutating func withReaderForNextLengthDelimitedSlice(perform: (inout WireFormatReader) throws -> Void) throws {
-        guard recursionBudget > 0 else {
+        guard recursionBudget > 1 else {
             throw BinaryDecodingError.messageDepthLimit
         }
         let length = try nextVarintAsValidatedDelimitedLength()
@@ -252,7 +252,7 @@ struct WireFormatReader {
         withFieldNumber fieldNumber: UInt32,
         perform: (inout WireFormatReader) throws -> Void
     ) throws {
-        guard recursionBudget > 0 else {
+        guard recursionBudget > 1 else {
             throw BinaryDecodingError.messageDepthLimit
         }
         // Unlike a length-delimited field, we don't know exactly where the group will end. Have
@@ -296,7 +296,7 @@ struct WireFormatReader {
             advance(by: size)
 
         case .startGroup:
-            guard recursionBudget > 0 else {
+            guard recursionBudget > 1 else {
                 throw BinaryDecodingError.messageDepthLimit
             }
             var sawEndGroup = false

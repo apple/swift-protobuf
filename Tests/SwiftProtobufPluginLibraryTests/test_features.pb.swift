@@ -32,7 +32,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
+struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -42,7 +42,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `feature1` has been explicitly set.
-  var hasFeature1: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasFeature1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `feature1`. Subsequent reads from it will return its default value.
   mutating func clearFeature1() { _uniqueStorage().clearValue(at: 4, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 1)) }
 
@@ -51,7 +51,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `feature2` has been explicitly set.
-  var hasFeature2: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasFeature2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `feature2`. Subsequent reads from it will return its default value.
   mutating func clearFeature2() { _uniqueStorage().clearValue(at: 8, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 2)) }
 
@@ -60,7 +60,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `feature3` has been explicitly set.
-  var hasFeature3: Bool { _storage.isPresent(hasBit: (0, 4)) }
+  var hasFeature3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `feature3`. Subsequent reads from it will return its default value.
   mutating func clearFeature3() { _uniqueStorage().clearValue(at: 12, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 4)) }
 
@@ -69,7 +69,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 16, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `feature4` has been explicitly set.
-  var hasFeature4: Bool { _storage.isPresent(hasBit: (0, 8)) }
+  var hasFeature4: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `feature4`. Subsequent reads from it will return its default value.
   mutating func clearFeature4() { _uniqueStorage().clearValue(at: 16, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 8)) }
 
@@ -78,7 +78,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 20, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `feature5` has been explicitly set.
-  var hasFeature5: Bool { _storage.isPresent(hasBit: (0, 16)) }
+  var hasFeature5: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `feature5`. Subsequent reads from it will return its default value.
   mutating func clearFeature5() { _uniqueStorage().clearValue(at: 20, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 16)) }
 
@@ -90,7 +90,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     }
   }
 
-  enum EnumFeature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  enum EnumFeature: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case value1 = 1
     case value2 = 2
@@ -113,8 +113,8 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in test_features.proto.
@@ -169,35 +169,35 @@ let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
 fileprivate let _protobuf_package = "swift_feature_test"
 
 extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestFeatures"
+  static let protoMessageName: Swift.String = _protobuf_package + ".TestFeatures"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}&pmNE53g/G\u{2};j\u{5}[BB\u{1}\"\u{1b}bwQ{\"\u{1d}/($Wiq\n\u{12}\u{15}/Yi5M\u{17}|D!\u{1d}Eso]w\u{1b}\u{b}N3t(s~\u{15}\"&/,MHWp@\u{1}\u{18}\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{1}\0\0 _Qy=\u{6}*HKI\u{13}\u{11}|xa\u{15}X\"llA\u{f}s\u{11}stf\u{14}\u{7}+K\u{6}\u{f}\u{5}Pc2c\\\u{f}z\u{19}V$w\u{2}i1Z. i;\u{1f}_'?G\n\u{18}s\u{7f}\u{2}\u{c}~G;^@%\u{8}|\u{e}7 \u{b}|\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftFeatureTest_TestFeatures.EnumFeature.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, enumSchema: SwiftFeatureTest_TestFeatures.EnumFeature.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
@@ -210,21 +210,21 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 extension SwiftFeatureTest_TestFeatures.EnumFeature {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "\u{c}\u{2}\0\0\0_\u{10}c>8=m6qH|! \u{4}r\u{2}C-`Of\u{18}E7\u{f}C\"\u{1b}\u{7}VSL\t\u{18}nd\u{10}8|0VxXPUm]VQ\u{4}\u{13}7d7\u{19}\u{1b}\u{7}\"O\t\n\u{19}\u{8}<c^j/Wd-R\u{1}X{\u{17};\u{f}\u{1}l\t\u{17}:W\u{1d}T0\u{16}\u{1e}Fjdvj\u{16}YT\u{7f}1y+&8B\u{18}ee0g\u{f}s\0\0\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\u{2}\0\0\0_TC:85-\u{b}ijxDl?=5\u{7f}U\u{1b}\u{19}\u{7f}lfQ@#D%y|x\u{11}\u{b}U|euo^\u{14}@\u{e}9\u{1}ovT<D\u{11}[|(_\u{10}x\u{1f}|Vp^DONFz0jb.\u{1f}{0\u{14}M\u{e}J\t0^U\u{c}G@wh1\u{7}M\u{1f}\u{5}0\u{1}\u{18}9\u{4}Uf\\J\u{12}\u{f}\u{f}rgQ\u{6}!lO\u{f}\u{1a}:\u{3}\u{8}#3\u{1}\0\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }

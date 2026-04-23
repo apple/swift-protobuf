@@ -223,6 +223,9 @@ package struct ReflectionTableCalculator {
             // Number of reserved names, 16-bit little endian.
             appendInteger(UInt16(reservedNames.count))
 
+            // Total number of entries in the text name to number table, 16-bit little endian.
+            appendInteger(UInt16(textOffsetToNumber.count))
+
             // Field/case number to text offset table (UInt32 -> UInt32), in field/case number order.
             // Note that enum values are stored as their unsigned bit-pattern, so the effective sort
             // order is 0...2^31-1, then -2^31...-1. The runtime must therefore perform an unsigned

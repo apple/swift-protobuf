@@ -150,6 +150,202 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         XCTAssertTrue(msg.isInitialized)
     }
 
+    func testRequired1_isNotInitialized() {
+        var msg = SwiftProtoTesting_Required1()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.opt2 = 50
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequired1_isInitialized() {
+        var msg = SwiftProtoTesting_Required1()
+        msg.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testRequired1_isNotInitializedAfterClear() {
+        var msg = SwiftProtoTesting_Required1()
+        msg.req1 = 50
+        msg.clearReq1()
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequired8_isNotInitialized() {
+        var msg = SwiftProtoTesting_Required8()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.req1 = 50
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequired8_isInitialized() {
+        var msg = SwiftProtoTesting_Required8()
+        msg.req1 = 50
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        msg.req8 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testRequired8_isNotInitializedAfterClear() {
+        var msg = SwiftProtoTesting_Required8()
+        msg.req1 = 50
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        msg.req8 = 50
+        msg.clearReq1()
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequired9_isNotInitialized() {
+        var msg = SwiftProtoTesting_Required9()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.req1 = 50
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        msg.req8 = 50
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequired9_isInitialized() {
+        var msg = SwiftProtoTesting_Required9()
+        msg.req1 = 50
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        msg.req8 = 50
+        msg.req9 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testRequired9_isNotInitializedAfterClear() {
+        var msg = SwiftProtoTesting_Required9()
+        msg.req1 = 50
+        msg.req2 = 50
+        msg.req3 = 50
+        msg.req4 = 50
+        msg.req5 = 50
+        msg.req6 = 50
+        msg.req7 = 50
+        msg.req8 = 50
+        msg.req9 = 50
+        msg.clearReq9()
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequiredMixedOrder_isNotInitialized() {
+        var msg = SwiftProtoTesting_RequiredMixedOrder()
+        XCTAssertFalse(msg.isInitialized)
+        msg.req1 = 50
+        msg.req3 = 50
+        msg.req5 = 50
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testRequiredMixedOrder_isInitialized() {
+        var msg = SwiftProtoTesting_RequiredMixedOrder()
+        msg.req1 = 50
+        msg.req3 = 50
+        msg.req5 = 50
+        msg.req7 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testRequiredWithSubmessage() {
+        var msg = SwiftProtoTesting_RequiredWithNested()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.nested = SwiftProtoTesting_NestedRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.nested.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testRequiredWithRepeatedSubmessage() {
+        var msg = SwiftProtoTesting_RequiredWithRepeatedNested()
+        // True because the submessage field is optional.
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.nested = [SwiftProtoTesting_NestedRequired(), SwiftProtoTesting_NestedRequired()]
+        // Now false because we've explicitly set the submessage field but it's missing required
+        // fields.
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.nested[0].req1 = 50
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.nested[1].req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testNoneRequired() {
+        let msg = SwiftProtoTesting_NoneRequired()
+        XCTAssertTrue(msg.isInitialized)
+    }
+
+    func testNoneRequiredButNestedRequired() {
+        var msg = SwiftProtoTesting_NoneRequiredButNestedRequired()
+        // True because the submessage field is optional.
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.opt1 = 50
+        // Still true because the submessage field is optional.
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.opt2 = SwiftProtoTesting_NestedRequired()
+        // Now false because we've explicitly set the submessage field but it's missing required
+        // fields.
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.opt2.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.opt2.clearReq1()
+        XCTAssertFalse(msg.isInitialized)
+    }
+
+    func testMapWithRequiredFieldsInValues() {
+        var msg = SwiftProtoTesting_MapWithNestedRequiredValues()
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.map1[0] = SwiftProtoTesting_NestedRequired()
+        XCTAssertFalse(msg.isInitialized)
+
+        msg.map1[0]!.req1 = 50
+        XCTAssertTrue(msg.isInitialized)
+
+        msg.map1[0] = nil
+        XCTAssertTrue(msg.isInitialized)
+    }
+
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(
         _ bytes: [UInt8],

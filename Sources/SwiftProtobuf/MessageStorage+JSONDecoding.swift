@@ -197,7 +197,11 @@ extension MessageStorage {
                     appendValue(try reader.scanner.nextDouble(), to: field)
 
                 case .enum:
-                    try scanEnumValue(field, from: &reader, operation: .append)
+                    do {
+                        try scanEnumValue(field, from: &reader, operation: .append)
+                    } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                        // Ignore unknown enum values if requested.
+                    }
 
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextUInt()
@@ -279,16 +283,51 @@ extension MessageStorage {
                 clearValue(of: field, type: Double.self)
                 break
             }
-            updateValue(of: field, to: try reader.scanner.nextDouble())
+            // Special case: If the JSON value is negative zero, we need to preserve that. The
+            // `updateValue` overload that takes a `FieldSchema` only checks for zero equality, so
+            // we need to manually manage the presence here.
+            let d = try reader.scanner.nextDouble()
+            let offset = field.offset
+            switch field.presence {
+            case .hasBit(let hasByteOffset, let hasMask):
+                updateValue(
+                    at: offset,
+                    to: d,
+                    willBeSet: schema.fieldHasPresence(field) ? true : (d != 0 || d.sign == .minus),
+                    hasBit: (hasByteOffset, hasMask)
+                )
+            case .oneOfMember(let oneofOffset):
+                updateValue(at: offset, to: d, oneofPresence: (oneofOffset, field.fieldNumber))
+            }
 
         case .enum:
+            // If we're decoding a `NullValue` well-known type, `null` should be
+            // stored as the `NULL_VALUE` value, not clear the field.
             if isNull {
-                // We don't have the concrete type information for the enum here, but that's
-                // fine because we store the raw value for singular enum fields.
-                clearValue(of: field, type: Int32.self)
+                var isNullValueWKT = false
+                try! schema.performOnRawEnumValues(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    .read
+                ) { enumSchema, _ in
+                    isNullValueWKT = CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue
+                    return false
+                } /*onInvalidValue*/ _: { _ in }
+                if isNullValueWKT {
+                    updateValue(of: field, to: Int32(0))
+                } else {
+                    clearValue(of: field, type: Int32.self)
+                }
                 break
             }
-            try scanEnumValue(field, from: &reader, operation: .mutate)
+            let ignoreUnknown = reader.options.ignoreUnknownFields && !schema.isMapEntry
+            do {
+                try scanEnumValue(field, from: &reader, operation: .mutate)
+            } catch JSONDecodingError.unrecognizedEnumValue where ignoreUnknown {
+                // Ignore unknown enum values if requested, unless this is a map entry.
+                
+            }
 
         case .fixed32, .uint32:
             if isNull {
@@ -313,7 +352,22 @@ extension MessageStorage {
                 clearValue(of: field, type: Float.self)
                 break
             }
-            updateValue(of: field, to: try reader.scanner.nextFloat())
+            // Special case: If the JSON value is negative zero, we need to preserve that. The
+            // `updateValue` overload that takes a `FieldSchema` only checks for zero equality, so
+            // we need to manually manage the presence here.
+            let f = try reader.scanner.nextFloat()
+            let offset = field.offset
+            switch field.presence {
+            case .hasBit(let hasByteOffset, let hasMask):
+                updateValue(
+                    at: offset,
+                    to: f,
+                    willBeSet: schema.fieldHasPresence(field) ? true : (f != 0 || f.sign == .minus),
+                    hasBit: (hasByteOffset, hasMask)
+                )
+            case .oneOfMember(let oneofOffset):
+                updateValue(at: offset, to: f, oneofPresence: (oneofOffset, field.fieldNumber))
+            }
 
         case .group, .message:
             if isNull {
@@ -481,6 +535,15 @@ extension MessageStorage {
                 }
                 value = Int32(number)
                 return true
+            }
+
+            if reader.scanner.skipOptionalNull() {
+                if CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
+                    value = 0
+                    return true
+                } else {
+                    throw JSONDecodingError.illegalNull
+                }
             }
 
             let number = try reader.scanner.nextSInt()

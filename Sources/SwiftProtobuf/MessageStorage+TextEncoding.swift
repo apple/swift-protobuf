@@ -63,13 +63,12 @@ extension MessageStorage {
         let typeURLField = schema[fieldNumber: 1]!
         let valueField = schema[fieldNumber: 2]!
         let valueOffset = valueField.offset
-        let isValuePresent = isPresent(valueField)
 
         // If we can unpack it, emit the verbose form.
         let typeURL = value(of: typeURLField) as String
-        if isValuePresent, let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) {
+        if !typeURL.isEmpty, let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) {
             let messageStorage = MessageStorage(schema: messageSchema)
-            let bytes = assumedPresentValue(at: valueOffset) as Data
+            let bytes: Data = value(of: valueField)
             do {
                 try bytes.withUnsafeBytes { buffer in
                     try messageStorage.merge(
@@ -93,7 +92,7 @@ extension MessageStorage {
         if isPresent(typeURLField) {
             serializeField(typeURLField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
         }
-        if isValuePresent {
+        if isPresent(valueField) {
             let bytes = assumedPresentValue(at: valueOffset) as Data
             emitName(ofFieldNumber: valueField.fieldNumber, into: &encoder)
             encoder.startRegularField()
@@ -121,11 +120,23 @@ extension MessageStorage {
                 self,
                 mapEntryWorkingSpace.storage(for: field.submessageIndex),
                 .read,
-                false  // useDeterministicOrdering
+                true  // useDeterministicOrdering
             ) {
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startMessageField()
-                $0.serializeText(into: &encoder, options: options)
+                let mapEntrySchema = $0.schema
+                $0.serializeField(
+                    mapEntrySchema[fieldNumber: 1]!,
+                    into: &encoder,
+                    mapEntryWorkingSpace: &mapEntryWorkingSpace,
+                    options: options
+                )
+                $0.serializeField(
+                    mapEntrySchema[fieldNumber: 2]!,
+                    into: &encoder,
+                    mapEntryWorkingSpace: &mapEntryWorkingSpace,
+                    options: options
+                )
                 encoder.endMessageField()
                 return true
             }

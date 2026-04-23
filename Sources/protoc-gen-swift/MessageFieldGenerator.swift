@@ -168,7 +168,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool { _storage.isPresent(\(hasBitArgument)) }"
+            "\(visibility)var \(swiftHasName): Swift.Bool { _storage.isPresent(\(hasBitArgument)) }"
         )
 
         p.print(

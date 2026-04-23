@@ -38,17 +38,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+  typealias RawValue = Swift.Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
-  case UNRECOGNIZED(Int)
+  case UNRECOGNIZED(Swift.Int)
 
   init() {
     self = .foo
   }
 
-  init?(rawValue: Int) {
+  init?(rawValue: Swift.Int) {
     switch rawValue {
     case 0: self = .foo
     case 1: self = .bar
@@ -57,7 +57,7 @@ enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterabl
     }
   }
 
-  var rawValue: Int {
+  var rawValue: Swift.Int {
     switch self {
     case .foo: return 0
     case .bar: return 1
@@ -78,7 +78,7 @@ enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterabl
 /// The message layout algorithm will place the int64 after the enum (because the latter is stored
 /// as its raw value, an int32, so it's smaller). This lets us verify that the setter and clearer
 /// use the raw value correctly and don't clobber memory afterward.
-struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
+struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -88,7 +88,7 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `foo` has been explicitly set.
-  var hasFoo: Bool { _storage.isPresent(hasBit: (0, 1)) }
+  var hasFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
   mutating func clearFoo() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_EnumClobbering_Foo.self, hasBit: (0, 1)) }
 
@@ -97,7 +97,7 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `bar` has been explicitly set.
-  var hasBar: Bool { _storage.isPresent(hasBit: (0, 2)) }
+  var hasBar: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
   mutating func clearBar() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 2)) }
 
@@ -117,8 +117,8 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Sendable {
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject { _uniqueStorage().extensionStorage }
+  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
+  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -127,42 +127,42 @@ fileprivate let _protobuf_package = "swift_proto_testing.enum_clobbering"
 
 extension SwiftProtoTesting_EnumClobbering_Foo {
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: StaticString { "\0\u{3}\0\0\0\0'\0swift_proto_testing.enum_clobbering.Foo" }
+  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0'\0swift_proto_testing.enum_clobbering.Foo" }
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "H\0\0\0`NM7\u{17}\u{6}ze\u{17}'/{'\u{3}\u{1e}DN[\rv+Eb\u{6}{\u{18} \\\u{1d}IzuWON}I\u{4}\u{c}U\u{b}}\u{8}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0" }
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
 }
 
 extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".EnumHolder"
+  static let protoMessageName: Swift.String = _protobuf_package + ".EnumHolder"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder" }
   #else
     #error("Unsupported platform")
   #endif
   @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: StaticString { "4\0\0\0@\u{1a}o+%J\0)h \u{1d}\u{f}\u{1f}m,7\u{10}\u{4}(t%(B\u{13}k\u{1d}\u{1f}%\u{13})\u{1e}^6\u{f}\0" }
+  private static var _protobuf_reflectionData: Swift.StaticString { "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}\u{1d}*7pE\\ok\u{11}r|}B[7m\u{c}\u{13}}Cn\u{17}u{m\u{18}\0\0" }
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Bool {
+  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
     switch token.index {
     case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_EnumClobbering_Foo.self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Int32) throws -> Bool, onInvalidValue: (Int32) throws -> Void) throws {
+  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
     switch token.index {
     case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_EnumClobbering_Foo.self, enumSchema: SwiftProtoTesting_EnumClobbering_Foo.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
@@ -175,13 +175,13 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message {
     }
   }
 
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Bool) throws -> Bool {
+  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
-  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }

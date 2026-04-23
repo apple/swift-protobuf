@@ -52,7 +52,10 @@ class MapEntryGenerator {
         let fieldsSortedByNumber = fields.sorted { $0.number < $1.number }
 
         self.entrySchemaCalculator = MessageSchemaCalculator(
-            fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
+            fullyQualifiedName: descriptor.fullName,
+            fieldsSortedByNumber: fieldsSortedByNumber,
+            isMapEntry: true
+        )
 
         keyParticipantType = participantTypeName(for: keyDescriptor, namer: namer)
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
@@ -79,7 +82,7 @@ class MapEntryGenerator {
             )
         } else {
             entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
-                printer.print(#"let schemaString: StaticString = "\#(schemaString)""#)
+                printer.print(#"let schemaString: Swift.StaticString = "\#(schemaString)""#)
             }
             printer.print(
                 "return SwiftProtobuf.MessageSchema(\(schemaLabel): schemaString\(trailingArguments))"

@@ -625,6 +625,7 @@ extension MessageStorage {
             // handle missing fields in the map entry correctly.
             K.clearValue(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
             V.clearValue(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+            workingSpace.unknownFields = UnknownStorage()
 
             let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1)
             if !isPresent(field) {
@@ -1634,7 +1635,22 @@ extension MessageStorage {
                 break
             }
         }
-        // TODO: Check extension fields.
+
+        // If any extension fields are groups or messages, we need to check their initialization
+        // state.
+        for (_, value) in extensionStorage.values {
+            let ext = value.schema
+            let field = ext.field
+            if field.rawFieldType == .message || field.rawFieldType == .group {
+                let isSubmessageInitialized = try! ext.performOnSubmessageStorage(
+                    ext,
+                    extensionStorage,
+                    .read
+                ) { $0.isInitialized }
+                if !isSubmessageInitialized { return false }
+            }
+        }
+
         return true
     }
 

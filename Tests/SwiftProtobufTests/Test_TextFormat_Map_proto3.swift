@@ -43,10 +43,18 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             o.mapInt32Int32 == [1: 2, 3: 4]
         }
+        assertTextFormatDecodeSucceeds("map_int32_int32 {}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 0]
+        }
+        assertTextFormatDecodeSucceeds("map_int32_int32 {key:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [1: 0]
+        }
+        assertTextFormatDecodeSucceeds("map_int32_int32 {value:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 1]
+        }
         assertTextFormatDecodeFails("map_int32_int32 [{key:1 value:2},]")
         assertTextFormatDecodeFails("map_int32_int32 [{key:1 value:2}")
         assertTextFormatDecodeFails("map_int32_int32 [{key:1 value:2 nonsense:3}")
-        assertTextFormatDecodeFails("map_int32_int32 {key:1}")
 
         assertTextFormatDecodeFails("map_int32_int32<")
         assertTextFormatDecodeFails("map_int32_int32{")
@@ -82,10 +90,18 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("1 [{key:1 value:2}];1 {key:3 value:4}") { (o: MessageTestType) in
             o.mapInt32Int32 == [1: 2, 3: 4]
         }
+        assertTextFormatDecodeSucceeds("1 {}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 0]
+        }
+        assertTextFormatDecodeSucceeds("1 {key:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [1: 0]
+        }
+        assertTextFormatDecodeSucceeds("1 {value:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 1]
+        }
         assertTextFormatDecodeFails("1 [{key:1 value:2},]")
         assertTextFormatDecodeFails("1 [{key:1 value:2}")
         assertTextFormatDecodeFails("1 [{key:1 value:2 nonsense:3}")
-        assertTextFormatDecodeFails("1 {key:1}")
 
         // Using numbers for "key" and "value" in the map entries.
 
@@ -110,11 +126,18 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("1 [{1:1 2:2}];1 {1:3 2:4}") { (o: MessageTestType) in
             o.mapInt32Int32 == [1: 2, 3: 4]
         }
+        assertTextFormatDecodeSucceeds("1 {}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 0]
+        }
+        assertTextFormatDecodeSucceeds("1 {1:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [1: 0]
+        }
+        assertTextFormatDecodeSucceeds("1 {2:1}") { (o: MessageTestType) in
+            o.mapInt32Int32 == [0: 1]
+        }
         assertTextFormatDecodeFails("1 [{1:1 2:2},]")
         assertTextFormatDecodeFails("1 [{1:1 2:2}")
         assertTextFormatDecodeFails("1 [{1:1 2:2 3:3}")
-        assertTextFormatDecodeFails("1 {1:1}")
-
     }
 
     func test_StringMessage() {

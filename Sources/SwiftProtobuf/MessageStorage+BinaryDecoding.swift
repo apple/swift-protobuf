@@ -15,6 +15,12 @@
 import Foundation
 
 extension MessageStorage {
+    /// Errors that are thrown and caught internally during binary decoding.
+    enum InternalBinaryDecodingError: Error {
+        /// The value decoded for an enum used as a map value was unknown.
+        case unknownEnumValueInMapValue
+    }
+
     /// Decodes field values from the given binary-encoded buffer into this storage class.
     ///
     /// - Parameters:
@@ -126,23 +132,46 @@ extension MessageStorage {
         switch field.fieldMode.cardinality {
         case .map:
             guard tag.wireFormat == .lengthDelimited else { return false }
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .append,
-                // Deterministic ordering doesn't apply to decoding.
-                false
-            ) { workingSpace in
-                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+            let slice = try reader.nextLengthDelimitedSlice()
+            var success: Bool
+            do {
+                success = try schema.performOnMapEntry(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    mapEntryWorkingSpace.storage(for: field.submessageIndex),
+                    .append,
+                    // Deterministic ordering doesn't apply to decoding.
+                    false
+                ) { workingSpace in
+                    let valueField = workingSpace.schema[fieldNumber: 2]!
+                    let isEnumValue = valueField.rawFieldType == .enum
+
+                    var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
                     try workingSpace.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
                         partial: partial,
-                        discardUnknownFields: true)
+                        discardUnknownFields: !isEnumValue
+                    )
+                    return true
                 }
-                return true
+            } catch InternalBinaryDecodingError.unknownEnumValueInMapValue {
+                success = false
+            }
+            if !success {
+                // Re-parse the entire map entry as unknown fields.
+                let fieldTag = FieldTag(fieldNumber: tag.fieldNumber, wireFormat: .lengthDelimited)
+                let bodySize = slice.count
+                let tagAndSizeSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(bodySize))
+                var tagAndSizeData = Data(count: tagAndSizeSize)
+                tagAndSizeData.withUnsafeMutableBytes { body in
+                    var encoder = BinaryEncoder(forWritingInto: body)
+                    encoder.startField(tag: fieldTag)
+                    encoder.putVarInt(value: UInt64(bodySize))
+                    unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
+                }
+                unknownFields.append(protobufBytes: slice)
             }
 
         case .array:
@@ -166,9 +195,20 @@ extension MessageStorage {
             case .enum:
                 switch tag.wireFormat {
                 case .varint:
-                    try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: true)
+                    try updateEnumValue(
+                        of: field,
+                        from: &reader,
+                        fieldNumber: tag.fieldNumber,
+                        isRepeated: true,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 case .lengthDelimited:
-                    try appendPackedEnumValues(from: &reader, to: field, fieldNumber: tag.fieldNumber)
+                    try appendPackedEnumValues(
+                        from: &reader,
+                        to: field,
+                        fieldNumber: tag.fieldNumber,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 default:
                     return false
                 }
@@ -302,7 +342,13 @@ extension MessageStorage {
 
             case .enum:
                 guard tag.wireFormat == .varint else { return false }
-                try updateEnumValue(of: field, from: &reader, fieldNumber: tag.fieldNumber, isRepeated: false)
+                try updateEnumValue(
+                    of: field,
+                    from: &reader,
+                    fieldNumber: tag.fieldNumber,
+                    isRepeated: false,
+                    discardUnknownFields: discardUnknownFields
+                )
 
             case .fixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
@@ -459,7 +505,8 @@ extension MessageStorage {
         of field: FieldSchema,
         from reader: inout WireFormatReader,
         fieldNumber: Int,
-        isRepeated: Bool
+        isRepeated: Bool,
+        discardUnknownFields: Bool
     ) throws {
         var alreadyReadValue = false
         try schema.performOnRawEnumValues(
@@ -477,6 +524,13 @@ extension MessageStorage {
             alreadyReadValue = true
             return true
         } /*onInvalidValue*/ _: { rawValue in
+            if self.schema.isMapEntry {
+                // Map entries are always parsed in the context of some other message, so this
+                // error will be caught upstream and handled, not leaked to the user.
+                throw InternalBinaryDecodingError.unknownEnumValueInMapValue
+            }
+            guard !discardUnknownFields else { return }
+
             // Serialize the invalid values into a binary blob that will be passed as a single
             // varint field into unknown fields.
             //
@@ -505,7 +559,8 @@ extension MessageStorage {
     private func appendPackedEnumValues(
         from reader: inout WireFormatReader,
         to field: FieldSchema,
-        fieldNumber: Int
+        fieldNumber: Int,
+        discardUnknownFields: Bool
     ) throws {
         assert(field.rawFieldType == .enum, "Internal error: should only be called for enum fields")
 
@@ -534,9 +589,8 @@ extension MessageStorage {
             invalidValues.append($0)
         }
 
-        if invalidValues.isEmpty {
-            return
-        }
+        // If there were no invalid values, or if we're discarding them, there's nothing more to do.
+        guard !invalidValues.isEmpty && !discardUnknownFields else { return }
 
         // Serialize all of the invalid values into a binary blob that will be passed as a
         // single length-delimited field into unknown fields.

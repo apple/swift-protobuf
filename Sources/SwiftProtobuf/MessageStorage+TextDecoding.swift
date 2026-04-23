@@ -76,7 +76,6 @@ extension MessageStorage {
         default:
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             while let fieldNumber = try reader.nextFieldNumber() {
-                print("field number = \(fieldNumber)")
                 // TODO: This is a little awkward, because in the extension case we're doing the lookup
                 // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
                 // find the extension that matches the name we parsed), and then here below. Once we've
@@ -130,14 +129,6 @@ extension MessageStorage {
                     let mapEntrySchema = submessageStorage.schema
                     try reader.withReaderForNextObject(expectedSchema: mapEntrySchema) { subReader in
                         try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
-
-                        // Throw an error if the key or the value was missing.
-                        guard
-                            submessageStorage.isPresent(mapEntrySchema[fieldNumber: 1]!)
-                                && submessageStorage.isPresent(mapEntrySchema[fieldNumber: 2]!)
-                        else {
-                            throw TextFormatDecodingError.malformedText
-                        }
                     }
                     return true
                 }
@@ -201,7 +192,22 @@ extension MessageStorage {
                 updateValue(of: field, to: try reader.scanner.nextBytesValue())
 
             case .double:
-                updateValue(of: field, to: try reader.scanner.nextDouble())
+                // Special case: If the text format value is negative zero, we need to preserve
+                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
+                // equality, so we need to manually manage the presence here.
+                let d = try reader.scanner.nextDouble()
+                let offset = field.offset
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    updateValue(
+                        at: offset,
+                        to: d,
+                        willBeSet: schema.fieldHasPresence(field) ? true : (d != 0 || d.sign == .minus),
+                        hasBit: (hasByteOffset, hasMask)
+                    )
+                case .oneOfMember(let oneofOffset):
+                    updateValue(at: offset, to: d, oneofPresence: (oneofOffset, field.fieldNumber))
+                }
 
             case .enum:
                 try scanEnumValue(field, from: &reader, operation: .mutate)
@@ -217,7 +223,22 @@ extension MessageStorage {
                 updateValue(of: field, to: try reader.scanner.nextUInt())
 
             case .float:
-                updateValue(of: field, to: try reader.scanner.nextFloat())
+                // Special case: If the text format value is negative zero, we need to preserve
+                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
+                // equality, so we need to manually manage the presence here.
+                let f = try reader.scanner.nextFloat()
+                let offset = field.offset
+                switch field.presence {
+                case .hasBit(let hasByteOffset, let hasMask):
+                    updateValue(
+                        at: offset,
+                        to: f,
+                        willBeSet: schema.fieldHasPresence(field) ? true : (f != 0 || f.sign == .minus),
+                        hasBit: (hasByteOffset, hasMask)
+                    )
+                case .oneOfMember(let oneofOffset):
+                    updateValue(at: offset, to: f, oneofPresence: (oneofOffset, field.fieldNumber))
+                }
 
             case .group, .message:
                 try scanSubmessageValue(field, from: &reader, operation: .mutate)
