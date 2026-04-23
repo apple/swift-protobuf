@@ -17,6 +17,7 @@
 
 import Foundation
 import XCTest
+import SwiftProtobuf
 
 final class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
@@ -48,6 +49,9 @@ final class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     // Singular types
     //
     func testEncoding_optionalInt32() {
+        // Optional fields with implicit presence should not be serialized back out.
+        assertDecodeSucceeds([8, 0]) { (o: MessageTestType) in try! o.serializedData() == Data() }
+
         assertEncode([8, 1]) { (o: inout MessageTestType) in o.optionalInt32 = 1 }
         assertEncode([8, 255, 255, 255, 255, 7]) { (o: inout MessageTestType) in o.optionalInt32 = Int32.max }
         assertEncode([8, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) { (o: inout MessageTestType) in
@@ -99,6 +103,9 @@ final class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalInt64() {
+        // Optional fields with implicit presence should not be serialized back out.
+        assertDecodeSucceeds([16, 0]) { (o: MessageTestType) in try! o.serializedData() == Data() }
+
         assertEncode([16, 1]) { (o: inout MessageTestType) in o.optionalInt64 = 1 }
         assertEncode([16, 255, 255, 255, 255, 255, 255, 255, 255, 127]) { (o: inout MessageTestType) in
             o.optionalInt64 = Int64.max
