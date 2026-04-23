@@ -125,12 +125,18 @@ extension MessageStorage {
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startMessageField()
                 let mapEntrySchema = $0.schema
-                if let keyField = mapEntrySchema[fieldNumber: 1] {
-                    $0.serializeField(keyField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
-                }
-                if let valueField = mapEntrySchema[fieldNumber: 2] {
-                    $0.serializeField(valueField, into: &encoder, mapEntryWorkingSpace: &mapEntryWorkingSpace, options: options)
-                }
+                $0.serializeField(
+                    mapEntrySchema[fieldNumber: 1]!,
+                    into: &encoder,
+                    mapEntryWorkingSpace: &mapEntryWorkingSpace,
+                    options: options
+                )
+                $0.serializeField(
+                    mapEntrySchema[fieldNumber: 2]!,
+                    into: &encoder,
+                    mapEntryWorkingSpace: &mapEntryWorkingSpace,
+                    options: options
+                )
                 encoder.endMessageField()
                 return true
             }

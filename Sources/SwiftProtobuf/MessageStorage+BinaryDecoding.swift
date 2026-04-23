@@ -163,14 +163,15 @@ extension MessageStorage {
                 // Re-parse the entire map entry as unknown fields.
                 let fieldTag = FieldTag(fieldNumber: tag.fieldNumber, wireFormat: .lengthDelimited)
                 let bodySize = slice.count
-                let fieldSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(bodySize)) + bodySize
-                var fieldData = Data(count: fieldSize)
-                fieldData.withUnsafeMutableBytes { body in
+                let tagAndSizeSize = fieldTag.encodedSize + Varint.encodedSize(of: Int64(bodySize))
+                var tagAndSizeData = Data(count: tagAndSizeSize)
+                tagAndSizeData.withUnsafeMutableBytes { body in
                     var encoder = BinaryEncoder(forWritingInto: body)
                     encoder.startField(tag: fieldTag)
-                    encoder.putBytesValue(value: Data(bytes: slice.baseAddress!, count: slice.count))
+                    encoder.putVarInt(value: UInt64(bodySize))
                     unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
                 }
+                unknownFields.append(protobufBytes: slice)
             }
 
         case .array:

@@ -529,6 +529,14 @@ extension MessageStorage {
             }
             hasSeenValue = true
 
+            if let name = try reader.scanner.nextOptionalQuotedString() {
+                guard let number = enumSchema.enumCase(forTextName: name) else {
+                    throw JSONDecodingError.unrecognizedEnumValue
+                }
+                value = Int32(number)
+                return true
+            }
+
             if reader.scanner.skipOptionalNull() {
                 if CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
                     value = 0
@@ -536,14 +544,6 @@ extension MessageStorage {
                 } else {
                     throw JSONDecodingError.illegalNull
                 }
-            }
-
-            if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumSchema.enumCase(forTextName: name) else {
-                    throw JSONDecodingError.unrecognizedEnumValue
-                }
-                value = Int32(number)
-                return true
             }
 
             let number = try reader.scanner.nextSInt()
