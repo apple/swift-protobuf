@@ -76,12 +76,13 @@ struct MessageSchemaCalculator {
                 // The presence is just the has-bit index.
                 field.presence = .hasBit(hasBitIndex)
                 hasBitIndex += 1
-            }
-            if field.isRequired {
-                requiredCount += 1
-            }
-            if field.hasPresence {
-                explicitPresenceCount += 1
+
+                if field.isRequired {
+                    requiredCount += 1
+                }
+                if field.hasPresence {
+                    explicitPresenceCount += 1
+                }
             }
         }
         assert(
