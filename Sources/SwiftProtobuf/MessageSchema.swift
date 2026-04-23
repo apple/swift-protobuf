@@ -463,7 +463,21 @@ extension MessageSchema {
 
     /// Returns the field number for the given text name.
     func fieldNumber(forTextName name: String) -> UInt32? {
-        reflection.table.fieldNumber(forTextName: name)
+        // Fast path: Binary search in the reflection table.
+        if let number = reflection.table.fieldNumber(forTextName: name) {
+            return number
+        }
+        // Slow path: If it wasn't found, check if it's a group name spelled in
+        // lowercase form.
+        let lowercaseName = name.lowercased()
+        for field in fields where field.rawFieldType == .group {
+            if let textName = reflection.table.textName(forFieldNumber: field.fieldNumber),
+                textName.lowercased() == lowercaseName
+            {
+                return field.fieldNumber
+            }
+        }
+        return nil
     }
 
     /// Returns the field number for the given JSON name.
