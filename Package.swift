@@ -407,11 +407,6 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
         .testTarget(
-            name: "ExperimentalTableDrivenSwiftProtobufTests",
-            dependencies: ["SwiftProtobuf"],
-            swiftSettings: .packageSettings
-        ),
-        .testTarget(
             name: "SwiftProtobufPluginLibraryTests",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"],
             swiftSettings: .packageSettings
