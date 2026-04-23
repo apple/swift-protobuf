@@ -15,6 +15,12 @@
 import Foundation
 
 extension MessageStorage {
+    /// Errors that are thrown and caught internally during binary decoding.
+    enum InternalBinaryDecodingError: Error {
+        /// The value decoded for an enum used as a map value was unknown.
+        case unknownEnumValueInMapValue
+    }
+
     /// Decodes field values from the given binary-encoded buffer into this storage class.
     ///
     /// - Parameters:
@@ -127,25 +133,31 @@ extension MessageStorage {
         case .map:
             guard tag.wireFormat == .lengthDelimited else { return false }
             let slice = try reader.nextLengthDelimitedSlice()
-            let success = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .append,
-                // Deterministic ordering doesn't apply to decoding.
-                false
-            ) { workingSpace in
-                var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
-                try workingSpace.merge(
-                    byReadingFrom: &subReader,
-                    extensions: extensions,
-                    partial: partial,
-                    discardUnknownFields: false
-                )
-                // If we saw any unknown enum cases, they will end up in unknown fields, so return
-                // that to indicate that the entire map entry should be moved there.
-                return workingSpace.unknownFields.data.isEmpty
+            var success: Bool
+            do {
+                success = try schema.performOnMapEntry(
+                    MessageSchema.TrampolineToken(index: field.submessageIndex),
+                    field,
+                    self,
+                    mapEntryWorkingSpace.storage(for: field.submessageIndex),
+                    .append,
+                    // Deterministic ordering doesn't apply to decoding.
+                    false
+                ) { workingSpace in
+                    let valueField = workingSpace.schema[fieldNumber: 2]!
+                    let isEnumValue = valueField.rawFieldType == .enum
+
+                    var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
+                    try workingSpace.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: !isEnumValue
+                    )
+                    return true
+                }
+            } catch InternalBinaryDecodingError.unknownEnumValueInMapValue {
+                success = false
             }
             if !success {
                 // Re-parse the entire map entry as unknown fields.
@@ -511,6 +523,11 @@ extension MessageStorage {
             alreadyReadValue = true
             return true
         } /*onInvalidValue*/ _: { rawValue in
+            if self.schema.isMapEntry {
+                // Map entries are always parsed in the context of some other message, so this
+                // error will be caught upstream and handled, not leaked to the user.
+                throw InternalBinaryDecodingError.unknownEnumValueInMapValue
+            }
             guard !discardUnknownFields else { return }
 
             // Serialize the invalid values into a binary blob that will be passed as a single
