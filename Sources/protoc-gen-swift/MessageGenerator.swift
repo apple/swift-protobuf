@@ -30,7 +30,7 @@ class MessageGenerator {
     private let oneofs: [OneofGenerator]
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
-    private let mapEntries: [String: MapEntryGenerator]
+    private let mapEntries: [TrampolineFieldKey: MapEntryGenerator]
     private let messageSchemaCalculator: MessageSchemaCalculator
     private let compressedReflectionData: String
 
@@ -87,8 +87,14 @@ class MessageGenerator {
         // type name to ensure that we coalesce them if a particular type occur multiple times.
         mapEntries = Dictionary(
             descriptor.fields.filter { $0.isMap }.map {
-                (
-                    key: $0.swiftType(namer: namer),
+                let keyType = RawFieldType(fieldDescriptorType: $0.messageType!.mapKeyAndValue!.key.type)
+                let valueType = RawFieldType(fieldDescriptorType: $0.messageType!.mapKeyAndValue!.value.type)
+                return (
+                    key: TrampolineFieldKey(
+                        name: $0.swiftType(namer: namer),
+                        keyType: keyType,
+                        valueType: valueType
+                    ),
                     value: MapEntryGenerator(
                         descriptor: $0.messageType,
                         generatorOptions: generatorOptions,
@@ -97,8 +103,8 @@ class MessageGenerator {
                 )
             },
             uniquingKeysWith: { old, new in
-                // It doesn't matter which one we take here, since we're not going to use any of
-                // the unique information (like the synthesized name of the entry message).
+                // We deduplicate if they have the same key (the same Swift dictionary type and
+                // same wire formats).
                 old
             }
         )
@@ -332,11 +338,11 @@ class MessageGenerator {
                     // Only submessage fields and map fields with message values need this storage
                     // trampoline.
                     switch field.kind {
-                    case .message, .map(_, valueIsMessage: true):
+                    case .message, .map(_, _, valueType: .message):
                         p.print(
                             "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(field.kind.name).self, perform: perform)"
                         )
-                    case .map(_, valueIsMessage: false):
+                    case .map(_, _, _):
                         nonMessageMapFieldIndices.append(field.index)
                     default:
                         break
@@ -390,10 +396,15 @@ class MessageGenerator {
                 p.print("switch token.index {")
                 for field in trampolineFields {
                     // Only map fields need this trampoline.
-                    guard case .map(let name, _) = field.kind else { continue }
+                    guard case .map(let name, let keyType, let valueType) = field.kind else { continue }
                     p.print("case \(field.index):")
                     p.withIndentation { p in
-                        let entryGenerator = mapEntries[name]
+                        let key = TrampolineFieldKey(
+                            name: name,
+                            keyType: keyType,
+                            valueType: valueType
+                        )
+                        let entryGenerator = mapEntries[key]
                         entryGenerator?.generateSchemaReturnStatement(printer: &p)
                     }
                 }
@@ -414,7 +425,13 @@ class MessageGenerator {
                 p.print("switch token.index {")
                 for field in trampolineFields {
                     // Only map fields need this storage trampoline.
-                    guard case .map(let name, _) = field.kind, let entryGenerator = mapEntries[name] else { continue }
+                    guard case .map(let name, let keyType, let valueType) = field.kind else { continue }
+                    let key = TrampolineFieldKey(
+                        name: name,
+                        keyType: keyType,
+                        valueType: valueType
+                    )
+                    guard let entryGenerator = mapEntries[key] else { continue }
                     p.print(
                         "case \(field.index): return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: \(entryGenerator.keyParticipantType).self, valueType: \(entryGenerator.valueParticipantType).self, deterministicOrdering: deterministicOrdering, perform: perform)"
                     )

@@ -62,7 +62,9 @@ class ExtensionSetGenerator {
             case .message:
                 if let mapKeyAndValue = descriptor.messageType!.mapKeyAndValue {
                     let swiftType = descriptor.swiftType(namer: namer)
-                    trampolineFieldKind = .map(swiftType, valueIsMessage: mapKeyAndValue.value.type == .message)
+                    let keyType = RawFieldType(fieldDescriptorType: mapKeyAndValue.key.type)
+                    let valueType = RawFieldType(fieldDescriptorType: mapKeyAndValue.value.type)
+                    trampolineFieldKind = .map(swiftType, keyType: keyType, valueType: valueType)
                 } else {
                     let swiftSingularType = descriptor.swiftSingularType(namer: namer)
                     trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
