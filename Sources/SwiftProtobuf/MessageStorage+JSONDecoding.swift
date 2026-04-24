@@ -150,6 +150,11 @@ extension MessageStorage {
                     // `oneof`.
                     if case .oneOfMember(let oneOfOffset) = field.presence {
                         if populatedOneofMember(at: oneOfOffset) != 0 {
+                            // JSON only allows multiple keys from a `oneof` to be set if at most one is
+                            // not `null`.
+                            if reader.scanner.skipOptionalNull() {
+                                continue
+                            }
                             throw JSONDecodingError.conflictingOneOf
                         }
                     }
@@ -260,6 +265,16 @@ extension MessageStorage {
         requireQuotedBool: Bool = false
     ) throws {
         let isNull = reader.scanner.skipOptionalNull()
+        // `null` is only allowed as the value of a map entry if the value type is a group or a
+        // message.
+        if isNull && schema.isMapEntry && field.fieldNumber == 2 {
+            switch field.rawFieldType {
+            case .group, .message:
+                break
+            default:
+                throw JSONDecodingError.illegalNull
+            }
+        }
         switch field.rawFieldType {
         case .bool:
             if isNull {
@@ -847,6 +862,10 @@ func isTypeURLValid(_ typeURL: String) -> Bool {
 }
 
 private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
+    guard !names.isEmpty else {
+        // Empty string is allowed.
+        return
+    }
     var fieldNameCount = 0
     var fieldName = String()
     for c in names {
