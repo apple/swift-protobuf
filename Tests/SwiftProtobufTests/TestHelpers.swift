@@ -286,7 +286,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    /*
     func assertJSONArrayEncode(
         _ expected: String,
         extensions: ExtensionMap = ExtensionMap(),
@@ -323,7 +322,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
         }
     }
-    */
 
     func assertJSONDecodeSucceeds(
         _ json: String,
@@ -438,7 +436,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    /*
     func assertJSONArrayDecodeSucceeds(
         _ json: String,
         file: XCTestFileArgType = #file,
@@ -466,7 +463,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             return
         }
     }
-    */
 
     func assertJSONDecodeFails(
         _ json: String,
@@ -500,7 +496,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    /*
     func assertJSONArrayDecodeFails(
         _ json: String,
         extensions: ExtensionMap = ExtensionMap(),
@@ -514,7 +509,6 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             // Yay! It failed!
         }
     }
-    */
 
     func assertDebugDescription(
         _ expected: String,

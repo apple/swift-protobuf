@@ -17,7 +17,7 @@ import Foundation
 extension MessageStorage {
     /// Serializes the message represented by this storage into binary format and returns the
     /// corresponding bytes.
-    public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
+    func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
         partial: Bool,
         options: BinaryEncodingOptions
     ) throws -> Bytes {

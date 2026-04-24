@@ -16,7 +16,7 @@ import Foundation
 
 extension MessageStorage {
     /// Computes and returns the size in bytes required to serialize this message.
-    public func serializedBytesSize() -> Int {
+    func serializedBytesSize() -> Int {
         var serializedSize = 0
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         for field in schema.fields {

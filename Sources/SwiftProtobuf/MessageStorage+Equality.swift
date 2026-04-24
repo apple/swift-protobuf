@@ -24,7 +24,7 @@ extension MessageStorage {
     /// field set to 100 is not considered equal to one where that field is not present but has a
     /// default defined to be 100.
     @inline(never)
-    public func isEqual(to other: MessageStorage) -> Bool {
+    func isEqual(to other: MessageStorage) -> Bool {
         if self === other {
             /// Identical message storage means they must be equal.
             return true
