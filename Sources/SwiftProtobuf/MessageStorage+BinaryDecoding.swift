@@ -624,14 +624,12 @@ extension MessageStorage {
     ///     slice; otherwise, compute them based on the element's fixed size.
     ///   - decodeElement: A function that takes a `WireFormatReader` covering the slice of packed
     ///     elements and reads and returns a single element from it.
-    private func appendPackedValues<T>(
+    private func appendPackedValues<T: BitwiseCopyable>(
         from reader: inout WireFormatReader,
         to field: FieldSchema,
         hasVarints: Bool,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws {
-        // TODO: Constrain `T` to `BitwiseCopyable` if we decide to drop Swift 5.x support.
-
         // If the field isn't already present, we need to initialize a new array first.
         let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
         if !isPresent(field) {

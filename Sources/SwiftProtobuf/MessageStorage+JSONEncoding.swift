@@ -185,7 +185,6 @@ extension MessageStorage {
                     if !firstItem {
                         encoder.comma()
                     }
-                    // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                     encoder.putEnumValue(
                         rawValue: value,
                         enumSchema: enumSchema,
@@ -264,8 +263,6 @@ extension MessageStorage {
         } else {
             name = schema.jsonName(forFieldNumber: fieldNumber)
         }
-
-        // TODO: When we support extensions, look those up after this first branch.
         if let name {
             encoder.startField(name: name)
         } else {
@@ -299,7 +296,6 @@ extension MessageStorage {
                 self,
                 .read
             ) { enumSchema, value in
-                // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                 encoder.putEnumValue(
                     rawValue: value,
                     enumSchema: enumSchema,

@@ -59,7 +59,6 @@ struct JSONReader {
         if hasSeenField {
             try scanner.skipRequiredComma()
         }
-        // TODO: Remove the `messageType` argument from the scanner.
         guard let fieldNumber = try scanner.nextFieldNumber(messageSchema: messageSchema) else {
             return nil
         }

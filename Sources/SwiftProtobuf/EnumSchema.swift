@@ -16,17 +16,23 @@ import Foundation
 
 /// Describes a protobuf enum.
 ///
-/// TODO: For now, this type only holds a placeholder (empty) schema string and the name map for
-/// the enum's values, similarly to how the name map is represented for messages. In the future,
-/// these will be combined and we'll store additional information here that's relevant for
-/// reflection.
+/// ## Enum schema header
+///
+/// The **enum schema header** describes properties of the entire enum:
+///
+/// ```
+/// +---------+-------------+-------------+------------+
+/// | Byte 0  | Bytes 1-5   | Bytes 6-7   | Bytes 8... |
+/// | Version | Value count | Name length | Enum name  |
+/// +---------+-------------+-------------+------------+
+/// ```
+///
+/// *   Byte 0: A `UInt8` that describes the version of the schema. Currently, this is always 0.
+/// *   Bytes 1-5: The number of defined cases (aliases are not included), as a base-128 integer.
+/// *   Bytes 6-7: The length of the enum's fully-qualified name, as a base-128 integer.
+/// *   Bytes 8...: The fully-qualified name of the enum, as UTF-8 encoded bytes.
 public struct EnumSchema: @unchecked Sendable {
     /// The encoded schema of the values of this enum.
-    ///
-    /// TODO: This is currently unused; decide whether we want to adopt something like the sparse
-    /// enum layout description that upb uses. We don't really need this for the purpose of checking
-    /// raw value validity today because we can simply attempt to initialize an instance and see if
-    /// we get nil back, but this could be useful for a future reflection API.
     private let schema: UnsafeRawBufferPointer
 
     /// The reference to the reflection table for the enum.

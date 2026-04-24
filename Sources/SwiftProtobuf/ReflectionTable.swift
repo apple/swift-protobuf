@@ -16,6 +16,90 @@
 import Foundation
 
 /// Provides access to the reflection data embedded in a generated message or enum.
+///
+/// ## Reflection Table Layout
+///
+/// Unlike the message and enum schemas, which use a base-128 encoding to allow them to be packed
+/// into UTF-8 `StaticString`s, reflection tables are packed *after* being compressed. This means
+/// that the uncompressed table layout, which is described below, can use standard little-endian
+/// fixed-size integers.
+///
+/// The reflection table consists of a sequence of sections. The first 4 bytes of the table contain
+/// the offset to the next section (Section 1).
+///
+/// ### Global Layout
+///
+/// To support future extensions without breaking ABI, the layout is divided into sections. Each
+/// section starts with a 4-byte little-endian integer indicating the offset to the next section.
+/// It is possible for a section to be empty (the offset to the next section will simply be the
+/// current offset + 4).
+///
+/// ```
+/// +-------------------+
+/// | Bytes 0-3         |
+/// | Offset to Sec 1   |
+/// +-------------------+
+/// | Section 0 Data    |
+/// | ...               |
+/// +-------------------+
+/// | Section 1 Header  |
+/// | (Offset to Sec 2) |
+/// +-------------------+
+/// | Section 1 Data    |
+/// | ...               |
+/// +-------------------+
+/// ```
+///
+/// ### Section 0 Layout
+///
+/// Section 0 contains the main reflection data (names and numbers). Offsets are all relative to the
+/// beginning of the section.
+///
+/// ```
+/// +---------------------+---------------------+-----------------+-------------+-----------------+
+/// | Bytes 0-1           | Bytes 2-3           | Bytes 4-5       | Bytes 6-7   | Bytes 8...      |
+/// | Distinct JSON count | Reserved name count | Text name count | (Padding)   | Tables and text |
+/// +---------------------+---------------------+-----------------+-------------+-----------------+
+/// ```
+///
+/// *   **Distinct JSON count**: The number of fields whose JSON names differ from their text format
+///     names.
+/// *   **Reserved name count**: The number of reserved names.
+/// *   **Text name count**: The total count of entries in the text name to number table.
+///
+/// Following the header are the tables and the name data blob:
+///
+/// *   **Field number to text offset table** (size: `fieldCount * 8` bytes): A sequence of pairs of
+///     `UInt32` values `[FieldNumber, TaggedTextOffset]`. The `TaggedTextOffset` is an offset into
+///     the name data blob. Its high bit indicates whether the field has a distinct JSON name (1) or
+///     not (0).
+/// *   **Text offset to field number table** (size: `textNameTableCount * 8` bytes): A sequence of
+///     pairs of `UInt32` values `[TextOffset, FieldNumber]`. This table is sorted by the string
+///     value at `TextOffset` to allow binary search.
+/// *   **JSON name offset to field number table** (size: `distinctJSONNameCount * 8` bytes): A
+///     sequence of pairs of `UInt32` values `[JSONOffset, FieldNumber]`. This table is sorted by
+///     the string value at `JSONOffset` to allow binary search.
+/// *   **Name data blob**: A sequence of null-terminated UTF-8 strings containing the field names.
+///
+/// ### Section 1 Layout
+///
+/// Section 1 contains reserved field numbers.
+///
+/// ```
+/// +----------------------+---------------------+------------+
+/// | Bytes 0-1            | Bytes 2-3           | Bytes 4... |
+/// | Single element count | Multi-element count | Ranges     |
+/// +----------------------+---------------------+------------+
+/// ```
+///
+/// *   **Single element count**: The number of single-element reserved ranges.
+/// *   **Multi element count**: The number of multi-element reserved ranges.
+/// *   **Ranges**: The data area containing the reserved field numbers, split into two parts:
+///     1. **Single-element ranges** (`singleCount * 4` bytes): A sequence of `UInt32` values
+///        representing individual reserved field numbers.
+///     2. **Multi-element ranges** (`multiCount * 8` bytes): A sequence of pairs of `UInt32`
+///        values `[LowerBound, UpperBound]`. Each pair represents a range of reserved field
+///        numbers from `LowerBound` (inclusive) up to `UpperBound` (exclusive).
 package struct ReflectionTable: Sendable {
     /// The number of fields in the owning message.
     private let fieldCount: Int

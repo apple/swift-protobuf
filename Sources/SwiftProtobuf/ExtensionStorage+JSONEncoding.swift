@@ -73,7 +73,6 @@ extension ExtensionStorage {
                     if !firstItem {
                         encoder.comma()
                     }
-                    // TODO: Handle the WKT `NullValue` with a custom JSON representation.
                     encoder.putEnumValue(
                         rawValue: value,
                         enumSchema: enumSchema,
