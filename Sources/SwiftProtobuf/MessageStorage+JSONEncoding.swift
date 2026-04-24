@@ -15,16 +15,6 @@
 import Foundation
 
 extension MessageStorage {
-    /// Returns the Protocol Buffer JSON serialization of the message.
-    ///
-    /// - Parameter options: The options to use when encoding the message.
-    /// - Returns: The JSON serialization of the message.
-    public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(options: JSONEncodingOptions) throws -> Bytes {
-        var encoder = JSONEncoder()
-        try serializeJSON(into: &encoder, options: options)
-        return Bytes(encoder.bytesResult)
-    }
-
     /// A recursion helper that serializes the fields in the storage into the given JSON encoder.
     ///
     /// - Parameters:

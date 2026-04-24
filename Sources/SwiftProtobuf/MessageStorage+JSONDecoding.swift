@@ -15,30 +15,7 @@
 import Foundation
 
 extension MessageStorage {
-    /// Decodes field values from the given UTF-8-encoded JSON buffer into this storage class.
-    ///
-    /// - Parameters:
-    ///   - buffer: The UTF-8-encoded JSON message data to decode.
-    ///   - options: The ``JSONDecodingOptions`` to use.
-    /// - Throws: ``JSONDecodingError`` if decoding fails.
-    public func merge(
-        byParsingJSONUTF8Bytes buffer: UnsafeRawBufferPointer,
-        extensions: ExtensionMap?,
-        options: JSONDecodingOptions
-    ) throws {
-        var reader = JSONReader(
-            buffer: buffer,
-            messageSchema: schema,
-            options: options,
-            extensions: extensions
-        )
-        try merge(byParsingJSONFrom: &reader)
-
-        guard reader.complete else {
-            throw JSONDecodingError.trailingGarbage
-        }
-    }
-
+    /// Decodes field values from the given JSON reader into this storage class.
     func merge(byParsingJSONFrom reader: inout JSONReader) throws {
         // Helper function that throws an appropriate error if `null` is encountered as the next
         // value. `null` is disallowed at the top-level but allowed as the value of a keyed field

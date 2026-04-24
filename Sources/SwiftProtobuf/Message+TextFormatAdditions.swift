@@ -42,7 +42,9 @@ extension Message {
     public func textFormatString(
         options: TextFormatEncodingOptions
     ) -> String {
-        return storageForRuntime.textFormatString(options: options)
+        var encoder = TextFormatEncoder()
+        storageForRuntime.serializeText(into: &encoder, options: options)
+        return encoder.stringResult
     }
 
     /// Creates a new message by decoding the given string containing a
@@ -86,11 +88,20 @@ extension Message {
         try textFormatString.withUTF8 { utf8Buffer in
             // Since we're inside an initializer, there's no need to ensure that the storage is unique.
             // If we ever implement a true `merge` for text format, we would need to do it there.
-            try storageForRuntime.merge(
-                byParsingTextFormatBytes: utf8Buffer,
-                extensions: extensions,
-                options: options
+            guard utf8Buffer.baseAddress != nil, utf8Buffer.count > 0 else { return }
+
+            let storage = storageForRuntime
+            var reader = TextFormatReader(
+                buffer: utf8Buffer,
+                messageSchema: storage.schema,
+                options: options,
+                extensions: extensions
             )
+            try storage.merge(byParsingTextFormatFrom: &reader)
+
+            guard reader.complete else {
+                throw TextFormatDecodingError.trailingGarbage
+            }
         }
     }
 }

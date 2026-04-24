@@ -15,17 +15,7 @@
 import Foundation
 
 extension MessageStorage {
-    /// Returns a string containing the Protocol Buffer text format serialization of the message.
-    ///
-    /// - Parameter options: The options to use when encoding the message.
-    /// - Returns: A string containing the text format serialization of the message.
-    public func textFormatString(options: TextFormatEncodingOptions) -> String {
-        var encoder = TextFormatEncoder()
-        serializeText(into: &encoder, options: options)
-        return encoder.stringResult
-    }
-
-    /// A recursion helper that serializes the fields in the storage into the given text format encoder.
+    /// Encodes the fields in the receiver into the given text format encoder..
     func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
 

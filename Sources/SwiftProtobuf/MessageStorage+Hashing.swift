@@ -21,7 +21,7 @@ extension MessageStorage {
     /// field presence. That is, a message containing an integer field set to 100 will hash
     /// differently from one where that field is not present but has a default defined to be 100.
     @inline(never)
-    public func hash(into hasher: inout Hasher) {
+    func hash(into hasher: inout Hasher) {
         // TODO: If we store the offset of the first non-trivial field in the schema, we can make
         // this extremely fast by hashing the trivial fields as a single slice of bytes. Likewise,
         // we could avoid the loop entirely if the message contains only trivial fields.

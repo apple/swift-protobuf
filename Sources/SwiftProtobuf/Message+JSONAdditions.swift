@@ -42,7 +42,9 @@ extension Message {
     public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Bytes {
-        return try storageForRuntime.jsonUTF8Bytes(options: options)
+        var encoder = JSONEncoder()
+        try storageForRuntime.serializeJSON(into: &encoder, options: options)
+        return Bytes(encoder.bytesResult)
     }
 
     /// Creates a new message by decoding the given string containing a
@@ -113,7 +115,18 @@ extension Message {
         try jsonUTF8Bytes.withUnsafeBytes { buffer in
             // Since we're inside an initializer, there's no need to ensure that the storage is unique.
             // If we ever implement a true `merge` for JSON, we would need to do it there.
-            try storageForRuntime.merge(byParsingJSONUTF8Bytes: buffer, extensions: extensions, options: options)
+            let storage = storageForRuntime
+            var reader = JSONReader(
+                buffer: buffer,
+                messageSchema: storage.schema,
+                options: options,
+                extensions: extensions
+            )
+            try storage.merge(byParsingJSONFrom: &reader)
+
+            guard reader.complete else {
+                throw JSONDecodingError.trailingGarbage
+            }
         }
     }
 }

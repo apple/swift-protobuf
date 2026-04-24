@@ -15,52 +15,7 @@
 import Foundation
 
 extension MessageStorage {
-    // TODO: This is only called by the generated code. Remove it once we've cleaned up the
-    // protocol requirements.
-    public func merge(
-        byParsingTextFormatString textFormatString: String,
-        extensions: ExtensionMap?,
-        options: TextFormatDecodingOptions
-    ) throws {
-        var textFormatString = textFormatString
-        try textFormatString.withUTF8 {
-            try merge(
-                byParsingTextFormatBytes: $0,
-                extensions: extensions,
-                options: options)
-        }
-    }
-
-    /// Decodes field values from the given binary-encoded buffer into this storage class.
-    ///
-    /// - Parameters:
-    ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
-    ///   - options: The ``BinaryDecodingOptions`` to use.
-    /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    public func merge(
-        byParsingTextFormatBytes buffer: UnsafeBufferPointer<UInt8>,
-        extensions: ExtensionMap? = nil,
-        options: TextFormatDecodingOptions
-    ) throws {
-        guard buffer.baseAddress != nil, buffer.count > 0 else { return }
-
-        var reader = TextFormatReader(
-            buffer: buffer,
-            messageSchema: schema,
-            options: options,
-            extensions: extensions
-        )
-        try merge(byParsingTextFormatFrom: &reader)
-
-        guard reader.complete else {
-            throw TextFormatDecodingError.trailingGarbage
-        }
-    }
-
+    /// Decodes values from the given text format reader into the receiver.
     func merge(byParsingTextFormatFrom reader: inout TextFormatReader) throws {
         switch CustomJSONWKTClassification(messageSchema: schema) {
         case .any:

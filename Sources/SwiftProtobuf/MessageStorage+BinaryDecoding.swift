@@ -31,7 +31,7 @@ extension MessageStorage {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    public func merge(
+    func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
         extensions: ExtensionMap?,
         partial: Bool,
