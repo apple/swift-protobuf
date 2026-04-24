@@ -137,7 +137,13 @@ extension MessageStorage {
             }
 
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+            var seenFields = Set<UInt32>()
             while let fieldNumber = try reader.nextFieldNumber() {
+                if !seenFields.insert(fieldNumber).inserted {
+                    // It's an error if we see the same field more than once (even with different
+                    // spellings, like JSON and text format).
+                    throw JSONDecodingError.failure
+                }
                 // TODO: This is a little awkward, because in the extension case we're doing the lookup
                 // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
                 // find the extension that matches the name we parsed), and then here below. Once we've
