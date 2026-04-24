@@ -14,8 +14,6 @@
 
 import Foundation
 
-// TODO: Migrate these to work with the table-driven approach.
-/*
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
     /// Returns a string containing the JSON serialization of the messages.
@@ -50,32 +48,18 @@ extension Message {
         from collection: C,
         options: JSONEncodingOptions = JSONEncodingOptions()
     ) throws -> Bytes where C.Iterator.Element == Self {
-        var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
-        visitor.startArray()
+        var encoder = JSONEncoder()
+        encoder.startArray()
+        var firstItem = true
         for message in collection {
-            visitor.startArrayObject(message: message)
-            try message.traverse(visitor: &visitor)
-            visitor.endObject()
+            if !firstItem {
+                encoder.comma()
+            }
+            try message.storageForRuntime.serializeJSON(into: &encoder, options: options)
+            firstItem = false
         }
-        visitor.endArray()
-        return Bytes(visitor.dataResult)
-    }
-
-    /// Creates a new array of messages by decoding the given string containing a
-    /// serialized array of messages in JSON format.
-    ///
-    /// - Parameter jsonString: The JSON-formatted string to decode.
-    /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
-    public static func array(
-        fromJSONString jsonString: String,
-        options: JSONDecodingOptions = JSONDecodingOptions()
-    ) throws -> [Self] {
-        try self.array(
-            fromJSONString: jsonString,
-            extensions: SimpleExtensionMap(),
-            options: options
-        )
+        encoder.endArray()
+        return Bytes(encoder.bytesResult)
     }
 
     /// Creates a new array of messages by decoding the given string containing a
@@ -87,7 +71,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONString jsonString: String,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         if jsonString.isEmpty {
@@ -106,52 +90,40 @@ extension Message {
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
-    /// - Parameter options: The JSONDecodingOptions to use.
-    /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
-    public static func array<Bytes: SwiftProtobufContiguousBytes>(
-        fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
-        options: JSONDecodingOptions = JSONDecodingOptions()
-    ) throws -> [Self] {
-        try self.array(
-            fromJSONUTF8Bytes: jsonUTF8Bytes,
-            extensions: SimpleExtensionMap(),
-            options: options
-        )
-    }
-
-    /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
-    ///
-    /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
-    ///   as UTF-8 encoded text.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array<Bytes: SwiftProtobufContiguousBytes>(
         fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
             var array = [Self]()
-
             if body.count > 0 {
-                var decoder = JSONDecoder(
-                    source: body,
+                // TODO: It's a little awkward that we need to create a dummy instance to get the
+                // schema to pass into the reader. Revisit this if we look at a bigger refactor of
+                // the readers/writers or when we look at reflection.
+                var reader = JSONReader(
+                    buffer: body,
+                    messageSchema: Self().messageSchema,
                     options: options,
-                    messageType: Self.self,
                     extensions: extensions
                 )
-                try decoder.decodeRepeatedMessageField(value: &array)
-                if !decoder.scanner.complete {
+
+                try scanArray(from: &reader) { reader in
+                    let message = Self()
+                    try reader.withReaderForNextObject(expectedSchema: message.messageSchema) { subReader in
+                        try message.storageForRuntime.merge(byParsingJSONFrom: &subReader)
+                    }
+                    array.append(message)
+                }
+                
+                guard reader.complete else {
                     throw JSONDecodingError.trailingGarbage
                 }
             }
-
             return array
         }
     }
-
 }
-*/

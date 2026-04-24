@@ -18,7 +18,6 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-/* TODO: Re-enable.
 final class Test_JSON_Array: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
@@ -163,4 +162,3 @@ final class Test_JSON_Array: XCTestCase, PBTestHelpers {
         assertJSONArrayDecodeFails("{\"repeatedNestedMessage\": []}")
     }
 }
-*/

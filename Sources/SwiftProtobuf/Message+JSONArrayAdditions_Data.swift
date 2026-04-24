@@ -14,8 +14,6 @@
 
 import Foundation
 
-// TODO: Migrate these to work with the table-driven approach.
-/*
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
     /// Creates a new array of messages by decoding the given `Data`
@@ -32,7 +30,7 @@ extension Message {
     ) throws -> [Self] {
         try self.array(
             fromJSONUTF8Bytes: jsonUTF8Data,
-            extensions: SimpleExtensionMap(),
+            extensions: nil,
             options: options
         )
     }
@@ -48,7 +46,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONUTF8Data jsonUTF8Data: Data,
-        extensions: any ExtensionMap = SimpleExtensionMap(),
+        extensions: ExtensionMap? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         try array(
@@ -75,4 +73,3 @@ extension Message {
         try jsonUTF8Bytes(from: collection, options: options)
     }
 }
-*/
