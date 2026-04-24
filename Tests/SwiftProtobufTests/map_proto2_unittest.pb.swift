@@ -289,10 +289,10 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMap"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{4}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{3}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{5}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{6}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{1}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{2}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{1}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{2}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{5}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{6}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{7}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{8}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{9}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{a}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{b}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{c}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{4}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{3}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{5}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{6}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{1}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{2}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{1}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{2}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{5}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{6}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{7}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{8}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{9}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{a}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{b}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{c}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap" }
   #else
     #error("Unsupported platform")
   #endif
@@ -307,15 +307,21 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
     case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnum].self)
     case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: SwiftProtoTesting_Proto2MapEnum].self)
     case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: SwiftProtoTesting_Proto2MapEnum].self)
-    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: SwiftProtoTesting_Proto2MapEnum].self)
-    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Proto2MapEnum].self)
+    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: SwiftProtoTesting_Proto2MapEnum].self)
+    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: SwiftProtoTesting_Proto2MapEnum].self)
+    case 7: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: SwiftProtoTesting_Proto2MapEnum].self)
+    case 8: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Proto2MapEnum].self)
+    case 9: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Proto2MapEnum].self)
+    case 10: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnum].self)
+    case 11: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Proto2MapEnum].self)
+    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnum].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
   private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
-    case 1, 2, 3, 4, 5, 6: return true
+    case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12: return true
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -337,8 +343,12 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
     case 4:
       return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 5:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     case 6:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 7:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 8:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
       #elseif _pointerBitWidth(_32)
@@ -347,6 +357,14 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 9:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 10:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 11:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
+    case 12:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnum.self, enumSchema: SwiftProtoTesting_Proto2MapEnum.enumSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -357,8 +375,14 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
     case 2: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 3: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 4: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 5: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 6: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 5: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 6: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 7: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 8: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 9: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 10: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 11: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 12: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -372,10 +396,10 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMapPlusExtra"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{4}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{3}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{5}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{6}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{1}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{2}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{1}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{2}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{5}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{6}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{7}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{8}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{9}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{a}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{b}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{c}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{4}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{3}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{5}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{6}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{1}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{2}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{1}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{2}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{1}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{2}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{3}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{1}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{4}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{5}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{6}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{7}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{8}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{9}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{a}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{b}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{c}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra" }
   #else
     #error("Unsupported platform")
   #endif
@@ -390,15 +414,21 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
     case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
     case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
     case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
-    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
-    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 7: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 8: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 9: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 10: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 11: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
+    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: SwiftProtoTesting_Proto2MapEnumPlusExtra].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
 
   private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
     switch token.index {
-    case 1, 2, 3, 4, 5, 6: return true
+    case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12: return true
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -420,8 +450,12 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
     case 4:
       return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 5:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     case 6:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 7:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 8:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
       #elseif _pointerBitWidth(_32)
@@ -430,6 +464,14 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 9:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 10:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 11:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed32Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
+    case 12:
+      return SwiftProtobuf.MessageSchema(schema: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed64Entry", forMapEntryWithValueType: SwiftProtoTesting_Proto2MapEnumPlusExtra.self, enumSchema: SwiftProtoTesting_Proto2MapEnumPlusExtra.enumSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -440,8 +482,14 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
     case 2: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 3: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 4: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 5: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 6: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 5: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 6: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 7: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 8: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 9: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 10: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 11: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 12: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

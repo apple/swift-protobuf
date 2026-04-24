@@ -647,10 +647,10 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".ConformanceRequest"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\u{1}\0\u{9}\0\0\0\0\0\u{5}\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0P\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\u{1}\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0P\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{9}\0\0\0\0\0\u{5}\0\0\u{a}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0<\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0H\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0<\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0H\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest" }
   #else
     #error("Unsupported platform")
   #endif
@@ -704,10 +704,10 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".ConformanceResponse"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0@\u{1}\0\u{9}\0\0\0\0\0\u{9}\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0P\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\0\u{1}\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0 \u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\00\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0@\u{1}\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0P\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\0\u{1}\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0 \u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\00\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{1c}\u{1}\0\u{9}\0\0\0\0\0\u{9}\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0H\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0l\0\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0x\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{4}\u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{1c}\u{1}\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0H\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0l\0\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0x\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{4}\u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse" }
   #else
     #error("Unsupported platform")
   #endif

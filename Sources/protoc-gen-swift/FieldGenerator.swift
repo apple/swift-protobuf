@@ -86,16 +86,16 @@ package enum TrampolineFieldKind {
 
     /// The field is a map type.
     ///
-    /// The associated value is the full Swift name of that type and whether or not the value is a
-    /// message.
-    case map(String, valueIsMessage: Bool)
+    /// The associated value is the full Swift name of that type and the raw field
+    /// types of the key and value.
+    case map(String, keyType: RawFieldType, valueType: RawFieldType)
 
     /// The full Swift name of the (possibly array) type of the field.
     var name: String {
         switch self {
         case .message(let name, let isArray): isArray ? "[\(name)]" : name
         case .enum(let name, let isArray): isArray ? "[\(name)]" : name
-        case .map(let name, _): name
+        case .map(let name, _, _): name
         }
     }
 
@@ -110,6 +110,20 @@ package enum TrampolineFieldKind {
         case .map: preconditionFailure("Should never be called")
         }
     }
+}
+
+/// Uniquely identifies a field that needs to be generated into trampoline
+/// functions so that multiple fields with the same Swift type and wire formats
+/// can be deduplicated.
+///
+/// When deduplicating, just using the Swift type name alone is not enough for
+/// maps because a key or value type of `Int64`, for example, could have different
+/// wire formats (varint vs. zigzag varint vs. fixed) and we need to preserve
+/// that information in the map entry schema.
+struct TrampolineFieldKey: Equatable, Hashable {
+    var name: String
+    var keyType: RawFieldType? = nil
+    var valueType: RawFieldType? = nil
 }
 
 /// Interface for field generators.
@@ -186,26 +200,7 @@ class FieldGeneratorBase {
     }
 
     var rawFieldType: RawFieldType {
-        switch fieldDescriptor.type {
-        case .bool: return .bool
-        case .bytes: return .bytes
-        case .double: return .double
-        case .enum: return .enum
-        case .fixed32: return .fixed32
-        case .fixed64: return .fixed64
-        case .float: return .float
-        case .group: return .group
-        case .int32: return .int32
-        case .int64: return .int64
-        case .message: return .message
-        case .sfixed32: return .sfixed32
-        case .sfixed64: return .sfixed64
-        case .sint32: return .sint32
-        case .sint64: return .sint64
-        case .string: return .string
-        case .uint32: return .uint32
-        case .uint64: return .uint64
-        }
+        RawFieldType(fieldDescriptorType: fieldDescriptor.type)
     }
 
     var fieldMode: FieldMode {
@@ -274,5 +269,31 @@ class FieldGeneratorBase {
     init(descriptor: FieldDescriptor) {
         number = Int(descriptor.number)
         fieldDescriptor = descriptor
+    }
+}
+
+extension RawFieldType {
+    /// Creates a new `RawFieldType` from the given field descriptor type enum value.
+    init(fieldDescriptorType: Google_Protobuf_FieldDescriptorProto.TypeEnum) {
+        switch fieldDescriptorType {
+        case .bool: self = .bool
+        case .bytes: self = .bytes
+        case .double: self = .double
+        case .enum: self = .enum
+        case .fixed32: self = .fixed32
+        case .fixed64: self = .fixed64
+        case .float: self = .float
+        case .group: self = .group
+        case .int32: self = .int32
+        case .int64: self = .int64
+        case .message: self = .message
+        case .sfixed32: self = .sfixed32
+        case .sfixed64: self = .sfixed64
+        case .sint32: self = .sint32
+        case .sint64: self = .sint64
+        case .string: self = .string
+        case .uint32: self = .uint32
+        case .uint64: self = .uint64
+        }
     }
 }

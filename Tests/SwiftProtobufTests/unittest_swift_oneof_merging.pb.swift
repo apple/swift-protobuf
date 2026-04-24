@@ -248,10 +248,10 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessage"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0@\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0$\0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0$\0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage" }
   #else
     #error("Unsupported platform")
   #endif

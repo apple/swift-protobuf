@@ -883,10 +883,10 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Message2"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\u{5}\0I\0\0\0\0\0$\0\0\u{11}\0\0\u{1}\0\0\0\0X\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\\\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0`\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0d\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0h\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0l\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0T\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0@\u{4}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0P\u{4}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0p\u{1}\0\u{f}\0\u{2}\0\u{a}\u{12}\0\0\0\0x\u{1}\0\u{10}\0\u{3}\0\u{b}\u{13}\0\0\0\0p\0\0\u{11}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}\0\u{2}\0\u{12}\0\0\0\u{5} \0\0\0\u{2}\u{8}\u{2}\0\u{13}\0\0\0\u{3}!\0\0\0\u{2}\u{10}\u{2}\0\u{14}\0\0\0\u{d}\"\0\0\0\u{2}\u{18}\u{2}\0\u{15}\0\0\0\u{4}#\0\0\0\u{2} \u{2}\0\u{16}\0\0\0\u{11}$\0\0\0\u{2}(\u{2}\0\u{17}\0\0\0\u{12}%\0\0\0\u{2}0\u{2}\0\u{18}\0\0\0\u{7}&\0\0\0\u{2}8\u{2}\0\u{19}\0\0\0\u{6}'\0\0\0\u{2}@\u{2}\0\u{1a}\0\0\0\u{f}(\0\0\0\u{2}H\u{2}\0\u{1b}\0\0\0\u{10})\0\0\0\u{2}P\u{2}\0\u{1c}\0\0\0\u{2}*\0\0\0\u{2}X\u{2}\0\u{1d}\0\0\0\u{1}+\0\0\0\u{2}`\u{2}\0\u{1e}\0\0\0\u{8},\0\0\0\u{2}h\u{2}\0\u{1f}\0\0\0\u{9}-\0\0\0\u{2}p\u{2}\0 \0\0\0\u{c}.\0\0\0\u{2}x\u{2}\0!\0\u{4}\0\u{a}0\0\0\0\u{2}\0\u{3}\0\"\0\u{5}\0\u{b}1\0\0\0\u{2}\u{8}\u{3}\0#\0\u{6}\0\u{e}3\0\0\0\0t\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0x\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0|\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{8}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0U\0\0s\u{7f}\0\0\u{8}@\0\0\0\0`\u{4}\0s\u{7f}\0\0\u{9}A\0\0\0\0p\u{4}\0s\u{7f}\0\0\u{c}B\0\0\0\0\u{10}\u{3}\0s\u{7f}\u{7}\0\u{a}D\0\0\0\0\u{18}\u{3}\0s\u{7f}\u{3}\0\u{b}E\0\0\0\0\u{c}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4} \u{3}\0$\0\u{8}\0\u{b}G\0\0\0\u{4}(\u{3}\0%\0\u{9}\0\u{b}H\0\0\0\u{4}0\u{3}\0&\0\u{a}\0\u{b}I\0\0\0\u{4}8\u{3}\0'\0\u{b}\0\u{b}J\0\0\0\u{4}@\u{3}\0(\0\u{8}\0\u{b}K\0\0\0\u{4}H\u{3}\0)\0\u{9}\0\u{b}L\0\0\0\u{4}P\u{3}\0*\0\u{a}\0\u{b}M\0\0\0\u{4}X\u{3}\0+\0\u{b}\0\u{b}N\0\0\0\u{4}`\u{3}\0,\0\u{8}\0\u{b}O\0\0\0\u{4}h\u{3}\0-\0\u{9}\0\u{b}P\0\0\0\u{4}p\u{3}\0.\0\u{c}\0\u{b}Q\0\0\0\u{4}x\u{3}\0/\0\u{d}\0\u{b}R\0\0\0\u{4}\0\u{4}\00\0\u{e}\0\u{b}S\0\0\0\u{4}\u{8}\u{4}\01\0\u{f}\0\u{b}T\0\0\0\u{4}\u{10}\u{4}\02\0\u{10}\0\u{b}U\0\0\0\u{4}\u{18}\u{4}\03\0\u{11}\0\u{b}V\0\0\0\u{4} \u{4}\04\0\u{12}\0\u{b}W\0\0\0\u{4}(\u{4}\05\0\u{13}\0\u{b}X\0\0\0\u{4}0\u{4}\06\0\u{14}\0\u{b}\u{1c}\0swift_proto_testing.Message2" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\u{5}\0I\0\0\0\0\0\u{12}\0\0\u{11}\0\0\u{1}\0\0\0\0X\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\\\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0`\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0d\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0h\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0l\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0T\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0@\u{4}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0P\u{4}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0p\u{1}\0\u{f}\0\u{2}\0\u{a}\u{12}\0\0\0\0x\u{1}\0\u{10}\0\u{3}\0\u{b}\u{13}\0\0\0\0p\0\0\u{11}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}\0\u{2}\0\u{12}\0\0\0\u{5} \0\0\0\u{2}\u{8}\u{2}\0\u{13}\0\0\0\u{3}!\0\0\0\u{2}\u{10}\u{2}\0\u{14}\0\0\0\u{d}\"\0\0\0\u{2}\u{18}\u{2}\0\u{15}\0\0\0\u{4}#\0\0\0\u{2} \u{2}\0\u{16}\0\0\0\u{11}$\0\0\0\u{2}(\u{2}\0\u{17}\0\0\0\u{12}%\0\0\0\u{2}0\u{2}\0\u{18}\0\0\0\u{7}&\0\0\0\u{2}8\u{2}\0\u{19}\0\0\0\u{6}'\0\0\0\u{2}@\u{2}\0\u{1a}\0\0\0\u{f}(\0\0\0\u{2}H\u{2}\0\u{1b}\0\0\0\u{10})\0\0\0\u{2}P\u{2}\0\u{1c}\0\0\0\u{2}*\0\0\0\u{2}X\u{2}\0\u{1d}\0\0\0\u{1}+\0\0\0\u{2}`\u{2}\0\u{1e}\0\0\0\u{8},\0\0\0\u{2}h\u{2}\0\u{1f}\0\0\0\u{9}-\0\0\0\u{2}p\u{2}\0 \0\0\0\u{c}.\0\0\0\u{2}x\u{2}\0!\0\u{4}\0\u{a}0\0\0\0\u{2}\0\u{3}\0\"\0\u{5}\0\u{b}1\0\0\0\u{2}\u{8}\u{3}\0#\0\u{6}\0\u{e}3\0\0\0\0t\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0x\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0|\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{8}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0U\0\0s\u{7f}\0\0\u{8}@\0\0\0\0`\u{4}\0s\u{7f}\0\0\u{9}A\0\0\0\0p\u{4}\0s\u{7f}\0\0\u{c}B\0\0\0\0\u{10}\u{3}\0s\u{7f}\u{7}\0\u{a}D\0\0\0\0\u{18}\u{3}\0s\u{7f}\u{3}\0\u{b}E\0\0\0\0\u{c}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4} \u{3}\0$\0\u{8}\0\u{b}G\0\0\0\u{4}(\u{3}\0%\0\u{9}\0\u{b}H\0\0\0\u{4}0\u{3}\0&\0\u{a}\0\u{b}I\0\0\0\u{4}8\u{3}\0'\0\u{b}\0\u{b}J\0\0\0\u{4}@\u{3}\0(\0\u{c}\0\u{b}K\0\0\0\u{4}H\u{3}\0)\0\u{d}\0\u{b}L\0\0\0\u{4}P\u{3}\0*\0\u{e}\0\u{b}M\0\0\0\u{4}X\u{3}\0+\0\u{f}\0\u{b}N\0\0\0\u{4}`\u{3}\0,\0\u{10}\0\u{b}O\0\0\0\u{4}h\u{3}\0-\0\u{11}\0\u{b}P\0\0\0\u{4}p\u{3}\0.\0\u{12}\0\u{b}Q\0\0\0\u{4}x\u{3}\0/\0\u{13}\0\u{b}R\0\0\0\u{4}\0\u{4}\00\0\u{14}\0\u{b}S\0\0\0\u{4}\u{8}\u{4}\01\0\u{15}\0\u{b}T\0\0\0\u{4}\u{10}\u{4}\02\0\u{16}\0\u{b}U\0\0\0\u{4}\u{18}\u{4}\03\0\u{17}\0\u{b}V\0\0\0\u{4} \u{4}\04\0\u{18}\0\u{b}W\0\0\0\u{4}(\u{4}\05\0\u{19}\0\u{b}X\0\0\0\u{4}0\u{4}\06\0\u{1a}\0\u{b}\u{1c}\0swift_proto_testing.Message2" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\u{3}\0I\0\0\0\0\0$\0\0\u{11}\0\0\u{1}\0\0\0\0X\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\\\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0`\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0d\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0h\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0l\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0T\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\u{18}\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0$\u{3}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0p\u{1}\0\u{f}\0\u{2}\0\u{a}\u{12}\0\0\0\0t\u{1}\0\u{10}\0\u{3}\0\u{b}\u{13}\0\0\0\0p\0\0\u{11}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}x\u{1}\0\u{12}\0\0\0\u{5} \0\0\0\u{2}|\u{1}\0\u{13}\0\0\0\u{3}!\0\0\0\u{2}\0\u{2}\0\u{14}\0\0\0\u{d}\"\0\0\0\u{2}\u{4}\u{2}\0\u{15}\0\0\0\u{4}#\0\0\0\u{2}\u{8}\u{2}\0\u{16}\0\0\0\u{11}$\0\0\0\u{2}\u{c}\u{2}\0\u{17}\0\0\0\u{12}%\0\0\0\u{2}\u{10}\u{2}\0\u{18}\0\0\0\u{7}&\0\0\0\u{2}\u{14}\u{2}\0\u{19}\0\0\0\u{6}'\0\0\0\u{2}\u{18}\u{2}\0\u{1a}\0\0\0\u{f}(\0\0\0\u{2}\u{1c}\u{2}\0\u{1b}\0\0\0\u{10})\0\0\0\u{2} \u{2}\0\u{1c}\0\0\0\u{2}*\0\0\0\u{2}$\u{2}\0\u{1d}\0\0\0\u{1}+\0\0\0\u{2}(\u{2}\0\u{1e}\0\0\0\u{8},\0\0\0\u{2},\u{2}\0\u{1f}\0\0\0\u{9}-\0\0\0\u{2}0\u{2}\0 \0\0\0\u{c}.\0\0\0\u{2}4\u{2}\0!\0\u{4}\0\u{a}0\0\0\0\u{2}8\u{2}\0\"\0\u{5}\0\u{b}1\0\0\0\u{2}<\u{2}\0#\0\u{6}\0\u{e}3\0\0\0\0t\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0x\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0|\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{8}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0U\0\0s\u{7f}\0\0\u{8}@\0\0\0\00\u{3}\0s\u{7f}\0\0\u{9}A\0\0\0\0<\u{3}\0s\u{7f}\0\0\u{c}B\0\0\0\0@\u{2}\0s\u{7f}\u{7}\0\u{a}D\0\0\0\0D\u{2}\0s\u{7f}\u{3}\0\u{b}E\0\0\0\0\u{c}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}H\u{2}\0$\0\u{8}\0\u{b}G\0\0\0\u{4}L\u{2}\0%\0\u{9}\0\u{b}H\0\0\0\u{4}P\u{2}\0&\0\u{a}\0\u{b}I\0\0\0\u{4}T\u{2}\0'\0\u{b}\0\u{b}J\0\0\0\u{4}X\u{2}\0(\0\u{8}\0\u{b}K\0\0\0\u{4}\\\u{2}\0)\0\u{9}\0\u{b}L\0\0\0\u{4}`\u{2}\0*\0\u{a}\0\u{b}M\0\0\0\u{4}d\u{2}\0+\0\u{b}\0\u{b}N\0\0\0\u{4}h\u{2}\0,\0\u{8}\0\u{b}O\0\0\0\u{4}l\u{2}\0-\0\u{9}\0\u{b}P\0\0\0\u{4}p\u{2}\0.\0\u{c}\0\u{b}Q\0\0\0\u{4}t\u{2}\0/\0\u{d}\0\u{b}R\0\0\0\u{4}x\u{2}\00\0\u{e}\0\u{b}S\0\0\0\u{4}|\u{2}\01\0\u{f}\0\u{b}T\0\0\0\u{4}\0\u{3}\02\0\u{10}\0\u{b}U\0\0\0\u{4}\u{4}\u{3}\03\0\u{11}\0\u{b}V\0\0\0\u{4}\u{8}\u{3}\04\0\u{12}\0\u{b}W\0\0\0\u{4}\u{c}\u{3}\05\0\u{13}\0\u{b}X\0\0\0\u{4}\u{10}\u{3}\06\0\u{14}\0\u{b}\u{1c}\0swift_proto_testing.Message2" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\u{3}\0I\0\0\0\0\0\u{12}\0\0\u{11}\0\0\u{1}\0\0\0\0X\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\\\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0`\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0d\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0h\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0l\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0T\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\u{18}\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0$\u{3}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0p\u{1}\0\u{f}\0\u{2}\0\u{a}\u{12}\0\0\0\0t\u{1}\0\u{10}\0\u{3}\0\u{b}\u{13}\0\0\0\0p\0\0\u{11}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}x\u{1}\0\u{12}\0\0\0\u{5} \0\0\0\u{2}|\u{1}\0\u{13}\0\0\0\u{3}!\0\0\0\u{2}\0\u{2}\0\u{14}\0\0\0\u{d}\"\0\0\0\u{2}\u{4}\u{2}\0\u{15}\0\0\0\u{4}#\0\0\0\u{2}\u{8}\u{2}\0\u{16}\0\0\0\u{11}$\0\0\0\u{2}\u{c}\u{2}\0\u{17}\0\0\0\u{12}%\0\0\0\u{2}\u{10}\u{2}\0\u{18}\0\0\0\u{7}&\0\0\0\u{2}\u{14}\u{2}\0\u{19}\0\0\0\u{6}'\0\0\0\u{2}\u{18}\u{2}\0\u{1a}\0\0\0\u{f}(\0\0\0\u{2}\u{1c}\u{2}\0\u{1b}\0\0\0\u{10})\0\0\0\u{2} \u{2}\0\u{1c}\0\0\0\u{2}*\0\0\0\u{2}$\u{2}\0\u{1d}\0\0\0\u{1}+\0\0\0\u{2}(\u{2}\0\u{1e}\0\0\0\u{8},\0\0\0\u{2},\u{2}\0\u{1f}\0\0\0\u{9}-\0\0\0\u{2}0\u{2}\0 \0\0\0\u{c}.\0\0\0\u{2}4\u{2}\0!\0\u{4}\0\u{a}0\0\0\0\u{2}8\u{2}\0\"\0\u{5}\0\u{b}1\0\0\0\u{2}<\u{2}\0#\0\u{6}\0\u{e}3\0\0\0\0t\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0x\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0|\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{8}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0U\0\0s\u{7f}\0\0\u{8}@\0\0\0\00\u{3}\0s\u{7f}\0\0\u{9}A\0\0\0\0<\u{3}\0s\u{7f}\0\0\u{c}B\0\0\0\0@\u{2}\0s\u{7f}\u{7}\0\u{a}D\0\0\0\0D\u{2}\0s\u{7f}\u{3}\0\u{b}E\0\0\0\0\u{c}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}H\u{2}\0$\0\u{8}\0\u{b}G\0\0\0\u{4}L\u{2}\0%\0\u{9}\0\u{b}H\0\0\0\u{4}P\u{2}\0&\0\u{a}\0\u{b}I\0\0\0\u{4}T\u{2}\0'\0\u{b}\0\u{b}J\0\0\0\u{4}X\u{2}\0(\0\u{c}\0\u{b}K\0\0\0\u{4}\\\u{2}\0)\0\u{d}\0\u{b}L\0\0\0\u{4}`\u{2}\0*\0\u{e}\0\u{b}M\0\0\0\u{4}d\u{2}\0+\0\u{f}\0\u{b}N\0\0\0\u{4}h\u{2}\0,\0\u{10}\0\u{b}O\0\0\0\u{4}l\u{2}\0-\0\u{11}\0\u{b}P\0\0\0\u{4}p\u{2}\0.\0\u{12}\0\u{b}Q\0\0\0\u{4}t\u{2}\0/\0\u{13}\0\u{b}R\0\0\0\u{4}x\u{2}\00\0\u{14}\0\u{b}S\0\0\0\u{4}|\u{2}\01\0\u{15}\0\u{b}T\0\0\0\u{4}\0\u{3}\02\0\u{16}\0\u{b}U\0\0\0\u{4}\u{4}\u{3}\03\0\u{17}\0\u{b}V\0\0\0\u{4}\u{8}\u{3}\04\0\u{18}\0\u{b}W\0\0\0\u{4}\u{c}\u{3}\05\0\u{19}\0\u{b}X\0\0\0\u{4}\u{10}\u{3}\06\0\u{1a}\0\u{b}\u{1c}\0swift_proto_testing.Message2" }
   #else
     #error("Unsupported platform")
   #endif
@@ -908,15 +908,21 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
     case 9: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
     case 10: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: UInt32].self)
     case 11: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: UInt64].self)
-    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Float].self)
-    case 13: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Double].self)
-    case 14: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: Bool].self)
-    case 15: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: String].self)
-    case 16: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: Data].self)
-    case 17: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Message2].self)
-    case 18: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Data].self)
-    case 19: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message2.Enum].self)
-    case 20: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message2].self)
+    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Int32].self)
+    case 13: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
+    case 14: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: UInt32].self)
+    case 15: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: UInt64].self)
+    case 16: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Int32].self)
+    case 17: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
+    case 18: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Float].self)
+    case 19: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Double].self)
+    case 20: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: Bool].self)
+    case 21: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: String].self)
+    case 22: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: Data].self)
+    case 23: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Message2].self)
+    case 24: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Data].self)
+    case 25: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message2.Enum].self)
+    case 26: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message2].self)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -928,9 +934,9 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
     case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_Message2.RepeatedGroup].self, perform: perform)
     case 5: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_Message2].self, perform: perform)
     case 7: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Message2.OneofGroup.self, perform: perform)
-    case 17: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [String: SwiftProtoTesting_Message2].self, perform: perform)
-    case 20: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Int32: SwiftProtoTesting_Message2].self, perform: perform)
-    case 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19: return true
+    case 23: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [String: SwiftProtoTesting_Message2].self, perform: perform)
+    case 26: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Int32: SwiftProtoTesting_Message2].self, perform: perform)
+    case 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25: return true
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -954,12 +960,24 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
     case 11:
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}1\0swift_proto_testing.Message2.MapUint64Uint64Entry")
     case 12:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}/\0swift_proto_testing.Message2.MapInt32FloatEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}1\0swift_proto_testing.Message2.MapSint32Sint32Entry")
     case 13:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}0\0swift_proto_testing.Message2.MapInt32DoubleEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}1\0swift_proto_testing.Message2.MapSint64Sint64Entry")
     case 14:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}-\0swift_proto_testing.Message2.MapBoolBoolEntry")
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}3\0swift_proto_testing.Message2.MapFixed32Fixed32Entry")
     case 15:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}3\0swift_proto_testing.Message2.MapFixed64Fixed64Entry")
+    case 16:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}5\0swift_proto_testing.Message2.MapSfixed32Sfixed32Entry")
+    case 17:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}5\0swift_proto_testing.Message2.MapSfixed64Sfixed64Entry")
+    case 18:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}/\0swift_proto_testing.Message2.MapInt32FloatEntry")
+    case 19:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}0\0swift_proto_testing.Message2.MapInt32DoubleEntry")
+    case 20:
+      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}-\0swift_proto_testing.Message2.MapBoolBoolEntry")
+    case 21:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}1\0swift_proto_testing.Message2.MapStringStringEntry"
       #elseif _pointerBitWidth(_32)
@@ -968,7 +986,7 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 16:
+    case 22:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}0\0swift_proto_testing.Message2.MapStringBytesEntry"
       #elseif _pointerBitWidth(_32)
@@ -977,7 +995,7 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 17:
+    case 23:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}2\0swift_proto_testing.Message2.MapStringMessageEntry"
       #elseif _pointerBitWidth(_32)
@@ -986,7 +1004,7 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Message2.self)
-    case 18:
+    case 24:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.Message2.MapInt32BytesEntry"
       #elseif _pointerBitWidth(_32)
@@ -995,9 +1013,9 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
         #error("Unsupported platform")
       #endif
       return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 19:
+    case 25:
       return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}.\0swift_proto_testing.Message2.MapInt32EnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Message2.Enum.self, enumSchema: SwiftProtoTesting_Message2.Enum.enumSchema)
-    case 20:
+    case 26:
       #if _pointerBitWidth(_64)
         let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}1\0swift_proto_testing.Message2.MapInt32MessageEntry"
       #elseif _pointerBitWidth(_32)
@@ -1016,15 +1034,21 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message {
     case 9: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 10: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
     case 11: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 12: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 13: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 14: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 15: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 16: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 17: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message2>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 18: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 19: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Message2.Enum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 20: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message2>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 12: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 13: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 14: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 15: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 16: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 17: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 18: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 19: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 20: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 21: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 22: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 23: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message2>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 24: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 25: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Message2.Enum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
+    case 26: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message2>.self, deterministicOrdering: deterministicOrdering, perform: perform)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

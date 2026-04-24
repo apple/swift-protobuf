@@ -436,10 +436,10 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestFieldOrderings"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{8}\0\0\0\0\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0@\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0P\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\0\0\u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0@\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0P\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0T\0\0\u{8}\0\0\0\0\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0<\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0H\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0T\0\0\u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0<\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0H\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings" }
   #else
     #error("Unsupported platform")
   #endif
@@ -514,10 +514,10 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
   static let protoMessageName: Swift.String = _protobuf_package + ".OneofTraversalGeneration"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{9}\0\0\0\0\0\u{9}\0\0\u{2}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{9}\0\0\0\0\0\u{9}\0\0\u{2}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0H\0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration" }
   #else
     #error("Unsupported platform")
   #endif

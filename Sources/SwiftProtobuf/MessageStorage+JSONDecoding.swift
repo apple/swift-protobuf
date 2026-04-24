@@ -137,7 +137,13 @@ extension MessageStorage {
             }
 
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+            var seenFields = Set<UInt32>()
             while let fieldNumber = try reader.nextFieldNumber() {
+                if !seenFields.insert(fieldNumber).inserted {
+                    // It's an error if we see the same field more than once (even with different
+                    // spellings, like JSON and text format).
+                    throw JSONDecodingError.failure
+                }
                 // TODO: This is a little awkward, because in the extension case we're doing the lookup
                 // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
                 // find the extension that matches the name we parsed), and then here below. Once we've
@@ -150,6 +156,11 @@ extension MessageStorage {
                     // `oneof`.
                     if case .oneOfMember(let oneOfOffset) = field.presence {
                         if populatedOneofMember(at: oneOfOffset) != 0 {
+                            // JSON only allows multiple keys from a `oneof` to be set if at most one is
+                            // not `null`.
+                            if reader.scanner.skipOptionalNull() {
+                                continue
+                            }
                             throw JSONDecodingError.conflictingOneOf
                         }
                     }
@@ -260,6 +271,16 @@ extension MessageStorage {
         requireQuotedBool: Bool = false
     ) throws {
         let isNull = reader.scanner.skipOptionalNull()
+        // `null` is only allowed as the value of a map entry if the value type is a group or a
+        // message.
+        if isNull && schema.isMapEntry && field.fieldNumber == 2 {
+            switch field.rawFieldType {
+            case .group, .message:
+                break
+            default:
+                throw JSONDecodingError.illegalNull
+            }
+        }
         switch field.rawFieldType {
         case .bool:
             if isNull {
@@ -847,6 +868,10 @@ func isTypeURLValid(_ typeURL: String) -> Bool {
 }
 
 private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
+    guard !names.isEmpty else {
+        // Empty string is allowed.
+        return
+    }
     var fieldNameCount = 0
     var fieldName = String()
     for c in names {

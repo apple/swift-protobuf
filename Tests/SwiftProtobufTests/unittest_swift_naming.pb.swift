@@ -20806,10 +20806,10 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".ValidIdentifiers"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers" }
   #else
     #error("Unsupported platform")
   #endif
@@ -20867,10 +20867,10 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".SpecialNames1"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1" }
   #else
     #error("Unsupported platform")
   #endif
@@ -20909,10 +20909,10 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".SpecialNames3"
   #if _pointerBitWidth(_64)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3" }
   #elseif _pointerBitWidth(_32)
     @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3" }
+    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3" }
   #else
     #error("Unsupported platform")
   #endif
