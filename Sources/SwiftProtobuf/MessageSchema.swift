@@ -69,7 +69,7 @@ public struct MessageSchema: @unchecked Sendable {
     ///
     /// ## Field schemas
     ///
-    /// After the header above, starting at byte offset 13, is a sequence of encoded field schemas.
+    /// After the header above, starting at byte offset 16, is a sequence of encoded field schemas.
     /// Each field schema is 13 bytes long and they are written in field number order. Each entry
     /// encodes the following information:
     ///
@@ -93,6 +93,21 @@ public struct MessageSchema: @unchecked Sendable {
     /// *   Bytes 10-11: For message/group/enum fields, an opaque index as a base-128 integer used
     ///     to perform operations on submessage or enum fields that require the concrete type hint.
     /// *   Byte 12: The type of the field.
+    ///
+    /// ## Message name
+    ///
+    /// After the sequence of field schemas, the schema string contains the fully-qualified name of
+    /// the message:
+    ///
+    /// ```
+    /// +-------------+--------------+
+    /// |  Bytes 0-1  |  Bytes 2...  |
+    /// | Name length | Message name |
+    /// +-------------+--------------+
+    /// ```
+    ///
+    /// *   Bytes 0-1: The length of the message's fully-qualified name, as a 2-byte base-128 integer.
+    /// *   Bytes 2...: The fully-qualified name of the message, as UTF-8 encoded bytes.
     private let schema: UnsafeRawBufferPointer
 
     /// The reference to the reflection table for the message.
