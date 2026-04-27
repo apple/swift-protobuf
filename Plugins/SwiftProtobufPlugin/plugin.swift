@@ -145,7 +145,8 @@ struct SwiftProtobufPlugin {
     func createBuildCommands(
         pluginWorkDirectory: URL,
         sourceFiles: FileList,
-        tool: (String) throws -> PackagePlugin.PluginContext.Tool
+        tool: (String) throws -> PackagePlugin.PluginContext.Tool,
+        sourceTreeWellKnownTypesPath: URL? = nil
     ) throws -> [Command] {
         guard
             let configurationFilePath = sourceFiles.first(
@@ -162,15 +163,31 @@ struct SwiftProtobufPlugin {
 
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: URL
+        let protocIncludeDir: URL?
         if let configuredProtocPath = configuration.protocPath {
             // The user set the config path in the file. So let's take that
             protocPath = URL(fileURLWithPath: configuredProtocPath)
+            // Standard protoc installs have: <prefix>/bin/protoc and <prefix>/include/google/...
+            protocIncludeDir =
+                protocPath
+                .deletingLastPathComponent()
+                .deletingLastPathComponent()
+                .appending(path: "include")
         } else if let environmentPath = ProcessInfo.processInfo.environment["PROTOC_PATH"] {
             // The user set the env variable. So let's take that
             protocPath = URL(fileURLWithPath: environmentPath)
+            // Standard protoc installs have: <prefix>/bin/protoc and <prefix>/include/google/...
+            protocIncludeDir =
+                protocPath
+                .deletingLastPathComponent()
+                .deletingLastPathComponent()
+                .appending(path: "include")
         } else {
             // The user didn't set anything so let's try see if SPM can find a binary for us
             protocPath = try tool("protoc").url
+            // Where the tool gets built won't be where the sources are, they will be in
+            // the source tree.
+            protocIncludeDir = sourceTreeWellKnownTypesPath
         }
         let protocGenSwiftPath = try tool("protoc-gen-swift").url
 
@@ -179,6 +196,7 @@ struct SwiftProtobufPlugin {
                 directory: configurationFilePath.deletingLastPathComponent(),
                 invocation: invocation,
                 protocPath: protocPath,
+                protocIncludeDir: protocIncludeDir,
                 protocGenSwiftPath: protocGenSwiftPath,
                 outputDirectory: pluginWorkDirectory
             )
@@ -191,6 +209,7 @@ struct SwiftProtobufPlugin {
     ///   - directory: The plugin's target directory.
     ///   - invocation: The `protoc` invocation.
     ///   - protocPath: The path to the `protoc` binary.
+    ///   - protocIncludeDir: The path for where the WKTs can be found.
     ///   - protocGenSwiftPath: The path to the `protoc-gen-swift` binary.
     ///   - outputDirectory: The output directory for the generated files.
     /// - Returns: The build command configured based on the arguments.
@@ -198,6 +217,7 @@ struct SwiftProtobufPlugin {
         directory: URL,
         invocation: Configuration.Invocation,
         protocPath: URL,
+        protocIncludeDir: URL?,
         protocGenSwiftPath: URL,
         outputDirectory: URL
     ) -> Command {
@@ -216,6 +236,11 @@ struct SwiftProtobufPlugin {
 
         protocArgs.append("-I")
         protocArgs.append(protoDirectory.fileSystemPath)
+
+        if let protocIncludeDir {
+            protocArgs.append("-I")
+            protocArgs.append(protocIncludeDir.fileSystemPath)
+        }
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -292,11 +317,44 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
         guard let swiftTarget = target as? SwiftSourceModuleTarget else {
             throw PluginError.invalidTarget(String(describing: type(of: target)))
         }
+        let wellKnownTypesIncludePath = Self.findWellKnownTypesIncludePath(
+            in: context.package
+        )
         return try createBuildCommands(
             pluginWorkDirectory: context.pluginWorkDirectoryURL,
             sourceFiles: swiftTarget.sourceFiles,
-            tool: context.tool
+            tool: context.tool,
+            sourceTreeWellKnownTypesPath: wellKnownTypesIncludePath
         )
+    }
+
+    /// Finds the well-known proto types include path from the swift-protobuf
+    /// package's vendored protobuf sources.
+    private static func findWellKnownTypesIncludePath(in package: Package) -> URL? {
+        func protocIncludePath(for package: Package) -> URL? {
+            let candidate = package.directoryURL
+                .appending(path: "Sources/protobuf/protobuf/src")
+            if FileManager.default.fileExists(
+                atPath: candidate.appending(path: "google/protobuf/timestamp.proto").fileSystemPath
+            ) {
+                return candidate
+            }
+            return nil
+        }
+
+        // Check if this package itself is swift-protobuf
+        if let path = protocIncludePath(for: package) {
+            return path
+        }
+
+        // Otherwise, search dependencies
+        for dependency in package.dependencies {
+            if let path = protocIncludePath(for: dependency.package) {
+                return path
+            }
+        }
+
+        return nil
     }
 }
 

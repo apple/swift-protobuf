@@ -2,6 +2,7 @@ import CustomProtoPath
 import Import
 import Nested
 import Simple
+import UsesWKTs
 import XCTest
 
 #if compiler(>=6.2.3)
@@ -52,4 +53,12 @@ final class ExampleTests: XCTestCase {
         }
     }
     #endif
+    func testUsesWKTs() {
+        let usesWKTs = UsesWKTs.with {
+            $0.name = "UsesWKTs"
+            $0.aTimestamp.seconds = 2
+        }
+        XCTAssertEqual(usesWKTs.name, "UsesWKTs")
+        XCTAssertEqual(usesWKTs.aTimestamp.seconds, 2)
+    }
 }

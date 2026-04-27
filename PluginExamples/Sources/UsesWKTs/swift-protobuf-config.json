@@ -1,0 +1,10 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "UsesWKTs.proto",
+            ],
+            "visibility": "public"
+        }
+    ]
+}
