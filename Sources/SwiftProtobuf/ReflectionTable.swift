@@ -32,7 +32,7 @@ import Foundation
 /// To support future extensions without breaking ABI, the layout is divided into sections. Each
 /// section starts with a 4-byte little-endian integer indicating the offset to the next section.
 /// It is possible for a section to be empty (the offset to the next section will simply be the
-/// current offset + 4).
+/// current offset + 4). All sections are 4-byte aligned.
 ///
 /// ```
 /// +-------------------+
