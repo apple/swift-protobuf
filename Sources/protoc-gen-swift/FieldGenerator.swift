@@ -73,57 +73,22 @@ package enum FieldPresence {
 }
 
 /// Information about a field that needs to be part of trampoline function generation.
-package enum TrampolineFieldKind {
-    /// The field is a message type or an array of a message type.
+package enum TrampolineFieldKind: Equatable, Hashable {
+    /// The field is a singular or repeated message or group type.
     ///
-    /// The associated value is the full Swift name of that (possibly array) type.
-    case message(String, isArray: Bool)
+    /// The associated value is the full Swift name of that type.
+    case message(String)
 
-    /// The field is an enum type or an array of an enum type.
+    /// The field is a singular or repeated enum type.
     ///
-    /// The associated value is the full Swift name of that (possibly array) type.
-    case `enum`(String, isArray: Bool)
+    /// The associated value is the full Swift name of that type.
+    case `enum`(String)
 
     /// The field is a map type.
     ///
-    /// The associated value is the full Swift name of that type and the raw field
-    /// types of the key and value.
-    case map(String, keyType: RawFieldType, valueType: RawFieldType)
-
-    /// The full Swift name of the (possibly array) type of the field.
-    var name: String {
-        switch self {
-        case .message(let name, let isArray): isArray ? "[\(name)]" : name
-        case .enum(let name, let isArray): isArray ? "[\(name)]" : name
-        case .map(let name, _, _): name
-        }
-    }
-
-    /// The full Swift name of the type of the field, ignoring arrays.
-    ///
-    /// If this does correspond to a repeated array, the name returned is the element type, not the
-    /// array type.
-    var singularName: String {
-        switch self {
-        case .message(let name, _): name
-        case .enum(let name, _): name
-        case .map: preconditionFailure("Should never be called")
-        }
-    }
-}
-
-/// Uniquely identifies a field that needs to be generated into trampoline
-/// functions so that multiple fields with the same Swift type and wire formats
-/// can be deduplicated.
-///
-/// When deduplicating, just using the Swift type name alone is not enough for
-/// maps because a key or value type of `Int64`, for example, could have different
-/// wire formats (varint vs. zigzag varint vs. fixed) and we need to preserve
-/// that information in the map entry schema.
-struct TrampolineFieldKey: Equatable, Hashable {
-    var name: String
-    var keyType: RawFieldType? = nil
-    var valueType: RawFieldType? = nil
+    /// The associated value is the name of the schema variable in the containing message that
+    /// represents the `MessageSchema` for the map entries.
+    case map(String)
 }
 
 /// Interface for field generators.

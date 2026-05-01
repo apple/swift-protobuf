@@ -188,7 +188,7 @@ private struct TrampolineFieldCollector {
 
     /// Tracks which submessage types have already been encountered, along with their field
     /// generator and index.
-    var usedFields: [TrampolineFieldKey: TrampolineField] = [:]
+    var usedFields: [TrampolineFieldKind: TrampolineField] = [:]
 
     /// Tracks the index that will be assigned to the next newly encountered submessage.
     private var nextIndex = 1
@@ -197,24 +197,11 @@ private struct TrampolineFieldCollector {
     mutating func collect(_ field: any FieldGenerator) {
         guard let kind = field.trampolineFieldKind else { return }
         let trampolineIndex: Int
-        let key: TrampolineFieldKey
-        switch kind {
-        case .map(let name, let keyType, let valueType):
-            key = TrampolineFieldKey(
-                name: name,
-                keyType: keyType,
-                valueType: valueType
-            )
-        default:
-            // Non-map fields can be deduplicated solely by their name.
-            key = TrampolineFieldKey(name: kind.name)
-        }
-
-        if let foundIndex = usedFields[key]?.index {
+        if let foundIndex = usedFields[kind]?.index {
             trampolineIndex = foundIndex
         } else {
             trampolineIndex = nextIndex
-            usedFields[key] = TrampolineField(
+            usedFields[kind] = TrampolineField(
                 kind: kind,
                 index: trampolineIndex,
                 needsIsInitializedCheck: field.needsIsInitializedGeneration

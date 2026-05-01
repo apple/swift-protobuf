@@ -25,8 +25,18 @@ class MapEntryGenerator {
     private let swiftValueType: String
     private let entrySchemaCalculator: MessageSchemaCalculator
 
-    let keyParticipantType: String
-    let valueParticipantType: String
+    /// The name of the static variable of type `MessageSchema` that will be generated into the
+    /// containing message for the map entry.
+    let entrySchemaName: String
+
+    private let keyParticipantType: String
+    private let valueParticipantType: String
+
+    /// Computes the name of the static variable of type `MessageSchema` that will be generated into the
+    /// containing message for the map entry with the given descriptor.
+    static func schemaName(for descriptor: Descriptor) -> String {
+        "_protobuf_mapEntrySchema_\(descriptor.name)"
+    }
 
     init(
         descriptor: Descriptor,
@@ -57,37 +67,20 @@ class MapEntryGenerator {
             isMapEntry: true
         )
 
+        entrySchemaName = Self.schemaName(for: descriptor)
         keyParticipantType = participantTypeName(for: keyDescriptor, namer: namer)
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
     }
 
-    func generateSchemaReturnStatement(printer: inout CodePrinter) {
-        let trailingArguments: String
-        let schemaLabel: String
-        switch descriptor.mapKeyAndValue!.value.type {
-        case .message:
-            trailingArguments = ", forMapEntryWithValueType: \(swiftValueType).self"
-            schemaLabel = "schema"
-        case .enum:
-            trailingArguments =
-                ", forMapEntryWithValueType: \(swiftValueType).self, enumSchema: \(swiftValueType).enumSchema"
-            schemaLabel = "schema"
-        default:
-            trailingArguments = ""
-            schemaLabel = "schemaForMapEntryWithScalarValues"
-        }
-        if let schemaString = entrySchemaCalculator.schemaLiterals.valueIfAllEqual {
-            printer.print(
-                #"return SwiftProtobuf.MessageSchema(\#(schemaLabel): "\#(schemaString)"\#(trailingArguments))"#
-            )
-        } else {
-            entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { schemaString, _, printer in
-                printer.print(#"let schemaString: Swift.StaticString = "\#(schemaString)""#)
-            }
-            printer.print(
-                "return SwiftProtobuf.MessageSchema(\(schemaLabel): schemaString\(trailingArguments))"
+    func generateSchema(into printer: inout CodePrinter) {
+        entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { value, _, p in
+            p.print(
+                #"private static let \#(entrySchemaName)_string: Swift.StaticString = "\#(value)""#
             )
         }
+        printer.print(
+            "private static let \(entrySchemaName) = SwiftProtobuf.MessageSchema(schema: \(entrySchemaName)_string, forMapEntryWithKeyType: \(keyParticipantType).self, valueType: \(valueParticipantType).self)"
+        )
     }
 }
 
