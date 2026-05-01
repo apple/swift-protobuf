@@ -469,7 +469,7 @@ extension MessageStorage {
     ///     elements and reads and returns a single element from it.
     /// - Returns: True if the value was consumed properly, or false if the wire format was not
     ///   what was expected.
-    private func appendMaybePackedValues<T>(
+    private func appendMaybePackedValues<T: BitwiseCopyable>(
         from reader: inout WireFormatReader,
         to field: FieldSchema,
         tag: FieldTag,
