@@ -189,7 +189,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is a message.
     @_spi(ForGeneratedCodeOnly)
-    public init<K: ProtobufMapKey, M: Message>(
+    public init<K: ProtobufMapKey, M: GeneratedMessage>(
         schema: StaticString,
         forMapEntryWithKeyType keyType: K.Type,
         valueType: ProtobufMapMessageField<M>.Type
@@ -202,9 +202,7 @@ public struct MessageSchema: @unchecked Sendable {
                 guard token.index == 1 else {
                     preconditionFailure("This should have been unreachable; this is a generator bug")
                 }
-                // TODO: Introduce a `GeneratedMessage` protocol with a `static var messageSchema`
-                // requirement and use that here.
-                return .message(M().messageSchema)
+                return .message(M.messageSchema)
             }
         )
     }
