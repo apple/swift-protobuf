@@ -37,15 +37,15 @@ class DummyFieldGenerator: FieldGenerator {
     let result = calculator.uncompressedData()
     let table = ReflectionTable(fieldCount: fields.count, data: result)
     
-    #expect(table.textName(forFieldNumber: 1) == "key")
-    #expect(table.jsonName(forFieldNumber: 1) == "key")
-    
-    #expect(table.textName(forFieldNumber: 2) == "value")
-    #expect(table.jsonName(forFieldNumber: 2) == "value")
-    
-    #expect(table.textName(forFieldNumber: 3) == "foo")
-    #expect(table.jsonName(forFieldNumber: 3) == "bar")
-    
+    #expect(table.textName(forFieldNumber: 1)?.utf8CodeUnitsEqual("key") == true)
+    #expect(table.jsonName(forFieldNumber: 1)?.utf8CodeUnitsEqual("key") == true)
+
+    #expect(table.textName(forFieldNumber: 2)?.utf8CodeUnitsEqual("value") == true)
+    #expect(table.jsonName(forFieldNumber: 2)?.utf8CodeUnitsEqual("value") == true)
+
+    #expect(table.textName(forFieldNumber: 3)?.utf8CodeUnitsEqual("foo") == true)
+    #expect(table.jsonName(forFieldNumber: 3)?.utf8CodeUnitsEqual("bar") == true)
+
     #expect(table.fieldNumber(forTextName: "key") == 1)
     #expect(table.fieldNumber(forJSONName: "key") == 1)
     
@@ -71,18 +71,18 @@ class DummyFieldGenerator: FieldGenerator {
     let result = calculator.uncompressedData()
     let table = ReflectionTable(fieldCount: cases.count, data: result)
     
-    #expect(table.textName(forEnumCase: 1) == "FOO")
-    #expect(table.jsonName(forEnumCase: 1) == "FOO")
-    
-    #expect(table.textName(forEnumCase: -1) == "BAR")
-    #expect(table.jsonName(forEnumCase: -1) == "BAR")
-    
-    #expect(table.textName(forEnumCase: 100) == "BAZ")
-    #expect(table.jsonName(forEnumCase: 100) == "BAZ")
-    
-    #expect(table.textName(forEnumCase: -100) == "QUX")
-    #expect(table.jsonName(forEnumCase: -100) == "QUX")
-    
+    #expect(table.textName(forEnumCase: 1)?.utf8CodeUnitsEqual("FOO") == true)
+    #expect(table.jsonName(forEnumCase: 1)?.utf8CodeUnitsEqual("FOO") == true)
+
+    #expect(table.textName(forEnumCase: -1)?.utf8CodeUnitsEqual("BAR") == true)
+    #expect(table.jsonName(forEnumCase: -1)?.utf8CodeUnitsEqual("BAR") == true)
+
+    #expect(table.textName(forEnumCase: 100)?.utf8CodeUnitsEqual("BAZ") == true)
+    #expect(table.jsonName(forEnumCase: 100)?.utf8CodeUnitsEqual("BAZ") == true)
+
+    #expect(table.textName(forEnumCase: -100)?.utf8CodeUnitsEqual("QUX") == true)
+    #expect(table.jsonName(forEnumCase: -100)?.utf8CodeUnitsEqual("QUX") == true)
+
     #expect(table.enumCase(forTextName: "FOO") == 1)
     #expect(table.enumCase(forJSONName: "FOO") == 1)
     
@@ -100,8 +100,8 @@ class DummyFieldGenerator: FieldGenerator {
     let table = ReflectionTable.mapEntry
 
     // We don't care about the JSON names since they never get used.
-    #expect(table.textName(forFieldNumber: 1) == "key")
-    #expect(table.textName(forFieldNumber: 2) == "value")
+    #expect(table.textName(forFieldNumber: 1)?.utf8CodeUnitsEqual("key") == true)
+    #expect(table.textName(forFieldNumber: 2)?.utf8CodeUnitsEqual("value") == true)
     #expect(table.fieldNumber(forTextName: "key") == 1)
     #expect(table.fieldNumber(forTextName: "value") == 2)
 }

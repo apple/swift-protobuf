@@ -112,13 +112,23 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
+    /// Begin a new field whose name is given as a `UTF8Name`.
+    internal mutating func startField(name: UTF8Name) {
+        if let s = separator {
+            data.append(s)
+        }
+        putDoubleQuotedUTF8Name(name)
+        data.append(asciiColon)
+        separator = asciiComma
+    }
+
     /// Begin a new extension field.
-    internal mutating func startExtensionField(name: String) {
+    internal mutating func startExtensionField(name: UTF8Name) {
         if let s = separator {
             data.append(s)
         }
         append(staticText: "\"[")
-        appendEscapedStringValue(string: name)
+        appendEscapedStringValue(utf8Buffer: UnsafeRawBufferPointer(name.buffer))
         append(staticText: "]\":")
         separator = asciiComma
     }
@@ -235,7 +245,7 @@ internal struct JSONEncoder {
         }
         // JSON names of enum cases are equivalent to their text format names.
         if !alwaysPrintEnumsAsInts, let name = enumSchema.textName(forEnumCase: rawValue) {
-            putStringValue(value: name)
+            putDoubleQuotedUTF8Name(name)
         } else {
             appendInt(value: Int64(rawValue))
         }
@@ -368,6 +378,12 @@ internal struct JSONEncoder {
     internal mutating func putStringValue(value: String) {
         data.append(asciiDoubleQuote)
         appendEscapedStringValue(string: value)
+        data.append(asciiDoubleQuote)
+    }
+
+    internal mutating func putDoubleQuotedUTF8Name(_ value: UTF8Name) {
+        data.append(asciiDoubleQuote)
+        appendEscapedStringValue(utf8Buffer: UnsafeRawBufferPointer(value.buffer))
         data.append(asciiDoubleQuote)
     }
 

@@ -52,7 +52,7 @@ extension Enum {
     ///
     /// Since the text format and JSON names are always identical, we don't need
     /// to distinguish them.
-    package var textFormatName: String? {
+    package var textFormatName: UTF8Name? {
         Self.enumSchema.textName(forEnumCase: Int32(rawValue))
     }
 

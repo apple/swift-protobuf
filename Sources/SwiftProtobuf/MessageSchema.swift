@@ -125,10 +125,6 @@ public struct MessageSchema: @unchecked Sendable {
 
     /// A key that can be used to uniquely identify a message schema in a hashed collection.
     var key: Key {
-        // TODO: As currently written, it's possible that the linker could fold strings representing
-        // messages with identical layout. We can avoid this in the future when we merge the name
-        // map and fully qualified message name into the schema string, ensuring that they'll be
-        // unique.
         Key(value: schema.baseAddress!)
     }
 
@@ -341,11 +337,11 @@ extension MessageSchema {
     }
 
     /// The fully-qualified name of the message.
-    var messageName: String {
+    var messageName: UTF8Name {
         let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
-        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+        return UTF8Name(start: schema.baseAddress! + nameStart, count: length)
     }
 
     /// Returns a value indicating whether or not the given field is required.
@@ -363,12 +359,12 @@ extension MessageSchema {
 
 extension MessageSchema {
     /// Returns the text name for the given field number.
-    func textName(forFieldNumber number: UInt32) -> String? {
+    func textName(forFieldNumber number: UInt32) -> UTF8Name? {
         reflection.table.textName(forFieldNumber: number)
     }
 
     /// Returns the JSON name for the given field number.
-    func jsonName(forFieldNumber number: UInt32) -> String? {
+    func jsonName(forFieldNumber number: UInt32) -> UTF8Name? {
         reflection.table.jsonName(forFieldNumber: number)
     }
 
@@ -383,7 +379,7 @@ extension MessageSchema {
         let lowercaseName = name.lowercased()
         for field in fields where field.rawFieldType == .group {
             if let textName = reflection.table.textName(forFieldNumber: field.fieldNumber),
-                textName.lowercased() == lowercaseName
+                String(decoding: textName.buffer, as: UTF8.self).lowercased() == lowercaseName
             {
                 return field.fieldNumber
             }

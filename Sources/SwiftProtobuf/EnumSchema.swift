@@ -76,11 +76,11 @@ extension EnumSchema {
     }
 
     /// The fully-qualified name of the enum.
-    var enumName: String {
+    var enumName: UTF8Name {
         let lengthOffset = enumSchemaHeaderSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
-        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+        return UTF8Name(start: schema.baseAddress! + nameStart, count: length)
     }
 }
 
@@ -98,7 +98,7 @@ extension EnumSchema {
     }
 
     /// The text and JSON name for the given enum case value.
-    func textName(forEnumCase value: Int32) -> String? {
+    func textName(forEnumCase value: Int32) -> UTF8Name? {
         reflection.table.textName(forEnumCase: value)
     }
 
