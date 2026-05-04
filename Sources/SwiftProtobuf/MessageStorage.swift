@@ -1236,7 +1236,7 @@ extension MessageStorage {
 
                 case .array:
                     var areAllInitialized = true
-                    forEachMessage(inAssumedPresentRepeatedField: field) {
+                    forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                         guard $0.isInitialized else {
                             areAllInitialized = false
                             return .stop

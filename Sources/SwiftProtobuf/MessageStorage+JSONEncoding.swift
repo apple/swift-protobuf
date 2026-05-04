@@ -202,7 +202,7 @@ extension MessageStorage {
 
             case .group, .message:
                 var firstItem = true
-                try forEachMessage(inAssumedPresentRepeatedField: field) {
+                try forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                     if !firstItem {
                         encoder.comma()
                     }
@@ -436,7 +436,7 @@ extension MessageStorage {
         let valuesField = schema[fieldNumber: 1]!
         if isPresent(valuesField) {
             var firstItem = true
-            try forEachMessage(inAssumedPresentRepeatedField: valuesField) { 
+            try forEachMessage(inAssumedPresentRepeatedMessageField: valuesField) {
                 if !firstItem {
                     encoder.comma()
                 }

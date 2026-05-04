@@ -120,7 +120,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func forEachMessage(
-        inAssumedPresentRepeatedField field: FieldSchema,
+        inAssumedPresentRepeatedMessageField field: FieldSchema,
         perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedMessageField: field)

@@ -105,7 +105,7 @@ extension MessageStorage {
             case .message:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
                 var totalSize = 0
-                forEachMessage(inAssumedPresentRepeatedField: field) {
+                forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                     let messageSize = $0.serializedBytesSize()
                     totalSize += messageSize
                         // Include the size of the length-delimited tag.

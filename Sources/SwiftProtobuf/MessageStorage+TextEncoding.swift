@@ -185,7 +185,7 @@ extension MessageStorage {
 
             case .group, .message:
                 precondition(!isPacked, "a packed group/message field should not be reachable")
-                forEachMessage(inAssumedPresentRepeatedField: field) {
+                forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                     emitName(ofFieldNumber: fieldNumber, into: &encoder)
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)

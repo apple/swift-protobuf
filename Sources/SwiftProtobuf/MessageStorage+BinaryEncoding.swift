@@ -160,7 +160,7 @@ extension MessageStorage {
 
             case .group:
                 precondition(!isPacked, "a packed group field should not be reachable")
-                try forEachMessage(inAssumedPresentRepeatedField: field) { groupStorage in
+                try forEachMessage(inAssumedPresentRepeatedMessageField: field) { groupStorage in
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
                     try groupStorage.serializeBytes(into: &encoder, options: options)
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
@@ -197,7 +197,7 @@ extension MessageStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message field should not be reachable")
-                try forEachMessage(inAssumedPresentRepeatedField: field) { subMessageStorage in
+                try forEachMessage(inAssumedPresentRepeatedMessageField: field) { subMessageStorage in
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                     encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)

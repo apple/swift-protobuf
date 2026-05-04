@@ -69,7 +69,7 @@ extension MessageStorage {
                         return .continue
                     }
                 case .group, .message:
-                    forEachMessage(inAssumedPresentRepeatedField: field) {
+                    forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                         $0.hash(into: &hasher)
                         return .continue
                     }
