@@ -3061,6 +3061,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum clearEnforceProtoLimits: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneClearEnforceProtoLimits // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearEnforceProtoLimits
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearEnforceProtoLimits
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearEnforceProtoLimits: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceProtoLimits] = [
+      .noneClearEnforceProtoLimits,
+    ]
+
+  }
+
   enum clearEnumType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneClearEnumType // = 0
@@ -9001,6 +9031,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum enforceProtoLimits: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneEnforceProtoLimits // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEnforceProtoLimits
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEnforceProtoLimits
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEnforceProtoLimits: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceProtoLimits] = [
+      .noneEnforceProtoLimits,
+    ]
+
+  }
+
   enum enumEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneEnum // = 0
@@ -13617,6 +13677,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceNamingStyle] = [
       .noneHasEnforceNamingStyle,
+    ]
+
+  }
+
+  enum hasEnforceProtoLimits: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneHasEnforceProtoLimits // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasEnforceProtoLimits
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasEnforceProtoLimits
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasEnforceProtoLimits: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceProtoLimits] = [
+      .noneHasEnforceProtoLimits,
     ]
 
   }
@@ -23041,6 +23131,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum ProtoLimitsFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneProtoLimitsFeature // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneProtoLimitsFeature
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneProtoLimitsFeature
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneProtoLimitsFeature: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtoLimitsFeature] = [
+      .noneProtoLimitsFeature,
+    ]
+
+  }
+
   enum protoMessageNameEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneProtoMessageName // = 0
@@ -31391,6 +31511,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceNa
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearEnforceNamingStyle\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnforceProtoLimits: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearEnforceProtoLimits\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_clearEnumType\0")
 }
@@ -32183,6 +32307,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceNamingS
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_enforceNamingStyle\0")
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enforceProtoLimits: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_enforceProtoLimits\0")
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.enumEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_enum\0")
 }
@@ -32797,6 +32925,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnd: SwiftP
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceNamingStyle: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_hasEnforceNamingStyle\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnforceProtoLimits: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_hasEnforceProtoLimits\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnumType: SwiftProtobuf._ProtoNameProviding {
@@ -34053,6 +34185,10 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protocolEnum: 
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protoFieldName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_protoFieldName\0")
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ProtoLimitsFeature: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_ProtoLimitsFeature\0")
 }
 
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.protoMessageNameEnum: SwiftProtobuf._ProtoNameProviding {

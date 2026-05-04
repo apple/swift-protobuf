@@ -105,6 +105,7 @@ message GeneratedSwiftReservedEnums {
   enum clearEditionRemoved { NONE_clearEditionRemoved = 0; }
   enum clearEnd { NONE_clearEnd = 0; }
   enum clearEnforceNamingStyle { NONE_clearEnforceNamingStyle = 0; }
+  enum clearEnforceProtoLimits { NONE_clearEnforceProtoLimits = 0; }
   enum clearEnumType { NONE_clearEnumType = 0; }
   enum clearExtendee { NONE_clearExtendee = 0; }
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
@@ -303,6 +304,7 @@ message GeneratedSwiftReservedEnums {
   enum endObject { NONE_endObject = 0; }
   enum endRegularField { NONE_endRegularField = 0; }
   enum enforceNamingStyle { NONE_enforceNamingStyle = 0; }
+  enum enforceProtoLimits { NONE_enforceProtoLimits = 0; }
   enum enum { NONE_enum = 0; }
   enum EnumReservedRange { NONE_EnumReservedRange = 0; }
   enum enumType { NONE_enumType = 0; }
@@ -457,6 +459,7 @@ message GeneratedSwiftReservedEnums {
   enum hasEditionRemoved { NONE_hasEditionRemoved = 0; }
   enum hasEnd { NONE_hasEnd = 0; }
   enum hasEnforceNamingStyle { NONE_hasEnforceNamingStyle = 0; }
+  enum hasEnforceProtoLimits { NONE_hasEnforceProtoLimits = 0; }
   enum hasEnumType { NONE_hasEnumType = 0; }
   enum hasExplicitDelta { NONE_hasExplicitDelta = 0; }
   enum hasExtendee { NONE_hasExtendee = 0; }
@@ -771,6 +774,7 @@ message GeneratedSwiftReservedEnums {
   enum ProtobufUInt64 { NONE_ProtobufUInt64 = 0; }
   enum protocol { NONE_protocol = 0; }
   enum protoFieldName { NONE_protoFieldName = 0; }
+  enum ProtoLimitsFeature { NONE_ProtoLimitsFeature = 0; }
   enum protoMessageName { NONE_protoMessageName = 0; }
   enum ProtoNameProviding { NONE_ProtoNameProviding = 0; }
   enum protoPaths { NONE_protoPaths = 0; }

@@ -1243,6 +1243,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct clearEnforceProtoLimits: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var clearEnforceProtoLimits_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct clearEnumType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -3619,6 +3631,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
+  struct enforceProtoLimits: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var enforceProtoLimits: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct enumMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5461,6 +5485,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var hasEnforceNamingStyle_p: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct hasEnforceProtoLimits: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var hasEnforceProtoLimits_p: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9229,6 +9265,18 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var protoFieldName: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct ProtoLimitsFeature: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var protoLimitsFeature: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -15459,6 +15507,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforc
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceProtoLimits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnforceProtoLimits"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEnforceProtoLimits\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearEnforceProtoLimits_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.clearEnforceProtoLimits_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.clearEnforceProtoLimits_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceProtoLimits, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnforceProtoLimits) -> Bool {
+    if lhs.clearEnforceProtoLimits_p != rhs.clearEnforceProtoLimits_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnumType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearEnumType"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}clearEnumType\0")
@@ -21399,6 +21477,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceNami
   }
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceProtoLimits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enforceProtoLimits"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enforceProtoLimits\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.enforceProtoLimits) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.enforceProtoLimits != 0 {
+      try visitor.visitSingularInt32Field(value: self.enforceProtoLimits, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceProtoLimits, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enforceProtoLimits) -> Bool {
+    if lhs.enforceProtoLimits != rhs.enforceProtoLimits {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".enum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}enum\0")
@@ -26014,6 +26122,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceN
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceNamingStyle) -> Bool {
     if lhs.hasEnforceNamingStyle_p != rhs.hasEnforceNamingStyle_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceProtoLimits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasEnforceProtoLimits"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}hasEnforceProtoLimits\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasEnforceProtoLimits_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.hasEnforceProtoLimits_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.hasEnforceProtoLimits_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceProtoLimits, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnforceProtoLimits) -> Bool {
+    if lhs.hasEnforceProtoLimits_p != rhs.hasEnforceProtoLimits_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -35434,6 +35572,36 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldN
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldName, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldName) -> Bool {
     if lhs.protoFieldName != rhs.protoFieldName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoLimitsFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".ProtoLimitsFeature"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ProtoLimitsFeature\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.protoLimitsFeature) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.protoLimitsFeature != 0 {
+      try visitor.visitSingularInt32Field(value: self.protoLimitsFeature, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoLimitsFeature, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoLimitsFeature) -> Bool {
+    if lhs.protoLimitsFeature != rhs.protoLimitsFeature {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

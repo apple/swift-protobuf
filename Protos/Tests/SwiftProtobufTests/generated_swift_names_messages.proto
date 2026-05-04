@@ -105,6 +105,7 @@ message GeneratedSwiftReservedMessages {
   message clearEditionRemoved { int32 clearEditionRemoved = 1; }
   message clearEnd { int32 clearEnd = 1; }
   message clearEnforceNamingStyle { int32 clearEnforceNamingStyle = 1; }
+  message clearEnforceProtoLimits { int32 clearEnforceProtoLimits = 1; }
   message clearEnumType { int32 clearEnumType = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }
@@ -303,6 +304,7 @@ message GeneratedSwiftReservedMessages {
   message endObject { int32 endObject = 1; }
   message endRegularField { int32 endRegularField = 1; }
   message enforceNamingStyle { int32 enforceNamingStyle = 1; }
+  message enforceProtoLimits { int32 enforceProtoLimits = 1; }
   message enum { int32 enum = 1; }
   message EnumReservedRange { int32 EnumReservedRange = 1; }
   message enumType { int32 enumType = 1; }
@@ -457,6 +459,7 @@ message GeneratedSwiftReservedMessages {
   message hasEditionRemoved { int32 hasEditionRemoved = 1; }
   message hasEnd { int32 hasEnd = 1; }
   message hasEnforceNamingStyle { int32 hasEnforceNamingStyle = 1; }
+  message hasEnforceProtoLimits { int32 hasEnforceProtoLimits = 1; }
   message hasEnumType { int32 hasEnumType = 1; }
   message hasExplicitDelta { int32 hasExplicitDelta = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
@@ -771,6 +774,7 @@ message GeneratedSwiftReservedMessages {
   message ProtobufUInt64 { int32 ProtobufUInt64 = 1; }
   message protocol { int32 protocol = 1; }
   message protoFieldName { int32 protoFieldName = 1; }
+  message ProtoLimitsFeature { int32 ProtoLimitsFeature = 1; }
   message protoMessageName { int32 protoMessageName = 1; }
   message ProtoNameProviding { int32 ProtoNameProviding = 1; }
   message protoPaths { int32 protoPaths = 1; }
