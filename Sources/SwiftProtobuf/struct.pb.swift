@@ -280,7 +280,7 @@ extension Google_Protobuf_NullValue {
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_Struct: Message {
+extension Google_Protobuf_Struct: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Struct"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Struct"
@@ -307,13 +307,12 @@ extension Google_Protobuf_Struct: Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_FieldsEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_FieldsEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<Google_Protobuf_Value>.self)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Value: Message {
+extension Google_Protobuf_Value: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Value"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\08\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value"
@@ -334,13 +333,12 @@ extension Google_Protobuf_Value: Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_ListValue: Message {
+extension Google_Protobuf_ListValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".ListValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{19}\0google.protobuf.ListValue"
@@ -359,7 +357,6 @@ extension Google_Protobuf_ListValue: Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

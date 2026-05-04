@@ -102,7 +102,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".EditionsMessageForDelimited"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
@@ -139,7 +139,6 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MessageMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MessageMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftDescriptorTest_EditionsMessageForDelimited>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

@@ -110,7 +110,7 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
 
-extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
+extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".ModuleMappings"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
@@ -129,13 +129,12 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message {
+extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
@@ -147,7 +146,6 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`\tqx<p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{OXEOs2\u{19}Gy\0NY1+&a-zwKG0yS\u{15}X\0V$\nTjVdx m0#$(94Tkr\u{1d}h\u{7f}\u{13}gC\u{17}P\06\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

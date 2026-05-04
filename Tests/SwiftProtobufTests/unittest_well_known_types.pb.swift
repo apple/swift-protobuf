@@ -676,7 +676,7 @@ struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\00\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\08\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\0`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\0h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\0p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0\u{18}\u{1}\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
@@ -713,13 +713,12 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Message {
+extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".RepeatedWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
@@ -755,13 +754,12 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.Message {
+extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneofWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\0P\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0X\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0`\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0h\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0p\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0x\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0\0\u{1}\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0\u{18}\u{1}\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0 \u{1}\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0(\u{1}\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\00\u{1}\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\08\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0@\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0H\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0P\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0X\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
@@ -797,13 +795,12 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message {
+extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MapWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
@@ -983,7 +980,6 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_BytesFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_BytesFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_BytesValue>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

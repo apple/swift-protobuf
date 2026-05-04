@@ -405,7 +405,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: @unchecked Swift.S
 
 fileprivate let _protobuf_package = "google.protobuf.compiler"
 
-extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
+extension Google_Protobuf_Compiler_Version: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Version"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9} \0google.protobuf.compiler.Version"
@@ -417,13 +417,12 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KH+\u{1e}\u{17}d GMwQy\u{13}\u{7f}c[)rwJ%\u{10}9><\u{5}]5XP\u{6}\u{7f}V a9c\u{1f}\u{6}\r7[\u{13}Sa\u{1e}\u{1e}UVg\u{3}\u{1}\u{1d}ADtmw\u{16}&\tTG+p\u{2}"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
+extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".CodeGeneratorRequest"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\u{2}\0\0\0\u{9}\u{2}\0\0\0\00\0\0\0\0\0\0\u{9}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{f}\0\0\0\u{2}\u{18}\0\0\u{3}\0\u{2}\0\u{b}\u{11}\0\0\0\u{2} \0\0\u{4}\0\u{2}\0\u{b}-\0google.protobuf.compiler.CodeGeneratorRequest"
@@ -443,7 +442,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -453,7 +451,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
 
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
+extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".CodeGeneratorResponse"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{5}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}\u{3}\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{f}\0\0\0\u{2}\u{18}\0\0\u{4}\0\u{1}\0\u{b}.\0google.protobuf.compiler.CodeGeneratorResponse"
@@ -472,7 +470,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message 
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -484,7 +481,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature {
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message {
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{f}\0\0\0\00\0\0\u{2}\0\0\0\u{9}\u{10}\0\0\0\0\u{8}\0\0\u{3}\0\u{1}\0\u{b}3\0google.protobuf.compiler.CodeGeneratorResponse.File"
@@ -503,7 +500,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

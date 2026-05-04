@@ -411,7 +411,7 @@ extension SwiftProtoTesting_Deprecated_MyEnum2 {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
@@ -430,7 +430,6 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -440,7 +439,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MsgScope"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope"
@@ -452,13 +451,12 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
@@ -477,7 +475,6 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

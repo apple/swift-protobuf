@@ -485,7 +485,7 @@ extension SwiftProtoTesting_TestMessageSetExtension3 {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessageSetContainer"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}+\0swift_proto_testing.TestMessageSetContainer"
@@ -504,7 +504,6 @@ extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -514,7 +513,7 @@ extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_MessageEx: SwiftProtobuf.Message {
+extension SwiftProtoTesting_MessageEx: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MessageEx"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1d}\0swift_proto_testing.MessageEx"
@@ -526,7 +525,6 @@ extension SwiftProtoTesting_MessageEx: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -536,7 +534,7 @@ extension SwiftProtoTesting_MessageEx: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessageSetExtension1"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{f}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{10}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.TestMessageSetExtension1"
@@ -555,7 +553,6 @@ extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -565,7 +562,7 @@ extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_TestMessageSetExtension2: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestMessageSetExtension2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessageSetExtension2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{19}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9},\0swift_proto_testing.TestMessageSetExtension2"
@@ -577,13 +574,12 @@ extension SwiftProtoTesting_TestMessageSetExtension2: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$*a%d~/\u{3}ZI\u{1c}C{^k?9>"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_TestMessageSetExtension3: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestMessageSetExtension3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessageSetExtension3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{1a}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.TestMessageSetExtension3"
@@ -595,13 +591,12 @@ extension SwiftProtoTesting_TestMessageSetExtension3: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$+e1d~/\u{3}[\u{17}qpI1\u{e}f2\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_RawMessageSet: SwiftProtobuf.Message {
+extension SwiftProtoTesting_RawMessageSet: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".RawMessageSet"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{a}!\0swift_proto_testing.RawMessageSet"
@@ -620,7 +615,6 @@ extension SwiftProtoTesting_RawMessageSet: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -630,7 +624,7 @@ extension SwiftProtoTesting_RawMessageSet: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_RawMessageSet.Item: SwiftProtobuf.Message {
+extension SwiftProtoTesting_RawMessageSet.Item: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_RawMessageSet.protoMessageName + ".Item"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}&\0swift_proto_testing.RawMessageSet.Item"
@@ -642,7 +636,6 @@ extension SwiftProtoTesting_RawMessageSet.Item: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MP\u{f}Z\u{18}^ ru%\u{1f}Q.-<86\t\nW|\u{16}ujnf{.#r=@\u{f}}[&OrKrlY0jt\"\u{e}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -652,7 +645,7 @@ extension SwiftProtoTesting_RawMessageSet.Item: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_RawBreakableMessageSet: SwiftProtobuf.Message {
+extension SwiftProtoTesting_RawBreakableMessageSet: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".RawBreakableMessageSet"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.RawBreakableMessageSet"
@@ -671,13 +664,12 @@ extension SwiftProtoTesting_RawBreakableMessageSet: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_RawBreakableMessageSet.Item: SwiftProtobuf.Message {
+extension SwiftProtoTesting_RawBreakableMessageSet.Item: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_RawBreakableMessageSet.protoMessageName + ".Item"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.RawBreakableMessageSet.Item"
@@ -689,7 +681,6 @@ extension SwiftProtoTesting_RawBreakableMessageSet.Item: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MP\u{f}Z\u{18}^ ru%\u{1f}Q.-<86\t\nW|\u{16}ujnf{.#r=@\u{f}}[&OrKrlY0jt\"\u{e}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

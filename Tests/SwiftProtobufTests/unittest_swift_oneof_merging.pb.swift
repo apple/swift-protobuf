@@ -244,7 +244,7 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing.merging"
 
-extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
@@ -263,13 +263,12 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Merging_TestMessage.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
@@ -281,13 +280,12 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Mes
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KTZV{n GMwYY&|FK\u{e}gz\u{12}\rb gl^\u{1}K>\u{1c}y;? \u{1d}\u{b}\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestParsingMerge"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
@@ -306,13 +304,12 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Merging_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
@@ -331,7 +328,6 @@ extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: Sw
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

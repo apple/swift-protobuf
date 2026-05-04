@@ -240,7 +240,7 @@ struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message {
+extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfOptionMessage1"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
@@ -252,7 +252,6 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -262,7 +261,7 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message {
+extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfOptionMessage2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
@@ -274,7 +273,6 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -284,7 +282,7 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message {
+extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfContainer"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0(\0\0{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
@@ -305,7 +303,6 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -315,7 +312,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message {
+extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
@@ -327,7 +324,6 @@ extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}B$f}|\u{7f}k<8@)P2Z\u{1c}l=\u{12}\u{7}t_\u{14}\u{5}l\u{5}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

@@ -434,7 +434,7 @@ let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.Extensio
 
 fileprivate let _protobuf_package = "swift_proto_testing.order"
 
-extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestFieldOrderings"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0@\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0P\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"
@@ -453,7 +453,6 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -463,7 +462,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Order_TestFieldOrderings.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}:\0swift_proto_testing.order.TestFieldOrderings.NestedMessage"
@@ -475,13 +474,12 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}PLUCBU\u{13}iR\u{13}(e<\u{11}dOOnh\u{14}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneofTraversalGeneration"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration"
@@ -493,7 +491,6 @@ extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Messag
   private static let _protobuf_reflectionData: Swift.StaticString = "8\u{1}\0\0 \u{1f}y>\u{15}\u{6}. \tF\u{2}\u{11}tt)%\t7[\"j\u{4}\0{ZsB^\u{1e}\u{8}\u{16}wdiD)\u{4}\u{13}'O&7\u{1b}E!B\u{1d}>,R\"k\u{17}{u?\u{15}\u{3}\u{8}>2\rCt\"~OyUa?i\u{c}\u{4}\u{1e}'sC0\u{e}J<5MU\u{1c}$!iTPE\u{5}`8Bhwkp^UCL8ps\u{6}#\u{1}\u{19}\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
