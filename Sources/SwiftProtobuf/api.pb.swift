@@ -370,7 +370,7 @@ public struct Google_Protobuf_Mixin: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Api: Message {
+extension Google_Protobuf_Api: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Api"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{8}\0\0\0\0\0\u{1}\0\0\u{9}\0\0\u{1}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0@\0\0\u{4}\0\0\0\u{9}\u{5}\0\0\0\0\u{18}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\u{2} \0\0\u{5}\0\u{5}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0P\0\0\u{7}\0\0\0\u{9}\u{13}\0google.protobuf.Api"
@@ -393,13 +393,12 @@ extension Google_Protobuf_Api: Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Method: Message {
+extension Google_Protobuf_Method: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Method"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{8}\0\0\0\0\0\0\0\0\u{9}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{1}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\u{2}\u{8}\0\0\u{5}\0\u{2}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{9}\u{16}\0google.protobuf.Method"
@@ -419,13 +418,12 @@ extension Google_Protobuf_Method: Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Mixin: Message {
+extension Google_Protobuf_Mixin: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Mixin"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{15}\0google.protobuf.Mixin"
@@ -437,7 +435,6 @@ extension Google_Protobuf_Mixin: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}\u{14}}\u{14}JBU\u{13}i^3?\u{10}HWTf*\u{13}W\u{e}s\nmw\u{1}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

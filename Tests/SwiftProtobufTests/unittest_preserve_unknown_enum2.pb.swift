@@ -155,7 +155,7 @@ extension SwiftProtoTesting_UnknownEnum_Proto2_MyEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{2}(\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}1\0swift_proto_testing.unknown_enum.proto2.MyMessage"
@@ -174,7 +174,6 @@ extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message 
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

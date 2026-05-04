@@ -284,7 +284,7 @@ public struct Google_Protobuf_FieldMask: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_FieldMask: Message {
+extension Google_Protobuf_FieldMask: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".FieldMask"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
@@ -296,7 +296,6 @@ extension Google_Protobuf_FieldMask: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOt-SU=oR\u{2}\u{1e}N\01\0\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

@@ -184,7 +184,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: @unchecked Swift.Sendable
 
 fileprivate let _protobuf_package = "swift_proto_testing.enum2"
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".SwiftEnumTest"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum2.SwiftEnumTest"
@@ -206,7 +206,6 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -236,7 +235,7 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".SwiftEnumWithAliasTest"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum2.SwiftEnumWithAliasTest"
@@ -255,7 +254,6 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message 
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

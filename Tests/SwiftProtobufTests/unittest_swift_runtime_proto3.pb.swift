@@ -696,7 +696,7 @@ struct SwiftProtoTesting_Msg3NamesUsesStorage: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_Message3: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Message3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Message3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{4}\0F\0\0\0\0\0\u{1}\0\0\u{10}\0\0\u{1}\0\0\0\0T\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{2}\0\0\0\u{3}\u{3}\0\0\0\0X\0\0\u{3}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{4}\0\0\0\u{4}\u{5}\0\0\0\0\\\0\0\u{5}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{6}\0\0\0\u{12}\u{7}\0\0\0\0`\0\0\u{7}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{8}\0\0\0\u{6}\u{9}\0\0\0\0d\0\0\u{9}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{a}\0\0\0\u{10}\u{b}\0\0\0\0h\0\0\u{b}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{c}\0\0\0\u{1}\u{d}\0\0\0\0P\0\0\u{d}\0\0\0\u{8}\u{e}\0\0\0\0 \u{4}\0\u{e}\0\0\0\u{9}\u{f}\0\0\0\00\u{4}\0\u{f}\0\0\0\u{c}\u{12}\0\0\0\0p\u{1}\0\0\0\u{2}\0\u{b}\u{13}\0\0\0\0l\0\0\u{10}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{a}x\u{1}\0\u{11}\0\0\0\u{5} \0\0\0\u{a}\0\u{2}\0\u{12}\0\0\0\u{3}!\0\0\0\u{a}\u{8}\u{2}\0\u{13}\0\0\0\u{d}\"\0\0\0\u{a}\u{10}\u{2}\0\u{14}\0\0\0\u{4}#\0\0\0\u{a}\u{18}\u{2}\0\u{15}\0\0\0\u{11}$\0\0\0\u{a} \u{2}\0\u{16}\0\0\0\u{12}%\0\0\0\u{a}(\u{2}\0\u{17}\0\0\0\u{7}&\0\0\0\u{a}0\u{2}\0\u{18}\0\0\0\u{6}'\0\0\0\u{a}8\u{2}\0\u{19}\0\0\0\u{f}(\0\0\0\u{a}@\u{2}\0\u{1a}\0\0\0\u{10})\0\0\0\u{a}H\u{2}\0\u{1b}\0\0\0\u{2}*\0\0\0\u{a}P\u{2}\0\u{1c}\0\0\0\u{1}+\0\0\0\u{a}X\u{2}\0\u{1d}\0\0\0\u{8},\0\0\0\u{2}`\u{2}\0\u{1e}\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\0\u{1f}\0\0\0\u{c}0\0\0\0\u{2}p\u{2}\0 \0\u{2}\0\u{b}1\0\0\0\u{a}x\u{2}\0!\0\u{1}\0\u{e}3\0\0\0\0p\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0t\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0x\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0|\0\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0Q\0\0s\u{7f}\0\0\u{8}@\0\0\0\0@\u{4}\0s\u{7f}\0\0\u{9}A\0\0\0\0P\u{4}\0s\u{7f}\0\0\u{c}D\0\0\0\0\0\u{3}\0s\u{7f}\u{2}\0\u{b}E\0\0\0\0\u{8}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}\u{8}\u{3}\0\"\0\u{3}\0\u{b}G\0\0\0\u{4}\u{10}\u{3}\0#\0\u{4}\0\u{b}H\0\0\0\u{4}\u{18}\u{3}\0$\0\u{5}\0\u{b}I\0\0\0\u{4} \u{3}\0%\0\u{6}\0\u{b}J\0\0\0\u{4}(\u{3}\0&\0\u{7}\0\u{b}K\0\0\0\u{4}0\u{3}\0'\0\u{8}\0\u{b}L\0\0\0\u{4}8\u{3}\0(\0\u{9}\0\u{b}M\0\0\0\u{4}@\u{3}\0)\0\u{a}\0\u{b}N\0\0\0\u{4}H\u{3}\0*\0\u{b}\0\u{b}O\0\0\0\u{4}P\u{3}\0+\0\u{c}\0\u{b}P\0\0\0\u{4}X\u{3}\0,\0\u{d}\0\u{b}Q\0\0\0\u{4}`\u{3}\0-\0\u{e}\0\u{b}R\0\0\0\u{4}h\u{3}\0.\0\u{f}\0\u{b}S\0\0\0\u{4}p\u{3}\0/\0\u{10}\0\u{b}T\0\0\0\u{4}x\u{3}\00\0\u{11}\0\u{b}U\0\0\0\u{4}\0\u{4}\01\0\u{12}\0\u{b}V\0\0\0\u{4}\u{8}\u{4}\02\0\u{13}\0\u{b}W\0\0\0\u{4}\u{10}\u{4}\03\0\u{14}\0\u{b}X\0\0\0\u{4}\u{18}\u{4}\04\0\u{15}\0\u{b}\u{1c}\0swift_proto_testing.Message3"
@@ -887,7 +887,6 @@ extension SwiftProtoTesting_Message3: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32MessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32MessageEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message3>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -899,7 +898,7 @@ extension SwiftProtoTesting_Message3.Enum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NoStorage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0!\0swift_proto_testing.Msg3NoStorage"
@@ -911,13 +910,12 @@ extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3UsesStorage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0g\u{7}\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg3UsesStorage"
@@ -936,13 +934,12 @@ extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NamesNoStorage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg3NamesNoStorage"
@@ -954,13 +951,12 @@ extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{1}\0\0 ?m\u{15}\u{19}Zs5&L\u{6}\u{10}al;tE#CwgH\u{f}.\u{19}94(: s%\u{1f}\u{18}[c\u{b}*NIKd,8\u{19}CIX\u{13}\u{15}=zHAN\u{7f}'_\u{5}8\u{7f}\u{15}B:}dt%B\t,\u{1c}\u{19}IBC#\u{13}?O{\u{7f}$<\u{f}Jy{\u{6}RI.F\u{11}\u{18}\u{11}\u{1d}w'\u{8}P&`\u{3}j+1\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NamesUsesStorage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\0\0\u{1}\0\u{b}(\0swift_proto_testing.Msg3NamesUsesStorage"
@@ -979,7 +975,6 @@ extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

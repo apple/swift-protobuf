@@ -1249,7 +1249,7 @@ extension ProtobufTestMessages_Proto3_ForeignEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message {
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesProto3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\u{9}\0\u{19}\u{1}\0\0\0\0\u{13}\0\0\u{10}\0\0\u{1}\0\0\0\0@\0\0\u{13}\0\0\0\u{5}\u{2}\0\0\0\0@\u{1}\0\u{14}\0\0\0\u{3}\u{3}\0\0\0\0D\0\0\u{15}\0\0\0\u{d}\u{4}\0\0\0\0H\u{1}\0\u{16}\0\0\0\u{4}\u{5}\0\0\0\0H\0\0\u{17}\0\0\0\u{11}\u{6}\0\0\0\0P\u{1}\0\u{18}\0\0\0\u{12}\u{7}\0\0\0\0L\0\0\u{19}\0\0\0\u{7}\u{8}\0\0\0\0X\u{1}\0\u{1a}\0\0\0\u{6}\u{9}\0\0\0\0P\0\0\u{1b}\0\0\0\u{f}\u{a}\0\0\0\0`\u{1}\0\u{1c}\0\0\0\u{10}\u{b}\0\0\0\0T\0\0\u{1d}\0\0\0\u{2}\u{c}\0\0\0\0h\u{1}\0\u{1e}\0\0\0\u{1}\u{d}\0\0\0\0<\0\0\u{1f}\0\0\0\u{8}\u{e}\0\0\0\0P\u{8}\0 \0\0\0\u{9}\u{f}\0\0\0\0`\u{8}\0!\0\0\0\u{c}\u{12}\0\0\0\0\0\u{2}\0\0\0\u{5}\0\u{b}\u{13}\0\0\0\0\u{8}\u{2}\0\u{1}\0\u{6}\0\u{b}\u{15}\0\0\0\0X\0\0\"\0\u{1}\0\u{e}\u{16}\0\0\0\0\\\0\0#\0\u{2}\0\u{e}\u{17}\0\0\0\0`\0\0$\0\u{3}\0\u{e}\u{18}\0\0\0\0p\u{8}\0%\0\0\0\u{9}\u{19}\0\0\0\0\0\u{9}\0&\0\0\0\u{9}\u{1b}\0\0\0\0\u{10}\u{2}\0\u{2}\0\u{7}\0\u{b}\u{1f}\0\0\0\u{a}\u{18}\u{2}\0'\0\0\0\u{5} \0\0\0\u{a} \u{2}\0(\0\0\0\u{3}!\0\0\0\u{a}(\u{2}\0)\0\0\0\u{d}\"\0\0\0\u{a}0\u{2}\0*\0\0\0\u{4}#\0\0\0\u{a}8\u{2}\0+\0\0\0\u{11}$\0\0\0\u{a}@\u{2}\0,\0\0\0\u{12}%\0\0\0\u{a}H\u{2}\0-\0\0\0\u{7}&\0\0\0\u{a}P\u{2}\0.\0\0\0\u{6}'\0\0\0\u{a}X\u{2}\0/\0\0\0\u{f}(\0\0\0\u{a}`\u{2}\00\0\0\0\u{10})\0\0\0\u{a}h\u{2}\01\0\0\0\u{2}*\0\0\0\u{a}p\u{2}\02\0\0\0\u{1}+\0\0\0\u{a}x\u{2}\03\0\0\0\u{8},\0\0\0\u{2}\0\u{3}\04\0\0\0\u{9}-\0\0\0\u{2}\u{8}\u{3}\05\0\0\0\u{c}0\0\0\0\u{2}\u{10}\u{3}\06\0\u{5}\0\u{b}1\0\0\0\u{2}\u{18}\u{3}\07\0\u{6}\0\u{b}3\0\0\0\u{a} \u{3}\08\0\u{1}\0\u{e}4\0\0\0\u{a}(\u{3}\09\0\u{2}\0\u{e}6\0\0\0\u{2}0\u{3}\0:\0\0\0\u{9}7\0\0\0\u{2}8\u{3}\0;\0\0\0\u{9}8\0\0\0\u{4}@\u{3}\0<\0\u{8}\0\u{b}9\0\0\0\u{4}H\u{3}\0=\0\u{9}\0\u{b}:\0\0\0\u{4}P\u{3}\0>\0\u{a}\0\u{b};\0\0\0\u{4}X\u{3}\0?\0\u{b}\0\u{b}<\0\0\0\u{4}`\u{3}\0@\0\u{c}\0\u{b}=\0\0\0\u{4}h\u{3}\0A\0\u{d}\0\u{b}>\0\0\0\u{4}p\u{3}\0B\0\u{e}\0\u{b}?\0\0\0\u{4}x\u{3}\0C\0\u{f}\0\u{b}@\0\0\0\u{4}\0\u{4}\0D\0\u{10}\0\u{b}A\0\0\0\u{4}\u{8}\u{4}\0E\0\u{11}\0\u{b}B\0\0\0\u{4}\u{10}\u{4}\0F\0\u{12}\0\u{b}C\0\0\0\u{4}\u{18}\u{4}\0G\0\u{13}\0\u{b}D\0\0\0\u{4} \u{4}\0H\0\u{14}\0\u{b}E\0\0\0\u{4}(\u{4}\0I\0\u{15}\0\u{b}F\0\0\0\u{4}0\u{4}\0J\0\u{16}\0\u{b}G\0\0\0\u{4}8\u{4}\0K\0\u{17}\0\u{b}H\0\0\0\u{4}@\u{4}\0L\0\u{18}\0\u{b}I\0\0\0\u{4}H\u{4}\0M\0\u{19}\0\u{b}J\0\0\0\u{4}P\u{4}\0N\0\u{1a}\0\u{b}K\0\0\0\u{a}X\u{4}\0O\0\0\0\u{5}L\0\0\0\u{a}`\u{4}\0P\0\0\0\u{3}M\0\0\0\u{a}h\u{4}\0Q\0\0\0\u{d}N\0\0\0\u{a}p\u{4}\0R\0\0\0\u{4}O\0\0\0\u{a}x\u{4}\0S\0\0\0\u{11}P\0\0\0\u{a}\0\u{5}\0T\0\0\0\u{12}Q\0\0\0\u{a}\u{8}\u{5}\0U\0\0\0\u{7}R\0\0\0\u{a}\u{10}\u{5}\0V\0\0\0\u{6}S\0\0\0\u{a}\u{18}\u{5}\0W\0\0\0\u{f}T\0\0\0\u{a} \u{5}\0X\0\0\0\u{10}U\0\0\0\u{a}(\u{5}\0Y\0\0\0\u{2}V\0\0\0\u{a}0\u{5}\0Z\0\0\0\u{1}W\0\0\0\u{a}8\u{5}\0[\0\0\0\u{8}X\0\0\0\u{a}@\u{5}\0\\\0\u{1}\0\u{e}Y\0\0\0\u{2}H\u{5}\0]\0\0\0\u{5}Z\0\0\0\u{2}P\u{5}\0^\0\0\0\u{3}[\0\0\0\u{2}X\u{5}\0_\0\0\0\u{d}\\\0\0\0\u{2}`\u{5}\0`\0\0\0\u{4}]\0\0\0\u{2}h\u{5}\0a\0\0\0\u{11}^\0\0\0\u{2}p\u{5}\0b\0\0\0\u{12}_\0\0\0\u{2}x\u{5}\0c\0\0\0\u{7}`\0\0\0\u{2}\0\u{6}\0d\0\0\0\u{6}a\0\0\0\u{2}\u{8}\u{6}\0e\0\0\0\u{f}b\0\0\0\u{2}\u{10}\u{6}\0f\0\0\0\u{10}c\0\0\0\u{2}\u{18}\u{6}\0g\0\0\0\u{2}d\0\0\0\u{2} \u{6}\0h\0\0\0\u{1}e\0\0\0\u{2}(\u{6}\0i\0\0\0\u{8}f\0\0\0\u{2}0\u{6}\0j\0\u{1}\0\u{e}o\0\0\0\0d\0\0k\u{7f}\0\0\u{d}p\0\0\0\08\u{6}\0k\u{7f}\u{5}\0\u{b}q\0\0\0\0\u{10}\u{9}\0k\u{7f}\0\0\u{9}r\0\0\0\0 \u{9}\0k\u{7f}\0\0\u{c}s\0\0\0\0=\0\0k\u{7f}\0\0\u{8}t\0\0\0\0p\u{1}\0k\u{7f}\0\0\u{4}u\0\0\0\0h\0\0k\u{7f}\0\0\u{2}v\0\0\0\0x\u{1}\0k\u{7f}\0\0\u{1}w\0\0\0\0l\0\0k\u{7f}\u{1}\0\u{e}x\0\0\0\0p\0\0k\u{7f}\u{4}\0\u{e}I\u{1}\0\0\0@\u{6}\0\u{3}\0\u{1b}\0\u{b}J\u{1}\0\0\0H\u{6}\0\u{4}\0\u{1c}\0\u{b}K\u{1}\0\0\0P\u{6}\0\u{5}\0\u{1d}\0\u{b}L\u{1}\0\0\0X\u{6}\0\u{6}\0\u{1e}\0\u{b}M\u{1}\0\0\0`\u{6}\0\u{7}\0\u{1f}\0\u{b}N\u{1}\0\0\0h\u{6}\0\u{8}\0 \0\u{b}O\u{1}\0\0\0p\u{6}\0\u{9}\0!\0\u{b}P\u{1}\0\0\0x\u{6}\0\u{a}\0\"\0\u{b}Q\u{1}\0\0\0\0\u{7}\0\u{b}\0#\0\u{b}S\u{1}\0\0\u{2}\u{8}\u{7}\0k\0\u{1b}\0\u{b}T\u{1}\0\0\u{2}\u{10}\u{7}\0l\0\u{1c}\0\u{b}U\u{1}\0\0\u{2}\u{18}\u{7}\0m\0\u{1d}\0\u{b}V\u{1}\0\0\u{2} \u{7}\0n\0\u{1e}\0\u{b}W\u{1}\0\0\u{2}(\u{7}\0o\0\u{1f}\0\u{b}X\u{1}\0\0\u{2}0\u{7}\0p\0 \0\u{b}Y\u{1}\0\0\u{2}8\u{7}\0q\0!\0\u{b}Z\u{1}\0\0\u{2}@\u{7}\0r\0\"\0\u{b}[\u{1}\0\0\u{2}H\u{7}\0s\0#\0\u{b}-\u{2}\0\0\0P\u{7}\0\u{c}\0$\0\u{b}.\u{2}\0\0\0X\u{7}\0\u{d}\0%\0\u{b}/\u{2}\0\0\0`\u{7}\0\u{e}\0&\0\u{b}0\u{2}\0\0\0h\u{7}\0\u{f}\0'\0\u{b}1\u{2}\0\0\0p\u{7}\0\u{10}\0(\0\u{b}2\u{2}\0\0\0x\u{7}\0\u{11}\0)\0\u{b}3\u{2}\0\0\0t\0\0t\0\u{4}\0\u{e}4\u{2}\0\0\0\0\u{8}\0\u{12}\0*\0\u{b}7\u{2}\0\0\u{2}\u{8}\u{8}\0u\0$\0\u{b}8\u{2}\0\0\u{2}\u{10}\u{8}\0v\0%\0\u{b}9\u{2}\0\0\u{2}\u{18}\u{8}\0w\0&\0\u{b};\u{2}\0\0\u{2} \u{8}\0x\0(\0\u{b}<\u{2}\0\0\u{2}(\u{8}\0y\0)\0\u{b}=\u{2}\0\0\u{2}0\u{8}\0z\0+\0\u{b}>\u{2}\0\0\u{2}8\u{8}\0{\0*\0\u{b}D\u{2}\0\0\u{2}@\u{8}\0|\0'\0\u{b}\u{11}\u{3}\0\0\0x\0\0}\0\0\0\u{5}\u{12}\u{3}\0\0\0|\0\0~\0\0\0\u{5}\u{13}\u{3}\0\0\0\0\u{1}\0\u{7f}\0\0\0\u{5}\u{14}\u{3}\0\0\0\u{4}\u{1}\0\0\u{1}\0\0\u{5}\u{15}\u{3}\0\0\0\u{8}\u{1}\0\u{1}\u{1}\0\0\u{5}\u{16}\u{3}\0\0\0\u{c}\u{1}\0\u{2}\u{1}\0\0\u{5}\u{17}\u{3}\0\0\0\u{10}\u{1}\0\u{3}\u{1}\0\0\u{5}\u{18}\u{3}\0\0\0\u{14}\u{1}\0\u{4}\u{1}\0\0\u{5}\u{19}\u{3}\0\0\0\u{18}\u{1}\0\u{5}\u{1}\0\0\u{5}\u{1a}\u{3}\0\0\0\u{1c}\u{1}\0\u{6}\u{1}\0\0\u{5}\u{1b}\u{3}\0\0\0 \u{1}\0\u{7}\u{1}\0\0\u{5}\u{1c}\u{3}\0\0\0$\u{1}\0\u{8}\u{1}\0\0\u{5}\u{1d}\u{3}\0\0\0(\u{1}\0\u{9}\u{1}\0\0\u{5}\u{1e}\u{3}\0\0\0,\u{1}\0\u{a}\u{1}\0\0\u{5}\u{1f}\u{3}\0\0\00\u{1}\0\u{b}\u{1}\0\0\u{5} \u{3}\0\0\04\u{1}\0\u{c}\u{1}\0\0\u{5}!\u{3}\0\0\08\u{1}\0\u{d}\u{1}\0\0\u{5}\"\u{3}\0\0\0<\u{1}\0\u{e}\u{1}\0\0\u{5}0\0protobuf_test_messages.proto3.TestAllTypesProto3"
@@ -1462,7 +1462,6 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message 
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<ProtobufTestMessages_Proto3_ForeignEnum>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -1480,7 +1479,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message {
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = ProtobufTestMessages_Proto3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}>\0protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage"
@@ -1499,13 +1498,12 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftPro
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
+extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0protobuf_test_messages.proto3.ForeignMessage"
@@ -1517,13 +1515,12 @@ extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.Message {
+extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".NullHypothesisProto3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\02\0protobuf_test_messages.proto3.NullHypothesisProto3"
@@ -1535,13 +1532,12 @@ extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.Messag
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.Message {
+extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".EnumOnlyProto3"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0protobuf_test_messages.proto3.EnumOnlyProto3"
@@ -1553,7 +1549,6 @@ extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

@@ -330,7 +330,7 @@ struct SwiftProtoTesting_TestProto3Optional: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestProto3Optional"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\u{1}\0\u{13}\0\0\0\0\0\u{11}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{10}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{18}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{3}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0p\0\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\u{1}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0`\0\0\u{f}\0\u{2}\0\u{b}\u{15}\0\0\0\0\u{1c}\0\0\u{10}\0\u{1}\0\u{e}\u{16}\0\0\0\0 \0\0\u{11}\0\0\0\u{5}\u{17}\0\0\0\0X\0\0\u{12}\0\0\0\u{3}&\0swift_proto_testing.TestProto3Optional"
@@ -350,7 +350,6 @@ extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -362,7 +361,7 @@ extension SwiftProtoTesting_TestProto3Optional.NestedEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_TestProto3Optional.NestedMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestProto3Optional.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_TestProto3Optional.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.TestProto3Optional.NestedMessage"
@@ -374,7 +373,6 @@ extension SwiftProtoTesting_TestProto3Optional.NestedMessage: SwiftProtobuf.Mess
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpO\u{13}1$\u{1}!C\t0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

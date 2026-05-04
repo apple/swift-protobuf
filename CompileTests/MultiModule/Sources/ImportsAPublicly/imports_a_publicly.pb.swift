@@ -70,7 +70,7 @@ public struct ImportsAPublicly: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ImportsAPublicly: SwiftProtobuf.Message {
+extension ImportsAPublicly: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = "ImportsAPublicly"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{10}\0ImportsAPublicly"
@@ -90,7 +90,6 @@ extension ImportsAPublicly: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

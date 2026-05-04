@@ -2684,7 +2684,7 @@ extension SwiftProtoTesting_Fuzz_AnEnum {
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Message"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{11}\0\u{13}\u{2}\0\0\0\0%\0\0\u{12}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0t\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0x\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0|\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\0\u{1}\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{4}\u{1}\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0l\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0 \u{11}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\00\u{11}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{8}\u{1}\0\u{f}\0\u{1}\0\u{e}\u{11}\0\0\0\0\u{8}\u{2}\0\u{10}\0\u{2}\0\u{a}\u{13}\0\0\0\0\u{10}\u{2}\0\u{11}\0\u{3}\0\u{b}\u{1f}\0\0\0\u{2}\u{18}\u{2}\0%\0\0\0\u{5} \0\0\0\u{2} \u{2}\0&\0\0\0\u{3}!\0\0\0\u{2}(\u{2}\0'\0\0\0\u{d}\"\0\0\0\u{2}0\u{2}\0(\0\0\0\u{4}#\0\0\0\u{2}8\u{2}\0)\0\0\0\u{11}$\0\0\0\u{2}@\u{2}\0*\0\0\0\u{12}%\0\0\0\u{2}H\u{2}\0+\0\0\0\u{7}&\0\0\0\u{2}P\u{2}\0,\0\0\0\u{6}'\0\0\0\u{2}X\u{2}\0-\0\0\0\u{f}(\0\0\0\u{2}`\u{2}\0.\0\0\0\u{10})\0\0\0\u{2}h\u{2}\0/\0\0\0\u{2}*\0\0\0\u{2}p\u{2}\00\0\0\0\u{1}+\0\0\0\u{2}x\u{2}\01\0\0\0\u{8},\0\0\0\u{2}\0\u{3}\02\0\0\0\u{9}-\0\0\0\u{2}\u{8}\u{3}\03\0\0\0\u{c}.\0\0\0\u{2}\u{10}\u{3}\04\0\u{1}\0\u{e}/\0\0\0\u{2}\u{18}\u{3}\05\0\u{4}\0\u{a}1\0\0\0\u{2} \u{3}\06\0\u{3}\0\u{b}=\0\0\0\0\u{c}\u{1}\0[\u{7f}\0\0\u{5}>\0\0\0\0X\u{1}\0[\u{7f}\0\0\u{3}?\0\0\0\0\u{10}\u{1}\0[\u{7f}\0\0\u{d}@\0\0\0\0`\u{1}\0[\u{7f}\0\0\u{4}A\0\0\0\0\u{14}\u{1}\0[\u{7f}\0\0\u{11}B\0\0\0\0h\u{1}\0[\u{7f}\0\0\u{12}C\0\0\0\0\u{18}\u{1}\0[\u{7f}\0\0\u{7}D\0\0\0\0p\u{1}\0[\u{7f}\0\0\u{6}E\0\0\0\0\u{1c}\u{1}\0[\u{7f}\0\0\u{f}F\0\0\0\0x\u{1}\0[\u{7f}\0\0\u{10}G\0\0\0\0 \u{1}\0[\u{7f}\0\0\u{2}H\0\0\0\0\0\u{2}\0[\u{7f}\0\0\u{1}I\0\0\0\0m\0\0[\u{7f}\0\0\u{8}J\0\0\0\0@\u{11}\0[\u{7f}\0\0\u{9}K\0\0\0\0P\u{11}\0[\u{7f}\0\0\u{c}L\0\0\0\0$\u{1}\0[\u{7f}\u{1}\0\u{e}M\0\0\0\0(\u{3}\0[\u{7f}\u{5}\0\u{a}O\0\0\0\00\u{3}\0[\u{7f}\u{3}\0\u{b}Q\0\0\0\u{a}8\u{3}\07\0\0\0\u{5}R\0\0\0\u{a}@\u{3}\08\0\0\0\u{3}S\0\0\0\u{a}H\u{3}\09\0\0\0\u{d}T\0\0\0\u{a}P\u{3}\0:\0\0\0\u{4}U\0\0\0\u{a}X\u{3}\0;\0\0\0\u{11}V\0\0\0\u{a}`\u{3}\0<\0\0\0\u{12}W\0\0\0\u{a}h\u{3}\0=\0\0\0\u{7}X\0\0\0\u{a}p\u{3}\0>\0\0\0\u{6}Y\0\0\0\u{a}x\u{3}\0?\0\0\0\u{f}Z\0\0\0\u{a}\0\u{4}\0@\0\0\0\u{10}[\0\0\0\u{a}\u{8}\u{4}\0A\0\0\0\u{2}\\\0\0\0\u{a}\u{10}\u{4}\0B\0\0\0\u{1}]\0\0\0\u{a}\u{18}\u{4}\0C\0\0\0\u{8}^\0\0\0\u{a} \u{4}\0D\0\u{1}\0\u{e}d\0\0\0\u{4}(\u{4}\0E\0\u{6}\0\u{b}e\0\0\0\u{4}0\u{4}\0F\0\u{7}\0\u{b}f\0\0\0\u{4}8\u{4}\0G\0\u{8}\0\u{b}g\0\0\0\u{4}@\u{4}\0H\0\u{9}\0\u{b}h\0\0\0\u{4}H\u{4}\0I\0\u{a}\0\u{b}i\0\0\0\u{4}P\u{4}\0J\0\u{b}\0\u{b}j\0\0\0\u{4}X\u{4}\0K\0\u{c}\0\u{b}k\0\0\0\u{4}`\u{4}\0L\0\u{d}\0\u{b}l\0\0\0\u{4}h\u{4}\0M\0\u{e}\0\u{b}m\0\0\0\u{4}p\u{4}\0N\0\u{f}\0\u{b}n\0\0\0\u{4}x\u{4}\0O\0\u{10}\0\u{b}o\0\0\0\u{4}\0\u{5}\0P\0\u{11}\0\u{b}p\0\0\0\u{4}\u{8}\u{5}\0Q\0\u{12}\0\u{b}q\0\0\0\u{4}\u{10}\u{5}\0R\0\u{13}\0\u{b}r\0\0\0\u{4}\u{18}\u{5}\0S\0\u{14}\0\u{b}s\0\0\0\u{4} \u{5}\0T\0\u{15}\0\u{b}t\0\0\0\u{4}(\u{5}\0U\0\u{16}\0\u{b}u\0\0\0\u{4}0\u{5}\0V\0\u{17}\0\u{b}v\0\0\0\u{4}8\u{5}\0W\0\u{18}\0\u{b}w\0\0\0\u{4}@\u{5}\0X\0\u{19}\0\u{b}x\0\0\0\u{4}H\u{5}\0Y\0\u{1a}\0\u{b}y\0\0\0\u{4}P\u{5}\0Z\0\u{1b}\0\u{b}z\0\0\0\u{4}X\u{5}\0[\0\u{1c}\0\u{b}{\0\0\0\u{4}`\u{5}\0\\\0\u{1d}\0\u{b}|\0\0\0\u{4}h\u{5}\0]\0\u{1e}\0\u{b}}\0\0\0\u{4}p\u{5}\0^\0\u{1f}\0\u{b}~\0\0\0\u{4}x\u{5}\0_\0 \0\u{b}\u{7f}\0\0\0\u{4}\0\u{6}\0`\0!\0\u{b}\0\u{1}\0\0\u{4}\u{8}\u{6}\0a\0\"\0\u{b}\u{1}\u{1}\0\0\u{4}\u{10}\u{6}\0b\0#\0\u{b}\u{2}\u{1}\0\0\u{4}\u{18}\u{6}\0c\0$\0\u{b}\u{3}\u{1}\0\0\u{4} \u{6}\0d\0%\0\u{b}\u{4}\u{1}\0\0\u{4}(\u{6}\0e\0&\0\u{b}\u{5}\u{1}\0\0\u{4}0\u{6}\0f\0'\0\u{b}\u{6}\u{1}\0\0\u{4}8\u{6}\0g\0(\0\u{b}\u{7}\u{1}\0\0\u{4}@\u{6}\0h\0)\0\u{b}\u{8}\u{1}\0\0\u{4}H\u{6}\0i\0*\0\u{b}\u{9}\u{1}\0\0\u{4}P\u{6}\0j\0+\0\u{b}\u{a}\u{1}\0\0\u{4}X\u{6}\0k\0,\0\u{b}\u{b}\u{1}\0\0\u{4}`\u{6}\0l\0-\0\u{b}\u{c}\u{1}\0\0\u{4}h\u{6}\0m\0.\0\u{b}\u{d}\u{1}\0\0\u{4}p\u{6}\0n\0/\0\u{b}\u{e}\u{1}\0\0\u{4}x\u{6}\0o\00\0\u{b}\u{f}\u{1}\0\0\u{4}\0\u{7}\0p\01\0\u{b}\u{10}\u{1}\0\0\u{4}\u{8}\u{7}\0q\02\0\u{b}\u{11}\u{1}\0\0\u{4}\u{10}\u{7}\0r\03\0\u{b}\u{12}\u{1}\0\0\u{4}\u{18}\u{7}\0s\04\0\u{b}\u{13}\u{1}\0\0\u{4} \u{7}\0t\05\0\u{b}\u{14}\u{1}\0\0\u{4}(\u{7}\0u\06\0\u{b}\u{15}\u{1}\0\0\u{4}0\u{7}\0v\07\0\u{b}\u{16}\u{1}\0\0\u{4}8\u{7}\0w\08\0\u{b}\u{17}\u{1}\0\0\u{4}@\u{7}\0x\09\0\u{b}\u{18}\u{1}\0\0\u{4}H\u{7}\0y\0:\0\u{b}\u{19}\u{1}\0\0\u{4}P\u{7}\0z\0;\0\u{b}\u{1a}\u{1}\0\0\u{4}X\u{7}\0{\0<\0\u{b}\u{1b}\u{1}\0\0\u{4}`\u{7}\0|\0=\0\u{b}\u{1c}\u{1}\0\0\u{4}h\u{7}\0}\0>\0\u{b}\u{1d}\u{1}\0\0\u{4}p\u{7}\0~\0?\0\u{b}\u{1e}\u{1}\0\0\u{4}x\u{7}\0\u{7f}\0@\0\u{b}\u{1f}\u{1}\0\0\u{4}\0\u{8}\0\0\u{1}A\0\u{b} \u{1}\0\0\u{4}\u{8}\u{8}\0\u{1}\u{1}B\0\u{b}!\u{1}\0\0\u{4}\u{10}\u{8}\0\u{2}\u{1}C\0\u{b}\"\u{1}\0\0\u{4}\u{18}\u{8}\0\u{3}\u{1}D\0\u{b}#\u{1}\0\0\u{4} \u{8}\0\u{4}\u{1}E\0\u{b}$\u{1}\0\0\u{4}(\u{8}\0\u{5}\u{1}F\0\u{b}%\u{1}\0\0\u{4}0\u{8}\0\u{6}\u{1}G\0\u{b}&\u{1}\0\0\u{4}8\u{8}\0\u{7}\u{1}H\0\u{b}'\u{1}\0\0\u{4}@\u{8}\0\u{8}\u{1}I\0\u{b}(\u{1}\0\0\u{4}H\u{8}\0\u{9}\u{1}J\0\u{b})\u{1}\0\0\u{4}P\u{8}\0\u{a}\u{1}K\0\u{b}*\u{1}\0\0\u{4}X\u{8}\0\u{b}\u{1}L\0\u{b}+\u{1}\0\0\u{4}`\u{8}\0\u{c}\u{1}M\0\u{b},\u{1}\0\0\u{4}h\u{8}\0\u{d}\u{1}N\0\u{b}-\u{1}\0\0\u{4}p\u{8}\0\u{e}\u{1}O\0\u{b}.\u{1}\0\0\u{4}x\u{8}\0\u{f}\u{1}P\0\u{b}/\u{1}\0\0\u{4}\0\u{9}\0\u{10}\u{1}Q\0\u{b}0\u{1}\0\0\u{4}\u{8}\u{9}\0\u{11}\u{1}R\0\u{b}1\u{1}\0\0\u{4}\u{10}\u{9}\0\u{12}\u{1}S\0\u{b}2\u{1}\0\0\u{4}\u{18}\u{9}\0\u{13}\u{1}T\0\u{b}3\u{1}\0\0\u{4} \u{9}\0\u{14}\u{1}U\0\u{b}4\u{1}\0\0\u{4}(\u{9}\0\u{15}\u{1}V\0\u{b}5\u{1}\0\0\u{4}0\u{9}\0\u{16}\u{1}W\0\u{b}6\u{1}\0\0\u{4}8\u{9}\0\u{17}\u{1}X\0\u{b}7\u{1}\0\0\u{4}@\u{9}\0\u{18}\u{1}Y\0\u{b}8\u{1}\0\0\u{4}H\u{9}\0\u{19}\u{1}Z\0\u{b}9\u{1}\0\0\u{4}P\u{9}\0\u{1a}\u{1}[\0\u{b}:\u{1}\0\0\u{4}X\u{9}\0\u{1b}\u{1}\\\0\u{b};\u{1}\0\0\u{4}`\u{9}\0\u{1c}\u{1}]\0\u{b}<\u{1}\0\0\u{4}h\u{9}\0\u{1d}\u{1}^\0\u{b}=\u{1}\0\0\u{4}p\u{9}\0\u{1e}\u{1}_\0\u{b}>\u{1}\0\0\u{4}x\u{9}\0\u{1f}\u{1}`\0\u{b}?\u{1}\0\0\u{4}\0\u{a}\0 \u{1}a\0\u{b}@\u{1}\0\0\u{4}\u{8}\u{a}\0!\u{1}b\0\u{b}A\u{1}\0\0\u{4}\u{10}\u{a}\0\"\u{1}c\0\u{b}B\u{1}\0\0\u{4}\u{18}\u{a}\0#\u{1}d\0\u{b}C\u{1}\0\0\u{4} \u{a}\0$\u{1}e\0\u{b}D\u{1}\0\0\u{4}(\u{a}\0%\u{1}f\0\u{b}E\u{1}\0\0\u{4}0\u{a}\0&\u{1}g\0\u{b}F\u{1}\0\0\u{4}8\u{a}\0'\u{1}h\0\u{b}G\u{1}\0\0\u{4}@\u{a}\0(\u{1}i\0\u{b}H\u{1}\0\0\u{4}H\u{a}\0)\u{1}j\0\u{b}I\u{1}\0\0\u{4}P\u{a}\0*\u{1}k\0\u{b}J\u{1}\0\0\u{4}X\u{a}\0+\u{1}l\0\u{b}K\u{1}\0\0\u{4}`\u{a}\0,\u{1}m\0\u{b}L\u{1}\0\0\u{4}h\u{a}\0-\u{1}n\0\u{b}M\u{1}\0\0\u{4}p\u{a}\0.\u{1}o\0\u{b}N\u{1}\0\0\u{4}x\u{a}\0/\u{1}p\0\u{b}O\u{1}\0\0\u{4}\0\u{b}\00\u{1}q\0\u{b}P\u{1}\0\0\u{4}\u{8}\u{b}\01\u{1}r\0\u{b}Q\u{1}\0\0\u{4}\u{10}\u{b}\02\u{1}s\0\u{b}R\u{1}\0\0\u{4}\u{18}\u{b}\03\u{1}t\0\u{b}S\u{1}\0\0\u{4} \u{b}\04\u{1}u\0\u{b}T\u{1}\0\0\u{4}(\u{b}\05\u{1}v\0\u{b}U\u{1}\0\0\u{4}0\u{b}\06\u{1}w\0\u{b}V\u{1}\0\0\u{4}8\u{b}\07\u{1}x\0\u{b}W\u{1}\0\0\u{4}@\u{b}\08\u{1}y\0\u{b}X\u{1}\0\0\u{4}H\u{b}\09\u{1}z\0\u{b}Y\u{1}\0\0\u{4}P\u{b}\0:\u{1}{\0\u{b}Z\u{1}\0\0\u{4}X\u{b}\0;\u{1}|\0\u{b}[\u{1}\0\0\u{4}`\u{b}\0<\u{1}}\0\u{b}\\\u{1}\0\0\u{4}h\u{b}\0=\u{1}~\0\u{b}]\u{1}\0\0\u{4}p\u{b}\0>\u{1}\u{7f}\0\u{b}^\u{1}\0\0\u{4}x\u{b}\0?\u{1}\0\u{1}\u{b}_\u{1}\0\0\u{4}\0\u{c}\0@\u{1}\u{1}\u{1}\u{b}`\u{1}\0\0\u{4}\u{8}\u{c}\0A\u{1}\u{2}\u{1}\u{b}a\u{1}\0\0\u{4}\u{10}\u{c}\0B\u{1}\u{3}\u{1}\u{b}b\u{1}\0\0\u{4}\u{18}\u{c}\0C\u{1}\u{4}\u{1}\u{b}c\u{1}\0\0\u{4} \u{c}\0D\u{1}\u{5}\u{1}\u{b}d\u{1}\0\0\u{4}(\u{c}\0E\u{1}\u{6}\u{1}\u{b}e\u{1}\0\0\u{4}0\u{c}\0F\u{1}\u{7}\u{1}\u{b}f\u{1}\0\0\u{4}8\u{c}\0G\u{1}\u{8}\u{1}\u{b}g\u{1}\0\0\u{4}@\u{c}\0H\u{1}\u{9}\u{1}\u{b}h\u{1}\0\0\u{4}H\u{c}\0I\u{1}\u{a}\u{1}\u{b}i\u{1}\0\0\u{4}P\u{c}\0J\u{1}\u{b}\u{1}\u{b}j\u{1}\0\0\u{4}X\u{c}\0K\u{1}\u{c}\u{1}\u{b}k\u{1}\0\0\u{4}`\u{c}\0L\u{1}\u{d}\u{1}\u{b}l\u{1}\0\0\u{4}h\u{c}\0M\u{1}\u{e}\u{1}\u{b}m\u{1}\0\0\u{4}p\u{c}\0N\u{1}\u{f}\u{1}\u{b}n\u{1}\0\0\u{4}x\u{c}\0O\u{1}\u{10}\u{1}\u{b}o\u{1}\0\0\u{4}\0\u{d}\0P\u{1}\u{11}\u{1}\u{b}p\u{1}\0\0\u{4}\u{8}\u{d}\0Q\u{1}\u{12}\u{1}\u{b}q\u{1}\0\0\u{4}\u{10}\u{d}\0R\u{1}\u{13}\u{1}\u{b}r\u{1}\0\0\u{4}\u{18}\u{d}\0S\u{1}\u{14}\u{1}\u{b}s\u{1}\0\0\u{4} \u{d}\0T\u{1}\u{15}\u{1}\u{b}t\u{1}\0\0\u{4}(\u{d}\0U\u{1}\u{16}\u{1}\u{b}u\u{1}\0\0\u{4}0\u{d}\0V\u{1}\u{17}\u{1}\u{b}v\u{1}\0\0\u{4}8\u{d}\0W\u{1}\u{18}\u{1}\u{b}w\u{1}\0\0\u{4}@\u{d}\0X\u{1}\u{19}\u{1}\u{b}x\u{1}\0\0\u{4}H\u{d}\0Y\u{1}\u{1a}\u{1}\u{b}y\u{1}\0\0\u{4}P\u{d}\0Z\u{1}\u{1b}\u{1}\u{b}z\u{1}\0\0\u{4}X\u{d}\0[\u{1}\u{1c}\u{1}\u{b}{\u{1}\0\0\u{4}`\u{d}\0\\\u{1}\u{1d}\u{1}\u{b}|\u{1}\0\0\u{4}h\u{d}\0]\u{1}\u{1e}\u{1}\u{b}}\u{1}\0\0\u{4}p\u{d}\0^\u{1}\u{1f}\u{1}\u{b}~\u{1}\0\0\u{4}x\u{d}\0_\u{1} \u{1}\u{b}\u{7f}\u{1}\0\0\u{4}\0\u{e}\0`\u{1}!\u{1}\u{b}\0\u{2}\0\0\u{4}\u{8}\u{e}\0a\u{1}\"\u{1}\u{b}\u{1}\u{2}\0\0\u{4}\u{10}\u{e}\0b\u{1}#\u{1}\u{b}\u{2}\u{2}\0\0\u{4}\u{18}\u{e}\0c\u{1}$\u{1}\u{b}\u{3}\u{2}\0\0\u{4} \u{e}\0d\u{1}%\u{1}\u{b}\u{4}\u{2}\0\0\u{4}(\u{e}\0e\u{1}&\u{1}\u{b}\u{5}\u{2}\0\0\u{4}0\u{e}\0f\u{1}'\u{1}\u{b}\u{6}\u{2}\0\0\u{4}8\u{e}\0g\u{1}(\u{1}\u{b}\u{7}\u{2}\0\0\u{4}@\u{e}\0h\u{1})\u{1}\u{b}\u{8}\u{2}\0\0\u{4}H\u{e}\0i\u{1}*\u{1}\u{b}\u{9}\u{2}\0\0\u{4}P\u{e}\0j\u{1}+\u{1}\u{b}\u{a}\u{2}\0\0\u{4}X\u{e}\0k\u{1},\u{1}\u{b}\u{b}\u{2}\0\0\u{4}`\u{e}\0l\u{1}-\u{1}\u{b}\u{c}\u{2}\0\0\u{4}h\u{e}\0m\u{1}.\u{1}\u{b}\u{d}\u{2}\0\0\u{4}p\u{e}\0n\u{1}/\u{1}\u{b}\u{e}\u{2}\0\0\u{4}x\u{e}\0o\u{1}0\u{1}\u{b}\u{f}\u{2}\0\0\u{4}\0\u{f}\0p\u{1}1\u{1}\u{b}\u{10}\u{2}\0\0\u{4}\u{8}\u{f}\0q\u{1}2\u{1}\u{b}\u{11}\u{2}\0\0\u{4}\u{10}\u{f}\0r\u{1}3\u{1}\u{b}\u{12}\u{2}\0\0\u{4}\u{18}\u{f}\0s\u{1}4\u{1}\u{b}\u{13}\u{2}\0\0\u{4} \u{f}\0t\u{1}5\u{1}\u{b}\u{14}\u{2}\0\0\u{4}(\u{f}\0u\u{1}6\u{1}\u{b}\u{15}\u{2}\0\0\u{4}0\u{f}\0v\u{1}7\u{1}\u{b}\u{16}\u{2}\0\0\u{4}8\u{f}\0w\u{1}8\u{1}\u{b}\u{17}\u{2}\0\0\u{4}@\u{f}\0x\u{1}9\u{1}\u{b}\u{18}\u{2}\0\0\u{4}H\u{f}\0y\u{1}:\u{1}\u{b}\u{19}\u{2}\0\0\u{4}P\u{f}\0z\u{1};\u{1}\u{b}\u{1a}\u{2}\0\0\u{4}X\u{f}\0{\u{1}<\u{1}\u{b}\u{1b}\u{2}\0\0\u{4}`\u{f}\0|\u{1}=\u{1}\u{b}\u{1c}\u{2}\0\0\u{4}h\u{f}\0}\u{1}>\u{1}\u{b}\u{1d}\u{2}\0\0\u{4}p\u{f}\0~\u{1}?\u{1}\u{b}\u{1e}\u{2}\0\0\u{4}x\u{f}\0\u{7f}\u{1}@\u{1}\u{b}t\u{3}\0\0\0\0\u{10}\0\u{12}\0A\u{1}\u{b}u\u{3}\0\0\0\u{8}\u{10}\0\u{13}\0B\u{1}\u{b}v\u{3}\0\0\0\u{10}\u{10}\0\u{14}\0C\u{1}\u{b}w\u{3}\0\0\0\u{18}\u{10}\0\u{15}\0D\u{1}\u{b}x\u{3}\0\0\0 \u{10}\0\u{16}\0E\u{1}\u{b}y\u{3}\0\0\0(\u{10}\0\u{17}\0F\u{1}\u{b}z\u{3}\0\0\00\u{10}\0\u{18}\0G\u{1}\u{b}{\u{3}\0\0\08\u{10}\0\u{19}\0H\u{1}\u{b}|\u{3}\0\0\0@\u{10}\0\u{1a}\0I\u{1}\u{b}}\u{3}\0\0\0H\u{10}\0\u{1b}\0J\u{1}\u{b}~\u{3}\0\0\0P\u{10}\0\u{1c}\0K\u{1}\u{b}\u{7f}\u{3}\0\0\0X\u{10}\0\u{1d}\0L\u{1}\u{b}\0\u{4}\0\0\0`\u{10}\0\u{1e}\0M\u{1}\u{b}\u{1}\u{4}\0\0\0h\u{10}\0\u{1f}\0N\u{1}\u{b}\u{2}\u{4}\0\0\0p\u{10}\0 \0O\u{1}\u{b}\u{3}\u{4}\0\0\0x\u{10}\0!\0P\u{1}\u{b}\u{4}\u{4}\0\0\0\0\u{11}\0\"\0Q\u{1}\u{b}\u{5}\u{4}\0\0\0\u{8}\u{11}\0#\0R\u{1}\u{b}X\u{4}\0\0\0\u{10}\u{11}\0$\0S\u{1}\u{b}Y\u{4}\0\0\u{2}\u{18}\u{11}\0\0\u{2}S\u{1}\u{b} \0swift_proto_testing.fuzz.Message"
@@ -4409,7 +4409,6 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapBoolMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolMessageEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Fuzz_Message>.self)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -4419,7 +4418,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".SingularGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{12}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.fuzz.Message.SingularGroup"
@@ -4431,13 +4430,12 @@ extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$l\t!Q\u{1c}8t\u{15}i\u{14}8\\VoL<o<\u{12}/c#x\t\u{f}~D<:\u{14}+e'.}\u{1b}O\u{3}\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".RepeatedGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\00\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.fuzz.Message.RepeatedGroup"
@@ -4449,13 +4447,12 @@ extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4},H\u{3}Iolr@XEm7+5u|tO$\u{7}jHhDa\\2\u{5}MVL\u{5}grVDv\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".OneofGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0N\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.Message.OneofGroup"
@@ -4467,13 +4464,12 @@ extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#DKlMYua[\0a'wEn\u{12}i:\u{6}x\u{14}ay\u{13}\u{16}D?\u{11}/tA\u{8}\u{b}/ML\u{14}|-\u{2}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".AMessageSetMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0+\0swift_proto_testing.fuzz.AMessageSetMessage"
@@ -4485,7 +4481,6 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -4495,7 +4490,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".AMessageSetMessageExtension1"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{a}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension1"
@@ -4507,13 +4502,12 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Mes
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MI25\u{12}\0\u{c}& \u{11}XP\u{1c}dHZ\u{5}9b\u{14},`\r:v\u{15}a-\u{1e}v?n\u{f}U/g?=m"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".AMessageSetMessageExtension2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{14}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension2"
@@ -4525,13 +4519,12 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Mes
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MI2Ur\\G)K}R\u{1}=\u{17}T!\u{10}GD\u{16}Wlkr=Bp4[E&*#27&RVX\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".SingularGroup_ext"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0z\u{7}\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.fuzz.SingularGroup_ext"
@@ -4543,13 +4536,12 @@ extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$,4\u{1b}ax\u{16}=\rFc?G:\r\u{10}4K\"&L)j\u{6}\"24xm7g)i\u{1c}`\u{10}\u{1c}\u{1e}l\0\0\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".RepeatedGroup_ext"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{18}\u{8}\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.fuzz.RepeatedGroup_ext"
@@ -4561,7 +4553,6 @@ extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$l\nL2uS9\u{1d}F\u{3}z\u{1}\u{c}\u{15}K\u{1c}u&s\u{7}1\u{b}X%O(`#$}%\0+\u{6}3av?\u{2}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

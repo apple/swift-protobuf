@@ -281,7 +281,7 @@ extension SwiftProtoTesting_Proto2MapEnumPlusExtra {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMap"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
@@ -425,13 +425,12 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMapPlusExtra"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
@@ -575,7 +574,6 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

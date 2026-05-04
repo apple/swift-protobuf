@@ -232,7 +232,7 @@ extension SwiftProtoTesting_Extend3_MyMessage {
 
 fileprivate let _protobuf_package = "swift_proto_testing.extend3"
 
-extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0%\0swift_proto_testing.extend3.MyMessage"
@@ -244,13 +244,12 @@ extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Extend3_MyMessage.protoMessageName + ".C"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{1e}\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend3.MyMessage.C"
@@ -262,13 +261,12 @@ extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$/VORV7n?a8\\U\u{6}\u{b}1<\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message {
+extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".C"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0(\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend3.C"
@@ -280,7 +278,6 @@ extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rMd:\u{2}RSV7n?a8\\5d~\"<\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

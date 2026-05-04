@@ -88,7 +88,7 @@ public struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_SourceContext: Message {
+extension Google_Protobuf_SourceContext: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".SourceContext"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
@@ -100,7 +100,6 @@ extension Google_Protobuf_SourceContext: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hGliX\u{18}j9Rre(lk/\t\u{3}\u{1b}^\u{1}u\u{f}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

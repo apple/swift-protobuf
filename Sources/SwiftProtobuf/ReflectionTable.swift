@@ -141,24 +141,24 @@ private func loadUInt32(from bytes: UnsafeRawBufferPointer, at offset: Int) -> U
 
 extension ReflectionTable {
     /// Returns the text name for the given field number.
-    package func textName(forFieldNumber fieldNumber: UInt32) -> String? {
+    package func textName(forFieldNumber fieldNumber: UInt32) -> UTF8Name? {
         guard let offset = taggedTextOffset(forFieldNumber: fieldNumber) else { return nil }
         return name(at: offset)
     }
 
     /// Returns the text name for the given enum case.
-    package func textName(forEnumCase enumCase: Int32) -> String? {
+    package func textName(forEnumCase enumCase: Int32) -> UTF8Name? {
         textName(forFieldNumber: UInt32(bitPattern: enumCase))
     }
 
     /// Returns the JSON name for the given field number.
-    package func jsonName(forFieldNumber fieldNumber: UInt32) -> String? {
+    package func jsonName(forFieldNumber fieldNumber: UInt32) -> UTF8Name? {
         guard let offset = taggedTextOffset(forFieldNumber: fieldNumber) else { return nil }
         return secondName(at: offset)
     }
 
     /// Returns the JSON name for the given enum case.
-    package func jsonName(forEnumCase enumCase: Int32) -> String? {
+    package func jsonName(forEnumCase enumCase: Int32) -> UTF8Name? {
         jsonName(forFieldNumber: UInt32(bitPattern: enumCase))
     }
 
@@ -370,9 +370,9 @@ extension ReflectionTable {
 
                 let currentName = self.name(at: stringOffset)
 
-                if currentName == name {
+                if currentName.utf8CodeUnitsEqual(name) {
                     return loadUInt32(from: bytes, at: entryOffset &+ MemoryLayout<UInt32>.size)
-                } else if currentName < name {
+                } else if currentName.lexicographicallyPrecedes(name) {
                     low = mid &+ 1
                 } else {
                     high = mid &- 1
@@ -383,29 +383,41 @@ extension ReflectionTable {
     }
 
     /// Returns the string at the given offset in the name table.
-    private func name(at taggedOffset: UInt32) -> String {
+    private func name(at taggedOffset: UInt32) -> UTF8Name {
         let offset = taggedOffset & 0x7fff_ffff
         let start = nameTableOffset &+ Int(offset)
         return data.withUnsafeBytes { bytes in
-            let base = bytes.baseAddress!.assumingMemoryBound(to: CChar.self)
-            return String(cString: base + start)
+            let base = bytes.baseAddress!.assumingMemoryBound(to: UInt8.self)
+            let ptr = base + start
+            var count = 0
+            while ptr[count] != 0 {
+                count += 1
+            }
+            return UTF8Name(start: ptr, count: count)
         }
     }
 
     /// Returns the string at the given offset in the name table.
-    private func secondName(at taggedOffset: UInt32) -> String {
+    private func secondName(at taggedOffset: UInt32) -> UTF8Name {
         guard taggedOffset & 0x8000_0000 != 0 else {
             return name(at: taggedOffset)
         }
         let offset = taggedOffset & 0x7fff_ffff
         let start = nameTableOffset &+ Int(offset)
         return data.withUnsafeBytes { bytes in
-            let base = bytes.baseAddress!.assumingMemoryBound(to: CChar.self)
+            let base = bytes.baseAddress!.assumingMemoryBound(to: UInt8.self)
             var p = base + start
             while p.pointee != 0 {
                 p += 1
             }
-            return String(cString: p + 1)
+            p += 1 // Skip the null terminator of the first string
+            let startPtr = p
+            var count = 0
+            while p.pointee != 0 {
+                count += 1
+                p += 1
+            }
+            return UTF8Name(start: startPtr, count: count)
         }
     }
 }

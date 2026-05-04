@@ -281,7 +281,7 @@ extension SwiftProtoTesting_MapEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestMap: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMap"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{13}\0\0\0\0\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\u{4}\u{18}\u{1}\0\u{12}\0\u{13}\0\u{b}\u{1b}\0swift_proto_testing.TestMap"
@@ -470,13 +470,12 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32AllTypesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32AllTypesEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_TestAllTypes>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestRequiredMessageMap"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_proto_testing.TestRequiredMessageMap"
@@ -503,7 +502,6 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_TestRequired>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -513,7 +511,7 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message {
 
 }
 
-extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message {
+extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestRecursiveMapMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}+\0swift_proto_testing.TestRecursiveMapMessage"
@@ -540,7 +538,6 @@ extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message {
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_AEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_AEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_TestRecursiveMapMessage>.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

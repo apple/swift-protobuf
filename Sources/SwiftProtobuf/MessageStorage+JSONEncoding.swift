@@ -243,7 +243,7 @@ extension MessageStorage {
         into encoder: inout JSONEncoder,
         options: JSONEncodingOptions
     ) throws {
-        let name: String?
+        let name: UTF8Name?
         if options.preserveProtoFieldNames {
             name = schema.textName(forFieldNumber: fieldNumber)
         } else {

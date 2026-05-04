@@ -263,7 +263,7 @@ struct SwiftDescriptorTest_OtherMessage: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Proto3MessageForPresence"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\0\u{1}\0\0\0\0p\0\0\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\00\0\0\0\0\u{2}\0\u{b}\u{b}\0\0\0\0\0\u{1}\0\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\08\0\0\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}@\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}H\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}P\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}X\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0`\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
@@ -283,7 +283,6 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -295,7 +294,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OtherMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
@@ -307,7 +306,6 @@ extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps+\u{b}Fr-\u{11}y\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

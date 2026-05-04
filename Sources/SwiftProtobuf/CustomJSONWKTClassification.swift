@@ -42,43 +42,49 @@ package enum CustomJSONWKTClassification {
 
     /// Classifies the message represented by the given schema.
     package init(messageSchema: MessageSchema) {
-        guard let suffix = suffixIfWellKnown(messageSchema.messageName) else {
+        guard let suffix = messageSchema.messageName.consumePrefix("google.protobuf.") else {
             self = .notWellKnown
             return
         }
-        switch suffix {
-        case "Any": self = .any
-        case "BoolValue": self = .boolValue
-        case "BytesValue": self = .bytesValue
-        case "DoubleValue": self = .doubleValue
-        case "Duration": self = .duration
-        case "FieldMask": self = .fieldMask
-        case "FloatValue": self = .floatValue
-        case "Int32Value": self = .int32Value
-        case "Int64Value": self = .int64Value
-        case "ListValue": self = .listValue
-        case "StringValue": self = .stringValue
-        case "Struct": self = .struct
-        case "Timestamp": self = .timestamp
-        case "UInt32Value": self = .uint32Value
-        case "UInt64Value": self = .uint64Value
-        case "Value": self = .value
-        default: self = .notWellKnown
+        if suffix.utf8CodeUnitsEqual("Any") {
+            self = .any
+        } else if suffix.utf8CodeUnitsEqual("BoolValue") {
+            self = .boolValue
+        } else if suffix.utf8CodeUnitsEqual("BytesValue") {
+            self = .bytesValue
+        } else if suffix.utf8CodeUnitsEqual("DoubleValue") {
+            self = .doubleValue
+        } else if suffix.utf8CodeUnitsEqual("Duration") {
+            self = .duration
+        } else if suffix.utf8CodeUnitsEqual("FieldMask") {
+            self = .fieldMask
+        } else if suffix.utf8CodeUnitsEqual("FloatValue") {
+            self = .floatValue
+        } else if suffix.utf8CodeUnitsEqual("Int32Value") {
+            self = .int32Value
+        } else if suffix.utf8CodeUnitsEqual("Int64Value") {
+            self = .int64Value
+        } else if suffix.utf8CodeUnitsEqual("ListValue") {
+            self = .listValue
+        } else if suffix.utf8CodeUnitsEqual("StringValue") {
+            self = .stringValue
+        } else if suffix.utf8CodeUnitsEqual("Struct") {
+            self = .struct
+        } else if suffix.utf8CodeUnitsEqual("Timestamp") {
+            self = .timestamp
+        } else if suffix.utf8CodeUnitsEqual("UInt32Value") {
+            self = .uint32Value
+        } else if suffix.utf8CodeUnitsEqual("UInt64Value") {
+            self = .uint64Value
+        } else if suffix.utf8CodeUnitsEqual("Value") {
+            self = .value
+        } else {
+            self = .notWellKnown
         }
     }
 
     /// Classifies the enum represented by the given schema.
     package init(enumSchema: EnumSchema) {
-        self = enumSchema.enumName == "google.protobuf.NullValue" ? .nullValue : .notWellKnown
+        self = enumSchema.enumName.utf8CodeUnitsEqual("google.protobuf.NullValue") ? .nullValue : .notWellKnown
     }
-}
-
-/// Returns the portion of the full message/enum name that follows `google.protobuf.` if it is a
-/// well-known type.
-private func suffixIfWellKnown(_ fullName: String) -> Substring? {
-    let prefix = "google.protobuf."
-    guard fullName.starts(with: prefix) else {
-        return nil
-    }
-    return fullName.dropFirst(prefix.count)
 }

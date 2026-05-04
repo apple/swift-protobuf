@@ -125,10 +125,6 @@ public struct MessageSchema: @unchecked Sendable {
 
     /// A key that can be used to uniquely identify a message schema in a hashed collection.
     var key: Key {
-        // TODO: As currently written, it's possible that the linker could fold strings representing
-        // messages with identical layout. We can avoid this in the future when we merge the name
-        // map and fully qualified message name into the schema string, ensuring that they'll be
-        // unique.
         Key(value: schema.baseAddress!)
     }
 
@@ -193,7 +189,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is a message.
     @_spi(ForGeneratedCodeOnly)
-    public init<K: ProtobufMapKey, M: Message>(
+    public init<K: ProtobufMapKey, M: GeneratedMessage>(
         schema: StaticString,
         forMapEntryWithKeyType keyType: K.Type,
         valueType: ProtobufMapMessageField<M>.Type
@@ -206,9 +202,7 @@ public struct MessageSchema: @unchecked Sendable {
                 guard token.index == 1 else {
                     preconditionFailure("This should have been unreachable; this is a generator bug")
                 }
-                // TODO: Introduce a `GeneratedMessage` protocol with a `static var messageSchema`
-                // requirement and use that here.
-                return .message(M().messageSchema)
+                return .message(M.messageSchema)
             }
         )
     }
@@ -341,11 +335,11 @@ extension MessageSchema {
     }
 
     /// The fully-qualified name of the message.
-    var messageName: String {
+    var messageName: UTF8Name {
         let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
-        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+        return UTF8Name(start: schema.baseAddress! + nameStart, count: length)
     }
 
     /// Returns a value indicating whether or not the given field is required.
@@ -363,12 +357,12 @@ extension MessageSchema {
 
 extension MessageSchema {
     /// Returns the text name for the given field number.
-    func textName(forFieldNumber number: UInt32) -> String? {
+    func textName(forFieldNumber number: UInt32) -> UTF8Name? {
         reflection.table.textName(forFieldNumber: number)
     }
 
     /// Returns the JSON name for the given field number.
-    func jsonName(forFieldNumber number: UInt32) -> String? {
+    func jsonName(forFieldNumber number: UInt32) -> UTF8Name? {
         reflection.table.jsonName(forFieldNumber: number)
     }
 
@@ -383,7 +377,7 @@ extension MessageSchema {
         let lowercaseName = name.lowercased()
         for field in fields where field.rawFieldType == .group {
             if let textName = reflection.table.textName(forFieldNumber: field.fieldNumber),
-                textName.lowercased() == lowercaseName
+                String(decoding: textName.buffer, as: UTF8.self).lowercased() == lowercaseName
             {
                 return field.fieldNumber
             }
@@ -416,16 +410,23 @@ var fieldSchemaSize: Int { 13 }
 extension MessageSchema {
     /// Iterates over the field schemas in the schema string.
     struct FieldIterator: IteratorProtocol {
-        var current: Slice<UnsafeRawBufferPointer>
+        // This implementation originally used `Slice<UnsafeRawBufferPointer>`, but it is
+        // _significantly_ slower in debug mode and still measurably slower in release mode.
+        let baseAddress: UnsafeRawPointer
+        var offset: Int
+        let end: Int
 
         init(fields: Slice<UnsafeRawBufferPointer>) {
-            self.current = fields
+            self.baseAddress = fields.base.baseAddress!
+            self.offset = fields.startIndex
+            self.end = fields.endIndex
         }
 
         mutating func next() -> FieldSchema? {
-            guard !current.isEmpty else { return nil }
-            defer { current = current.dropFirst(fieldSchemaSize) }
-            return FieldSchema(slice: current.prefix(fieldSchemaSize))
+            guard offset < end else { return nil }
+            let fieldPtr = baseAddress + offset
+            offset += fieldSchemaSize
+            return FieldSchema(start: fieldPtr, count: fieldSchemaSize)
         }
     }
 
@@ -608,6 +609,11 @@ public struct FieldSchema {
     /// Creates a new field schema from the given slice of a message's field schema string.
     init(slice: Slice<UnsafeRawBufferPointer>) {
         self.buffer = UnsafeRawBufferPointer(rebasing: slice)
+    }
+
+    /// Creates a new field schema from a raw pointer and count.
+    init(start: UnsafeRawPointer, count: Int) {
+        self.buffer = UnsafeRawBufferPointer(start: start, count: count)
     }
 
     /// Creates a new field layout from the given string that describes exactly one field.

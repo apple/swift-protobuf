@@ -405,7 +405,7 @@ public struct Google_Protobuf_BytesValue: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_DoubleValue: Message {
+extension Google_Protobuf_DoubleValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".DoubleValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}\u{1b}\0google.protobuf.DoubleValue"
@@ -417,13 +417,12 @@ extension Google_Protobuf_DoubleValue: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_FloatValue: Message {
+extension Google_Protobuf_FloatValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".FloatValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}\u{1a}\0google.protobuf.FloatValue"
@@ -435,13 +434,12 @@ extension Google_Protobuf_FloatValue: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Int64Value: Message {
+extension Google_Protobuf_Int64Value: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Int64Value"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1a}\0google.protobuf.Int64Value"
@@ -453,13 +451,12 @@ extension Google_Protobuf_Int64Value: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_UInt64Value: Message {
+extension Google_Protobuf_UInt64Value: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".UInt64Value"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{1b}\0google.protobuf.UInt64Value"
@@ -471,13 +468,12 @@ extension Google_Protobuf_UInt64Value: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_Int32Value: Message {
+extension Google_Protobuf_Int32Value: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Int32Value"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{1a}\0google.protobuf.Int32Value"
@@ -489,13 +485,12 @@ extension Google_Protobuf_Int32Value: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_UInt32Value: Message {
+extension Google_Protobuf_UInt32Value: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".UInt32Value"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{1b}\0google.protobuf.UInt32Value"
@@ -507,13 +502,12 @@ extension Google_Protobuf_UInt32Value: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_BoolValue: Message {
+extension Google_Protobuf_BoolValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".BoolValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{19}\0google.protobuf.BoolValue"
@@ -525,13 +519,12 @@ extension Google_Protobuf_BoolValue: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_StringValue: Message {
+extension Google_Protobuf_StringValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".StringValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1b}\0google.protobuf.StringValue"
@@ -543,13 +536,12 @@ extension Google_Protobuf_StringValue: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension Google_Protobuf_BytesValue: Message {
+extension Google_Protobuf_BytesValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".BytesValue"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{c}\u{1a}\0google.protobuf.BytesValue"
@@ -561,7 +553,6 @@ extension Google_Protobuf_BytesValue: Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  public var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

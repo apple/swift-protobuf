@@ -160,7 +160,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
 
 fileprivate let _protobuf_package = "swift_descriptor_test.import"
 
-extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Version"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version"
@@ -172,13 +172,12 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message {
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KH+\u{1e}\u{17}d GMwQy\u{13}\u{7f}c[)rwJ%\u{10}9><\u{5}]5XP\u{6}\u{7f}V a9c\u{1f}\u{6}\r7[\u{13}Sa\u{1e}\u{1e}UVg\u{3}\u{1}\u{1d}ADtmw\u{16}&\tTG+p\u{2}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtendableOne"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
@@ -197,7 +196,6 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -207,7 +205,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
 
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message {
+extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
@@ -219,7 +217,6 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

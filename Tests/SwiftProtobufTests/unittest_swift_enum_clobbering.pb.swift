@@ -131,7 +131,7 @@ extension SwiftProtoTesting_EnumClobbering_Foo {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message {
+extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".EnumHolder"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder"
@@ -150,7 +150,6 @@ extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.Message {
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

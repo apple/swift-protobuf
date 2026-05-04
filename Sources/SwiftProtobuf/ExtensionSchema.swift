@@ -113,14 +113,11 @@ extension ExtensionSchema {
         FieldSchema(slice: schema[1..<(1 + fieldSchemaSize)])
     }
 
-    var fieldName: String {
-        // TODO: Once we've trimmed out the legacy code that will no longer be used, consider
-        // exposing this slice directly and letting encoders/decoders work with it so that we
-        // avoid having to materialize a new string every time.
+    var fieldName: UTF8Name {
         let lengthOffset = 1 + fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
-        return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+        return UTF8Name(start: schema.baseAddress! + nameStart, count: length)
     }
 
     /// The message schema for this extension field, if it is a message or group.

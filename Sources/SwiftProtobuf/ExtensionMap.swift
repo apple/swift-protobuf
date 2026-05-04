@@ -69,7 +69,7 @@ public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
     public mutating func insert(_ schema: ExtensionSchema) {
         let messageKey = schema.extendedMessage.key
         registryByNumber[FieldNumberKey(messageSchemaKey: messageKey, fieldNumber: schema.field.fieldNumber)] = schema
-        registryByName[FieldNameKey(messageSchemaKey: messageKey, fieldName: schema.fieldName)] = schema
+        registryByName[FieldNameKey(messageSchemaKey: messageKey, fieldName: String(protobufUTF8Name: schema.fieldName))] = schema
     }
 
     /// Adds a sequence of extension schemas into the receiver.

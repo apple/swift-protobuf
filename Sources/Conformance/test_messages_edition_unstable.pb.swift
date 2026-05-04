@@ -310,7 +310,7 @@ extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Message {
+extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ComplexMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
@@ -322,13 +322,12 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Mes
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpgSM,M\te\u{4}[\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
-extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.Message {
+extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesEditionUnstable"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1}\0\u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a} \0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}(\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}0\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4}8\0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}@\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}H\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4}P\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}X\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0p\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}`\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}h\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
@@ -403,7 +402,6 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringBytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringBytesEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -413,7 +411,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 
 }
 
-extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.Message {
+extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessageEditionUnstable"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
@@ -425,7 +423,6 @@ extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sw
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
-  var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 

@@ -60,9 +60,16 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    mutating func emitFieldName(name: String) {
+    mutating func emitFieldName(name: UTF8Name) {
         indent()
-        data.append(contentsOf: name.utf8)
+        data.append(contentsOf: name.buffer)
+    }
+
+    mutating func emitExtensionFieldName(name: UTF8Name) {
+        indent()
+        data.append(asciiOpenSquareBracket)
+        data.append(contentsOf: name.buffer)
+        data.append(asciiCloseSquareBracket)
     }
 
     mutating func emitExtensionFieldName(name: String) {
@@ -112,7 +119,7 @@ internal struct TextFormatEncoder {
 
     mutating func putEnumValue<E: Enum>(value: E) {
         if let name = value.textFormatName {
-            data.append(contentsOf: name.utf8)
+            data.append(contentsOf: name.buffer)
         } else {
             appendInt(value: Int64(value.rawValue))
         }
@@ -120,7 +127,7 @@ internal struct TextFormatEncoder {
 
     mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema) {
         if let name = enumSchema.textName(forEnumCase: rawValue) {
-            data.append(contentsOf: name.utf8)
+            data.append(contentsOf: name.buffer)
         } else {
             appendInt(value: Int64(rawValue))
         }
