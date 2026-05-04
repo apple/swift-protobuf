@@ -18,7 +18,7 @@ import Foundation
 /// key or a value).
 @_spi(ForGeneratedCodeOnly) public protocol ProtobufMapParticipant {
     /// The actual Swift type of the field as it is represented in memory.
-    associatedtype Base
+    associatedtype Base: Equatable
 
     /// Returns the value of the field based on the given offset and presence information.
     static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Base

@@ -22,6 +22,8 @@ extension MessageStorage {
     /// differently from one where that field is not present but has a default defined to be 100.
     @inline(never)
     func hash(into hasher: inout Hasher) {
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+
         // TODO: If we store the offset of the first non-trivial field in the schema, we can make
         // this extremely fast by hashing the trivial fields as a single slice of bytes. Likewise,
         // we could avoid the loop entirely if the message contains only trivial fields.
@@ -40,14 +42,13 @@ extension MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                _ = try! schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
+                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                forEachMapEntry(
+                    in: field,
+                    useDeterministicOrdering: false,
+                    workingSpace: workingSpace
                 ) {
                     $0.hash(into: &hasher)
-                    return true
                 }
 
             case .array:
@@ -61,16 +62,10 @@ extension MessageStorage {
                     hashField(field, into: &hasher, type: [Data].self)
                 case .double:
                     hashField(field, into: &hasher, type: [Double].self)
-                case .enum, .group, .message:
-                    _ = try! schema.performOnSubmessageStorage(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        field,
-                        self,
-                        .read
-                    ) {
-                        $0.hash(into: &hasher)
-                        return true
-                    }
+                case .enum:
+                    forEachRawValue(inAssumedPresentRepeatedEnumField: field) { $0.hash(into: &hasher) }
+                case .group, .message:
+                    forEachMessage(inAssumedPresentRepeatedField: field) { $0.hash(into: &hasher) }
                 case .fixed32, .uint32:
                     hashField(field, into: &hasher, type: [UInt32].self)
                 case .fixed64, .uint64:
@@ -99,15 +94,7 @@ extension MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    _ = try! schema.performOnSubmessageStorage(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        field,
-                        self,
-                        .read
-                    ) {
-                        $0.hash(into: &hasher)
-                        return true
-                    }
+                    messageStorage(forAssumedPresentSingularMessageField: field).hash(into: &hasher)
 
                 case .string:
                     if field.offset < firstNontrivialStorageOffset {

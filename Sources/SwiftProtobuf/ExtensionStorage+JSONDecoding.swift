@@ -42,7 +42,11 @@ extension ExtensionStorage {
                     appendValue(try reader.scanner.nextDouble(), to: schema)
 
                 case .enum:
-                    try scanEnumValue(schema, from: &reader, operation: .append)
+                    do {
+                        appendValue(try scanEnumValue(schema, from: &reader), to: schema)
+                    } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                        // Ignore unknown enum values if requested.
+                    }
 
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextUInt()
@@ -58,7 +62,7 @@ extension ExtensionStorage {
                     appendValue(try reader.scanner.nextFloat(), to: schema)
 
                 case .group, .message:
-                    try scanSubmessageValue(schema, from: &reader, operation: .append)
+                    try scanRepeatedMessageField(schema, from: &reader)
 
                 case .int32, .sfixed32, .sint32:
                     let n = try reader.scanner.nextSInt()
@@ -124,7 +128,7 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: Int32.self)
                 break
             }
-            try scanEnumValue(schema, from: &reader, operation: .mutate)
+            updateValue(of: schema, to: try scanEnumValue(schema, from: &reader))
 
         case .fixed32, .uint32:
             if isNull {
@@ -153,14 +157,10 @@ extension ExtensionStorage {
 
         case .group, .message:
             if isNull {
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .jsonNull
-                ) { _ in preconditionFailure("should never be called") }
-                return
+                clearSingularMessageField(schema)
+                break
             }
-            try scanSubmessageValue(schema, from: &reader, operation: .mutate)
+            try scanSingularMessageField(schema, from: &reader)
 
         case .int32, .sfixed32, .sint32:
             if isNull {
@@ -192,27 +192,27 @@ extension ExtensionStorage {
         }
     }
 
-    /// Scans the submessage value of the given extension from the reader, performing the given
-    /// operation on its storage (either mutate or append).
+    /// Scans the next message from the JSON reader into the storage of the given field.
     ///
     /// - Parameters:
-    ///   - field: The ``ExtensionSchema`` of the extension being scanned.
+    ///   - ext: The ``ExtensionSchema`` of the extension field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
-    ///   - operation: The trampoline operation to perform on the submessage storage.
-    private func scanSubmessageValue(
-        _ schema: ExtensionSchema,
-        from reader: inout JSONReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            schema,
-            self,
-            operation
-        ) { submessageStorage in
-            try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
-                try submessageStorage.merge(byParsingJSONFrom: &subReader)
-            }
-            return true
+    private func scanSingularMessageField(_ ext: ExtensionSchema, from reader: inout JSONReader) throws {
+        let submessageStorage = uniqueMessageStorage(forSingularMessageField: ext)
+        try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+            try submessageStorage.merge(byParsingJSONFrom: &subReader)
+        }
+    }
+
+    /// Scans the next message from the JSON reader and appends it to the repeated message field.
+    ///
+    /// - Parameters:
+    ///   - ext: The ``ExtensionSchema`` of the extension field being scanned.
+    ///   - reader: The ``JSONReader`` from which to scan the value.
+    private func scanRepeatedMessageField(_ ext: ExtensionSchema, from reader: inout JSONReader) throws {
+        let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: ext)
+        try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+            try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
     }
 
@@ -226,39 +226,34 @@ extension ExtensionStorage {
     private func scanEnumValue(
         _ schema: ExtensionSchema,
         from reader: inout JSONReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        var hasSeenValue = false
+    ) throws -> Int32 {
+        let enumSchema = schema.enumSchema
 
-        _ = try schema.performOnRawEnumValues(
-            schema,
-            self,
-            operation
-        ) { enumSchema, value in
-            // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
-            // having read one value.
-            if hasSeenValue {
-                return false
+        if let name = try reader.scanner.nextOptionalQuotedString() {
+            guard let number = enumSchema.enumCase(forTextName: name) else {
+                throw JSONDecodingError.unrecognizedEnumValue
             }
-            hasSeenValue = true
+            return Int32(number)
+        }
 
-            if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumSchema.enumCase(forTextName: name) else {
-                    throw JSONDecodingError.unrecognizedEnumValue
-                }
-                value = number
-                return true
+        if reader.scanner.skipOptionalNull() {
+            switch CustomJSONWKTClassification(enumSchema: enumSchema) {
+            case .nullValue:
+                return 0
+            default:
+                throw JSONDecodingError.illegalNull
             }
+        }
 
-            let number = try reader.scanner.nextSInt()
-            guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-                throw JSONDecodingError.numberRange
-            }
+        let number = try reader.scanner.nextSInt()
+        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
+            throw JSONDecodingError.numberRange
+        }
 
-            value = Int32(truncatingIfNeeded: number)
-            return true
-        } /*onInvalidValue*/ _: { _ in
+        let rawValue = Int32(truncatingIfNeeded: number)
+        guard enumSchema.isValidValue(rawValue) else {
             throw JSONDecodingError.unrecognizedEnumValue
         }
+        return rawValue
     }
 }

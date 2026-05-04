@@ -69,7 +69,16 @@ extension ExtensionStorage {
 
             case .group:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofGroupExtension: schema, fieldNumber: fieldNumber)
+                var totalSize = 0
+                forEachMessage(inAssumedPresentRepeatedMessageField: schema) { groupStorage in
+                    let messageSize = groupStorage.serializedBytesSize()
+                    totalSize += messageSize
+                        // Include the size of the length-delimited tag.
+                        + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                        // Include the varint-encoded length.
+                        + Varint.encodedSize(of: UInt64(messageSize))
+                }
+                return totalSize
 
             case .int32:
                 let values = value.value(as: [Int32].self)
@@ -89,7 +98,15 @@ extension ExtensionStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofMessageExtension: schema, fieldNumber: fieldNumber)
+                let count = elementCount(forAssumedPresentRepeatedMessageField: schema)
+                // It's slightly more efficient to pre-calculate the total size of the tags here
+                // instead of adding it inside the loop, so we don't use `forEach...` here.
+                var totalSize = count * (2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber))
+                for i in 0..<count {
+                    totalSize +=
+                        messageStorage(at: i, inAssumedPresentRepeatedMessageField: schema).serializedBytesSize()
+                }
+                return totalSize
 
             case .sfixed32:
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, value: value, isPacked: isPacked, as: Int32.self)
@@ -170,7 +187,10 @@ extension ExtensionStorage {
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Float.self)
 
             case .group:
-                return serializedByteSize(ofGroupExtension: schema, fieldNumber: fieldNumber)
+                let messageSize = messageStorage(forAssumedPresentSingularMessageField: schema).serializedBytesSize()
+                return messageSize
+                    // Include the size of the start tag and end tag.
+                    + 2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
 
             case .int32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
@@ -181,7 +201,12 @@ extension ExtensionStorage {
                     + Varint.encodedSize(of: value.value(as: Int64.self))
 
             case .message:
-                return serializedByteSize(ofMessageExtension: schema, fieldNumber: fieldNumber)
+                let messageSize = messageStorage(forAssumedPresentSingularMessageField: schema).serializedBytesSize()
+                return messageSize
+                    // Include the size of the length-delimited tag.
+                    + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    // Include the varint-encoded length.
+                    + Varint.encodedSize(of: UInt64(messageSize))
 
             case .sfixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)
@@ -254,76 +279,17 @@ extension ExtensionStorage {
         isPacked: Bool
     ) -> Int {
         var totalEnumsSize = 0
-        var count = 0
-        _ = try! schema.performOnRawEnumValues(
-            schema,
-            self,
-            .read
-        ) { _, value in
-            count += 1
+        let count = elementCount(forAssumedPresentRepeatedEnumField: schema)
+        for i in 0..<count {
+            let value = rawValue(at: i, inAssumedPresentRepeatedEnumField: schema)
             totalEnumsSize += Varint.encodedSize(of: value)
-            return true
-        } /*onInvalidValue*/ _: { _ in
         }
-        if isPacked {
+        if schema.field.fieldMode.isPacked {
             // Packed: we need to add a single (length-delimited) tag and a varint for the length.
             return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 + Varint.encodedSize(of: UInt64(totalEnumsSize))
         }
         // Unpacked: there will be a separate tag for each value.
         return totalEnumsSize + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber) * count
-    }
-
-    /// Returns the serialized byte size of the given submessage field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    ///
-    /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `ExtensionSchema` to avoid the (minor but non-zero) cost of decoding it again from
-    /// the schema, since that has already been done by the caller.
-    private func serializedByteSize(ofMessageExtension schema: ExtensionSchema, fieldNumber: Int) -> Int {
-        var totalMessagesSize = 0
-        _ = try! schema.performOnSubmessageStorage(
-            schema,
-            self,
-            .read
-        ) {
-            let singleMessageSize = $0.serializedBytesSize()
-            totalMessagesSize +=
-                singleMessageSize
-                // Include the size of the length-delimited tag.
-                + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                // Include the varint-encoded length.
-                + Varint.encodedSize(of: UInt64(singleMessageSize))
-            return true
-        }
-        return totalMessagesSize
-    }
-
-    /// Returns the serialized byte size of the given `group` field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    ///
-    /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofGroupExtension schema: ExtensionSchema, fieldNumber: Int) -> Int {
-        var totalMessagesSize = 0
-        _ = try! schema.performOnSubmessageStorage(
-            schema,
-            self,
-            .read
-        ) {
-            totalMessagesSize +=
-                $0.serializedBytesSize()
-                // Include the size of the start tag and end tag.
-                + 2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-            return true
-        }
-        return totalMessagesSize
     }
 }

@@ -40,15 +40,22 @@ struct MapEntryWorkingSpace {
     /// Returns the `MessageStorage` used to encode/decode map entries with the given trampoline
     /// index, creating it if necessary.
     mutating func storage(for trampolineIndex: Int) -> MessageStorage {
-        if let storage = entryStorage[trampolineIndex] {
-            return storage
-        }
+        // if let storage = entryStorage[trampolineIndex] {
+        //     // Make sure to clear out the working space before invoking the closure, so that we
+        //     // handle missing fields in the map entry correctly.
+        //     // K.clearValue(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
+        //     // V.clearValue(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+        //     // workingSpace.unknownFields = UnknownStorage()
+        //     return storage
+        // }
 
         // It didn't already exist, so create it and cache it.
-        let storage = MessageStorage(
-            schema: ownerSchema.mapEntrySchema(MessageSchema.TrampolineToken(index: trampolineIndex))
-        )
-        entryStorage[trampolineIndex] = storage
+        let token = MessageSchema.TrampolineToken(index: trampolineIndex)
+        guard case .message(let mapEntrySchema) = ownerSchema.submessageOrEnumResolver(token) else {
+            preconditionFailure("map entry should have resolved to a message schema; this is a generator bug")
+        }
+        let storage = MessageStorage(schema: mapEntrySchema)
+        // entryStorage[trampolineIndex] = storage
         return storage
     }
 }

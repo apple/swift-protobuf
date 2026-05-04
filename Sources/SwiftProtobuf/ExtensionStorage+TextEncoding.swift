@@ -92,16 +92,11 @@ extension ExtensionStorage {
 
             case .group, .message:
                 precondition(!isPacked, "a packed group/message field should not be reachable")
-                _ = try! schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .read
-                ) {
+                forEachMessage(inAssumedPresentRepeatedMessageField: schema) {
                     encoder.emitExtensionFieldName(name: schema.fieldName)
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)
                     encoder.endMessageField()
-                    return true
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -124,16 +119,10 @@ extension ExtensionStorage {
             // fields.
             switch fieldType {
             case .group, .message:
-                _ = try! schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .read
-                ) {
-                    encoder.startMessageField()
-                    $0.serializeText(into: &encoder, options: options)
-                    encoder.endMessageField()
-                    return true
-                }
+                let submessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
+                encoder.startMessageField()
+                submessageStorage.serializeText(into: &encoder, options: options)
+                encoder.endMessageField()
                 return
 
             default:
@@ -154,16 +143,7 @@ extension ExtensionStorage {
                 encoder.putDoubleValue(value: value.value(as: Double.self))
 
             case .enum:
-                _ = try! schema.performOnRawEnumValues(
-                    schema,
-                    self,
-                    .read
-                ) { enumSchema, value in
-                    encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
-                    return true
-                } /*onInvalidValue*/ _: { _ in
-                    assertionFailure("invalid value handler should never be called for .read")
-                }
+                encoder.putEnumValue(rawValue: value.value(as: Int32.self), enumSchema: schema.enumSchema)
 
             case .fixed32, .uint32:
                 encoder.putUInt64(value: UInt64(value.value(as: UInt32.self)))
@@ -195,6 +175,7 @@ extension ExtensionStorage {
     /// Emits the name and values of a repeated enum field, using compact representation if the
     /// field is packed.
     private func emitRepeatedEnumField(_ schema: ExtensionSchema, into encoder: inout TextFormatEncoder) {
+        let enumSchema = schema.enumSchema
         if schema.field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
             encoder.emitExtensionFieldName(name: schema.fieldName)
@@ -202,37 +183,23 @@ extension ExtensionStorage {
             encoder.startArray()
             var firstItem = true
 
-            _ = try! schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { enumSchema, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { rawValue in
                 if !firstItem {
                     encoder.arraySeparator()
                 }
-                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
+                encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 firstItem = false
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
             }
 
             encoder.endArray()
             encoder.endRegularField()
         } else {
             // Each element is a fully serialized "name: value" pair.
-            _ = try! schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { enumSchema, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { rawValue in
                 encoder.emitExtensionFieldName(name: schema.fieldName)
                 encoder.startRegularField()
-                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
+                encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 encoder.endRegularField()
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
             }
         }
     }

@@ -124,13 +124,11 @@ extension MessageStorage {
             encoder.startObject()
 
             var firstItem = true
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .read,
-                options.useDeterministicOrdering
+            let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            try forEachMapEntry(
+                in: field,
+                useDeterministicOrdering: options.useDeterministicOrdering,
+                workingSpace: workingSpace
             ) { mapEntryStorage in
                 if !firstItem {
                     encoder.comma()
@@ -144,7 +142,6 @@ extension MessageStorage {
                     options: options
                 )
                 firstItem = false
-                return true
             }
 
             encoder.endObject()
@@ -176,24 +173,16 @@ extension MessageStorage {
 
             case .enum:
                 var firstItem = true
-                _ = try! schema.performOnRawEnumValues(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) { enumSchema, value in
+                forEachRawValue(inAssumedPresentRepeatedEnumField: field) { rawValue in
                     if !firstItem {
                         encoder.comma()
                     }
                     encoder.putEnumValue(
-                        rawValue: value,
-                        enumSchema: enumSchema,
+                        rawValue: rawValue,
+                        enumSchema: enumSchema(for: field),
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
-                    return true
-                } /*onInvalidValue*/ _: { _ in
-                    assertionFailure("invalid value handler should never be called for .read")
                 }
 
             case .fixed32, .uint32:
@@ -211,18 +200,12 @@ extension MessageStorage {
 
             case .group, .message:
                 var firstItem = true
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) {
+                try forEachMessage(inAssumedPresentRepeatedField: field) {
                     if !firstItem {
                         encoder.comma()
                     }
                     try $0.serializeJSON(into: &encoder, options: options)
                     firstItem = false
-                    return true
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -290,21 +273,11 @@ extension MessageStorage {
             encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
         case .enum:
-            _ = try schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { enumSchema, value in
-                encoder.putEnumValue(
-                    rawValue: value,
-                    enumSchema: enumSchema,
-                    alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
-                )
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
-            }
+            encoder.putEnumValue(
+                rawValue: assumedPresentValue(at: offset, as: Int32.self),
+                enumSchema: enumSchema(for: field),
+                alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
+            )
 
         case .fixed32, .uint32:
             encoder.putNonQuotedUInt32(value: assumedPresentValue(at: offset))
@@ -319,15 +292,8 @@ extension MessageStorage {
             encoder.putFloatValue(value: assumedPresentValue(at: offset))
 
         case .group, .message:
-            _ = try schema.performOnSubmessageStorage(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) {
-                try $0.serializeJSON(into: &encoder, options: options)
-                return true
-            }
+            let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
+            try subMessageStorage.serializeJSON(into: &encoder, options: options)
 
         case .int32, .sfixed32, .sint32:
             encoder.putNonQuotedInt32(value: assumedPresentValue(at: offset))
@@ -467,18 +433,12 @@ extension MessageStorage {
         let valuesField = schema[fieldNumber: 1]!
         if isPresent(valuesField) {
             var firstItem = true
-            _ = try schema.performOnSubmessageStorage(
-                MessageSchema.TrampolineToken(index: valuesField.submessageIndex),
-                valuesField,
-                self,
-                .read
-            ) {
+            try forEachMessage(inAssumedPresentRepeatedField: valuesField) { 
                 if !firstItem {
                     encoder.comma()
                 }
                 try $0.serializeJSON(into: &encoder, options: options)
                 firstItem = false
-                return true
             }
         }
 
@@ -496,13 +456,11 @@ extension MessageStorage {
         if isPresent(fieldsField) {
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             var firstItem = true
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: fieldsField.submessageIndex),
-                fieldsField,
-                self,
-                mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex),
-                .read,
-                false  // useDeterministicOrdering
+            let workingSpace = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex)
+            try forEachMapEntry(
+                in: fieldsField,
+                useDeterministicOrdering: false,
+                workingSpace: workingSpace
             ) { mapEntryStorage in
                 if !firstItem {
                     encoder.comma()
@@ -516,7 +474,6 @@ extension MessageStorage {
                     options: options
                 )
                 firstItem = false
-                return true
             }
         }
 
@@ -563,15 +520,8 @@ extension MessageStorage {
             encoder.putNonQuotedBoolValue(value: value(of: field))
 
         case 5, 6:
-            _ = try schema.performOnSubmessageStorage(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) {
-                try $0.serializeJSON(into: &encoder, options: options)
-                return true
-            }
+            let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
+            try subMessageStorage.serializeJSON(into: &encoder, options: options)
 
         default:
             throw JSONEncodingError.missingValue

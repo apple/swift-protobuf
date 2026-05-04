@@ -76,7 +76,15 @@ extension MessageStorage {
 
             case .group:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
+                let count = elementCount(forAssumedPresentRepeatedMessageField: field)
+                // It's slightly more efficient to pre-calculate the total size of the tags here
+                // instead of adding it inside the loop, so we don't use `forEach...` here.
+                var totalSize = count * (2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber))
+                for i in 0..<count {
+                    totalSize +=
+                        messageStorage(at: i, inAssumedPresentRepeatedMessageField: field).serializedBytesSize()
+                }
+                return totalSize
 
             case .int32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
@@ -96,7 +104,17 @@ extension MessageStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
+                var totalSize = 0
+                forEachMessage(inAssumedPresentRepeatedField: field) {
+                    let messageSize = $0.serializedBytesSize()
+                    totalSize += messageSize
+                        // Include the size of the length-delimited tag.
+                        + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                        // Include the varint-encoded length.
+                        + Varint.encodedSize(of: UInt64(messageSize))
+
+                }
+                return totalSize
 
             case .sfixed32:
                 return fixedWidthRepeatedFieldSize(for: fieldNumber, at: offset, isPacked: isPacked, as: Int32.self)
@@ -177,7 +195,10 @@ extension MessageStorage {
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Float.self)
 
             case .group:
-                return serializedByteSize(ofGroupField: field, fieldNumber: fieldNumber)
+                let messageSize = messageStorage(forAssumedPresentSingularMessageField: field).serializedBytesSize()
+                return messageSize
+                    // Include the size of the start tag and end tag.
+                    + 2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
 
             case .int32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
@@ -188,7 +209,12 @@ extension MessageStorage {
                     + Varint.encodedSize(of: assumedPresentValue(at: offset, as: Int64.self))
 
             case .message:
-                return serializedByteSize(ofMessageField: field, fieldNumber: fieldNumber)
+                let messageSize = messageStorage(forAssumedPresentSingularMessageField: field).serializedBytesSize()
+                return messageSize
+                    // Include the size of the length-delimited tag.
+                    + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                    // Include the varint-encoded length.
+                    + Varint.encodedSize(of: UInt64(messageSize))
 
             case .sfixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)
@@ -257,17 +283,10 @@ extension MessageStorage {
     /// schema, since that has already been done by the caller.
     private func serializedByteSize(ofRepeatedEnumField field: FieldSchema, fieldNumber: Int) -> Int {
         var totalEnumsSize = 0
-        var count = 0
-        _ = try! schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .read
-        ) { _, value in
-            count += 1
+        let count = elementCount(forAssumedPresentRepeatedEnumField: field)
+        for i in 0..<count {
+            let value = rawValue(at: i, inAssumedPresentRepeatedEnumField: field)
             totalEnumsSize += Varint.encodedSize(of: value)
-            return true
-        } /*onInvalidValue*/ _: { _ in
         }
         if field.fieldMode.isPacked {
             // Packed: we need to add a single (length-delimited) tag and a varint for the length.
@@ -289,15 +308,12 @@ extension MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) -> Int {
         var totalEntriesSize = 0
-        _ = try! schema.performOnMapEntry(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            mapEntryWorkingSpace.storage(for: field.submessageIndex),
-            .read,
-            // Deterministic ordering doesn't matter when calculating the size. Don't waste time
-            // sorting.
-            false
+        let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+        forEachMapEntry(
+            in: field,
+            // Deterministic ordering doesn't matter when calculating the size.
+            useDeterministicOrdering: false,
+            workingSpace: workingSpace
         ) {
             let entrySize = $0.serializedBytesSize()
             totalEntriesSize +=
@@ -306,63 +322,7 @@ extension MessageStorage {
                 + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 // Include the varint-encoded length.
                 + Varint.encodedSize(of: UInt64(entrySize))
-            return true
         }
         return totalEntriesSize
-    }
-
-    /// Returns the serialized byte size of the given submessage field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    ///
-    /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofMessageField field: FieldSchema, fieldNumber: Int) -> Int {
-        var totalMessagesSize = 0
-        _ = try! schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .read
-        ) {
-            let singleMessageSize = $0.serializedBytesSize()
-            totalMessagesSize +=
-                singleMessageSize
-                // Include the size of the length-delimited tag.
-                + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                // Include the varint-encoded length.
-                + Varint.encodedSize(of: UInt64(singleMessageSize))
-            return true
-        }
-        return totalMessagesSize
-    }
-
-    /// Returns the serialized byte size of the given `group` field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    ///
-    /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofGroupField field: FieldSchema, fieldNumber: Int) -> Int {
-        var totalMessagesSize = 0
-        _ = try! schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .read
-        ) {
-            totalMessagesSize +=
-                $0.serializedBytesSize()
-                // Include the size of the start tag and end tag.
-                + 2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-            return true
-        }
-        return totalMessagesSize
     }
 }

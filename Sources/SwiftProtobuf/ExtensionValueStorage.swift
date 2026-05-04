@@ -60,6 +60,15 @@
         self.storage = UInt64(UInt(bitPattern: typedStorage))
     }
 
+    /// Creates a new extension storage value for the given non-POD value (string, data, repeated
+    /// fields).
+    @_alwaysEmitIntoClient @inline(__always)
+    init(uninitializedMessageExtensionField schema: ExtensionSchema) {
+        self.schema = schema
+        let pointer = UnsafeMutablePointer<UnsafeRawPointer>.allocate(capacity: 1)
+        self.storage = UInt64(UInt(bitPattern: pointer))
+    }
+
     /// Deinitializes the stored value in the receiver and then deallocates its heap storage.
     ///
     /// - Precondition: This must only be called on values for which `storage` is a pointer to
@@ -68,6 +77,17 @@
     func release<Value>(type: Value.Type) {
         let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
         pointer.deinitialize(count: 1)
+        pointer.deallocate()
+    }
+
+    /// Deinitializes the singular message value stored in the receiver and deallocates its heap
+    /// storage.
+    ///
+    /// - Precondition: This must only be called on values for which `storage` is a pointer to
+    ///   heap-allocated storage and contains an initialized concrete message instance.
+    func releaseMessageValue() {
+        let pointer = unsafeMutableRawPointer
+        schema.messageSchema.invokeWitness(.messageDeinitialize(pointer: pointer))
         pointer.deallocate()
     }
 
@@ -84,6 +104,22 @@
     @_alwaysEmitIntoClient @inline(__always)
     func value<Value>(as type: Value.Type) -> Value {
         UnsafePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!.pointee
+    }
+
+    /// Returns the raw pointer to the value of the extension field.
+    ///
+    /// The returned pointer must not escape the `ExtensionStorage` that owns it.
+    @_alwaysEmitIntoClient @inline(__always)
+    var unsafeRawPointer: UnsafeRawPointer {
+        UnsafeRawPointer(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
+    }
+
+    /// Returns the mutable raw pointer to the value of the extension field.
+    ///
+    /// The returned pointer must not escape the `ExtensionStorage` that owns it.
+    @_alwaysEmitIntoClient @inline(__always)
+    var unsafeMutableRawPointer: UnsafeMutableRawPointer {
+        UnsafeMutableRawPointer(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
     }
 
     /// Returns the pointer to the value of the extension field, assuming it is a heap-allocated
@@ -110,11 +146,11 @@
     /// The returned pointer must not escape the `ExtensionStorage` that owns it.
     ///
     /// - Precondition: The type of the extension field must be a message or group.
-    func unsafePointerToSubmessageWithUniqueStorage<Value: Message>(
-        as type: Value.Type,
-    ) -> UnsafeMutablePointer<Value> {
-        let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
-        pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-        return pointer
-    }
+    // func unsafePointerToSubmessageWithUniqueStorage<Value: Message>(
+    //     as type: Value.Type,
+    // ) -> UnsafeMutablePointer<Value> {
+    //     let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
+    //     pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
+    //     return pointer
+    // }
 }

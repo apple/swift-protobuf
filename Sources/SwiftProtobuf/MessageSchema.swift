@@ -113,75 +113,15 @@ public struct MessageSchema: @unchecked Sendable {
     /// The reference to the reflection table for the message.
     private let reflection: ReflectionTableReference
 
-    /// The function type for the generated function that is called to perform a basic operation
-    /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
-    /// such as deinitialization, copying, or testing for equality.
     @_spi(ForGeneratedCodeOnly)
-    public typealias NontrivialFieldOperationPerformer = (
-        _ token: TrampolineToken,
-        _ operation: NontrivialFieldOperation,
-        _ field: FieldSchema,
-        _ storage: MessageStorage
-    ) -> Bool
+    public typealias InvokeWitnessFunction = (MessageWitnessOperation) -> Void
 
-    /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the storage of a field whose type is a message or array of messages.
     @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageStoragePerformer = (
-        _ token: TrampolineToken,
-        _ field: FieldSchema,
-        _ storage: MessageStorage,
-        _ operation: TrampolineFieldOperation,
-        _ perform: (MessageStorage) throws -> Bool
-    ) throws -> Bool
+    public typealias SubmessageOrEnumResolver = (TrampolineToken) -> SubmessageOrEnumSchema
 
-    /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the raw values of a singular or repeated enum field.
-    @_spi(ForGeneratedCodeOnly)
-    public typealias RawEnumValuesPerformer = (
-        _ token: TrampolineToken,
-        _ field: FieldSchema,
-        _ storage: MessageStorage,
-        _ operation: TrampolineFieldOperation,
-        _ perform: (EnumSchema, inout Int32) throws -> Bool,
-        _ onInvalidValue: (Int32) throws -> Void
-    ) throws -> Void
+    let invokeWitness: InvokeWitnessFunction
 
-    /// The function type for the generated function that is called to retrieve the "message" schema
-    /// of a map entry.
-    @_spi(ForGeneratedCodeOnly)
-    public typealias MapEntrySchema = (_ token: TrampolineToken) -> MessageSchema
-
-    /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the elements of a map.
-    @_spi(ForGeneratedCodeOnly)
-    public typealias MapEntryPerformer = (
-        _ token: TrampolineToken,
-        _ field: FieldSchema,
-        _ storage: MessageStorage,
-        _ workingSpace: MessageStorage,
-        _ operation: TrampolineFieldOperation,
-        _ deterministicOrdering: Bool,
-        _ perform: (MessageStorage) throws -> Bool
-    ) throws -> Bool
-
-    /// The function that is called to deinitialize a field whose type is a message (singular or
-    /// repeated) or a repeated enum field.
-    let performNontrivialFieldOperation: NontrivialFieldOperationPerformer
-
-    /// The function that is called to perform an arbitrary operation on the storage of a submessage
-    /// field.
-    let performOnSubmessageStorage: SubmessageStoragePerformer
-
-    /// The function that is called to perform an arbitrary operation on the raw values of an enum
-    /// field.
-    let performOnRawEnumValues: RawEnumValuesPerformer
-
-    /// The function that is called to retrieve the "message" schema of a map entry.
-    let mapEntrySchema: MapEntrySchema
-
-    /// The function that is called to perform an arbitrary operation on the elements of a map.
-    let performOnMapEntry: MapEntryPerformer
+    let submessageOrEnumResolver: SubmessageOrEnumResolver
 
     /// A key that can be used to uniquely identify a message schema in a hashed collection.
     var key: Key {
@@ -197,11 +137,8 @@ public struct MessageSchema: @unchecked Sendable {
     public init(
         schema: StaticString,
         reflection: StaticString,
-        performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
-        performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
-        performOnRawEnumValues: @escaping RawEnumValuesPerformer,
-        mapEntrySchema: @escaping MapEntrySchema,
-        performOnMapEntry: @escaping MapEntryPerformer
+        invokeWitness: @escaping InvokeWitnessFunction,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
     ) {
         self.init(
             schema: schema,
@@ -210,11 +147,8 @@ public struct MessageSchema: @unchecked Sendable {
                 fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
                 data: Compression.decompress(reflection.rawBufferPointer)
             )),
-            performNontrivialFieldOperation: performNontrivialFieldOperation,
-            performOnSubmessageStorage: performOnSubmessageStorage,
-            performOnRawEnumValues: performOnRawEnumValues,
-            mapEntrySchema: mapEntrySchema,
-            performOnMapEntry: performOnMapEntry
+            invokeWitness: invokeWitness,
+            submessageOrEnumResolver: submessageOrEnumResolver
         )
     }
 
@@ -223,7 +157,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Schemas created with this initalizer must have no submessage fields because the invalid
     /// submessage operation placeholder will be used.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, reflection: StaticString) {
+    public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
         self.init(
             schema: schema,
             // TODO: Use the `.compressed` form and lazily decompress and cache it.
@@ -231,70 +165,50 @@ public struct MessageSchema: @unchecked Sendable {
                 fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
                 data: Compression.decompress(reflection.rawBufferPointer)
             )),
-            performNontrivialFieldOperation: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnSubmessageStorage: { _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: { _, _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            mapEntrySchema: { _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnMapEntry: { _, _, _, _, _, _, _ in
+            invokeWitness: invokeWitness,
+            submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
     }
 
     /// Creates a new message schema for the message-like storage used to encode and decode map
-    /// entries where the value type is a scalar.
+    /// entries where the value type is neither a message nor an enum.
     @_spi(ForGeneratedCodeOnly)
-    public init(schemaForMapEntryWithScalarValues schema: StaticString) {
+    public init<K: ProtobufMapKey, V: ProtobufMapParticipant>(
+        schema: StaticString,
+        forMapEntryWithKeyType keyType: K.Type,
+        valueType: V.Type
+    ) {
         self.init(
             schema: schema,
             reflectionReference: .direct(.mapEntry),
-            performNontrivialFieldOperation: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnSubmessageStorage: { _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: { _, _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            mapEntrySchema: { _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnMapEntry: { _, _, _, _, _, _, _ in
+            invokeWitness: MapEntryWitnesses<K, V>.perform,
+            submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
             }
         )
     }
 
     /// Creates a new message schema for the message-like storage used to encode and decode map
-    /// entries where the value type is another message.
+    /// entries where the value type is a message.
     @_spi(ForGeneratedCodeOnly)
-    public init<T: Message>(schema: StaticString, forMapEntryWithValueType type: T.Type) {
+    public init<K: ProtobufMapKey, M: Message>(
+        schema: StaticString,
+        forMapEntryWithKeyType keyType: K.Type,
+        valueType: ProtobufMapMessageField<M>.Type
+    ) {
         self.init(
             schema: schema,
             reflectionReference: .direct(.mapEntry),
-            performNontrivialFieldOperation: { _, operation, field, storage in
-                return storage.performNontrivialFieldOperation(operation, field: field, type: type)
-            },
-            performOnSubmessageStorage: { _, field, storage, operation, perform in
-                try storage.performOnSubmessageStorage(of: field, operation: operation, type: type, perform: perform)
-            },
-            performOnRawEnumValues: { _, _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            mapEntrySchema: { _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnMapEntry: { _, _, _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
+            invokeWitness: MapEntryWitnesses<K, ProtobufMapMessageField<M>>.perform,
+            submessageOrEnumResolver: { token in
+                switch token.index {
+                // TODO: Introduce a `GeneratedMessage` protocol with a `static var messageSchema`
+                // requirement and use that here.
+                case 1: return .message(M().messageSchema)
+                default: preconditionFailure("This should have been unreachable; this is a generator bug")
+                }
             }
         )
     }
@@ -302,31 +216,20 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is an enum.
     @_spi(ForGeneratedCodeOnly)
-    public init<T: Enum>(schema: StaticString, forMapEntryWithValueType type: T.Type, enumSchema: EnumSchema) {
+    public init<K: ProtobufMapKey, E: Enum>(
+        schema: StaticString,
+        forMapEntryWithKeyType keyType: K.Type,
+        valueType: ProtobufMapEnumField<E>.Type
+    ) {
         self.init(
             schema: schema,
             reflectionReference: .direct(.mapEntry),
-            performNontrivialFieldOperation: { _, operation, field, storage in
-                return storage.performNontrivialFieldOperation(operation, field: field, type: type)
-            },
-            performOnSubmessageStorage: { _, field, storage, operation, perform in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: { _, field, storage, operation, perform, onInvalidValue in
-                try storage.performOnRawEnumValues(
-                    of: field,
-                    operation: operation,
-                    type: type,
-                    enumSchema: enumSchema,
-                    perform: perform,
-                    onInvalidValue: onInvalidValue
-                )
-            },
-            mapEntrySchema: { _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnMapEntry: { _, _, _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
+            invokeWitness: MapEntryWitnesses<K, ProtobufMapEnumField<E>>.perform,
+            submessageOrEnumResolver: { token in
+                switch token.index {
+                case 1: return .enum(E.enumSchema)
+                default: preconditionFailure("This should have been unreachable; this is a generator bug")
+                }
             }
         )
     }
@@ -335,11 +238,8 @@ public struct MessageSchema: @unchecked Sendable {
     private init(
         schema: StaticString,
         reflectionReference: ReflectionTableReference,
-        performNontrivialFieldOperation: @escaping NontrivialFieldOperationPerformer,
-        performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
-        performOnRawEnumValues: @escaping RawEnumValuesPerformer,
-        mapEntrySchema: @escaping MapEntrySchema,
-        performOnMapEntry: @escaping MapEntryPerformer
+        invokeWitness: @escaping InvokeWitnessFunction,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
     ) {
         precondition(
             schema.hasPointerRepresentation,
@@ -347,11 +247,8 @@ public struct MessageSchema: @unchecked Sendable {
         )
         self.schema = schema.rawBufferPointer
         self.reflection = reflectionReference
-        self.performNontrivialFieldOperation = performNontrivialFieldOperation
-        self.performOnSubmessageStorage = performOnSubmessageStorage
-        self.performOnRawEnumValues = performOnRawEnumValues
-        self.mapEntrySchema = mapEntrySchema
-        self.performOnMapEntry = performOnMapEntry
+        self.invokeWitness = invokeWitness
+        self.submessageOrEnumResolver = submessageOrEnumResolver
         precondition(version == 0, "This runtime only supports version 0 message schemas")
         precondition(
             self.schema.count >= messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
@@ -363,7 +260,6 @@ public struct MessageSchema: @unchecked Sendable {
             """
         )
     }
-
 }
 
 extension MessageSchema {
@@ -579,31 +475,11 @@ extension MessageSchema {
     }
 }
 
-/// The nature of the operation that is being performed by `performOnSubmessageStorage` or
-/// `performOnEnumRawValues`.
+/// Represents either a message or enum schema returned by the resolver for a message.
 @_spi(ForGeneratedCodeOnly)
-public enum TrampolineFieldOperation {
-    /// The submessage's storage or enum's raw value is being read.
-    case read
-
-    /// The submessage's storage or enum's raw value is being mutated.
-    ///
-    /// For submessages, the value should be created if it is not already present. If already
-    /// present, the storage should be made unique before the mutation.
-    case mutate
-
-    /// The submessage's array storage or enum's array value is having a new value appended to it.
-    ///
-    /// The array should be created if it is not already present.
-    case append
-
-    /// The (singular/repeated) submessage or (repeated) enum field is parsed as `null` from JSON.
-    ///
-    /// JSON `null` values have special treatment; most of the time they clear the underlying
-    /// storage, but for the `Value` well-known type, it's actually populated by a non-empty
-    /// instance. Note that for this operation, the closure passed into the trampoline function is
-    /// never called.`
-    case jsonNull
+public enum SubmessageOrEnumSchema {
+    case message(MessageSchema)
+    case `enum`(EnumSchema)
 }
 
 /// Provides access to the properties of a field's schema based on a slice of the raw message
