@@ -15,6 +15,12 @@
 
 // MARK: - Submessage/enum field schema resolvers
 
+/// Whether to continue iterating or stop early when calling a witness `forEach...` helper.
+enum IterationBehavior {
+    case `continue`
+    case stop
+}
+
 extension MessageStorage {
     /// Returns the message schema for the given field.
     ///
@@ -115,11 +121,12 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func forEachMessage(
         inAssumedPresentRepeatedField field: FieldSchema,
-        perform: (MessageStorage) throws -> Void
+        perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedMessageField: field)
         for i in 0..<count {
-            try perform(messageStorage(at: i, inAssumedPresentRepeatedMessageField: field))
+            let behavior = try perform(messageStorage(at: i, inAssumedPresentRepeatedMessageField: field))
+            guard behavior == .continue else { break }
         }
     }
 
@@ -235,11 +242,12 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func forEachRawValue(
         inAssumedPresentRepeatedEnumField field: FieldSchema,
-        perform: (Int32) throws -> Void
+        perform: (Int32) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedEnumField: field)
         for i in 0..<count {
-            try perform(rawValue(at: i, inAssumedPresentRepeatedEnumField: field))
+            let behavior = try perform(rawValue(at: i, inAssumedPresentRepeatedEnumField: field))
+            guard behavior == .continue else { break }
         }
     }
 
@@ -284,7 +292,7 @@ extension MessageStorage {
         in field: FieldSchema,
         useDeterministicOrdering: Bool,
         workingSpace: MessageStorage,
-        perform: (MessageStorage) throws -> Void
+        perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let pointer = buffer.baseAddress! + field.offset
         let mapSchema = messageSchema(for: field)
@@ -341,7 +349,8 @@ extension MessageStorage {
 
             // Iterate through the map elements, copying the key and value into the working space.
             while gotNextElement() {
-                try perform(workingSpace)
+                let behavior = try perform(workingSpace)
+                guard behavior == .continue else { break }
             }
         }
     }

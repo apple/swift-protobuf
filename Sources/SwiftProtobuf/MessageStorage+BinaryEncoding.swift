@@ -83,6 +83,7 @@ extension MessageStorage {
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 encoder.putVarInt(value: $0.serializedBytesSize())
                 try $0.serializeBytes(into: &encoder, options: options)
+                return .continue
             }
 
         case .array:
@@ -163,6 +164,7 @@ extension MessageStorage {
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
                     try groupStorage.serializeBytes(into: &encoder, options: options)
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
+                    return .continue
                 }
 
             case .int32:
@@ -199,6 +201,7 @@ extension MessageStorage {
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                     encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                    return .continue
                 }
 
             case .sfixed32:
@@ -373,6 +376,7 @@ extension MessageStorage {
             var length = 0
             forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 length += Varint.encodedSize(of: value)
+                return .continue
             }
 
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -381,12 +385,14 @@ extension MessageStorage {
             // Then, iterate over them again to encode the actual varints.
             forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 encoder.putVarInt(value: Int64(value))
+                return .continue
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
             forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
                 encoder.putVarInt(value: Int64(value))
+                return .continue
             }
         }
     }

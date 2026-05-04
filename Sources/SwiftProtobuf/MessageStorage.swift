@@ -1223,24 +1223,27 @@ extension MessageStorage {
                 case .map:
                     let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
                     var areAllInitialized = true
-                    // TODO: Add a way to terminate iteration early to do less work.
                     forEachMapEntry(in: field, useDeterministicOrdering: false, workingSpace: workingSpace) {
                         if !$0.isInitialized {
                             areAllInitialized = false
+                            return .stop
                         }
+                        return .continue
                     }
-                    if !areAllInitialized {
+                    guard areAllInitialized else {
                         return false
                     }
 
                 case .array:
-                    let count = elementCount(forAssumedPresentRepeatedMessageField: field)
-                    for i in 0..<count {
-                        let storage = messageStorage(at: i, inAssumedPresentRepeatedMessageField: field)
-                        guard storage.isInitialized else {
-                            return false
+                    var areAllInitialized = true
+                    forEachMessage(inAssumedPresentRepeatedField: field) {
+                        guard $0.isInitialized else {
+                            areAllInitialized = false
+                            return .stop
                         }
+                        return .continue
                     }
+                    return areAllInitialized
 
                 case .scalar:
                     let storage = messageStorage(forAssumedPresentSingularMessageField: field)

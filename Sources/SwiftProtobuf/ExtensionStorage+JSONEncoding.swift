@@ -75,6 +75,7 @@ extension ExtensionStorage {
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
+                    return .continue
                 }
 
             case .fixed32, .uint32:
@@ -98,6 +99,7 @@ extension ExtensionStorage {
                     }
                     try $0.serializeJSON(into: &encoder, options: options)
                     firstItem = false
+                    return .continue
                 }
 
             case .int32, .sfixed32, .sint32:

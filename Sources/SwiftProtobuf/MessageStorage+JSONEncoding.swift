@@ -142,6 +142,7 @@ extension MessageStorage {
                     options: options
                 )
                 firstItem = false
+                return .continue
             }
 
             encoder.endObject()
@@ -183,6 +184,7 @@ extension MessageStorage {
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
+                    return .continue
                 }
 
             case .fixed32, .uint32:
@@ -206,6 +208,7 @@ extension MessageStorage {
                     }
                     try $0.serializeJSON(into: &encoder, options: options)
                     firstItem = false
+                    return .continue
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -439,6 +442,7 @@ extension MessageStorage {
                 }
                 try $0.serializeJSON(into: &encoder, options: options)
                 firstItem = false
+                return .continue
             }
         }
 
@@ -474,6 +478,7 @@ extension MessageStorage {
                     options: options
                 )
                 firstItem = false
+                return .continue
             }
         }
 

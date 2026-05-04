@@ -97,6 +97,7 @@ extension ExtensionStorage {
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)
                     encoder.endMessageField()
+                    return .continue
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -189,6 +190,7 @@ extension ExtensionStorage {
                 }
                 encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 firstItem = false
+                return .continue
             }
 
             encoder.endArray()
@@ -200,6 +202,7 @@ extension ExtensionStorage {
                 encoder.startRegularField()
                 encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 encoder.endRegularField()
+                return .continue
             }
         }
     }

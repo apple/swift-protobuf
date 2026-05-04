@@ -152,13 +152,15 @@ public final class ExtensionStorage {
                     preconditionFailure("Unreachable")
 
                 case .array:
-                    let count = elementCount(forAssumedPresentRepeatedMessageField: ext)
-                    for i in 0..<count {
-                        let storage = messageStorage(at: i, inAssumedPresentRepeatedMessageField: ext)
-                        guard storage.isInitialized else {
-                            return false
+                    var areAllInitialized = true
+                    forEachMessage(inAssumedPresentRepeatedMessageField: ext) {
+                        guard $0.isInitialized else {
+                            areAllInitialized = false
+                            return .stop
                         }
+                        return .continue
                     }
+                    return areAllInitialized
 
                 case .scalar:
                     let storage = messageStorage(forAssumedPresentSingularMessageField: ext)
@@ -667,9 +669,15 @@ extension ExtensionStorage {
                 case .bytes: hasher.combine(value.value(as: [Data].self))
                 case .double: hasher.combine(value.value(as: [Double].self))
                 case .enum:
-                    forEachRawValue(inAssumedPresentRepeatedEnumField: ext) { $0.hash(into: &hasher) }
+                    forEachRawValue(inAssumedPresentRepeatedEnumField: ext) {
+                        $0.hash(into: &hasher)
+                        return .continue
+                    }
                 case .group, .message:
-                    forEachMessage(inAssumedPresentRepeatedMessageField: ext) { $0.hash(into: &hasher) }
+                    forEachMessage(inAssumedPresentRepeatedMessageField: ext) {
+                        $0.hash(into: &hasher)
+                        return .continue
+                    }
                 case .fixed32, .uint32: hasher.combine(value.value(as: [UInt32].self))
                 case .fixed64, .uint64: hasher.combine(value.value(as: [UInt64].self))
                 case .float: hasher.combine(value.value(as: [Float].self))

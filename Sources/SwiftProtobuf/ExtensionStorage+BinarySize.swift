@@ -77,6 +77,7 @@ extension ExtensionStorage {
                         + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                         // Include the varint-encoded length.
                         + Varint.encodedSize(of: UInt64(messageSize))
+                    return .continue
                 }
                 return totalSize
 

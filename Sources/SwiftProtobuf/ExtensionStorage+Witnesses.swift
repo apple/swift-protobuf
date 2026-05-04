@@ -88,11 +88,12 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func forEachMessage(
         inAssumedPresentRepeatedMessageField ext: ExtensionSchema,
-        perform: (MessageStorage) throws -> Void
+        perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedMessageField: ext)
         for i in 0..<count {
-            try perform(messageStorage(at: i, inAssumedPresentRepeatedMessageField: ext))
+            let behavior = try perform(messageStorage(at: i, inAssumedPresentRepeatedMessageField: ext))
+            guard behavior == .continue else { break }
         }
     }
 
@@ -176,11 +177,12 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func forEachRawValue(
         inAssumedPresentRepeatedEnumField ext: ExtensionSchema,
-        perform: (Int32) throws -> Void
+        perform: (Int32) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedEnumField: ext)
         for i in 0..<count {
-            try perform(rawValue(at: i, inAssumedPresentRepeatedEnumField: ext))
+            let behavior = try perform(rawValue(at: i, inAssumedPresentRepeatedEnumField: ext))
+            guard behavior == .continue else { break }
         }
     }
 

@@ -113,6 +113,7 @@ extension ExtensionStorage {
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
                     try groupStorage.serializeBytes(into: &encoder, options: options)
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
+                    return .continue
                 }
 
             case .int32:
@@ -149,6 +150,7 @@ extension ExtensionStorage {
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                     encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                    return .continue
                 }
 
             case .sfixed32:
@@ -324,6 +326,7 @@ extension ExtensionStorage {
             var length = 0
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 length += Varint.encodedSize(of: value)
+                return .continue
             }
 
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -332,12 +335,14 @@ extension ExtensionStorage {
             // Then, iterate over them again to encode the actual varints.
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 encoder.putVarInt(value: Int64(value))
+                return .continue
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
                 encoder.putVarInt(value: Int64(value))
+                return .continue
             }
         }
     }

@@ -112,6 +112,7 @@ extension MessageStorage {
                         + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                         // Include the varint-encoded length.
                         + Varint.encodedSize(of: UInt64(messageSize))
+                    return .continue
 
                 }
                 return totalSize
@@ -322,6 +323,7 @@ extension MessageStorage {
                 + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                 // Include the varint-encoded length.
                 + Varint.encodedSize(of: UInt64(entrySize))
+            return .continue
         }
         return totalEntriesSize
     }

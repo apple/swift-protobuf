@@ -49,6 +49,7 @@ extension MessageStorage {
                     workingSpace: workingSpace
                 ) {
                     $0.hash(into: &hasher)
+                    return .continue
                 }
 
             case .array:
@@ -63,9 +64,15 @@ extension MessageStorage {
                 case .double:
                     hashField(field, into: &hasher, type: [Double].self)
                 case .enum:
-                    forEachRawValue(inAssumedPresentRepeatedEnumField: field) { $0.hash(into: &hasher) }
+                    forEachRawValue(inAssumedPresentRepeatedEnumField: field) {
+                        $0.hash(into: &hasher)
+                        return .continue
+                    }
                 case .group, .message:
-                    forEachMessage(inAssumedPresentRepeatedField: field) { $0.hash(into: &hasher) }
+                    forEachMessage(inAssumedPresentRepeatedField: field) {
+                        $0.hash(into: &hasher)
+                        return .continue
+                    }
                 case .fixed32, .uint32:
                     hashField(field, into: &hasher, type: [UInt32].self)
                 case .fixed64, .uint64:
