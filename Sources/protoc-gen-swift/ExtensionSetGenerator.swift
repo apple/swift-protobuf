@@ -112,18 +112,18 @@ class ExtensionSetGenerator {
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
                 if let field = extensionSchemaCalculator.trampolineFields.first {
-                    let result: String
+                    let resolver: String
                     switch field.kind {
                     case .message(let name):
-                        result = ".message(\(name).messageSchema)"
+                        resolver = ".message(\(name).messageSchema)"
                     case .enum(let name):
-                        result = ".enum(\(name).enumSchema)"
+                        resolver = ".enum(\(name).enumSchema)"
                     case .map:
                         preconditionFailure("unreachable; extensions cannot be map fields")
                     }
                     p.print(
                         ",",
-                        "submessageOrEnumResolver: { \(result) }", newlines: false)
+                        "submessageOrEnumResolver: { \(resolver) }", newlines: false)
                 }
                 p.print(
                     "",

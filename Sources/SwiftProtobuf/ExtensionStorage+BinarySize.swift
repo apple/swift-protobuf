@@ -69,15 +69,13 @@ extension ExtensionStorage {
 
             case .group:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                var totalSize = 0
-                forEachMessage(inAssumedPresentRepeatedMessageField: schema) { groupStorage in
-                    let messageSize = groupStorage.serializedBytesSize()
-                    totalSize += messageSize
-                        // Include the size of the length-delimited tag.
-                        + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                        // Include the varint-encoded length.
-                        + Varint.encodedSize(of: UInt64(messageSize))
-                    return .continue
+                let count = elementCount(forAssumedPresentRepeatedMessageField: schema)
+                // It's slightly more efficient to pre-calculate the total size of the tags here
+                // instead of adding it inside the loop, so we don't use `forEach...` here.
+                var totalSize = count * (2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber))
+                for i in 0..<count {
+                    totalSize +=
+                        messageStorage(at: i, inAssumedPresentRepeatedMessageField: schema).serializedBytesSize()
                 }
                 return totalSize
 
@@ -99,13 +97,15 @@ extension ExtensionStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message/group field should not be reachable")
-                let count = elementCount(forAssumedPresentRepeatedMessageField: schema)
-                // It's slightly more efficient to pre-calculate the total size of the tags here
-                // instead of adding it inside the loop, so we don't use `forEach...` here.
-                var totalSize = count * (2 * FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber))
-                for i in 0..<count {
-                    totalSize +=
-                        messageStorage(at: i, inAssumedPresentRepeatedMessageField: schema).serializedBytesSize()
+                var totalSize = 0
+                forEachMessage(inAssumedPresentRepeatedMessageField: schema) { groupStorage in
+                    let messageSize = groupStorage.serializedBytesSize()
+                    totalSize += messageSize
+                        // Include the size of the length-delimited tag.
+                        + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                        // Include the varint-encoded length.
+                        + Varint.encodedSize(of: UInt64(messageSize))
+                    return .continue
                 }
                 return totalSize
 

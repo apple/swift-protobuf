@@ -286,16 +286,16 @@ class MessageGenerator {
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in trampolineFields {
-                    let result: String
+                    let schema: String
                     switch field.kind {
                     case .enum(let typeName):
-                        result = ".enum(\(typeName).enumSchema)"
+                        schema = ".enum(\(typeName).enumSchema)"
                     case .message(let typeName):
-                        result = ".message(\(typeName).messageSchema)"
+                        schema = ".message(\(typeName).messageSchema)"
                     case .map(let schemaName):
-                        result = ".message(\(schemaName))"
+                        schema = ".message(\(schemaName))"
                     }
-                    p.print("case \(field.index): return \(result)")
+                    p.print("case \(field.index): return \(schema)")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
@@ -308,14 +308,8 @@ class MessageGenerator {
 
             // Generate map entry schemas, if any.
             for field in trampolineFields {
-                switch field.kind {
-                case .map(let schemaName):
-                    guard let entryGenerator = mapEntries[schemaName] else {
-                        fatalError("should have found a map entry schema named \(schemaName); this is a generator bug")
-                    }
+                if case .map(let schemaName) = field.kind, let entryGenerator = mapEntries[schemaName] {
                     entryGenerator.generateSchema(into: &p)
-                default:
-                    break
                 }
             }
         }

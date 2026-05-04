@@ -122,15 +122,6 @@
         UnsafeMutableRawPointer(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
     }
 
-    /// Returns the pointer to the value of the extension field, assuming it is a heap-allocated
-    /// non-POD type.
-    ///
-    /// The returned pointer must not escape the `ExtensionStorage` that owns it.
-    @_alwaysEmitIntoClient @inline(__always)
-    func unsafePointerToValue<Value>(as type: Value.Type) -> UnsafePointer<Value> {
-        UnsafePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
-    }
-
     /// Returns the mutable pointer to the value of the extension field, assuming it is a
     /// heap-allocated non-POD type.
     ///
@@ -139,18 +130,4 @@
     func unsafeMutablePointerToValue<Value>(as type: Value.Type) -> UnsafeMutablePointer<Value> {
         UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
     }
-
-    /// Ensures that the storage of the extension field's submessage value is unique and returns the
-    /// pointer to the message.
-    ///
-    /// The returned pointer must not escape the `ExtensionStorage` that owns it.
-    ///
-    /// - Precondition: The type of the extension field must be a message or group.
-    // func unsafePointerToSubmessageWithUniqueStorage<Value: Message>(
-    //     as type: Value.Type,
-    // ) -> UnsafeMutablePointer<Value> {
-    //     let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
-    //     pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-    //     return pointer
-    // }
 }

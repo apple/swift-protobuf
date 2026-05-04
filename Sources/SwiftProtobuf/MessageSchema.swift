@@ -203,12 +203,12 @@ public struct MessageSchema: @unchecked Sendable {
             reflectionReference: .direct(.mapEntry),
             invokeWitness: MapEntryWitnesses<K, ProtobufMapMessageField<M>>.perform,
             submessageOrEnumResolver: { token in
-                switch token.index {
+                guard token.index == 1 else {
+                    preconditionFailure("This should have been unreachable; this is a generator bug")
+                }
                 // TODO: Introduce a `GeneratedMessage` protocol with a `static var messageSchema`
                 // requirement and use that here.
-                case 1: return .message(M().messageSchema)
-                default: preconditionFailure("This should have been unreachable; this is a generator bug")
-                }
+                return .message(M().messageSchema)
             }
         )
     }
