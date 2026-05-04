@@ -416,16 +416,23 @@ var fieldSchemaSize: Int { 13 }
 extension MessageSchema {
     /// Iterates over the field schemas in the schema string.
     struct FieldIterator: IteratorProtocol {
-        var current: Slice<UnsafeRawBufferPointer>
+        // This implementation originally used `Slice<UnsafeRawBufferPointer>`, but it is
+        // _significantly_ slower in debug mode and still measurably slower in release mode.
+        let baseAddress: UnsafeRawPointer
+        var offset: Int
+        let end: Int
 
         init(fields: Slice<UnsafeRawBufferPointer>) {
-            self.current = fields
+            self.baseAddress = fields.base.baseAddress!
+            self.offset = fields.startIndex
+            self.end = fields.endIndex
         }
 
         mutating func next() -> FieldSchema? {
-            guard !current.isEmpty else { return nil }
-            defer { current = current.dropFirst(fieldSchemaSize) }
-            return FieldSchema(slice: current.prefix(fieldSchemaSize))
+            guard offset < end else { return nil }
+            let fieldPtr = baseAddress + offset
+            offset += fieldSchemaSize
+            return FieldSchema(start: fieldPtr, count: fieldSchemaSize)
         }
     }
 
@@ -608,6 +615,11 @@ public struct FieldSchema {
     /// Creates a new field schema from the given slice of a message's field schema string.
     init(slice: Slice<UnsafeRawBufferPointer>) {
         self.buffer = UnsafeRawBufferPointer(rebasing: slice)
+    }
+
+    /// Creates a new field schema from a raw pointer and count.
+    init(start: UnsafeRawPointer, count: Int) {
+        self.buffer = UnsafeRawBufferPointer(start: start, count: count)
     }
 
     /// Creates a new field layout from the given string that describes exactly one field.
