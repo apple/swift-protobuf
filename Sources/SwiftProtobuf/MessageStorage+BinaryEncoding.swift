@@ -74,18 +74,16 @@ extension MessageStorage {
         let offset = field.offset
         switch field.fieldMode.cardinality {
         case .map:
-            _ = try! schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .read,
-                options.useDeterministicOrdering
+            let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            try forEachMapEntry(
+                in: field,
+                useDeterministicOrdering: options.useDeterministicOrdering,
+                workingSpace: workingSpace
             ) {
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 encoder.putVarInt(value: $0.serializedBytesSize())
                 try $0.serializeBytes(into: &encoder, options: options)
-                return true
+                return .continue
             }
 
         case .array:
@@ -162,7 +160,12 @@ extension MessageStorage {
 
             case .group:
                 precondition(!isPacked, "a packed group field should not be reachable")
-                try serializeGroupField(for: fieldNumber, field: field, into: &encoder, options: options)
+                try forEachMessage(inAssumedPresentRepeatedMessageField: field) { groupStorage in
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
+                    try groupStorage.serializeBytes(into: &encoder, options: options)
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
+                    return .continue
+                }
 
             case .int32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
@@ -194,7 +197,12 @@ extension MessageStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message field should not be reachable")
-                try serializeMessageField(for: fieldNumber, field: field, into: &encoder, options: options)
+                try forEachMessage(inAssumedPresentRepeatedMessageField: field) { subMessageStorage in
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                    return .continue
+                }
 
             case .sfixed32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
@@ -310,7 +318,10 @@ extension MessageStorage {
                 encoder.serializeFloatField(assumedPresentValue(at: offset), for: fieldNumber)
 
             case .group:
-                try serializeGroupField(for: fieldNumber, field: field, into: &encoder, options: options)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
+                try messageStorage(forAssumedPresentSingularMessageField: field)
+                    .serializeBytes(into: &encoder, options: options)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
 
             case .int32:
                 encoder.serializeInt32Field(assumedPresentValue(at: offset), for: fieldNumber)
@@ -319,7 +330,10 @@ extension MessageStorage {
                 encoder.serializeInt64Field(assumedPresentValue(at: offset), for: fieldNumber)
 
             case .message:
-                try serializeMessageField(for: fieldNumber, field: field, into: &encoder, options: options)
+                let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                try subMessageStorage.serializeBytes(into: &encoder, options: options)
 
             case .sfixed32:
                 encoder.serializeSFixed32Field(assumedPresentValue(at: offset), for: fieldNumber)
@@ -350,54 +364,6 @@ extension MessageStorage {
         }
     }
 
-    /// Serializes the start-group/end-group tags and contents for a `group` field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    private func serializeGroupField(
-        for fieldNumber: Int,
-        field: FieldSchema,
-        into encoder: inout BinaryEncoder,
-        options: BinaryEncodingOptions
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .read
-        ) {
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
-            try $0.serializeBytes(into: &encoder, options: options)
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
-            return true
-        }
-    }
-
-    /// Serializes the tag, length prefix, and contents for a submessage field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    private func serializeMessageField(
-        for fieldNumber: Int,
-        field: FieldSchema,
-        into encoder: inout BinaryEncoder,
-        options: BinaryEncodingOptions
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .read
-        ) {
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-            encoder.putVarInt(value: $0.serializedBytesSize())
-            try $0.serializeBytes(into: &encoder, options: options)
-            return true
-        }
-    }
-
     /// Serializes the field tag and values for a repeated (packed or unpacked) `enum` field.
     private func serializeRepeatedEnumField(
         for fieldNumber: Int,
@@ -408,46 +374,25 @@ extension MessageStorage {
         if isPacked {
             // First, iterate over the values to compute the packed length.
             var length = 0
-            _ = try schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 length += Varint.encodedSize(of: value)
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
 
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
             encoder.putVarInt(value: length)
 
             // Then, iterate over them again to encode the actual varints.
-            _ = try schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 encoder.putVarInt(value: Int64(value))
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
-            _ = try schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: field) { value in
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
                 encoder.putVarInt(value: Int64(value))
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
         }
     }

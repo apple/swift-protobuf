@@ -30,7 +30,7 @@ class MessageGenerator {
     private let oneofs: [OneofGenerator]
     private let enums: [EnumGenerator]
     private let messages: [MessageGenerator]
-    private let mapEntries: [TrampolineFieldKey: MapEntryGenerator]
+    private let mapEntries: [String: MapEntryGenerator]
     private let messageSchemaCalculator: MessageSchemaCalculator
     private let compressedReflectionData: String
 
@@ -86,26 +86,13 @@ class MessageGenerator {
         // particular map type occurs multiple times in the message), we key these generators by
         // type name to ensure that we coalesce them if a particular type occur multiple times.
         mapEntries = Dictionary(
-            descriptor.fields.filter { $0.isMap }.map {
-                let keyType = RawFieldType(fieldDescriptorType: $0.messageType!.mapKeyAndValue!.key.type)
-                let valueType = RawFieldType(fieldDescriptorType: $0.messageType!.mapKeyAndValue!.value.type)
-                return (
-                    key: TrampolineFieldKey(
-                        name: $0.swiftType(namer: namer),
-                        keyType: keyType,
-                        valueType: valueType
-                    ),
-                    value: MapEntryGenerator(
-                        descriptor: $0.messageType,
-                        generatorOptions: generatorOptions,
-                        namer: namer
-                    )
+            uniqueKeysWithValues: descriptor.fields.filter(\.isMap).map {
+                let entryGenerator = MapEntryGenerator(
+                    descriptor: $0.messageType,
+                    generatorOptions: generatorOptions,
+                    namer: namer
                 )
-            },
-            uniquingKeysWith: { old, new in
-                // We deduplicate if they have the same key (the same Swift dictionary type and
-                // same wire formats).
-                old
+                return (entryGenerator.entrySchemaName, entryGenerator)
             }
         )
 
@@ -274,88 +261,41 @@ class MessageGenerator {
 
     private func generateMessageSchema(printer p: inout CodePrinter) {
         messageSchemaCalculator.schemaLiterals.printConditionalBlocks(to: &p) { value, _, p in
-            p.print(
-                "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_messageSchemaString: Swift.StaticString { "\#(value)" }"#
-            )
+            p.print(#"private static let _protobuf_messageSchemaString: Swift.StaticString = "\#(value)""#)
         }
-        p.print(
-            "@_alwaysEmitIntoClient @inline(__always)",
-            #"private static var _protobuf_reflectionData: Swift.StaticString { "\#(compressedReflectionData)" }"#
-        )
+        p.print(#"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#)
 
         let trampolineFields = messageSchemaCalculator.trampolineFields
         p.print()
         p.print(
-            "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData",
+            "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform",
             newlines: false
         )
 
         if trampolineFields.isEmpty {
-            // If there are no trampoline fields, we can use the schema initializer that defaults
-            // the trampoline functions to trapping placeholders.
+            // If there are no submessage or enum fields, we can use the initialize that defaults it
+            // to a trapping closure.
             p.print(")")
         } else {
-            // Otherwise, pass the static member functions that will be generated below.
-            p.print(
-                """
-                , performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation\
-                , performOnSubmessageStorage: _protobuf_performOnSubmessageStorage\
-                , performOnRawEnumValues: _protobuf_performOnRawEnumValues\
-                , mapEntrySchema: _protobuf_mapEntrySchema\
-                , performOnMapEntry: _protobuf_performOnMapEntry\
-                )
-                """
-            )
+            // Otherwise, generate the resolver.
+            p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)")
             p.print(
                 "",
-                "private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {"
+                "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in trampolineFields {
-                    p.print(
-                        "case \(field.index): return storage.performNontrivialFieldOperation(operation, field: field, type: \(field.kind.name).self)"
-                    )
-                }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
-            }
-            p.print(
-                "}"
-            )
-
-            p.print(
-                "",
-                "private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                var nonMessageMapFieldIndices = [Int]()
-                for field in trampolineFields {
-                    // Only submessage fields and map fields with message values need this storage
-                    // trampoline.
+                    let schema: String
                     switch field.kind {
-                    case .message, .map(_, _, valueType: .message):
-                        p.print(
-                            "case \(field.index): return try storage.performOnSubmessageStorage(of: field, operation: operation, type: \(field.kind.name).self, perform: perform)"
-                        )
-                    case .map(_, _, _):
-                        nonMessageMapFieldIndices.append(field.index)
-                    default:
-                        break
+                    case .enum(let typeName):
+                        schema = ".enum(\(typeName).enumSchema)"
+                    case .message(let typeName):
+                        schema = ".message(\(typeName).messageSchema)"
+                    case .map(let schemaName):
+                        schema = ".message(\(schemaName))"
                     }
-                }
-                if !nonMessageMapFieldIndices.isEmpty {
-                    // This will be hit when checking isInitialized for map fields with non-message
-                    // values, because that part of the runtime doesn't know what the value type of
-                    // the map is. We can trivially return true in that case, and we collapse all of
-                    // those cases together to shrink codegen.
-                    p.print(
-                        "case \(nonMessageMapFieldIndices.map(String.init).joined(separator: ", ")): return true"
-                    )
+                    p.print("case \(field.index): return \(schema)")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
@@ -366,85 +306,14 @@ class MessageGenerator {
                 "}"
             )
 
-            p.print(
-                "",
-                "private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                for field in trampolineFields {
-                    // Only enum fields need this raw value trampoline.
-                    guard case .enum(let singularName, _) = field.kind else { continue }
-                    p.print(
-                        "case \(field.index): return try storage.performOnRawEnumValues(of: field, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)"
-                    )
+            // Generate map entry schemas, if any.
+            for field in trampolineFields {
+                if case .map(let schemaName) = field.kind, let entryGenerator = mapEntries[schemaName] {
+                    entryGenerator.generateSchema(into: &p)
                 }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
             }
-            p.print(
-                "}"
-            )
-
-            p.print(
-                "",
-                "private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                for field in trampolineFields {
-                    // Only map fields need this trampoline.
-                    guard case .map(let name, let keyType, let valueType) = field.kind else { continue }
-                    p.print("case \(field.index):")
-                    p.withIndentation { p in
-                        let key = TrampolineFieldKey(
-                            name: name,
-                            keyType: keyType,
-                            valueType: valueType
-                        )
-                        let entryGenerator = mapEntries[key]
-                        entryGenerator?.generateSchemaReturnStatement(printer: &p)
-                    }
-                }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
-            }
-            p.print(
-                "}"
-            )
-
-            p.print(
-                "",
-                "private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {"
-            )
-            p.withIndentation { p in
-                p.print("switch token.index {")
-                for field in trampolineFields {
-                    // Only map fields need this storage trampoline.
-                    guard case .map(let name, let keyType, let valueType) = field.kind else { continue }
-                    let key = TrampolineFieldKey(
-                        name: name,
-                        keyType: keyType,
-                        valueType: valueType
-                    )
-                    guard let entryGenerator = mapEntries[key] else { continue }
-                    p.print(
-                        "case \(field.index): return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: \(entryGenerator.keyParticipantType).self, valueType: \(entryGenerator.valueParticipantType).self, deterministicOrdering: deterministicOrdering, perform: perform)"
-                    )
-                }
-                p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
-                    "}"
-                )
-            }
-            p.print(
-                "}"
-            )
         }
+
         p.print("\(visibility)var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }")
     }
 

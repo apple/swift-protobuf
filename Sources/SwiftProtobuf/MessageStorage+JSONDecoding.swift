@@ -186,7 +186,10 @@ extension MessageStorage {
 
                 case .enum:
                     do {
-                        try scanEnumValue(field, from: &reader, operation: .append)
+                        appendEnumValue(
+                            withRawValue: try scanEnumValue(field, from: &reader),
+                            toRepeatedEnumField: field
+                        )
                     } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
                         // Ignore unknown enum values if requested.
                     }
@@ -205,7 +208,7 @@ extension MessageStorage {
                     appendValue(try reader.scanner.nextFloat(), to: field)
 
                 case .group, .message:
-                    try scanSubmessageValue(field, from: &reader, operation: .append)
+                    try scanRepeatedMessageField(field, from: &reader)
 
                 case .int32, .sfixed32, .sint32:
                     let n = try reader.scanner.nextSInt()
@@ -302,29 +305,21 @@ extension MessageStorage {
             // If we're decoding a `NullValue` well-known type, `null` should be
             // stored as the `NULL_VALUE` value, not clear the field.
             if isNull {
-                var isNullValueWKT = false
-                try! schema.performOnRawEnumValues(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) { enumSchema, _ in
-                    isNullValueWKT = CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue
-                    return false
-                } /*onInvalidValue*/ _: { _ in }
-                if isNullValueWKT {
+                let enumSchema = enumSchema(for: field)
+                switch CustomJSONWKTClassification(enumSchema: enumSchema) {
+                case .nullValue:
                     updateValue(of: field, to: Int32(0))
-                } else {
+                default:
                     clearValue(of: field, type: Int32.self)
                 }
                 break
             }
+
             let ignoreUnknown = reader.options.ignoreUnknownFields && !schema.isMapEntry
             do {
-                try scanEnumValue(field, from: &reader, operation: .mutate)
+                updateValue(of: field, to: try scanEnumValue(field, from: &reader))
             } catch JSONDecodingError.unrecognizedEnumValue where ignoreUnknown {
                 // Ignore unknown enum values if requested, unless this is a map entry.
-                
             }
 
         case .fixed32, .uint32:
@@ -368,17 +363,30 @@ extension MessageStorage {
             }
 
         case .group, .message:
-            if isNull {
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .jsonNull
-                ) { _ in preconditionFailure("should never be called") }
-                return
+            if !isNull {
+                try scanSingularMessageField(field, from: &reader)
+                break
             }
-            try scanSubmessageValue(field, from: &reader, operation: .mutate)
 
+            switch CustomJSONWKTClassification(messageSchema: messageSchema(for: field)) {
+            case .value:
+                // A `null` value for `google.protobuf.Value` decodes to a message whose
+                // `nullValue` field is set to `google.protobuf.NullValue.nullValue`.
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+                let nullValueField = submessageStorage.schema[fieldNumber: 1]!
+                guard case .oneOfMember(let oneofOffset) = nullValueField.presence else {
+                    preconditionFailure("expected nullValue to be a oneof member; this is a generator bug")
+                }
+                submessageStorage.updateValue(
+                    at: nullValueField.offset,
+                    to: Int32(0),
+                    oneofPresence: (oneofOffset, 1)
+                )
+
+            default:
+                clearSingularMessageField(field)
+            }
+ 
         case .int32, .sfixed32, .sint32:
             if isNull {
                 clearValue(of: field, type: Int32.self)
@@ -428,75 +436,62 @@ extension MessageStorage {
 
         var hasNextElement = true
         while hasNextElement {
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .append,
-                // Deterministic ordering doesn't apply to decoding.
-                false
-            ) { submessageStorage in
-                let mapEntrySchema = submessageStorage.schema
+            let submessageStorage = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            let mapEntrySchema = submessageStorage.schema
 
-                // The next character must be double quotes, because map keys must always be
-                // quoted strings.
-                let c = try reader.scanner.peekOneCharacter()
-                guard c == "\"" else {
-                    throw JSONDecodingError.unquotedMapKey
-                }
-                try submessageStorage.scanSingularValue(
-                    of: mapEntrySchema[fieldNumber: 1]!,
-                    from: &reader,
-                    requireQuotedBool: true
-                )
-                try reader.scanner.skipRequiredColon()
+            // The next character must be double quotes, because map keys must always be
+            // quoted strings.
+            let c = try reader.scanner.peekOneCharacter()
+            guard c == "\"" else {
+                throw JSONDecodingError.unquotedMapKey
+            }
+            try submessageStorage.scanSingularValue(
+                of: mapEntrySchema[fieldNumber: 1]!,
+                from: &reader,
+                requireQuotedBool: true
+            )
+            try reader.scanner.skipRequiredColon()
 
-                let isEntryValid: Bool
-                do {
-                    try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
-                    isEntryValid = true
-                } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
-                    // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
-                    // here, set a value indicating that we should discard the map entry instead
-                    // of inserting it into the map.
-                    isEntryValid = false
-                } catch {
-                    throw error
-                }
+            do {
+                try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
+                insertMapEntry(in: field, from: submessageStorage)
+            } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
+                // here, it means that the key was valid but the value was not. We should
+                // discard this entry.
+            } catch {
+                throw error
+            }
 
-                if reader.scanner.skipOptionalObjectEnd() {
-                    hasNextElement = false
-                } else {
-                    try reader.scanner.skipRequiredComma()
-                }
-                return isEntryValid
+            if reader.scanner.skipOptionalObjectEnd() {
+                hasNextElement = false
+            } else {
+                try reader.scanner.skipRequiredComma()
             }
         }
     }
 
-    /// Scans the submessage value of the given field from the reader, performing the given
-    /// operation on its storage (either mutate or append).
+    /// Scans the next message from the JSON reader into the storage of the given field.
     ///
     /// - Parameters:
     ///   - field: The ``FieldSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
-    ///   - operation: The trampoline operation to perform on the submessage storage.
-    private func scanSubmessageValue(
-        _ field: FieldSchema,
-        from reader: inout JSONReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            operation
-        ) { submessageStorage in
-            try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
-                try submessageStorage.merge(byParsingJSONFrom: &subReader)
-            }
-            return true
+    private func scanSingularMessageField(_ field: FieldSchema, from reader: inout JSONReader) throws {
+        let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+        try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+            try submessageStorage.merge(byParsingJSONFrom: &subReader)
+        }
+    }
+
+    /// Scans the next message from the JSON reader and appends it to the repeated message field.
+    ///
+    /// - Parameters:
+    ///   - field: The ``FieldSchema`` of the field being scanned.
+    ///   - reader: The ``JSONReader`` from which to scan the value.
+    private func scanRepeatedMessageField(_ field: FieldSchema, from reader: inout JSONReader) throws {
+        let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
+        try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+            try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
     }
 
@@ -509,51 +504,36 @@ extension MessageStorage {
     ///   - operation: The trampoline operation to perform on the enum's raw value.
     private func scanEnumValue(
         _ field: FieldSchema,
-        from reader: inout JSONReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        var hasSeenValue = false
+        from reader: inout JSONReader
+    ) throws -> Int32 {
+        let enumSchema = enumSchema(for: field)
 
-        _ = try schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            operation
-        ) { enumSchema, value in
-            // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
-            // having read one value.
-            if hasSeenValue {
-                return false
+        if let name = try reader.scanner.nextOptionalQuotedString() {
+            guard let number = enumSchema.enumCase(forTextName: name) else {
+                throw JSONDecodingError.unrecognizedEnumValue
             }
-            hasSeenValue = true
+            return Int32(number)
+        }
 
-            if let name = try reader.scanner.nextOptionalQuotedString() {
-                guard let number = enumSchema.enumCase(forTextName: name) else {
-                    throw JSONDecodingError.unrecognizedEnumValue
-                }
-                value = Int32(number)
-                return true
+        if reader.scanner.skipOptionalNull() {
+            switch CustomJSONWKTClassification(enumSchema: enumSchema) {
+            case .nullValue:
+                return 0
+            default:
+                throw JSONDecodingError.illegalNull
             }
+        }
 
-            if reader.scanner.skipOptionalNull() {
-                if CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
-                    value = 0
-                    return true
-                } else {
-                    throw JSONDecodingError.illegalNull
-                }
-            }
+        let number = try reader.scanner.nextSInt()
+        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
+            throw JSONDecodingError.numberRange
+        }
 
-            let number = try reader.scanner.nextSInt()
-            guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-                throw JSONDecodingError.numberRange
-            }
-
-            value = Int32(truncatingIfNeeded: number)
-            return true
-        } /*onInvalidValue*/ _: { _ in
+        let rawValue = Int32(truncatingIfNeeded: number)
+        guard enumSchema.isValidValue(rawValue) else {
             throw JSONDecodingError.unrecognizedEnumValue
         }
+        return rawValue
     }
 
     /// Parses the next object from the input and interprets it as the JSON representation of a
@@ -694,7 +674,7 @@ extension MessageStorage {
         }
 
         while true {
-            try scanSubmessageValue(schema[fieldNumber: 1]!, from: &reader, operation: .append)
+            try scanRepeatedMessageField(schema[fieldNumber: 1]!, from: &reader)
             if reader.scanner.skipOptionalArrayEnd() {
                 reader.scanner.decrementRecursionDepth()
                 return
@@ -717,49 +697,37 @@ extension MessageStorage {
         let fieldsField = schema[fieldNumber: 1]!
         var hasNextElement = true
         while hasNextElement {
-            _ = try schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: fieldsField.submessageIndex),
-                fieldsField,
-                self,
-                mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex),
-                .append,
-                // Deterministic ordering doesn't apply to decoding.
-                false
-            ) { submessageStorage in
-                let mapEntrySchema = submessageStorage.schema
+            let submessageStorage = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex)
+            let mapEntrySchema = submessageStorage.schema
 
-                // The next character must be double quotes, because map keys must always be
-                // quoted strings.
-                let c = try reader.scanner.peekOneCharacter()
-                guard c == "\"" else {
-                    throw JSONDecodingError.unquotedMapKey
-                }
-                try submessageStorage.scanSingularValue(
-                    of: mapEntrySchema[fieldNumber: 1]!,
-                    from: &reader,
-                    requireQuotedBool: true
-                )
-                try reader.scanner.skipRequiredColon()
+            // The next character must be double quotes, because map keys must always be
+            // quoted strings.
+            let c = try reader.scanner.peekOneCharacter()
+            guard c == "\"" else {
+                throw JSONDecodingError.unquotedMapKey
+            }
+            try submessageStorage.scanSingularValue(
+                of: mapEntrySchema[fieldNumber: 1]!,
+                from: &reader,
+                requireQuotedBool: true
+            )
+            try reader.scanner.skipRequiredColon()
 
-                let isEntryValid: Bool
-                do {
-                    try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
-                    isEntryValid = true
-                } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
-                    // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
-                    // here, set a value indicating that we should discard the map entry instead
-                    // of inserting it into the map.
-                    isEntryValid = false
-                } catch {
-                    throw error
-                }
+            do {
+                try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
+                insertMapEntry(in: fieldsField, from: submessageStorage)
+            } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
+                // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
+                // here, it means that the key was valid but the value was not. We should
+                // discard this entry.
+            } catch {
+                throw error
+            }
 
-                if reader.scanner.skipOptionalObjectEnd() {
-                    hasNextElement = false
-                } else {
-                    try reader.scanner.skipRequiredComma()
-                }
-                return isEntryValid
+            if reader.scanner.skipOptionalObjectEnd() {
+                hasNextElement = false
+            } else {
+                try reader.scanner.skipRequiredComma()
             }
         }
     }
@@ -789,10 +757,10 @@ extension MessageStorage {
             updateValue(of: schema[fieldNumber: 1]!, to: Google_Protobuf_NullValue.nullValue)
 
         case "[":
-            try scanSubmessageValue(schema[fieldNumber: 6]!, from: &reader, operation: .mutate)
+            try scanSingularMessageField(schema[fieldNumber: 6]!, from: &reader)
 
         case "{":
-            try scanSubmessageValue(schema[fieldNumber: 5]!, from: &reader, operation: .mutate)
+            try scanSingularMessageField(schema[fieldNumber: 5]!, from: &reader)
 
         case "t", "f":
             updateValue(of: schema[fieldNumber: 4]!, to: try reader.scanner.nextBool())

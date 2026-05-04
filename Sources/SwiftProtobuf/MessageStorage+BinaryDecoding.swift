@@ -135,27 +135,19 @@ extension MessageStorage {
             let slice = try reader.nextLengthDelimitedSlice()
             var success: Bool
             do {
-                success = try schema.performOnMapEntry(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                    .append,
-                    // Deterministic ordering doesn't apply to decoding.
-                    false
-                ) { workingSpace in
-                    let valueField = workingSpace.schema[fieldNumber: 2]!
-                    let isEnumValue = valueField.rawFieldType == .enum
+                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                let valueField = workingSpace.schema[fieldNumber: 2]!
+                let isEnumValue = valueField.rawFieldType == .enum
 
-                    var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
-                    try workingSpace.merge(
-                        byReadingFrom: &subReader,
-                        extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: !isEnumValue
-                    )
-                    return true
-                }
+                var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
+                try workingSpace.merge(
+                    byReadingFrom: &subReader,
+                    extensions: extensions,
+                    partial: partial,
+                    discardUnknownFields: !isEnumValue
+                )
+                insertMapEntry(in: field, from: workingSpace)
+                success = true
             } catch InternalBinaryDecodingError.unknownEnumValueInMapValue {
                 success = false
             }
@@ -230,21 +222,14 @@ extension MessageStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .append
-                ) { submessageStorage in
-                    try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
+                try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .int32:
@@ -261,21 +246,14 @@ extension MessageStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .append
-                ) { submessageStorage in
-                    try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
+                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .sfixed32:
@@ -364,21 +342,14 @@ extension MessageStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .mutate
-                ) { submessageStorage in
-                    try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+                try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .int32:
@@ -393,21 +364,14 @@ extension MessageStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .mutate
-                ) { submessageStorage in
-                    try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .sfixed32:
@@ -469,7 +433,7 @@ extension MessageStorage {
     ///     elements and reads and returns a single element from it.
     /// - Returns: True if the value was consumed properly, or false if the wire format was not
     ///   what was expected.
-    private func appendMaybePackedValues<T>(
+    private func appendMaybePackedValues<T: BitwiseCopyable>(
         from reader: inout WireFormatReader,
         to field: FieldSchema,
         tag: FieldTag,
@@ -508,22 +472,11 @@ extension MessageStorage {
         isRepeated: Bool,
         discardUnknownFields: Bool
     ) throws {
-        var alreadyReadValue = false
-        try schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            isRepeated ? .append : .mutate
-        ) { _, outRawValue in
-            // In the singular case, this doesn't matter. In the repeated case, we need to return
-            // true *exactly once* and then return false the next time this is called. This is
-            // because the same trampoline function is used to handle the packed case, where it
-            // calls the closure over and over until it returns that there is no data left.
-            guard !alreadyReadValue else { return false }
-            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
-            alreadyReadValue = true
-            return true
-        } /*onInvalidValue*/ _: { rawValue in
+        let enumSchema = enumSchema(for: field)
+
+        // Read a single raw value from the wire.
+        let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
+        guard enumSchema.isValidValue(rawValue) else {
             if self.schema.isMapEntry {
                 // Map entries are always parsed in the context of some other message, so this
                 // error will be caught upstream and handled, not leaked to the user.
@@ -546,6 +499,13 @@ extension MessageStorage {
                 encoder.putVarInt(value: Int64(rawValue))
                 unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
             }
+            return
+        }
+
+        if isRepeated {
+            appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: field)
+        } else {
+            updateValue(of: field, to: rawValue)
         }
     }
 
@@ -573,20 +533,17 @@ extension MessageStorage {
         // into unknown fields at the end.
         var invalidValues: [Int32] = []
 
+        let enumSchema = enumSchema(for: field)
+
         // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
-
-        try schema.performOnRawEnumValues(
-            MessageSchema.TrampolineToken(index: field.submessageIndex),
-            field,
-            self,
-            .append
-        ) { _, outRawValue in
-            guard elementsReader.hasAvailableData else { return false }
-            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
-            return true
-        } /*onInvalidValue*/ _: {
-            invalidValues.append($0)
+        while elementsReader.hasAvailableData {
+            let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
+            if enumSchema.isValidValue(rawValue) {
+                appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: field)
+            } else {
+                invalidValues.append(rawValue)
+            }
         }
 
         // If there were no invalid values, or if we're discarding them, there's nothing more to do.

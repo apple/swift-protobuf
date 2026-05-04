@@ -239,56 +239,68 @@ let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.ExtensionMap = [
 /// would otherwise be a problem when added to the message.
 let Extensions_debugDescription = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{10}\0debugDescription",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 /// These will get _p added for the same reasoning.
 let Extensions_as = SwiftProtobuf.ExtensionSchema(
   schema: "\0t\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{2}\0as",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 let Extensions_var = SwiftProtobuf.ExtensionSchema(
   schema: "\0u\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0var",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 let Extensions_try = SwiftProtobuf.ExtensionSchema(
   schema: "\0v\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0try",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 let Extensions_do = SwiftProtobuf.ExtensionSchema(
   schema: "\0w\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{2}\0do",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 let Extensions_nil = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0nil",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+  )
 
 extension SwiftReservedTestExt2 {
   enum Extensions {
     static let hashValue_ = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{1f}\0SwiftReservedTestExt2.hashValue",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
 
     /// Reserved words, since these end up in the "enum Extensions", they
     /// can't just be get their names, and sanitation kicks.
     static let `as` = SwiftProtobuf.ExtensionSchema(
       schema: "\0~\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{18}\0SwiftReservedTestExt2.as",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
 
     static let `var` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{7f}\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.var",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
 
     static let `try` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.try",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
 
     static let `do` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{18}\0SwiftReservedTestExt2.do",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
 
     static let `nil` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.nil",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
+      )
   }
 }
 
@@ -297,18 +309,15 @@ extension SwiftReservedTestExt2 {
 extension SwiftReservedTestExt2: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = "SwiftReservedTestExt2"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }

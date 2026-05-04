@@ -106,49 +106,19 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAny"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "<\u{1}\0\0 \u{1f}}\u{17}\tZs5F#`Oz$+q\0`W9\u{1c}kIwW;\u{15}g\u{b}fa{;\u{16}_~XfC}%RT\0J-e\tn\u{10}3s\u{1d}g\u{11}bo\u{17}=N\u{f}PQ-\u{17}B/c\u{e},Lz.\u{18}\u{f}J\u{b}\u{1d}M[\u{1e}^j(\u{4}.$*\u{14}yh`7Z}hM\u{1b}\u{11}ht<d`}\u{6}|fo\u{1}" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}}\u{17}\tZs5F#`Oz$+q\0`W9\u{1c}kIwW;\u{15}g\u{b}fa{;\u{16}_~XfC}%RT\0J-e\tn\u{10}3s\u{1d}g\u{11}bo\u{17}=N\u{f}PQ-\u{17}B/c\u{e},Lz.\u{18}\u{f}J\u{b}\u{1d}M[\u{1e}^j(\u{4}.$*\u{14}yh`7Z}hM\u{1b}\u{11}ht<d`}\u{6}|fo\u{1}"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtobuf.Google_Protobuf_Any.self)
-    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtobuf.Google_Protobuf_Any].self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtobuf.Google_Protobuf_Any.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtobuf.Google_Protobuf_Any].self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

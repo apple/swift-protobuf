@@ -207,7 +207,6 @@ message GeneratedSwiftReservedMessages {
   message decode { int32 decode = 1; }
   message decoded { int32 decoded = 1; }
   message decodeNextExtension { int32 decodeNextExtension = 1; }
-  message decoder { int32 decoder = 1; }
   message decompress { int32 decompress = 1; }
   message default { int32 default = 1; }
   message defaultAnyTypeURLPrefix { int32 defaultAnyTypeURLPrefix = 1; }
@@ -267,6 +266,7 @@ message GeneratedSwiftReservedMessages {
   message enumSchema { int32 enumSchema = 1; }
   message enumType { int32 enumType = 1; }
   message enumvalue { int32 enumvalue = 1; }
+  message EnumWitnesses { int32 EnumWitnesses = 1; }
   message equalSoFar { int32 equalSoFar = 1; }
   message Equatable { int32 Equatable = 1; }
   message Error { int32 Error = 1; }
@@ -533,6 +533,7 @@ message GeneratedSwiftReservedMessages {
   message ints { int32 ints = 1; }
   message invalidAnyTypeURL { int32 invalidAnyTypeURL = 1; }
   message invalidValues { int32 invalidValues = 1; }
+  message invokeWitness { int32 invokeWitness = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
@@ -564,7 +565,6 @@ message GeneratedSwiftReservedMessages {
   message javaOuterClassname { int32 javaOuterClassname = 1; }
   message javaPackage { int32 javaPackage = 1; }
   message javaStringCheckUtf8 { int32 javaStringCheckUtf8 = 1; }
-  message JSONDecoder { int32 JSONDecoder = 1; }
   message JSONDecoding { int32 JSONDecoding = 1; }
   message JSONDecodingError { int32 JSONDecodingError = 1; }
   message JSONDecodingOptions { int32 JSONDecodingOptions = 1; }
@@ -572,7 +572,6 @@ message GeneratedSwiftReservedMessages {
   message JSONEncoding { int32 JSONEncoding = 1; }
   message JSONEncodingError { int32 JSONEncodingError = 1; }
   message JSONEncodingOptions { int32 JSONEncodingOptions = 1; }
-  message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }
   message jsonFormat { int32 jsonFormat = 1; }
   message jsonName { int32 jsonName = 1; }
   message jsonPath { int32 jsonPath = 1; }
@@ -614,7 +613,7 @@ message GeneratedSwiftReservedMessages {
   message malformedLength { int32 malformedLength = 1; }
   message mapEntry { int32 mapEntry = 1; }
   message MapEntryPerformer { int32 MapEntryPerformer = 1; }
-  message mapEntrySchema { int32 mapEntrySchema = 1; }
+  message MapEntrySchema { int32 MapEntrySchema = 1; }
   message mapEntryWorkingSpace { int32 mapEntryWorkingSpace = 1; }
   message mask { int32 mask = 1; }
   message maximumEdition { int32 maximumEdition = 1; }
@@ -632,6 +631,7 @@ message GeneratedSwiftReservedMessages {
   message MessageStorage { int32 MessageStorage = 1; }
   message MessageStorageToken { int32 MessageStorageToken = 1; }
   message messageType { int32 messageType = 1; }
+  message MessageWitnesses { int32 MessageWitnesses = 1; }
   message method { int32 method = 1; }
   message methods { int32 methods = 1; }
   message min { int32 min = 1; }
@@ -728,15 +728,11 @@ message GeneratedSwiftReservedMessages {
   message protobuf_enumSchemaString { int32 protobuf_enumSchemaString = 1; }
   message protobuf_extensionStorage { int32 protobuf_extensionStorage = 1; }
   message protobuf_extensionStorageImpl { int32 protobuf_extensionStorageImpl = 1; }
-  message protobuf_mapEntrySchema { int32 protobuf_mapEntrySchema = 1; }
   message protobuf_messageSchemaString { int32 protobuf_messageSchemaString = 1; }
   message protobuf_messageStorage { int32 protobuf_messageStorage = 1; }
   message protobuf_package { int32 protobuf_package = 1; }
-  message protobuf_performNontrivialFieldOperation { int32 protobuf_performNontrivialFieldOperation = 1; }
-  message protobuf_performOnMapEntry { int32 protobuf_performOnMapEntry = 1; }
-  message protobuf_performOnRawEnumValues { int32 protobuf_performOnRawEnumValues = 1; }
-  message protobuf_performOnSubmessageStorage { int32 protobuf_performOnSubmessageStorage = 1; }
   message protobuf_reflectionData { int32 protobuf_reflectionData = 1; }
+  message protobuf_resolveSubmessageOrEnum { int32 protobuf_resolveSubmessageOrEnum = 1; }
   message protobuf_uniqueExtensionStorage { int32 protobuf_uniqueExtensionStorage = 1; }
   message protobuf_uniqueExtensionStorageImpl { int32 protobuf_uniqueExtensionStorageImpl = 1; }
   message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
@@ -827,6 +823,7 @@ message GeneratedSwiftReservedMessages {
   message schema { int32 schema = 1; }
   message schemaForMapEntryWithScalarValues { int32 schemaForMapEntryWithScalarValues = 1; }
   message seconds { int32 seconds = 1; }
+  message seenFields { int32 seenFields = 1; }
   message Self { int32 Self = 1; }
   message semantic { int32 semantic = 1; }
   message Sendable { int32 Sendable = 1; }
@@ -891,6 +888,7 @@ message GeneratedSwiftReservedMessages {
   message struct { int32 struct = 1; }
   message structValue { int32 structValue = 1; }
   message submessageIndex { int32 submessageIndex = 1; }
+  message submessageOrEnumResolver { int32 submessageOrEnumResolver = 1; }
   message SubmessageStoragePerformer { int32 SubmessageStoragePerformer = 1; }
   message subReader { int32 subReader = 1; }
   message subscript { int32 subscript = 1; }
@@ -946,7 +944,6 @@ message GeneratedSwiftReservedMessages {
   message TrampolineToken { int32 TrampolineToken = 1; }
   message trim { int32 trim = 1; }
   message true { int32 true = 1; }
-  message try { int32 try = 1; }
   message type { int32 type = 1; }
   message typealias { int32 typealias = 1; }
   message TypeEnum { int32 TypeEnum = 1; }
@@ -1001,7 +998,6 @@ message GeneratedSwiftReservedMessages {
   message versionString { int32 versionString = 1; }
   message visibility { int32 visibility = 1; }
   message VisibilityFeature { int32 VisibilityFeature = 1; }
-  message visitor { int32 visitor = 1; }
   message Void { int32 Void = 1; }
   message weak { int32 weak = 1; }
   message weakDependency { int32 weakDependency = 1; }

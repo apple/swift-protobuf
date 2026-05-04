@@ -74,25 +74,17 @@ import Foundation
 
         switch field.fieldMode.cardinality {
         case .map:
-            _ = schema.performNontrivialFieldOperation(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                .deinitialize,
-                field,
-                self
-            )
+            messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: buffer.baseAddress! + field.offset))
 
         case .array:
             switch field.rawFieldType {
             case .bool: deinitializeField(field, type: [Bool].self)
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
-            case .enum, .group, .message:
-                _ = schema.performNontrivialFieldOperation(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    .deinitialize,
-                    field,
-                    self
-                )
+            case .enum:
+                enumSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: buffer.baseAddress! + field.offset))
+            case .group, .message:
+                messageSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: buffer.baseAddress! + field.offset))
             case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
             case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
             case .float: deinitializeField(field, type: [Float].self)
@@ -107,12 +99,7 @@ import Foundation
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                _ = schema.performNontrivialFieldOperation(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    .deinitialize,
-                    field,
-                    self
-                )
+                messageSchema(for: field).invokeWitness(.messageDeinitialize(pointer: buffer.baseAddress! + field.offset))
             default:
                 // Ignore trivial fields; no deinitialization is necessary.
                 break
@@ -147,51 +134,6 @@ import Foundation
     }
 }
 
-/// An operation that the runtime requests to be performed on nontrivial fields that require
-/// trampolining through a generated function to propagate the correct concrete type.
-@_spi(ForGeneratedCodeOnly)
-public enum NontrivialFieldOperation {
-    /// The value of the field should be deinitialized.
-    case deinitialize
-
-    /// The value of the field should be copied to its correct memory offset in the destination
-    /// storage.
-    case copy(destination: MessageStorage)
-
-    /// The value of the field should be checked for equality against the value of the same field
-    /// in the other storage.
-    case isEqual(other: MessageStorage)
-}
-
-extension MessageStorage {
-    /// Performs the given operation on the nontrivial value of a field.
-    ///
-    /// - Parameters:
-    ///   - operation: The operation to perform.
-    ///   - field: The field on which to perform the operation.
-    ///   - type: The concrete type of the field.
-    /// - Returns: If the operation being performed is `isEqual`, then the result indicates whether
-    ///   the two values were equal. Otherwise, the result is always true and can be ignored.
-    public func performNontrivialFieldOperation<T: Equatable>(
-        _ operation: NontrivialFieldOperation,
-        field: FieldSchema,
-        type: T.Type
-    ) -> Bool {
-        switch operation {
-        case .deinitialize:
-            deinitializeField(field, type: type)
-            return true
-
-        case .copy(destination: let destination):
-            copyField(field, to: destination, type: type)
-            return true
-
-        case .isEqual(other: let other):
-            return isField(field, equalToSameFieldIn: other, type: type)
-        }
-    }
-}
-
 // MARK: - Whole-message operations
 
 extension MessageStorage {
@@ -212,12 +154,10 @@ extension MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                _ = schema.performNontrivialFieldOperation(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    .copy(destination: destination),
-                    field,
-                    self
-                )
+                guard isPresent(field) else { continue }
+                let source = buffer.baseAddress! + field.offset
+                let destination = destination.buffer.baseAddress! + field.offset
+                messageSchema(for: field).invokeWitness(.mapCopyInitialize(source: source, destination: destination))
 
             case .array:
                 if field.offset < firstNontrivialStorageOffset {
@@ -227,13 +167,20 @@ extension MessageStorage {
                 case .bool: copyField(field, to: destination, type: [Bool].self)
                 case .bytes: copyField(field, to: destination, type: [Data].self)
                 case .double: copyField(field, to: destination, type: [Double].self)
-                case .enum, .group, .message:
-                    _ = schema.performNontrivialFieldOperation(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        .copy(destination: destination),
-                        field,
-                        self
+                case .enum:
+                    guard isPresent(field) else { continue }
+                    let source = buffer.baseAddress! + field.offset
+                    let destination = destination.buffer.baseAddress! + field.offset
+                    enumSchema(for: field).invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
+                
+                case .group, .message:
+                    guard isPresent(field) else { continue }
+                    let source = buffer.baseAddress! + field.offset
+                    let destination = destination.buffer.baseAddress! + field.offset
+                    messageSchema(for: field).invokeWitness(
+                        .arrayCopyInitialize(source: source, destination: destination)
                     )
+
                 case .fixed32, .uint32: copyField(field, to: destination, type: [UInt32].self)
                 case .fixed64, .uint64: copyField(field, to: destination, type: [UInt64].self)
                 case .float: copyField(field, to: destination, type: [Float].self)
@@ -255,11 +202,11 @@ extension MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    _ = schema.performNontrivialFieldOperation(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        .copy(destination: destination),
-                        field,
-                        self
+                    guard isPresent(field) else { continue }
+                    let source = buffer.baseAddress! + field.offset
+                    let destination = destination.buffer.baseAddress! + field.offset
+                    messageSchema(for: field).invokeWitness(
+                        .messageCopyInitialize(source: source, destination: destination)
                     )
 
                 case .string:
@@ -299,353 +246,6 @@ extension MessageStorage {
             capacity: 1
         )
         destinationPointer.initialize(from: sourcePointer, count: 1)
-    }
-}
-
-// MARK: - Non-specific submessage storage operations
-
-extension MessageStorage {
-    /// Called by generated trampoline functions to invoke the given closure on the storage of a
-    /// singular submessage, providing the type hint of the concrete message type.
-    ///
-    /// - Precondition: For read operations, the field is already known to be present.
-    ///
-    /// - Returns: The value returned from the closure.
-    public func performOnSubmessageStorage<T: Message>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        type: T.Type,
-        perform: (MessageStorage) throws -> Bool
-    ) rethrows -> Bool {
-        switch operation {
-        case .read:
-            let submessage = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee
-            return try perform(submessage.storageForRuntime)
-
-        case .mutate:
-            // If the submessage isn't already present, we need to initialize a new one first.
-            // Otherwise, ensure that the storage is unique before we mutate it for CoW.
-            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-            if !isPresent(field) {
-                pointer.initialize(to: T.init())
-                switch field.presence {
-                case .hasBit(let hasByteOffset, let hasMask):
-                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                case .oneOfMember(let oneofOffset):
-                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-                }
-            } else {
-                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-            }
-            return try perform(pointer.pointee.storageForRuntime)
-
-        case .append:
-            preconditionFailure("Internal error: singular performOnSubmessageStorage should not be called to append")
-
-        case .jsonNull:
-            if type != Google_Protobuf_Value.self {
-                clearValue(of: field, type: type)
-                return true
-            }
-
-            // This well-known-type represents `null` as a populated `Value` instance whose
-            // `nullValue` field (a one-of member) is initialized to the `nullValue` enum value.
-            // Handle that accordingly. By getting the storage (initializing it if necessary)
-            // and then updating it.
-            let pointer = (buffer.baseAddress! + field.offset).bindMemory(
-                to: Google_Protobuf_Value.self,
-                capacity: 1
-            )
-            if !isPresent(field) {
-                pointer.initialize(to: .init())
-                switch field.presence {
-                case .hasBit(let hasByteOffset, let hasMask):
-                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                case .oneOfMember(let oneofOffset):
-                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-                }
-            } else {
-                pointer.pointee._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-            }
-            pointer.pointee.nullValue = .nullValue
-            return true
-        }
-    }
-
-    /// Called by generated trampoline functions to invoke the given closure on the storage of each
-    /// submessage in a repeated field, providing the type hint of the concrete message type.
-    ///
-    /// The closure can return false to stop iteration over the submessages early. Likewise, if the
-    /// closure throws an error, that error will be propagated all the way to the caller.
-    ///
-    /// - Precondition: For the read and mutate operations, the field is already known to be
-    ///   present.
-    ///
-    /// - Returns: The value returned from the last invocation of the closure.
-    public func performOnSubmessageStorage<T: Message>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        type: [T].Type,
-        perform: (MessageStorage) throws -> Bool
-    ) rethrows -> Bool {
-        switch operation {
-        case .read, .mutate:
-            let submessages = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee
-            for submessage in submessages {
-                guard try perform(submessage.storageForRuntime) else { return false }
-            }
-            return true
-
-        case .append:
-            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
-            if !isPresent(field) {
-                pointer.initialize(to: [])
-                switch field.presence {
-                case .hasBit(let hasByteOffset, let hasMask):
-                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                case .oneOfMember(let oneofOffset):
-                    _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-                }
-            }
-
-            // Below, we are mutating the underlying storage of an otherwise immutable message
-            // without guaranteeing uniqueness. This is fine because we've just created the
-            // message so there can be no other references to its storage.
-            let submessage = T.init()
-            guard try perform(submessage.storageForRuntime) else { return false }
-            pointer.pointee.append(submessage)
-            return true
-
-        case .jsonNull:
-            clearValue(of: field, type: type)
-            return true
-        }
-    }
-
-    /// Called by generated trampoline functions to invoke the given closure on the storage of each
-    /// submessage among the values of a map field, providing the type hint of the concrete message
-    /// type.
-    ///
-    /// The closure can return false to stop iteration over the submessages early. Likewise, if the
-    /// closure throws an error, that error will be propagated all the way to the caller.
-    ///
-    /// - Precondition: Only the read operation is supported and the field must already be present.
-    ///
-    /// - Returns: The value returned from the last invocation of the closure.
-    public func performOnSubmessageStorage<K, V: Message>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        type: [K: V].Type,
-        perform: (MessageStorage) throws -> Bool
-    ) rethrows -> Bool {
-        switch operation {
-        case .read:
-            let dictionary = (buffer.baseAddress! + field.offset).bindMemory(to: [K: V].self, capacity: 1).pointee
-            for entry in dictionary {
-                guard try perform(entry.value.storageForRuntime) else { return false }
-            }
-            return true
-
-        case .mutate, .append:
-            preconditionFailure("unreachable")
-
-        case .jsonNull:
-            clearValue(of: field, type: type)
-            return true
-        }
-    }
-
-    /// Called by generated trampoline functions to invoke the given closure on the raw value of a
-    /// singular enum field, providing the type hint of the concrete enum type.
-    ///
-    /// - Precondition: For read operations, the field is already known to be present.
-    ///
-    /// - Parameters:
-    ///   - field: The enum field being operated on.
-    ///   - operation: The specific operation to perform on the field.
-    ///   - type: The concrete type of the enum.
-    ///   - perform: A closure called with the (possibly mutable) value of the field. For `.read`
-    ///     operations, the incoming value will be the actual value of the field, and mutating it
-    ///     will be ignored. For `.mutate`, the incoming value is not specified and the closure
-    ///     must mutate it to supply the desired value.
-    ///   - onInvalidValue: A closure that is called during `.mutate` operations if the raw value
-    ///     returned by the `perform` closure is not a valid enum case.
-    public func performOnRawEnumValues<T: Enum>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        type: T.Type,
-        enumSchema: EnumSchema,
-        perform: (EnumSchema, inout Int32) throws -> Bool,
-        onInvalidValue: (Int32) throws -> Void
-    ) rethrows {
-        switch operation {
-        case .read:
-            // When reading, we can get the raw value directly from storage, and we don't need to
-            // verify it against the defined values in the actual enum.
-            var rawValue = assumedPresentValue(at: field.offset, as: Int32.self)
-            _ = try perform(enumSchema, &rawValue)
-
-        case .mutate:
-            // When updating a singular enum field, verify that it is a defined enum case. If not,
-            // call the invalid value handler.
-            var rawValue: Int32 = 0
-            _ = try perform(enumSchema, &rawValue)
-            if T(rawValue: Int(rawValue)) != nil {
-                updateValue(of: field, to: rawValue)
-            } else {
-                try onInvalidValue(rawValue)
-            }
-
-        case .append:
-            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called to append")
-
-        case .jsonNull:
-            preconditionFailure("Internal error: singular performOnRawEnumValues should not be called for jsonNull")
-        }
-    }
-
-    /// Called by generated trampoline functions to invoke the given closure on the raw value of
-    /// each element in a repeated enum field, providing the type hint of the concrete enum type.
-    ///
-    /// The closure can return false to stop iteration over the values early. Furthermore, when the
-    /// operation is `.append`, the closure will be called repeatedly **until** it returns false.
-    /// Likewise, if the closure throws an error, that error will be propagated all the way to the
-    /// caller.
-    ///
-    /// - Precondition: For the read and mutate operations, the field is already known to be
-    ///   present.
-    ///
-    /// - Parameters:
-    ///   - field: The enum field being operated on.
-    ///   - operation: The specific operation to perform on the field.
-    ///   - type: The concrete type of the enum.
-    ///   - perform: A closure called with the (possibly mutable) value of the field. For `.read`
-    ///     operations, the incoming value will be the actual value of the field, and mutating it
-    ///     will be ignored. For `.mutate` and `.append`, the incoming value is not specified, and
-    ///     the closure must mutate it to supply the desired value.
-    ///   - onInvalidValue: A closure that is called during `.mutate` and `.append` operations if
-    ///     the raw value returned by the `perform` closure is not a valid enum case.
-    public func performOnRawEnumValues<T: Enum>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        type: [T].Type,
-        enumSchema: EnumSchema,
-        perform: (EnumSchema, inout Int32) throws -> Bool,
-        onInvalidValue: (Int32) throws -> Void
-    ) rethrows {
-        switch operation {
-        case .read:
-            for value in assumedPresentValue(at: field.offset, as: [T].self) {
-                var rawValue = Int32(value.rawValue)
-                guard try perform(enumSchema, &rawValue) else { break }
-            }
-
-        case .mutate:
-            preconditionFailure("Internal error: repeated performOnRawEnumValues should not be called to mutate")
-
-        case .append:
-            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
-            var rawValue: Int32 = 0
-            var isFieldPresent = isPresent(field)
-            while try perform(enumSchema, &rawValue) {
-                if let newValue = T(rawValue: Int(rawValue)) {
-                    if !isFieldPresent {
-                        pointer.initialize(to: [])
-                        switch field.presence {
-                        case .hasBit(let hasByteOffset, let hasMask):
-                            _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                        case .oneOfMember(let oneofOffset):
-                            _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
-                        }
-                        isFieldPresent = true
-                    }
-                    pointer.pointee.append(newValue)
-                } else {
-                    try onInvalidValue(rawValue)
-                }
-            }
-
-        case .jsonNull:
-            clearValue(of: field, type: type)
-        }
-    }
-
-    /// Called by generated trampoline functions to invoke the given closure on the storage of a
-    /// singular submessage, providing the type hint of the concrete message type.
-    ///
-    /// - Precondition: For read operations, the field is already known to be present.
-    ///
-    /// - Returns: The value returned from the closure.
-    public func performOnMapEntry<K: ProtobufMapKey, V: ProtobufMapParticipant>(
-        of field: FieldSchema,
-        operation: TrampolineFieldOperation,
-        workingSpace: MessageStorage,
-        keyType: K.Type,
-        valueType: V.Type,
-        deterministicOrdering: Bool,
-        perform: (MessageStorage) throws -> Bool
-    ) rethrows -> Bool {
-        typealias DictionaryType = [K.Base: V.Base]
-
-        guard
-            let keyField = workingSpace.schema[fieldNumber: 1],
-            let valueField = workingSpace.schema[fieldNumber: 2],
-            case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
-            case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
-        else {
-            preconditionFailure("unreachable")
-        }
-        let keyHasBit = (keyHasByteOffset, keyHasBitMask)
-        let valueHasBit = (valueHasByteOffset, valueHasBitMask)
-
-        switch operation {
-        case .read:
-            let dictionary =
-                (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1).pointee
-            if deterministicOrdering {
-                for key in dictionary.keys.sorted(by: K.keyLessThan(lhs:rhs:)) {
-                    K.updateValue(at: keyField.offset, in: workingSpace, to: key, hasBit: keyHasBit)
-                    V.updateValue(at: valueField.offset, in: workingSpace, to: dictionary[key]!, hasBit: valueHasBit)
-                    guard try perform(workingSpace) else { break }
-                }
-            } else {
-                for entry in dictionary {
-                    K.updateValue(at: keyField.offset, in: workingSpace, to: entry.key, hasBit: keyHasBit)
-                    V.updateValue(at: valueField.offset, in: workingSpace, to: entry.value, hasBit: valueHasBit)
-                    guard try perform(workingSpace) else { break }
-                }
-            }
-            return true
-
-        case .mutate:
-            preconditionFailure("Internal error: performOnMapEntry should not be called to mutate")
-
-        case .append:
-            // Make sure to clear out the working space before invoking the closure, so that we
-            // handle missing fields in the map entry correctly.
-            K.clearValue(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
-            V.clearValue(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
-            workingSpace.unknownFields = UnknownStorage()
-
-            let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: DictionaryType.self, capacity: 1)
-            if !isPresent(field) {
-                pointer.initialize(to: [:])
-                switch field.presence {
-                case .hasBit(let hasByteOffset, let hasMask):
-                    _ = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: true)
-                case .oneOfMember:
-                    preconditionFailure("unreachable")
-                }
-            }
-            guard try perform(workingSpace) else { return false }
-            let key = K.value(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
-            let value = V.value(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
-            pointer.pointee[key] = value
-            return true
-
-        case .jsonNull:
-            preconditionFailure("Internal error: performOnMapEntry should not be called for jsonNull")
-        }
     }
 }
 
@@ -1607,6 +1207,7 @@ extension MessageStorage {
     public var isInitialized: Bool {
         guard isMessageInitializedShallow else { return false }
 
+        var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         for field in schema.fields {
             switch field.rawFieldType {
             case .message, .group:
@@ -1618,16 +1219,41 @@ extension MessageStorage {
                     }
                     continue
                 }
+                switch field.fieldMode.cardinality {
+                case .map:
+                    let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                    var areAllInitialized = true
+                    forEachMapEntry(in: field, useDeterministicOrdering: false, workingSpace: workingSpace) {
+                        if !$0.isInitialized {
+                            areAllInitialized = false
+                            return .stop
+                        }
+                        return .continue
+                    }
+                    guard areAllInitialized else {
+                        return false
+                    }
 
-                // This never actually throws because the closure cannot throw, but closures
-                // cannot be declared rethrows.
-                let isSubmessageInitialized = try! schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) { $0.isInitialized }
-                guard isSubmessageInitialized else { return false }
+                case .array:
+                    var areAllInitialized = true
+                    forEachMessage(inAssumedPresentRepeatedMessageField: field) {
+                        guard $0.isInitialized else {
+                            areAllInitialized = false
+                            return .stop
+                        }
+                        return .continue
+                    }
+                    return areAllInitialized
+
+                case .scalar:
+                    let storage = messageStorage(forAssumedPresentSingularMessageField: field)
+                    guard storage.isInitialized else {
+                        return false
+                    }
+
+                default:
+                    preconditionFailure("Unreachable")
+                }
 
             default:
                 // Nothing to do for other types of fields; they've already been considered by
@@ -1638,18 +1264,7 @@ extension MessageStorage {
 
         // If any extension fields are groups or messages, we need to check their initialization
         // state.
-        for (_, value) in extensionStorage.values {
-            let ext = value.schema
-            let field = ext.field
-            if field.rawFieldType == .message || field.rawFieldType == .group {
-                let isSubmessageInitialized = try! ext.performOnSubmessageStorage(
-                    ext,
-                    extensionStorage,
-                    .read
-                ) { $0.isInitialized }
-                if !isSubmessageInitialized { return false }
-            }
-        }
+        guard extensionStorage.allSubmessagesAreInitialized else { return false }
 
         return true
     }

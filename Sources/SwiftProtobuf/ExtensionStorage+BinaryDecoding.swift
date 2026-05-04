@@ -98,20 +98,14 @@ extension ExtensionStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .append
-                ) { submessageStorage in
-                    try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .int32:
@@ -128,20 +122,14 @@ extension ExtensionStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .append
-                ) { submessageStorage in
-                    try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .sfixed32:
@@ -229,20 +217,14 @@ extension ExtensionStorage {
 
             case .group:
                 guard tag.wireFormat == .startGroup else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .mutate
-                ) { submessageStorage in
-                    try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .int32:
@@ -257,20 +239,14 @@ extension ExtensionStorage {
 
             case .message:
                 guard tag.wireFormat == .lengthDelimited else { return false }
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .mutate
-                ) { submessageStorage in
-                    try reader.withReaderForNextLengthDelimitedSlice { subReader in
-                        try submessageStorage.merge(
-                            byReadingFrom: &subReader,
-                            extensions: extensions,
-                            partial: partial,
-                            discardUnknownFields: discardUnknownFields
-                        )
-                    }
-                    return true
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                try reader.withReaderForNextLengthDelimitedSlice { subReader in
+                    try submessageStorage.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        partial: partial,
+                        discardUnknownFields: discardUnknownFields
+                    )
                 }
 
             case .sfixed32:
@@ -372,21 +348,11 @@ extension ExtensionStorage {
         isRepeated: Bool,
         unknownFields: inout UnknownStorage
     ) throws {
-        var alreadyReadValue = false
-        try ext.performOnRawEnumValues(
-            ext,
-            self,
-            isRepeated ? .append : .mutate
-        ) { _, outRawValue in
-            // In the singular case, this doesn't matter. In the repeated case, we need to return
-            // true *exactly once* and then return false the next time this is called. This is
-            // because the same trampoline function is used to handle the packed case, where it
-            // calls the closure over and over until it returns that there is no data left.
-            guard !alreadyReadValue else { return false }
-            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
-            alreadyReadValue = true
-            return true
-        } /*onInvalidValue*/ _: { rawValue in
+        let enumSchema = ext.enumSchema
+
+        // Read a single raw value from the wire.
+        let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
+        guard enumSchema.isValidValue(rawValue) else {
             // Serialize the invalid values into a binary blob that will be passed as a single
             // varint field into unknown fields.
             //
@@ -402,6 +368,13 @@ extension ExtensionStorage {
                 encoder.putVarInt(value: Int64(rawValue))
                 unknownFields.append(protobufBytes: UnsafeRawBufferPointer(body))
             }
+            return
+        }
+
+        if isRepeated {
+            appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: ext)
+        } else {
+            updateValue(of: ext, to: rawValue)
         }
     }
 
@@ -429,24 +402,21 @@ extension ExtensionStorage {
         // into unknown fields at the end.
         var invalidValues: [Int32] = []
 
+        let enumSchema = ext.enumSchema
+
         // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
-
-        try ext.performOnRawEnumValues(
-            ext,
-            self,
-            .append
-        ) { _, outRawValue in
-            guard elementsReader.hasAvailableData else { return false }
-            outRawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
-            return true
-        } /*onInvalidValue*/ _: {
-            invalidValues.append($0)
+        while elementsReader.hasAvailableData {
+            let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
+            if enumSchema.isValidValue(rawValue) {
+                appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: ext)
+            } else {
+                invalidValues.append(rawValue)
+            }
         }
 
-        if invalidValues.isEmpty {
-            return
-        }
+        // If there were no invalid values, or if we're discarding them, there's nothing more to do.
+        guard !invalidValues.isEmpty else { return }
 
         // Serialize all of the invalid values into a binary blob that will be passed as a
         // single length-delimited field into unknown fields.

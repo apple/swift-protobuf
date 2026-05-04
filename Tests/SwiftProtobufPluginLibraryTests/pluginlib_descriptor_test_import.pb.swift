@@ -163,18 +163,15 @@ fileprivate let _protobuf_package = "swift_descriptor_test.import"
 extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Version"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "l\0\0\0p#$\u{2}\u{1b}KH+\u{1e}\u{17}d GMwQy\u{13}\u{7f}c[)rwJ%\u{10}9><\u{5}]5XP\u{6}\u{7f}V a9c\u{1f}\u{6}\r7[\u{13}Sa\u{1e}\u{1e}UVg\u{3}\u{1}\u{1d}ADtmw\u{16}&\tTG+p\u{2}" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KH+\u{1e}\u{17}d GMwQy\u{13}\u{7f}c[)rwJ%\u{10}9><\u{5}]5XP\u{6}\u{7f}V a9c\u{1f}\u{6}\r7[\u{13}Sa\u{1e}\u{1e}UVg\u{3}\u{1}\u{1d}ADtmw\u{16}&\tTG+p\u{2}"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -184,47 +181,19 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message {
 extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtendableOne"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\"Xv]\u{f}so|S\u{18}\n<\u{19}\u{7})p=G&\u{5}\u{5}\u{7f}\u{19}\u{3}\u{15}CPp\u{3}\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\"Xv]\u{f}so|S\u{18}\n<\u{19}\u{7})p=G&\u{5}\u{5}\u{7f}\u{19}\u{3}\u{15}CPp\u{3}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -241,18 +210,15 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message {
 extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }

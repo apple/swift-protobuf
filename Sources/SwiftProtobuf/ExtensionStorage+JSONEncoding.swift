@@ -65,23 +65,17 @@ extension ExtensionStorage {
 
             case .enum:
                 var firstItem = true
-                _ = try! schema.performOnRawEnumValues(
-                    schema,
-                    self,
-                    .read
-                ) { enumSchema, value in
+                forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { rawValue in
                     if !firstItem {
                         encoder.comma()
                     }
                     encoder.putEnumValue(
-                        rawValue: value,
-                        enumSchema: enumSchema,
+                        rawValue: rawValue,
+                        enumSchema: schema.enumSchema,
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
-                    return true
-                } /*onInvalidValue*/ _: { _ in
-                    assertionFailure("invalid value handler should never be called for .read")
+                    return .continue
                 }
 
             case .fixed32, .uint32:
@@ -99,17 +93,13 @@ extension ExtensionStorage {
 
             case .group, .message:
                 var firstItem = true
-                _ = try schema.performOnSubmessageStorage(
-                    schema,
-                    self,
-                    .read
-                ) {
+                try forEachMessage(inAssumedPresentRepeatedMessageField: schema) {
                     if !firstItem {
                         encoder.comma()
                     }
                     try $0.serializeJSON(into: &encoder, options: options)
                     firstItem = false
-                    return true
+                    return .continue
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -158,20 +148,11 @@ extension ExtensionStorage {
             encoder.putDoubleValue(value: value.value(as: Double.self))
 
         case .enum:
-            _ = try schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { enumSchema, value in
-                encoder.putEnumValue(
-                    rawValue: value,
-                    enumSchema: enumSchema,
-                    alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
-                )
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
-            }
+            encoder.putEnumValue(
+                rawValue: value.value(as: Int32.self),
+                enumSchema: schema.enumSchema,
+                alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
+            )
 
         case .fixed32, .uint32:
             encoder.putNonQuotedUInt32(value: value.value(as: UInt32.self))
@@ -186,14 +167,8 @@ extension ExtensionStorage {
             encoder.putFloatValue(value: value.value(as: Float.self))
 
         case .group, .message:
-            _ = try schema.performOnSubmessageStorage(
-                schema,
-                self,
-                .read
-            ) {
-                try $0.serializeJSON(into: &encoder, options: options)
-                return true
-            }
+            let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
+            try subMessageStorage.serializeJSON(into: &encoder, options: options)
 
         case .int32, .sfixed32, .sint32:
             encoder.putNonQuotedInt32(value: value.value(as: Int32.self))

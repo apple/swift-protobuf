@@ -45,12 +45,14 @@ extension MessageStorage {
                 if field.offset < firstNontrivialStorageOffset {
                     firstNontrivialStorageOffset = field.offset
                 }
-                equalSoFar = schema.performNontrivialFieldOperation(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    .isEqual(other: other),
-                    field,
-                    self
-                )
+                switch mutualPresence(of: field, withSameFieldIn: other) {
+                case .bothPresent:
+                    equalSoFar = isMapField(field, equalToSameFieldIn: other)
+                case .neitherPresent:
+                    break
+                case .onlyOnePresent:
+                    equalSoFar = false
+                }
 
             case .array:
                 if field.offset < firstNontrivialStorageOffset {
@@ -63,13 +65,52 @@ extension MessageStorage {
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Data].self)
                 case .double:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Double].self)
-                case .enum, .group, .message:
-                    equalSoFar = schema.performNontrivialFieldOperation(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        .isEqual(other: other),
-                        field,
-                        self
-                    )
+                case .enum:
+                    switch mutualPresence(of: field, withSameFieldIn: other) {
+                    case .bothPresent:
+                        let lhsCount = elementCount(forAssumedPresentRepeatedEnumField: field)
+                        let rhsCount = other.elementCount(forAssumedPresentRepeatedEnumField: field)
+                        guard lhsCount == rhsCount else {
+                            equalSoFar = false
+                            break
+                        }
+                        for i in 0..<lhsCount {
+                            let lhsValue = rawValue(at: i, inAssumedPresentRepeatedEnumField: field)
+                            let rhsValue = other.rawValue(at: i, inAssumedPresentRepeatedEnumField: field)
+                            guard lhsValue == rhsValue else {
+                                equalSoFar = false
+                                break
+                            }
+                        }
+                    case .neitherPresent:
+                        break
+                    case .onlyOnePresent:
+                        equalSoFar = false
+                    }
+
+                case .group, .message:
+                    switch mutualPresence(of: field, withSameFieldIn: other) {
+                    case .bothPresent:
+                        let lhsCount = elementCount(forAssumedPresentRepeatedMessageField: field)
+                        let rhsCount = other.elementCount(forAssumedPresentRepeatedMessageField: field)
+                        guard lhsCount == rhsCount else {
+                            equalSoFar = false
+                            break
+                        }
+                        for i in 0..<lhsCount {
+                            let lhsValue = messageStorage(at: i, inAssumedPresentRepeatedMessageField: field)
+                            let rhsValue = other.messageStorage(at: i, inAssumedPresentRepeatedMessageField: field)
+                            guard lhsValue.isEqual(to: rhsValue) else {
+                                equalSoFar = false
+                                break
+                            }
+                        }
+                    case .neitherPresent:
+                        break
+                    case .onlyOnePresent:
+                        equalSoFar = false
+                    }
+
                 case .fixed32, .uint32:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [UInt32].self)
                 case .fixed64, .uint64:
@@ -98,12 +139,16 @@ extension MessageStorage {
                     if field.offset < firstNontrivialStorageOffset {
                         firstNontrivialStorageOffset = field.offset
                     }
-                    equalSoFar = schema.performNontrivialFieldOperation(
-                        MessageSchema.TrampolineToken(index: field.submessageIndex),
-                        .isEqual(other: other),
-                        field,
-                        self
-                    )
+                    switch mutualPresence(of: field, withSameFieldIn: other) {
+                    case .bothPresent:
+                        let lhsStorage = messageStorage(forAssumedPresentSingularMessageField: field)
+                        let rhsStorage = other.messageStorage(forAssumedPresentSingularMessageField: field)
+                        equalSoFar = lhsStorage.isEqual(to: rhsStorage)
+                    case .neitherPresent:
+                        break
+                    case .onlyOnePresent:
+                        equalSoFar = false
+                    }
 
                 case .string:
                     if field.offset < firstNontrivialStorageOffset {
@@ -147,17 +192,35 @@ extension MessageStorage {
         equalToSameFieldIn other: MessageStorage,
         type: T.Type
     ) -> Bool {
+        switch mutualPresence(of: field, withSameFieldIn: other) {
+        case .onlyOnePresent:
+            return false
+        case .neitherPresent:
+            return true
+        case .bothPresent:
+            let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            let otherPointer = (other.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            return selfPointer.pointee == otherPointer.pointee
+        }
+    }
+
+    /// Describes whether a field is present in both messages, neither message, or only one of them.
+    private enum MutualPresence {
+        case bothPresent
+        case neitherPresent
+        case onlyOnePresent
+    }
+
+    /// Returns whether a field is present in both messages, neither message, or only one of them.
+    private func mutualPresence(of field: FieldSchema, withSameFieldIn other: MessageStorage) -> MutualPresence {
         let isSelfPresent = isPresent(field)
         let isOtherPresent = other.isPresent(field)
-        guard isSelfPresent && isOtherPresent else {
-            // If the field isn't present in both messages, then it must be absent in both to be
-            // considered equal.
-            return isSelfPresent == isOtherPresent
+        if isSelfPresent && isOtherPresent {
+            return .bothPresent
         }
-        // The field is present in both messages, so compare their values.
-        let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-        let otherPointer = (other.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-        return selfPointer.pointee == otherPointer.pointee
+        if !isSelfPresent && !isOtherPresent {
+            return .neitherPresent
+        }
+        return .onlyOnePresent
     }
 }
-

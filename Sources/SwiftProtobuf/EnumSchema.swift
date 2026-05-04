@@ -38,15 +38,21 @@ public struct EnumSchema: @unchecked Sendable {
     /// The reference to the reflection table for the enum.
     private let reflection: ReflectionTableReference
 
+    @_spi(ForGeneratedCodeOnly)
+    public typealias InvokeWitnessFunction = (EnumWitnessOperation) -> Void
+
+    let invokeWitness: InvokeWitnessFunction
+
     /// Creates a new enum schema from the given values.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, reflection: StaticString) {
+    public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
         self.schema = schema.rawBufferPointer
         // TODO: Use the `.compressed` form and lazily decompress and cache it.
         self.reflection = .direct(ReflectionTable(
             fieldCount: Self.valueCount(from: schema.rawBufferPointer),
             data: Compression.decompress(reflection.rawBufferPointer)
         ))
+        self.invokeWitness = invokeWitness
     }
 }
 
@@ -79,6 +85,18 @@ extension EnumSchema {
 }
 
 extension EnumSchema {
+    /// Returns true if the given value is a valid value for this enum.
+    ///
+    /// For closed enums, a value is valid only if it corresponds to an explicitly defined case.
+    /// For open enums, any value is considered valid.
+    func isValidValue(_ value: Int32) -> Bool {
+        var isValid = false
+        withUnsafeMutablePointer(to: &isValid) { isValidPointer in
+            invokeWitness(.rawValueIsValid(rawValue: value, result: isValidPointer))
+        }
+        return isValid
+    }
+
     /// The text and JSON name for the given enum case value.
     func textName(forEnumCase value: Int32) -> String? {
         reflection.table.textName(forEnumCase: value)

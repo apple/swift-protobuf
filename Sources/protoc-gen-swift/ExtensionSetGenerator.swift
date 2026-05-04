@@ -58,20 +58,18 @@ class ExtensionSetGenerator {
             switch descriptor.type {
             case .group:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
+                trampolineFieldKind = .message(swiftSingularType)
             case .message:
-                if let mapKeyAndValue = descriptor.messageType!.mapKeyAndValue {
-                    let swiftType = descriptor.swiftType(namer: namer)
-                    let keyType = RawFieldType(fieldDescriptorType: mapKeyAndValue.key.type)
-                    let valueType = RawFieldType(fieldDescriptorType: mapKeyAndValue.value.type)
-                    trampolineFieldKind = .map(swiftType, keyType: keyType, valueType: valueType)
+                if descriptor.isMap {
+                    let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
+                    trampolineFieldKind = .map(entrySchemaName)
                 } else {
                     let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                    trampolineFieldKind = .message(swiftSingularType, isArray: descriptor.isRepeated)
+                    trampolineFieldKind = .message(swiftSingularType)
                 }
             case .enum:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                trampolineFieldKind = .enum(swiftSingularType, isArray: descriptor.isRepeated)
+                trampolineFieldKind = .enum(swiftSingularType)
             default:
                 trampolineFieldKind = nil
             }
@@ -104,30 +102,33 @@ class ExtensionSetGenerator {
             )
             p.withIndentation { p in
                 p.print(#"schema: "\#(schemaLiteral)","#)
-                p.print(#"extendedMessageSchemaProducer: { \#(containingTypeSwiftFullName).messageSchema }"#, newlines: false)
+
+                // We generate these as separate functions because it increases the compiler's
+                // ability to do identical function folding. For example, all extension fields that
+                // extend the same message will generate identical `extendedMessageResolver`
+                // closures, and the compiler/linker can merge them.
+                p.print(#"extendedMessageResolver: { \#(containingTypeSwiftFullName).messageSchema }"#, newlines: false)
 
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
                 if let field = extensionSchemaCalculator.trampolineFields.first {
-                    p.print(",")
-                    p.print("performNontrivialExtensionOperation: { operation, ext, storage in")
-                    p.printIndented("storage.performNontrivialExtensionOperation(operation, extension: ext, type: \(field.kind.name).self)")
-                    p.print("},")
-
+                    let resolver: String
                     switch field.kind {
-                    case .message:
-                        p.print("performOnSubmessageStorage: { ext, storage, operation, perform in")
-                        p.printIndented("try storage.performOnSubmessageStorage(of: ext, operation: operation, type: \(field.kind.name).self, perform: perform)")
-                    case .enum(let singularName, _):
-                        p.print("performOnRawEnumValues: { ext, storage, operation, perform, onInvalidValue in")
-                        p.printIndented("try storage.performOnRawEnumValues(of: ext, operation: operation, type: \(field.kind.name).self, enumSchema: \(singularName).enumSchema, perform: perform, onInvalidValue: onInvalidValue)")
+                    case .message(let name):
+                        resolver = ".message(\(name).messageSchema)"
+                    case .enum(let name):
+                        resolver = ".enum(\(name).enumSchema)"
                     case .map:
                         preconditionFailure("unreachable; extensions cannot be map fields")
                     }
-                    p.print("}", newlines: false)
-                } else {
+                    p.print(
+                        ",",
+                        "submessageOrEnumResolver: { \(resolver) }", newlines: false)
                 }
-                p.print(")")
+                p.print(
+                    "",
+                    ")"
+                )
             }
         }
 

@@ -107,13 +107,11 @@ class EnumGenerator {
         )
         p.withIndentation { p in
             p.print(
-                "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_enumSchemaString: Swift.StaticString { "\#(enumSchemaCalculator.schemaLiteral)" }"#,
-                "@_alwaysEmitIntoClient @inline(__always)",
-                #"private static var _protobuf_reflectionData: Swift.StaticString { "\#(compressedReflectionData)" }"#
+                #"private static let _protobuf_enumSchemaString: Swift.StaticString = "\#(enumSchemaCalculator.schemaLiteral)""#,
+                #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#
             )
             p.print(
-                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)"
+                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
             )
         }
         p.print("}")

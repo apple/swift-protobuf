@@ -165,18 +165,15 @@ fileprivate let _protobuf_package = "swift_proto_testing.extend"
 extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".EnumOptionalDefault"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.extend.EnumOptionalDefault" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.extend.EnumOptionalDefault"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.extend.EnumOptionalDefault" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.extend.EnumOptionalDefault"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -186,49 +183,20 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R|cu[n=>@.bAPbi&-)\te$\u{14}+\u{11}\u{b}\r\u{16}l\u{c} l\0:^`\u{4}=\u{14}\u{1d}\u{4}{4uNf\u{1a}>g\u{16}T\u{13}\u{1}\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R|cu[n=>@.bAPbi&-)\te$\u{14}+\u{11}\u{b}\r\u{16}l\u{c} l\0:^`\u{4}=\u{14}\u{1d}\u{4}{4uNf\u{1a}>g\u{16}T\u{13}\u{1}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.self)
-    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.self, enumSchema: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .enum(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.enumSchema)
+    case 2: return .message(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -239,57 +207,27 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0A\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage.Enum" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0A\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage.Enum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}FH\u{1}[C#$LIC\nE;t\u{15}i\u{14}8\\VK=Bx\u{1}zlUQPx}}Uq\u{15}So'y\u{4}\u{1c}\nd\u{1a}\u{2}\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#$LIC\nE;t\u{15}i\u{14}8\\VK=Bx\u{1}zlUQPx}}Uq\u{15}So'y\u{4}\u{1c}\nd\u{1a}\u{2}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, enumSchema: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .enum(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.enumSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -300,9 +238,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{1}\0\0\0\0B\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2.Enum" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0B\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2.Enum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

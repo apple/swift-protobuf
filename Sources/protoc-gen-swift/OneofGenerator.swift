@@ -85,9 +85,9 @@ class OneofGenerator {
 
             switch descriptor.type {
             case .group, .message:
-                trampolineFieldKind = .message(swiftType, isArray: false)
+                trampolineFieldKind = .message(swiftType)
             case .enum:
-                trampolineFieldKind = .enum(swiftType, isArray: false)
+                trampolineFieldKind = .enum(swiftType)
             default:
                 trampolineFieldKind = nil
             }

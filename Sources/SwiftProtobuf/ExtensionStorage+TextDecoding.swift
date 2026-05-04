@@ -50,7 +50,10 @@ extension ExtensionStorage {
                     appendValue(try reader.scanner.nextDouble(), to: schema)
 
                 case .enum:
-                    try scanEnumValue(schema, from: &reader, operation: .append)
+                    appendEnumValue(
+                        withRawValue: try scanEnumValue(schema, from: &reader),
+                        toRepeatedEnumField: schema
+                    )
 
                 case .fixed32, .uint32:
                     let n = try reader.scanner.nextSInt()
@@ -66,7 +69,10 @@ extension ExtensionStorage {
                     appendValue(try reader.scanner.nextFloat(), to: schema)
 
                 case .group, .message:
-                    try scanSubmessageValue(schema, from: &reader, operation: .append)
+                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                    try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+                        try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
+                    }
 
                 case .int32, .sfixed32, .sint32:
                     let n = try reader.scanner.nextSInt()
@@ -98,7 +104,7 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: try reader.scanner.nextDouble())
 
             case .enum:
-                try scanEnumValue(schema, from: &reader, operation: .mutate)
+                updateValue(of: schema, to: try scanEnumValue(schema, from: &reader))
 
             case .fixed32, .uint32:
                 let n = try reader.scanner.nextUInt()
@@ -114,7 +120,10 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: try reader.scanner.nextFloat())
 
             case .group, .message:
-                try scanSubmessageValue(schema, from: &reader, operation: .mutate)
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
+                    try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
+                }
 
             case .int32, .sfixed32, .sint32:
                 let n = try reader.scanner.nextSInt()
@@ -138,63 +147,27 @@ extension ExtensionStorage {
         }
     }
 
-    /// Scans the submessage value of the given extension field from the reader, performing the
-    /// given operation on its storage (either mutate or append).
-    private func scanSubmessageValue(
-        _ schema: ExtensionSchema,
-        from reader: inout TextFormatReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            schema,
-            self,
-            operation
-        ) { submessageStorage in
-            try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
-                try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
-            }
-            return true
-        }
-    }
-
     /// Scans the enum value of the given extension field from the reader (handling both name and
     /// numeric cases), performing the given operation on its raw value (either mutate or append).
-    private func scanEnumValue(
-        _ schema: ExtensionSchema,
-        from reader: inout TextFormatReader,
-        operation: TrampolineFieldOperation
-    ) throws {
-        var hasSeenValue = false
+    private func scanEnumValue(_ schema: ExtensionSchema, from reader: inout TextFormatReader) throws -> Int32 {
+        let enumSchema = schema.enumSchema
 
-        _ = try schema.performOnRawEnumValues(
-            schema,
-            self,
-            operation
-        ) { enumSchema, value in
-            // For the repeated case, terminate the loop inside `performOnRawEnumValues` after
-            // having read one value.
-            if hasSeenValue {
-                return false
+        if let name = try reader.scanner.nextOptionalEnumName() {
+            guard let rawValue = enumSchema.enumCase(forTextName: name) else {
+                throw TextFormatDecodingError.unrecognizedEnumValue
             }
-            hasSeenValue = true
+            return rawValue
+        }
 
-            if let name = try reader.scanner.nextOptionalEnumName() {
-                guard let number = enumSchema.enumCase(forTextName: name) else {
-                    throw TextFormatDecodingError.unrecognizedEnumValue
-                }
-                value = number
-                return true
-            }
+        let number = try reader.scanner.nextSInt()
+        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
+            throw TextFormatDecodingError.malformedText
+        }
 
-            let number = try reader.scanner.nextSInt()
-            guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-                throw TextFormatDecodingError.malformedText
-            }
-
-            value = Int32(truncatingIfNeeded: number)
-            return true
-        } /*onInvalidValue*/ _: { _ in
+        let rawValue = Int32(truncatingIfNeeded: number)
+        guard enumSchema.isValidValue(rawValue) else {
             throw TextFormatDecodingError.unrecognizedEnumValue
         }
+        return rawValue
     }
 }

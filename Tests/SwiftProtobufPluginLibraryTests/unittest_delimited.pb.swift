@@ -413,57 +413,32 @@ let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = 
 /// Non-delimited field that otherwise looks group-like.
 let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.ExtensionSchema(
   schema: "\0l\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b} \0editions_unittest.lengthprefixed",
-  extendedMessageSchemaProducer: { EditionsUnittest_TestDelimited.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: EditionsUnittest_LengthPrefixed.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: EditionsUnittest_LengthPrefixed.self, perform: perform)
-  })
+  extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_LengthPrefixed.messageSchema) }
+  )
 
 /// Truly group-like extension.
 let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}$\0editions_unittest.grouplikefilescope",
-  extendedMessageSchemaProducer: { EditionsUnittest_TestDelimited.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: EditionsUnittest_GroupLikeFileScope.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: EditionsUnittest_GroupLikeFileScope.self, perform: perform)
-  })
+  extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_GroupLikeFileScope.messageSchema) }
+  )
 
 /// Delimited extension that isn't group-like because of its name.
 let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}&\0editions_unittest.not_group_like_scope",
-  extendedMessageSchemaProducer: { EditionsUnittest_TestDelimited.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: EditionsUnittest_NotGroupLikeScope.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: EditionsUnittest_NotGroupLikeScope.self, perform: perform)
-  })
+  extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_NotGroupLikeScope.messageSchema) }
+  )
 
 /// Delimited extension that isn't group-like because of the scope of its type.
 let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1b}\0editions_unittest.grouplike",
-  extendedMessageSchemaProducer: { EditionsUnittest_TestDelimited.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: EditionsUnittest_TestDelimited.GroupLike.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: EditionsUnittest_TestDelimited.GroupLike.self, perform: perform)
-  })
+  extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_TestDelimited.GroupLike.messageSchema) }
+  )
 
 /// Delimited extension that's grouplike except that it's an imported type.
 let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
   schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1f}\0editions_unittest.messageimport",
-  extendedMessageSchemaProducer: { EditionsUnittest_TestDelimited.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: EditionsUnittest_MessageImport.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: EditionsUnittest_MessageImport.self, perform: perform)
-  })
+  extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_MessageImport.messageSchema) }
+  )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -472,18 +447,15 @@ fileprivate let _protobuf_package = "editions_unittest"
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -493,18 +465,15 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message {
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".NotGroupLikeScope"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -514,18 +483,15 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message {
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeFileScope"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -535,55 +501,23 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message {
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestDelimited"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "P\u{1}\0\00_Pyu[\u{7}c\0\u{4}\t\\J\u{1c}\u{18}5vDC\u{3}\u{e} \u{1}*Ccol(\u{1c}Z\u{1d}\u{14}%B(k\"W\u{18}u\u{b}*a_-)\u{2}UM>VIT*Du\\0X\rl\0p5cD\u{12},IoJYk?YY\\)b;|\u{1}K\u{1c}d\u{12}]j46{\u{1f}Z\u{2}wS2Q/7m81Vi2\"9N*znM&\u{1d} SPh\u{5}\rk\u{6}BGu}\u{c}\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "P\u{1}\0\00_Pyu[\u{7}c\0\u{4}\t\\J\u{1c}\u{18}5vDC\u{3}\u{e} \u{1}*Ccol(\u{1c}Z\u{1d}\u{14}%B(k\"W\u{18}u\u{b}*a_-)\u{2}UM>VIT*Du\\0X\rl\0p5cD\u{12},IoJYk?YY\\)b;|\u{1}K\u{1c}d\u{12}]j46{\u{1f}Z\u{2}wS2Q/7m81Vi2\"9N*znM&\u{1d} SPh\u{5}\rk\u{6}BGu}\u{c}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_TestDelimited.LengthPrefixed.self)
-    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_TestDelimited.self)
-    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_TestDelimited.GroupLike.self)
-    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_NotGroupLikeScope.self)
-    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: EditionsUnittest_MessageImport.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_TestDelimited.LengthPrefixed.self, perform: perform)
-    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_TestDelimited.self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_TestDelimited.GroupLike.self, perform: perform)
-    case 4: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_NotGroupLikeScope.self, perform: perform)
-    case 5: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: EditionsUnittest_MessageImport.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(EditionsUnittest_TestDelimited.LengthPrefixed.messageSchema)
+    case 2: return .message(EditionsUnittest_TestDelimited.messageSchema)
+    case 3: return .message(EditionsUnittest_TestDelimited.GroupLike.messageSchema)
+    case 4: return .message(EditionsUnittest_NotGroupLikeScope.messageSchema)
+    case 5: return .message(EditionsUnittest_MessageImport.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -600,18 +534,15 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message {
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -621,18 +552,15 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message {
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }

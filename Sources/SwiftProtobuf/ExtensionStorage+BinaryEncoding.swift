@@ -109,7 +109,12 @@ extension ExtensionStorage {
 
             case .group:
                 precondition(!isPacked, "a packed group field should not be reachable")
-                try serializeGroupExtension(for: fieldNumber, schema: schema, into: &encoder, options: options)
+                try forEachMessage(inAssumedPresentRepeatedMessageField: schema) { groupStorage in
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
+                    try groupStorage.serializeBytes(into: &encoder, options: options)
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
+                    return .continue
+                }
 
             case .int32:
                 let values = value.value(as: [Int32].self)
@@ -141,7 +146,12 @@ extension ExtensionStorage {
 
             case .message:
                 precondition(!isPacked, "a packed message field should not be reachable")
-                try serializeMessageExtension(for: fieldNumber, schema: schema, into: &encoder, options: options)
+                try forEachMessage(inAssumedPresentRepeatedMessageField: schema) { subMessageStorage in
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                    return .continue
+                }
 
             case .sfixed32:
                 let values = value.value(as: [Int32].self)
@@ -257,7 +267,10 @@ extension ExtensionStorage {
                 encoder.serializeFloatField(value.value(as: Float.self), for: fieldNumber)
 
             case .group:
-                try serializeGroupExtension(for: fieldNumber, schema: schema, into: &encoder, options: options)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
+                try messageStorage(forAssumedPresentSingularMessageField: schema)
+                    .serializeBytes(into: &encoder, options: options)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
 
             case .int32:
                 encoder.serializeInt32Field(value.value(as: Int32.self), for: fieldNumber)
@@ -266,7 +279,10 @@ extension ExtensionStorage {
                 encoder.serializeInt64Field(value.value(as: Int64.self), for: fieldNumber)
 
             case .message:
-                try serializeMessageExtension(for: fieldNumber, schema: schema, into: &encoder, options: options)
+                let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
+                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                try subMessageStorage.serializeBytes(into: &encoder, options: options)
 
             case .sfixed32:
                 encoder.serializeSFixed32Field(value.value(as: Int32.self), for: fieldNumber)
@@ -297,52 +313,6 @@ extension ExtensionStorage {
         }
     }
 
-    /// Serializes the start-group/end-group tags and contents for a `group` extension field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    private func serializeGroupExtension(
-        for fieldNumber: Int,
-        schema: ExtensionSchema,
-        into encoder: inout BinaryEncoder,
-        options: BinaryEncodingOptions
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            schema,
-            self,
-            .read
-        ) {
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
-            try $0.serializeBytes(into: &encoder, options: options)
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
-            return true
-        }
-    }
-
-    /// Serializes the tag, length prefix, and contents for a submessage extension field.
-    ///
-    /// Since this function recurses via `performOnSubmessageStorage`, it supports both the singular
-    /// case and the repeated case (i.e., calling this on a repeated field will iterate over all of
-    /// the elements).
-    private func serializeMessageExtension(
-        for fieldNumber: Int,
-        schema: ExtensionSchema,
-        into encoder: inout BinaryEncoder,
-        options: BinaryEncodingOptions
-    ) throws {
-        _ = try schema.performOnSubmessageStorage(
-            schema,
-            self,
-            .read
-        ) {
-            encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-            encoder.putVarInt(value: $0.serializedBytesSize())
-            try $0.serializeBytes(into: &encoder, options: options)
-            return true
-        }
-    }
-
     /// Serializes the field tag and values for a repeated (packed or unpacked) `enum` extension
     /// field.
     private func serializeRepeatedEnumExtension(
@@ -354,43 +324,25 @@ extension ExtensionStorage {
         if isPacked {
             // First, iterate over the values to compute the packed length.
             var length = 0
-            _ = try schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 length += Varint.encodedSize(of: value)
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
 
             encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
             encoder.putVarInt(value: length)
 
             // Then, iterate over them again to encode the actual varints.
-            _ = try schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 encoder.putVarInt(value: Int64(value))
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
         } else {
             // Iterate over the raw values and encode each as its own tag and varint.
-            _ = try schema.performOnRawEnumValues(
-                schema,
-                self,
-                .read
-            ) { _, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { value in
                 encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
                 encoder.putVarInt(value: Int64(value))
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
         }
     }

@@ -49,156 +49,48 @@ public struct ExtensionSchema: @unchecked Sendable {
     /// trade-off to let us reuse the same field schema code in the runtime and in the generator.
     private let schema: UnsafeRawBufferPointer
 
-    /// The function type for the generated function that is called to return the `MessageSchema`
-    /// of the message that is being extended.
     @_spi(ForGeneratedCodeOnly)
-    public typealias ExtendedMessageSchemaProducer = () -> MessageSchema
+    public typealias ExtendedMessageResolver = () -> MessageSchema
 
-    /// The function type for the generated function that is called to perform a basic operation
-    /// on certain kinds of nontrivial fields (a message, array of messages, array of enums, or map)
-    /// such as deinitialization, copying, or testing for equality.
     @_spi(ForGeneratedCodeOnly)
-    public typealias NontrivialExtensionOperationPerformer = (
-        _ operation: NontrivialExtensionOperation,
-        _ ext: ExtensionSchema,
-        _ storage: ExtensionStorage
-    ) -> Bool
+    public typealias SubmessageOrEnumResolver = () -> SubmessageOrEnumSchema
 
-    /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the storage of a field whose type is a message or array of messages.
-    @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageStoragePerformer = (
-        _ ext: ExtensionSchema,
-        _ storage: ExtensionStorage,
-        _ operation: TrampolineFieldOperation,
-        _ perform: (MessageStorage) throws -> Bool
-    ) throws -> Bool
+    /// The function that is invoked to retrieve the schema of the message that this
+    /// extension field extends.
+    let extendedMessageResolver: ExtendedMessageResolver
 
-    /// The function type for the generated function that is called to perform an arbitrary
-    /// operation on the raw values of a singular or repeated enum field.
-    @_spi(ForGeneratedCodeOnly)
-    public typealias RawEnumValuesPerformer = (
-        _ ext: ExtensionSchema,
-        _ storage: ExtensionStorage,
-        _ operation: TrampolineFieldOperation,
-        _ perform: (EnumSchema, inout Int32) throws -> Bool,
-        _ onInvalidValue: (Int32) throws -> Void
-    ) throws -> Void
-
-    /// The function that is called to return the `MessageSchema` of the message that is being
-    /// extended.
-    let extendedMessageSchemaProducer: ExtendedMessageSchemaProducer
-
-    /// The function that is called to deinitialize, copy, or test equality of a field whose type
-    /// is a message (singular or repeated) or a repeated enum field.
-    let performNontrivialExtensionOperation: NontrivialExtensionOperationPerformer
-
-    /// The function that is called to perform an arbitrary operation on the storage of a submessage
-    /// field.
-    let performOnSubmessageStorage: SubmessageStoragePerformer
-
-    /// The function that is called to perform an arbitrary operation on the raw values of an enum
-    /// field.
-    let performOnRawEnumValues: RawEnumValuesPerformer
+    /// The function that is invoked to retrieve the schema for a submessage or enum field.
+    let submessageOrEnumResolver: SubmessageOrEnumResolver
 
     /// The `MessageSchema` of the message that this extension field extends.
-    var extendedMessage: MessageSchema {
-        extendedMessageSchemaProducer()
+    var extendedMessage: MessageSchema { extendedMessageResolver() }
+
+    /// Creates a new extension schema for an extension field that is not a message or enum field.
+    @_spi(ForGeneratedCodeOnly)
+    public init(schema: StaticString, extendedMessageResolver: @escaping ExtendedMessageResolver) {
+        self.init(
+            schema: schema,
+            extendedMessageResolver: extendedMessageResolver,
+            submessageOrEnumResolver: {
+                preconditionFailure("submessageOrEnumResolver called on non-message/group extension field")
+            }
+        )
     }
 
     /// Creates a new extension schema and submessage operations from the given values.
-    private init(
+    @_spi(ForGeneratedCodeOnly)
+    public init(
         schema: StaticString,
-        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
-        performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
-        performOnSubmessageStorage: @escaping SubmessageStoragePerformer,
-        performOnRawEnumValues: @escaping RawEnumValuesPerformer
+        extendedMessageResolver: @escaping ExtendedMessageResolver,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
     ) {
         precondition(
             schema.hasPointerRepresentation,
             "The schema string should have a pointer-based representation; this is a generator bug"
         )
         self.schema = UnsafeRawBufferPointer(start: schema.utf8Start, count: schema.utf8CodeUnitCount)
-        self.extendedMessageSchemaProducer = extendedMessageSchemaProducer
-        self.performNontrivialExtensionOperation = performNontrivialExtensionOperation
-        self.performOnSubmessageStorage = performOnSubmessageStorage
-        self.performOnRawEnumValues = performOnRawEnumValues
-        precondition(version == 0, "This runtime only supports version 0 message schemas")
-    }
-
-    @_spi(ForGeneratedCodeOnly)
-    public init(
-        schema: StaticString,
-        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer
-    ) {
-        self.init(
-            schema: schema,
-            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
-            performNontrivialExtensionOperation: { _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnSubmessageStorage: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: { _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            }
-        )
-    }
-
-    @_spi(ForGeneratedCodeOnly)
-    public init(
-        schema: StaticString,
-        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
-        performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer
-    ) {
-        self.init(
-            schema: schema,
-            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
-            performNontrivialExtensionOperation: performNontrivialExtensionOperation,
-            performOnSubmessageStorage: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: { _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            }
-        )
-    }
-
-    @_spi(ForGeneratedCodeOnly)
-    public init(
-        schema: StaticString,
-        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
-        performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
-        performOnSubmessageStorage: @escaping SubmessageStoragePerformer
-    ) {
-        self.init(
-            schema: schema,
-            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
-            performNontrivialExtensionOperation: performNontrivialExtensionOperation,
-            performOnSubmessageStorage: performOnSubmessageStorage,
-            performOnRawEnumValues: { _, _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            }
-        )
-    }
-
-    @_spi(ForGeneratedCodeOnly)
-    public init(
-        schema: StaticString,
-        extendedMessageSchemaProducer: @escaping ExtendedMessageSchemaProducer,
-        performNontrivialExtensionOperation: @escaping NontrivialExtensionOperationPerformer,
-        performOnRawEnumValues: @escaping RawEnumValuesPerformer
-    ) {
-        self.init(
-            schema: schema,
-            extendedMessageSchemaProducer: extendedMessageSchemaProducer,
-            performNontrivialExtensionOperation: performNontrivialExtensionOperation,
-            performOnSubmessageStorage: { _, _, _, _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            performOnRawEnumValues: performOnRawEnumValues
-        )
+        self.extendedMessageResolver = extendedMessageResolver
+        self.submessageOrEnumResolver = submessageOrEnumResolver
     }
 }
 
@@ -229,5 +121,25 @@ extension ExtensionSchema {
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
         return String(decoding: schema[nameStart..<(nameStart + length)], as: UTF8.self)
+    }
+
+    /// The message schema for this extension field, if it is a message or group.
+    ///
+    /// - Precondition: The extension field must be a message or group field.
+    var messageSchema: MessageSchema {
+        guard case .message(let messageSchema) = submessageOrEnumResolver() else {
+            fatalError("messageSchema called on non-message/group extension field")
+        }
+        return messageSchema
+    }
+
+    /// The enum schema for this extension field, if it is an enum.
+    ///
+    /// - Precondition: The extension field must be an enum field.
+    var enumSchema: EnumSchema {
+        guard case .enum(let enumSchema) = submessageOrEnumResolver() else {
+            fatalError("enumSchema called on non-enum extension field")
+        }
+        return enumSchema
     }
 }

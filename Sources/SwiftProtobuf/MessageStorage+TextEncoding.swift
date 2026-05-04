@@ -104,13 +104,11 @@ extension MessageStorage {
 
         switch field.fieldMode.cardinality {
         case .map:
-            _ = try! schema.performOnMapEntry(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                mapEntryWorkingSpace.storage(for: field.submessageIndex),
-                .read,
-                true  // useDeterministicOrdering
+            let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            forEachMapEntry(
+                in: field,
+                useDeterministicOrdering: true,
+                workingSpace: workingSpace
             ) {
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startMessageField()
@@ -128,7 +126,7 @@ extension MessageStorage {
                     options: options
                 )
                 encoder.endMessageField()
-                return true
+                return .continue
             }
 
         case .array:
@@ -187,17 +185,12 @@ extension MessageStorage {
 
             case .group, .message:
                 precondition(!isPacked, "a packed group/message field should not be reachable")
-                _ = try! schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) {
+                forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                     emitName(ofFieldNumber: fieldNumber, into: &encoder)
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)
                     encoder.endMessageField()
-                    return true
+                    return .continue
                 }
 
             case .int32, .sfixed32, .sint32:
@@ -220,17 +213,10 @@ extension MessageStorage {
             // fields.
             switch fieldType {
             case .group, .message:
-                _ = try! schema.performOnSubmessageStorage(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) {
-                    encoder.startMessageField()
-                    $0.serializeText(into: &encoder, options: options)
-                    encoder.endMessageField()
-                    return true
-                }
+                let submessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
+                encoder.startMessageField()
+                submessageStorage.serializeText(into: &encoder, options: options)
+                encoder.endMessageField()
                 return
 
             default:
@@ -251,17 +237,7 @@ extension MessageStorage {
                 encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
             case .enum:
-                _ = try! schema.performOnRawEnumValues(
-                    MessageSchema.TrampolineToken(index: field.submessageIndex),
-                    field,
-                    self,
-                    .read
-                ) { enumSchema, value in
-                    encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
-                    return true
-                } /*onInvalidValue*/ _: { _ in
-                    assertionFailure("invalid value handler should never be called for .read")
-                }
+                encoder.putEnumValue(rawValue: assumedPresentValue(at: offset), enumSchema: enumSchema(for: field))
 
             case .fixed32, .uint32:
                 encoder.putUInt64(value: UInt64(assumedPresentValue(at: offset) as UInt32))
@@ -305,6 +281,7 @@ extension MessageStorage {
     /// field is packed.
     private func emitRepeatedEnumField(_ field: FieldSchema, into encoder: inout TextFormatEncoder) {
         let fieldNumber = field.fieldNumber
+        let enumSchema = enumSchema(for: field)
         if field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
             emitName(ofFieldNumber: fieldNumber, into: &encoder)
@@ -312,39 +289,25 @@ extension MessageStorage {
             encoder.startArray()
             var firstItem = true
 
-            _ = try! schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { enumSchema, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: field) { rawValue in
                 if !firstItem {
                     encoder.arraySeparator()
                 }
-                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
+                encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 firstItem = false
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
 
             encoder.endArray()
             encoder.endRegularField()
         } else {
             // Each element is a fully serialized "name: value" pair.
-            _ = try! schema.performOnRawEnumValues(
-                MessageSchema.TrampolineToken(index: field.submessageIndex),
-                field,
-                self,
-                .read
-            ) { enumSchema, value in
+            forEachRawValue(inAssumedPresentRepeatedEnumField: field) { rawValue in
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
                 encoder.startRegularField()
-                encoder.putEnumValue(rawValue: value, enumSchema: enumSchema)
+                encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 encoder.endRegularField()
-                return true
-            } /*onInvalidValue*/ _: { _ in
-                assertionFailure("invalid value handler should never be called for .read")
+                return .continue
             }
         }
     }
