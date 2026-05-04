@@ -78,24 +78,17 @@ extension UTF8Name {
 
     /// Consumes the given prefix from the receiver and returns the remaining suffix,
     /// or nil if the receiver does not start with the prefix.
-    package func consumePrefix(_ prefix: String) -> UTF8Name? {
-        guard buffer.count >= prefix.utf8.count else { return nil }
-        let prefixBuffer = UnsafeBufferPointer(start: buffer.baseAddress!, count: prefix.utf8.count)
-        if prefixBuffer.elementsEqual(prefix.utf8) {
-            let suffixStart = buffer.baseAddress! + prefix.utf8.count
-            let suffixCount = buffer.count - prefix.utf8.count
+    package func consumePrefix(_ prefix: StaticString) -> UTF8Name? {
+        let prefixCount = prefix.utf8CodeUnitCount
+        guard buffer.count >= prefixCount else { return nil }
+        let prefixBuffer = UnsafeBufferPointer(start: prefix.utf8Start, count: prefixCount)
+        let currentPrefixBuffer = UnsafeBufferPointer(start: buffer.baseAddress!, count: prefixCount)
+        if currentPrefixBuffer.elementsEqual(prefixBuffer) {
+            let suffixStart = buffer.baseAddress! + prefixCount
+            let suffixCount = buffer.count - prefixCount
             return UTF8Name(start: suffixStart, count: suffixCount)
         }
         return nil
-    }
-
-    /// Consumes the given prefix code unit from the receiver and returns the remaining suffix,
-    /// or nil if the receiver does not start with the prefix.
-    package func consumePrefix(_ prefix: UTF8.CodeUnit) -> UTF8Name? {
-        guard let first = buffer.first, first == prefix else { return nil }
-        let suffixStart = buffer.baseAddress! + 1
-        let suffixCount = buffer.count - 1
-        return UTF8Name(start: suffixStart, count: suffixCount)
     }
 }
 
