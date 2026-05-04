@@ -699,170 +699,194 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_Message3: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Message3"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0`\u{4}\0F\0\0\0\0\0\u{1}\0\0\u{10}\0\0\u{1}\0\0\0\0T\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{2}\0\0\0\u{3}\u{3}\0\0\0\0X\0\0\u{3}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{4}\0\0\0\u{4}\u{5}\0\0\0\0\\\0\0\u{5}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{6}\0\0\0\u{12}\u{7}\0\0\0\0`\0\0\u{7}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{8}\0\0\0\u{6}\u{9}\0\0\0\0d\0\0\u{9}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{a}\0\0\0\u{10}\u{b}\0\0\0\0h\0\0\u{b}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{c}\0\0\0\u{1}\u{d}\0\0\0\0P\0\0\u{d}\0\0\0\u{8}\u{e}\0\0\0\0 \u{4}\0\u{e}\0\0\0\u{9}\u{f}\0\0\0\00\u{4}\0\u{f}\0\0\0\u{c}\u{12}\0\0\0\0p\u{1}\0\0\0\u{2}\0\u{b}\u{13}\0\0\0\0l\0\0\u{10}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{a}x\u{1}\0\u{11}\0\0\0\u{5} \0\0\0\u{a}\0\u{2}\0\u{12}\0\0\0\u{3}!\0\0\0\u{a}\u{8}\u{2}\0\u{13}\0\0\0\u{d}\"\0\0\0\u{a}\u{10}\u{2}\0\u{14}\0\0\0\u{4}#\0\0\0\u{a}\u{18}\u{2}\0\u{15}\0\0\0\u{11}$\0\0\0\u{a} \u{2}\0\u{16}\0\0\0\u{12}%\0\0\0\u{a}(\u{2}\0\u{17}\0\0\0\u{7}&\0\0\0\u{a}0\u{2}\0\u{18}\0\0\0\u{6}'\0\0\0\u{a}8\u{2}\0\u{19}\0\0\0\u{f}(\0\0\0\u{a}@\u{2}\0\u{1a}\0\0\0\u{10})\0\0\0\u{a}H\u{2}\0\u{1b}\0\0\0\u{2}*\0\0\0\u{a}P\u{2}\0\u{1c}\0\0\0\u{1}+\0\0\0\u{a}X\u{2}\0\u{1d}\0\0\0\u{8},\0\0\0\u{2}`\u{2}\0\u{1e}\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\0\u{1f}\0\0\0\u{c}0\0\0\0\u{2}p\u{2}\0 \0\u{3}\0\u{b}1\0\0\0\u{a}x\u{2}\0!\0\u{4}\0\u{e}3\0\0\0\0p\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0t\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0x\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0|\0\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0Q\0\0s\u{7f}\0\0\u{8}@\0\0\0\0@\u{4}\0s\u{7f}\0\0\u{9}A\0\0\0\0P\u{4}\0s\u{7f}\0\0\u{c}D\0\0\0\0\0\u{3}\0s\u{7f}\u{2}\0\u{b}E\0\0\0\0\u{8}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}\u{8}\u{3}\0\"\0\u{5}\0\u{b}G\0\0\0\u{4}\u{10}\u{3}\0#\0\u{6}\0\u{b}H\0\0\0\u{4}\u{18}\u{3}\0$\0\u{7}\0\u{b}I\0\0\0\u{4} \u{3}\0%\0\u{8}\0\u{b}J\0\0\0\u{4}(\u{3}\0&\0\u{9}\0\u{b}K\0\0\0\u{4}0\u{3}\0'\0\u{a}\0\u{b}L\0\0\0\u{4}8\u{3}\0(\0\u{b}\0\u{b}M\0\0\0\u{4}@\u{3}\0)\0\u{c}\0\u{b}N\0\0\0\u{4}H\u{3}\0*\0\u{d}\0\u{b}O\0\0\0\u{4}P\u{3}\0+\0\u{e}\0\u{b}P\0\0\0\u{4}X\u{3}\0,\0\u{f}\0\u{b}Q\0\0\0\u{4}`\u{3}\0-\0\u{10}\0\u{b}R\0\0\0\u{4}h\u{3}\0.\0\u{11}\0\u{b}S\0\0\0\u{4}p\u{3}\0/\0\u{12}\0\u{b}T\0\0\0\u{4}x\u{3}\00\0\u{13}\0\u{b}U\0\0\0\u{4}\0\u{4}\01\0\u{14}\0\u{b}V\0\0\0\u{4}\u{8}\u{4}\02\0\u{15}\0\u{b}W\0\0\0\u{4}\u{10}\u{4}\03\0\u{16}\0\u{b}X\0\0\0\u{4}\u{18}\u{4}\04\0\u{17}\0\u{b}\u{1c}\0swift_proto_testing.Message3" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{4}\0F\0\0\0\0\0\u{1}\0\0\u{10}\0\0\u{1}\0\0\0\0T\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{2}\0\0\0\u{3}\u{3}\0\0\0\0X\0\0\u{3}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{4}\0\0\0\u{4}\u{5}\0\0\0\0\\\0\0\u{5}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{6}\0\0\0\u{12}\u{7}\0\0\0\0`\0\0\u{7}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{8}\0\0\0\u{6}\u{9}\0\0\0\0d\0\0\u{9}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{a}\0\0\0\u{10}\u{b}\0\0\0\0h\0\0\u{b}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{c}\0\0\0\u{1}\u{d}\0\0\0\0P\0\0\u{d}\0\0\0\u{8}\u{e}\0\0\0\0 \u{4}\0\u{e}\0\0\0\u{9}\u{f}\0\0\0\00\u{4}\0\u{f}\0\0\0\u{c}\u{12}\0\0\0\0p\u{1}\0\0\0\u{2}\0\u{b}\u{13}\0\0\0\0l\0\0\u{10}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{a}x\u{1}\0\u{11}\0\0\0\u{5} \0\0\0\u{a}\0\u{2}\0\u{12}\0\0\0\u{3}!\0\0\0\u{a}\u{8}\u{2}\0\u{13}\0\0\0\u{d}\"\0\0\0\u{a}\u{10}\u{2}\0\u{14}\0\0\0\u{4}#\0\0\0\u{a}\u{18}\u{2}\0\u{15}\0\0\0\u{11}$\0\0\0\u{a} \u{2}\0\u{16}\0\0\0\u{12}%\0\0\0\u{a}(\u{2}\0\u{17}\0\0\0\u{7}&\0\0\0\u{a}0\u{2}\0\u{18}\0\0\0\u{6}'\0\0\0\u{a}8\u{2}\0\u{19}\0\0\0\u{f}(\0\0\0\u{a}@\u{2}\0\u{1a}\0\0\0\u{10})\0\0\0\u{a}H\u{2}\0\u{1b}\0\0\0\u{2}*\0\0\0\u{a}P\u{2}\0\u{1c}\0\0\0\u{1}+\0\0\0\u{a}X\u{2}\0\u{1d}\0\0\0\u{8},\0\0\0\u{2}`\u{2}\0\u{1e}\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\0\u{1f}\0\0\0\u{c}0\0\0\0\u{2}p\u{2}\0 \0\u{2}\0\u{b}1\0\0\0\u{a}x\u{2}\0!\0\u{1}\0\u{e}3\0\0\0\0p\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0t\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0x\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0|\0\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0Q\0\0s\u{7f}\0\0\u{8}@\0\0\0\0@\u{4}\0s\u{7f}\0\0\u{9}A\0\0\0\0P\u{4}\0s\u{7f}\0\0\u{c}D\0\0\0\0\0\u{3}\0s\u{7f}\u{2}\0\u{b}E\0\0\0\0\u{8}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}\u{8}\u{3}\0\"\0\u{3}\0\u{b}G\0\0\0\u{4}\u{10}\u{3}\0#\0\u{4}\0\u{b}H\0\0\0\u{4}\u{18}\u{3}\0$\0\u{5}\0\u{b}I\0\0\0\u{4} \u{3}\0%\0\u{6}\0\u{b}J\0\0\0\u{4}(\u{3}\0&\0\u{7}\0\u{b}K\0\0\0\u{4}0\u{3}\0'\0\u{8}\0\u{b}L\0\0\0\u{4}8\u{3}\0(\0\u{9}\0\u{b}M\0\0\0\u{4}@\u{3}\0)\0\u{a}\0\u{b}N\0\0\0\u{4}H\u{3}\0*\0\u{b}\0\u{b}O\0\0\0\u{4}P\u{3}\0+\0\u{c}\0\u{b}P\0\0\0\u{4}X\u{3}\0,\0\u{d}\0\u{b}Q\0\0\0\u{4}`\u{3}\0-\0\u{e}\0\u{b}R\0\0\0\u{4}h\u{3}\0.\0\u{f}\0\u{b}S\0\0\0\u{4}p\u{3}\0/\0\u{10}\0\u{b}T\0\0\0\u{4}x\u{3}\00\0\u{11}\0\u{b}U\0\0\0\u{4}\0\u{4}\01\0\u{12}\0\u{b}V\0\0\0\u{4}\u{8}\u{4}\02\0\u{13}\0\u{b}W\0\0\0\u{4}\u{10}\u{4}\03\0\u{14}\0\u{b}X\0\0\0\u{4}\u{18}\u{4}\04\0\u{15}\0\u{b}\u{1c}\0swift_proto_testing.Message3"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0<\u{3}\0F\0\0\0\0\0\u{1}\0\0\u{10}\0\0\u{1}\0\0\0\0T\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{2}\0\0\0\u{3}\u{3}\0\0\0\0X\0\0\u{3}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{4}\0\0\0\u{4}\u{5}\0\0\0\0\\\0\0\u{5}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{6}\0\0\0\u{12}\u{7}\0\0\0\0`\0\0\u{7}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{8}\0\0\0\u{6}\u{9}\0\0\0\0d\0\0\u{9}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{a}\0\0\0\u{10}\u{b}\0\0\0\0h\0\0\u{b}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{c}\0\0\0\u{1}\u{d}\0\0\0\0P\0\0\u{d}\0\0\0\u{8}\u{e}\0\0\0\0\u{c}\u{3}\0\u{e}\0\0\0\u{9}\u{f}\0\0\0\0\u{18}\u{3}\0\u{f}\0\0\0\u{c}\u{12}\0\0\0\0p\u{1}\0\0\0\u{2}\0\u{b}\u{13}\0\0\0\0l\0\0\u{10}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{a}t\u{1}\0\u{11}\0\0\0\u{5} \0\0\0\u{a}x\u{1}\0\u{12}\0\0\0\u{3}!\0\0\0\u{a}|\u{1}\0\u{13}\0\0\0\u{d}\"\0\0\0\u{a}\0\u{2}\0\u{14}\0\0\0\u{4}#\0\0\0\u{a}\u{4}\u{2}\0\u{15}\0\0\0\u{11}$\0\0\0\u{a}\u{8}\u{2}\0\u{16}\0\0\0\u{12}%\0\0\0\u{a}\u{c}\u{2}\0\u{17}\0\0\0\u{7}&\0\0\0\u{a}\u{10}\u{2}\0\u{18}\0\0\0\u{6}'\0\0\0\u{a}\u{14}\u{2}\0\u{19}\0\0\0\u{f}(\0\0\0\u{a}\u{18}\u{2}\0\u{1a}\0\0\0\u{10})\0\0\0\u{a}\u{1c}\u{2}\0\u{1b}\0\0\0\u{2}*\0\0\0\u{a} \u{2}\0\u{1c}\0\0\0\u{1}+\0\0\0\u{a}$\u{2}\0\u{1d}\0\0\0\u{8},\0\0\0\u{2}(\u{2}\0\u{1e}\0\0\0\u{9}-\0\0\0\u{2},\u{2}\0\u{1f}\0\0\0\u{c}0\0\0\0\u{2}0\u{2}\0 \0\u{3}\0\u{b}1\0\0\0\u{a}4\u{2}\0!\0\u{4}\0\u{e}3\0\0\0\0p\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0t\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0x\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0|\0\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0Q\0\0s\u{7f}\0\0\u{8}@\0\0\0\0$\u{3}\0s\u{7f}\0\0\u{9}A\0\0\0\00\u{3}\0s\u{7f}\0\0\u{c}D\0\0\0\08\u{2}\0s\u{7f}\u{2}\0\u{b}E\0\0\0\0\u{8}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}<\u{2}\0\"\0\u{5}\0\u{b}G\0\0\0\u{4}@\u{2}\0#\0\u{6}\0\u{b}H\0\0\0\u{4}D\u{2}\0$\0\u{7}\0\u{b}I\0\0\0\u{4}H\u{2}\0%\0\u{8}\0\u{b}J\0\0\0\u{4}L\u{2}\0&\0\u{9}\0\u{b}K\0\0\0\u{4}P\u{2}\0'\0\u{a}\0\u{b}L\0\0\0\u{4}T\u{2}\0(\0\u{b}\0\u{b}M\0\0\0\u{4}X\u{2}\0)\0\u{c}\0\u{b}N\0\0\0\u{4}\\\u{2}\0*\0\u{d}\0\u{b}O\0\0\0\u{4}`\u{2}\0+\0\u{e}\0\u{b}P\0\0\0\u{4}d\u{2}\0,\0\u{f}\0\u{b}Q\0\0\0\u{4}h\u{2}\0-\0\u{10}\0\u{b}R\0\0\0\u{4}l\u{2}\0.\0\u{11}\0\u{b}S\0\0\0\u{4}p\u{2}\0/\0\u{12}\0\u{b}T\0\0\0\u{4}t\u{2}\00\0\u{13}\0\u{b}U\0\0\0\u{4}x\u{2}\01\0\u{14}\0\u{b}V\0\0\0\u{4}|\u{2}\02\0\u{15}\0\u{b}W\0\0\0\u{4}\0\u{3}\03\0\u{16}\0\u{b}X\0\0\0\u{4}\u{4}\u{3}\04\0\u{17}\0\u{b}\u{1c}\0swift_proto_testing.Message3" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\u{3}\0F\0\0\0\0\0\u{1}\0\0\u{10}\0\0\u{1}\0\0\0\0T\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{2}\0\0\0\u{3}\u{3}\0\0\0\0X\0\0\u{3}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{4}\0\0\0\u{4}\u{5}\0\0\0\0\\\0\0\u{5}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{6}\0\0\0\u{12}\u{7}\0\0\0\0`\0\0\u{7}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{8}\0\0\0\u{6}\u{9}\0\0\0\0d\0\0\u{9}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{a}\0\0\0\u{10}\u{b}\0\0\0\0h\0\0\u{b}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{c}\0\0\0\u{1}\u{d}\0\0\0\0P\0\0\u{d}\0\0\0\u{8}\u{e}\0\0\0\0\u{c}\u{3}\0\u{e}\0\0\0\u{9}\u{f}\0\0\0\0\u{18}\u{3}\0\u{f}\0\0\0\u{c}\u{12}\0\0\0\0p\u{1}\0\0\0\u{2}\0\u{b}\u{13}\0\0\0\0l\0\0\u{10}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{a}t\u{1}\0\u{11}\0\0\0\u{5} \0\0\0\u{a}x\u{1}\0\u{12}\0\0\0\u{3}!\0\0\0\u{a}|\u{1}\0\u{13}\0\0\0\u{d}\"\0\0\0\u{a}\0\u{2}\0\u{14}\0\0\0\u{4}#\0\0\0\u{a}\u{4}\u{2}\0\u{15}\0\0\0\u{11}$\0\0\0\u{a}\u{8}\u{2}\0\u{16}\0\0\0\u{12}%\0\0\0\u{a}\u{c}\u{2}\0\u{17}\0\0\0\u{7}&\0\0\0\u{a}\u{10}\u{2}\0\u{18}\0\0\0\u{6}'\0\0\0\u{a}\u{14}\u{2}\0\u{19}\0\0\0\u{f}(\0\0\0\u{a}\u{18}\u{2}\0\u{1a}\0\0\0\u{10})\0\0\0\u{a}\u{1c}\u{2}\0\u{1b}\0\0\0\u{2}*\0\0\0\u{a} \u{2}\0\u{1c}\0\0\0\u{1}+\0\0\0\u{a}$\u{2}\0\u{1d}\0\0\0\u{8},\0\0\0\u{2}(\u{2}\0\u{1e}\0\0\0\u{9}-\0\0\0\u{2},\u{2}\0\u{1f}\0\0\0\u{c}0\0\0\0\u{2}0\u{2}\0 \0\u{2}\0\u{b}1\0\0\0\u{a}4\u{2}\0!\0\u{1}\0\u{e}3\0\0\0\0p\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0t\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0x\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0|\0\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0Q\0\0s\u{7f}\0\0\u{8}@\0\0\0\0$\u{3}\0s\u{7f}\0\0\u{9}A\0\0\0\00\u{3}\0s\u{7f}\0\0\u{c}D\0\0\0\08\u{2}\0s\u{7f}\u{2}\0\u{b}E\0\0\0\0\u{8}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}<\u{2}\0\"\0\u{3}\0\u{b}G\0\0\0\u{4}@\u{2}\0#\0\u{4}\0\u{b}H\0\0\0\u{4}D\u{2}\0$\0\u{5}\0\u{b}I\0\0\0\u{4}H\u{2}\0%\0\u{6}\0\u{b}J\0\0\0\u{4}L\u{2}\0&\0\u{7}\0\u{b}K\0\0\0\u{4}P\u{2}\0'\0\u{8}\0\u{b}L\0\0\0\u{4}T\u{2}\0(\0\u{9}\0\u{b}M\0\0\0\u{4}X\u{2}\0)\0\u{a}\0\u{b}N\0\0\0\u{4}\\\u{2}\0*\0\u{b}\0\u{b}O\0\0\0\u{4}`\u{2}\0+\0\u{c}\0\u{b}P\0\0\0\u{4}d\u{2}\0,\0\u{d}\0\u{b}Q\0\0\0\u{4}h\u{2}\0-\0\u{e}\0\u{b}R\0\0\0\u{4}l\u{2}\0.\0\u{f}\0\u{b}S\0\0\0\u{4}p\u{2}\0/\0\u{10}\0\u{b}T\0\0\0\u{4}t\u{2}\00\0\u{11}\0\u{b}U\0\0\0\u{4}x\u{2}\01\0\u{12}\0\u{b}V\0\0\0\u{4}|\u{2}\02\0\u{13}\0\u{b}W\0\0\0\u{4}\0\u{3}\03\0\u{14}\0\u{b}X\0\0\0\u{4}\u{4}\u{3}\04\0\u{15}\0\u{b}\u{1c}\0swift_proto_testing.Message3"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "`\u{1d}\0\00?a]u!n \u{7f}\u{1}\u{1c}\u{14}k\u{1e}\u{b}\r\t _\u{19}\r\u{1a}$\u{7}8\u{2}2yE\u{b})\nE|\u{18}\u{1c}<\u{11}V\u{6}@+F\u{16}k\u{14}\t8\tMj\u{4}\nW%z~\u{5}-\\&tUN\u{10}'\u{13}\r>)\u{12}{\u{18}\u{6}i\u{1b}\u{11}\u{f}hp\u{2};I\u{6}YbU\u{e}zZ\u{14}m\u{1a}URd3\u{e}\u{13}&\u{4}w\u{7}\"\u{f}kiy0VU\u{14}\u{13}+Mc\0aK<'4\u{15}\u{b}U*-\u{1}8h\u{16}SS[dQ\u{3}\u{7f}gD\u{f}y\u{e}Ro\u{13},E2n\u{17}cal>,\u{7f}1p\u{17}[)$b\0j8_!\u{1a}W+x\u{1b}ARB23[!2f\tKY\u{4}VOl/\0M;!q8,\u{5}=@\u{3}\u{3}pfe*\u{1a}s+\u{15}w^\u{1b} q\"ww\n\u{19},\u{18}6<q`\u{1a}(\03g-ITp]BNL\u{1d}\u{1c}R}i#\u{c}9[|#\u{7}E\u{12}Xd?J?u\u{4}#o\u{14}G]V\u{1a}2y\u{1b}\rN74\u{b}?\u{14}\\,9`\u{1b}\"KMO\u{7f}_\u{15}#,\u{6}G\u{f}V\u{f}gp\u{10}D\u{1c}\u{e}[\u{1a}\u{4}xB\u{1b}`{\u{16}CI?KW\u{1d}:\u{1f}h%(griXh\u{5}\0<7Ctq\\|q[\u{b}r!\nhv2UOvzPjKZ\u{18}[hG-q$cut!\u{18}&'0\u{12}A#sl2y\u{6}a?y|TC8\u{14}g6?1\u{8}[%I\u{12}#q\u{11}hBh\0?,1k {|WS0xW7c0\u{6}U\u{e}D%\u{1d}A6\u{4}32vZZ.?T@pZ>><EAr7wm\u{5}z\\Wv6c_\u{13}\\\u{1c}GE\u{16}I;e\u{1}D)d\u{10}y\u{f}#62U*+(\u{1c}h\tm#o\u{1},&4\u{18}=n\u{18}\"\u{6}T\01\u{17}\u{5}T:\u{7}AVCT\u{1e}\u{8}f\0\t6`9\u{1}#@mR_r\u{1c}b\u{12}\0(4Jz#-ZU@0/A\u{12}Fey\u{1f}4X?96e\0n2 0\u{7f}$(\u{1e}Gm |\u{17}\u{3}P\u{13}.\u{16}\u{15}\\F 1\u{14}\u{1}9%k\u{17} !\u{1}3}|lPx\u{7f}\u{2}\re\u{e}:'R\u{1f}O$\u{15}lC\u{7}\u{19}>\u{7f}%T,)O\r,H j\nP\u{1f}c\u{c}\u{14}\u{18}PZN]wy=cZY4<\r7}#J\tTt7oPpd+I;\u{1f}-M`\u{4}t\t|\u{1a}wX#]\\5g>\u{7}<\u{8}\u{7}s\"is4/^iUR;%&\u{18}`l\u{6}v7b\u{14}O#\u{1}DuJO\u{19}\u{4}_vX9i?wD\u{16}\u{5}X?\u{1c}dKdT\u{1f}\u{2}\u{12}\u{f}\u{f};Q6`HG#Zwz7\nHtb\u{2}$?n\u{1b}r,\"0\u{4}X'cEwt)L&L2-HD;ElPD\u{1b}Hq[Va4\u{c}\u{b}\u{3}+\u{18}=\u{e}#}@E5{b\u{8}\u{1d}B't\nc\u{16}'LY_ phK0\u{19}\u{1e}=,|W\u{13}Y/r\u{e}6v9\u{6}~Y\u{12}\u{19}.s \u{17}\u{3}su`\u{10}2C\u{1d}\"N\u{e}*l8\u{1e}E\u{5}>zs<9f0T\u{1a}S\u{3}\u{b}xc\"T3e!Kc\u{7f}nN\u{16}m\u{2}$\u{1b}C\u{1e}$T%\u{11}I\n\u{16}%B?+F\u{16}w9GEH+QUma\u{10}+\0i\u{16}!i:,\u{8}\u{18}\u{13}\u{15}RZ`\u{1e}e}h\u{1}R/sZ\u{1f}9\u{1b}\u{10}\u{12}\u{11}0^D=:D)\u{4}\u{1}*fk;\u{1d}MaEX\u{18},;~x2U*1f5\u{11}|)F\\SxLQ\u{1}.$5o\u{1b}W0\u{c}@4$hS\u{19}\"R#usn\rrH\u{f}eoCzIM0\u{b}gf<\u{f}8A5W\u{6}e0zn(\u{1e})ewe<\u{1d}CWbgL/\u{15}\"mRH+\u{7f}\u{10}\0b2Mf (^\u{c}v61q\u{2}[z\n\u{7}=\\UE3\u{14}&<-V,X\u{16}A\u{11}M,1\u{b}<\u{11}\u{1f}\n\"{kg(_\u{1d}\u{17}\\kv1\u{b})\u{1a}nQ\u{16}Fb`\u{e}\u{2}>\0\0*J\u{14}k@g\u{e}[\u{11}tZe\u{1a}K8(\u{3}9(:\u{c}'&WR+\u{1e}\u{1a}\tB&\u{6}):L`\u{b}:3j\"\u{7}L\u{16}\u{18}a~\u{1f}$bCLKgH\u{1d}k\u{6}/\u{b}>\u{17}\u{1a}\u{7f}r\u{3}e-+\u{17}6\u{e}u9-fGrx-\u{3}uGsiM<dvU\nh\u{1e};D+\u{1d}\u{17}s\u{7f}=k\u{f}@T\u{12}orN\u{7f}\"oc\u{1b}:\u{11}\u{8}gp{X(!1ag3BkA\u{2}O\u{14}2*F\u{1d}\u{7f}~<'jO\u{5}Y\u{c}\u{14}\u{7}cLY\u{15}\u{15})LKyX\u{1f}LI\tPv\u{c}Rzp2\u{6}\u{e}k\u{3}\u{15}\rP@e,zmr\u{1f}><\u{1e}\u{15}\n\u{2}wwXUbVk6EXyC2Fg\u{c}7\u{e},Z\u{1b}\u{15}7LX#};\u{2}3[\u{14}y#W\u{14}i*JdoYCG8Af\u{10}!a>L9\u{3}Sj\u{10}\u{19}TT6o^~$H3)G0?.f\u{8}ye\u{b};ckR%\u{19}w]v\u{6}\u{17}M\08\u{17}\u{13}>kb\u{7},Q81c%&\u{18}L\u{7f}*M,ol \u{1d};Y~A+Ny\u{f}f\u{7}F \u{17}\u{14}!\rJ(.#L 3Wh/\u{4}%neB]X\u{14}1$\u{17}\u{7}_@6CF:IM\"\u{8}ms\u{1b}EfI2\u{6}k\u{19}\u{5}na(|\u{13}SV_x/Yr,>-O5st\u{b}^gR/#,FaW\u{5}sf:\u{15}Bc4oiej\n=A.q\u{1a}\"\u{1d}j\u{4}cu)P s\u{e}P\\\u{8}'Jj>\u{6}\u{1c}u`b0\u{7}WWA95\u{1e}F\u{e}nl\u{1d}\u{c}P&\u{10}2\rSLJMo-\u{16}{w\"tr*2y\u{10}g\u{1d}=ZG=a\u{3}*nu^\u{14}7@F\u{1f}%]\u{e}P\t\u{16}\u{18}X\u{13}_ra\u{1c}\u{3}@Fp\u{1f}x e\u{5}\u{19}VwDYw*$v\u{6}T,\u{1e}NI\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "`\u{1d}\0\00?a]u!n \u{7f}\u{1}\u{1c}\u{14}k\u{1e}\u{b}\r\t _\u{19}\r\u{1a}$\u{7}8\u{2}2yE\u{b})\nE|\u{18}\u{1c}<\u{11}V\u{6}@+F\u{16}k\u{14}\t8\tMj\u{4}\nW%z~\u{5}-\\&tUN\u{10}'\u{13}\r>)\u{12}{\u{18}\u{6}i\u{1b}\u{11}\u{f}hp\u{2};I\u{6}YbU\u{e}zZ\u{14}m\u{1a}URd3\u{e}\u{13}&\u{4}w\u{7}\"\u{f}kiy0VU\u{14}\u{13}+Mc\0aK<'4\u{15}\u{b}U*-\u{1}8h\u{16}SS[dQ\u{3}\u{7f}gD\u{f}y\u{e}Ro\u{13},E2n\u{17}cal>,\u{7f}1p\u{17}[)$b\0j8_!\u{1a}W+x\u{1b}ARB23[!2f\tKY\u{4}VOl/\0M;!q8,\u{5}=@\u{3}\u{3}pfe*\u{1a}s+\u{15}w^\u{1b} q\"ww\n\u{19},\u{18}6<q`\u{1a}(\03g-ITp]BNL\u{1d}\u{1c}R}i#\u{c}9[|#\u{7}E\u{12}Xd?J?u\u{4}#o\u{14}G]V\u{1a}2y\u{1b}\rN74\u{b}?\u{14}\\,9`\u{1b}\"KMO\u{7f}_\u{15}#,\u{6}G\u{f}V\u{f}gp\u{10}D\u{1c}\u{e}[\u{1a}\u{4}xB\u{1b}`{\u{16}CI?KW\u{1d}:\u{1f}h%(griXh\u{5}\0<7Ctq\\|q[\u{b}r!\nhv2UOvzPjKZ\u{18}[hG-q$cut!\u{18}&'0\u{12}A#sl2y\u{6}a?y|TC8\u{14}g6?1\u{8}[%I\u{12}#q\u{11}hBh\0?,1k {|WS0xW7c0\u{6}U\u{e}D%\u{1d}A6\u{4}32vZZ.?T@pZ>><EAr7wm\u{5}z\\Wv6c_\u{13}\\\u{1c}GE\u{16}I;e\u{1}D)d\u{10}y\u{f}#62U*+(\u{1c}h\tm#o\u{1},&4\u{18}=n\u{18}\"\u{6}T\01\u{17}\u{5}T:\u{7}AVCT\u{1e}\u{8}f\0\t6`9\u{1}#@mR_r\u{1c}b\u{12}\0(4Jz#-ZU@0/A\u{12}Fey\u{1f}4X?96e\0n2 0\u{7f}$(\u{1e}Gm |\u{17}\u{3}P\u{13}.\u{16}\u{15}\\F 1\u{14}\u{1}9%k\u{17} !\u{1}3}|lPx\u{7f}\u{2}\re\u{e}:'R\u{1f}O$\u{15}lC\u{7}\u{19}>\u{7f}%T,)O\r,H j\nP\u{1f}c\u{c}\u{14}\u{18}PZN]wy=cZY4<\r7}#J\tTt7oPpd+I;\u{1f}-M`\u{4}t\t|\u{1a}wX#]\\5g>\u{7}<\u{8}\u{7}s\"is4/^iUR;%&\u{18}`l\u{6}v7b\u{14}O#\u{1}DuJO\u{19}\u{4}_vX9i?wD\u{16}\u{5}X?\u{1c}dKdT\u{1f}\u{2}\u{12}\u{f}\u{f};Q6`HG#Zwz7\nHtb\u{2}$?n\u{1b}r,\"0\u{4}X'cEwt)L&L2-HD;ElPD\u{1b}Hq[Va4\u{c}\u{b}\u{3}+\u{18}=\u{e}#}@E5{b\u{8}\u{1d}B't\nc\u{16}'LY_ phK0\u{19}\u{1e}=,|W\u{13}Y/r\u{e}6v9\u{6}~Y\u{12}\u{19}.s \u{17}\u{3}su`\u{10}2C\u{1d}\"N\u{e}*l8\u{1e}E\u{5}>zs<9f0T\u{1a}S\u{3}\u{b}xc\"T3e!Kc\u{7f}nN\u{16}m\u{2}$\u{1b}C\u{1e}$T%\u{11}I\n\u{16}%B?+F\u{16}w9GEH+QUma\u{10}+\0i\u{16}!i:,\u{8}\u{18}\u{13}\u{15}RZ`\u{1e}e}h\u{1}R/sZ\u{1f}9\u{1b}\u{10}\u{12}\u{11}0^D=:D)\u{4}\u{1}*fk;\u{1d}MaEX\u{18},;~x2U*1f5\u{11}|)F\\SxLQ\u{1}.$5o\u{1b}W0\u{c}@4$hS\u{19}\"R#usn\rrH\u{f}eoCzIM0\u{b}gf<\u{f}8A5W\u{6}e0zn(\u{1e})ewe<\u{1d}CWbgL/\u{15}\"mRH+\u{7f}\u{10}\0b2Mf (^\u{c}v61q\u{2}[z\n\u{7}=\\UE3\u{14}&<-V,X\u{16}A\u{11}M,1\u{b}<\u{11}\u{1f}\n\"{kg(_\u{1d}\u{17}\\kv1\u{b})\u{1a}nQ\u{16}Fb`\u{e}\u{2}>\0\0*J\u{14}k@g\u{e}[\u{11}tZe\u{1a}K8(\u{3}9(:\u{c}'&WR+\u{1e}\u{1a}\tB&\u{6}):L`\u{b}:3j\"\u{7}L\u{16}\u{18}a~\u{1f}$bCLKgH\u{1d}k\u{6}/\u{b}>\u{17}\u{1a}\u{7f}r\u{3}e-+\u{17}6\u{e}u9-fGrx-\u{3}uGsiM<dvU\nh\u{1e};D+\u{1d}\u{17}s\u{7f}=k\u{f}@T\u{12}orN\u{7f}\"oc\u{1b}:\u{11}\u{8}gp{X(!1ag3BkA\u{2}O\u{14}2*F\u{1d}\u{7f}~<'jO\u{5}Y\u{c}\u{14}\u{7}cLY\u{15}\u{15})LKyX\u{1f}LI\tPv\u{c}Rzp2\u{6}\u{e}k\u{3}\u{15}\rP@e,zmr\u{1f}><\u{1e}\u{15}\n\u{2}wwXUbVk6EXyC2Fg\u{c}7\u{e},Z\u{1b}\u{15}7LX#};\u{2}3[\u{14}y#W\u{14}i*JdoYCG8Af\u{10}!a>L9\u{3}Sj\u{10}\u{19}TT6o^~$H3)G0?.f\u{8}ye\u{b};ckR%\u{19}w]v\u{6}\u{17}M\08\u{17}\u{13}>kb\u{7},Q81c%&\u{18}L\u{7f}*M,ol \u{1d};Y~A+Ny\u{f}f\u{7}F \u{17}\u{14}!\rJ(.#L 3Wh/\u{4}%neB]X\u{14}1$\u{17}\u{7}_@6CF:IM\"\u{8}ms\u{1b}EfI2\u{6}k\u{19}\u{5}na(|\u{13}SV_x/Yr,>-O5st\u{b}^gR/#,FaW\u{5}sf:\u{15}Bc4oiej\n=A.q\u{1a}\"\u{1d}j\u{4}cu)P s\u{e}P\\\u{8}'Jj>\u{6}\u{1c}u`b0\u{7}WWA95\u{1e}F\u{e}nl\u{1d}\u{c}P&\u{10}2\rSLJMo-\u{16}{w\"tr*2y\u{10}g\u{1d}=ZG=a\u{3}*nu^\u{14}7@F\u{1f}%]\u{e}P\t\u{16}\u{18}X\u{13}_ra\u{1c}\u{3}@Fp\u{1f}x e\u{5}\u{19}VwDYw*$v\u{6}T,\u{1e}NI\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Message3.Enum.self)
-    case 2: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Message3.self)
-    case 3: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_Message3].self)
-    case 4: return storage.performNontrivialFieldOperation(operation, field: field, type: [SwiftProtoTesting_Message3.Enum].self)
-    case 5: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Int32].self)
-    case 6: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
-    case 7: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: UInt32].self)
-    case 8: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: UInt64].self)
-    case 9: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Int32].self)
-    case 10: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
-    case 11: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt32: UInt32].self)
-    case 12: return storage.performNontrivialFieldOperation(operation, field: field, type: [UInt64: UInt64].self)
-    case 13: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Int32].self)
-    case 14: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int64: Int64].self)
-    case 15: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Float].self)
-    case 16: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Double].self)
-    case 17: return storage.performNontrivialFieldOperation(operation, field: field, type: [Bool: Bool].self)
-    case 18: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: String].self)
-    case 19: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: Data].self)
-    case 20: return storage.performNontrivialFieldOperation(operation, field: field, type: [String: SwiftProtoTesting_Message3].self)
-    case 21: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: Data].self)
-    case 22: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message3.Enum].self)
-    case 23: return storage.performNontrivialFieldOperation(operation, field: field, type: [Int32: SwiftProtoTesting_Message3].self)
+    case 1: return .enum(SwiftProtoTesting_Message3.Enum.enumSchema)
+    case 2: return .message(SwiftProtoTesting_Message3.messageSchema)
+    case 3: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
+    case 4: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
+    case 5: return .message(_protobuf_mapEntrySchema_MapUint32Uint32Entry)
+    case 6: return .message(_protobuf_mapEntrySchema_MapUint64Uint64Entry)
+    case 7: return .message(_protobuf_mapEntrySchema_MapSint32Sint32Entry)
+    case 8: return .message(_protobuf_mapEntrySchema_MapSint64Sint64Entry)
+    case 9: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed32Entry)
+    case 10: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed64Entry)
+    case 11: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry)
+    case 12: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry)
+    case 13: return .message(_protobuf_mapEntrySchema_MapInt32FloatEntry)
+    case 14: return .message(_protobuf_mapEntrySchema_MapInt32DoubleEntry)
+    case 15: return .message(_protobuf_mapEntrySchema_MapBoolBoolEntry)
+    case 16: return .message(_protobuf_mapEntrySchema_MapStringStringEntry)
+    case 17: return .message(_protobuf_mapEntrySchema_MapStringBytesEntry)
+    case 18: return .message(_protobuf_mapEntrySchema_MapStringMessageEntry)
+    case 19: return .message(_protobuf_mapEntrySchema_MapInt32BytesEntry)
+    case 20: return .message(_protobuf_mapEntrySchema_MapInt32EnumEntry)
+    case 21: return .message(_protobuf_mapEntrySchema_MapInt32MessageEntry)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 2: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Message3.self, perform: perform)
-    case 3: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [SwiftProtoTesting_Message3].self, perform: perform)
-    case 20: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [String: SwiftProtoTesting_Message3].self, perform: perform)
-    case 23: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: [Int32: SwiftProtoTesting_Message3].self, perform: perform)
-    case 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22: return true
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    case 1: return try storage.performOnRawEnumValues(of: field, operation: operation, type: SwiftProtoTesting_Message3.Enum.self, enumSchema: SwiftProtoTesting_Message3.Enum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    case 4: return try storage.performOnRawEnumValues(of: field, operation: operation, type: [SwiftProtoTesting_Message3.Enum].self, enumSchema: SwiftProtoTesting_Message3.Enum.enumSchema, perform: perform, onInvalidValue: onInvalidValue)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    case 5:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}/\0swift_proto_testing.Message3.MapInt32Int32Entry")
-    case 6:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}/\0swift_proto_testing.Message3.MapInt64Int64Entry")
-    case 7:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}1\0swift_proto_testing.Message3.MapUint32Uint32Entry")
-    case 8:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}1\0swift_proto_testing.Message3.MapUint64Uint64Entry")
-    case 9:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}1\0swift_proto_testing.Message3.MapSint32Sint32Entry")
-    case 10:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}1\0swift_proto_testing.Message3.MapSint64Sint64Entry")
-    case 11:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}3\0swift_proto_testing.Message3.MapFixed32Fixed32Entry")
-    case 12:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}3\0swift_proto_testing.Message3.MapFixed64Fixed64Entry")
-    case 13:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}5\0swift_proto_testing.Message3.MapSfixed32Sfixed32Entry")
-    case 14:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}5\0swift_proto_testing.Message3.MapSfixed64Sfixed64Entry")
-    case 15:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}/\0swift_proto_testing.Message3.MapInt32FloatEntry")
-    case 16:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{10}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}0\0swift_proto_testing.Message3.MapInt32DoubleEntry")
-    case 17:
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: "\0\u{3}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}-\0swift_proto_testing.Message3.MapBoolBoolEntry")
-    case 18:
-      #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}1\0swift_proto_testing.Message3.MapStringStringEntry"
-      #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}1\0swift_proto_testing.Message3.MapStringStringEntry"
-      #else
-        #error("Unsupported platform")
-      #endif
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 19:
-      #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}0\0swift_proto_testing.Message3.MapStringBytesEntry"
-      #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}0\0swift_proto_testing.Message3.MapStringBytesEntry"
-      #else
-        #error("Unsupported platform")
-      #endif
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 20:
-      #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.Message3.MapStringMessageEntry"
-      #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.Message3.MapStringMessageEntry"
-      #else
-        #error("Unsupported platform")
-      #endif
-      return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Message3.self)
-    case 21:
-      #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.Message3.MapInt32BytesEntry"
-      #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.Message3.MapInt32BytesEntry"
-      #else
-        #error("Unsupported platform")
-      #endif
-      return SwiftProtobuf.MessageSchema(schemaForMapEntryWithScalarValues: schemaString)
-    case 22:
-      return SwiftProtobuf.MessageSchema(schema: "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}.\0swift_proto_testing.Message3.MapInt32EnumEntry", forMapEntryWithValueType: SwiftProtoTesting_Message3.Enum.self, enumSchema: SwiftProtoTesting_Message3.Enum.enumSchema)
-    case 23:
-      #if _pointerBitWidth(_64)
-        let schemaString: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.Message3.MapInt32MessageEntry"
-      #elseif _pointerBitWidth(_32)
-        let schemaString: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.Message3.MapInt32MessageEntry"
-      #else
-        #error("Unsupported platform")
-      #endif
-      return SwiftProtobuf.MessageSchema(schema: schemaString, forMapEntryWithValueType: SwiftProtoTesting_Message3.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 5: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 6: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 7: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 8: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 9: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 10: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 11: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 12: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 13: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 14: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 15: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 16: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 17: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 18: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 19: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 20: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message3>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 21: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 22: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Message3.Enum>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    case 23: return try storage.performOnMapEntry(of: field, operation: operation, workingSpace: workingSpace, keyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message3>.self, deterministicOrdering: deterministicOrdering, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}/\0swift_proto_testing.Message3.MapInt32Int32Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}/\0swift_proto_testing.Message3.MapInt32Int32Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}/\0swift_proto_testing.Message3.MapInt64Int64Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}/\0swift_proto_testing.Message3.MapInt64Int64Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt64Int64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt64Int64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}1\0swift_proto_testing.Message3.MapUint32Uint32Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}1\0swift_proto_testing.Message3.MapUint32Uint32Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint32Uint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}1\0swift_proto_testing.Message3.MapUint64Uint64Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}1\0swift_proto_testing.Message3.MapUint64Uint64Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint64Uint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}1\0swift_proto_testing.Message3.MapSint32Sint32Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}1\0swift_proto_testing.Message3.MapSint32Sint32Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint32Sint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}1\0swift_proto_testing.Message3.MapSint64Sint64Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}1\0swift_proto_testing.Message3.MapSint64Sint64Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint64Sint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}3\0swift_proto_testing.Message3.MapFixed32Fixed32Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}3\0swift_proto_testing.Message3.MapFixed32Fixed32Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}3\0swift_proto_testing.Message3.MapFixed64Fixed64Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}3\0swift_proto_testing.Message3.MapFixed64Fixed64Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}5\0swift_proto_testing.Message3.MapSfixed32Sfixed32Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}5\0swift_proto_testing.Message3.MapSfixed32Sfixed32Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}5\0swift_proto_testing.Message3.MapSfixed64Sfixed64Entry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}5\0swift_proto_testing.Message3.MapSfixed64Sfixed64Entry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}/\0swift_proto_testing.Message3.MapInt32FloatEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}/\0swift_proto_testing.Message3.MapInt32FloatEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32FloatEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32FloatEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}0\0swift_proto_testing.Message3.MapInt32DoubleEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}0\0swift_proto_testing.Message3.MapInt32DoubleEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32DoubleEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}-\0swift_proto_testing.Message3.MapBoolBoolEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}-\0swift_proto_testing.Message3.MapBoolBoolEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}1\0swift_proto_testing.Message3.MapStringStringEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}1\0swift_proto_testing.Message3.MapStringStringEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}0\0swift_proto_testing.Message3.MapStringBytesEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}0\0swift_proto_testing.Message3.MapStringBytesEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapStringBytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringBytesEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapStringMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.Message3.MapStringMessageEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapStringMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.Message3.MapStringMessageEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapStringMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message3>.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.Message3.MapInt32BytesEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}/\0swift_proto_testing.Message3.MapInt32BytesEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32BytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32BytesEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}.\0swift_proto_testing.Message3.MapInt32EnumEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}.\0swift_proto_testing.Message3.MapInt32EnumEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32EnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32EnumEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Message3.Enum>.self)
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_MapInt32MessageEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.Message3.MapInt32MessageEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_MapInt32MessageEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.Message3.MapInt32MessageEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32MessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32MessageEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtoTesting_Message3>.self)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -870,28 +894,23 @@ extension SwiftProtoTesting_Message3: SwiftProtobuf.Message {
 }
 
 extension SwiftProtoTesting_Message3.Enum {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{4}\0\0\0\0!\0swift_proto_testing.Message3.Enum" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9L#5Qy\u{1d}\u{1f}8Q\u{3}Q~oyh#\u{15}L\0\u{1b}cfd=L\u{3}]\u{14}M\u{1f}\u{15}:P?\u{10}\u{e}1\"4\u{2}\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0!\0swift_proto_testing.Message3.Enum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9L#5Qy\u{1d}\u{1f}8Q\u{3}Q~oyh#\u{15}L\0\u{1b}cfd=L\u{3}]\u{14}M\u{1f}\u{15}:P?\u{10}\u{e}1\"4\u{2}\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NoStorage"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0!\0swift_proto_testing.Msg3NoStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0!\0swift_proto_testing.Msg3NoStorage"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0!\0swift_proto_testing.Msg3NoStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0!\0swift_proto_testing.Msg3NoStorage"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -901,47 +920,19 @@ extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3UsesStorage"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0g\u{7}\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg3UsesStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0g\u{7}\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg3UsesStorage"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0g\u{7}\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg3UsesStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0g\u{7}\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg3UsesStorage"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "$\0\0\0\0?'L)\u{7}&p\rm${\u{3}TpbB\u{e}\u{7}C4\\5d~\"<\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rm${\u{3}TpbB\u{e}\u{7}C4\\5d~\"<\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Msg3UsesStorage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Msg3UsesStorage.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftProtoTesting_Msg3UsesStorage.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -954,18 +945,15 @@ extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NamesNoStorage"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg3NamesNoStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg3NamesNoStorage"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg3NamesNoStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg3NamesNoStorage"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { ",\u{1}\0\0 ?m\u{15}\u{19}Zs5&L\u{6}\u{10}al;tE#CwgH\u{f}.\u{19}94(: s%\u{1f}\u{18}[c\u{b}*NIKd,8\u{19}CIX\u{13}\u{15}=zHAN\u{7f}'_\u{5}8\u{7f}\u{15}B:}dt%B\t,\u{1c}\u{19}IBC#\u{13}?O{\u{7f}$<\u{f}Jy{\u{6}RI.F\u{11}\u{18}\u{11}\u{1d}w'\u{8}P&`\u{3}j+1\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\u{1}\0\0 ?m\u{15}\u{19}Zs5&L\u{6}\u{10}al;tE#CwgH\u{f}.\u{19}94(: s%\u{1f}\u{18}[c\u{b}*NIKd,8\u{19}CIX\u{13}\u{15}=zHAN\u{7f}'_\u{5}8\u{7f}\u{15}B:}dt%B\t,\u{1c}\u{19}IBC#\u{13}?O{\u{7f}$<\u{f}Jy{\u{6}RI.F\u{11}\u{18}\u{11}\u{1d}w'\u{8}P&`\u{3}j+1\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -975,47 +963,19 @@ extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".Msg3NamesUsesStorage"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\0\0\u{1}\0\u{b}(\0swift_proto_testing.Msg3NamesUsesStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\0\0\u{1}\0\u{b}(\0swift_proto_testing.Msg3NamesUsesStorage"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{b}(\0swift_proto_testing.Msg3NamesUsesStorage" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{b}(\0swift_proto_testing.Msg3NamesUsesStorage"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{18}\u{1}\0\0 _\u{19}3-Z[,E\u{3} r4S/sdWie\u{3}[8\u{14}\u{13}vg\u{15}!<\u{b}&F\u{7f}?@C\u{3}\u{7}Uh^F`\u{6}\0:I\u{8}XunQ%G}\u{17}+N0.Y{\u{13}tr\u{1}\u{3}\u{3})\u{1d}n\u{19}8\u{c}\u{1}%\u{b}1 \n!G~!\u{2}@ox\u{1f}?&#;@~\u{b}\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,E\u{3} r4S/sdWie\u{3}[8\u{14}\u{13}vg\u{15}!<\u{b}&F\u{7f}?@C\u{3}\u{7}Uh^F`\u{6}\0:I\u{8}XunQ%G}\u{17}+N0.Y{\u{13}tr\u{1}\u{3}\u{3})\u{1d}n\u{19}8\u{c}\u{1}%\u{b}1 \n!G~!\u{2}@ox\u{1f}?&#;@~\u{b}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Msg3UsesStorage.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Msg3UsesStorage.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftProtoTesting_Msg3UsesStorage.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

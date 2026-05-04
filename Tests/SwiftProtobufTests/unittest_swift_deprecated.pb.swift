@@ -344,28 +344,26 @@ let SwiftProtoTesting_Deprecated_UnittestSwiftDeprecated_Extensions: SwiftProtob
 /// NOTE: This extension field was marked as deprecated in the .proto file.
 let SwiftProtoTesting_Deprecated_Extensions_string_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}/\0swift_proto_testing.deprecated.string_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+  )
 
 /// NOTE: This extension field was marked as deprecated in the .proto file.
 let SwiftProtoTesting_Deprecated_Extensions_int_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5},\0swift_proto_testing.deprecated.int_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+  )
 
 /// NOTE: This extension field was marked as deprecated in the .proto file.
 let SwiftProtoTesting_Deprecated_Extensions_fixed_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}.\0swift_proto_testing.deprecated.fixed_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+  )
 
 /// NOTE: This extension field was marked as deprecated in the .proto file.
 let SwiftProtoTesting_Deprecated_Extensions_msg_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b},\0swift_proto_testing.deprecated.msg_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Deprecated_MyMsg.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Deprecated_MyMsg.self, perform: perform)
-  })
+  extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Deprecated_MyMsg.messageSchema) }
+  )
 
 extension SwiftProtoTesting_Deprecated_MsgScope {
   enum Extensions {
@@ -374,28 +372,26 @@ extension SwiftProtoTesting_Deprecated_MsgScope {
     /// NOTE: This extension field was marked as deprecated in the .proto file.
     static let string_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0I\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}9\0swift_proto_testing.deprecated.MsgScope.string_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+      )
 
     /// NOTE: This extension field was marked as deprecated in the .proto file.
     static let int_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0J\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}6\0swift_proto_testing.deprecated.MsgScope.int_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+      )
 
     /// NOTE: This extension field was marked as deprecated in the .proto file.
     static let fixed_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0K\u{1}\0\0\u{12}\0\0\0\0\0\0\0\u{7}8\0swift_proto_testing.deprecated.MsgScope.fixed_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema }
+      )
 
     /// NOTE: This extension field was marked as deprecated in the .proto file.
     static let msg_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0L\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.deprecated.MsgScope.msg_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema },
-      performNontrivialExtensionOperation: { operation, ext, storage in
-        storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_Deprecated_MyMsg.self)
-      },
-      performOnSubmessageStorage: { ext, storage, operation, perform in
-        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_Deprecated_MyMsg.self, perform: perform)
-      })
+      extendedMessageResolver: { SwiftProtoTesting_Deprecated_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Deprecated_MyMsg.messageSchema) }
+      )
   }
 }
 
@@ -404,65 +400,33 @@ extension SwiftProtoTesting_Deprecated_MsgScope {
 fileprivate let _protobuf_package = "swift_proto_testing.deprecated"
 
 extension SwiftProtoTesting_Deprecated_MyEnum {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0%\0swift_proto_testing.deprecated.MyEnum" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0swift_proto_testing.deprecated.MyEnum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 extension SwiftProtoTesting_Deprecated_MyEnum2 {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0&\0swift_proto_testing.deprecated.MyEnum2" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "h\0\0\0p\u{1}4\u{4}\u{f}K\\jV\u{1c}d GMwQ\t\u{14}\u{3}?fuiL\\\u{8}\u{c}P R~`Xlq*s_\nf:\u{7f}\u{3}\u{4}\nlBhVcmwa5(gl%\u{f}c\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0&\0swift_proto_testing.deprecated.MyEnum2"
+  private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\jV\u{1c}d GMwQ\t\u{14}\u{3}?fuiL\\\u{8}\u{c}P R~`Xlq*s_\nf:\u{7f}\u{3}\u{4}\nlBhVcmwa5(gl%\u{f}c\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Deprecated_MyMsg.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Deprecated_MyMsg.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftProtoTesting_Deprecated_MyMsg.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }
@@ -479,18 +443,15 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".MsgScope"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -500,47 +461,19 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message {
 extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg2"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, performNontrivialFieldOperation: _protobuf_performNontrivialFieldOperation, performOnSubmessageStorage: _protobuf_performOnSubmessageStorage, performOnRawEnumValues: _protobuf_performOnRawEnumValues, mapEntrySchema: _protobuf_mapEntrySchema, performOnMapEntry: _protobuf_performOnMapEntry)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_performNontrivialFieldOperation(for token: SwiftProtobuf.MessageSchema.TrampolineToken, operation: SwiftProtobuf.NontrivialFieldOperation, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage) -> Swift.Bool {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return storage.performNontrivialFieldOperation(operation, field: field, type: SwiftProtoTesting_Deprecated_MyMsg2.self)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnSubmessageStorage(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
-    case 1: return try storage.performOnSubmessageStorage(of: field, operation: operation, type: SwiftProtoTesting_Deprecated_MyMsg2.self, perform: perform)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnRawEnumValues(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, perform: (SwiftProtobuf.EnumSchema, inout Swift.Int32) throws -> Swift.Bool, onInvalidValue: (Swift.Int32) throws -> Swift.Void) throws {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_mapEntrySchema(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.MessageSchema {
-    switch token.index {
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
-    }
-  }
-
-  private static func _protobuf_performOnMapEntry(for token: SwiftProtobuf.MessageSchema.TrampolineToken, field: SwiftProtobuf.FieldSchema, storage: SwiftProtobuf.MessageStorage, workingSpace: SwiftProtobuf.MessageStorage, operation: SwiftProtobuf.TrampolineFieldOperation, deterministicOrdering: Swift.Bool, perform: (SwiftProtobuf.MessageStorage) throws -> Swift.Bool) throws -> Swift.Bool {
-    switch token.index {
+    case 1: return .message(SwiftProtoTesting_Deprecated_MyMsg2.messageSchema)
     default: preconditionFailure("invalid trampoline token; this is a generator bug")
     }
   }

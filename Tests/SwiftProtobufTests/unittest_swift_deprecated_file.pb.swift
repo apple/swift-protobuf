@@ -237,28 +237,26 @@ let SwiftProtoTesting_DeprecatedFile_UnittestSwiftDeprecatedFile_Extensions: Swi
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 let SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}4\0swift_proto_testing.deprecated_file.string_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+  )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 let SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}1\0swift_proto_testing.deprecated_file.int_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+  )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 let SwiftProtoTesting_DeprecatedFile_Extensions_fixed_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}3\0swift_proto_testing.deprecated_file.fixed_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+  )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 let SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.deprecated_file.msg_ext_field",
-  extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },
-  performNontrivialExtensionOperation: { operation, ext, storage in
-    storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self)
-  },
-  performOnSubmessageStorage: { ext, storage, operation, perform in
-    try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self, perform: perform)
-  })
+  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
+  )
 
 extension SwiftProtoTesting_DeprecatedFile_MsgScope {
   enum Extensions {
@@ -267,28 +265,26 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope {
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let string_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0I\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}>\0swift_proto_testing.deprecated_file.MsgScope.string_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+      )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let int_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0J\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5};\0swift_proto_testing.deprecated_file.MsgScope.int_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+      )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let fixed_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0K\u{1}\0\0\u{12}\0\0\0\0\0\0\0\u{7}=\0swift_proto_testing.deprecated_file.MsgScope.fixed_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema })
+      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
+      )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let msg_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0L\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b};\0swift_proto_testing.deprecated_file.MsgScope.msg_ext2_field",
-      extendedMessageSchemaProducer: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },
-      performNontrivialExtensionOperation: { operation, ext, storage in
-        storage.performNontrivialExtensionOperation(operation, extension: ext, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self)
-      },
-      performOnSubmessageStorage: { ext, storage, operation, perform in
-        try storage.performOnSubmessageStorage(of: ext, operation: operation, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self, perform: perform)
-      })
+      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
+      )
   }
 }
 
@@ -297,28 +293,23 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope {
 fileprivate let _protobuf_package = "swift_proto_testing.deprecated_file"
 
 extension SwiftProtoTesting_DeprecatedFile_MyEnum {
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_enumSchemaString: Swift.StaticString { "\0\u{3}\0\0\0\0*\0swift_proto_testing.deprecated_file.MyEnum" }
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0" }
-  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData)
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0*\0swift_proto_testing.deprecated_file.MyEnum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}wU\u{f}kn'\u{1b}gg\u{14}\\6\u{8}sJ)+\u{1e}\u{1d}LH\u{13}\u{1d}\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}wU\u{f}kn'\u{1b}gg\u{14}\\6\u{8}sJ)+\u{1e}\u{1d}LH\u{13}\u{1d}\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -332,18 +323,15 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message {
 extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.Message {
   static let protoMessageName: Swift.String = _protobuf_package + ".MsgScope"
   #if _pointerBitWidth(_64)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
   #elseif _pointerBitWidth(_32)
-    @_alwaysEmitIntoClient @inline(__always)
-    private static var _protobuf_messageSchemaString: Swift.StaticString { "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope" }
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
   #else
     #error("Unsupported platform")
   #endif
-  @_alwaysEmitIntoClient @inline(__always)
-  private static var _protobuf_reflectionData: Swift.StaticString { "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0" }
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
   var messageSchema: SwiftProtobuf.MessageSchema { Self.messageSchema }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
