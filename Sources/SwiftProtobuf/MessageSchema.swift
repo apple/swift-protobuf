@@ -138,11 +138,10 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            // TODO: Use the `.compressed` form and lazily decompress and cache it.
-            reflectionReference: .direct(ReflectionTable(
-                fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
-                data: Compression.decompress(reflection.rawBufferPointer)
-            )),
+            reflectionReference: .init(
+                compressed: reflection.rawBufferPointer,
+                fieldCount: Self.fieldCount(from: schema.rawBufferPointer)
+            ),
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: submessageOrEnumResolver
         )
@@ -156,11 +155,10 @@ public struct MessageSchema: @unchecked Sendable {
     public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
         self.init(
             schema: schema,
-            // TODO: Use the `.compressed` form and lazily decompress and cache it.
-            reflectionReference: .direct(ReflectionTable(
-                fieldCount: Self.fieldCount(from: schema.rawBufferPointer),
-                data: Compression.decompress(reflection.rawBufferPointer)
-            )),
+            reflectionReference: .init(
+                compressed: reflection.rawBufferPointer,
+                fieldCount: Self.fieldCount(from: schema.rawBufferPointer)
+            ),
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -178,7 +176,7 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .direct(.mapEntry),
+            reflectionReference: .mapEntry,
             invokeWitness: MapEntryWitnesses<K, V>.perform,
             submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -196,7 +194,7 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .direct(.mapEntry),
+            reflectionReference: .mapEntry,
             invokeWitness: MapEntryWitnesses<K, ProtobufMapMessageField<M>>.perform,
             submessageOrEnumResolver: { token in
                 guard token.index == 1 else {
@@ -217,7 +215,7 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .direct(.mapEntry),
+            reflectionReference: .mapEntry,
             invokeWitness: MapEntryWitnesses<K, ProtobufMapEnumField<E>>.perform,
             submessageOrEnumResolver: { token in
                 switch token.index {
@@ -358,46 +356,48 @@ extension MessageSchema {
 extension MessageSchema {
     /// Returns the text name for the given field number.
     func textName(forFieldNumber number: UInt32) -> UTF8Name? {
-        reflection.table.textName(forFieldNumber: number)
+        reflection.withTable { $0.textName(forFieldNumber: number) }
     }
 
     /// Returns the JSON name for the given field number.
     func jsonName(forFieldNumber number: UInt32) -> UTF8Name? {
-        reflection.table.jsonName(forFieldNumber: number)
+        reflection.withTable { $0.jsonName(forFieldNumber: number) }
     }
 
     /// Returns the field number for the given text name.
     func fieldNumber(forTextName name: String) -> UInt32? {
-        // Fast path: Binary search in the reflection table.
-        if let number = reflection.table.fieldNumber(forTextName: name) {
-            return number
-        }
-        // Slow path: If it wasn't found, check if it's a group name spelled in
-        // lowercase form.
-        let lowercaseName = name.lowercased()
-        for field in fields where field.rawFieldType == .group {
-            if let textName = reflection.table.textName(forFieldNumber: field.fieldNumber),
-                String(decoding: textName.buffer, as: UTF8.self).lowercased() == lowercaseName
-            {
-                return field.fieldNumber
+        reflection.withTable { reflectionTable in
+            // Fast path: Binary search in the reflection table.
+            if let number = reflectionTable.fieldNumber(forTextName: name) {
+                return number
             }
+            // Slow path: If it wasn't found, check if it's a group name spelled in
+            // lowercase form.
+            let lowercaseName = name.lowercased()
+            for field in fields where field.rawFieldType == .group {
+                if let textName = reflectionTable.textName(forFieldNumber: field.fieldNumber),
+                    String(decoding: textName.buffer, as: UTF8.self).lowercased() == lowercaseName
+                {
+                    return field.fieldNumber
+                }
+            }
+            return nil
         }
-        return nil
     }
 
     /// Returns the field number for the given JSON name.
     func fieldNumber(forJSONName name: String) -> UInt32? {
-        reflection.table.fieldNumber(forJSONName: name)
+        reflection.withTable { $0.fieldNumber(forJSONName: name) }
     }
 
     /// Returns a value indicating whether or not the given field name is reserved.
     func isFieldNameReserved(_ name: String) -> Bool {
-        reflection.table.isNameReserved(name)
+        reflection.withTable { $0.isNameReserved(name) }
     }
 
     /// Returns a value indicating whether or not the given field number is reserved.
     func isFieldNumberReserved(_ number: UInt32) -> Bool {
-        reflection.table.isNumberReserved(number)
+        reflection.withTable { $0.isNumberReserved(number) }
     }
 }
 

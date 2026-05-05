@@ -13,8 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Provides access to the reflection data embedded in a generated message or enum.
 ///
 /// ## Reflection Table Layout
@@ -424,104 +422,31 @@ extension ReflectionTable {
 
 extension ReflectionTable {
     /// The fixed reflection table for the pseudo-message used to represent map entries.
-    package static let mapEntry: ReflectionTable = {
-        ReflectionTable(
-            fieldCount: 2,
-            data: [
-                56, 0, 0, 0,  // Offset to Section 1
-                0, 0,         // distinctJSONNameCount (0)
-                0, 0,         // reservedNameCount (0)
-                2, 0,         // textNameTableCount (2)
-                0, 0,         // Padding
-                // Field number to text offset table
-                1, 0, 0, 0,  // field 1
-                0, 0, 0, 0,  // offset 0
-                2, 0, 0, 0,  // field 2
-                4, 0, 0, 0,  // offset 4
-                // Text offset to field number table (sorted by name)
-                0, 0, 0, 0,  // offset 0 ("key")
-                1, 0, 0, 0,  // field 1
-                4, 0, 0, 0,  // offset 4 ("value")
-                2, 0, 0, 0,  // field 2
-                // Name data blob (null terminated)
-                UInt8(ascii: "k"), UInt8(ascii: "e"), UInt8(ascii: "y"), 0,
-                UInt8(ascii: "v"), UInt8(ascii: "a"), UInt8(ascii: "l"), UInt8(ascii: "u"),
-                UInt8(ascii: "e"), 0,
-                // Alignment padding
-                0, 0,
-                60, 0, 0, 0,  // Offset of Section 2
-            ]
-        )
-    }()
-}
-
-/// A reference to a reflection table, which may be inlined (embedded in the generated code) or
-/// stored as a compressed buffer.
-enum ReflectionTableReference: @unchecked Sendable {
-    /// A compressed reflection table stored as a static string in generated code.
-    ///
-    /// The pointer to the compressed data is used as a unique key to reference the table.
-    case compressed(UnsafeRawBufferPointer, fieldCount: Int)
-
-    /// Refers to a reflection table that already exists at the time a message/enum schema is
-    /// created.
-    ///
-    /// This is used for map entry pseudo-messages, which have a fixed reflection table shared
-    /// across all map entries.
-    case direct(ReflectionTable)
-
-    /// Returns the reflection table, decompressing it if necessary.
-    var table: ReflectionTable {
-        switch self {
-        case .compressed(let buffer, let fieldCount):
-            // TODO: Move this to a cache instead of decompressing every time.
-            let decompressed = Compression.decompress(buffer)
-            return ReflectionTable(fieldCount: fieldCount, data: decompressed)
-        case .direct(let table):
-            return table
-        }
-    }
-}
-
-/// A reflection table that is lazily decompressed when first accessed.
-final class LazyReflectionTable {
-    private enum State {
-        case compressed(UnsafeRawBufferPointer, fieldCount: Int)
-        case decompressed(ReflectionTable)
-    }
-
-    /// Guards `state`.
-    private let lock = NSLock()
-
-    /// Whether the table is a compressed buffer or decompressed table.
-    private var state: State
-
-    /// Initializes the lazy reflection table with a buffer to be decompressed the first time it is
-    /// requested.
-    init(compressed: UnsafeRawBufferPointer, fieldCount: Int) {
-        self.state = .compressed(compressed, fieldCount: fieldCount)
-    }
-
-    /// Initializes the lazy reflection table wrapper with an already decompressed table.
-    init(decompressed: ReflectionTable) {
-        self.state = .decompressed(decompressed)
-    }
-
-    /// The reflection table, decompressed for the first time if needed.
-    var table: ReflectionTable {
-        lock.withLock {
-            switch state {
-            case .decompressed(let table):
-                return table
-
-            case .compressed(let buffer, let fieldCount):
-                let table = ReflectionTable(
-                    fieldCount: fieldCount,
-                    data: Compression.decompress(buffer)
-                )
-                state = .decompressed(table)
-                return table
-            }
-        }
-    }
+    package static let mapEntry = ReflectionTable(
+        fieldCount: 2,
+        data: [
+            56, 0, 0, 0,  // Offset to Section 1
+            0, 0,         // distinctJSONNameCount (0)
+            0, 0,         // reservedNameCount (0)
+            2, 0,         // textNameTableCount (2)
+            0, 0,         // Padding
+            // Field number to text offset table
+            1, 0, 0, 0,  // field 1
+            0, 0, 0, 0,  // offset 0
+            2, 0, 0, 0,  // field 2
+            4, 0, 0, 0,  // offset 4
+            // Text offset to field number table (sorted by name)
+            0, 0, 0, 0,  // offset 0 ("key")
+            1, 0, 0, 0,  // field 1
+            4, 0, 0, 0,  // offset 4 ("value")
+            2, 0, 0, 0,  // field 2
+            // Name data blob (null terminated)
+            UInt8(ascii: "k"), UInt8(ascii: "e"), UInt8(ascii: "y"), 0,
+            UInt8(ascii: "v"), UInt8(ascii: "a"), UInt8(ascii: "l"), UInt8(ascii: "u"),
+            UInt8(ascii: "e"), 0,
+            // Alignment padding
+            0, 0,
+            60, 0, 0, 0,  // Offset of Section 2
+        ]
+    )
 }
