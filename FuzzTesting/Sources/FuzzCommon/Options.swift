@@ -12,6 +12,12 @@ import SwiftProtobuf
 public enum FuzzOption<T: SupportsFuzzOptions> {
     case boolean(WritableKeyPath<T, Bool>)
     case byte(WritableKeyPath<T, Int>, mod: UInt8 = .max)
+    // This next one was only needed to add TextFormatEncodingOptions.printUnknownFields because it
+    // defaults to `true` and the use of the option was added after we had saved existing regression
+    // inputs. Since this options support ensures the unused values were zero, by adding it later we
+    // end up needing to invert the value to ensure we will read saved values and get the same
+    // options back.
+    case invertedBoolean(WritableKeyPath<T, Bool>)
 }
 
 public protocol SupportsFuzzOptions {
@@ -60,6 +66,9 @@ extension SupportsFuzzOptions {
                     break
                 }
                 guard count >= 1 else {
+                    if reportInfo {
+                        print("Continuation options, but no more data, count as invalid.")
+                    }
                     return nil  // No data left to read bits
                 }
                 optionsBits = start.loadUnaligned(as: UInt8.self)
@@ -76,6 +85,9 @@ extension SupportsFuzzOptions {
                 assert(mod >= 1 && mod <= UInt8.max)
                 if isSet {
                     guard count >= 1 else {
+                        if reportInfo {
+                            print(".byte, but no more data to read, count as invalid.")
+                        }
                         return nil  // No more bytes to get a value, fail
                     }
                     let value = start.loadUnaligned(as: UInt8.self)
@@ -83,12 +95,17 @@ extension SupportsFuzzOptions {
                     count -= 1
                     options[keyPath: keypath] = Int(value % mod)
                 }
+            case .invertedBoolean(let keypath):
+                options[keyPath: keypath] = !isSet
             }
             bit += 1
         }
         // Ensure the any remaining bits are zero so they can be used in the future
         while bit < 8 {
             if optionsBits & (1 << bit) != 0 {
+                if reportInfo {
+                    print("Reserved options bit non zero, count as invalid.")
+                }
                 return nil
             }
             bit += 1
@@ -102,7 +119,15 @@ extension SupportsFuzzOptions {
 
 }
 
-extension BinaryDecodingOptions: SupportsFuzzOptions {
+public struct BinaryFuzzingOptions: SupportsFuzzOptions {
+    public var decoding = BinaryDecodingOptions()
+    public var encoding = BinaryEncodingOptions()
+
+    // Historically this never was in BinaryDecodingOptions, so control it via a standalone boolean.
+    public var partialDecoding: Bool = false
+
+    public init() {}
+
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [
             // NOTE: Do not reorder these in the future as it invalidates all
@@ -110,13 +135,20 @@ extension BinaryDecodingOptions: SupportsFuzzOptions {
 
             // The default depth is 100, so limit outselves to modding by 8 to
             // avoid allowing larger depths that could timeout.
-            .byte(\.messageDepthLimit, mod: 8),
-            .boolean(\.discardUnknownFields),
+            .byte(\.decoding.messageDepthLimit, mod: 8),
+            .boolean(\.decoding.discardUnknownFields),
+            .boolean(\.partialDecoding),
+            .boolean(\.encoding.useDeterministicOrdering),
         ]
     }
 }
 
-extension JSONDecodingOptions: SupportsFuzzOptions {
+public struct JSONFuzzingOptions: SupportsFuzzOptions {
+    public var decoding = JSONDecodingOptions()
+    public var encoding = JSONEncodingOptions()
+
+    public init() {}
+
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [
             // NOTE: Do not reorder these in the future as it invalidates all
@@ -124,13 +156,22 @@ extension JSONDecodingOptions: SupportsFuzzOptions {
 
             // The default depth is 100, so limit outselves to modding by 8 to
             // avoid allowing larger depths that could timeout.
-            .byte(\.messageDepthLimit, mod: 8),
-            .boolean(\.ignoreUnknownFields),
+            .byte(\.decoding.messageDepthLimit, mod: 8),
+            .boolean(\.decoding.ignoreUnknownFields),
+            .boolean(\.encoding.alwaysPrintInt64sAsNumbers),
+            .boolean(\.encoding.alwaysPrintEnumsAsInts),
+            .boolean(\.encoding.preserveProtoFieldNames),
+            .boolean(\.encoding.useDeterministicOrdering),
         ]
     }
 }
 
-extension TextFormatDecodingOptions: SupportsFuzzOptions {
+public struct TextFormatFuzzingOptions: SupportsFuzzOptions {
+    public var decoding = TextFormatDecodingOptions()
+    public var encoding = TextFormatEncodingOptions()
+
+    public init() {}
+
     public static var fuzzOptionsList: [FuzzOption<Self>] {
         [
             // NOTE: Do not reorder these in the future as it invalidates all
@@ -138,9 +179,10 @@ extension TextFormatDecodingOptions: SupportsFuzzOptions {
 
             // The default depth is 100, so limit outselves to modding by 8 to
             // avoid allowing larger depths that could timeout.
-            .byte(\.messageDepthLimit, mod: 8),
-            .boolean(\.ignoreUnknownFields),
-            .boolean(\.ignoreUnknownExtensionFields),
+            .byte(\.decoding.messageDepthLimit, mod: 8),
+            .boolean(\.decoding.ignoreUnknownFields),
+            .boolean(\.decoding.ignoreUnknownExtensionFields),
+            .invertedBoolean(\.encoding.printUnknownFields),  // see note above for why inverted
         ]
     }
 }

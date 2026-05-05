@@ -12,7 +12,7 @@ import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzTextFormat(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
-    guard let (options, bytes) = TextFormatDecodingOptions.extractOptions(start, count) else {
+    guard let (options, bytes) = TextFormatFuzzingOptions.extractOptions(start, count) else {
         return 1
     }
     guard let str = String(data: Data(bytes), encoding: .utf8) else { return 0 }
@@ -20,14 +20,14 @@ public func FuzzTextFormat(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
     do {
         msg = try SwiftProtoTesting_Fuzz_Message(
             textFormatString: str,
-            options: options,
+            options: options.decoding,
             extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
         )
     } catch {
         // Error parsing are to be expected since not all input will be well formed.
     }
     // Test serialization for completeness.
-    let _ = msg?.textFormatString()
+    let _ = msg?.textFormatString(options: options.encoding)
 
     return 0
 }

@@ -11,7 +11,7 @@ import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
-    guard let (options, bytes) = BinaryDecodingOptions.extractOptions(start, count) else {
+    guard let (options, bytes) = BinaryFuzzingOptions.extractOptions(start, count) else {
         return 1
     }
     var msg: SwiftProtoTesting_Fuzz_Message?
@@ -19,14 +19,15 @@ public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
         msg = try SwiftProtoTesting_Fuzz_Message(
             serializedBytes: Array(bytes),
             extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions,
-            options: options
+            partial: options.partialDecoding,
+            options: options.decoding
         )
     } catch {
         // Error parsing are to be expected since not all input will be well formed.
     }
     // Test serialization for completeness.
     // If a message was parsed, it should not fail to serialize, so assert as such.
-    let _: [UInt8]? = try! msg?.serializedBytes()
+    let _: [UInt8]? = try! msg?.serializedBytes(options: options.encoding)
 
     return 0
 }
