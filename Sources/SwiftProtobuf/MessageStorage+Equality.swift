@@ -153,7 +153,7 @@ extension MessageStorage {
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: String.self)
 
                 default:
-                    // Do nothing. Trivial fields will be bitwise-compared as a block below.
+                    // Do nothing. The fields were all bitwise-compared above.
                     break
                 }
 
