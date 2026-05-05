@@ -24,7 +24,7 @@
 /// should they escape the owning `ExtensionStorage`, so they provide some low-level unsafe pointer
 /// APIs that would otherwise be dangerous. The owning `ExtensionStorage` is fully responsible for
 /// deallocating these values.
-@usableFromInline struct ExtensionValueStorage {
+@usableFromInline package struct ExtensionValueStorage {
     /// The message extension that this field represents.
     @usableFromInline let schema: ExtensionSchema
 

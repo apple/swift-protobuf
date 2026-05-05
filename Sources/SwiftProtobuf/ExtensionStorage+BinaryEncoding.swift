@@ -17,7 +17,7 @@ import Foundation
 extension ExtensionStorage {
     /// Serializes the extension fields in the receiver to the given encoder.
     func serializeBytes(into encoder: inout BinaryEncoder, options: BinaryEncodingOptions) throws {
-        for (_, value) in values {
+        for (_, value) in values.sorted(by: { $0.key < $1.key }) {
             try serializeExtensionValue(value, into: &encoder, options: options)
         }
     }
@@ -280,9 +280,19 @@ extension ExtensionStorage {
 
             case .message:
                 let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
-                encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
-                try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                if schema.extendedMessage.extensibilityMode == .messageSet {
+                    encoder.startField(tag: WireFormat.MessageSet.Tags.itemStart)
+                    encoder.startField(tag: WireFormat.MessageSet.Tags.typeId)
+                    encoder.putVarInt(value: UInt64(fieldNumber))
+                    encoder.startField(tag: WireFormat.MessageSet.Tags.message)
+                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                    encoder.startField(tag: WireFormat.MessageSet.Tags.itemEnd)
+                } else {
+                    encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+                    encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
+                    try subMessageStorage.serializeBytes(into: &encoder, options: options)
+                }
 
             case .sfixed32:
                 encoder.serializeSFixed32Field(value.value(as: Int32.self), for: fieldNumber)

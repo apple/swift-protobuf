@@ -108,8 +108,30 @@ extension MessageStorage {
             return true
         }
 
+        if schema.extensibilityMode == .messageSet && tag.fieldNumber == WireFormat.MessageSet.FieldNumbers.item {
+            switch tag.wireFormat {
+            case .startGroup:
+                return try decodeMessageSetItem(
+                    from: &reader,
+                    extensions: extensions,
+                    partial: partial,
+                    discardUnknownFields: discardUnknownFields
+                )
+            case .lengthDelimited:
+                return try decodeMessageSetItemFromLengthDelimited(
+                    from: &reader,
+                    extensions: extensions,
+                    partial: partial,
+                    discardUnknownFields: discardUnknownFields
+                )
+            default:
+                return false
+            }
+        }
+
         guard let field = schema[fieldNumber: UInt32(tag.fieldNumber)] else {
-            if let extensionSchema = extensions?[fieldNumber: UInt32(tag.fieldNumber), in: schema],
+            if schema.extensibilityMode == .extensible || schema.extensibilityMode == .messageSet,
+                let extensionSchema = extensions?[fieldNumber: UInt32(tag.fieldNumber), in: schema],
                 try extensionStorage.decodeNextExtension(
                     extensionSchema,
                     from: &reader,
@@ -634,5 +656,153 @@ extension MessageStorage {
         if !discard {
             unknownFields.append(protobufBytes: slice)
         }
+    }
+
+    /// Decodes a message set item from the reader.
+    ///
+    /// Message set items are encoded as a group with tag 1, containing:
+    /// - Tag 2 (varint): type_id (field number of the extension)
+    /// - Tag 3 (length-delimited): message (the extension value)
+    private func decodeMessageSetItem(
+        from reader: inout WireFormatReader,
+        extensions: ExtensionMap?,
+        partial: Bool,
+        discardUnknownFields: Bool
+    ) throws -> Bool {
+        // This is loosely based on the C++:
+        //   ExtensionSet::ParseMessageSetItem()
+        //   WireFormat::ParseAndMergeMessageSetItem()
+        // And more implementation seem to draw from:
+        //   upb_Decoder_DecodeMessageSetItem()
+
+        var extensionSchema: ExtensionSchema?
+        var messageBytes: UnsafeRawBufferPointer?
+        let success =  try reader.withReaderForNextGroup(withFieldNumber: 1) { subReader in
+            while subReader.hasAvailableData {
+                let subTag = try subReader.nextTag()
+                guard subTag.wireFormat != .endGroup else {
+                    break
+                }
+
+                switch subTag.fieldNumber {
+                case WireFormat.MessageSet.FieldNumbers.typeId:
+                    guard subTag.wireFormat == .varint else {
+                        return false
+                    }
+                    let typeID = UInt32(truncatingIfNeeded: try subReader.nextVarint())
+                    if extensionSchema != nil {
+                        // Only keep the first type ID we see.
+                        break
+                    }
+                    extensionSchema = extensions?[fieldNumber: typeID, in: schema]
+                    if extensionSchema == nil {
+                        return false
+                    }
+
+                case WireFormat.MessageSet.FieldNumbers.message:
+                    guard subTag.wireFormat == .lengthDelimited else {
+                        return false
+                    }
+                    let value = try subReader.nextLengthDelimitedSlice()
+                    if messageBytes == nil {
+                        // Only keep the first message we see.
+                        messageBytes = value
+                    }
+
+                default:
+                    try decodeUnknownField(from: &subReader, tag: subTag, discard: true)
+                }
+            }
+            return true
+        }
+        guard success else {
+            // If this was not a well-formed group or the type ID did not correspond to
+            // a known extension, return false so that the caller can put the entire
+            // group into unknown fields.
+            return false
+        }
+
+        guard let extensionSchema, let messageBytes else {
+            // If we didn't get both a type ID and a message, silently drop it.
+            // (This is not considered a failure.)
+            return true
+        }
+
+        let submessageStorage = extensionStorage.uniqueMessageStorage(forSingularMessageField: extensionSchema)
+        var subReader = WireFormatReader(buffer: messageBytes, recursionBudget: reader.recursionBudget)
+        try submessageStorage.merge(
+            byReadingFrom: &subReader,
+            extensions: extensions,
+            partial: partial,
+            discardUnknownFields: discardUnknownFields
+        )
+        return true
+    }
+
+    /// Decodes a message set item from a length-delimited slice.
+    private func decodeMessageSetItemFromLengthDelimited(
+        from reader: inout WireFormatReader,
+        extensions: ExtensionMap?,
+        partial: Bool,
+        discardUnknownFields: Bool
+    ) throws -> Bool {
+        var extensionSchema: ExtensionSchema?
+        var messageBytes: UnsafeRawBufferPointer?
+        let success = try reader.withReaderForNextLengthDelimitedSlice { subReader in
+            while subReader.hasAvailableData {
+                let subTag = try subReader.nextTag()
+                switch subTag.fieldNumber {
+                case WireFormat.MessageSet.FieldNumbers.typeId:
+                    guard subTag.wireFormat == .varint else {
+                        return false
+                    }
+                    let typeID = UInt32(truncatingIfNeeded: try subReader.nextVarint())
+                    if extensionSchema != nil {
+                        // Only keep the first type ID we see.
+                        break
+                    }
+                    extensionSchema = extensions?[fieldNumber: typeID, in: schema]
+                    if extensionSchema == nil {
+                        return false
+                    }
+
+                case WireFormat.MessageSet.FieldNumbers.message:
+                    guard subTag.wireFormat == .lengthDelimited else {
+                        return false
+                    }
+                    let value = try subReader.nextLengthDelimitedSlice()
+                    if messageBytes == nil {
+                        // Only keep the first message we see.
+                        messageBytes = value
+                    }
+
+                default:
+                    try decodeUnknownField(from: &subReader, tag: subTag, discard: true)
+                }
+            }
+            return true
+        }
+        guard success else {
+            // If there was a wire type mismatch or the type ID did not correspond to
+            // a known extension, return false so that the caller can put the entire
+            // group into unknown fields.
+            return false
+        }
+
+        guard let extensionSchema, let messageBytes else {
+            // If we didn't get both a type ID and a message, silently drop it.
+            // (This is not considered a failure.)
+            return true
+        }
+
+        let submessageStorage = extensionStorage.uniqueMessageStorage(forSingularMessageField: extensionSchema)
+        var subReader = WireFormatReader(buffer: messageBytes, recursionBudget: reader.recursionBudget)
+        try submessageStorage.merge(
+            byReadingFrom: &subReader,
+            extensions: extensions,
+            partial: partial,
+            discardUnknownFields: discardUnknownFields
+        )
+        return true
     }
 }

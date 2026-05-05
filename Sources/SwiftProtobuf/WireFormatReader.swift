@@ -226,7 +226,9 @@ struct WireFormatReader {
     /// After the function returns, this reader is advanced past that length to continue reading.
     ///
     /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input.
-    mutating func withReaderForNextLengthDelimitedSlice(perform: (inout WireFormatReader) throws -> Void) throws {
+    mutating func withReaderForNextLengthDelimitedSlice<Result>(
+        perform: (inout WireFormatReader) throws -> Result
+    ) throws -> Result {
         guard recursionBudget > 1 else {
             throw BinaryDecodingError.messageDepthLimit
         }
@@ -237,8 +239,9 @@ struct WireFormatReader {
             recursionBudget: recursionBudget &- 1,
             trackingGroupFieldNumber: 0
         )
-        try perform(&subReader)
+        let result = try perform(&subReader)
         advance(by: length)
+        return result
     }
 
     /// Calls the given function, passing it a reader that is configured only to read the slice of
@@ -248,10 +251,10 @@ struct WireFormatReader {
     /// reading.
     ///
     /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input.
-    mutating func withReaderForNextGroup(
+    mutating func withReaderForNextGroup<Result>(
         withFieldNumber fieldNumber: UInt32,
-        perform: (inout WireFormatReader) throws -> Void
-    ) throws {
+        perform: (inout WireFormatReader) throws -> Result
+    ) throws -> Result {
         guard recursionBudget > 1 else {
             throw BinaryDecodingError.messageDepthLimit
         }
@@ -264,12 +267,13 @@ struct WireFormatReader {
             recursionBudget: recursionBudget &- 1,
             trackingGroupFieldNumber: fieldNumber
         )
-        try perform(&subReader)
+        let result = try perform(&subReader)
 
         guard let subPointer = subReader.pointer else {
             throw BinaryDecodingError.truncated
         }
         advance(by: subPointer - pointer!)
+        return result
     }
 
     /// Advances the reader past the field at the current location, assuming it had the given tag,

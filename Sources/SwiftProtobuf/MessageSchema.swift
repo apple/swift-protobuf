@@ -524,7 +524,7 @@ public struct FieldSchema {
     private let buffer: UnsafeRawBufferPointer
 
     /// The number of the field whose schema is being described.
-    @usableFromInline var fieldNumber: UInt32 {
+    @usableFromInline package var fieldNumber: UInt32 {
         // The schema ensures that there will always be at least 8 bytes that we can read here, so
         // we can do a single memory read and mask off what we don't need.
         let rawBits = UInt64(littleEndian: buffer.loadUnaligned(fromByteOffset: 0, as: UInt64.self))
