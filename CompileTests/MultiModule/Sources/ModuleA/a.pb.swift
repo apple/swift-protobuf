@@ -118,9 +118,9 @@ extension E {
 extension A: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = "A"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{1}\0A"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{1}\0A"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{1}\0A"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{1}\0A"
   #else
     #error("Unsupported platform")
   #endif

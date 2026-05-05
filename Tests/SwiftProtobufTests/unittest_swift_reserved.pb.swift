@@ -548,9 +548,9 @@ extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum {
 extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".class"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
   #else
     #error("Unsupported platform")
   #endif
@@ -569,9 +569,9 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Genera
 extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".Type"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
   #else
     #error("Unsupported platform")
   #endif

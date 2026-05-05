@@ -516,9 +516,9 @@ extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.GeneratedMess
 extension SwiftProtoTesting_MessageEx: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MessageEx"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.MessageEx"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.MessageEx"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.MessageEx"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.MessageEx"
   #else
     #error("Unsupported platform")
   #endif

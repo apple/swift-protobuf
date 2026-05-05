@@ -954,9 +954,9 @@ let Extensions_new_value = SwiftProtobuf.ExtensionSchema(
 extension BaseMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = "BaseMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{b}\0BaseMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{b}\0BaseMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{b}\0BaseMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{b}\0BaseMessage"
   #else
     #error("Unsupported platform")
   #endif
