@@ -70,9 +70,9 @@ public struct UsesATransitively: @unchecked Swift.Sendable {
 extension UsesATransitively: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = "UsesATransitively"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
   #else
     #error("Unsupported platform")
   #endif

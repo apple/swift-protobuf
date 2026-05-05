@@ -212,9 +212,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".CycleFoo"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
   #else
     #error("Unsupported platform")
   #endif
@@ -238,9 +238,9 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".CycleBar"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
   #else
     #error("Unsupported platform")
   #endif
@@ -264,9 +264,9 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".CycleBaz"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
   #else
     #error("Unsupported platform")
   #endif

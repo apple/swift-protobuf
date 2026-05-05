@@ -113,9 +113,9 @@ fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
 extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".ModuleMappings"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
   #else
     #error("Unsupported platform")
   #endif
@@ -137,9 +137,9 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{4}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{4}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
   #else
     #error("Unsupported platform")
   #endif

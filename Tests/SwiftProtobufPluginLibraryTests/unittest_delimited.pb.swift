@@ -447,9 +447,9 @@ fileprivate let _protobuf_package = "editions_unittest"
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   #else
     #error("Unsupported platform")
   #endif
@@ -464,9 +464,9 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".NotGroupLikeScope"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   #else
     #error("Unsupported platform")
   #endif
@@ -481,9 +481,9 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeFileScope"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   #else
     #error("Unsupported platform")
   #endif
@@ -498,9 +498,9 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestDelimited"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   #else
     #error("Unsupported platform")
   #endif
@@ -530,9 +530,9 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   #else
     #error("Unsupported platform")
   #endif
@@ -547,9 +547,9 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Generated
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   #else
     #error("Unsupported platform")
   #endif

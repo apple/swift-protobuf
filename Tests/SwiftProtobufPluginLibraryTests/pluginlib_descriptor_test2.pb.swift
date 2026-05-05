@@ -266,9 +266,9 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Proto3MessageForPresence"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\0\u{1}\0\0\0\0p\0\0\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\00\0\0\0\0\u{2}\0\u{b}\u{b}\0\0\0\0\0\u{1}\0\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\08\0\0\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}@\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}H\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}P\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}X\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0`\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\00\0\0\u{1}\0\0\0\0p\0\0\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\00\0\0\0\0\u{2}\0\u{b}\u{b}\0\0\0\0\0\u{1}\0\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\08\0\0\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}@\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}H\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}P\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}X\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0`\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0l\0\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\0\u{1}\0\0\0\0H\0\0\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\0,\0\0\0\0\u{2}\0\u{b}\u{b}\0\0\0\0T\0\0\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\00\0\0\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}4\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}8\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}<\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}@\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0`\0\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0D\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0l\0\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\0,\0\0\u{1}\0\0\0\0H\0\0\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\0,\0\0\0\0\u{2}\0\u{b}\u{b}\0\0\0\0T\0\0\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\00\0\0\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}4\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}8\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}<\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}@\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0`\0\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0D\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
   #else
     #error("Unsupported platform")
   #endif
@@ -297,9 +297,9 @@ extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
 extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OtherMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
   #else
     #error("Unsupported platform")
   #endif

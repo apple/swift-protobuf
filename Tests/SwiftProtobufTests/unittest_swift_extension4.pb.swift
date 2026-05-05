@@ -235,9 +235,9 @@ fileprivate let _protobuf_package = "swift_proto_testing.extend4"
 extension Ext4MyMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0%\0swift_proto_testing.extend4.MyMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.extend4.MyMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0%\0swift_proto_testing.extend4.MyMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.extend4.MyMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -252,9 +252,9 @@ extension Ext4MyMessage: SwiftProtobuf.GeneratedMessage {
 extension Ext4MyMessage.C: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = Ext4MyMessage.protoMessageName + ".C"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{2}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend4.MyMessage.C"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{2}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend4.MyMessage.C"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{2}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend4.MyMessage.C"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{2}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend4.MyMessage.C"
   #else
     #error("Unsupported platform")
   #endif
@@ -269,9 +269,9 @@ extension Ext4MyMessage.C: SwiftProtobuf.GeneratedMessage {
 extension Ext4C: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".C"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{c}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend4.C"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{c}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend4.C"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{c}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend4.C"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{c}\u{b}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend4.C"
   #else
     #error("Unsupported platform")
   #endif

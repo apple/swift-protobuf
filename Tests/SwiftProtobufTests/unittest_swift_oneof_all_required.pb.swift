@@ -243,9 +243,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfOptionMessage1"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
   #else
     #error("Unsupported platform")
   #endif
@@ -264,9 +264,9 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfOptionMessage2"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
   #else
     #error("Unsupported platform")
   #endif
@@ -285,9 +285,9 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneOfContainer"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0(\0\0{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0(\0\0{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0 \0\0{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0 \0\0{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
   #else
     #error("Unsupported platform")
   #endif
@@ -315,9 +315,9 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\u{10}\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
   #else
     #error("Unsupported platform")
   #endif

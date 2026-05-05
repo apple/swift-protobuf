@@ -284,9 +284,9 @@ extension SwiftProtoTesting_Proto2MapEnumPlusExtra {
 extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMap"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
   #else
     #error("Unsupported platform")
   #endif
@@ -314,113 +314,113 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0swift_proto_testing.TestEnumMap.KnownMapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_KnownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_KnownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.TestEnumMap.UnknownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.TestEnumMap.UnknownMapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.TestEnumMap.UnknownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0swift_proto_testing.TestEnumMap.UnknownMapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}9\0swift_proto_testing.TestEnumMap.UnknownMapFieldInt32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldUint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMap.UnknownMapFieldFixed64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}8\0swift_proto_testing.TestEnumMap.UnknownMapFieldBoolEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldStringEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}:\0swift_proto_testing.TestEnumMap.UnknownMapFieldSint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.TestEnumMap.UnknownMapFieldSfixed64Entry"
   #else
     #error("Unsupported platform")
   #endif
@@ -433,9 +433,9 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMapPlusExtra"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
   #else
     #error("Unsupported platform")
   #endif
@@ -463,113 +463,113 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0swift_proto_testing.TestEnumMapPlusExtra.KnownMapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_KnownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_KnownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldInt64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldUint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}B\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldInt32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldInt32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldUint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldUint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldFixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}D\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldFixed64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldFixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}A\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldBoolEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldStringEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}C\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed32Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<SwiftProtoTesting_Proto2MapEnumPlusExtra>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed64Entry"
+    private static let _protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}E\0swift_proto_testing.TestEnumMapPlusExtra.UnknownMapFieldSfixed64Entry"
   #else
     #error("Unsupported platform")
   #endif

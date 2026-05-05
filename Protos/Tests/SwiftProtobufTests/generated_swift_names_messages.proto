@@ -62,6 +62,7 @@ message GeneratedSwiftReservedMessages {
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
   message boolValue { int32 boolValue = 1; }
+  message borrowing { int32 borrowing = 1; }
   message buffer { int32 buffer = 1; }
   message byParsingJSONFrom { int32 byParsingJSONFrom = 1; }
   message byParsingTextFormatFrom { int32 byParsingTextFormatFrom = 1; }
@@ -181,7 +182,6 @@ message GeneratedSwiftReservedMessages {
   message clientStreaming { int32 clientStreaming = 1; }
   message code { int32 code = 1; }
   message codePoint { int32 codePoint = 1; }
-  message CodeUnit { int32 CodeUnit = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message complete { int32 complete = 1; }
@@ -922,7 +922,6 @@ message GeneratedSwiftReservedMessages {
   message symbol { int32 symbol = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
-  message table { int32 table = 1; }
   message tag { int32 tag = 1; }
   message tagAndSizeData { int32 tagAndSizeData = 1; }
   message tagAndSizeSize { int32 tagAndSizeSize = 1; }
@@ -1030,6 +1029,7 @@ message GeneratedSwiftReservedMessages {
   message withReaderForNextGroup { int32 withReaderForNextGroup = 1; }
   message withReaderForNextLengthDelimitedSlice { int32 withReaderForNextLengthDelimitedSlice = 1; }
   message withReaderForNextObject { int32 withReaderForNextObject = 1; }
+  message withTable { int32 withTable = 1; }
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message work { int32 work = 1; }

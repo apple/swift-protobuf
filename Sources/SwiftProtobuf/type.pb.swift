@@ -643,9 +643,9 @@ extension Google_Protobuf_Syntax {
 extension Google_Protobuf_Type: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Type"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{18}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0 \0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0@\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{8}\0\0\u{1}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{18}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0 \0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0@\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{10}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0\u{14}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0$\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{10}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0\u{14}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0$\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
   #else
     #error("Unsupported platform")
   #endif
@@ -670,9 +670,9 @@ extension Google_Protobuf_Type: GeneratedMessage {
 extension Google_Protobuf_Field: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Field"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\00\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{18}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\0@\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0P\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\00\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{18}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\0@\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0P\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\0$\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{14}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\00\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0<\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{14}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\0$\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{14}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\00\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0<\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
   #else
     #error("Unsupported platform")
   #endif
@@ -708,9 +708,9 @@ extension Google_Protobuf_Field.Cardinality {
 extension Google_Protobuf_Enum: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Enum"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0$\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0$\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
   #else
     #error("Unsupported platform")
   #endif
@@ -735,9 +735,9 @@ extension Google_Protobuf_Enum: GeneratedMessage {
 extension Google_Protobuf_EnumValue: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".EnumValue"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
   #else
     #error("Unsupported platform")
   #endif
@@ -759,9 +759,9 @@ extension Google_Protobuf_EnumValue: GeneratedMessage {
 extension Google_Protobuf_Option: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Option"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
   #else
     #error("Unsupported platform")
   #endif

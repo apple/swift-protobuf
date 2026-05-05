@@ -62,6 +62,7 @@ message GeneratedSwiftReservedEnums {
   enum booleanLiteral { NONE_booleanLiteral = 0; }
   enum BooleanLiteralType { NONE_BooleanLiteralType = 0; }
   enum boolValue { NONE_boolValue = 0; }
+  enum borrowing { NONE_borrowing = 0; }
   enum buffer { NONE_buffer = 0; }
   enum byParsingJSONFrom { NONE_byParsingJSONFrom = 0; }
   enum byParsingTextFormatFrom { NONE_byParsingTextFormatFrom = 0; }
@@ -181,7 +182,6 @@ message GeneratedSwiftReservedEnums {
   enum clientStreaming { NONE_clientStreaming = 0; }
   enum code { NONE_code = 0; }
   enum codePoint { NONE_codePoint = 0; }
-  enum CodeUnit { NONE_CodeUnit = 0; }
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
   enum complete { NONE_complete = 0; }
@@ -922,7 +922,6 @@ message GeneratedSwiftReservedEnums {
   enum symbol { NONE_symbol = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
-  enum table { NONE_table = 0; }
   enum tag { NONE_tag = 0; }
   enum tagAndSizeData { NONE_tagAndSizeData = 0; }
   enum tagAndSizeSize { NONE_tagAndSizeSize = 0; }
@@ -1030,6 +1029,7 @@ message GeneratedSwiftReservedEnums {
   enum withReaderForNextGroup { NONE_withReaderForNextGroup = 0; }
   enum withReaderForNextLengthDelimitedSlice { NONE_withReaderForNextLengthDelimitedSlice = 0; }
   enum withReaderForNextObject { NONE_withReaderForNextObject = 0; }
+  enum withTable { NONE_withTable = 0; }
   enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
   enum work { NONE_work = 0; }

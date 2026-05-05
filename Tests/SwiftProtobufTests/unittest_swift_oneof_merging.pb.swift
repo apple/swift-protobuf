@@ -247,9 +247,9 @@ fileprivate let _protobuf_package = "swift_proto_testing.merging"
 extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{18}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0$\0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{18}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0$\0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -271,9 +271,9 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Merging_TestMessage.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -288,9 +288,9 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Gen
 extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestParsingMerge"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
   #else
     #error("Unsupported platform")
   #endif
@@ -312,9 +312,9 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMes
 extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_Merging_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
   #else
     #error("Unsupported platform")
   #endif

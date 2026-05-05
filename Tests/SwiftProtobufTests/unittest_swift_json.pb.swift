@@ -198,9 +198,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".SwiftJSONTest"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0>\u{2}\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}!\0swift_proto_testing.SwiftJSONTest"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0>\u{2}\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}!\0swift_proto_testing.SwiftJSONTest"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0>\u{2}\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}!\0swift_proto_testing.SwiftJSONTest"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0>\u{2}\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}!\0swift_proto_testing.SwiftJSONTest"
   #else
     #error("Unsupported platform")
   #endif
@@ -222,9 +222,9 @@ extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_TestMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\u{1}\0\0\0\0\u{2}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{d}\u{5}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{4}\u{6}\0\0\0\0\u{c}\0\0\u{5}\0\0\0\u{2}\u{7}\0\0\0\0 \0\0\u{6}\0\0\0\u{1}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}\u{9}\0\0\0\0@\0\0\u{8}\0\0\0\u{c}\u{1f}\0swift_proto_testing.TestMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\00\0\0\u{1}\0\0\0\0\u{2}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{d}\u{5}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{4}\u{6}\0\0\0\0\u{c}\0\0\u{5}\0\0\0\u{2}\u{7}\0\0\0\0 \0\0\u{6}\0\0\0\u{1}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}\u{9}\0\0\0\0@\0\0\u{8}\0\0\0\u{c}\u{1f}\0swift_proto_testing.TestMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\u{1}\0\0\0\0\u{2}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{d}\u{5}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{4}\u{6}\0\0\0\0\u{c}\0\0\u{5}\0\0\0\u{2}\u{7}\0\0\0\0 \0\0\u{6}\0\0\0\u{1}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{c}\u{1f}\0swift_proto_testing.TestMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\00\0\0\u{1}\0\0\0\0\u{2}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{2}\0\0\0\u{3}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{d}\u{5}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{4}\u{6}\0\0\0\0\u{c}\0\0\u{5}\0\0\0\u{2}\u{7}\0\0\0\0 \0\0\u{6}\0\0\0\u{1}\u{8}\0\0\0\00\0\0\u{7}\0\0\0\u{9}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{c}\u{1f}\0swift_proto_testing.TestMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -239,9 +239,9 @@ extension SwiftProtoTesting_TestMessage: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestEvilJson"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{8}\0\0 \0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{8}\0\0 \0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
   #else
     #error("Unsupported platform")
   #endif

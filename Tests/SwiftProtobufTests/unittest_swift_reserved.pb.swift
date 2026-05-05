@@ -515,9 +515,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".SwiftReservedTest"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{8}\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0\u{a}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{b}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{c}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{5}\u{14}\0\0\0\0 \0\0\u{5}\0\0\0\u{9}\u{15}\0\0\0\00\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0\u{14}\0\0\u{7}\0\0\0\u{5}\u{1e}\0\0\0\0\u{18}\0\0\0\0\0\0\u{5}%\0swift_proto_testing.SwiftReservedTest"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{8}\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0 \0\0\u{a}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{b}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{c}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{5}\u{14}\0\0\0\0 \0\0\u{5}\0\0\0\u{9}\u{15}\0\0\0\00\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0\u{14}\0\0\u{7}\0\0\0\u{5}\u{1e}\0\0\0\0\u{18}\0\0\0\0\0\0\u{5}%\0swift_proto_testing.SwiftReservedTest"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{8}\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0\u{a}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{b}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{c}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{5}\u{14}\0\0\0\0$\0\0\u{5}\0\0\0\u{9}\u{15}\0\0\0\00\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0\u{14}\0\0\u{7}\0\0\0\u{5}\u{1e}\0\0\0\0\u{18}\0\0\0\0\0\0\u{5}%\0swift_proto_testing.SwiftReservedTest"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{8}\0\0\u{1}\0\0\u{8}\0\0\u{1}\0\0$\0\0\u{a}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{b}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{c}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{5}\u{14}\0\0\0\0$\0\0\u{5}\0\0\0\u{9}\u{15}\0\0\0\00\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0\u{14}\0\0\u{7}\0\0\0\u{5}\u{1e}\0\0\0\0\u{18}\0\0\0\0\0\0\u{5}%\0swift_proto_testing.SwiftReservedTest"
   #else
     #error("Unsupported platform")
   #endif
@@ -548,9 +548,9 @@ extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum {
 extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".class"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0+\0swift_proto_testing.SwiftReservedTest.class"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0+\0swift_proto_testing.SwiftReservedTest.class"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0+\0swift_proto_testing.SwiftReservedTest.class"
   #else
     #error("Unsupported platform")
   #endif
@@ -569,9 +569,9 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Genera
 extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".Type"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Type"
   #else
     #error("Unsupported platform")
   #endif
@@ -590,9 +590,9 @@ extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Generat
 extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".isEqual"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0-\0swift_proto_testing.SwiftReservedTest.isEqual"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0swift_proto_testing.SwiftReservedTest.isEqual"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0-\0swift_proto_testing.SwiftReservedTest.isEqual"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0swift_proto_testing.SwiftReservedTest.isEqual"
   #else
     #error("Unsupported platform")
   #endif
@@ -607,9 +607,9 @@ extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.GeneratedMe
 extension SwiftProtoTesting_SwiftReservedTestExt: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".SwiftReservedTestExt"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0(\0swift_proto_testing.SwiftReservedTestExt"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.SwiftReservedTestExt"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0(\0swift_proto_testing.SwiftReservedTestExt"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.SwiftReservedTestExt"
   #else
     #error("Unsupported platform")
   #endif
