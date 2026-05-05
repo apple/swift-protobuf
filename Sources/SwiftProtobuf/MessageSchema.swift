@@ -297,12 +297,13 @@ extension MessageSchema {
 
     /// The storage size of the message in bytes.
     var storageSize: Int {
-        fixed3ByteBase128(in: schema, atByteOffset: 1) & ~(1 << 20)
+        fixed3ByteBase128(in: schema, atByteOffset: 1) & ~(Int(ExtensibilityMode.bitMask) << 14)
     }
 
-    /// Returns true if the message is a map entry pseudo-message.
-    var isMapEntry: Bool {
-        (schema.load(fromByteOffset: 3, as: UInt8.self) & 0x40) != 0
+    /// The extensibility mode of the message.
+    var extensibilityMode: ExtensibilityMode {
+        return ExtensibilityMode(
+            rawValue: schema.load(fromByteOffset: 3, as: UInt8.self) & ExtensibilityMode.bitMask)
     }
 
     /// The number of non-extension fields defined by the message.
@@ -696,6 +697,30 @@ package struct FieldMode: RawRepresentable, Equatable, Hashable, Sendable {
         get { rawValue & 0b001_0000 != 0 }
         set { self = .init(rawValue: rawValue & ~0b001_0000 | (newValue ? 0b001_0000 : 0)) }
     }
+
+    package let rawValue: UInt8
+
+    package init(rawValue: UInt8) {
+        self.rawValue = rawValue
+    }
+}
+
+/// Represents the extensibility of the message.
+package struct ExtensibilityMode: RawRepresentable, Equatable, Hashable, Sendable {
+    /// The message is not extensible (it does not declare any extension ranges).
+    package static let nonextensible = Self(rawValue: 0b000_0000)
+
+    /// The message is extensible (it declares extension ranges).
+    package static let extensible = Self(rawValue: 0b010_0000)
+
+    /// The message is a map entry and is thus not extensible.
+    package static let mapEntry = Self(rawValue: 0b100_0000)
+
+    /// The message is extensible and its extensions fields use message set wire format.
+    package static let messageSet = Self(rawValue: 0b110_0000)
+
+    /// The bitmask used to isolate the extensibility mode in the schema representation.
+    package static let bitMask: UInt8 = 0b0110_0000
 
     package let rawValue: UInt8
 

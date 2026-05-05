@@ -253,7 +253,7 @@ extension MessageStorage {
         let isNull = reader.scanner.skipOptionalNull()
         // `null` is only allowed as the value of a map entry if the value type is a group or a
         // message.
-        if isNull && schema.isMapEntry && field.fieldNumber == 2 {
+        if isNull && schema.extensibilityMode == .mapEntry && field.fieldNumber == 2 {
             switch field.rawFieldType {
             case .group, .message:
                 break
@@ -315,7 +315,7 @@ extension MessageStorage {
                 break
             }
 
-            let ignoreUnknown = reader.options.ignoreUnknownFields && !schema.isMapEntry
+            let ignoreUnknown = reader.options.ignoreUnknownFields && schema.extensibilityMode != .mapEntry
             do {
                 updateValue(of: field, to: try scanEnumValue(field, from: &reader))
             } catch JSONDecodingError.unrecognizedEnumValue where ignoreUnknown {

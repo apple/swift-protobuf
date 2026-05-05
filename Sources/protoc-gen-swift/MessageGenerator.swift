@@ -96,8 +96,19 @@ class MessageGenerator {
             }
         )
 
+        let extensibilityMode: ExtensibilityMode
+        if descriptor.useMessageSetWireFormat {
+            extensibilityMode = .messageSet
+        } else if !descriptor.messageExtensionRanges.isEmpty {
+            extensibilityMode = .extensible
+        } else {
+            extensibilityMode = .nonextensible
+        }
         self.messageSchemaCalculator = MessageSchemaCalculator(
-            fullyQualifiedName: descriptor.fullName, fieldsSortedByNumber: fieldsSortedByNumber)
+            fullyQualifiedName: descriptor.fullName,
+            fieldsSortedByNumber: fieldsSortedByNumber,
+            extensibilityMode: extensibilityMode
+        )
         // TODO: Look at using sortAndMergeContinuous like we do for extension ranges to potentially
         // shrink them further.
         self.compressedReflectionData = ReflectionTableCalculator(

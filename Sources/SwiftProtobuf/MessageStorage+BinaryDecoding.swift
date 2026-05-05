@@ -477,7 +477,7 @@ extension MessageStorage {
         // Read a single raw value from the wire.
         let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
         guard enumSchema.isValidValue(rawValue) else {
-            if self.schema.isMapEntry {
+            if self.schema.extensibilityMode == .mapEntry {
                 // Map entries are always parsed in the context of some other message, so this
                 // error will be caught upstream and handled, not leaked to the user.
                 throw InternalBinaryDecodingError.unknownEnumValueInMapValue
