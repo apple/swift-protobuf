@@ -24,14 +24,19 @@ extension MessageStorage {
     func hash(into hasher: inout Hasher) {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
 
-        // TODO: If we store the offset of the first non-trivial field in the schema, we can make
-        // this extremely fast by hashing the trivial fields as a single slice of bytes. Likewise,
-        // we could avoid the loop entirely if the message contains only trivial fields.
+        // Hash all of the trivial values (including has-bits) as a single slice of bytes up front.
+        let firstNontrivialStorageOffset = schema.firstNontrivialOffset
+        if firstNontrivialStorageOffset != 0 {
+            hasher.combine(bytes: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
+        }
+        hasher.combine(unknownFields.data)
+        extensionStorage.hash(into: &hasher)
 
-        // Loops through the fields, combining the hashes for any with non-trivial types. We ignore
-        // the trivial ones here, instead tracking the byte offset of the first non-trivial field
-        // so that we can hash them as a contiguous byte buffer slice afterwards.
-        var firstNontrivialStorageOffset = schema.storageSize
+        // If the message contains only trivial fields, we are done since we hashed them above.
+        guard firstNontrivialStorageOffset != schema.storageSize else {
+            return
+        }
+
         for field in schema.fields {
             guard isPresent(field) else {
                 continue
@@ -39,9 +44,6 @@ extension MessageStorage {
 
             switch field.fieldMode.cardinality {
             case .map:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
-                }
                 let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
                 forEachMapEntry(
                     in: field,
@@ -53,9 +55,6 @@ extension MessageStorage {
                 }
 
             case .array:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
-                }
                 switch field.rawFieldType {
                 case .bool:
                     hashField(field, into: &hasher, type: [Bool].self)
@@ -92,25 +91,16 @@ extension MessageStorage {
             case .scalar:
                 switch field.rawFieldType {
                 case .bytes:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     hashField(field, into: &hasher, type: Data.self)
 
                 case .group, .message:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     messageStorage(forAssumedPresentSingularMessageField: field).hash(into: &hasher)
 
                 case .string:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     hashField(field, into: &hasher, type: String.self)
 
                 default:
-                    // Do nothing. Trivial fields will be bitwise-compared as a block below.
+                    // Do nothing. Trivial fields were hashed above.
                     break
                 }
 
@@ -118,13 +108,6 @@ extension MessageStorage {
                 preconditionFailure("Unreachable")
             }
         }
-
-        // Hash all of the trivial values (including has-bits) as a single slice of bytes.
-        if firstNontrivialStorageOffset != 0 {
-            hasher.combine(bytes: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
-        }
-        hasher.combine(unknownFields.data)
-        extensionStorage.hash(into: &hasher)
     }
 
     /// Hashes the value of the field, given the expected type of that field.

@@ -43,10 +43,10 @@ public struct MessageSchema: @unchecked Sendable {
     /// The **message schema header** describes properties of the entire message:
     ///
     /// ```
-    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+
-    /// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        |
-    /// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold |
-    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+
+    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+-------------------------+
+    /// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        | Bytes 16-18             |
+    /// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold | First nontrivial offset |
+    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+-------------------------+
     /// ```
     /// *   Byte 0: A `UInt8` that describes the version of the schema. Currently, this is always 0.
     ///     This value allows for future enhancements to be made to the schema but preserving
@@ -66,6 +66,9 @@ public struct MessageSchema: @unchecked Sendable {
     ///     inhabited, as a base-128 integer. We only need three bytes to represent this because the
     ///     largest possible number is 65537; otherwise, it would imply that the message had more
     ///     than 65536 fields in violation of the bound above.
+    /// *   Bytes 16-18: The byte offset of the first non-trivial field in the message storage, as a
+    ///     base-128 integer. If the message contains only trivial fields, this value is equal to the
+    ///     total message size.
     ///
     /// ## Field schemas
     ///
@@ -332,6 +335,13 @@ extension MessageSchema {
         UInt32(fixed3ByteBase128(in: schema, atByteOffset: 13))
     }
 
+    /// The byte offset of the first non-trivial field in the message storage.
+    ///
+    /// If the message contains only trivial fields, this value is equal to the total message size.
+    var firstNontrivialOffset: Int {
+        fixed3ByteBase128(in: schema, atByteOffset: 16)
+    }
+
     /// The fully-qualified name of the message.
     var messageName: UTF8Name {
         let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
@@ -402,7 +412,7 @@ extension MessageSchema {
 }
 
 /// The size, in bytes, of the header the describes the overall message schema.
-private var messageSchemaHeaderSize: Int { 16 }
+private var messageSchemaHeaderSize: Int { 19 }
 
 /// The size, in bytes, of an encoded field schema in the static string representation.
 var fieldSchemaSize: Int { 13 }
