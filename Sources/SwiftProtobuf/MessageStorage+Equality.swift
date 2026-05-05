@@ -29,22 +29,30 @@ extension MessageStorage {
             /// Identical message storage means they must be equal.
             return true
         }
-        // TODO: If we store the offset of the first non-trivial field in the schema, we can make
-        // this extremely fast by doing the memcmp up front and failing fast. Likewise, we can also
-        // avoid the loop entirely if the message contains only trivial fields. We could see similar
-        // performance wins for copy and deinit.
 
-        // Loops through the fields, checking equality of any that are non-trivial types. We ignore
-        // the trivial ones here, instead tracking the byte offset of the first non-trivial field
-        // so that we can bitwise-compare those as a block afterward.
-        var firstNontrivialStorageOffset = schema.storageSize
+        // Compare all of the trivial values (including has-bits) in bitwise fashion up front.
+        let firstNontrivialStorageOffset = schema.firstNontrivialOffset
+        if firstNontrivialStorageOffset != 0
+            && memcmp(buffer.baseAddress!, other.buffer.baseAddress!, firstNontrivialStorageOffset) != 0
+        {
+            return false
+        }
+        if unknownFields.data != other.unknownFields.data {
+            return false
+        }
+        if !extensionStorage.isEqual(to: other.extensionStorage) {
+            return false
+        }
+
+        // If the message contains only trivial fields, we are done since we compared them above.
+        guard firstNontrivialStorageOffset != schema.storageSize else {
+            return true
+        }
+
         var equalSoFar = true
         for field in schema.fields {
             switch field.fieldMode.cardinality {
             case .map:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
-                }
                 switch mutualPresence(of: field, withSameFieldIn: other) {
                 case .bothPresent:
                     equalSoFar = isMapField(field, equalToSameFieldIn: other)
@@ -55,9 +63,6 @@ extension MessageStorage {
                 }
 
             case .array:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
-                }
                 switch field.rawFieldType {
                 case .bool:
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: [Bool].self)
@@ -130,15 +135,9 @@ extension MessageStorage {
             case .scalar:
                 switch field.rawFieldType {
                 case .bytes:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: Data.self)
 
                 case .group, .message:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     switch mutualPresence(of: field, withSameFieldIn: other) {
                     case .bothPresent:
                         let lhsStorage = messageStorage(forAssumedPresentSingularMessageField: field)
@@ -151,13 +150,10 @@ extension MessageStorage {
                     }
 
                 case .string:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
-                    }
                     equalSoFar = isField(field, equalToSameFieldIn: other, type: String.self)
 
                 default:
-                    // Do nothing. Trivial fields will be bitwise-compared as a block below.
+                    // Do nothing. The fields were all bitwise-compared above.
                     break
                 }
 
@@ -168,19 +164,6 @@ extension MessageStorage {
             guard equalSoFar else {
                 return false
             }
-        }
-
-        // Compare all of the trivial values (including has-bits) in bitwise fashion.
-        if firstNontrivialStorageOffset != 0
-            && memcmp(buffer.baseAddress!, other.buffer.baseAddress!, firstNontrivialStorageOffset) != 0
-        {
-            return false
-        }
-        if unknownFields.data != other.unknownFields.data {
-            return false
-        }
-        if !extensionStorage.isEqual(to: other.extensionStorage) {
-            return false
         }
         return true
     }

@@ -73,9 +73,9 @@ public struct ImportsAPublicly: @unchecked Swift.Sendable {
 extension ImportsAPublicly: SwiftProtobuf.GeneratedMessage {
   public static let protoMessageName: Swift.String = "ImportsAPublicly"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{10}\0ImportsAPublicly"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{10}\0ImportsAPublicly"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{10}\0ImportsAPublicly"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{10}\0ImportsAPublicly"
   #else
     #error("Unsupported platform")
   #endif

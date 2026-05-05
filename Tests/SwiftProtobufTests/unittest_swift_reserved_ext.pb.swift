@@ -309,9 +309,9 @@ extension SwiftReservedTestExt2 {
 extension SwiftReservedTestExt2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = "SwiftReservedTestExt2"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0SwiftReservedTestExt2"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0SwiftReservedTestExt2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0SwiftReservedTestExt2"
   #else
     #error("Unsupported platform")
   #endif

@@ -119,15 +119,26 @@ struct MessageSchemaCalculator {
         // has been chosen.
         var byteOffsets = TargetSpecificValues<Int>(forAllTargets: byteOffset)
         let fieldsSortedByStorage = fieldsSortedByNumber.sorted { $0.storageKind < $1.storageKind }
+        var firstNontrivialOffset = TargetSpecificValues<Int>(forAllTargets: 0)
+        var foundNontrivial = false
         for field in fieldsSortedByStorage {
             let fieldSizes = field.storageKind.strides
 
             // Make sure we're properly aligned for this type.
             byteOffsets.align(to: fieldSizes)
+
+            if (field.storageKind == .pointer || field.storageKind == .stringOrData) && !foundNontrivial {
+                firstNontrivialOffset = byteOffsets
+                foundNontrivial = true
+            }
+
             field.storageOffsets = byteOffsets
             byteOffsets.add(fieldSizes)
 
             trampolineFieldCollector.collect(field)
+        }
+        if !foundNontrivial {
+            firstNontrivialOffset = byteOffsets
         }
 
         // Now we have all the information we need to generate the schema string. First we write
@@ -141,6 +152,7 @@ struct MessageSchemaCalculator {
             writer.writeBase128Int(UInt64(requiredCount), byteWidth: 3)
             writer.writeBase128Int(UInt64(explicitPresenceCount), byteWidth: 3)
             writer.writeBase128Int(UInt64(denseBelow), byteWidth: 3)
+            writer.writeBase128Int(UInt64(firstNontrivialOffset[which]), byteWidth: 3)
             for field in fieldsSortedByNumber {
                 writer.writeBase128Int(UInt64(field.number) | (UInt64(field.fieldMode.rawValue) << 28), byteWidth: 5)
                 writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)

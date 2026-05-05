@@ -287,9 +287,9 @@ fileprivate let _protobuf_package = "google.protobuf"
 extension Google_Protobuf_FieldMask: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".FieldMask"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
   #else
     #error("Unsupported platform")
   #endif

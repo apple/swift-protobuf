@@ -89,9 +89,9 @@ fileprivate let _protobuf_package = "google.protobuf"
 extension Google_Protobuf_Empty: GeneratedMessage {
   public static let protoMessageName: Swift.String = _protobuf_package + ".Empty"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0google.protobuf.Empty"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{15}\0google.protobuf.Empty"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0google.protobuf.Empty"
   #else
     #error("Unsupported platform")
   #endif

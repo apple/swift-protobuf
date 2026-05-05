@@ -1064,9 +1064,9 @@ extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
 extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ComplexMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -1081,9 +1081,9 @@ extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedM
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesEdition2023"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{6}\0e\0\0\0\0\0\u{18}\0\0\u{10}\0\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\u{6}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\u{10}\u{6}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0(\u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\00\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0 \u{6}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\00\u{6}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\08\u{1}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}@\u{1}\0\u{18}\0\0\0\u{5} \0\0\0\u{a}H\u{1}\0\u{19}\0\0\0\u{3}!\0\0\0\u{a}P\u{1}\0\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}X\u{1}\0\u{1b}\0\0\0\u{4}#\0\0\0\u{a}`\u{1}\0\u{1c}\0\0\0\u{11}$\0\0\0\u{a}h\u{1}\0\u{1d}\0\0\0\u{12}%\0\0\0\u{a}p\u{1}\0\u{1e}\0\0\0\u{7}&\0\0\0\u{a}x\u{1}\0\u{1f}\0\0\0\u{6}'\0\0\0\u{a}\0\u{2}\0 \0\0\0\u{f}(\0\0\0\u{a}\u{8}\u{2}\0!\0\0\0\u{10})\0\0\0\u{a}\u{10}\u{2}\0\"\0\0\0\u{2}*\0\0\0\u{a}\u{18}\u{2}\0#\0\0\0\u{1}+\0\0\0\u{a} \u{2}\0$\0\0\0\u{8},\0\0\0\u{2}(\u{2}\0%\0\0\0\u{9}-\0\0\0\u{2}0\u{2}\0&\0\0\0\u{c}0\0\0\0\u{2}8\u{2}\0'\0\u{3}\0\u{b}1\0\0\0\u{2}@\u{2}\0(\0\u{4}\0\u{b}3\0\0\0\u{a}H\u{2}\0)\0\u{1}\0\u{e}4\0\0\0\u{a}P\u{2}\0*\0\u{2}\0\u{e}6\0\0\0\u{2}X\u{2}\0+\0\0\0\u{9}7\0\0\0\u{2}`\u{2}\0,\0\0\0\u{9}8\0\0\0\u{4}h\u{2}\0-\0\u{6}\0\u{b}9\0\0\0\u{4}p\u{2}\0.\0\u{7}\0\u{b}:\0\0\0\u{4}x\u{2}\0/\0\u{8}\0\u{b};\0\0\0\u{4}\0\u{3}\00\0\u{9}\0\u{b}<\0\0\0\u{4}\u{8}\u{3}\01\0\u{a}\0\u{b}=\0\0\0\u{4}\u{10}\u{3}\02\0\u{b}\0\u{b}>\0\0\0\u{4}\u{18}\u{3}\03\0\u{c}\0\u{b}?\0\0\0\u{4} \u{3}\04\0\u{d}\0\u{b}@\0\0\0\u{4}(\u{3}\05\0\u{e}\0\u{b}A\0\0\0\u{4}0\u{3}\06\0\u{f}\0\u{b}B\0\0\0\u{4}8\u{3}\07\0\u{10}\0\u{b}C\0\0\0\u{4}@\u{3}\08\0\u{11}\0\u{b}D\0\0\0\u{4}H\u{3}\09\0\u{12}\0\u{b}E\0\0\0\u{4}P\u{3}\0:\0\u{13}\0\u{b}F\0\0\0\u{4}X\u{3}\0;\0\u{14}\0\u{b}G\0\0\0\u{4}`\u{3}\0<\0\u{15}\0\u{b}H\0\0\0\u{4}h\u{3}\0=\0\u{16}\0\u{b}I\0\0\0\u{4}p\u{3}\0>\0\u{17}\0\u{b}J\0\0\0\u{4}x\u{3}\0?\0\u{18}\0\u{b}K\0\0\0\u{a}\0\u{4}\0@\0\0\0\u{5}L\0\0\0\u{a}\u{8}\u{4}\0A\0\0\0\u{3}M\0\0\0\u{a}\u{10}\u{4}\0B\0\0\0\u{d}N\0\0\0\u{a}\u{18}\u{4}\0C\0\0\0\u{4}O\0\0\0\u{a} \u{4}\0D\0\0\0\u{11}P\0\0\0\u{a}(\u{4}\0E\0\0\0\u{12}Q\0\0\0\u{a}0\u{4}\0F\0\0\0\u{7}R\0\0\0\u{a}8\u{4}\0G\0\0\0\u{6}S\0\0\0\u{a}@\u{4}\0H\0\0\0\u{f}T\0\0\0\u{a}H\u{4}\0I\0\0\0\u{10}U\0\0\0\u{a}P\u{4}\0J\0\0\0\u{2}V\0\0\0\u{a}X\u{4}\0K\0\0\0\u{1}W\0\0\0\u{a}`\u{4}\0L\0\0\0\u{8}X\0\0\0\u{a}h\u{4}\0M\0\u{1}\0\u{e}Y\0\0\0\u{2}p\u{4}\0N\0\0\0\u{5}Z\0\0\0\u{2}x\u{4}\0O\0\0\0\u{3}[\0\0\0\u{2}\0\u{5}\0P\0\0\0\u{d}\\\0\0\0\u{2}\u{8}\u{5}\0Q\0\0\0\u{4}]\0\0\0\u{2}\u{10}\u{5}\0R\0\0\0\u{11}^\0\0\0\u{2}\u{18}\u{5}\0S\0\0\0\u{12}_\0\0\0\u{2} \u{5}\0T\0\0\0\u{7}`\0\0\0\u{2}(\u{5}\0U\0\0\0\u{6}a\0\0\0\u{2}0\u{5}\0V\0\0\0\u{f}b\0\0\0\u{2}8\u{5}\0W\0\0\0\u{10}c\0\0\0\u{2}@\u{5}\0X\0\0\0\u{2}d\0\0\0\u{2}H\u{5}\0Y\0\0\0\u{1}e\0\0\0\u{2}P\u{5}\0Z\0\0\0\u{8}f\0\0\0\u{2}X\u{5}\0[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0`\u{5}\0o\u{7f}\u{3}\0\u{b}q\0\0\0\0@\u{6}\0o\u{7f}\0\0\u{9}r\0\0\0\0P\u{6}\0o\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0h\u{5}\0\u{16}\0\u{19}\0\u{a}J\u{1}\0\0\0p\u{5}\0\u{17}\0\u{19}\0\u{a}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{6}\0e\0\0\0\0\0\u{18}\0\0\u{10}\0\0(\u{1}\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\u{6}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\u{10}\u{6}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0(\u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\00\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0 \u{6}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\00\u{6}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\08\u{1}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}@\u{1}\0\u{18}\0\0\0\u{5} \0\0\0\u{a}H\u{1}\0\u{19}\0\0\0\u{3}!\0\0\0\u{a}P\u{1}\0\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}X\u{1}\0\u{1b}\0\0\0\u{4}#\0\0\0\u{a}`\u{1}\0\u{1c}\0\0\0\u{11}$\0\0\0\u{a}h\u{1}\0\u{1d}\0\0\0\u{12}%\0\0\0\u{a}p\u{1}\0\u{1e}\0\0\0\u{7}&\0\0\0\u{a}x\u{1}\0\u{1f}\0\0\0\u{6}'\0\0\0\u{a}\0\u{2}\0 \0\0\0\u{f}(\0\0\0\u{a}\u{8}\u{2}\0!\0\0\0\u{10})\0\0\0\u{a}\u{10}\u{2}\0\"\0\0\0\u{2}*\0\0\0\u{a}\u{18}\u{2}\0#\0\0\0\u{1}+\0\0\0\u{a} \u{2}\0$\0\0\0\u{8},\0\0\0\u{2}(\u{2}\0%\0\0\0\u{9}-\0\0\0\u{2}0\u{2}\0&\0\0\0\u{c}0\0\0\0\u{2}8\u{2}\0'\0\u{3}\0\u{b}1\0\0\0\u{2}@\u{2}\0(\0\u{4}\0\u{b}3\0\0\0\u{a}H\u{2}\0)\0\u{1}\0\u{e}4\0\0\0\u{a}P\u{2}\0*\0\u{2}\0\u{e}6\0\0\0\u{2}X\u{2}\0+\0\0\0\u{9}7\0\0\0\u{2}`\u{2}\0,\0\0\0\u{9}8\0\0\0\u{4}h\u{2}\0-\0\u{6}\0\u{b}9\0\0\0\u{4}p\u{2}\0.\0\u{7}\0\u{b}:\0\0\0\u{4}x\u{2}\0/\0\u{8}\0\u{b};\0\0\0\u{4}\0\u{3}\00\0\u{9}\0\u{b}<\0\0\0\u{4}\u{8}\u{3}\01\0\u{a}\0\u{b}=\0\0\0\u{4}\u{10}\u{3}\02\0\u{b}\0\u{b}>\0\0\0\u{4}\u{18}\u{3}\03\0\u{c}\0\u{b}?\0\0\0\u{4} \u{3}\04\0\u{d}\0\u{b}@\0\0\0\u{4}(\u{3}\05\0\u{e}\0\u{b}A\0\0\0\u{4}0\u{3}\06\0\u{f}\0\u{b}B\0\0\0\u{4}8\u{3}\07\0\u{10}\0\u{b}C\0\0\0\u{4}@\u{3}\08\0\u{11}\0\u{b}D\0\0\0\u{4}H\u{3}\09\0\u{12}\0\u{b}E\0\0\0\u{4}P\u{3}\0:\0\u{13}\0\u{b}F\0\0\0\u{4}X\u{3}\0;\0\u{14}\0\u{b}G\0\0\0\u{4}`\u{3}\0<\0\u{15}\0\u{b}H\0\0\0\u{4}h\u{3}\0=\0\u{16}\0\u{b}I\0\0\0\u{4}p\u{3}\0>\0\u{17}\0\u{b}J\0\0\0\u{4}x\u{3}\0?\0\u{18}\0\u{b}K\0\0\0\u{a}\0\u{4}\0@\0\0\0\u{5}L\0\0\0\u{a}\u{8}\u{4}\0A\0\0\0\u{3}M\0\0\0\u{a}\u{10}\u{4}\0B\0\0\0\u{d}N\0\0\0\u{a}\u{18}\u{4}\0C\0\0\0\u{4}O\0\0\0\u{a} \u{4}\0D\0\0\0\u{11}P\0\0\0\u{a}(\u{4}\0E\0\0\0\u{12}Q\0\0\0\u{a}0\u{4}\0F\0\0\0\u{7}R\0\0\0\u{a}8\u{4}\0G\0\0\0\u{6}S\0\0\0\u{a}@\u{4}\0H\0\0\0\u{f}T\0\0\0\u{a}H\u{4}\0I\0\0\0\u{10}U\0\0\0\u{a}P\u{4}\0J\0\0\0\u{2}V\0\0\0\u{a}X\u{4}\0K\0\0\0\u{1}W\0\0\0\u{a}`\u{4}\0L\0\0\0\u{8}X\0\0\0\u{a}h\u{4}\0M\0\u{1}\0\u{e}Y\0\0\0\u{2}p\u{4}\0N\0\0\0\u{5}Z\0\0\0\u{2}x\u{4}\0O\0\0\0\u{3}[\0\0\0\u{2}\0\u{5}\0P\0\0\0\u{d}\\\0\0\0\u{2}\u{8}\u{5}\0Q\0\0\0\u{4}]\0\0\0\u{2}\u{10}\u{5}\0R\0\0\0\u{11}^\0\0\0\u{2}\u{18}\u{5}\0S\0\0\0\u{12}_\0\0\0\u{2} \u{5}\0T\0\0\0\u{7}`\0\0\0\u{2}(\u{5}\0U\0\0\0\u{6}a\0\0\0\u{2}0\u{5}\0V\0\0\0\u{f}b\0\0\0\u{2}8\u{5}\0W\0\0\0\u{10}c\0\0\0\u{2}@\u{5}\0X\0\0\0\u{2}d\0\0\0\u{2}H\u{5}\0Y\0\0\0\u{1}e\0\0\0\u{2}P\u{5}\0Z\0\0\0\u{8}f\0\0\0\u{2}X\u{5}\0[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0`\u{5}\0o\u{7f}\u{3}\0\u{b}q\0\0\0\0@\u{6}\0o\u{7f}\0\0\u{9}r\0\0\0\0P\u{6}\0o\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0h\u{5}\0\u{16}\0\u{19}\0\u{a}J\u{1}\0\0\0p\u{5}\0\u{17}\0\u{19}\0\u{a}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\u{4}\0e\0\0\0\0\0\u{18}\0\0\u{10}\0\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0T\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0`\u{3}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0(\u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0,\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0l\u{3}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\0x\u{3}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\00\u{1}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}4\u{1}\0\u{18}\0\0\0\u{5} \0\0\0\u{a}8\u{1}\0\u{19}\0\0\0\u{3}!\0\0\0\u{a}<\u{1}\0\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}@\u{1}\0\u{1b}\0\0\0\u{4}#\0\0\0\u{a}D\u{1}\0\u{1c}\0\0\0\u{11}$\0\0\0\u{a}H\u{1}\0\u{1d}\0\0\0\u{12}%\0\0\0\u{a}L\u{1}\0\u{1e}\0\0\0\u{7}&\0\0\0\u{a}P\u{1}\0\u{1f}\0\0\0\u{6}'\0\0\0\u{a}T\u{1}\0 \0\0\0\u{f}(\0\0\0\u{a}X\u{1}\0!\0\0\0\u{10})\0\0\0\u{a}\\\u{1}\0\"\0\0\0\u{2}*\0\0\0\u{a}`\u{1}\0#\0\0\0\u{1}+\0\0\0\u{a}d\u{1}\0$\0\0\0\u{8},\0\0\0\u{2}h\u{1}\0%\0\0\0\u{9}-\0\0\0\u{2}l\u{1}\0&\0\0\0\u{c}0\0\0\0\u{2}p\u{1}\0'\0\u{3}\0\u{b}1\0\0\0\u{2}t\u{1}\0(\0\u{4}\0\u{b}3\0\0\0\u{a}x\u{1}\0)\0\u{1}\0\u{e}4\0\0\0\u{a}|\u{1}\0*\0\u{2}\0\u{e}6\0\0\0\u{2}\0\u{2}\0+\0\0\0\u{9}7\0\0\0\u{2}\u{4}\u{2}\0,\0\0\0\u{9}8\0\0\0\u{4}\u{8}\u{2}\0-\0\u{6}\0\u{b}9\0\0\0\u{4}\u{c}\u{2}\0.\0\u{7}\0\u{b}:\0\0\0\u{4}\u{10}\u{2}\0/\0\u{8}\0\u{b};\0\0\0\u{4}\u{14}\u{2}\00\0\u{9}\0\u{b}<\0\0\0\u{4}\u{18}\u{2}\01\0\u{a}\0\u{b}=\0\0\0\u{4}\u{1c}\u{2}\02\0\u{b}\0\u{b}>\0\0\0\u{4} \u{2}\03\0\u{c}\0\u{b}?\0\0\0\u{4}$\u{2}\04\0\u{d}\0\u{b}@\0\0\0\u{4}(\u{2}\05\0\u{e}\0\u{b}A\0\0\0\u{4},\u{2}\06\0\u{f}\0\u{b}B\0\0\0\u{4}0\u{2}\07\0\u{10}\0\u{b}C\0\0\0\u{4}4\u{2}\08\0\u{11}\0\u{b}D\0\0\0\u{4}8\u{2}\09\0\u{12}\0\u{b}E\0\0\0\u{4}<\u{2}\0:\0\u{13}\0\u{b}F\0\0\0\u{4}@\u{2}\0;\0\u{14}\0\u{b}G\0\0\0\u{4}D\u{2}\0<\0\u{15}\0\u{b}H\0\0\0\u{4}H\u{2}\0=\0\u{16}\0\u{b}I\0\0\0\u{4}L\u{2}\0>\0\u{17}\0\u{b}J\0\0\0\u{4}P\u{2}\0?\0\u{18}\0\u{b}K\0\0\0\u{a}T\u{2}\0@\0\0\0\u{5}L\0\0\0\u{a}X\u{2}\0A\0\0\0\u{3}M\0\0\0\u{a}\\\u{2}\0B\0\0\0\u{d}N\0\0\0\u{a}`\u{2}\0C\0\0\0\u{4}O\0\0\0\u{a}d\u{2}\0D\0\0\0\u{11}P\0\0\0\u{a}h\u{2}\0E\0\0\0\u{12}Q\0\0\0\u{a}l\u{2}\0F\0\0\0\u{7}R\0\0\0\u{a}p\u{2}\0G\0\0\0\u{6}S\0\0\0\u{a}t\u{2}\0H\0\0\0\u{f}T\0\0\0\u{a}x\u{2}\0I\0\0\0\u{10}U\0\0\0\u{a}|\u{2}\0J\0\0\0\u{2}V\0\0\0\u{a}\0\u{3}\0K\0\0\0\u{1}W\0\0\0\u{a}\u{4}\u{3}\0L\0\0\0\u{8}X\0\0\0\u{a}\u{8}\u{3}\0M\0\u{1}\0\u{e}Y\0\0\0\u{2}\u{c}\u{3}\0N\0\0\0\u{5}Z\0\0\0\u{2}\u{10}\u{3}\0O\0\0\0\u{3}[\0\0\0\u{2}\u{14}\u{3}\0P\0\0\0\u{d}\\\0\0\0\u{2}\u{18}\u{3}\0Q\0\0\0\u{4}]\0\0\0\u{2}\u{1c}\u{3}\0R\0\0\0\u{11}^\0\0\0\u{2} \u{3}\0S\0\0\0\u{12}_\0\0\0\u{2}$\u{3}\0T\0\0\0\u{7}`\0\0\0\u{2}(\u{3}\0U\0\0\0\u{6}a\0\0\0\u{2},\u{3}\0V\0\0\0\u{f}b\0\0\0\u{2}0\u{3}\0W\0\0\0\u{10}c\0\0\0\u{2}4\u{3}\0X\0\0\0\u{2}d\0\0\0\u{2}8\u{3}\0Y\0\0\0\u{1}e\0\0\0\u{2}<\u{3}\0Z\0\0\0\u{8}f\0\0\0\u{2}@\u{3}\0[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0D\u{3}\0o\u{7f}\u{3}\0\u{b}q\0\0\0\0\u{4}\u{4}\0o\u{7f}\0\0\u{9}r\0\0\0\0\u{10}\u{4}\0o\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0H\u{3}\0\u{16}\0\u{19}\0\u{a}J\u{1}\0\0\0L\u{3}\0\u{17}\0\u{19}\0\u{a}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\u{4}\0e\0\0\0\0\0\u{18}\0\0\u{10}\0\0(\u{1}\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0T\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0`\u{3}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0(\u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0,\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0l\u{3}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\0x\u{3}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\00\u{1}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}4\u{1}\0\u{18}\0\0\0\u{5} \0\0\0\u{a}8\u{1}\0\u{19}\0\0\0\u{3}!\0\0\0\u{a}<\u{1}\0\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}@\u{1}\0\u{1b}\0\0\0\u{4}#\0\0\0\u{a}D\u{1}\0\u{1c}\0\0\0\u{11}$\0\0\0\u{a}H\u{1}\0\u{1d}\0\0\0\u{12}%\0\0\0\u{a}L\u{1}\0\u{1e}\0\0\0\u{7}&\0\0\0\u{a}P\u{1}\0\u{1f}\0\0\0\u{6}'\0\0\0\u{a}T\u{1}\0 \0\0\0\u{f}(\0\0\0\u{a}X\u{1}\0!\0\0\0\u{10})\0\0\0\u{a}\\\u{1}\0\"\0\0\0\u{2}*\0\0\0\u{a}`\u{1}\0#\0\0\0\u{1}+\0\0\0\u{a}d\u{1}\0$\0\0\0\u{8},\0\0\0\u{2}h\u{1}\0%\0\0\0\u{9}-\0\0\0\u{2}l\u{1}\0&\0\0\0\u{c}0\0\0\0\u{2}p\u{1}\0'\0\u{3}\0\u{b}1\0\0\0\u{2}t\u{1}\0(\0\u{4}\0\u{b}3\0\0\0\u{a}x\u{1}\0)\0\u{1}\0\u{e}4\0\0\0\u{a}|\u{1}\0*\0\u{2}\0\u{e}6\0\0\0\u{2}\0\u{2}\0+\0\0\0\u{9}7\0\0\0\u{2}\u{4}\u{2}\0,\0\0\0\u{9}8\0\0\0\u{4}\u{8}\u{2}\0-\0\u{6}\0\u{b}9\0\0\0\u{4}\u{c}\u{2}\0.\0\u{7}\0\u{b}:\0\0\0\u{4}\u{10}\u{2}\0/\0\u{8}\0\u{b};\0\0\0\u{4}\u{14}\u{2}\00\0\u{9}\0\u{b}<\0\0\0\u{4}\u{18}\u{2}\01\0\u{a}\0\u{b}=\0\0\0\u{4}\u{1c}\u{2}\02\0\u{b}\0\u{b}>\0\0\0\u{4} \u{2}\03\0\u{c}\0\u{b}?\0\0\0\u{4}$\u{2}\04\0\u{d}\0\u{b}@\0\0\0\u{4}(\u{2}\05\0\u{e}\0\u{b}A\0\0\0\u{4},\u{2}\06\0\u{f}\0\u{b}B\0\0\0\u{4}0\u{2}\07\0\u{10}\0\u{b}C\0\0\0\u{4}4\u{2}\08\0\u{11}\0\u{b}D\0\0\0\u{4}8\u{2}\09\0\u{12}\0\u{b}E\0\0\0\u{4}<\u{2}\0:\0\u{13}\0\u{b}F\0\0\0\u{4}@\u{2}\0;\0\u{14}\0\u{b}G\0\0\0\u{4}D\u{2}\0<\0\u{15}\0\u{b}H\0\0\0\u{4}H\u{2}\0=\0\u{16}\0\u{b}I\0\0\0\u{4}L\u{2}\0>\0\u{17}\0\u{b}J\0\0\0\u{4}P\u{2}\0?\0\u{18}\0\u{b}K\0\0\0\u{a}T\u{2}\0@\0\0\0\u{5}L\0\0\0\u{a}X\u{2}\0A\0\0\0\u{3}M\0\0\0\u{a}\\\u{2}\0B\0\0\0\u{d}N\0\0\0\u{a}`\u{2}\0C\0\0\0\u{4}O\0\0\0\u{a}d\u{2}\0D\0\0\0\u{11}P\0\0\0\u{a}h\u{2}\0E\0\0\0\u{12}Q\0\0\0\u{a}l\u{2}\0F\0\0\0\u{7}R\0\0\0\u{a}p\u{2}\0G\0\0\0\u{6}S\0\0\0\u{a}t\u{2}\0H\0\0\0\u{f}T\0\0\0\u{a}x\u{2}\0I\0\0\0\u{10}U\0\0\0\u{a}|\u{2}\0J\0\0\0\u{2}V\0\0\0\u{a}\0\u{3}\0K\0\0\0\u{1}W\0\0\0\u{a}\u{4}\u{3}\0L\0\0\0\u{8}X\0\0\0\u{a}\u{8}\u{3}\0M\0\u{1}\0\u{e}Y\0\0\0\u{2}\u{c}\u{3}\0N\0\0\0\u{5}Z\0\0\0\u{2}\u{10}\u{3}\0O\0\0\0\u{3}[\0\0\0\u{2}\u{14}\u{3}\0P\0\0\0\u{d}\\\0\0\0\u{2}\u{18}\u{3}\0Q\0\0\0\u{4}]\0\0\0\u{2}\u{1c}\u{3}\0R\0\0\0\u{11}^\0\0\0\u{2} \u{3}\0S\0\0\0\u{12}_\0\0\0\u{2}$\u{3}\0T\0\0\0\u{7}`\0\0\0\u{2}(\u{3}\0U\0\0\0\u{6}a\0\0\0\u{2},\u{3}\0V\0\0\0\u{f}b\0\0\0\u{2}0\u{3}\0W\0\0\0\u{10}c\0\0\0\u{2}4\u{3}\0X\0\0\0\u{2}d\0\0\0\u{2}8\u{3}\0Y\0\0\0\u{1}e\0\0\0\u{2}<\u{3}\0Z\0\0\0\u{8}f\0\0\0\u{2}@\u{3}\0[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0D\u{3}\0o\u{7f}\u{3}\0\u{b}q\0\0\0\0\u{4}\u{4}\0o\u{7f}\0\0\u{9}r\0\0\0\0\u{10}\u{4}\0o\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0H\u{3}\0\u{16}\0\u{19}\0\u{a}J\u{1}\0\0\0L\u{3}\0\u{17}\0\u{19}\0\u{a}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
   #else
     #error("Unsupported platform")
   #endif
@@ -1122,153 +1122,153 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.G
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry"
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry"
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32Int32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry"
+    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry"
+    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt64Int64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt64Int64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt64Int64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry"
+    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry"
+    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint32Uint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint32Uint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry"
+    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry"
+    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapUint64Uint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint64Uint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint32Sint32Entry"
+    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint32Sint32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint32Sint32Entry"
+    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint32Sint32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint32Sint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint64Sint64Entry"
+    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint64Sint64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint64Sint64Entry"
+    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSint64Sint64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint64Sint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed32Fixed32Entry"
+    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed32Fixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed32Fixed32Entry"
+    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed32Fixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed64Fixed64Entry"
+    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed64Fixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed64Fixed64Entry"
+    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}N\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapFixed64Fixed64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed32Sfixed32Entry"
+    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed32Sfixed32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed32Sfixed32Entry"
+    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed32Sfixed32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed64Sfixed64Entry"
+    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed64Sfixed64Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed64Sfixed64Entry"
+    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapSfixed64Sfixed64Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry"
+    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry"
+    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}J\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32FloatEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32FloatEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32FloatEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry"
+    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry"
+    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapInt32DoubleEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32DoubleEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry"
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry"
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}H\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapBoolBoolEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}L\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringStringEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}K\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringBytesEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringBytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringBytesEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}S\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedMessageEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}T\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignMessageEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ProtobufTestMessages_Editions_ForeignMessageEdition2023>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}P\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringNestedEnumEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}Q\0protobuf_test_messages.editions.TestAllTypesEdition2023.MapStringForeignEnumEntry"
   #else
     #error("Unsupported platform")
   #endif
@@ -1291,9 +1291,9 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -1319,9 +1319,9 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".GroupLikeType"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
   #else
     #error("Unsupported platform")
   #endif
@@ -1336,9 +1336,9 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: S
 extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessageEdition2023"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
   #else
     #error("Unsupported platform")
   #endif
@@ -1353,9 +1353,9 @@ extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf
 extension ProtobufTestMessages_Editions_GroupLikeType: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeType"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
   #else
     #error("Unsupported platform")
   #endif

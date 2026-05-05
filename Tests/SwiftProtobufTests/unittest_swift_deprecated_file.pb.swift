@@ -301,9 +301,9 @@ extension SwiftProtoTesting_DeprecatedFile_MyEnum {
 extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9})\0swift_proto_testing.deprecated_file.MyMsg"
   #else
     #error("Unsupported platform")
   #endif
@@ -322,9 +322,9 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.GeneratedMessage
 extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MsgScope"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0,\0swift_proto_testing.deprecated_file.MsgScope"
   #else
     #error("Unsupported platform")
   #endif

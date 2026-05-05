@@ -313,9 +313,9 @@ extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
 extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ComplexMessage"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
   #else
     #error("Unsupported platform")
   #endif
@@ -330,9 +330,9 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Gen
 extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesEditionUnstable"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1}\0\u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a} \0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}(\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}0\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4}8\0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}@\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}H\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4}P\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}X\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0p\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}`\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}h\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1}\0\u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a} \0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}(\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}0\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4}8\0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}@\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}H\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4}P\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}X\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0p\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}`\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}h\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a}\u{14}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}\u{18}\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}\u{1c}\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4} \0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0<\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}4\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}8\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a}\u{14}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}\u{18}\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}\u{1c}\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4} \0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0<\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}4\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}8\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
   #else
     #error("Unsupported platform")
   #endif
@@ -355,49 +355,49 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}V\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapInt32Int32Entry"
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}V\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapInt32Int32Entry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}V\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapInt32Int32Entry"
+    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}V\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapInt32Int32Entry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}T\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapBoolBoolEntry"
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}T\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapBoolBoolEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}T\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapBoolBoolEntry"
+    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}T\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapBoolBoolEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}X\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringStringEntry"
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}X\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringStringEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}X\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringStringEntry"
+    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}X\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringStringEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}`\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}`\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignMessageEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}`\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignMessageEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}`\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignMessageEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}]\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}]\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignEnumEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}]\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignEnumEntry"
+    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}]\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringForeignEnumEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}W\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringBytesEntry"
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}W\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringBytesEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}W\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringBytesEntry"
+    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}W\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.MapStringBytesEntry"
   #else
     #error("Unsupported platform")
   #endif
@@ -414,9 +414,9 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessageEditionUnstable"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
   #else
     #error("Unsupported platform")
   #endif

@@ -679,9 +679,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestWellKnownTypes"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\00\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\08\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\0`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\0h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\0p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0\u{18}\u{1}\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\00\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\08\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\0`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\0h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\0p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0\u{18}\u{1}\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0 \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0,\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\00\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\04\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\08\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0H\0\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0L\0\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0 \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0,\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\00\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\04\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\08\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0H\0\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0L\0\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
   #else
     #error("Unsupported platform")
   #endif
@@ -721,9 +721,9 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".RepeatedWellKnownTypes"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}H\0\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}H\0\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
   #else
     #error("Unsupported platform")
   #endif
@@ -762,9 +762,9 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessa
 extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".OneofWellKnownTypes"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\0P\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0X\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0`\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0h\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0p\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0x\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0\0\u{1}\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0\u{18}\u{1}\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0 \u{1}\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0(\u{1}\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\00\u{1}\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\08\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0@\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0H\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0P\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0X\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0P\0\0\u{1}\0\0\0\0P\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0X\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0`\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0h\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0p\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0x\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0\0\u{1}\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0\u{18}\u{1}\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0 \u{1}\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0(\u{1}\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\00\u{1}\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\08\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0@\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0H\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0P\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0X\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\0L\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0P\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0T\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0X\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0\\\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0`\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0d\0\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0h\0\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0l\0\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0p\0\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0t\0\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0x\0\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\0|\0\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\0\0\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0\u{4}\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0\u{c}\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0L\0\0\u{1}\0\0\0\0L\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0P\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0T\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0X\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0\\\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0`\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0d\0\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0h\0\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0l\0\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0p\0\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0t\0\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0x\0\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\0|\0\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\0\0\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0\u{4}\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0\u{c}\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
   #else
     #error("Unsupported platform")
   #endif
@@ -803,9 +803,9 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MapWellKnownTypes"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}H\0\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}H\0\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
   #else
     #error("Unsupported platform")
   #endif
@@ -837,145 +837,145 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_AnyFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
+    private static let _protobuf_mapEntrySchema_AnyFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_AnyFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
+    private static let _protobuf_mapEntrySchema_AnyFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.AnyFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_AnyFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_AnyFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Any>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_ApiFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
+    private static let _protobuf_mapEntrySchema_ApiFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_ApiFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
+    private static let _protobuf_mapEntrySchema_ApiFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}3\0swift_proto_testing.MapWellKnownTypes.ApiFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_ApiFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_ApiFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Api>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_DurationFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
+    private static let _protobuf_mapEntrySchema_DurationFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_DurationFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
+    private static let _protobuf_mapEntrySchema_DurationFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}8\0swift_proto_testing.MapWellKnownTypes.DurationFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_DurationFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_DurationFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Duration>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_EmptyFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
+    private static let _protobuf_mapEntrySchema_EmptyFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_EmptyFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
+    private static let _protobuf_mapEntrySchema_EmptyFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.EmptyFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_EmptyFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_EmptyFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Empty>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_FieldMaskFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
+    private static let _protobuf_mapEntrySchema_FieldMaskFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_FieldMaskFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
+    private static let _protobuf_mapEntrySchema_FieldMaskFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.FieldMaskFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_FieldMaskFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_FieldMaskFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_FieldMask>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_SourceContextFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
+    private static let _protobuf_mapEntrySchema_SourceContextFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_SourceContextFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
+    private static let _protobuf_mapEntrySchema_SourceContextFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}=\0swift_proto_testing.MapWellKnownTypes.SourceContextFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_SourceContextFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_SourceContextFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_SourceContext>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_StructFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
+    private static let _protobuf_mapEntrySchema_StructFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_StructFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
+    private static let _protobuf_mapEntrySchema_StructFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StructFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_StructFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_StructFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Struct>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_TimestampFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
+    private static let _protobuf_mapEntrySchema_TimestampFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_TimestampFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
+    private static let _protobuf_mapEntrySchema_TimestampFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}9\0swift_proto_testing.MapWellKnownTypes.TimestampFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_TimestampFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_TimestampFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Timestamp>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_TypeFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
+    private static let _protobuf_mapEntrySchema_TypeFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_TypeFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
+    private static let _protobuf_mapEntrySchema_TypeFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.TypeFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_TypeFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_TypeFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Type>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_DoubleFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
+    private static let _protobuf_mapEntrySchema_DoubleFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_DoubleFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
+    private static let _protobuf_mapEntrySchema_DoubleFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.DoubleFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_DoubleFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_DoubleFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_DoubleValue>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_FloatFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
+    private static let _protobuf_mapEntrySchema_FloatFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_FloatFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
+    private static let _protobuf_mapEntrySchema_FloatFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.FloatFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_FloatFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_FloatFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_FloatValue>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_Int64FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
+    private static let _protobuf_mapEntrySchema_Int64FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_Int64FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
+    private static let _protobuf_mapEntrySchema_Int64FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int64FieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_Int64FieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_Int64FieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Int64Value>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_Uint64FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
+    private static let _protobuf_mapEntrySchema_Uint64FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_Uint64FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
+    private static let _protobuf_mapEntrySchema_Uint64FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint64FieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_Uint64FieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_Uint64FieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_UInt64Value>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_Int32FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
+    private static let _protobuf_mapEntrySchema_Int32FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_Int32FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
+    private static let _protobuf_mapEntrySchema_Int32FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.Int32FieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_Int32FieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_Int32FieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_Int32Value>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_Uint32FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
+    private static let _protobuf_mapEntrySchema_Uint32FieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_Uint32FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
+    private static let _protobuf_mapEntrySchema_Uint32FieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.Uint32FieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_Uint32FieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_Uint32FieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_UInt32Value>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_BoolFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
+    private static let _protobuf_mapEntrySchema_BoolFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_BoolFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
+    private static let _protobuf_mapEntrySchema_BoolFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}4\0swift_proto_testing.MapWellKnownTypes.BoolFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_BoolFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_BoolFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_BoolValue>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_StringFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
+    private static let _protobuf_mapEntrySchema_StringFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_StringFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
+    private static let _protobuf_mapEntrySchema_StringFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}6\0swift_proto_testing.MapWellKnownTypes.StringFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_StringFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_StringFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftProtobuf.Google_Protobuf_StringValue>.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_BytesFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
+    private static let _protobuf_mapEntrySchema_BytesFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_BytesFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
+    private static let _protobuf_mapEntrySchema_BytesFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.MapWellKnownTypes.BytesFieldEntry"
   #else
     #error("Unsupported platform")
   #endif

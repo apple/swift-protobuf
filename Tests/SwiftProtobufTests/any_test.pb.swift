@@ -106,9 +106,9 @@ fileprivate let _protobuf_package = "swift_proto_testing"
 extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAny"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   #else
     #error("Unsupported platform")
   #endif

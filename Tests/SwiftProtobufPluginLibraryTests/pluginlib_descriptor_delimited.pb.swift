@@ -105,9 +105,9 @@ fileprivate let _protobuf_package = "swift_descriptor_test"
 extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".EditionsMessageForDelimited"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
   #else
     #error("Unsupported platform")
   #endif
@@ -124,17 +124,17 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Generat
     }
   }
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
+    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
+    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif
   private static let _protobuf_mapEntrySchema_MapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapStringField.self)
   #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
+    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
   #else
     #error("Unsupported platform")
   #endif

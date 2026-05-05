@@ -89,9 +89,9 @@ fileprivate let _protobuf_package = "swift_proto_testing.wire_format"
 extension SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestMessageSet"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.wire_format.TestMessageSet"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0swift_proto_testing.wire_format.TestMessageSet"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0.\0swift_proto_testing.wire_format.TestMessageSet"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0swift_proto_testing.wire_format.TestMessageSet"
   #else
     #error("Unsupported platform")
   #endif

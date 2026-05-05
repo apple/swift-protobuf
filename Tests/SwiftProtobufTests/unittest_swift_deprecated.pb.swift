@@ -414,9 +414,9 @@ extension SwiftProtoTesting_Deprecated_MyEnum2 {
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #else
     #error("Unsupported platform")
   #endif
@@ -442,9 +442,9 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MsgScope"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0swift_proto_testing.deprecated.MsgScope"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0'\0swift_proto_testing.deprecated.MsgScope"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0swift_proto_testing.deprecated.MsgScope"
   #else
     #error("Unsupported platform")
   #endif
@@ -459,9 +459,9 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage 
 extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg2"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
   #else
     #error("Unsupported platform")
   #endif
