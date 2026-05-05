@@ -47,11 +47,10 @@ public struct EnumSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
         self.schema = schema.rawBufferPointer
-        // TODO: Use the `.compressed` form and lazily decompress and cache it.
-        self.reflection = .direct(ReflectionTable(
-            fieldCount: Self.valueCount(from: schema.rawBufferPointer),
-            data: Compression.decompress(reflection.rawBufferPointer)
-        ))
+        self.reflection = .init(
+            compressed: reflection.rawBufferPointer,
+            fieldCount: Self.valueCount(from: schema.rawBufferPointer)
+        )
         self.invokeWitness = invokeWitness
     }
 }
@@ -99,11 +98,11 @@ extension EnumSchema {
 
     /// The text and JSON name for the given enum case value.
     func textName(forEnumCase value: Int32) -> UTF8Name? {
-        reflection.table.textName(forEnumCase: value)
+        reflection.withTable { $0.textName(forEnumCase: value) }
     }
 
     /// The enum case value for the given text and JSON name.
     func enumCase(forTextName name: String) -> Int32? {
-        reflection.table.enumCase(forTextName: name)
+        reflection.withTable { $0.enumCase(forTextName: name) }
     }
 }
