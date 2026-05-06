@@ -33,13 +33,13 @@ extension MessageStorage {
             try emitAsAny(into: &encoder, options: options)
 
         case .boolValue:
-            encoder.putNonQuotedBoolValue(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putNonQuotedBoolValue(value: value(of: KnownField.boolValueValue(in: schema)))
 
         case .bytesValue:
-            encoder.putBytesValue(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putBytesValue(value: value(of: KnownField.bytesValueValue(in: schema)))
 
         case .doubleValue:
-            encoder.putDoubleValue(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putDoubleValue(value: value(of: KnownField.doubleValueValue(in: schema)))
 
         case .duration:
             try emitAsDuration(into: &encoder)
@@ -48,16 +48,17 @@ extension MessageStorage {
             try emitAsFieldMask(into: &encoder)
 
         case .floatValue:
-            encoder.putFloatValue(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putFloatValue(value: value(of: KnownField.floatValueValue(in: schema)))
 
         case .int32Value:
-            encoder.putNonQuotedInt32(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putNonQuotedInt32(value: value(of: KnownField.int32ValueValue(in: schema)))
 
         case .int64Value:
+            let valueField = KnownField.int64ValueValue(in: schema)
             if options.alwaysPrintInt64sAsNumbers {
-                encoder.putNonQuotedInt64(value: value(of: schema[fieldNumber: 1]!))
+                encoder.putNonQuotedInt64(value: value(of: valueField))
             } else {
-                encoder.putQuotedInt64(value: value(of: schema[fieldNumber: 1]!))
+                encoder.putQuotedInt64(value: value(of: valueField))
             }
 
         case .listValue:
@@ -68,7 +69,7 @@ extension MessageStorage {
             preconditionFailure("Unreachable")
 
         case .stringValue:
-            encoder.putStringValue(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putStringValue(value: value(of: KnownField.stringValueValue(in: schema)))
 
         case .struct:
             try emitAsStruct(into: &encoder, options: options)
@@ -77,13 +78,14 @@ extension MessageStorage {
             try emitAsTimestamp(into: &encoder)
 
         case .uint32Value:
-            encoder.putNonQuotedUInt32(value: value(of: schema[fieldNumber: 1]!))
+            encoder.putNonQuotedUInt32(value: value(of: KnownField.uint32ValueValue(in: schema)))
 
         case .uint64Value:
+            let valueField = KnownField.uint64ValueValue(in: schema)
             if options.alwaysPrintInt64sAsNumbers {
-                encoder.putNonQuotedUInt64(value: value(of: schema[fieldNumber: 1]!))
+                encoder.putNonQuotedUInt64(value: value(of: valueField))
             } else {
-                encoder.putQuotedUInt64(value: value(of: schema[fieldNumber: 1]!))
+                encoder.putQuotedUInt64(value: value(of: valueField))
             }
 
         case .value:
@@ -134,10 +136,10 @@ extension MessageStorage {
                     encoder.comma()
                 }
                 let mapEntrySchema = mapEntryStorage.schema
-                try mapEntryStorage.emitAsMapKey(mapEntrySchema[fieldNumber: 1]!, to: &encoder)
+                try mapEntryStorage.emitAsMapKey(KnownField.mapEntryKey(in: mapEntrySchema), to: &encoder)
                 encoder.append(text: ":")
                 try mapEntryStorage.emitSingularValue(
-                    of: mapEntrySchema[fieldNumber: 2]!,
+                    of: KnownField.mapEntryValue(in: mapEntrySchema),
                     to: &encoder,
                     options: options
                 )
@@ -353,8 +355,8 @@ extension MessageStorage {
         encoder.startObject()
         defer { encoder.endObject() }
 
-        let typeURLField = schema[fieldNumber: 1]!
-        let valueField = schema[fieldNumber: 2]!
+        let typeURLField = KnownField.anyTypeURL(in: schema)
+        let valueField = KnownField.anyValue(in: schema)
 
         let isValuePresent = isPresent(valueField)
 
@@ -400,8 +402,8 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Duration`.
     private func emitAsDuration(into encoder: inout JSONEncoder) throws {
-        let seconds = value(of: schema[fieldNumber: 1]!) as Int64
-        let nanos = value(of: schema[fieldNumber: 2]!) as Int32
+        let seconds = value(of: KnownField.durationSeconds(in: schema)) as Int64
+        let nanos = value(of: KnownField.durationNanos(in: schema)) as Int32
         guard let formatted = formatDuration(seconds: seconds, nanos: nanos) else {
             throw JSONEncodingError.durationRange
         }
@@ -413,7 +415,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.FieldMask`.
     private func emitAsFieldMask(into encoder: inout JSONEncoder) throws {
-        let paths = value(of: schema[fieldNumber: 1]!, default: []) as [String]
+        let paths = value(of: KnownField.fieldMaskPaths(in: schema), default: []) as [String]
         var jsonPaths = [String]()
         jsonPaths.reserveCapacity(paths.count)
         for path in paths {
@@ -433,7 +435,7 @@ extension MessageStorage {
     private func emitAsListValue(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
         encoder.startArray()
 
-        let valuesField = schema[fieldNumber: 1]!
+        let valuesField = KnownField.listValueValues(in: schema)
         if isPresent(valuesField) {
             var firstItem = true
             try forEachMessage(inAssumedPresentRepeatedMessageField: valuesField) {
@@ -456,7 +458,7 @@ extension MessageStorage {
     private func emitAsStruct(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
         encoder.startObject()
 
-        let fieldsField = schema[fieldNumber: 1]!
+        let fieldsField = KnownField.structFields(in: schema)
         if isPresent(fieldsField) {
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             var firstItem = true
@@ -470,10 +472,10 @@ extension MessageStorage {
                     encoder.comma()
                 }
                 let mapEntrySchema = mapEntryStorage.schema
-                try mapEntryStorage.emitAsMapKey(mapEntrySchema[fieldNumber: 1]!, to: &encoder)
+                try mapEntryStorage.emitAsMapKey(KnownField.mapEntryKey(in: mapEntrySchema), to: &encoder)
                 encoder.append(text: ":")
                 try mapEntryStorage.emitSingularValue(
-                    of: mapEntrySchema[fieldNumber: 2]!,
+                    of: KnownField.mapEntryValue(in: mapEntrySchema),
                     to: &encoder,
                     options: options
                 )
@@ -490,8 +492,8 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Timestamp`.
     private func emitAsTimestamp(into encoder: inout JSONEncoder) throws {
-        let seconds = value(of: schema[fieldNumber: 1]!) as Int64
-        let nanos = value(of: schema[fieldNumber: 2]!) as Int32
+        let seconds = value(of: KnownField.timestampSeconds(in: schema)) as Int64
+        let nanos = value(of: KnownField.timestampNanos(in: schema)) as Int32
         guard let formatted = formatTimestamp(seconds: seconds, nanos: nanos) else {
             throw JSONEncodingError.durationRange
         }
@@ -505,26 +507,26 @@ extension MessageStorage {
     private func emitAsValue(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
         // It doesn't matter which field number we pass in here, as long as it's valid and a member
         // of the one-of we're interested in.
-        let populatedFieldNumber = populatedOneofMember(of: schema[fieldNumber: 1]!)
+        let populatedFieldNumber = populatedOneofMember(of: KnownField.valueNullValue(in: schema))
         let field = schema[fieldNumber: populatedFieldNumber]!
         switch populatedFieldNumber {
-        case 1:
+        case KnownField.valueNullValue.number:
             encoder.putNullValue()
 
-        case 2:
+        case KnownField.valueNumberValue.number:
             let numberValue = value(of: field) as Double
             guard numberValue.isFinite else {
                 throw JSONEncodingError.valueNumberNotFinite
             }
             encoder.putDoubleValue(value: numberValue)
 
-        case 3:
+        case KnownField.valueStringValue.number:
             encoder.putStringValue(value: value(of: field))
 
-        case 4:
+        case KnownField.valueBoolValue.number:
             encoder.putNonQuotedBoolValue(value: value(of: field))
 
-        case 5, 6:
+        case KnownField.valueStructValue.number, KnownField.valueListValue.number:
             let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: field)
             try subMessageStorage.serializeJSON(into: &encoder, options: options)
 

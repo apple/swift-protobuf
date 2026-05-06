@@ -204,7 +204,7 @@ extension ExtensionStorage {
             case .message:
                 let messageSize = messageStorage(forAssumedPresentSingularMessageField: schema).serializedBytesSize()
                 if schema.extendedMessage.extensibilityMode == .messageSet {
-                    return WireFormat.MessageSet.itemTagsEncodedSize
+                    return messageSetItemTagsEncodedSize
                         + Varint.encodedSize(of: UInt64(fieldNumber))
                         + Varint.encodedSize(of: UInt64(messageSize))
                         + messageSize
