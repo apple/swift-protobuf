@@ -110,7 +110,7 @@ extension MessageStorage {
 
         // If this is a message set, look for a group with field number 1 (item). If we find a
         // non-group item, return false so the caller treats it as an unknown field.
-        if schema.extensibilityMode == .messageSet && tag.fieldNumber == WireFormat.MessageSet.FieldNumbers.item {
+        if schema.extensibilityMode == .messageSet && tag.fieldNumber == KnownField.messageSetItem.number {
             if tag.wireFormat == .startGroup {
                 return try decodeMessageSetItem(
                     from: &reader,
@@ -155,7 +155,7 @@ extension MessageStorage {
             var success: Bool
             do {
                 let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
-                let valueField = workingSpace.schema[fieldNumber: 2]!
+                let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
                 let isEnumValue = valueField.rawFieldType == .enum
 
                 var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
@@ -675,7 +675,7 @@ extension MessageStorage {
         var extensionSchema: ExtensionSchema?
         var messageBytes: UnsafeRawBufferPointer?
         let success =  try reader.withReaderForNextGroup(
-            withFieldNumber: UInt32(WireFormat.MessageSet.FieldNumbers.item)
+            withFieldNumber: KnownField.messageSetItem.number
         ) { subReader in
             while subReader.hasAvailableData {
                 let subTag = try subReader.nextTag()
@@ -683,8 +683,8 @@ extension MessageStorage {
                     break
                 }
 
-                switch subTag.fieldNumber {
-                case WireFormat.MessageSet.FieldNumbers.typeId:
+                switch UInt32(subTag.fieldNumber) {
+                case KnownField.messageSetTypeID.number:
                     guard subTag.wireFormat == .varint else {
                         return false
                     }
@@ -698,7 +698,7 @@ extension MessageStorage {
                         return false
                     }
 
-                case WireFormat.MessageSet.FieldNumbers.message:
+                case KnownField.messageSetMessage.number:
                     guard subTag.wireFormat == .lengthDelimited else {
                         return false
                     }

@@ -70,9 +70,9 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
 
         case .mapNextElement(let iterator, let useDeterministicOrdering, let workingSpace, let success):
+            let keyField = KnownField.mapEntryKey(in: workingSpace.schema)
+            let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
             guard
-                let keyField = workingSpace.schema[fieldNumber: 1],
-                let valueField = workingSpace.schema[fieldNumber: 2],
                 case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
                 case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
             else {
@@ -101,9 +101,9 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             success.pointee = false
 
         case .mapInsertElement(let pointer, let workingSpace):
+            let keyField = KnownField.mapEntryKey(in: workingSpace.schema)
+            let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
             guard
-                let keyField = workingSpace.schema[fieldNumber: 1],
-                let valueField = workingSpace.schema[fieldNumber: 2],
                 case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
                 case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
             else {

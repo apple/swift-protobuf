@@ -281,13 +281,13 @@ extension ExtensionStorage {
             case .message:
                 let subMessageStorage = messageStorage(forAssumedPresentSingularMessageField: schema)
                 if schema.extendedMessage.extensibilityMode == .messageSet {
-                    encoder.startField(tag: WireFormat.MessageSet.Tags.itemStart)
-                    encoder.startField(tag: WireFormat.MessageSet.Tags.typeId)
+                    encoder.startField(tag: messageSetItemStartTag)
+                    encoder.startField(tag: messageSetTypeIDTag)
                     encoder.putVarInt(value: UInt64(fieldNumber))
-                    encoder.startField(tag: WireFormat.MessageSet.Tags.message)
+                    encoder.startField(tag: messageSetMessageTag)
                     encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
                     try subMessageStorage.serializeBytes(into: &encoder, options: options)
-                    encoder.startField(tag: WireFormat.MessageSet.Tags.itemEnd)
+                    encoder.startField(tag: messageSetItemEndTag)
                 } else {
                     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                     encoder.putVarInt(value: subMessageStorage.serializedBytesSize())
@@ -356,4 +356,25 @@ extension ExtensionStorage {
             }
         }
     }
+}
+
+private var messageSetItemStartTag: FieldTag {
+    .init(fieldNumber: Int(KnownField.messageSetItem.number), wireFormat: .startGroup)
+}
+private var messageSetItemEndTag: FieldTag {
+    .init(fieldNumber: Int(KnownField.messageSetItem.number), wireFormat: .endGroup)
+}
+private var messageSetTypeIDTag: FieldTag {
+    .init(fieldNumber: Int(KnownField.messageSetTypeID.number), wireFormat: .varint)
+}
+private var messageSetMessageTag: FieldTag {
+    .init(fieldNumber: Int(KnownField.messageSetMessage.number), wireFormat: .lengthDelimited)
+}
+
+// The size of all the tags needed to write out an extension in MessageSet format.
+var messageSetItemTagsEncodedSize: Int {
+    messageSetItemStartTag.encodedSize
+        + messageSetItemEndTag.encodedSize
+        + messageSetTypeIDTag.encodedSize
+        + messageSetMessageTag.encodedSize
 }

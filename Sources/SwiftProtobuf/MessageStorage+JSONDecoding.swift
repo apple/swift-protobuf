@@ -33,17 +33,17 @@ extension MessageStorage {
 
         case .boolValue:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextBool())
+                updateValue(of: KnownField.boolValueValue(in: schema), to: try reader.scanner.nextBool())
             }
 
         case .bytesValue:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextBytesValue())
+                updateValue(of: KnownField.bytesValueValue(in: schema), to: try reader.scanner.nextBytesValue())
             }
 
         case .doubleValue:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextDouble())
+                updateValue(of: KnownField.doubleValueValue(in: schema), to: try reader.scanner.nextDouble())
             }
 
         case .duration:
@@ -54,7 +54,7 @@ extension MessageStorage {
 
         case .floatValue:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextFloat())
+                updateValue(of: KnownField.floatValueValue(in: schema), to: try reader.scanner.nextFloat())
             }
 
         case .int32Value:
@@ -63,12 +63,12 @@ extension MessageStorage {
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
                     throw JSONDecodingError.malformedNumber
                 }
-                updateValue(of: schema[fieldNumber: 1]!, to: Int32(truncatingIfNeeded: n))
+                updateValue(of: KnownField.int32ValueValue(in: schema), to: Int32(truncatingIfNeeded: n))
             }
 
         case .int64Value:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextSInt())
+                updateValue(of: KnownField.int64ValueValue(in: schema), to: try reader.scanner.nextSInt())
             }
 
         case .listValue:
@@ -80,7 +80,7 @@ extension MessageStorage {
 
         case .stringValue:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextQuotedString())
+                updateValue(of: KnownField.stringValueValue(in: schema), to: try reader.scanner.nextQuotedString())
             }
 
         case .struct:
@@ -95,12 +95,12 @@ extension MessageStorage {
                 if n > UInt64(UInt32.max) {
                     throw JSONDecodingError.malformedNumber
                 }
-                updateValue(of: schema[fieldNumber: 1]!, to: UInt32(truncatingIfNeeded: n))
+                updateValue(of: KnownField.uint32ValueValue(in: schema), to: UInt32(truncatingIfNeeded: n))
             }
 
         case .uint64Value:
             try disallowingNull {
-                updateValue(of: schema[fieldNumber: 1]!, to: try reader.scanner.nextUInt())
+                updateValue(of: KnownField.uint64ValueValue(in: schema), to: try reader.scanner.nextUInt())
             }
 
         case .value:
@@ -373,7 +373,7 @@ extension MessageStorage {
                 // A `null` value for `google.protobuf.Value` decodes to a message whose
                 // `nullValue` field is set to `google.protobuf.NullValue.nullValue`.
                 let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
-                let nullValueField = submessageStorage.schema[fieldNumber: 1]!
+                let nullValueField = KnownField.valueNullValue(in: submessageStorage.schema)
                 guard case .oneOfMember(let oneofOffset) = nullValueField.presence else {
                     preconditionFailure("expected nullValue to be a oneof member; this is a generator bug")
                 }
@@ -446,14 +446,14 @@ extension MessageStorage {
                 throw JSONDecodingError.unquotedMapKey
             }
             try submessageStorage.scanSingularValue(
-                of: mapEntrySchema[fieldNumber: 1]!,
+                of: KnownField.mapEntryKey(in: mapEntrySchema),
                 from: &reader,
                 requireQuotedBool: true
             )
             try reader.scanner.skipRequiredColon()
 
             do {
-                try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
+                try submessageStorage.scanSingularValue(of: KnownField.mapEntryValue(in: mapEntrySchema), from: &reader)
                 insertMapEntry(in: field, from: submessageStorage)
             } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
                 // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
@@ -541,8 +541,8 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
     private func parseAsAny(from reader: inout JSONReader) throws {
-        let typeURLField = schema[fieldNumber: 1]!
-        let valueField = schema[fieldNumber: 2]!
+        let typeURLField = KnownField.anyTypeURL(in: schema)
+        let valueField = KnownField.anyValue(in: schema)
 
         try reader.scanner.skipRequiredObjectStart()
 
@@ -637,8 +637,8 @@ extension MessageStorage {
     private func parseAsDuration(from reader: inout JSONReader) throws {
         let durationString = try reader.scanner.nextQuotedString()
         let (seconds, nanos) = try parseDuration(text: durationString)
-        updateValue(of: schema[fieldNumber: 1]!, to: seconds)
-        updateValue(of: schema[fieldNumber: 2]!, to: nanos)
+        updateValue(of: KnownField.durationSeconds(in: schema), to: seconds)
+        updateValue(of: KnownField.durationNanos(in: schema), to: nanos)
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation
@@ -646,7 +646,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.FieldMask`.
     private func parseAsFieldMask(from reader: inout JSONReader) throws {
-        let pathsField = schema[fieldNumber: 1]!
+        let pathsField = KnownField.fieldMaskPaths(in: schema)
         let fieldMaskString = try reader.scanner.nextQuotedString()
         try parseFieldMask(fieldMaskString) { name in
             appendValue(name, to: pathsField)
@@ -673,8 +673,9 @@ extension MessageStorage {
             return
         }
 
+        let valuesField = KnownField.listValueValues(in: schema)
         while true {
-            try scanRepeatedMessageField(schema[fieldNumber: 1]!, from: &reader)
+            try scanRepeatedMessageField(valuesField, from: &reader)
             if reader.scanner.skipOptionalArrayEnd() {
                 reader.scanner.decrementRecursionDepth()
                 return
@@ -694,7 +695,7 @@ extension MessageStorage {
         }
 
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-        let fieldsField = schema[fieldNumber: 1]!
+        let fieldsField = KnownField.structFields(in: schema)
         var hasNextElement = true
         while hasNextElement {
             let submessageStorage = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex)
@@ -707,14 +708,17 @@ extension MessageStorage {
                 throw JSONDecodingError.unquotedMapKey
             }
             try submessageStorage.scanSingularValue(
-                of: mapEntrySchema[fieldNumber: 1]!,
+                of: KnownField.mapEntryKey(in: mapEntrySchema),
                 from: &reader,
                 requireQuotedBool: true
             )
             try reader.scanner.skipRequiredColon()
 
             do {
-                try submessageStorage.scanSingularValue(of: mapEntrySchema[fieldNumber: 2]!, from: &reader)
+                try submessageStorage.scanSingularValue(
+                    of: KnownField.mapEntryValue(in: mapEntrySchema),
+                    from: &reader
+                )
                 insertMapEntry(in: fieldsField, from: submessageStorage)
             } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
                 // `ignoreUnknownFields` also means to ignore unknown enum values. If we got
@@ -739,8 +743,8 @@ extension MessageStorage {
     private func parseAsTimestamp(from reader: inout JSONReader) throws {
         let timestampString = try reader.scanner.nextQuotedString()
         let (seconds, nanos) = try parseTimestamp(s: timestampString)
-        updateValue(of: schema[fieldNumber: 1]!, to: seconds)
-        updateValue(of: schema[fieldNumber: 2]!, to: nanos)
+        updateValue(of: KnownField.timestampSeconds(in: schema), to: seconds)
+        updateValue(of: KnownField.timestampNanos(in: schema), to: nanos)
     }
 
     /// Parses the next value from the input and interprets it as the JSON representation of a
@@ -754,22 +758,22 @@ extension MessageStorage {
             if !reader.scanner.skipOptionalNull() {
                 throw JSONDecodingError.failure
             }
-            updateValue(of: schema[fieldNumber: 1]!, to: Google_Protobuf_NullValue.nullValue)
+            updateValue(of: KnownField.valueNullValue(in: schema), to: Google_Protobuf_NullValue.nullValue)
 
         case "[":
-            try scanSingularMessageField(schema[fieldNumber: 6]!, from: &reader)
+            try scanSingularMessageField(KnownField.valueListValue(in: schema), from: &reader)
 
         case "{":
-            try scanSingularMessageField(schema[fieldNumber: 5]!, from: &reader)
+            try scanSingularMessageField(KnownField.valueStructValue(in: schema), from: &reader)
 
         case "t", "f":
-            updateValue(of: schema[fieldNumber: 4]!, to: try reader.scanner.nextBool())
+            updateValue(of: KnownField.valueBoolValue(in: schema), to: try reader.scanner.nextBool())
 
         case "\"":
-            updateValue(of: schema[fieldNumber: 3]!, to: try reader.scanner.nextQuotedString())
+            updateValue(of: KnownField.valueStringValue(in: schema), to: try reader.scanner.nextQuotedString())
 
         default:
-            updateValue(of: schema[fieldNumber: 2]!, to: try reader.scanner.nextDouble())
+            updateValue(of: KnownField.valueNumberValue(in: schema), to: try reader.scanner.nextDouble())
         }
     }
 }

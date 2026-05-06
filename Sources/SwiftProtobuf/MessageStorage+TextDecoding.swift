@@ -264,9 +264,9 @@ extension MessageStorage {
             throw TextFormatDecodingError.malformedText
         }
 
-        updateValue(of: schema[fieldNumber: 1]!, to: typeURL)
+        updateValue(of: KnownField.anyTypeURL(in: schema), to: typeURL)
         updateValue(
-            of: schema[fieldNumber: 2]!,
+            of: KnownField.anyValue(in: schema),
             to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions())
         )
     }

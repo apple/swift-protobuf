@@ -50,8 +50,8 @@ extension MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: TextFormatEncodingOptions
     ) {
-        let typeURLField = schema[fieldNumber: 1]!
-        let valueField = schema[fieldNumber: 2]!
+        let typeURLField = KnownField.anyTypeURL(in: schema)
+        let valueField = KnownField.anyValue(in: schema)
         let valueOffset = valueField.offset
 
         // If we can unpack it, emit the verbose form.
@@ -114,13 +114,13 @@ extension MessageStorage {
                 encoder.startMessageField()
                 let mapEntrySchema = $0.schema
                 $0.serializeField(
-                    mapEntrySchema[fieldNumber: 1]!,
+                    KnownField.mapEntryKey(in: mapEntrySchema),
                     into: &encoder,
                     mapEntryWorkingSpace: &mapEntryWorkingSpace,
                     options: options
                 )
                 $0.serializeField(
-                    mapEntrySchema[fieldNumber: 2]!,
+                    KnownField.mapEntryValue(in: mapEntrySchema),
                     into: &encoder,
                     mapEntryWorkingSpace: &mapEntryWorkingSpace,
                     options: options
