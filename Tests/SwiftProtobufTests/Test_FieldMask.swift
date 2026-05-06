@@ -17,7 +17,6 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-/* TODO: Re-enable.
 final class Test_FieldMask: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_FieldMask
 
@@ -822,4 +821,3 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m1.singularGroup, m2.singularGroup)
     }
 }
-*/

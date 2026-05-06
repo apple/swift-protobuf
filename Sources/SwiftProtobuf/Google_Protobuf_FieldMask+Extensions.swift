@@ -146,13 +146,18 @@ extension Google_Protobuf_FieldMask {
     /// Initiates a field mask with all fields of the message type.
     ///
     /// - Parameter messageType: Message type to get all paths from.
-    public init<M: Message>(
+    public init<M: GeneratedMessage>(
         allFieldsOf messageType: M.Type
     ) {
-        // TODO: Reimplement this.
-        // self = .with { mask in
-        //     mask.paths = M.allProtoNames
-        // }
+        self.init()
+        let schema = M.messageSchema
+        var paths: [String] = []
+        for field in schema.fields {
+            if let name = schema.textName(forFieldNumber: field.fieldNumber) {
+                paths.append(String(decoding: name.buffer, as: UTF8.self))
+            }
+        }
+        self.paths = paths
     }
 
     /// Initiates a field mask from some particular field numbers of a message
@@ -163,21 +168,20 @@ extension Google_Protobuf_FieldMask {
     /// - Returns: Field mask that include paths of corresponding field numbers.
     /// - Throws: `FieldMaskError.invalidFieldNumber` if the field number
     ///  is not on the message
-    public init<M: Message>(
+    public init<M: GeneratedMessage>(
         fieldNumbers: [Int],
         of messageType: M.Type
     ) throws {
-        // TODO: Reimplement this.
-        // var paths: [String] = []
-        // for number in fieldNumbers {
-        //     guard let name = M.protoName(for: number) else {
-        //         throw FieldMaskError.invalidFieldNumber
-        //     }
-        //     paths.append(name)
-        // }
-        // self = .with { mask in
-        //     mask.paths = paths
-        // }
+        self.init()
+        let schema = M.messageSchema
+        var paths: [String] = []
+        for number in fieldNumbers {
+            guard let name = schema.textName(forFieldNumber: UInt32(number)) else {
+                throw FieldMaskError.invalidFieldNumber
+            }
+            paths.append(String(decoding: name.buffer, as: UTF8.self))
+        }
+        self.paths = paths
     }
 }
 
@@ -189,14 +193,13 @@ extension Google_Protobuf_FieldMask {
     /// - Parameters:
     ///   - path: Path to be added to FieldMask.
     ///   - messageType: Message type to check validity.
-    public mutating func addPath<M: Message>(
+    public mutating func addPath<M: GeneratedMessage>(
         _ path: String,
         of messageType: M.Type
     ) throws {
-        // TODO: Reimplement with reflection.
-        // guard M.isPathValid(path) else {
-        //     throw FieldMaskError.invalidPath
-        // }
+        guard M.messageSchema.isPathValid(path) else {
+            throw FieldMaskError.invalidPath
+        }
         paths.append(path)
     }
 
@@ -301,15 +304,12 @@ extension Google_Protobuf_FieldMask {
     ///
     /// - Parameter messageType: Message type to paths check with.
     /// - Returns: Boolean determines FieldMask is valid.
-    public func isValid<M: Message>(
+    public func isValid<M: GeneratedMessage>(
         for messageType: M.Type
     ) -> Bool {
-        // TODO: Reimplement with reflection.
-        return false
-        // var message = M()
-        // return paths.allSatisfy { path in
-        //     message.isPathValid(path)
-        // }
+        return paths.allSatisfy { path in
+            M.messageSchema.isPathValid(path)
+        }
     }
 }
 
