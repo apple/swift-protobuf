@@ -414,9 +414,9 @@ extension SwiftProtoTesting_Deprecated_MyEnum2 {
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".MyMsg"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0 \u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   #else
     #error("Unsupported platform")
   #endif

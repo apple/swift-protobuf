@@ -64,7 +64,7 @@ class MapEntryGenerator {
         self.entrySchemaCalculator = MessageSchemaCalculator(
             fullyQualifiedName: descriptor.fullName,
             fieldsSortedByNumber: fieldsSortedByNumber,
-            isMapEntry: true
+            extensibilityMode: .mapEntry
         )
 
         entrySchemaName = Self.schemaName(for: descriptor)

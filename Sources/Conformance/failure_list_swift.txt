@@ -1,2 +1,1 @@
-# Message sets not yet implemented.
-Recommended.Proto2.ProtobufInput.ValidMessageSetEncoding.SubmessageEncoding.NotUnknown.ProtobufOutput
+# No known failures.

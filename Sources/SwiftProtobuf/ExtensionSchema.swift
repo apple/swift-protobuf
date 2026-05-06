@@ -108,11 +108,16 @@ extension ExtensionSchema {
     }
 
     /// The schema of the extension field.
-    @_spi(ForGeneratedCodeOnly)
     @usableFromInline var field: FieldSchema {
         FieldSchema(slice: schema[1..<(1 + fieldSchemaSize)])
     }
 
+    /// The field number of the extension field.
+    package var fieldNumber: UInt32 {
+        field.fieldNumber
+    }
+
+    /// The name of the extension field.
     var fieldName: UTF8Name {
         let lengthOffset = 1 + fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)

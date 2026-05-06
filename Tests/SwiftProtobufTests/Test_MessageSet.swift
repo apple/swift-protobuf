@@ -13,18 +13,18 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobuf
 import XCTest
+// TODO: Remove SPI when we have a real reflection API and use that instead.
+@_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 
 extension SwiftProtoTesting_RawMessageSet.Item {
-    fileprivate init(typeID: Int, message: Data) {
+    fileprivate init(typeID: UInt32, message: Data) {
         self.init()
         self.typeID = Int32(typeID)
         self.message = message
     }
 }
 
-/* TODO: Re-enable.
 final class Test_MessageSet: XCTestCase {
 
     // wireformat_unittest.cc: TEST(WireFormatTest, SerializeMessageSet)
@@ -58,11 +58,11 @@ final class Test_MessageSet: XCTestCase {
 
         XCTAssertEqual(
             Int(raw.item[0].typeID),
-            SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber
+            Int(SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
         )
         XCTAssertEqual(
             Int(raw.item[1].typeID),
-            SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber
+            Int(SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
         )
 
         let extMsg1 = try SwiftProtoTesting_TestMessageSetExtension1(serializedBytes: raw.item[0].message)
@@ -138,13 +138,14 @@ final class Test_MessageSet: XCTestCase {
         ])
         XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
 
-        var validator = ExtensionValidator()
-        validator.expectedMessages = [
-            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-            (SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
-        ]
-        validator.expectedUnknowns = [expectedUnknowns]
-        validator.validate(message: msg)
+        assertMessage(
+            msg,
+            hasExtensions: [
+                SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+                SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+            ],
+            expectedUnknowns: expectedUnknowns
+        )
     }
 
     static let canonicalTextFormat: String =
@@ -235,13 +236,15 @@ final class Test_MessageSet: XCTestCase {
         XCTAssertTrue(msg.unknownFields.data.isEmpty)
         XCTAssertTrue(msg.messageSet.unknownFields.data.isEmpty)
 
-        var validator = ExtensionValidator()
-        validator.expectedMessages = [
-            (1, true),  // swift_proto_testing.TestMessageSetContainer.message_set (where the extensions are)
-            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-            (SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
-        ]
-        validator.validate(message: msg)
+        assertMessage(msg, hasExtensions: [], expectedUnknowns: Data())
+        assertMessage(
+            msg.messageSet,
+            hasExtensions: [
+                SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+                SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+            ],
+            expectedUnknowns: Data()
+        )
     }
 
     func testParse_FirstValueSticks() throws {
@@ -291,11 +294,13 @@ final class Test_MessageSet: XCTestCase {
 
         XCTAssertTrue(msg.unknownFields.data.isEmpty)
 
-        var validator = ExtensionValidator()
-        validator.expectedMessages = [
-            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false)
-        ]
-        validator.validate(message: msg)
+        assertMessage(
+            msg,
+            hasExtensions: [
+                SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber
+            ],
+            expectedUnknowns: Data()
+        )
     }
 
     func testParse_PartialValuesDropped() {
@@ -349,8 +354,7 @@ final class Test_MessageSet: XCTestCase {
         XCTAssertFalse(msg.hasSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension)
         XCTAssertTrue(msg.unknownFields.data.isEmpty)
 
-        var validator = ExtensionValidator()
-        validator.validate(message: msg)
+        assertMessage(msg, hasExtensions: [], expectedUnknowns: Data())
     }
 
     func testParse_FieldEncoding() {
@@ -394,55 +398,31 @@ final class Test_MessageSet: XCTestCase {
         ])
         XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
 
-        var validator = ExtensionValidator()
-        validator.expectedMessages = [
-            (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false)
-        ]
-        validator.expectedUnknowns = [expectedUnknowns]
-        validator.validate(message: msg)
+        assertMessage(
+            msg,
+            hasExtensions: [
+                SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber
+            ],
+            expectedUnknowns: expectedUnknowns
+        )
     }
 
-    fileprivate struct ExtensionValidator: PBTestVisitor {
-        // Values are field number and if we should recurse.
-        var expectedMessages = [(Int, Bool)]()
-        var expectedUnknowns = [Data]()
-
-        mutating func validate<M: Message>(message: M) {
-            do {
-                try message.traverse(visitor: &self)
-            } catch let e {
-                XCTFail("Error while traversing: \(e)")
-            }
-            XCTAssertTrue(
-                expectedMessages.isEmpty,
-                "Expected more messages: \(expectedMessages)"
-            )
-            XCTAssertTrue(
-                expectedUnknowns.isEmpty,
-                "Expected more unknowns: \(expectedUnknowns)"
-            )
-        }
-
-        mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-            guard !expectedMessages.isEmpty else {
-                XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
-                return
-            }
-            let (expected, shouldRecurse) = expectedMessages.removeFirst()
-            XCTAssertEqual(fieldNumber, expected)
-            if shouldRecurse && expected == fieldNumber {
-                try value.traverse(visitor: &self)
-            }
-        }
-
-        mutating func visitUnknown(bytes: Data) throws {
-            guard !expectedUnknowns.isEmpty else {
-                XCTFail("Unexpected Unknown: \(bytes)")
-                return
-            }
-            let expected = expectedUnknowns.removeFirst()
-            XCTAssertEqual(bytes, expected)
-        }
+    func assertMessage<M: Message>(
+        _ message: M,
+        hasExtensions expectedFieldNumbers: [UInt32],
+        expectedUnknowns: Data,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        let storage = message._protobuf_extensionStorageImpl() as! ExtensionStorage
+        let presentFieldNumbers = Array(storage.values.keys).sorted()
+        XCTAssertEqual(
+            presentFieldNumbers,
+            expectedFieldNumbers.sorted(),
+            "Extensions mismatch",
+            file: file,
+            line: line
+        )
+        XCTAssertEqual(message.unknownFields.data, expectedUnknowns, "Unknowns mismatch", file: file, line: line)
     }
 }
-*/

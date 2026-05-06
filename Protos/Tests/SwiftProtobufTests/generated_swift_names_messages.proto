@@ -289,6 +289,7 @@ message GeneratedSwiftReservedMessages {
   message extendedMessage { int32 extendedMessage = 1; }
   message ExtendedMessageResolver { int32 ExtendedMessageResolver = 1; }
   message extendee { int32 extendee = 1; }
+  message extensibilityMode { int32 extensibilityMode = 1; }
   message extension { int32 extension = 1; }
   message ExtensionMap { int32 ExtensionMap = 1; }
   message extensionRange { int32 extensionRange = 1; }
@@ -322,6 +323,7 @@ message GeneratedSwiftReservedMessages {
   message finiteOnly { int32 finiteOnly = 1; }
   message first { int32 first = 1; }
   message firstItem { int32 firstItem = 1; }
+  message firstNontrivialOffset { int32 firstNontrivialOffset = 1; }
   message firstNontrivialStorageOffset { int32 firstNontrivialStorageOffset = 1; }
   message fixed2ByteBase128 { int32 fixed2ByteBase128 = 1; }
   message fixed3ByteBase128 { int32 fixed3ByteBase128 = 1; }
@@ -565,7 +567,6 @@ message GeneratedSwiftReservedMessages {
   message isFieldNumberReserved { int32 isFieldNumberReserved = 1; }
   message isFieldRequired { int32 isFieldRequired = 1; }
   message isInitialized { int32 isInitialized = 1; }
-  message isMapEntry { int32 isMapEntry = 1; }
   message isMapField { int32 isMapField = 1; }
   message isNameReserved { int32 isNameReserved = 1; }
   message isNegative { int32 isNegative = 1; }

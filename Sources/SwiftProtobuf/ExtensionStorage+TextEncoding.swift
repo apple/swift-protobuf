@@ -17,7 +17,7 @@ import Foundation
 extension ExtensionStorage {
     /// Serializes the extension fields in the receiver to the given text format encoder.
     func serializeText(into encoder: inout TextFormatEncoder, options: TextFormatEncodingOptions) {
-        for (_, value) in values {
+        for (_, value) in values.sorted(by: { $0.key < $1.key }) {
             serializeExtensionValue(value, into: &encoder, options: options)
         }
     }

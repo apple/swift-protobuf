@@ -289,6 +289,7 @@ message GeneratedSwiftReservedEnums {
   enum extendedMessage { NONE_extendedMessage = 0; }
   enum ExtendedMessageResolver { NONE_ExtendedMessageResolver = 0; }
   enum extendee { NONE_extendee = 0; }
+  enum extensibilityMode { NONE_extensibilityMode = 0; }
   enum extension { NONE_extension = 0; }
   enum ExtensionMap { NONE_ExtensionMap = 0; }
   enum extensionRange { NONE_extensionRange = 0; }
@@ -322,6 +323,7 @@ message GeneratedSwiftReservedEnums {
   enum finiteOnly { NONE_finiteOnly = 0; }
   enum first { NONE_first = 0; }
   enum firstItem { NONE_firstItem = 0; }
+  enum firstNontrivialOffset { NONE_firstNontrivialOffset = 0; }
   enum firstNontrivialStorageOffset { NONE_firstNontrivialStorageOffset = 0; }
   enum fixed2ByteBase128 { NONE_fixed2ByteBase128 = 0; }
   enum fixed3ByteBase128 { NONE_fixed3ByteBase128 = 0; }
@@ -565,7 +567,6 @@ message GeneratedSwiftReservedEnums {
   enum isFieldNumberReserved { NONE_isFieldNumberReserved = 0; }
   enum isFieldRequired { NONE_isFieldRequired = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
-  enum isMapEntry { NONE_isMapEntry = 0; }
   enum isMapField { NONE_isMapField = 0; }
   enum isNameReserved { NONE_isNameReserved = 0; }
   enum isNegative { NONE_isNegative = 0; }

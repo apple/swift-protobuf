@@ -14386,9 +14386,9 @@ extension SwiftProtoTesting_Names_EnumFieldNames2 {
 extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".Foo"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
   #else
     #error("Unsupported platform")
   #endif
@@ -19430,9 +19430,9 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Ge
 extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtensionNamingInitials"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
   #else
     #error("Unsupported platform")
   #endif
@@ -19502,9 +19502,9 @@ extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtensionNamingInitialsLowers"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
   #else
     #error("Unsupported platform")
   #endif
@@ -19523,9 +19523,9 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.G
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtensionNamingInitialsUppers"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
   #else
     #error("Unsupported platform")
   #endif
@@ -19544,9 +19544,9 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.G
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
   #else
     #error("Unsupported platform")
   #endif

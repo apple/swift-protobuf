@@ -203,11 +203,18 @@ extension ExtensionStorage {
 
             case .message:
                 let messageSize = messageStorage(forAssumedPresentSingularMessageField: schema).serializedBytesSize()
-                return messageSize
-                    // Include the size of the length-delimited tag.
-                    + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    // Include the varint-encoded length.
-                    + Varint.encodedSize(of: UInt64(messageSize))
+                if schema.extendedMessage.extensibilityMode == .messageSet {
+                    return WireFormat.MessageSet.itemTagsEncodedSize
+                        + Varint.encodedSize(of: UInt64(fieldNumber))
+                        + Varint.encodedSize(of: UInt64(messageSize))
+                        + messageSize
+                } else {
+                    return messageSize
+                        // Include the size of the length-delimited tag.
+                        + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
+                        // Include the varint-encoded length.
+                        + Varint.encodedSize(of: UInt64(messageSize))
+                }
 
             case .sfixed32:
                 return fixedWidthSingularFieldSize(for: fieldNumber, as: Int32.self)

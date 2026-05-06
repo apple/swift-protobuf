@@ -21,7 +21,10 @@ import Foundation
 @_spi(ForGeneratedCodeOnly)
 public final class ExtensionStorage {
     /// The stored values of the extension fields.
-    @usableFromInline var values: [UInt32: ExtensionValueStorage] = [:]
+    ///
+    /// TODO: This only has package visibility to allow MessageSet tests to access the values.
+    /// When we have a true reflection API, use that instead and make this internal again.
+    @usableFromInline package var values: [UInt32: ExtensionValueStorage] = [:]
 
     deinit {
         for (_, value) in values {

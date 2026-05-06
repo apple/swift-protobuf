@@ -4096,9 +4096,9 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestAllExtensions"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.TestAllExtensions"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.TestAllExtensions"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.TestAllExtensions"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.TestAllExtensions"
   #else
     #error("Unsupported platform")
   #endif
@@ -4310,9 +4310,9 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.GeneratedMessage
 extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestFieldOrderings"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}&\0swift_proto_testing.TestFieldOrderings"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}&\0swift_proto_testing.TestFieldOrderings"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}&\0swift_proto_testing.TestFieldOrderings"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}&\0swift_proto_testing.TestFieldOrderings"
   #else
     #error("Unsupported platform")
   #endif
@@ -4511,9 +4511,9 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.GeneratedMessage {
 extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestPackedExtensions"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.TestPackedExtensions"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.TestPackedExtensions"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.TestPackedExtensions"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.TestPackedExtensions"
   #else
     #error("Unsupported platform")
   #endif
@@ -4532,9 +4532,9 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.GeneratedMessage
 extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".TestParsingMerge"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{3}\0\u{1}\0\u{b}\u{a}\0\0\0\0 \0\0\u{2}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}$\0swift_proto_testing.TestParsingMerge"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{3}\0\u{1}\0\u{b}\u{a}\0\0\0\0 \0\0\u{2}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}$\0swift_proto_testing.TestParsingMerge"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{1}\0\u{b}\u{a}\0\0\0\0\u{10}\0\0\u{2}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{3}\0\u{a}$\0swift_proto_testing.TestParsingMerge"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0 \u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{1}\0\u{b}\u{a}\0\0\0\0\u{10}\0\0\u{2}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}\u{14}\0\0\u{4}\0\u{3}\0\u{a}$\0swift_proto_testing.TestParsingMerge"
   #else
     #error("Unsupported platform")
   #endif

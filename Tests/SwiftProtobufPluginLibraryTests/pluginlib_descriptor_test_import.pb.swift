@@ -180,9 +180,9 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.GeneratedMessage {
 extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = _protobuf_package + ".ExtendableOne"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
   #else
     #error("Unsupported platform")
   #endif
@@ -208,9 +208,9 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessa
 extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.GeneratedMessage {
   static let protoMessageName: Swift.String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
   #else
     #error("Unsupported platform")
   #endif

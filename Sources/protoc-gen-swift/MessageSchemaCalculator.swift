@@ -13,6 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import SwiftProtobuf
+
 /// Iterates over the fields of a message to compute the encoded schema string that will be emitted
 /// into generated code.
 struct MessageSchemaCalculator {
@@ -41,7 +43,11 @@ struct MessageSchemaCalculator {
 
     /// Creates a new message schema calculator for a message containing the given fields and for
     /// a platform with the given pointer bit-width.
-    init(fullyQualifiedName: String, fieldsSortedByNumber: [any FieldGenerator], isMapEntry: Bool = false) {
+    init(
+        fullyQualifiedName: String,
+        fieldsSortedByNumber: [any FieldGenerator],
+        extensibilityMode: ExtensibilityMode = .nonextensible
+    ) {
         self.schemaWriters = .init(forAllTargets: .init())
 
         let fieldCount = fieldsSortedByNumber.count
@@ -146,7 +152,7 @@ struct MessageSchemaCalculator {
         schemaWriters.modify { writer, which in
             writer.writeBase128Int(0, byteWidth: 1)
             let messageSize = UInt64(byteOffsets[which])
-            let encodedSize = messageSize | (isMapEntry ? (1 << 20) : 0)
+            let encodedSize = messageSize | (UInt64(extensibilityMode.rawValue) << 14)
             writer.writeBase128Int(encodedSize, byteWidth: 3)
             writer.writeBase128Int(UInt64(fieldsSortedByNumber.count), byteWidth: 3)
             writer.writeBase128Int(UInt64(requiredCount), byteWidth: 3)
