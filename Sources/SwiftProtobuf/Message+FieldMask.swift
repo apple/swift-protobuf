@@ -13,45 +13,17 @@
 // -----------------------------------------------------------------------------
 
 // TODO: Re-implement these using a reflection API.
-/*
-import Foundation
 
-extension Message {
-
-    /// Checks whether the given path is valid for Message type.
-    ///
-    /// - Parameter path: Path to be checked
-    /// - Returns: Boolean determines path is valid.
-    public static func isPathValid(
-        _ path: String
-    ) -> Bool {
-        var message = Self()
-        return message.hasPath(path: path)
-    }
-
-    internal mutating func hasPath(path: String) -> Bool {
-        do {
-            try set(path: path, value: nil, mergeOption: .init())
-            return true
-        } catch let error as PathDecodingError {
-            return error != .pathNotFound
-        } catch {
-            return false
-        }
-    }
-
-    internal mutating func isPathValid(
-        _ path: String
-    ) -> Bool {
-        hasPath(path: path)
+extension GeneratedMessage {
+    /// Checks whether the given path is valid for this message type.
+    public static func isPathValid(_ path: String) -> Bool {
+        return messageSchema.isPathValid(path)
     }
 }
 
 extension Google_Protobuf_FieldMask {
-
     /// Defines available options for merging two messages.
     public struct MergeOptions {
-
         public init() {}
 
         /// The default merging behavior will append entries from the source
@@ -63,7 +35,6 @@ extension Google_Protobuf_FieldMask {
 }
 
 extension Message {
-
     /// Merges fields specified in a FieldMask into another message.
     ///
     /// - Parameters:
@@ -74,25 +45,8 @@ extension Message {
         fieldMask: Google_Protobuf_FieldMask,
         mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
     ) throws {
-        // TODO: Re-enable this based on a reflection API.
-    
-        // var visitor = PathVisitor<Self>()
-        // try source.traverse(visitor: &visitor)
-        // let values = visitor.values
-        // // TODO: setting all values with only one decoding
-        // for path in fieldMask.paths {
-        //     try? set(
-        //         path: path,
-        //         value: values[path],
-        //         mergeOption: mergeOption
-        //     )
-        // }
+        try storageForRuntime.merge(from: source.storageForRuntime, fieldMask: fieldMask, mergeOptions: mergeOption)
     }
-}
-
-extension Message where Self: Equatable, Self: _ProtoNameProviding {
-
-    // TODO: Re-implement using clear fields instead of copying message
 
     /// Removes from 'message' any field that is not represented in the given
     /// FieldMask. If the FieldMask is empty, does nothing.
@@ -100,41 +54,11 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
     /// - Parameter fieldMask: FieldMask specifies which fields should be kept.
     /// - Returns: Boolean determines if the message is modified
     @discardableResult
-    public mutating func trim(
-        keeping fieldMask: Google_Protobuf_FieldMask
-    ) -> Bool {
-        if !fieldMask.isValid(for: Self.self) {
+    public mutating func trim(keeping fieldMask: Google_Protobuf_FieldMask) -> Bool {
+        let allPathsAreValid = fieldMask.paths.allSatisfy { messageSchema.isPathValid($0) }
+        guard allPathsAreValid, !fieldMask.paths.isEmpty else {
             return false
         }
-        if fieldMask.paths.isEmpty {
-            return false
-        }
-        var tmp = Self(removingAllFieldsOf: self)
-        do {
-            try tmp.merge(from: self, fieldMask: fieldMask)
-            let changed = tmp != self
-            self = tmp
-            return changed
-        } catch {
-            return false
-        }
+        return storageForRuntime.trim(keeping: fieldMask)
     }
 }
-
-extension Message {
-    fileprivate init(removingAllFieldsOf message: Self) {
-        let newMessage: Self = .init()
-        // TODO: Make sure we do the right thing here for extensions.
-
-        // if var newExtensible = newMessage as? any ExtensibleMessage,
-        //     let extensible = message as? any ExtensibleMessage
-        // {
-        //     newExtensible._protobuf_extensionFieldValues = extensible._protobuf_extensionFieldValues
-        //     self = newExtensible as? Self ?? newMessage
-        // } else {
-            self = newMessage
-        // }
-        self.unknownFields = message.unknownFields
-    }
-}
-*/
