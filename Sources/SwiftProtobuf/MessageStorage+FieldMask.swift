@@ -82,26 +82,26 @@ extension MessageStorage {
 
     /// Removes from this storage any field that is not represented in the given field mask.
     @discardableResult
-    func trim(keeping fieldMask: Google_Protobuf_FieldMask) -> Bool {
+    func trim(keeping fieldMask: Google_Protobuf_FieldMask, prefix: String = "") -> Bool {
         var changed = false
         
         for field in schema.fields {
             guard let name = schema.textName(forFieldNumber: field.fieldNumber) else {
                 continue
             }
-            let path = String(decoding: name.buffer, as: UTF8.self)
-            if fieldMask.contains(path) {
+            let subPath = String(protobufUTF8Name: name)
+            let fullPath = prefix.isEmpty ? subPath : "\(prefix).\(subPath)"
+            if fieldMask.contains(fullPath) {
                 continue
             }
             
             // Check if the current field is a prefix of any path in the mask.
-            let isPrefix = fieldMask.paths.contains { $0.hasPrefix("\(path).") }
+            let isPrefix = fieldMask.paths.contains { $0.hasPrefix("\(fullPath).") }
             if isPrefix {
                 if field.rawFieldType == .message || field.rawFieldType == .group {
                     if isPresent(field) {
                         let subStorage = messageStorage(forAssumedPresentSingularMessageField: field)
-                        let subMask = removingPrefix(path, from: fieldMask)
-                        if subStorage.trim(keeping: subMask) {
+                        if subStorage.trim(keeping: fieldMask, prefix: fullPath) {
                             changed = true
                         }
                     }
