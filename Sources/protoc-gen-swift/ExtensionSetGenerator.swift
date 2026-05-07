@@ -65,7 +65,12 @@ class ExtensionSetGenerator {
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
             let visibility = generatorOptions.visibilitySourceSnippet
-            let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
+            let isFileScope = fieldDescriptor.extensionScope == nil
+            let scope = isFileScope ? "" : "static "
+            // File-scope extension declarations are emitted as top-level `let`s,
+            // so they need `nonisolated` directly. When nested in an extension
+            // block, the surrounding `nonisolated extension` already covers them.
+            let nonisolated = isFileScope ? "nonisolated " : ""
             let traitsType = fieldDescriptor.traitsType(namer: namer)
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
@@ -80,7 +85,7 @@ class ExtensionSetGenerator {
             }
 
             p.print(
-                "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>("
+                "\(comments)\(visibility)\(nonisolated)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>("
             )
             p.printIndented(
                 "_protobuf_fieldNumber: \(fieldDescriptor.number),",
@@ -203,7 +208,7 @@ class ExtensionSetGenerator {
                 currentType = e.containingTypeSwiftFullName
                 p.print(
                     "",
-                    "extension \(currentType) {"
+                    "nonisolated extension \(currentType) {"
                 )
                 p.indent()
             }
@@ -231,7 +236,7 @@ class ExtensionSetGenerator {
             /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
             /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
             /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-            \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
+            \(generatorOptions.visibilitySourceSnippet)nonisolated let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
             """
         )
         p.withIndentation { p in
@@ -272,7 +277,7 @@ class ExtensionSetGenerator {
                 let scopeSwiftFullName = namer.fullName(message: currentScope!)
                 p.print(
                     "",
-                    "extension \(scopeSwiftFullName) {"
+                    "nonisolated extension \(scopeSwiftFullName) {"
                 )
                 p.indent()
                 p.print("\(visibility)enum Extensions {")

@@ -9,10 +9,8 @@ xcbaselines
 /docs
 /build
 mined_words.txt
-/CompileTests/MultiModule/.build
-/CompileTests/MultiModule/.swiftpm
-/CompileTests/InternalImportsByDefault/.build
-/CompileTests/InternalImportsByDefault/.swiftpm
+**/.build
+**/.swiftpm
 /*DescriptorTestData.bin
 /Package.resolved
 /PluginLibEditionDefaults.bin
@@ -22,6 +20,3 @@ mined_words.txt
 failing_tests.txt
 nonexistent_tests.txt
 succeeding_tests.txt
-
-PluginExamples/.build
-PluginExamples/.swiftpm/

@@ -211,7 +211,8 @@ class OneofGenerator {
 
     func generateMainEnum(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
-        let enumDecl = "\(visibility)enum \(swiftRelativeName): Equatable, Sendable {"
+        let enumDecl =
+            "\(visibility)nonisolated enum \(swiftRelativeName): Equatable, Sendable {"
 
         // Repeat the comment from the oneof to provide some context
         // to this enum we generated.

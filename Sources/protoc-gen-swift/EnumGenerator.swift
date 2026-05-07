@@ -59,7 +59,7 @@ class EnumGenerator {
         let visibility = generatorOptions.visibilitySourceSnippet
         let comments = enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
         let enumDecl =
-            "\(visibility)enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(visibility)nonisolated enum \(swiftRelativeName): \(enumDescriptor.isClosed ? "Int, " : "")\(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
 
         if generatorOptions.enumGeneration != .none && !enumDescriptor.isClosed {
             let annotation = generatorOptions.enumAnnotation
@@ -127,7 +127,7 @@ class EnumGenerator {
     func generateRuntimeSupport(printer p: inout CodePrinter) {
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
+            "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
         )
         p.withIndentation { p in
             generateProtoNameProviding(printer: &p)
