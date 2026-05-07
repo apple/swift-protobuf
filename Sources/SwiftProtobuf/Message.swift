@@ -85,6 +85,10 @@ public protocol Message: Sendable, Equatable, Hashable, CustomDebugStringConvert
 }
 
 extension Message {
+    public static var protoMessageName: String {
+        fatalError("protoMessageName is only supported on GeneratedMessage")
+    }
+
     public func isEqualTo(message: any Message) -> Bool {
         guard let other = message as? Self else {
             return false

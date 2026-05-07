@@ -218,17 +218,6 @@ class MessageGenerator {
             "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
         )
         p.withIndentation { p in
-            if let parent = parent {
-                p.print(
-                    "\(visibility)static let protoMessageName: Swift.String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
-                )
-            } else if !descriptor.file.package.isEmpty {
-                p.print(
-                    "\(visibility)static let protoMessageName: Swift.String = _protobuf_package + \".\(descriptor.name)\""
-                )
-            } else {
-                p.print("\(visibility)static let protoMessageName: Swift.String = \"\(descriptor.name)\"")
-            }
             generateMessageSchema(printer: &p)
             p.print(
                 "",
