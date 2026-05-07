@@ -330,11 +330,7 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
             guard let protocTarget = package.targets.first(where: { $0.name == "protoc" }) else {
                 return nil
             }
-            #if compiler(>=6.1)
             let candidate = protocTarget.directoryURL.appending(path: "include")
-            #else
-            let candidate = URL(fileURLWithPath: "\(protocTarget.directory)").appending(path: "include")
-            #endif
             if FileManager.default.fileExists(
                 atPath: candidate.appending(path: "google/protobuf/timestamp.proto").fileSystemPath
             ) {
