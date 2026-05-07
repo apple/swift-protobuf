@@ -94,7 +94,7 @@ internal struct BinaryEncoder {
     }
 
     mutating func putZigZagVarInt(value: Int64) {
-        let coded = ZigZag.encoded(value)
+        let coded = UInt64(zigZagEncoded: value)
         putVarInt(value: coded)
     }
 
@@ -231,14 +231,14 @@ extension BinaryEncoder {
     @inline(__always)
     mutating func serializeSInt32Field(_ value: Int32, for fieldNumber: Int) {
         startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: UInt64(ZigZag.encoded(value)))
+        putVarInt(value: UInt64(UInt32(zigZagEncoded: value)))
     }
 
     /// Serializes the field tag and value for a singular or unpacked `sint64` field.
     @inline(__always)
     mutating func serializeSInt64Field(_ value: Int64, for fieldNumber: Int) {
         startField(fieldNumber: fieldNumber, wireFormat: .varint)
-        putVarInt(value: ZigZag.encoded(value))
+        putVarInt(value: UInt64(zigZagEncoded: value))
     }
 
     /// Serializes the field tag and value for a singular `string` field.

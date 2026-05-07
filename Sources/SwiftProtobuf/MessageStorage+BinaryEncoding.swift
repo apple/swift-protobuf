@@ -232,9 +232,9 @@ extension MessageStorage {
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
                 if isPacked {
                     encoder.serializePackedVarintsField(values, for: fieldNumber) {
-                        $1.putVarInt(value: ZigZag.encoded(Int64($0)))
+                        $1.putVarInt(value: UInt64(zigZagEncoded: Int64($0)))
                     } lengthOfElement: {
-                        Varint.encodedSize(of: ZigZag.encoded(Int64($0)))
+                        Varint.encodedSize(of: UInt64(zigZagEncoded: Int64($0)))
                     }
                 } else {
                     for value in values {
@@ -246,9 +246,9 @@ extension MessageStorage {
                 let values = assumedPresentValue(at: offset, as: [Int64].self)
                 if isPacked {
                     encoder.serializePackedVarintsField(values, for: fieldNumber) {
-                        $1.putVarInt(value: ZigZag.encoded($0))
+                        $1.putVarInt(value: UInt64(zigZagEncoded: $0))
                     } lengthOfElement: {
-                        Varint.encodedSize(of: ZigZag.encoded($0))
+                        Varint.encodedSize(of: UInt64(zigZagEncoded: $0))
                     }
                 } else {
                     for value in values {

@@ -146,12 +146,12 @@ extension ExtensionStorage {
                 return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
                     // If the number on the wire is larger than fits into an `Int32`, this is not an
                     // error; we truncate it.
-                    ZigZag.decoded(UInt32(truncatingIfNeeded: try $0.nextVarint()))
+                    Int32(zigZagDecoded: UInt32(truncatingIfNeeded: try $0.nextVarint()))
                 }
 
             case .sint64:
                 return try appendMaybePackedValues(from: &reader, to: schema, tag: tag, unpackedWireFormat: .varint) {
-                    ZigZag.decoded(try $0.nextVarint())
+                    Int64(zigZagDecoded: try $0.nextVarint())
                 }
 
             case .string:
@@ -261,11 +261,11 @@ extension ExtensionStorage {
                 guard tag.wireFormat == .varint else { return false }
                 // If the number on the wire is larger than fits into an `Int32`, this is not an
                 // error; we truncate it.
-                updateValue(of: schema, to: ZigZag.decoded(UInt32(truncatingIfNeeded: try reader.nextVarint())))
+                updateValue(of: schema, to: Int32(zigZagDecoded: UInt32(truncatingIfNeeded: try reader.nextVarint())))
 
             case .sint64:
                 guard tag.wireFormat == .varint else { return false }
-                updateValue(of: schema, to: ZigZag.decoded(try reader.nextVarint()))
+                updateValue(of: schema, to: Int64(zigZagDecoded: try reader.nextVarint()))
 
             case .string:
                 guard tag.wireFormat == .lengthDelimited else { return false }
