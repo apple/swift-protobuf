@@ -80,24 +80,14 @@ struct ProtobufTestMessages_Editions_ComplexMessage: @unchecked Swift.Sendable {
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.Sendable {
@@ -744,14 +734,6 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
   mutating func clearDelimitedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(752, 460), type: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType.self, hasBit: (2, 128)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage)
@@ -831,24 +813,14 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
     mutating func clearCorecursive() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_Editions_TestAllTypesEdition2023.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   /// groups
@@ -875,36 +847,24 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
     /// Clears the value of `groupUint32`. Subsequent reads from it will return its default value.
     mutating func clearGroupUint32() { _uniqueStorage().clearValue(at: 8, type: UInt32.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: @unchecked Swift.Sendable {
@@ -921,24 +881,14 @@ struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: @unchecked Swift
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct ProtobufTestMessages_Editions_GroupLikeType: @unchecked Swift.Sendable {
@@ -955,24 +905,14 @@ struct ProtobufTestMessages_Editions_GroupLikeType: @unchecked Swift.Sendable {
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in test_messages_edition2023.proto.
@@ -1062,7 +1002,6 @@ extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
 }
 
 extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ComplexMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
   #elseif _pointerBitWidth(_32)
@@ -1079,7 +1018,6 @@ extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedM
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesEdition2023"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{6} e\0\0\0\0\0\u{18}\0\0\u{10}\0\0(\u{1}\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\u{6}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\u{10}\u{6}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0(\u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\00\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0 \u{6}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\00\u{6}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\08\u{1}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}@\u{1}\0\u{18}\0\0\0\u{5} \0\0\0\u{a}H\u{1}\0\u{19}\0\0\0\u{3}!\0\0\0\u{a}P\u{1}\0\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}X\u{1}\0\u{1b}\0\0\0\u{4}#\0\0\0\u{a}`\u{1}\0\u{1c}\0\0\0\u{11}$\0\0\0\u{a}h\u{1}\0\u{1d}\0\0\0\u{12}%\0\0\0\u{a}p\u{1}\0\u{1e}\0\0\0\u{7}&\0\0\0\u{a}x\u{1}\0\u{1f}\0\0\0\u{6}'\0\0\0\u{a}\0\u{2}\0 \0\0\0\u{f}(\0\0\0\u{a}\u{8}\u{2}\0!\0\0\0\u{10})\0\0\0\u{a}\u{10}\u{2}\0\"\0\0\0\u{2}*\0\0\0\u{a}\u{18}\u{2}\0#\0\0\0\u{1}+\0\0\0\u{a} \u{2}\0$\0\0\0\u{8},\0\0\0\u{2}(\u{2}\0%\0\0\0\u{9}-\0\0\0\u{2}0\u{2}\0&\0\0\0\u{c}0\0\0\0\u{2}8\u{2}\0'\0\u{3}\0\u{b}1\0\0\0\u{2}@\u{2}\0(\0\u{4}\0\u{b}3\0\0\0\u{a}H\u{2}\0)\0\u{1}\0\u{e}4\0\0\0\u{a}P\u{2}\0*\0\u{2}\0\u{e}6\0\0\0\u{2}X\u{2}\0+\0\0\0\u{9}7\0\0\0\u{2}`\u{2}\0,\0\0\0\u{9}8\0\0\0\u{4}h\u{2}\0-\0\u{6}\0\u{b}9\0\0\0\u{4}p\u{2}\0.\0\u{7}\0\u{b}:\0\0\0\u{4}x\u{2}\0/\0\u{8}\0\u{b};\0\0\0\u{4}\0\u{3}\00\0\u{9}\0\u{b}<\0\0\0\u{4}\u{8}\u{3}\01\0\u{a}\0\u{b}=\0\0\0\u{4}\u{10}\u{3}\02\0\u{b}\0\u{b}>\0\0\0\u{4}\u{18}\u{3}\03\0\u{c}\0\u{b}?\0\0\0\u{4} \u{3}\04\0\u{d}\0\u{b}@\0\0\0\u{4}(\u{3}\05\0\u{e}\0\u{b}A\0\0\0\u{4}0\u{3}\06\0\u{f}\0\u{b}B\0\0\0\u{4}8\u{3}\07\0\u{10}\0\u{b}C\0\0\0\u{4}@\u{3}\08\0\u{11}\0\u{b}D\0\0\0\u{4}H\u{3}\09\0\u{12}\0\u{b}E\0\0\0\u{4}P\u{3}\0:\0\u{13}\0\u{b}F\0\0\0\u{4}X\u{3}\0;\0\u{14}\0\u{b}G\0\0\0\u{4}`\u{3}\0<\0\u{15}\0\u{b}H\0\0\0\u{4}h\u{3}\0=\0\u{16}\0\u{b}I\0\0\0\u{4}p\u{3}\0>\0\u{17}\0\u{b}J\0\0\0\u{4}x\u{3}\0?\0\u{18}\0\u{b}K\0\0\0\u{a}\0\u{4}\0@\0\0\0\u{5}L\0\0\0\u{a}\u{8}\u{4}\0A\0\0\0\u{3}M\0\0\0\u{a}\u{10}\u{4}\0B\0\0\0\u{d}N\0\0\0\u{a}\u{18}\u{4}\0C\0\0\0\u{4}O\0\0\0\u{a} \u{4}\0D\0\0\0\u{11}P\0\0\0\u{a}(\u{4}\0E\0\0\0\u{12}Q\0\0\0\u{a}0\u{4}\0F\0\0\0\u{7}R\0\0\0\u{a}8\u{4}\0G\0\0\0\u{6}S\0\0\0\u{a}@\u{4}\0H\0\0\0\u{f}T\0\0\0\u{a}H\u{4}\0I\0\0\0\u{10}U\0\0\0\u{a}P\u{4}\0J\0\0\0\u{2}V\0\0\0\u{a}X\u{4}\0K\0\0\0\u{1}W\0\0\0\u{a}`\u{4}\0L\0\0\0\u{8}X\0\0\0\u{a}h\u{4}\0M\0\u{1}\0\u{e}Y\0\0\0\u{2}p\u{4}\0N\0\0\0\u{5}Z\0\0\0\u{2}x\u{4}\0O\0\0\0\u{3}[\0\0\0\u{2}\0\u{5}\0P\0\0\0\u{d}\\\0\0\0\u{2}\u{8}\u{5}\0Q\0\0\0\u{4}]\0\0\0\u{2}\u{10}\u{5}\0R\0\0\0\u{11}^\0\0\0\u{2}\u{18}\u{5}\0S\0\0\0\u{12}_\0\0\0\u{2} \u{5}\0T\0\0\0\u{7}`\0\0\0\u{2}(\u{5}\0U\0\0\0\u{6}a\0\0\0\u{2}0\u{5}\0V\0\0\0\u{f}b\0\0\0\u{2}8\u{5}\0W\0\0\0\u{10}c\0\0\0\u{2}@\u{5}\0X\0\0\0\u{2}d\0\0\0\u{2}H\u{5}\0Y\0\0\0\u{1}e\0\0\0\u{2}P\u{5}\0Z\0\0\0\u{8}f\0\0\0\u{2}X\u{5}\0[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0`\u{5}\0o\u{7f}\u{3}\0\u{b}q\0\0\0\0@\u{6}\0o\u{7f}\0\0\u{9}r\0\0\0\0P\u{6}\0o\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0h\u{5}\0\u{16}\0\u{19}\0\u{a}J\u{1}\0\0\0p\u{5}\0\u{17}\0\u{19}\0\u{a}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
   #elseif _pointerBitWidth(_32)
@@ -1091,7 +1029,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.G
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum.enumSchema)
     case 2: return .enum(ProtobufTestMessages_Editions_ForeignEnumEdition2023.enumSchema)
@@ -1118,7 +1056,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.G
     case 23: return .message(_protobuf_mapEntrySchema_MapStringNestedEnumEntry)
     case 24: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
     case 25: return .message(ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)
@@ -1289,7 +1227,6 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
   #elseif _pointerBitWidth(_32)
@@ -1301,10 +1238,10 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -1317,7 +1254,6 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".GroupLikeType"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
   #elseif _pointerBitWidth(_32)
@@ -1334,7 +1270,6 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: S
 }
 
 extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessageEdition2023"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
   #elseif _pointerBitWidth(_32)
@@ -1351,7 +1286,6 @@ extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf
 }
 
 extension ProtobufTestMessages_Editions_GroupLikeType: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeType"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
   #elseif _pointerBitWidth(_32)

@@ -80,24 +80,14 @@ struct ProtobufTestMessages_EditionUnstable_ComplexMessage: @unchecked Swift.Sen
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: @unchecked Swift.Sendable {
@@ -204,24 +194,14 @@ struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: @unchec
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: @unchecked Swift.Sendable {
@@ -238,24 +218,14 @@ struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: @unch
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in test_messages_edition_unstable.proto.
@@ -311,7 +281,6 @@ extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
 }
 
 extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ComplexMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
   #elseif _pointerBitWidth(_32)
@@ -328,7 +297,6 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Gen
 }
 
 extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypesEditionUnstable"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1} \u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\u{3}\0\u{b}\u{5}\0\0\0\u{a} \0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\u{2}(\0\0\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}0\0\0\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4}8\0\0\u{8}\0\u{4}\0\u{b}\u{9}\0\0\0\u{4}@\0\0\u{9}\0\u{5}\0\u{b}\u{a}\0\0\0\u{4}H\0\0\u{a}\0\u{6}\0\u{b}\u{b}\0\0\0\u{4}P\0\0\u{b}\0\u{7}\0\u{b}\u{c}\0\0\0\u{4}X\0\0\u{c}\0\u{8}\0\u{b}\u{d}\0\0\0\0p\0\0\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}`\0\0\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}h\0\0\u{e}\0\u{9}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
   #elseif _pointerBitWidth(_32)
@@ -340,7 +308,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable.enumSchema)
     case 2: return .message(ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable.messageSchema)
@@ -351,7 +319,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
     case 7: return .message(_protobuf_mapEntrySchema_MapStringForeignMessageEntry)
     case 8: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
     case 9: return .message(_protobuf_mapEntrySchema_MapStringBytesEntry)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)
@@ -412,7 +380,6 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 }
 
 extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessageEditionUnstable"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
   #elseif _pointerBitWidth(_32)

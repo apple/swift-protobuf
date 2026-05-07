@@ -167,24 +167,14 @@ struct Conformance_TestStatus: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// The conformance runner will request a list of failures as the first request.
@@ -200,24 +190,14 @@ struct Conformance_FailureSet: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Represents a single test case's input.  The testee should:
@@ -320,14 +300,6 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 20, to: newValue, willBeSet: newValue != false, hasBit: (0, 16)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
@@ -339,16 +311,14 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
     case textPayload(String)
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Represents a single test case's output.
@@ -460,14 +430,6 @@ struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(160, 132), to: newValue, oneofPresence: (4, 8)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_Result: Swift.Equatable, Swift.Sendable {
     /// This string should be set to indicate parsing failed.  The string can
     /// provide more information about the parse error if it is available.
@@ -505,16 +467,14 @@ struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
     case textPayload(String)
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Encoding options for jspb format.
@@ -529,24 +489,14 @@ struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 1, to: newValue, willBeSet: newValue != false, hasBit: (0, 1)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -566,7 +516,6 @@ extension Conformance_TestCategory {
 }
 
 extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestStatus"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\00\0\0\u{2}\0\0\0\u{9}\u{16}\0conformance.TestStatus"
   #elseif _pointerBitWidth(_32)
@@ -583,7 +532,6 @@ extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".FailureSet"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{2}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0conformance.FailureSet"
   #elseif _pointerBitWidth(_32)
@@ -595,10 +543,10 @@ extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(Conformance_TestStatus.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -607,7 +555,6 @@ extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ConformanceRequest"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1}\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0 \0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0P\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest"
   #elseif _pointerBitWidth(_32)
@@ -619,12 +566,12 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(Conformance_WireFormat.enumSchema)
     case 2: return .enum(Conformance_TestCategory.enumSchema)
     case 3: return .message(Conformance_JspbEncodingConfig.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -633,7 +580,6 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ConformanceResponse"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\u{1}\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\00\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0P\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\0\u{1}\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0 \u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\00\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse"
   #elseif _pointerBitWidth(_32)
@@ -650,7 +596,6 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_JspbEncodingConfig: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".JspbEncodingConfig"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{1e}\0conformance.JspbEncodingConfig"
   #elseif _pointerBitWidth(_32)
