@@ -2,6 +2,7 @@ import CustomProtoPath
 import Import
 import Nested
 import Simple
+import UsesWKTs
 import XCTest
 
 final class ExampleTests: XCTestCase {
@@ -27,5 +28,14 @@ final class ExampleTests: XCTestCase {
         }
         XCTAssertEqual(main.bar.name, "Bar")
         XCTAssertEqual(main.foo.bar.name, "BarInFoo")
+    }
+
+    func testUsesWKTs() {
+        let usesWKTs = UsesWKTs.with {
+            $0.name = "UsesWKTs"
+            $0.aTimestamp.seconds = 2
+        }
+        XCTAssertEqual(usesWKTs.name, "UsesWKTs")
+        XCTAssertEqual(usesWKTs.aTimestamp.seconds, 2)
     }
 }

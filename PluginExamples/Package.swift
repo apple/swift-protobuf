@@ -56,6 +56,15 @@ let package = Package(
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
             ]
         ),
+        .target(
+            name: "UsesWKTs",
+            dependencies: [
+                .product(name: "SwiftProtobuf", package: "swift-protobuf")
+            ],
+            plugins: [
+                .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
+            ]
+        ),
         .testTarget(
             name: "ExampleTests",
             dependencies: [
@@ -64,6 +73,7 @@ let package = Package(
                 .target(name: "Import"),
                 .target(name: "AccessLevelOnImport"),
                 .target(name: "CustomProtoPath"),
+                .target(name: "UsesWKTs"),
             ]
         ),
     ],
