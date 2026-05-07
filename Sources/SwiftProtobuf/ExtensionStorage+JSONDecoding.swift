@@ -216,13 +216,12 @@ extension ExtensionStorage {
         }
     }
 
-    /// Scans the enum value of the given extension from the reader (handling both name and numeric
-    /// cases), performing the given operation on its raw value (either mutate or append).
+    /// Scans and returns the enum value of the given extension from the reader (handling both name
+    /// and numeric cases).
     ///
     /// - Parameters:
     ///   - schema: The ``ExtensionSchema`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
-    ///   - operation: The trampoline operation to perform on the enum's raw value.
     private func scanEnumValue(
         _ schema: ExtensionSchema,
         from reader: inout JSONReader,

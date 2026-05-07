@@ -26,7 +26,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be a message, group, or map field.
     func messageSchema(for field: FieldSchema) -> MessageSchema {
-        let resolution = schema.submessageOrEnumResolver(MessageSchema.TrampolineToken(index: field.submessageIndex))
+        let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
         guard case .message(let subSchema) = resolution else {
             preconditionFailure("Field should have a message schema; this is a generator bug")
         }
@@ -37,7 +37,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be an enum field.
     func enumSchema(for field: FieldSchema) -> EnumSchema {
-        let resolution = schema.submessageOrEnumResolver(MessageSchema.TrampolineToken(index: field.submessageIndex))
+        let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
         guard case .enum(let enumSchema) = resolution else {
             preconditionFailure("Field should have an enum schema; this is a generator bug")
         }

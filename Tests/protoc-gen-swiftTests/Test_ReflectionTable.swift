@@ -17,7 +17,7 @@ class DummyFieldGenerator: FieldGenerator {
     var isRequired: Bool { false }
     var hasPresence: Bool { false }
     var rawFieldType: RawFieldType { .bool }
-    var trampolineFieldKind: TrampolineFieldKind? { nil }
+    var submessageOrEnumReference: SubmessageOrEnumReference? { nil }
     var fieldMode: FieldMode { .init(rawValue: 0) }
     var storageKind: FieldStorageKind { .oneByteScalar }
     var oneofIndex: Int? { nil }

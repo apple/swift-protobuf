@@ -19,8 +19,8 @@ import Foundation
 public struct MessageSchema: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
-    // immortal compile-time constant and we only read from it, and because the trampoline functions
-    // do not capture mutable state.
+    // immortal compile-time constant and we only read from it, and because the resolver/witness
+    // functions do not capture mutable state.
 
     /// The encoded schema of the fields of the message.
     ///
@@ -79,7 +79,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// ```
     /// +---------------------+-----------+-----------+------------------+------------+
     /// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
-    /// | Field number & mode | Offset    | Presence  | Trampoline index | Field type |
+    /// | Field number & mode | Offset    | Presence  | Submessage index | Field type |
     /// +---------------------+-----------+-----------+------------------+------------+
     /// ```
     ///
@@ -120,7 +120,7 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias InvokeWitnessFunction = (MessageWitnessOperation) -> Void
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageOrEnumResolver = (TrampolineToken) -> SubmessageOrEnumSchema
+    public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema
 
     let invokeWitness: InvokeWitnessFunction
 
@@ -477,14 +477,12 @@ extension MessageSchema {
     }
 }
 
-extension MessageSchema {
-    /// An opaque token that is used to ask a message for the metatype of one of its submessage
-    /// or enum fields.
-    @_spi(ForGeneratedCodeOnly)
-    public struct TrampolineToken: Sendable, Equatable {
-        /// The index that identifies the submessage or enum type being requested.
-        public let index: Int
-    }
+/// An opaque token that is used to ask a message for the metatype of one of its submessage
+/// or enum fields.
+@_spi(ForGeneratedCodeOnly)
+public struct SubmessageOrEnumToken: Sendable, Equatable {
+    /// The index that identifies the submessage or enum type being requested.
+    public let index: Int
 }
 
 /// Represents either a message or enum schema returned by the resolver for a message.

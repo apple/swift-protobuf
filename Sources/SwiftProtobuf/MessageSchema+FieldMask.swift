@@ -36,7 +36,7 @@ extension MessageSchema {
             else {
                 return false
             }
-            let token = MessageSchema.TrampolineToken(index: field.submessageIndex)
+            let token = SubmessageOrEnumToken(index: field.submessageIndex)
             guard case .message(let nextSchema) = currentSchema.submessageOrEnumResolver(token) else {
                 return false
             }

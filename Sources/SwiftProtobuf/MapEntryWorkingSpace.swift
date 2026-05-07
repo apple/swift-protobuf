@@ -37,11 +37,11 @@ struct MapEntryWorkingSpace {
         self.entryStorage = [:]
     }
 
-    /// Returns the `MessageStorage` used to encode/decode map entries with the given trampoline
+    /// Returns the `MessageStorage` used to encode/decode map entries with the given submessage/enum
     /// index, creating it if necessary.
-    mutating func storage(for trampolineIndex: Int) -> MessageStorage {
+    mutating func storage(for submessageOrEnumIndex: Int) -> MessageStorage {
         // TODO: Sample this and see if it's a hot enough path that we should add the cache back.
-        let token = MessageSchema.TrampolineToken(index: trampolineIndex)
+        let token = SubmessageOrEnumToken(index: submessageOrEnumIndex)
         guard case .message(let mapEntrySchema) = ownerSchema.submessageOrEnumResolver(token) else {
             preconditionFailure("map entry should have resolved to a message schema; this is a generator bug")
         }
