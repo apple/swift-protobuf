@@ -26,7 +26,9 @@ public struct BinaryEncodingOptions: Sendable {
     /// If deterministic serialization is requested, map entries will be sorted
     /// by keys in lexicographical order. This is an implementation detail
     /// and subject to change.
-    public var useDeterministicOrdering: Bool = false
+    public var useDeterministicOrdering: Bool
 
-    public init() {}
+    public init() {
+        self.useDeterministicOrdering = false
+    }
 }

@@ -19,21 +19,25 @@ public struct TextFormatDecodingOptions: Sendable {
     /// To prevent corrupt or malicious messages from causing stack overflows,
     /// this controls how deep messages can be nested within other messages
     /// while parsing.
-    public var messageDepthLimit: Int = 100
+    public var messageDepthLimit: Int
 
     /// If unknown fields in the TextFormat should be ignored. If they aren't
     /// ignored, an error will be raised if one is encountered.
     ///
     /// Note: This is a lossy option, enabling it means part of the TextFormat
     /// is silently skipped.
-    public var ignoreUnknownFields: Bool = false
+    public var ignoreUnknownFields: Bool
 
     /// If unknown extension fields in the TextFormat should be ignored. If they
     /// aren't ignored, an error will be raised if one is encountered.
     ///
     /// Note: This is a lossy option, enabling it means part of the TextFormat
     /// is silently skipped.
-    public var ignoreUnknownExtensionFields: Bool = false
+    public var ignoreUnknownExtensionFields: Bool
 
-    public init() {}
+    public init() {
+        self.messageDepthLimit = 100
+        self.ignoreUnknownFields = false
+        self.ignoreUnknownExtensionFields = false
+    }
 }

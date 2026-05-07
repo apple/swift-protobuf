@@ -24,7 +24,11 @@ public final class ExtensionStorage {
     ///
     /// TODO: This only has package visibility to allow MessageSet tests to access the values.
     /// When we have a true reflection API, use that instead and make this internal again.
-    @usableFromInline package var values: [UInt32: ExtensionValueStorage] = [:]
+    @usableFromInline package var values: [UInt32: ExtensionValueStorage]
+
+    init() {
+        self.values = [:]
+    }
 
     deinit {
         for (_, value) in values {

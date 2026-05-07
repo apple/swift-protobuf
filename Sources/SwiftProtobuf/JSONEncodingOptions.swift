@@ -18,14 +18,14 @@ public struct JSONEncodingOptions: Sendable {
     /// Always prints int64s values as numbers.
     /// By default, they are printed as strings as per proto3 JSON mapping rules.
     /// NB: When used as Map keys, int64s will be printed as strings as expected.
-    public var alwaysPrintInt64sAsNumbers: Bool = false
+    public var alwaysPrintInt64sAsNumbers: Bool
 
     /// Always print enums as ints. By default they are printed as strings.
-    public var alwaysPrintEnumsAsInts: Bool = false
+    public var alwaysPrintEnumsAsInts: Bool
 
     /// Whether to preserve proto field names.
     /// By default they are converted to JSON(lowerCamelCase) names.
-    public var preserveProtoFieldNames: Bool = false
+    public var preserveProtoFieldNames: Bool
 
     /// Whether to use deterministic ordering when serializing.
     ///
@@ -39,7 +39,7 @@ public struct JSONEncodingOptions: Sendable {
     /// If deterministic serialization is requested, map entries will be sorted
     /// by keys in lexicographical order. This is an implementation detail
     /// and subject to change.
-    public var useDeterministicOrdering: Bool = false
+    public var useDeterministicOrdering: Bool
 
     /// The extension map to use when encoding messages that have been packed in a
     /// `google.protobuf.Any` message.
@@ -49,7 +49,13 @@ public struct JSONEncodingOptions: Sendable {
     /// parsing that packed message data in order to re-encode it, because unlike
     /// regular messages where the information about stored extensions is already
     /// in memory, parsing the binary data requires the extension map.
-    public var extensions: ExtensionMap?
+    public var extensions: Optional<ExtensionMap>
 
-    public init() {}
+    public init() {
+        self.alwaysPrintInt64sAsNumbers = false
+        self.alwaysPrintEnumsAsInts = false
+        self.preserveProtoFieldNames = false
+        self.useDeterministicOrdering = false
+        self.extensions = nil
+    }
 }

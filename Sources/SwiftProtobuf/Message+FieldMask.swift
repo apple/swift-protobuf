@@ -24,13 +24,15 @@ extension GeneratedMessage {
 extension Google_Protobuf_FieldMask {
     /// Defines available options for merging two messages.
     public struct MergeOptions {
-        public init() {}
-
         /// The default merging behavior will append entries from the source
         /// repeated field to the destination repeated field. If you only want
         /// to keep the entries from the source repeated field, set this flag
         /// to true.
-        public var replaceRepeatedFields = false
+        public var replaceRepeatedFields: Bool
+
+        public init() {
+            self.replaceRepeatedFields = false
+        }
     }
 }
 

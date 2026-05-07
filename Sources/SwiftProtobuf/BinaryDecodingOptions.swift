@@ -19,7 +19,7 @@ public struct BinaryDecodingOptions: Sendable {
     /// To prevent corrupt or malicious messages from causing stack overflows,
     /// this controls how deep messages can be nested within other messages
     /// while parsing.
-    public var messageDepthLimit: Int = 100
+    public var messageDepthLimit: Int
 
     /// Discard unknown fields while parsing.  The default is false, so parsering
     /// does not discard unknown fields.
@@ -33,7 +33,10 @@ public struct BinaryDecodingOptions: Sendable {
     /// this option to `true` allows a developer to strip them during a parse
     /// in case they have a specific need to drop the unknown fields from the
     /// object graph being created.
-    public var discardUnknownFields: Bool = false
+    public var discardUnknownFields: Bool
 
-    public init() {}
+    public init() {
+        self.messageDepthLimit = 100
+        self.discardUnknownFields = false
+    }
 }
