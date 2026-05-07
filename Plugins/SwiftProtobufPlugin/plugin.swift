@@ -258,7 +258,6 @@ struct SwiftProtobufPlugin {
         if let enumGeneration = invocation.enumGeneration {
             protocArgs.append("--swift_opt=EnumGeneration=\(enumGeneration.rawValue)")
         }
-
         var inputFiles = [URL]()
         var outputFiles = [URL]()
 
