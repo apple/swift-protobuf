@@ -414,7 +414,7 @@ final class Test_MessageSet: XCTestCase {
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
-        let storage = message._protobuf_extensionStorageImpl() as! ExtensionStorage
+        let storage = message._protobuf_extensionStorage()
         let presentFieldNumbers = Array(storage.values.keys).sorted()
         XCTAssertEqual(
             presentFieldNumbers,

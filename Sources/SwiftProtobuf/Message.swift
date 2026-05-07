@@ -82,16 +82,6 @@ public protocol Message: Sendable, Equatable, Hashable, CustomDebugStringConvert
 
     /// This is an implementation detail of the runtime; users should not call it.
     mutating func _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken)
-
-    /// This is an implementation detail of the runtime; users should not call it. The return type
-    /// is a class-bound existential because the true SPI type cannot be used in a protocol
-    /// requirement.
-    func _protobuf_extensionStorageImpl() -> AnyObject
-
-    /// This is an implementation detail of the runtime; users should not call it. The return type
-    /// is a class-bound existential because the true SPI type cannot be used in a protocol
-    /// requirement.
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> AnyObject
 }
 
 extension Message {
@@ -178,13 +168,14 @@ extension Message {
     /// of a message.
     @_spi(ForGeneratedCodeOnly)
     public func _protobuf_extensionStorage() -> ExtensionStorage {
-        unsafeDowncast(_protobuf_extensionStorageImpl(), to: ExtensionStorage.self)
+        storageForRuntime.extensionStorage
     }
 
     /// Convenience method for generated code to retrieve the underlying storage for the extensions
     /// of a message, ensuring that it is unique for mutation.
     @_spi(ForGeneratedCodeOnly)
     public mutating func _protobuf_uniqueExtensionStorage() -> ExtensionStorage {
-        unsafeDowncast(_protobuf_uniqueExtensionStorageImpl(), to: ExtensionStorage.self)
+        _protobuf_ensureUniqueStorage(accessToken: .init())
+        return storageForRuntime.extensionStorage
     }
 }

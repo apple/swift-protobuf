@@ -208,12 +208,6 @@ class MessageGenerator {
             p.print(
                 "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }"
             )
-            p.print(
-                "\(visibility)func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }"
-            )
-            p.print(
-                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }"
-            )
         }
         p.print("}")
     }
