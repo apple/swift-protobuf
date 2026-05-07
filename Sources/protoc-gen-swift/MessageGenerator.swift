@@ -171,21 +171,6 @@ class MessageGenerator {
                 f.generateInterface(printer: &p)
             }
 
-            p.print(
-                "",
-                "\(visibility)var unknownFields: \(namer.swiftProtobufModulePrefix)UnknownStorage {"
-            )
-            p.withIndentation { p in
-                p.print("get { _storage.unknownFields }")
-                p.print("_modify {")
-                p.printIndented(
-                    "_ = _uniqueStorage()",
-                    "yield &_storage.unknownFields"
-                )
-                p.print("}")
-            }
-            p.print("}")
-
             for o in oneofs {
                 o.generateMainEnum(printer: &p)
             }
