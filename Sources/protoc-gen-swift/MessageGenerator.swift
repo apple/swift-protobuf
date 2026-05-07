@@ -205,12 +205,12 @@ class MessageGenerator {
             // generates the others doesn't seem to be documented.
             p.print(
                 "",
-                "\(visibility)init() {}"
+                "\(visibility)init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }"
             )
 
             p.print(
                 "",
-                "private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)",
+                "private var _storage: SwiftProtobuf.MessageStorage",
                 "private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {"
             )
             p.withIndentation { p in
