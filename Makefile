@@ -238,7 +238,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
-	diff -ru _test Reference
+	diff -ru Reference _test
 
 # Test the SPM plugin.
 test-spm-plugin:
