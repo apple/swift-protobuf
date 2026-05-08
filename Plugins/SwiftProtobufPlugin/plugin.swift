@@ -373,11 +373,40 @@ extension SwiftProtobufPlugin: XcodeBuildToolPlugin {
         context: XcodePluginContext,
         target: XcodeTarget
     ) throws -> [Command] {
-        try createBuildCommands(
+        let wellKnownTypesIncludePath = Self.findWellKnownTypesIncludePath(
+            in: target
+        )
+        return try createBuildCommands(
             pluginWorkDirectory: context.pluginWorkDirectoryURL,
             sourceFiles: target.inputFiles,
-            tool: context.tool
+            tool: context.tool,
+            sourceTreeWellKnownTypesPath: wellKnownTypesIncludePath
         )
+    }
+
+    /// Finds the well-known proto types include path by navigating the Xcode
+    /// target's dependencies to locate the swift-protobuf package.
+    private static func findWellKnownTypesIncludePath(in target: XcodeTarget) -> URL? {
+        for dependency in target.dependencies {
+            guard case .product(let product) = dependency,
+                  product.name == "SwiftProtobuf"
+            else { continue }
+
+            for productTarget in product.targets {
+                #if compiler(>=6.1)
+                let sourcesDir = productTarget.directoryURL.deletingLastPathComponent()
+                #else
+                let sourcesDir = URL(fileURLWithPath: "\(productTarget.directory)").deletingLastPathComponent()
+                #endif
+                let candidate = sourcesDir.appending(path: "protobuf/include")
+                if FileManager.default.fileExists(
+                    atPath: candidate.appending(path: "google/protobuf/timestamp.proto").fileSystemPath
+                ) {
+                    return candidate
+                }
+            }
+        }
+        return nil
     }
 }
 #endif
