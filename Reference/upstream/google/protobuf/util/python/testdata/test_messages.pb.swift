@@ -18,12 +18,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: Sendable {
+nonisolated struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -44,7 +44,7 @@ struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: Sendable {
   fileprivate var _timestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: Sendable {
+nonisolated struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -58,9 +58,9 @@ struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "third_party.protobuf.util.python.testdata"
+fileprivate nonisolated let _protobuf_package = "third_party.protobuf.util.python.testdata"
 
-extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TimestampWrapper"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}timestamp\0")
 
@@ -94,7 +94,7 @@ extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtob
   }
 }
 
-extension ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapWrapper"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}map\0")
 

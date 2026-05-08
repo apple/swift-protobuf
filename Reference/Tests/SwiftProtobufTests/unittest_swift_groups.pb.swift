@@ -45,13 +45,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Same field number appears inside and outside of the group.
-struct SwiftProtoTesting_GroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftProtoTesting_GroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct SwiftProtoTesting_GroupExtensions: SwiftProtobuf.ExtensibleMessage, Senda
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_ExtensionGroup: Sendable {
+nonisolated struct SwiftProtoTesting_ExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct SwiftProtoTesting_ExtensionGroup: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_RepeatedExtensionGroup: Sendable {
+nonisolated struct SwiftProtoTesting_RepeatedExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -115,7 +115,7 @@ struct SwiftProtoTesting_RepeatedExtensionGroup: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_GroupUnextended: Sendable {
+nonisolated struct SwiftProtoTesting_GroupUnextended: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ struct SwiftProtoTesting_GroupUnextended: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
+nonisolated struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -163,7 +163,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct SubGroup1: Sendable {
+  nonisolated struct SubGroup1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -188,7 +188,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup2: Sendable {
+    nonisolated struct SubGroup2: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -215,7 +215,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
     fileprivate var _subGroup2: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2? = nil
   }
 
-  struct SubGroup3: Sendable {
+  nonisolated struct SubGroup3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -233,7 +233,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup4: Sendable {
+    nonisolated struct SubGroup4: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -274,7 +274,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_GroupExtensions {
+nonisolated extension SwiftProtoTesting_GroupExtensions {
 
   var SwiftProtoTesting_extensionGroup: SwiftProtoTesting_ExtensionGroup {
     get {return getExtensionValue(ext: SwiftProtoTesting_Extensions_ExtensionGroup) ?? SwiftProtoTesting_ExtensionGroup()}
@@ -304,7 +304,7 @@ extension SwiftProtoTesting_GroupExtensions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Extensions_ExtensionGroup,
   SwiftProtoTesting_Extensions_RepeatedExtensionGroup
 ]
@@ -313,21 +313,21 @@ let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtens
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_ExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
+nonisolated let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_ExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "swift_proto_testing.extensiongroup"
 )
 
-let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_RepeatedExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
+nonisolated let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_RepeatedExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   _protobuf_fieldNumber: 3,
   fieldName: "swift_proto_testing.repeatedextensiongroup"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GroupExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -370,7 +370,7 @@ extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -404,7 +404,7 @@ extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedExtensionGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -438,7 +438,7 @@ extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.Message, Swift
   }
 }
 
-extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GroupUnextended"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -472,7 +472,7 @@ extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestingGroupsMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}outer_a\0\u{7}SubGroup1\0\u{7}SubGroup3\0")
 
@@ -516,7 +516,7 @@ extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.protoMessageName + ".SubGroup1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub1_a\0\u{7}SubGroup2\0")
 
@@ -555,7 +555,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.Messag
   }
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub2_a\0")
 
@@ -589,7 +589,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProto
   }
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.protoMessageName + ".SubGroup3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub3_a\0\u{7}SubGroup4\0")
 
@@ -628,7 +628,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.Messag
   }
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_NestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub4_a\0")
 

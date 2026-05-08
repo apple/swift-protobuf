@@ -15,13 +15,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Non trivial child message
-struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Sendable {
+nonisolated struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,7 +51,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Google_Protobuf_Compiler_Tools_AnalyzeThis: Sendable {
+nonisolated struct Google_Protobuf_Compiler_Tools_AnalyzeThis: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -98,7 +98,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Nested: Sendable {
+  nonisolated struct Nested: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -139,9 +139,9 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf.compiler.tools"
+fileprivate nonisolated let _protobuf_package = "google.protobuf.compiler.tools"
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AnalyzeChild"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}child_id\0\u{1}child\0")
 
@@ -218,7 +218,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.Message, Sw
   }
 }
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AnalyzeThis"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{3}optional_string\0\u{3}repeated_string\0\u{3}optional_child\0\u{3}repeated_child\0\u{1}nested\0")
 
@@ -277,7 +277,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_Compiler_Tools_AnalyzeThis.protoMessageName + ".Nested"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nexted_id\0\u{3}optional_string\0")
 

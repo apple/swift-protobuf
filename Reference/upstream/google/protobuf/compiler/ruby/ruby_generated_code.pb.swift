@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum A_B_C_TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum A_B_C_TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case `default` // = 0
   case a // = 1
@@ -75,7 +75,7 @@ enum A_B_C_TestEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// Leading comment for TestMessage
-struct A_B_C_TestMessage: @unchecked Sendable {
+nonisolated struct A_B_C_TestMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -358,7 +358,7 @@ struct A_B_C_TestMessage: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_MyOneof: Equatable, Sendable {
+  nonisolated enum OneOf_MyOneof: Equatable, Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -373,7 +373,7 @@ struct A_B_C_TestMessage: @unchecked Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -392,13 +392,13 @@ struct A_B_C_TestMessage: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "A.B.C"
+fileprivate nonisolated let _protobuf_package = "A.B.C"
 
-extension A_B_C_TestEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension A_B_C_TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Default\0\u{1}A\0\u{1}B\0\u{1}C\0")
 }
 
-extension A_B_C_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension A_B_C_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_bool\0\u{3}optional_double\0\u{3}optional_float\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_enum\0\u{3}optional_msg\0\u{3}optional_proto2_submessage\0\u{4}\u{9}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_bool\0\u{3}repeated_double\0\u{3}repeated_float\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}repeated_enum\0\u{3}repeated_msg\0\u{4}\u{a}oneof_int32\0\u{3}oneof_int64\0\u{3}oneof_uint32\0\u{3}oneof_uint64\0\u{3}oneof_bool\0\u{3}oneof_double\0\u{3}oneof_float\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_enum\0\u{3}oneof_msg\0\u{4}\u{a}map_int32_string\0\u{3}map_int64_string\0\u{3}map_uint32_string\0\u{3}map_uint64_string\0\u{3}map_bool_string\0\u{3}map_string_string\0\u{3}map_string_msg\0\u{3}map_string_enum\0\u{3}map_string_int32\0\u{3}map_string_bool\0\u{4}\u{a}nested_message\0")
 
@@ -842,7 +842,7 @@ extension A_B_C_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension A_B_C_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension A_B_C_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = A_B_C_TestMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}foo\0")
 

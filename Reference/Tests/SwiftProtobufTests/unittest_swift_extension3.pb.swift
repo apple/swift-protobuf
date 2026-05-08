@@ -33,19 +33,19 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Extend3_MyMessage: Sendable {
+nonisolated struct SwiftProtoTesting_Extend3_MyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C: Sendable {
+  nonisolated struct C: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -69,7 +69,7 @@ struct SwiftProtoTesting_Extend3_MyMessage: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_Extend3_C: Sendable {
+nonisolated struct SwiftProtoTesting_Extend3_C: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -99,7 +99,7 @@ struct SwiftProtoTesting_Extend3_C: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
+nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 
   var SwiftProtoTesting_Extend3_b: String {
     get {return getExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_b) ?? String()}
@@ -169,7 +169,7 @@ extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Extend3_Extensions_b,
   SwiftProtoTesting_Extend3_Extensions_C,
   SwiftProtoTesting_Extend3_MyMessage.Extensions.b,
@@ -180,17 +180,17 @@ let SwiftProtoTesting_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
+nonisolated let SwiftProtoTesting_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 320,
   fieldName: "swift_proto_testing.extend3.b"
 )
 
-let SwiftProtoTesting_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend3_C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
+nonisolated let SwiftProtoTesting_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend3_C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 321,
   fieldName: "swift_proto_testing.extend3.c"
 )
 
-extension SwiftProtoTesting_Extend3_MyMessage {
+nonisolated extension SwiftProtoTesting_Extend3_MyMessage {
   enum Extensions {
     static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 310,
@@ -206,9 +206,9 @@ extension SwiftProtoTesting_Extend3_MyMessage {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.extend3"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.extend3"
 
-extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -227,7 +227,7 @@ extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend3_MyMessage.protoMessageName + ".C"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}^\u{14}c\0")
 
@@ -261,7 +261,7 @@ extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".C"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}h\u{14}c\0")
 

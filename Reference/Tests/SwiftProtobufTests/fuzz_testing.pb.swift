@@ -34,12 +34,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Fuzz_AnEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_Fuzz_AnEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case zero = 0
   case one = 1
   case two = 2
@@ -51,7 +51,7 @@ enum SwiftProtoTesting_Fuzz_AnEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable 
 
 }
 
-struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1648,7 +1648,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @uncheck
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// oneof
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -1675,7 +1675,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @uncheck
 
   }
 
-  struct SingularGroup: Sendable {
+  nonisolated struct SingularGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1696,7 +1696,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @uncheck
     fileprivate var _groupField: Int32? = nil
   }
 
-  struct RepeatedGroup: Sendable {
+  nonisolated struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1717,7 +1717,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @uncheck
     fileprivate var _groupField: Int32? = nil
   }
 
-  struct OneofGroup: Sendable {
+  nonisolated struct OneofGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1745,7 +1745,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @uncheck
 }
 
 /// A message with message_set_wire_format.
-struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1758,7 +1758,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessag
 }
 
 /// Two extensions to go with the message_set_wire_format testing.
-struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1779,7 +1779,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: Sendable {
   fileprivate var _aString: String? = nil
 }
 
-struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1800,7 +1800,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: Sendable {
   fileprivate var _anInt32: Int32? = nil
 }
 
-struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1821,7 +1821,7 @@ struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
   fileprivate var _groupField: Int32? = nil
 }
 
-struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1851,7 +1851,7 @@ struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
 
   var SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
     get {return getExtensionValue(ext: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension) ?? SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1()}
@@ -1884,7 +1884,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
   }
 }
 
-extension SwiftProtoTesting_Fuzz_Message {
+nonisolated extension SwiftProtoTesting_Fuzz_Message {
 
   /// Singular
   var SwiftProtoTesting_Fuzz_singularInt32Ext: Int32 {
@@ -2327,7 +2327,7 @@ extension SwiftProtoTesting_Fuzz_Message {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext,
@@ -2387,259 +2387,259 @@ let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.SimpleExtension
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1001,
   fieldName: "swift_proto_testing.fuzz.singular_int32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1002,
   fieldName: "swift_proto_testing.fuzz.singular_int64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1003,
   fieldName: "swift_proto_testing.fuzz.singular_uint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1004,
   fieldName: "swift_proto_testing.fuzz.singular_uint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1005,
   fieldName: "swift_proto_testing.fuzz.singular_sint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1006,
   fieldName: "swift_proto_testing.fuzz.singular_sint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1007,
   fieldName: "swift_proto_testing.fuzz.singular_fixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1008,
   fieldName: "swift_proto_testing.fuzz.singular_fixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1009,
   fieldName: "swift_proto_testing.fuzz.singular_sfixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1010,
   fieldName: "swift_proto_testing.fuzz.singular_sfixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1011,
   fieldName: "swift_proto_testing.fuzz.singular_float_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1012,
   fieldName: "swift_proto_testing.fuzz.singular_double_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1013,
   fieldName: "swift_proto_testing.fuzz.singular_bool_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1014,
   fieldName: "swift_proto_testing.fuzz.singular_string_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1015,
   fieldName: "swift_proto_testing.fuzz.singular_bytes_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1016,
   fieldName: "swift_proto_testing.fuzz.singular_enum_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Fuzz_SingularGroup_ext>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Fuzz_SingularGroup_ext>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1017,
   fieldName: "swift_proto_testing.fuzz.singulargroup_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_message_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_Message>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_message_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_Message>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1019,
   fieldName: "swift_proto_testing.fuzz.singular_message_ext"
 )
 
 /// Repeated
-let SwiftProtoTesting_Fuzz_Extensions_repeated_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1031,
   fieldName: "swift_proto_testing.fuzz.repeated_int32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1032,
   fieldName: "swift_proto_testing.fuzz.repeated_int64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1033,
   fieldName: "swift_proto_testing.fuzz.repeated_uint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1034,
   fieldName: "swift_proto_testing.fuzz.repeated_uint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1035,
   fieldName: "swift_proto_testing.fuzz.repeated_sint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1036,
   fieldName: "swift_proto_testing.fuzz.repeated_sint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1037,
   fieldName: "swift_proto_testing.fuzz.repeated_fixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1038,
   fieldName: "swift_proto_testing.fuzz.repeated_fixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1039,
   fieldName: "swift_proto_testing.fuzz.repeated_sfixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1040,
   fieldName: "swift_proto_testing.fuzz.repeated_sfixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1041,
   fieldName: "swift_proto_testing.fuzz.repeated_float_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1042,
   fieldName: "swift_proto_testing.fuzz.repeated_double_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1043,
   fieldName: "swift_proto_testing.fuzz.repeated_bool_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1044,
   fieldName: "swift_proto_testing.fuzz.repeated_string_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_bytes_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bytes_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1045,
   fieldName: "swift_proto_testing.fuzz.repeated_bytes_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1046,
   fieldName: "swift_proto_testing.fuzz.repeated_enum_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_RepeatedGroup_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_Fuzz_RepeatedGroup_ext>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_RepeatedGroup_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_Fuzz_RepeatedGroup_ext>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1047,
   fieldName: "swift_proto_testing.fuzz.repeatedgroup_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_message_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_Fuzz_Message>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_message_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<SwiftProtoTesting_Fuzz_Message>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1049,
   fieldName: "swift_proto_testing.fuzz.repeated_message_ext"
 )
 
 /// Repeated Packed
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1061,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_int32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1062,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_int64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1063,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_uint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1064,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_uint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1065,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_sint32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1066,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_sint64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1067,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_fixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1068,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_fixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1069,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_sfixed32_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1070,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_sfixed64_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1071,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_float_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1072,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_double_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1073,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_bool_ext"
 )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<SwiftProtoTesting_Fuzz_AnEnum>, SwiftProtoTesting_Fuzz_Message>(
   _protobuf_fieldNumber: 1074,
   fieldName: "swift_proto_testing.fuzz.repeated_packed_enum_ext"
 )
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1>, SwiftProtoTesting_Fuzz_AMessageSetMessage>(
       _protobuf_fieldNumber: 1547769,
@@ -2648,7 +2648,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
   }
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2>, SwiftProtoTesting_Fuzz_AMessageSetMessage>(
       _protobuf_fieldNumber: 4135312,
@@ -2659,13 +2659,13 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.fuzz"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.fuzz"
 
-extension SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ZERO\0\u{1}ONE\0\u{1}TWO\0\u{1}THREE\0")
 }
 
-extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Message"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}singular_int32\0\u{3}singular_int64\0\u{3}singular_uint32\0\u{3}singular_uint64\0\u{3}singular_sint32\0\u{3}singular_sint64\0\u{3}singular_fixed32\0\u{3}singular_fixed64\0\u{3}singular_sfixed32\0\u{3}singular_sfixed64\0\u{3}singular_float\0\u{3}singular_double\0\u{3}singular_bool\0\u{3}singular_string\0\u{3}singular_bytes\0\u{3}singular_enum\0\u{7}SingularGroup\0\u{4}\u{2}singular_message\0\u{4}\u{c}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}repeated_enum\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_message\0\u{4}\u{c}oneof_int32\0\u{3}oneof_int64\0\u{3}oneof_uint32\0\u{3}oneof_uint64\0\u{3}oneof_sint32\0\u{3}oneof_sint64\0\u{3}oneof_fixed32\0\u{3}oneof_fixed64\0\u{3}oneof_sfixed32\0\u{3}oneof_sfixed64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_bool\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_enum\0\u{7}OneofGroup\0\u{4}\u{2}oneof_message\0\u{4}\u{2}repeated_packed_int32\0\u{3}repeated_packed_int64\0\u{3}repeated_packed_uint32\0\u{3}repeated_packed_uint64\0\u{3}repeated_packed_sint32\0\u{3}repeated_packed_sint64\0\u{3}repeated_packed_fixed32\0\u{3}repeated_packed_fixed64\0\u{3}repeated_packed_sfixed32\0\u{3}repeated_packed_sfixed64\0\u{3}repeated_packed_float\0\u{3}repeated_packed_double\0\u{3}repeated_packed_bool\0\u{3}repeated_packed_enum\0\u{4}\u{6}map_int32_int32\0\u{3}map_int32_int64\0\u{3}map_int32_uint32\0\u{3}map_int32_uint64\0\u{3}map_int32_sint32\0\u{3}map_int32_sint64\0\u{3}map_int32_fixed32\0\u{3}map_int32_fixed64\0\u{3}map_int32_sfixed32\0\u{3}map_int32_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_int32_bool\0\u{3}map_int32_string\0\u{3}map_int32_bytes\0\u{3}map_int32_AnEnum\0\u{3}map_int32_Message\0\u{3}map_int64_int32\0\u{3}map_int64_int64\0\u{3}map_int64_uint32\0\u{3}map_int64_uint64\0\u{3}map_int64_sint32\0\u{3}map_int64_sint64\0\u{3}map_int64_fixed32\0\u{3}map_int64_fixed64\0\u{3}map_int64_sfixed32\0\u{3}map_int64_sfixed64\0\u{3}map_int64_float\0\u{3}map_int64_double\0\u{3}map_int64_bool\0\u{3}map_int64_string\0\u{3}map_int64_bytes\0\u{3}map_int64_AnEnum\0\u{3}map_int64_Message\0\u{3}map_uint32_int32\0\u{3}map_uint32_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint32_uint64\0\u{3}map_uint32_sint32\0\u{3}map_uint32_sint64\0\u{3}map_uint32_fixed32\0\u{3}map_uint32_fixed64\0\u{3}map_uint32_sfixed32\0\u{3}map_uint32_sfixed64\0\u{3}map_uint32_float\0\u{3}map_uint32_double\0\u{3}map_uint32_bool\0\u{3}map_uint32_string\0\u{3}map_uint32_bytes\0\u{3}map_uint32_AnEnum\0\u{3}map_uint32_Message\0\u{3}map_uint64_int32\0\u{3}map_uint64_int64\0\u{3}map_uint64_uint32\0\u{3}map_uint64_uint64\0\u{3}map_uint64_sint32\0\u{3}map_uint64_sint64\0\u{3}map_uint64_fixed32\0\u{3}map_uint64_fixed64\0\u{3}map_uint64_sfixed32\0\u{3}map_uint64_sfixed64\0\u{3}map_uint64_float\0\u{3}map_uint64_double\0\u{3}map_uint64_bool\0\u{3}map_uint64_string\0\u{3}map_uint64_bytes\0\u{3}map_uint64_AnEnum\0\u{3}map_uint64_Message\0\u{3}map_sint32_int32\0\u{3}map_sint32_int64\0\u{3}map_sint32_uint32\0\u{3}map_sint32_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint32_sint64\0\u{3}map_sint32_fixed32\0\u{3}map_sint32_fixed64\0\u{3}map_sint32_sfixed32\0\u{3}map_sint32_sfixed64\0\u{3}map_sint32_float\0\u{3}map_sint32_double\0\u{3}map_sint32_bool\0\u{3}map_sint32_string\0\u{3}map_sint32_bytes\0\u{3}map_sint32_AnEnum\0\u{3}map_sint32_Message\0\u{3}map_sint64_int32\0\u{3}map_sint64_int64\0\u{3}map_sint64_uint32\0\u{3}map_sint64_uint64\0\u{3}map_sint64_sint32\0\u{3}map_sint64_sint64\0\u{3}map_sint64_fixed32\0\u{3}map_sint64_fixed64\0\u{3}map_sint64_sfixed32\0\u{3}map_sint64_sfixed64\0\u{3}map_sint64_float\0\u{3}map_sint64_double\0\u{3}map_sint64_bool\0\u{3}map_sint64_string\0\u{3}map_sint64_bytes\0\u{3}map_sint64_AnEnum\0\u{3}map_sint64_Message\0\u{3}map_fixed32_int32\0\u{3}map_fixed32_int64\0\u{3}map_fixed32_uint32\0\u{3}map_fixed32_uint64\0\u{3}map_fixed32_sint32\0\u{3}map_fixed32_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed32_fixed64\0\u{3}map_fixed32_sfixed32\0\u{3}map_fixed32_sfixed64\0\u{3}map_fixed32_float\0\u{3}map_fixed32_double\0\u{3}map_fixed32_bool\0\u{3}map_fixed32_string\0\u{3}map_fixed32_bytes\0\u{3}map_fixed32_AnEnum\0\u{3}map_fixed32_Message\0\u{3}map_fixed64_int32\0\u{3}map_fixed64_int64\0\u{3}map_fixed64_uint32\0\u{3}map_fixed64_uint64\0\u{3}map_fixed64_sint32\0\u{3}map_fixed64_sint64\0\u{3}map_fixed64_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_fixed64_sfixed32\0\u{3}map_fixed64_sfixed64\0\u{3}map_fixed64_float\0\u{3}map_fixed64_double\0\u{3}map_fixed64_bool\0\u{3}map_fixed64_string\0\u{3}map_fixed64_bytes\0\u{3}map_fixed64_AnEnum\0\u{3}map_fixed64_Message\0\u{3}map_sfixed32_int32\0\u{3}map_sfixed32_int64\0\u{3}map_sfixed32_uint32\0\u{3}map_sfixed32_uint64\0\u{3}map_sfixed32_sint32\0\u{3}map_sfixed32_sint64\0\u{3}map_sfixed32_fixed32\0\u{3}map_sfixed32_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed32_sfixed64\0\u{3}map_sfixed32_float\0\u{3}map_sfixed32_double\0\u{3}map_sfixed32_bool\0\u{3}map_sfixed32_string\0\u{3}map_sfixed32_bytes\0\u{3}map_sfixed32_AnEnum\0\u{3}map_sfixed32_Message\0\u{3}map_sfixed64_int32\0\u{3}map_sfixed64_int64\0\u{3}map_sfixed64_uint32\0\u{3}map_sfixed64_uint64\0\u{3}map_sfixed64_sint32\0\u{3}map_sfixed64_sint64\0\u{3}map_sfixed64_fixed32\0\u{3}map_sfixed64_fixed64\0\u{3}map_sfixed64_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_sfixed64_float\0\u{3}map_sfixed64_double\0\u{3}map_sfixed64_bool\0\u{3}map_sfixed64_string\0\u{3}map_sfixed64_bytes\0\u{3}map_sfixed64_AnEnum\0\u{3}map_sfixed64_Message\0\u{3}map_bool_int32\0\u{3}map_bool_int64\0\u{3}map_bool_uint32\0\u{3}map_bool_uint64\0\u{3}map_bool_sint32\0\u{3}map_bool_sint64\0\u{3}map_bool_fixed32\0\u{3}map_bool_fixed64\0\u{3}map_bool_sfixed32\0\u{3}map_bool_sfixed64\0\u{3}map_bool_float\0\u{3}map_bool_double\0\u{3}map_bool_bool\0\u{3}map_bool_string\0\u{3}map_bool_bytes\0\u{3}map_bool_AnEnum\0\u{3}map_bool_Message\0\u{4}V\u{3}wkt_any\0\u{3}wkt_api\0\u{3}wkt_duration\0\u{3}wkt_empty\0\u{3}wkt_field_mask\0\u{3}wkt_source_context\0\u{3}wkt_struct\0\u{3}wkt_timestamp\0\u{3}wkt_type\0\u{3}wkt_double_value\0\u{3}wkt_float_value\0\u{3}wkt_int64_value\0\u{3}wkt_uint64_value\0\u{3}wkt_int32_value\0\u{3}wkt_uint32_value\0\u{3}wkt_bool_value\0\u{3}wkt_string_value\0\u{3}wkt_bytes_value\0\u{4}S\u{1}singular_message_set\0\u{3}repeated_message_set\0")
 
@@ -4786,7 +4786,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".SingularGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{12}group_field\0")
 
@@ -4820,7 +4820,7 @@ extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message, S
   }
 }
 
-extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}0group_field\0")
 
@@ -4854,7 +4854,7 @@ extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message, S
   }
 }
 
-extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Fuzz_Message.protoMessageName + ".OneofGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}N\u{1}group_field\0")
 
@@ -4888,7 +4888,7 @@ extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message, Swif
   }
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AMessageSetMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -4913,7 +4913,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message, Swif
   }
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AMessageSetMessageExtension1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{a}a_string\0")
 
@@ -4947,7 +4947,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Mes
   }
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AMessageSetMessageExtension2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{14}an_int32\0")
 
@@ -4981,7 +4981,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Mes
   }
 }
 
-extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SingularGroup_ext"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}z\u{f}group_field\0")
 
@@ -5015,7 +5015,7 @@ extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message, Swift
   }
 }
 
-extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroup_ext"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}X\u{10}group_field\0")
 

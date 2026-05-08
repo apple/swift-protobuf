@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_SwiftReservedTest: Sendable {
+nonisolated struct SwiftProtoTesting_SwiftReservedTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -118,7 +118,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case double = 1
     case json = 2
     case `class` = 3
@@ -132,7 +132,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   }
 
-  enum ProtocolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ProtocolEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a = 1
 
     init() {
@@ -141,7 +141,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
 
   }
 
-  struct classMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+  nonisolated struct classMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -153,7 +153,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct TypeMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+  nonisolated struct TypeMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -165,7 +165,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct isEqual: Sendable {
+  nonisolated struct isEqual: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -187,7 +187,7 @@ struct SwiftProtoTesting_SwiftReservedTest: Sendable {
   fileprivate var _requiredInt: Int32? = nil
 }
 
-struct SwiftProtoTesting_SwiftReservedTestExt: Sendable {
+nonisolated struct SwiftProtoTesting_SwiftReservedTestExt: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -206,7 +206,7 @@ struct SwiftProtoTesting_SwiftReservedTestExt: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_SwiftReservedTest.classMessage {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
 
   /// Won't get _p added because it is fully qualified.
   var SwiftProtoTesting_debugDescription: Bool {
@@ -404,7 +404,7 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Extensions_debug_description,
   SwiftProtoTesting_Extensions_as,
   SwiftProtoTesting_Extensions_var,
@@ -424,39 +424,39 @@ let SwiftProtoTesting_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExte
 // accessors for the extension fields on the messages directly.
 
 /// Won't get _p added because it is fully qualified.
-let SwiftProtoTesting_Extensions_debug_description = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_debug_description = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "swift_proto_testing.debug_description"
 )
 
 /// These are scoped to the file, so the package prefix (or a Swift prefix)
 /// will get added to them to they aren't going to get renamed.
-let SwiftProtoTesting_Extensions_as = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_as = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1012,
   fieldName: "swift_proto_testing.as"
 )
 
-let SwiftProtoTesting_Extensions_var = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_var = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1013,
   fieldName: "swift_proto_testing.var"
 )
 
-let SwiftProtoTesting_Extensions_try = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_try = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1014,
   fieldName: "swift_proto_testing.try"
 )
 
-let SwiftProtoTesting_Extensions_do = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_do = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1015,
   fieldName: "swift_proto_testing.do"
 )
 
-let SwiftProtoTesting_Extensions_nil = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
+nonisolated let SwiftProtoTesting_Extensions_nil = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1016,
   fieldName: "swift_proto_testing.nil"
 )
 
-extension SwiftProtoTesting_SwiftReservedTestExt {
+nonisolated extension SwiftProtoTesting_SwiftReservedTestExt {
   enum Extensions {
     /// This will end up in the "enum Extensions" to scope it, but there
     /// the raw form is used ("hash_value", not the Swift one "hashValue"),
@@ -497,9 +497,9 @@ extension SwiftProtoTesting_SwiftReservedTestExt {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{a}proto_message_name\0\u{3}proto_package_name\0\u{3}any_type_prefix\0\u{3}any_type_url\0\u{4}\u{7}is_initialized\0\u{3}hash_value\0\u{3}debug_description\0\u{4}\u{8}required_int\0")
 
@@ -573,15 +573,15 @@ extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension SwiftProtoTesting_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}DOUBLE\0\u{1}JSON\0\u{1}CLASS\0\u{1}_\0\u{1}SELF\0\u{1}TYPE\0")
 }
 
-extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 }
 
-extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".class"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -610,7 +610,7 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Messag
   }
 }
 
-extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".Type"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -639,7 +639,7 @@ extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message
   }
 }
 
-extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".isEqual"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -658,7 +658,7 @@ extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, Sw
   }
 }
 
-extension SwiftProtoTesting_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTestExt"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

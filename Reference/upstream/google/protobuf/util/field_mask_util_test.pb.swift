@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: Sendable {
+nonisolated struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,7 +47,7 @@ struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -86,9 +86,9 @@ struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "third_party_protobuf_util"
+fileprivate nonisolated let _protobuf_package = "third_party_protobuf_util"
 
-extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestTrimMessageRepeatedField"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nested_message\0\u{3}repeated_nested_message\0\u{3}nested_message2\0")
 
@@ -132,7 +132,7 @@ extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: SwiftProtobuf.Mes
   }
 }
 
-extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}f1\0\u{1}f2\0")
 

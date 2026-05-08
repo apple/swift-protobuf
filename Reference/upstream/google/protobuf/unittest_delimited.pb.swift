@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct EditionsUnittest_LengthPrefixed: Sendable {
+nonisolated struct EditionsUnittest_LengthPrefixed: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,7 +51,7 @@ struct EditionsUnittest_LengthPrefixed: Sendable {
   fileprivate var _b: Int32? = nil
 }
 
-struct EditionsUnittest_NotGroupLikeScope: Sendable {
+nonisolated struct EditionsUnittest_NotGroupLikeScope: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -82,7 +82,7 @@ struct EditionsUnittest_NotGroupLikeScope: Sendable {
   fileprivate var _b: Int32? = nil
 }
 
-struct EditionsUnittest_GroupLikeFileScope: Sendable {
+nonisolated struct EditionsUnittest_GroupLikeFileScope: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -113,7 +113,7 @@ struct EditionsUnittest_GroupLikeFileScope: Sendable {
   fileprivate var _b: Int32? = nil
 }
 
-struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+nonisolated struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -180,7 +180,7 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct LengthPrefixed: Sendable {
+  nonisolated struct LengthPrefixed: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -211,7 +211,7 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
     fileprivate var _b: Int32? = nil
   }
 
-  struct GroupLike: Sendable {
+  nonisolated struct GroupLike: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -257,7 +257,7 @@ struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessage, @uncheck
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension EditionsUnittest_TestDelimited {
+nonisolated extension EditionsUnittest_TestDelimited {
 
   /// Non-delimited field that otherwise looks group-like.
   var EditionsUnittest_lengthprefixed: EditionsUnittest_LengthPrefixed {
@@ -347,7 +347,7 @@ extension EditionsUnittest_TestDelimited {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionsUnittest_Extensions_lengthprefixed,
   EditionsUnittest_Extensions_GroupLikeFileScope,
   EditionsUnittest_Extensions_not_group_like_scope,
@@ -360,40 +360,40 @@ let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtension
 // accessors for the extension fields on the messages directly.
 
 /// Non-delimited field that otherwise looks group-like.
-let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionsUnittest_LengthPrefixed>, EditionsUnittest_TestDelimited>(
+nonisolated let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionsUnittest_LengthPrefixed>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1004,
   fieldName: "editions_unittest.lengthprefixed"
 )
 
 /// Truly group-like extension.
-let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_GroupLikeFileScope>, EditionsUnittest_TestDelimited>(
+nonisolated let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_GroupLikeFileScope>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1000,
   fieldName: "editions_unittest.grouplikefilescope"
 )
 
 /// Delimited extension that isn't group-like because of its name.
-let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_NotGroupLikeScope>, EditionsUnittest_TestDelimited>(
+nonisolated let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_NotGroupLikeScope>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1001,
   fieldName: "editions_unittest.not_group_like_scope"
 )
 
 /// Delimited extension that isn't group-like because of the scope of its type.
-let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_TestDelimited.GroupLike>, EditionsUnittest_TestDelimited>(
+nonisolated let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_TestDelimited.GroupLike>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1002,
   fieldName: "editions_unittest.grouplike"
 )
 
 /// Delimited extension that's grouplike except that it's an imported type.
-let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_MessageImport>, EditionsUnittest_TestDelimited>(
+nonisolated let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_MessageImport>, EditionsUnittest_TestDelimited>(
   _protobuf_fieldNumber: 1003,
   fieldName: "editions_unittest.messageimport"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "editions_unittest"
+fileprivate nonisolated let _protobuf_package = "editions_unittest"
 
-extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LengthPrefixed"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
@@ -432,7 +432,7 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NotGroupLikeScope"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
@@ -471,7 +471,7 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GroupLikeFileScope"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
@@ -510,7 +510,7 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDelimited"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lengthprefixed\0\u{1}nested\0\u{7}GroupLike\0\u{1}notgrouplike\0\u{1}notgrouplikescope\0\u{1}messageimport\0")
 
@@ -627,7 +627,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
@@ -666,7 +666,7 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Message, 
   }
 }
 
-extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 

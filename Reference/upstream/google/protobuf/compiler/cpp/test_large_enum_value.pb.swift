@@ -26,19 +26,19 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestLargeEnumValue: Sendable {
+nonisolated struct Proto2Unittest_TestLargeEnumValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithLargeValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumWithLargeValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case value1 = 1
     case valueMax = 2147483647
 
@@ -53,9 +53,9 @@ struct Proto2Unittest_TestLargeEnumValue: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestLargeEnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestLargeEnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLargeEnumValue"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -74,6 +74,6 @@ extension Proto2Unittest_TestLargeEnumValue: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Proto2Unittest_TestLargeEnumValue.EnumWithLargeValue: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestLargeEnumValue.EnumWithLargeValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}VALUE_1\0\u{2}~\u{7f}\u{7f}\u{7f}\u{7f}\u{1}VALUE_MAX\0")
 }

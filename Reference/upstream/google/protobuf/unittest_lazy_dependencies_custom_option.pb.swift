@@ -28,12 +28,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_LazyImports_LazyMessage: Sendable {
+nonisolated struct Proto2Unittest_LazyImports_LazyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -63,7 +63,7 @@ struct Proto2Unittest_LazyImports_LazyMessage: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2Unittest_LazyImports_lazyEnumOption: Proto2Unittest_LazyImports_LazyEnum {
     get {return getExtensionValue(ext: Proto2Unittest_LazyImports_Extensions_lazy_enum_option) ?? .lazyEnum1}
@@ -88,7 +88,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_LazyImports_UnittestLazyDependenciesCustomOption_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_LazyImports_UnittestLazyDependenciesCustomOption_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_LazyImports_Extensions_lazy_enum_option
 ]
 
@@ -96,16 +96,16 @@ let Proto2Unittest_LazyImports_UnittestLazyDependenciesCustomOption_Extensions: 
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_LazyImports_LazyEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+nonisolated let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_LazyImports_LazyEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 138596335,
   fieldName: "proto2_unittest.lazy_imports.lazy_enum_option"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest.lazy_imports"
 
-extension Proto2Unittest_LazyImports_LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_LazyImports_LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LazyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 

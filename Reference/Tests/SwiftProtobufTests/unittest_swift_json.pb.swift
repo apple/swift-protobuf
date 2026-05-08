@@ -29,12 +29,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_SwiftJSONTest: Sendable {
+nonisolated struct SwiftProtoTesting_SwiftJSONTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,7 +47,7 @@ struct SwiftProtoTesting_SwiftJSONTest: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_TestMessage: Sendable {
+nonisolated struct SwiftProtoTesting_TestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -75,7 +75,7 @@ struct SwiftProtoTesting_TestMessage: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_TestEvilJson: Sendable {
+nonisolated struct SwiftProtoTesting_TestEvilJson: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -101,9 +101,9 @@ struct SwiftProtoTesting_TestEvilJson: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftJSONTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}~\u{4}repeated_null_value\0")
 
@@ -133,7 +133,7 @@ extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension SwiftProtoTesting_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bool_value\0\u{3}int32_value\0\u{3}int64_value\0\u{3}uint32_value\0\u{3}uint64_value\0\u{3}float_value\0\u{3}double_value\0\u{3}string_value\0\u{3}bytes_value\0")
 
@@ -203,7 +203,7 @@ extension SwiftProtoTesting_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEvilJson"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{5}regular_value\0regular_name\0\u{5}script\0</script>\0\u{5}quotes\0unbalanced\"quotes\0\u{5}script_and_quotes\0\"<script>alert('hello!);</script>\0\u{5}empty_string\0\0\u{5}backslash\0\\\0\u{5}low_codepoint\0\u{1}\0")
 

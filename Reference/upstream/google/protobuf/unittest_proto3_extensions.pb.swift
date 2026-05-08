@@ -15,13 +15,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// For testing proto3 extension behaviors.
-struct ProtobufUnittest_Proto3FileExtensions: Sendable {
+nonisolated struct ProtobufUnittest_Proto3FileExtensions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ struct ProtobufUnittest_Proto3FileExtensions: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FileOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
   var ProtobufUnittest_Proto3FileExtensions_singularInt: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int) ?? 0}
@@ -70,7 +70,7 @@ extension SwiftProtobuf.Google_Protobuf_FileOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_UnittestProto3Extensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let ProtobufUnittest_UnittestProto3Extensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int,
   ProtobufUnittest_Proto3FileExtensions.Extensions.repeated_int
 ]
@@ -79,7 +79,7 @@ let ProtobufUnittest_UnittestProto3Extensions_Extensions: SwiftProtobuf.SimpleEx
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension ProtobufUnittest_Proto3FileExtensions {
+nonisolated extension ProtobufUnittest_Proto3FileExtensions {
   enum Extensions {
     static let singular_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 1001,
@@ -95,9 +95,9 @@ extension ProtobufUnittest_Proto3FileExtensions {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate nonisolated let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_Proto3FileExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ProtobufUnittest_Proto3FileExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto3FileExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

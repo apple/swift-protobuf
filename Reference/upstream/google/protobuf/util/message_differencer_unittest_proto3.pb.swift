@@ -25,12 +25,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto3Unittest_TestNoPresenceField: @unchecked Sendable {
+nonisolated struct Proto3Unittest_TestNoPresenceField: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,9 +78,9 @@ struct Proto3Unittest_TestNoPresenceField: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_unittest"
+fileprivate nonisolated let _protobuf_package = "proto3_unittest"
 
-extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNoPresenceField"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}no_presence_bool\0\u{3}no_presence_nested\0\u{3}no_presence_repeated_nested\0\u{3}no_presence_string\0\u{3}no_presence_bool2\0\u{3}no_presence_bool3\0")
 

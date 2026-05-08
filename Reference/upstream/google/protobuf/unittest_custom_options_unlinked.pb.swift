@@ -28,7 +28,7 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -42,7 +42,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var Proto2UnittestUnlinked_fieldOpt1: UInt64 {
     get {return getExtensionValue(ext: Proto2UnittestUnlinked_Extensions_field_opt1) ?? 0}
@@ -60,7 +60,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_FileOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
   var Proto2UnittestUnlinked_fileOpt1: UInt64 {
     get {return getExtensionValue(ext: Proto2UnittestUnlinked_Extensions_file_opt1) ?? 0}
@@ -78,7 +78,7 @@ extension SwiftProtobuf.Google_Protobuf_FileOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2UnittestUnlinked_messageOpt1: Int32 {
     get {return getExtensionValue(ext: Proto2UnittestUnlinked_Extensions_message_opt1) ?? 0}
@@ -103,7 +103,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2UnittestUnlinked_Extensions_file_opt1,
   Proto2UnittestUnlinked_Extensions_message_opt1,
   Proto2UnittestUnlinked_Extensions_field_opt1
@@ -113,17 +113,17 @@ let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtob
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 7736975,
   fieldName: "proto2_unittest_unlinked.file_opt1"
 )
 
-let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+nonisolated let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7739037,
   fieldName: "proto2_unittest_unlinked.message_opt1"
 )
 
-let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7740937,
   fieldName: "proto2_unittest_unlinked.field_opt1"
 )

@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case `default` // = 0
   case anotherValue // = 1
@@ -56,6 +56,6 @@ enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_EnumNameStringView: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_EnumNameStringView: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_NAME_STRING_VIEW_DEFAULT\0\u{1}ENUM_NAME_STRING_VIEW_ANOTHER_VALUE\0")
 }

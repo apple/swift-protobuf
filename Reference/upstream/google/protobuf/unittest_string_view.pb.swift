@@ -20,13 +20,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// NEXT_TAG = 6;
-struct Proto2Unittest_TestStringView: Sendable {
+nonisolated struct Proto2Unittest_TestStringView: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -63,7 +63,7 @@ struct Proto2Unittest_TestStringView: Sendable {
   fileprivate var _singularBytes: Data? = nil
 }
 
-struct Proto2Unittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -84,7 +84,7 @@ struct Proto2Unittest_TestStringViewExtension: SwiftProtobuf.ExtensibleMessage, 
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestStringViewExtension {
+nonisolated extension Proto2Unittest_TestStringViewExtension {
 
   var Proto2Unittest_singularStringViewExtension: String {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_singular_string_view_extension) ?? String()}
@@ -134,7 +134,7 @@ extension Proto2Unittest_TestStringViewExtension {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_singular_string_view_extension,
   Proto2Unittest_Extensions_singular_bytes_view_extension,
   Proto2Unittest_Extensions_repeated_string_view_extension,
@@ -145,31 +145,31 @@ let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.SimpleExtensionM
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
+nonisolated let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 1,
   fieldName: "proto2_unittest.singular_string_view_extension"
 )
 
-let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
+nonisolated let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 2,
   fieldName: "proto2_unittest.singular_bytes_view_extension"
 )
 
-let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
+nonisolated let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 3,
   fieldName: "proto2_unittest.repeated_string_view_extension"
 )
 
-let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
+nonisolated let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   _protobuf_fieldNumber: 4,
   fieldName: "proto2_unittest.repeated_bytes_view_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringView"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}singular_string\0\u{3}singular_bytes\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{3}implicit_presence\0")
 
@@ -223,7 +223,7 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStringViewExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

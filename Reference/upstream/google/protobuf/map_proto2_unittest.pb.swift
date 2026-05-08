@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_Proto2MapEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_Proto2MapEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foo = 0
   case bar = 1
   case baz = 2
@@ -43,7 +43,7 @@ enum Proto2Unittest_Proto2MapEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Proto2Unittest_Proto2MapEnumPlusExtra: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_Proto2MapEnumPlusExtra: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case eProto2MapEnumFoo = 0
   case eProto2MapEnumBar = 1
   case eProto2MapEnumBaz = 2
@@ -55,7 +55,7 @@ enum Proto2Unittest_Proto2MapEnumPlusExtra: Int, SwiftProtobuf.Enum, Swift.CaseI
 
 }
 
-struct Proto2Unittest_TestEnumMap: Sendable {
+nonisolated struct Proto2Unittest_TestEnumMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct Proto2Unittest_TestEnumMap: Sendable {
   init() {}
 }
 
-struct Proto2Unittest_TestEnumMapPlusExtra: Sendable {
+nonisolated struct Proto2Unittest_TestEnumMapPlusExtra: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ struct Proto2Unittest_TestEnumMapPlusExtra: Sendable {
   init() {}
 }
 
-struct Proto2Unittest_TestImportEnumMap: Sendable {
+nonisolated struct Proto2Unittest_TestImportEnumMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -145,7 +145,7 @@ struct Proto2Unittest_TestImportEnumMap: Sendable {
   init() {}
 }
 
-struct Proto2Unittest_TestIntIntMap: Sendable {
+nonisolated struct Proto2Unittest_TestIntIntMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -158,7 +158,7 @@ struct Proto2Unittest_TestIntIntMap: Sendable {
 }
 
 /// Test all key types: string, plus the non-floating-point scalars.
-struct Proto2Unittest_TestMaps: Sendable {
+nonisolated struct Proto2Unittest_TestMaps: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -193,7 +193,7 @@ struct Proto2Unittest_TestMaps: Sendable {
 }
 
 /// Test maps in submessages.
-struct Proto2Unittest_TestSubmessageMaps: Sendable {
+nonisolated struct Proto2Unittest_TestSubmessageMaps: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -214,7 +214,7 @@ struct Proto2Unittest_TestSubmessageMaps: Sendable {
   fileprivate var _m: Proto2Unittest_TestMaps? = nil
 }
 
-struct Proto2Unittest_TestProto2BytesMap: Sendable {
+nonisolated struct Proto2Unittest_TestProto2BytesMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -230,17 +230,17 @@ struct Proto2Unittest_TestProto2BytesMap: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTO2_MAP_ENUM_FOO\0\u{1}PROTO2_MAP_ENUM_BAR\0\u{1}PROTO2_MAP_ENUM_BAZ\0")
 }
 
-extension Proto2Unittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_PROTO2_MAP_ENUM_FOO\0\u{1}E_PROTO2_MAP_ENUM_BAR\0\u{1}E_PROTO2_MAP_ENUM_BAZ\0\u{1}E_PROTO2_MAP_ENUM_EXTRA\0")
 }
 
-extension Proto2Unittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0")
 
@@ -335,7 +335,7 @@ extension Proto2Unittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}e\u{1}known_map_field\0\u{3}unknown_map_field\0\u{4}b\u{1}unknown_map_field_int64\0\u{3}unknown_map_field_uint64\0\u{3}unknown_map_field_int32\0\u{3}unknown_map_field_uint32\0\u{3}unknown_map_field_fixed32\0\u{3}unknown_map_field_fixed64\0\u{3}unknown_map_field_bool\0\u{3}unknown_map_field_string\0\u{3}unknown_map_field_sint32\0\u{3}unknown_map_field_sint64\0\u{3}unknown_map_field_sfixed32\0\u{3}unknown_map_field_sfixed64\0")
 
@@ -430,7 +430,7 @@ extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}import_enum_amp\0")
 
@@ -460,7 +460,7 @@ extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}m\0")
 
@@ -490,7 +490,7 @@ extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension Proto2Unittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMaps"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}m_int32\0\u{3}m_int64\0\u{3}m_uint32\0\u{3}m_uint64\0\u{3}m_sint32\0\u{3}m_sint64\0\u{3}m_fixed32\0\u{3}m_fixed64\0\u{3}m_sfixed32\0\u{3}m_sfixed64\0\u{3}m_bool\0\u{3}m_string\0")
 
@@ -575,7 +575,7 @@ extension Proto2Unittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestSubmessageMaps"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}m\0")
 
@@ -609,7 +609,7 @@ extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Proto2Unittest_TestProto2BytesMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto2BytesMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto2BytesMap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_bytes\0\u{3}map_string\0")
 

@@ -28,12 +28,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,7 +76,7 @@ struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sen
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable, Sendable {
+  nonisolated enum OneOf_Foo: Equatable, Sendable {
     case integerField(Int32)
     case stringField(String)
 
@@ -89,7 +89,7 @@ struct Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sen
   fileprivate var _msg: Proto2Unittest_ForeignMessage? = nil
 }
 
-struct Proto2Unittest_TestRequiredOptimizedForSize: Sendable {
+nonisolated struct Proto2Unittest_TestRequiredOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,7 +110,7 @@ struct Proto2Unittest_TestRequiredOptimizedForSize: Sendable {
   fileprivate var _x: Int32? = nil
 }
 
-struct Proto2Unittest_TestOptionalOptimizedForSize: Sendable {
+nonisolated struct Proto2Unittest_TestOptionalOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -140,7 +140,7 @@ struct Proto2Unittest_TestOptionalOptimizedForSize: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestOptimizedForSize {
+nonisolated extension Proto2Unittest_TestOptimizedForSize {
 
   var Proto2Unittest_TestOptimizedForSize_testExtension: Int32 {
     get {return getExtensionValue(ext: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
@@ -180,7 +180,7 @@ extension Proto2Unittest_TestOptimizedForSize {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension,
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2
 ]
@@ -189,7 +189,7 @@ let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtension
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_TestOptimizedForSize {
+nonisolated extension Proto2Unittest_TestOptimizedForSize {
   enum Extensions {
     static let test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1234,
@@ -205,9 +205,9 @@ extension Proto2Unittest_TestOptimizedForSize {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}i\0\u{3}integer_field\0\u{3}string_field\0\u{2}\u{10}msg\0")
 
@@ -283,7 +283,7 @@ extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}x\0")
 
@@ -322,7 +322,7 @@ extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Sw
   }
 }
 
-extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}o\0")
 

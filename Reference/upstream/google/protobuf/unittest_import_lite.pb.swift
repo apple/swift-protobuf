@@ -26,12 +26,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2UnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2UnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case importLiteFoo = 7
   case importLiteBar = 8
   case importLiteBaz = 9
@@ -42,7 +42,7 @@ enum Proto2UnittestImport_ImportEnumLite: Int, SwiftProtobuf.Enum, Swift.CaseIte
 
 }
 
-struct Proto2UnittestImport_ImportMessageLite: Sendable {
+nonisolated struct Proto2UnittestImport_ImportMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,13 +65,13 @@ struct Proto2UnittestImport_ImportMessageLite: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest_import"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest_import"
 
-extension Proto2UnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2UnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_LITE_FOO\0\u{1}IMPORT_LITE_BAR\0\u{1}IMPORT_LITE_BAZ\0")
 }
 
-extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 

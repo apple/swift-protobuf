@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
+nonisolated struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -222,7 +222,7 @@ struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case foo // = 1
@@ -270,7 +270,7 @@ struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -299,7 +299,7 @@ struct Proto2Unittest_TestProto3Optional: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Proto2Unittest_TestProto3OptionalMessage: Sendable {
+nonisolated struct Proto2Unittest_TestProto3OptionalMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -324,7 +324,7 @@ struct Proto2Unittest_TestProto3OptionalMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -342,7 +342,7 @@ struct Proto2Unittest_TestProto3OptionalMessage: Sendable {
   fileprivate var _optionalNestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage? = nil
 }
 
-struct Proto2Unittest_Proto3OptionalExtensions: Sendable {
+nonisolated struct Proto2Unittest_Proto3OptionalExtensions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -361,7 +361,7 @@ struct Proto2Unittest_Proto3OptionalExtensions: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2Unittest_Proto3OptionalExtensions_extNoOptional: Int32 {
     get {return getExtensionValue(ext: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional) ?? 0}
@@ -401,7 +401,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional,
   Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional
 ]
@@ -410,7 +410,7 @@ let Proto2Unittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtens
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_Proto3OptionalExtensions {
+nonisolated extension Proto2Unittest_Proto3OptionalExtensions {
   enum Extensions {
     static let ext_no_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 355886728,
@@ -426,9 +426,9 @@ extension Proto2Unittest_Proto3OptionalExtensions {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3Optional"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_cord\0\u{4}\u{2}optional_nested_message\0\u{3}lazy_nested_message\0\u{4}\u{2}optional_nested_enum\0\u{3}singular_int32\0\u{3}singular_int64\0")
 
@@ -638,11 +638,11 @@ extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Proto2Unittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestProto3Optional.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
@@ -676,7 +676,7 @@ extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message
   }
 }
 
-extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3OptionalMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nested_message\0\u{3}optional_nested_message\0")
 
@@ -715,7 +715,7 @@ extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestProto3OptionalMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}s\0")
 
@@ -745,7 +745,7 @@ extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.
   }
 }
 
-extension Proto2Unittest_Proto3OptionalExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_Proto3OptionalExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto3OptionalExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

@@ -28,12 +28,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2UnittestImport_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2UnittestImport_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case importFoo = 7
   case importBar = 8
   case importBaz = 9
@@ -45,7 +45,7 @@ enum Proto2UnittestImport_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterabl
 }
 
 /// To use an enum in a map, it must has the first value as 0.
-enum Proto2UnittestImport_ImportEnumForMap: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2UnittestImport_ImportEnumForMap: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case unknown = 0
   case foo = 1
   case bar = 2
@@ -56,7 +56,7 @@ enum Proto2UnittestImport_ImportEnumForMap: Int, SwiftProtobuf.Enum, Swift.CaseI
 
 }
 
-struct Proto2UnittestImport_ImportMessage: Sendable {
+nonisolated struct Proto2UnittestImport_ImportMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -79,17 +79,17 @@ struct Proto2UnittestImport_ImportMessage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest_import"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest_import"
 
-extension Proto2UnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2UnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0")
 }
 
-extension Proto2UnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2UnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0")
 }
 
-extension Proto2UnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2UnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 

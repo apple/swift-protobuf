@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -41,7 +41,7 @@ struct Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.ExtensibleMe
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestUtf8ValidationOfExtensions {
+nonisolated extension Proto2Unittest_TestUtf8ValidationOfExtensions {
 
   var Proto2Unittest_optionalUtf8StringExtension: String {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_optional_utf8_string_extension) ?? String()}
@@ -71,7 +71,7 @@ extension Proto2Unittest_TestUtf8ValidationOfExtensions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_optional_utf8_string_extension,
   Proto2Unittest_Extensions_repeated_utf8_string_extension
 ]
@@ -80,21 +80,21 @@ let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.Simple
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestUtf8ValidationOfExtensions>(
+nonisolated let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestUtf8ValidationOfExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "proto2_unittest.optional_utf8_string_extension"
 )
 
-let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestUtf8ValidationOfExtensions>(
+nonisolated let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestUtf8ValidationOfExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "proto2_unittest.repeated_utf8_string_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestUtf8ValidationOfExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

@@ -24,12 +24,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foo = 1
 
   init() {
@@ -38,7 +38,7 @@ enum Proto2Unittest_NoGenericServicesTest_TestEnum: Int, SwiftProtobuf.Enum, Swi
 
 }
 
-struct Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -69,7 +69,7 @@ struct Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensibl
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_NoGenericServicesTest_TestMessage {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage {
 
   var Proto2Unittest_NoGenericServicesTest_testExtension: Int32 {
     get {return getExtensionValue(ext: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension) ?? 0}
@@ -94,7 +94,7 @@ extension Proto2Unittest_NoGenericServicesTest_TestMessage {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_NoGenericServicesTest_Extensions_test_extension
 ]
 
@@ -102,20 +102,20 @@ let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: S
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_NoGenericServicesTest_TestMessage>(
+nonisolated let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_NoGenericServicesTest_TestMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "proto2_unittest.no_generic_services_test.test_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest.no_generic_services_test"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest.no_generic_services_test"
 
-extension Proto2Unittest_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FOO\0")
 }
 
-extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 

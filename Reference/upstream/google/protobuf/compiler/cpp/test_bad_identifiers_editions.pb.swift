@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum EditionUnittest_bool: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_bool: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case `default` = 0
   case notEq = 1
   case volatile = 2
@@ -46,7 +46,7 @@ enum EditionUnittest_bool: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 /// Test that fields can have names like "input" and "i" which are also used
 /// internally by the code generator for local variables.
-struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+nonisolated struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -564,7 +564,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TestEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo = 0
 
     init() {
@@ -573,7 +573,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
 
   }
 
-  struct BuildDescriptors: Sendable {
+  nonisolated struct BuildDescriptors: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -583,7 +583,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct TypeTraits: Sendable {
+  nonisolated struct TypeTraits: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -594,7 +594,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
   }
 
   /// Use common namespaces to make sure we are properly qualifying
-  struct std: Sendable {
+  nonisolated struct std: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -604,7 +604,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data1: Sendable {
+  nonisolated struct Data1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -616,7 +616,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data2: Sendable {
+  nonisolated struct Data2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -628,7 +628,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data3: Sendable {
+  nonisolated struct Data3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -640,7 +640,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data4: Sendable {
+  nonisolated struct Data4: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -652,7 +652,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data5: Sendable {
+  nonisolated struct Data5: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -664,7 +664,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Data6: Sendable {
+  nonisolated struct Data6: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -676,7 +676,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct Cord: Sendable {
+  nonisolated struct Cord: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -686,7 +686,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct StringPiece: Sendable {
+  nonisolated struct StringPiece: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -697,7 +697,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
   }
 
   /// Methods generated in the parent type
-  struct BadKnownNamesFields: Sendable {
+  nonisolated struct BadKnownNamesFields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -758,7 +758,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     fileprivate var _swap: Int32? = nil
   }
 
-  struct BadKnownNamesFieldsNoStandardDescriptor: Sendable {
+  nonisolated struct BadKnownNamesFieldsNoStandardDescriptor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -779,14 +779,14 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     fileprivate var _descriptor: Int32? = nil
   }
 
-  struct BadKnownNamesTypes: Sendable {
+  nonisolated struct BadKnownNamesTypes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct GetDescriptor: Sendable {
+    nonisolated struct GetDescriptor: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -796,7 +796,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct GetReflection: Sendable {
+    nonisolated struct GetReflection: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -806,7 +806,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct Swap: Sendable {
+    nonisolated struct Swap: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -816,7 +816,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct UnsafeArenaSwap: Sendable {
+    nonisolated struct UnsafeArenaSwap: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -826,7 +826,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct New: Sendable {
+    nonisolated struct New: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -836,7 +836,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct CopyFrom: Sendable {
+    nonisolated struct CopyFrom: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -846,7 +846,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct MergeFrom: Sendable {
+    nonisolated struct MergeFrom: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -856,7 +856,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct GetMetadata: Sendable {
+    nonisolated struct GetMetadata: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -866,7 +866,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct Clear: Sendable {
+    nonisolated struct Clear: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -876,7 +876,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
       init() {}
     }
 
-    struct IsInitialized: Sendable {
+    nonisolated struct IsInitialized: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -889,7 +889,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
     init() {}
   }
 
-  struct BadKnownNamesValues: SwiftProtobuf.ExtensibleMessage, Sendable {
+  nonisolated struct BadKnownNamesValues: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -902,7 +902,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
   }
 
   /// The generator used to #define a macro called "DO" inside the .cc file.
-  struct DO: Sendable {
+  nonisolated struct DO: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -919,7 +919,7 @@ struct EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.ExtensibleMessa
 }
 
 /// Special names as above, but at file scope.
-struct EditionUnittest_GetDescriptor: Sendable {
+nonisolated struct EditionUnittest_GetDescriptor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -929,7 +929,7 @@ struct EditionUnittest_GetDescriptor: Sendable {
   init() {}
 }
 
-struct EditionUnittest_GetReflection: Sendable {
+nonisolated struct EditionUnittest_GetReflection: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -939,7 +939,7 @@ struct EditionUnittest_GetReflection: Sendable {
   init() {}
 }
 
-struct EditionUnittest_Swap: Sendable {
+nonisolated struct EditionUnittest_Swap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -949,7 +949,7 @@ struct EditionUnittest_Swap: Sendable {
   init() {}
 }
 
-struct EditionUnittest_UnsafeArenaSwap: Sendable {
+nonisolated struct EditionUnittest_UnsafeArenaSwap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -959,7 +959,7 @@ struct EditionUnittest_UnsafeArenaSwap: Sendable {
   init() {}
 }
 
-struct EditionUnittest_New: Sendable {
+nonisolated struct EditionUnittest_New: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -969,7 +969,7 @@ struct EditionUnittest_New: Sendable {
   init() {}
 }
 
-struct EditionUnittest_CopyFrom: Sendable {
+nonisolated struct EditionUnittest_CopyFrom: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -979,7 +979,7 @@ struct EditionUnittest_CopyFrom: Sendable {
   init() {}
 }
 
-struct EditionUnittest_MergeFrom: Sendable {
+nonisolated struct EditionUnittest_MergeFrom: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -989,7 +989,7 @@ struct EditionUnittest_MergeFrom: Sendable {
   init() {}
 }
 
-struct EditionUnittest_GetMetadata: Sendable {
+nonisolated struct EditionUnittest_GetMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -999,7 +999,7 @@ struct EditionUnittest_GetMetadata: Sendable {
   init() {}
 }
 
-struct EditionUnittest_Clear: Sendable {
+nonisolated struct EditionUnittest_Clear: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1009,7 +1009,7 @@ struct EditionUnittest_Clear: Sendable {
   init() {}
 }
 
-struct EditionUnittest_IsInitialized: Sendable {
+nonisolated struct EditionUnittest_IsInitialized: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1019,7 +1019,7 @@ struct EditionUnittest_IsInitialized: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestConflictingSymbolNamesExtension: Sendable {
+nonisolated struct EditionUnittest_TestConflictingSymbolNamesExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1029,7 +1029,7 @@ struct EditionUnittest_TestConflictingSymbolNamesExtension: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestConflictingEnumNames: Sendable {
+nonisolated struct EditionUnittest_TestConflictingEnumNames: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1045,7 +1045,7 @@ struct EditionUnittest_TestConflictingEnumNames: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum whileEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum whileEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case `default` = 0
     case and = 1
     case `class` = 2
@@ -1064,7 +1064,7 @@ struct EditionUnittest_TestConflictingEnumNames: Sendable {
   fileprivate var _conflictingEnum: EditionUnittest_TestConflictingEnumNames.whileEnum? = nil
 }
 
-struct EditionUnittest_DummyMessage: Sendable {
+nonisolated struct EditionUnittest_DummyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1074,7 +1074,7 @@ struct EditionUnittest_DummyMessage: Sendable {
   init() {}
 }
 
-struct EditionUnittest_NULL: Sendable {
+nonisolated struct EditionUnittest_NULL: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1096,7 +1096,7 @@ struct EditionUnittest_NULL: Sendable {
 }
 
 /// Message names that could conflict.
-struct EditionUnittest_Shutdown: Sendable {
+nonisolated struct EditionUnittest_Shutdown: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1106,7 +1106,7 @@ struct EditionUnittest_Shutdown: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TableStruct: Sendable {
+nonisolated struct EditionUnittest_TableStruct: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1125,7 +1125,7 @@ struct EditionUnittest_TableStruct: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension EditionUnittest_TestConflictingSymbolNames {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames {
 
   var EditionUnittest_void: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_void) ?? 0}
@@ -1148,7 +1148,7 @@ extension EditionUnittest_TestConflictingSymbolNames {
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
 
   var EditionUnittest_unknownFields: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_unknown_fields) ?? 0}
@@ -1308,7 +1308,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let EditionUnittest_TestBadIdentifiersEditions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let EditionUnittest_TestBadIdentifiersEditions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionUnittest_Extensions_unknown_fields,
   EditionUnittest_Extensions_mutable_unknown_fields,
   EditionUnittest_Extensions_descriptor,
@@ -1327,37 +1327,37 @@ let EditionUnittest_TestBadIdentifiersEditions_Extensions: SwiftProtobuf.SimpleE
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let EditionUnittest_Extensions_unknown_fields = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
+nonisolated let EditionUnittest_Extensions_unknown_fields = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
   _protobuf_fieldNumber: 11,
   fieldName: "edition_unittest.unknown_fields"
 )
 
-let EditionUnittest_Extensions_mutable_unknown_fields = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
+nonisolated let EditionUnittest_Extensions_mutable_unknown_fields = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
   _protobuf_fieldNumber: 12,
   fieldName: "edition_unittest.mutable_unknown_fields"
 )
 
-let EditionUnittest_Extensions_descriptor = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
+nonisolated let EditionUnittest_Extensions_descriptor = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
   _protobuf_fieldNumber: 13,
   fieldName: "edition_unittest.descriptor"
 )
 
-let EditionUnittest_Extensions_default_instance = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
+nonisolated let EditionUnittest_Extensions_default_instance = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
   _protobuf_fieldNumber: 14,
   fieldName: "edition_unittest.default_instance"
 )
 
-let EditionUnittest_Extensions_swap = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
+nonisolated let EditionUnittest_Extensions_swap = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
   _protobuf_fieldNumber: 15,
   fieldName: "edition_unittest.swap"
 )
 
-let EditionUnittest_Extensions_void = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames>(
+nonisolated let EditionUnittest_Extensions_void = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames>(
   _protobuf_fieldNumber: 314253,
   fieldName: "edition_unittest.void"
 )
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
   enum Extensions {
     static let unknown_fields = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues>(
       _protobuf_fieldNumber: 1,
@@ -1386,7 +1386,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNamesExtension {
+nonisolated extension EditionUnittest_TestConflictingSymbolNamesExtension {
   enum Extensions {
     static let repeated_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames>(
       _protobuf_fieldNumber: 20423638,
@@ -1397,13 +1397,13 @@ extension EditionUnittest_TestConflictingSymbolNamesExtension {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "edition_unittest"
+fileprivate nonisolated let _protobuf_package = "edition_unittest"
 
-extension EditionUnittest_bool: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_bool: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0default\0\u{1}NOT_EQ\0\u{1}volatile\0\u{1}return\0")
 }
 
-extension EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestConflictingSymbolNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}input\0\u{1}output\0\u{1}length\0\u{1}i\0\u{3}new_element\0\u{3}total_size\0\u{1}tag\0\u{1}source\0\u{1}value\0\u{1}file\0\u{1}from\0\u{3}handle_uninterpreted\0\u{1}index\0\u{1}controller\0\u{3}already_here\0\u{1}uint32\0\u{1}uint64\0\u{1}string\0\u{1}memset\0\u{1}int32\0\u{1}int64\0\u{3}cached_size\0\u{1}extensions\0\u{1}bit\0\u{1}bits\0\u{1}offsets\0\u{1}reflection\0\u{3}some_cord\0\u{3}some_string_piece\0\u{1}int\0\u{1}friend\0\u{1}do\0\u{3}field_type\0\u{3}is_packed\0\u{3}release_length\0\u{3}release_do\0\u{1}class\0\u{1}target\0\u{1}typedecl\0\u{1}auto\0\u{3}uint32_t\0\u{3}uint64_t\0\u{3}int32_t\0\u{3}int64_t\0\u{3}size_t\0\u{3}intptr_t\0\u{1}uint8\0\u{3}uint8_t\0\u{1}uint16\0\u{3}uint16_t\0\u{1}int8\0\u{3}int8_t\0\u{1}int16\0\u{3}int16_t\0\u{3}ssize_t\0\u{3}uintptr_t\0\u{3}some_view\0")
 
@@ -1874,11 +1874,11 @@ extension EditionUnittest_TestConflictingSymbolNames: SwiftProtobuf.Message, Swi
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.TestEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BuildDescriptors: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BuildDescriptors: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".BuildDescriptors"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1897,7 +1897,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BuildDescriptors: SwiftProt
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.TypeTraits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.TypeTraits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".TypeTraits"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1916,7 +1916,7 @@ extension EditionUnittest_TestConflictingSymbolNames.TypeTraits: SwiftProtobuf.M
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.std: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.std: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".std"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1935,7 +1935,7 @@ extension EditionUnittest_TestConflictingSymbolNames.std: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -1965,7 +1965,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data1: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -1995,7 +1995,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data2: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -2025,7 +2025,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data3: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data4"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -2055,7 +2055,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data4: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data5: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data5: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data5"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -2085,7 +2085,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data5: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Data6: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Data6: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Data6"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -2115,7 +2115,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Data6: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.Cord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.Cord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".Cord"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2134,7 +2134,7 @@ extension EditionUnittest_TestConflictingSymbolNames.Cord: SwiftProtobuf.Message
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.StringPiece: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.StringPiece: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".StringPiece"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2153,7 +2153,7 @@ extension EditionUnittest_TestConflictingSymbolNames.StringPiece: SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".BadKnownNamesFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}unknown_fields\0\u{3}mutable_unknown_fields\0\u{1}descriptor\0\u{3}default_instance\0\u{1}swap\0")
 
@@ -2207,7 +2207,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFields: SwiftP
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".BadKnownNamesFieldsNoStandardDescriptor"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{3}descriptor\0")
 
@@ -2241,7 +2241,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesFieldsNoStanda
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".BadKnownNamesTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2260,7 +2260,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes: SwiftPr
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".GetDescriptor"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2279,7 +2279,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetDescr
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".GetReflection"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2298,7 +2298,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetRefle
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Swap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Swap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".Swap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2317,7 +2317,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Swap: Sw
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".UnsafeArenaSwap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2336,7 +2336,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeAr
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.New: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.New: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".New"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2355,7 +2355,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.New: Swi
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".CopyFrom"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2374,7 +2374,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".MergeFrom"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2393,7 +2393,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.MergeFro
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".GetMetadata"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2412,7 +2412,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetMetad
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".Clear"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2431,7 +2431,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.Clear: S
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.protoMessageName + ".IsInitialized"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2450,7 +2450,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesTypes.IsInitia
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".BadKnownNamesValues"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2479,7 +2479,7 @@ extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues: SwiftP
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNames.DO: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNames.DO: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestConflictingSymbolNames.protoMessageName + ".DO"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2498,7 +2498,7 @@ extension EditionUnittest_TestConflictingSymbolNames.DO: SwiftProtobuf.Message, 
   }
 }
 
-extension EditionUnittest_GetDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_GetDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GetDescriptor"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2517,7 +2517,7 @@ extension EditionUnittest_GetDescriptor: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_GetReflection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_GetReflection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GetReflection"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2536,7 +2536,7 @@ extension EditionUnittest_GetReflection: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_Swap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Swap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Swap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2555,7 +2555,7 @@ extension EditionUnittest_Swap: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension EditionUnittest_UnsafeArenaSwap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_UnsafeArenaSwap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UnsafeArenaSwap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2574,7 +2574,7 @@ extension EditionUnittest_UnsafeArenaSwap: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_New: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_New: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".New"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2593,7 +2593,7 @@ extension EditionUnittest_New: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension EditionUnittest_CopyFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_CopyFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CopyFrom"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2612,7 +2612,7 @@ extension EditionUnittest_CopyFrom: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension EditionUnittest_MergeFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_MergeFrom: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MergeFrom"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2631,7 +2631,7 @@ extension EditionUnittest_MergeFrom: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension EditionUnittest_GetMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_GetMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GetMetadata"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2650,7 +2650,7 @@ extension EditionUnittest_GetMetadata: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension EditionUnittest_Clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Clear"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2669,7 +2669,7 @@ extension EditionUnittest_Clear: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension EditionUnittest_IsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_IsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".IsInitialized"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2688,7 +2688,7 @@ extension EditionUnittest_IsInitialized: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_TestConflictingSymbolNamesExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingSymbolNamesExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestConflictingSymbolNamesExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2707,7 +2707,7 @@ extension EditionUnittest_TestConflictingSymbolNamesExtension: SwiftProtobuf.Mes
   }
 }
 
-extension EditionUnittest_TestConflictingEnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingEnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestConflictingEnumNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}conflicting_enum\0")
 
@@ -2741,11 +2741,11 @@ extension EditionUnittest_TestConflictingEnumNames: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestConflictingEnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestConflictingEnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0default\0\u{1}and\0\u{1}class\0\u{1}int\0\u{1}typedef\0\u{1}XOR\0")
 }
 
-extension EditionUnittest_DummyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_DummyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DummyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2764,7 +2764,7 @@ extension EditionUnittest_DummyMessage: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_NULL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_NULL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NULL"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}int\0")
 
@@ -2798,7 +2798,7 @@ extension EditionUnittest_NULL: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension EditionUnittest_Shutdown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Shutdown: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Shutdown"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2817,7 +2817,7 @@ extension EditionUnittest_Shutdown: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension EditionUnittest_TableStruct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TableStruct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TableStruct"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

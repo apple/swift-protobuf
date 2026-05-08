@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SDTTopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SDTTopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case valueZero = 0
   case valueOne = 1
   case valueTwo = 2
@@ -47,7 +47,7 @@ enum SDTTopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct SDTTopLevelMessage: @unchecked Sendable {
+nonisolated struct SDTTopLevelMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -109,7 +109,7 @@ struct SDTTopLevelMessage: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case field3(SDTTopLevelEnum)
     case field4(SDTTopLevelMessage.SubEnum)
     case field5(SDTTopLevelMessage.SubMessage)
@@ -117,7 +117,7 @@ struct SDTTopLevelMessage: @unchecked Sendable {
 
   }
 
-  enum SubEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SubEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case subValue0 = 0
     case subValue1 = 1
     case subValue2 = 2
@@ -128,7 +128,7 @@ struct SDTTopLevelMessage: @unchecked Sendable {
 
   }
 
-  struct SubMessage: @unchecked Sendable {
+  nonisolated struct SubMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -172,7 +172,7 @@ struct SDTTopLevelMessage: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SDTTopLevelMessage2: @unchecked Sendable {
+nonisolated struct SDTTopLevelMessage2: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -202,7 +202,7 @@ struct SDTTopLevelMessage2: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SDTExternalRefs: Sendable {
+nonisolated struct SDTExternalRefs: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -233,7 +233,7 @@ struct SDTExternalRefs: Sendable {
   fileprivate var _ver: SwiftDescriptorTest_Import_Version? = nil
 }
 
-struct SDTScoperForExt: Sendable {
+nonisolated struct SDTScoperForExt: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -243,7 +243,7 @@ struct SDTScoperForExt: Sendable {
   init() {}
 }
 
-struct SDTProto2MessageForPresence: Sendable {
+nonisolated struct SDTProto2MessageForPresence: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -364,7 +364,7 @@ struct SDTProto2MessageForPresence: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SDTTopLevelEnum)
@@ -393,7 +393,7 @@ struct SDTProto2MessageForPresence: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftDescriptorTest_Import_ExtendableOne {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne {
 
   var SDTextStr: String {
     get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
@@ -411,7 +411,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne {
   }
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
     get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
@@ -451,7 +451,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SDTExtensions_ext_str,
   SDTScoperForExt.Extensions.ext_enum,
   SDTScoperForExt.Extensions.ext_msg
@@ -461,12 +461,12 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftDescriptorTest_Import_ExtendableOne>(
+nonisolated let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftDescriptorTest_Import_ExtendableOne>(
   _protobuf_fieldNumber: 90000,
   fieldName: "swift_descriptor_test.ext_str"
 )
 
-extension SDTScoperForExt {
+nonisolated extension SDTScoperForExt {
   enum Extensions {
     static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo>(
       _protobuf_fieldNumber: 99001,
@@ -482,13 +482,13 @@ extension SDTScoperForExt {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
+fileprivate nonisolated let _protobuf_package = "swift_descriptor_test"
 
-extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0VALUE_ZERO\0\u{1}VALUE_ONE\0\u{1}VALUE_TWO\0")
 }
 
-extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{1}field4\0\u{1}field5\0\u{1}field6\0")
 
@@ -629,11 +629,11 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SUB_VALUE_0\0\u{1}SUB_VALUE_1\0\u{1}SUB_VALUE_2\0")
 }
 
-extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0")
 
@@ -717,7 +717,7 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}left\0\u{1}right\0")
 
@@ -794,7 +794,7 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}one\0\u{1}ver\0")
 
@@ -838,7 +838,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -857,7 +857,7 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto2MessageForPresence"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}req_str_field\0\u{3}req_int32_field\0\u{3}req_enum_field\0\u{3}req_message_field\0\u{4}\u{7}opt_str_field\0\u{3}opt_int32_field\0\u{3}opt_enum_field\0\u{3}opt_message_field\0\u{4}\u{7}repeat_str_field\0\u{3}repeat_int32_field\0\u{3}repeat_enum_field\0\u{3}repeat_message_field\0\u{4}\u{7}oneof_str_field\0\u{3}oneof_int32_field\0\u{3}oneof_enum_field\0\u{3}oneof_message_field\0")
 

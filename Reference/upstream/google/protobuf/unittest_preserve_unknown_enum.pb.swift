@@ -22,12 +22,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -65,7 +65,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIte
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
@@ -107,7 +107,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swif
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: Sendable {
+nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -141,7 +141,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
 
@@ -150,7 +150,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: Sendable {
   init() {}
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: Sendable {
+nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -183,7 +183,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
 
@@ -194,17 +194,17 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
+fileprivate nonisolated let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_FOO\0\u{1}E_BAR\0\u{1}E_BAZ\0\u{1}E_EXTRA\0")
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0")
 
@@ -281,7 +281,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
   }
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0")
 

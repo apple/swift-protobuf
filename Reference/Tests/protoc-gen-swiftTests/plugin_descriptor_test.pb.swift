@@ -31,13 +31,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// To check handling of extension ranges that are out of order.
-struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,7 +51,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMe
 
 /// To check handling of extension ranges that are out of order, have fields or
 /// reserved things mix through them.
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -104,7 +104,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Ex
 }
 
 /// Intermixed ranges and fields so help ensure no merge issues
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,9 +178,9 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Ext
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
+fileprivate nonisolated let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrdering"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{5}")
 
@@ -214,7 +214,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Message, 
   }
 }
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{6}field6\0\u{2}v\u{1}field124\0\u{1}field125\0\u{2}K\u{1}field200\0\u{c}\u{8}\u{1}\u{c}y\u{1}\u{3}")
 
@@ -274,7 +274,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
   }
 }
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingNoMerging"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{2}\u{4}field6\0\u{2}\u{7}field13\0\u{2}\u{2}field15\0\u{2}\u{6}field21\0")
 

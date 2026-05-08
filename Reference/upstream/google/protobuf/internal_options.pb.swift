@@ -22,19 +22,19 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_InternalOptionsForce: Sendable {
+nonisolated struct Pb_InternalOptionsForce: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case unspecified // = 0
     case forceOn // = 1
@@ -75,7 +75,7 @@ struct Pb_InternalOptionsForce: Sendable {
   init() {}
 }
 
-struct Pb_InternalFieldOptionsCpp: Sendable {
+nonisolated struct Pb_InternalFieldOptionsCpp: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -85,7 +85,7 @@ struct Pb_InternalFieldOptionsCpp: Sendable {
   init() {}
 }
 
-struct Pb_InternalFieldOptions: Sendable {
+nonisolated struct Pb_InternalFieldOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -115,7 +115,7 @@ struct Pb_InternalFieldOptions: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var Pb_internalFieldOptions: Pb_InternalFieldOptions {
     get {return getExtensionValue(ext: Pb_Extensions_internal_field_options) ?? Pb_InternalFieldOptions()}
@@ -140,7 +140,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Pb_InternalOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Pb_InternalOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Extensions_internal_field_options
 ]
 
@@ -148,16 +148,16 @@ let Pb_InternalOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_internal_field_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_InternalFieldOptions>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Pb_Extensions_internal_field_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_InternalFieldOptions>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 535801550,
   fieldName: "pb.internal_field_options"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
+fileprivate nonisolated let _protobuf_package = "pb"
 
-extension Pb_InternalOptionsForce: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_InternalOptionsForce: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalOptionsForce"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -176,11 +176,11 @@ extension Pb_InternalOptionsForce: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Pb_InternalOptionsForce.Enum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_InternalOptionsForce.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FORCE_ON\0\u{1}FORCE_OFF\0")
 }
 
-extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalFieldOptionsCpp"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -199,7 +199,7 @@ extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension Pb_InternalFieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_InternalFieldOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalFieldOptions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}cpp\0")
 

@@ -22,7 +22,7 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -30,7 +30,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Test that we can include all well-known types.
 /// Each wrapper type is included separately, as languages
 /// map handle different wrappers in different ways.
-struct Proto2Unittest_TestWellKnownTypes: @unchecked Sendable {
+nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -215,7 +215,7 @@ struct Proto2Unittest_TestWellKnownTypes: @unchecked Sendable {
 }
 
 /// A repeated field for each well-known type.
-struct Proto2Unittest_RepeatedWellKnownTypes: @unchecked Sendable {
+nonisolated struct Proto2Unittest_RepeatedWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -318,7 +318,7 @@ struct Proto2Unittest_RepeatedWellKnownTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Proto2Unittest_OneofWellKnownTypes: Sendable {
+nonisolated struct Proto2Unittest_OneofWellKnownTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -471,7 +471,7 @@ struct Proto2Unittest_OneofWellKnownTypes: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, Sendable {
+  nonisolated enum OneOf_OneofField: Equatable, Sendable {
     case anyField(SwiftProtobuf.Google_Protobuf_Any)
     case apiField(SwiftProtobuf.Google_Protobuf_Api)
     case durationField(SwiftProtobuf.Google_Protobuf_Duration)
@@ -499,7 +499,7 @@ struct Proto2Unittest_OneofWellKnownTypes: Sendable {
 /// A map field for each well-known type. We only
 /// need to worry about the value part of the map being the
 /// well-known types, as messages can't be map keys.
-struct Proto2Unittest_MapWellKnownTypes: @unchecked Sendable {
+nonisolated struct Proto2Unittest_MapWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -603,9 +603,9 @@ struct Proto2Unittest_MapWellKnownTypes: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}any_field\0\u{3}api_field\0\u{3}duration_field\0\u{3}empty_field\0\u{3}field_mask_field\0\u{3}source_context_field\0\u{3}struct_field\0\u{3}timestamp_field\0\u{3}type_field\0\u{3}double_field\0\u{3}float_field\0\u{3}int64_field\0\u{3}uint64_field\0\u{3}int32_field\0\u{3}uint32_field\0\u{3}bool_field\0\u{3}string_field\0\u{3}bytes_field\0\u{3}value_field\0")
 
@@ -801,7 +801,7 @@ extension Proto2Unittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Proto2Unittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}any_field\0\u{3}api_field\0\u{3}duration_field\0\u{3}empty_field\0\u{3}field_mask_field\0\u{3}source_context_field\0\u{3}struct_field\0\u{3}timestamp_field\0\u{3}type_field\0\u{3}double_field\0\u{3}float_field\0\u{3}int64_field\0\u{3}uint64_field\0\u{3}int32_field\0\u{3}uint32_field\0\u{3}bool_field\0\u{3}string_field\0\u{3}bytes_field\0")
 
@@ -986,7 +986,7 @@ extension Proto2Unittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension Proto2Unittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}any_field\0\u{3}api_field\0\u{3}duration_field\0\u{3}empty_field\0\u{3}field_mask_field\0\u{3}source_context_field\0\u{3}struct_field\0\u{3}timestamp_field\0\u{3}type_field\0\u{3}double_field\0\u{3}float_field\0\u{3}int64_field\0\u{3}uint64_field\0\u{3}int32_field\0\u{3}uint32_field\0\u{3}bool_field\0\u{3}string_field\0\u{3}bytes_field\0")
 
@@ -1325,7 +1325,7 @@ extension Proto2Unittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension Proto2Unittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}any_field\0\u{3}api_field\0\u{3}duration_field\0\u{3}empty_field\0\u{3}field_mask_field\0\u{3}source_context_field\0\u{3}struct_field\0\u{3}timestamp_field\0\u{3}type_field\0\u{3}double_field\0\u{3}float_field\0\u{3}int64_field\0\u{3}uint64_field\0\u{3}int32_field\0\u{3}uint32_field\0\u{3}bool_field\0\u{3}string_field\0\u{3}bytes_field\0")
 

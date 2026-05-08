@@ -17,12 +17,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testNull // = 0
   case testRedactable // = 1
@@ -68,7 +68,7 @@ enum Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct Proto2Unittest_TestRedactedNestMessage: Sendable {
+nonisolated struct Proto2Unittest_TestRedactedNestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -89,7 +89,7 @@ struct Proto2Unittest_TestRedactedNestMessage: Sendable {
   fileprivate var _foo: String? = nil
 }
 
-struct Proto2Unittest_TestRepeatedRedactedNestMessage: Sendable {
+nonisolated struct Proto2Unittest_TestRepeatedRedactedNestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,7 +110,7 @@ struct Proto2Unittest_TestRepeatedRedactedNestMessage: Sendable {
   fileprivate var _bar: String? = nil
 }
 
-struct Proto2Unittest_TestMessageEnum: Sendable {
+nonisolated struct Proto2Unittest_TestMessageEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -122,7 +122,7 @@ struct Proto2Unittest_TestMessageEnum: Sendable {
   init() {}
 }
 
-struct Proto2Unittest_TestNestedMessageEnum: Sendable {
+nonisolated struct Proto2Unittest_TestNestedMessageEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -155,7 +155,7 @@ struct Proto2Unittest_TestNestedMessageEnum: Sendable {
   fileprivate var _redactedString: String? = nil
 }
 
-struct Proto2Unittest_TestRedactedMessage: Sendable {
+nonisolated struct Proto2Unittest_TestRedactedMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -276,7 +276,7 @@ struct Proto2Unittest_TestRedactedMessage: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var Proto2Unittest_metaAnnotatedEnum: Proto2Unittest_MetaAnnotatedEnum {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_meta_annotated_enum) ?? .testNull}
@@ -321,7 +321,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestRedaction_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestRedaction_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_meta_annotated_enum,
   Proto2Unittest_Extensions_repeated_meta_annotated_enum,
   Proto2Unittest_Extensions_test_nested_message_enum
@@ -331,30 +331,30 @@ let Proto2Unittest_UnittestRedaction_Extensions: SwiftProtobuf.SimpleExtensionMa
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_meta_annotated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_MetaAnnotatedEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Proto2Unittest_Extensions_meta_annotated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_MetaAnnotatedEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 535801413,
   fieldName: "proto2_unittest.meta_annotated_enum"
 )
 
-let Proto2Unittest_Extensions_repeated_meta_annotated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2Unittest_MetaAnnotatedEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Proto2Unittest_Extensions_repeated_meta_annotated_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2Unittest_MetaAnnotatedEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 535801414,
   fieldName: "proto2_unittest.repeated_meta_annotated_enum"
 )
 
-let Proto2Unittest_Extensions_test_nested_message_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestNestedMessageEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Proto2Unittest_Extensions_test_nested_message_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestNestedMessageEnum>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 535801415,
   fieldName: "proto2_unittest.test_nested_message_enum"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_NULL\0\u{1}TEST_REDACTABLE\0\u{1}TEST_NO_REDACT\0\u{1}TEST_NO_REDACT_AGAIN\0\u{1}TEST_REDACTABLE_FALSE\0")
 }
 
-extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRedactedNestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}foo\0")
 
@@ -388,7 +388,7 @@ extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedRedactedNestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bar\0")
 
@@ -422,7 +422,7 @@ extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Message,
   }
 }
 
-extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageEnum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}redactable_enum\0")
 
@@ -452,7 +452,7 @@ extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageEnum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}direct_enum\0\u{3}nested_enum\0\u{3}redacted_string\0")
 
@@ -496,7 +496,7 @@ extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension Proto2Unittest_TestRedactedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestRedactedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRedactedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}text_field\0\u{4}\u{7}meta_annotated\0\u{3}repeated_meta_annotated\0\u{3}unredacted_repeated_annotations\0\u{4}\u{7}unreported_non_meta_debug_redact_field\0\u{3}any_field\0\u{3}redactable_false\0\u{4}\u{3}test_direct_message_enum\0\u{3}test_nested_message_enum\0\u{3}test_redacted_message_enum\0")
 

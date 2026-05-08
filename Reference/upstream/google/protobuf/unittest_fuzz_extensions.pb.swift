@@ -20,12 +20,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum FuzzUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum FuzzUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foreignFoo = 4
   case foreignBar = 5
   case foreignBaz = 6
@@ -54,7 +54,7 @@ enum FuzzUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 ///    multiples fields from the same oneof are parsed, the messages will not be
 ///    identical, even if the field numbers are the same and the field types are
 ///    compatible.
-struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
+nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -631,7 +631,7 @@ struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo = 1
     case bar = 2
     case baz = 3
@@ -645,7 +645,7 @@ struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -666,7 +666,7 @@ struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
     fileprivate var _bb: Int32? = nil
   }
 
-  struct OptionalGroup: Sendable {
+  nonisolated struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -687,7 +687,7 @@ struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
     fileprivate var _a: Int32? = nil
   }
 
-  struct RepeatedGroup: Sendable {
+  nonisolated struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -713,7 +713,7 @@ struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct FuzzUnittest_ForeignMessage: Sendable {
+nonisolated struct FuzzUnittest_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -744,7 +744,7 @@ struct FuzzUnittest_ForeignMessage: Sendable {
   fileprivate var _d: Int32? = nil
 }
 
-struct FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -756,7 +756,7 @@ struct FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.ExtensibleMessage, Sendabl
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct FuzzUnittest_TestRequired: Sendable {
+nonisolated struct FuzzUnittest_TestRequired: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -777,7 +777,7 @@ struct FuzzUnittest_TestRequired: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct FuzzUnittest_OptionalGroupExtension: Sendable {
+nonisolated struct FuzzUnittest_OptionalGroupExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -798,7 +798,7 @@ struct FuzzUnittest_OptionalGroupExtension: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct FuzzUnittest_RepeatedGroupExtension: Sendable {
+nonisolated struct FuzzUnittest_RepeatedGroupExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -819,14 +819,14 @@ struct FuzzUnittest_RepeatedGroupExtension: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct FuzzUnittest_TestNestedExtension: Sendable {
+nonisolated struct FuzzUnittest_TestNestedExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct OptionalGroupExtension: Sendable {
+  nonisolated struct OptionalGroupExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -859,7 +859,7 @@ struct FuzzUnittest_TestNestedExtension: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension FuzzUnittest_FuzzMostExtensions {
+nonisolated extension FuzzUnittest_FuzzMostExtensions {
 
   /// Singular
   var FuzzUnittest_optionalInt32Extension: Int32 {
@@ -1745,7 +1745,7 @@ extension FuzzUnittest_FuzzMostExtensions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let FuzzUnittest_UnittestFuzzExtensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let FuzzUnittest_UnittestFuzzExtensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   FuzzUnittest_Extensions_optional_int32_extension,
   FuzzUnittest_Extensions_optional_int64_extension,
   FuzzUnittest_Extensions_optional_uint32_extension,
@@ -1827,112 +1827,112 @@ let FuzzUnittest_UnittestFuzzExtensions_Extensions: SwiftProtobuf.SimpleExtensio
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let FuzzUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "fuzz_unittest.optional_int32_extension"
 )
 
-let FuzzUnittest_Extensions_optional_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "fuzz_unittest.optional_int64_extension"
 )
 
-let FuzzUnittest_Extensions_optional_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 3,
   fieldName: "fuzz_unittest.optional_uint32_extension"
 )
 
-let FuzzUnittest_Extensions_optional_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 4,
   fieldName: "fuzz_unittest.optional_uint64_extension"
 )
 
-let FuzzUnittest_Extensions_optional_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 5,
   fieldName: "fuzz_unittest.optional_sint32_extension"
 )
 
-let FuzzUnittest_Extensions_optional_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 6,
   fieldName: "fuzz_unittest.optional_sint64_extension"
 )
 
-let FuzzUnittest_Extensions_optional_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 7,
   fieldName: "fuzz_unittest.optional_fixed32_extension"
 )
 
-let FuzzUnittest_Extensions_optional_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 8,
   fieldName: "fuzz_unittest.optional_fixed64_extension"
 )
 
-let FuzzUnittest_Extensions_optional_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 9,
   fieldName: "fuzz_unittest.optional_sfixed32_extension"
 )
 
-let FuzzUnittest_Extensions_optional_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 10,
   fieldName: "fuzz_unittest.optional_sfixed64_extension"
 )
 
-let FuzzUnittest_Extensions_optional_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 11,
   fieldName: "fuzz_unittest.optional_float_extension"
 )
 
-let FuzzUnittest_Extensions_optional_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 12,
   fieldName: "fuzz_unittest.optional_double_extension"
 )
 
-let FuzzUnittest_Extensions_optional_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 13,
   fieldName: "fuzz_unittest.optional_bool_extension"
 )
 
-let FuzzUnittest_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 14,
   fieldName: "fuzz_unittest.optional_string_extension"
 )
 
-let FuzzUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 15,
   fieldName: "fuzz_unittest.optional_bytes_extension"
 )
 
-let FuzzUnittest_Extensions_optional_group_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<FuzzUnittest_OptionalGroupExtension>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_group_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<FuzzUnittest_OptionalGroupExtension>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 16,
   fieldName: "fuzz_unittest.optional_group_extension"
 )
 
-let FuzzUnittest_Extensions_optional_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 18,
   fieldName: "fuzz_unittest.optional_nested_message_extension"
 )
 
-let FuzzUnittest_Extensions_optional_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_ForeignMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_ForeignMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 19,
   fieldName: "fuzz_unittest.optional_foreign_message_extension"
 )
 
-let FuzzUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 20,
   fieldName: "fuzz_unittest.optional_import_message_extension"
 )
 
-let FuzzUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 21,
   fieldName: "fuzz_unittest.optional_nested_enum_extension"
 )
 
-let FuzzUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 22,
   fieldName: "fuzz_unittest.optional_foreign_enum_extension"
 )
 
-let FuzzUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 23,
   fieldName: "fuzz_unittest.optional_import_enum_extension"
 )
@@ -1940,133 +1940,133 @@ let FuzzUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.Messa
 /// TODO: features.(pb.cpp).string_type=CORD is not supported for
 /// extension. Add features.(pb.cpp).string_type=CORD option back after it is
 /// supported.
-let FuzzUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 25,
   fieldName: "fuzz_unittest.optional_cord_extension"
 )
 
-let FuzzUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 86,
   fieldName: "fuzz_unittest.optional_bytes_cord_extension"
 )
 
-let FuzzUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 26,
   fieldName: "fuzz_unittest.optional_public_import_message_extension"
 )
 
-let FuzzUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 27,
   fieldName: "fuzz_unittest.optional_lazy_message_extension"
 )
 
 /// Repeated
-let FuzzUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 31,
   fieldName: "fuzz_unittest.repeated_int32_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 32,
   fieldName: "fuzz_unittest.repeated_int64_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 33,
   fieldName: "fuzz_unittest.repeated_uint32_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 34,
   fieldName: "fuzz_unittest.repeated_uint64_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 35,
   fieldName: "fuzz_unittest.repeated_sint32_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 36,
   fieldName: "fuzz_unittest.repeated_sint64_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 37,
   fieldName: "fuzz_unittest.repeated_fixed32_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 38,
   fieldName: "fuzz_unittest.repeated_fixed64_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 39,
   fieldName: "fuzz_unittest.repeated_sfixed32_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 40,
   fieldName: "fuzz_unittest.repeated_sfixed64_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 41,
   fieldName: "fuzz_unittest.repeated_float_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 42,
   fieldName: "fuzz_unittest.repeated_double_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 43,
   fieldName: "fuzz_unittest.repeated_bool_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 44,
   fieldName: "fuzz_unittest.repeated_string_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 45,
   fieldName: "fuzz_unittest.repeated_bytes_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_group_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<FuzzUnittest_RepeatedGroupExtension>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_group_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<FuzzUnittest_RepeatedGroupExtension>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 46,
   fieldName: "fuzz_unittest.repeated_group_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<FuzzUnittest_FuzzMostTypes.NestedMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 48,
   fieldName: "fuzz_unittest.repeated_nested_message_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<FuzzUnittest_ForeignMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<FuzzUnittest_ForeignMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 49,
   fieldName: "fuzz_unittest.repeated_foreign_message_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessage>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessage>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 50,
   fieldName: "fuzz_unittest.repeated_import_message_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 51,
   fieldName: "fuzz_unittest.repeated_nested_enum_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 52,
   fieldName: "fuzz_unittest.repeated_foreign_enum_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 53,
   fieldName: "fuzz_unittest.repeated_import_enum_extension"
 )
@@ -2074,98 +2074,98 @@ let FuzzUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.Messa
 /// TODO: features.(pb.cpp).string_type=CORD is not supported for
 /// extension. Add features.(pb.cpp).string_type=CORD option back after it is
 /// supported.
-let FuzzUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 55,
   fieldName: "fuzz_unittest.repeated_cord_extension"
 )
 
 /// Singular with defaults
-let FuzzUnittest_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 61,
   fieldName: "fuzz_unittest.default_int32_extension"
 )
 
-let FuzzUnittest_Extensions_default_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 62,
   fieldName: "fuzz_unittest.default_int64_extension"
 )
 
-let FuzzUnittest_Extensions_default_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 63,
   fieldName: "fuzz_unittest.default_uint32_extension"
 )
 
-let FuzzUnittest_Extensions_default_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 64,
   fieldName: "fuzz_unittest.default_uint64_extension"
 )
 
-let FuzzUnittest_Extensions_default_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 65,
   fieldName: "fuzz_unittest.default_sint32_extension"
 )
 
-let FuzzUnittest_Extensions_default_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 66,
   fieldName: "fuzz_unittest.default_sint64_extension"
 )
 
-let FuzzUnittest_Extensions_default_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 67,
   fieldName: "fuzz_unittest.default_fixed32_extension"
 )
 
-let FuzzUnittest_Extensions_default_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 68,
   fieldName: "fuzz_unittest.default_fixed64_extension"
 )
 
-let FuzzUnittest_Extensions_default_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 69,
   fieldName: "fuzz_unittest.default_sfixed32_extension"
 )
 
-let FuzzUnittest_Extensions_default_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 70,
   fieldName: "fuzz_unittest.default_sfixed64_extension"
 )
 
-let FuzzUnittest_Extensions_default_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 71,
   fieldName: "fuzz_unittest.default_float_extension"
 )
 
-let FuzzUnittest_Extensions_default_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 72,
   fieldName: "fuzz_unittest.default_double_extension"
 )
 
-let FuzzUnittest_Extensions_default_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 73,
   fieldName: "fuzz_unittest.default_bool_extension"
 )
 
-let FuzzUnittest_Extensions_default_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 74,
   fieldName: "fuzz_unittest.default_string_extension"
 )
 
-let FuzzUnittest_Extensions_default_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 75,
   fieldName: "fuzz_unittest.default_bytes_extension"
 )
 
-let FuzzUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_FuzzMostTypes.NestedEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 81,
   fieldName: "fuzz_unittest.default_nested_enum_extension"
 )
 
-let FuzzUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<FuzzUnittest_ForeignEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 82,
   fieldName: "fuzz_unittest.default_foreign_enum_extension"
 )
 
-let FuzzUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 83,
   fieldName: "fuzz_unittest.default_import_enum_extension"
 )
@@ -2173,22 +2173,22 @@ let FuzzUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.Messag
 /// TODO: features.(pb.cpp).string_type=CORD is not supported for
 /// extension. Add features.(pb.cpp).string_type=CORD option back after it is
 /// supported.
-let FuzzUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 85,
   fieldName: "fuzz_unittest.default_cord_extension"
 )
 
-let FuzzUnittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 90,
   fieldName: "fuzz_unittest.optional_utf8_string_extension"
 )
 
-let FuzzUnittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
+nonisolated let FuzzUnittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, FuzzUnittest_FuzzMostExtensions>(
   _protobuf_fieldNumber: 91,
   fieldName: "fuzz_unittest.repeated_utf8_string_extension"
 )
 
-extension FuzzUnittest_TestRequired {
+nonisolated extension FuzzUnittest_TestRequired {
   enum Extensions {
     static let single = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<FuzzUnittest_TestRequired>, FuzzUnittest_FuzzMostExtensions>(
       _protobuf_fieldNumber: 1000,
@@ -2202,7 +2202,7 @@ extension FuzzUnittest_TestRequired {
   }
 }
 
-extension FuzzUnittest_TestNestedExtension {
+nonisolated extension FuzzUnittest_TestNestedExtension {
   enum Extensions {
     /// Check for bug where string extensions declared in tested scope did not
     /// compile.
@@ -2222,13 +2222,13 @@ extension FuzzUnittest_TestNestedExtension {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "fuzz_unittest"
+fileprivate nonisolated let _protobuf_package = "fuzz_unittest"
 
-extension FuzzUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0\u{2}\u{1a}FOREIGN_BAX\0\u{2}`H\u{1e}FOREIGN_LARGE\0")
 }
 
-extension FuzzUnittest_FuzzMostTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FuzzMostTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{4}\u{2}optional_cord\0\u{3}optional_public_import_message\0\u{3}optional_lazy_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{4}\u{2}repeated_cord\0\u{4}\u{6}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{4}\u{2}default_cord\0\u{3}optional_bytes_cord\0\u{4}\u{4}optional_utf8_string\0\u{3}repeated_utf8_string\0\u{2}M\u{e}single\0\u{1}multi\0\u{1}test\0\u{3}nested_string\0")
 
@@ -2817,11 +2817,11 @@ extension FuzzUnittest_FuzzMostTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension FuzzUnittest_FuzzMostTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension FuzzUnittest_FuzzMostTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = FuzzUnittest_FuzzMostTypes.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
@@ -2855,7 +2855,7 @@ extension FuzzUnittest_FuzzMostTypes.NestedMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-extension FuzzUnittest_FuzzMostTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = FuzzUnittest_FuzzMostTypes.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
@@ -2889,7 +2889,7 @@ extension FuzzUnittest_FuzzMostTypes.OptionalGroup: SwiftProtobuf.Message, Swift
   }
 }
 
-extension FuzzUnittest_FuzzMostTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = FuzzUnittest_FuzzMostTypes.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
 
@@ -2923,7 +2923,7 @@ extension FuzzUnittest_FuzzMostTypes.RepeatedGroup: SwiftProtobuf.Message, Swift
   }
 }
 
-extension FuzzUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0\u{1}d\0")
 
@@ -2962,7 +2962,7 @@ extension FuzzUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FuzzMostExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2991,7 +2991,7 @@ extension FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension FuzzUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -3030,7 +3030,7 @@ extension FuzzUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension FuzzUnittest_OptionalGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_OptionalGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionalGroupExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
@@ -3064,7 +3064,7 @@ extension FuzzUnittest_OptionalGroupExtension: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension FuzzUnittest_RepeatedGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_RepeatedGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroupExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
 
@@ -3098,7 +3098,7 @@ extension FuzzUnittest_RepeatedGroupExtension: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension FuzzUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -3117,7 +3117,7 @@ extension FuzzUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension FuzzUnittest_TestNestedExtension.OptionalGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension FuzzUnittest_TestNestedExtension.OptionalGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = FuzzUnittest_TestNestedExtension.protoMessageName + ".OptionalGroupExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 

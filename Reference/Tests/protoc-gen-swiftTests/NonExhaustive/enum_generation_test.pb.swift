@@ -36,14 +36,14 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// An open proto3 enum. With EnumGeneration=Nonexhaustive this should be
 /// annotated with @nonexhaustive in the generated Swift.
-@nonexhaustive enum OpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+@nonexhaustive nonisolated enum OpenEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unknown // = 0
   case valueA // = 1
@@ -83,7 +83,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// A message containing both a oneof. With EnumGeneration=Nonexhaustive the oneof
 /// should be annotated with @nonexhaustive in the generated Swift.
-struct EnumGenerationTestMessage: Sendable {
+nonisolated struct EnumGenerationTestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -108,7 +108,7 @@ struct EnumGenerationTestMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  @nonexhaustive enum OneOf_Payload: Equatable, Sendable {
+  @nonexhaustive nonisolated enum OneOf_Payload: Equatable, Sendable {
     case text(String)
     case data(Data)
 
@@ -119,11 +119,11 @@ struct EnumGenerationTestMessage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension OpenEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension OpenEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPEN_ENUM_UNKNOWN\0\u{1}OPEN_ENUM_VALUE_A\0\u{1}OPEN_ENUM_VALUE_B\0")
 }
 
-extension EnumGenerationTestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EnumGenerationTestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumGenerationTestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}text\0\u{1}data\0")
 

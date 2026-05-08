@@ -49,7 +49,7 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -72,7 +72,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Google products with MessageSet-bearing messages to open-source environments.
 ///
 /// NOTE: This message was marked as deprecated in the .proto file.
-struct Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -86,9 +86,9 @@ struct Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.ExtensibleMessage, Senda
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf.bridge"
+fileprivate nonisolated let _protobuf_package = "google.protobuf.bridge"
 
-extension Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageSet"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

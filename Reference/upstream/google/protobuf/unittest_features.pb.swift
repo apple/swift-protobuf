@@ -22,12 +22,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Pb_CustomOptionLifetimesEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Pb_CustomOptionLifetimesEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testCustomOption // = 0
   case customOption1 // = 1
@@ -61,7 +61,7 @@ enum Pb_CustomOptionLifetimesEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testEnumFeatureUnknown // = 0
   case value1 // = 1
@@ -151,7 +151,7 @@ enum Pb_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Pb_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Pb_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testUnstableEnumFeatureUnknown // = 0
   case unstable1 // = 1
@@ -197,7 +197,7 @@ enum Pb_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case testValueLifetimeUnknown // = 0
   case valueLifetimeInherited // = 1
@@ -251,7 +251,7 @@ enum Pb_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct Pb_CustomOptionLifetimesMessage: Sendable {
+nonisolated struct Pb_CustomOptionLifetimesMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -274,14 +274,14 @@ struct Pb_CustomOptionLifetimesMessage: Sendable {
   fileprivate var _customEnum: Pb_CustomOptionLifetimesEnum? = nil
 }
 
-struct Pb_TestMessage: Sendable {
+nonisolated struct Pb_TestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Nested: Sendable {
+  nonisolated struct Nested: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -294,7 +294,7 @@ struct Pb_TestMessage: Sendable {
   init() {}
 }
 
-struct Pb_TestMessageFeatures: Sendable {
+nonisolated struct Pb_TestMessageFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -315,7 +315,7 @@ struct Pb_TestMessageFeatures: Sendable {
   fileprivate var _fileFeature: Pb_EnumFeature? = nil
 }
 
-struct Pb_TestNestedFeatures: Sendable {
+nonisolated struct Pb_TestNestedFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -336,7 +336,7 @@ struct Pb_TestNestedFeatures: Sendable {
   fileprivate var _fileFeature: Pb_EnumFeature? = nil
 }
 
-struct Pb_TestFeatures: @unchecked Sendable {
+nonisolated struct Pb_TestFeatures: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -546,7 +546,7 @@ struct Pb_TestFeatures: @unchecked Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_test: Pb_TestFeatures {
     get {return getExtensionValue(ext: Pb_Extensions_test) ?? Pb_TestFeatures()}
@@ -594,7 +594,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Pb_customOptionLifetimesMessage: Pb_CustomOptionLifetimesMessage {
     get {return getExtensionValue(ext: Pb_Extensions_custom_option_lifetimes_message) ?? Pb_CustomOptionLifetimesMessage()}
@@ -619,7 +619,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Extensions_custom_option_lifetimes_message,
   Pb_Extensions_test,
   Pb_TestMessage.Extensions.test_message,
@@ -630,17 +630,17 @@ let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+nonisolated let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7737012,
   fieldName: "pb.custom_option_lifetimes_message"
 )
 
-let Pb_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+nonisolated let Pb_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   _protobuf_fieldNumber: 9999,
   fieldName: "pb.test"
 )
 
-extension Pb_TestMessage {
+nonisolated extension Pb_TestMessage {
   enum Extensions {
     static let test_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestMessageFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       _protobuf_fieldNumber: 9998,
@@ -649,7 +649,7 @@ extension Pb_TestMessage {
   }
 }
 
-extension Pb_TestMessage.Nested {
+nonisolated extension Pb_TestMessage.Nested {
   enum Extensions {
     static let test_nested = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestNestedFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       _protobuf_fieldNumber: 9997,
@@ -660,25 +660,25 @@ extension Pb_TestMessage.Nested {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
+fileprivate nonisolated let _protobuf_package = "pb"
 
-extension Pb_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_CUSTOM_OPTION\0\u{1}CUSTOM_OPTION1\0")
 }
 
-extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
 }
 
-extension Pb_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_UNSTABLE_ENUM_FEATURE_UNKNOWN\0\u{1}UNSTABLE1\0\u{1}UNSTABLE2\0\u{1}UNSTABLE3\0\u{1}UNSTABLE4\0")
 }
 
-extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_VALUE_LIFETIME_UNKNOWN\0\u{1}VALUE_LIFETIME_INHERITED\0\u{1}VALUE_LIFETIME_SUPPORT\0\u{1}VALUE_LIFETIME_EMPTY_SUPPORT\0\u{1}VALUE_LIFETIME_FUTURE\0\u{1}VALUE_LIFETIME_DEPRECATED\0\u{1}VALUE_LIFETIME_REMOVED\0")
 }
 
-extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CustomOptionLifetimesMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}custom_enum\0\u{3}repeated_custom_enum\0")
 
@@ -717,7 +717,7 @@ extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -736,7 +736,7 @@ extension Pb_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_TestMessage.protoMessageName + ".Nested"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -755,7 +755,7 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Pb_TestMessageFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_TestMessageFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0")
 
@@ -789,7 +789,7 @@ extension Pb_TestMessageFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Pb_TestNestedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_TestNestedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0")
 
@@ -823,7 +823,7 @@ extension Pb_TestNestedFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_feature\0\u{3}extension_range_feature\0\u{3}message_feature\0\u{3}field_feature\0\u{3}oneof_feature\0\u{3}enum_feature\0\u{3}enum_entry_feature\0\u{3}service_feature\0\u{3}method_feature\0\u{3}multiple_feature\0\u{3}bool_field_feature\0\u{4}\u{4}source_feature\0\u{3}source_feature2\0\u{3}removed_feature\0\u{3}future_feature\0\u{3}legacy_feature\0\u{3}value_lifetime_feature\0\u{3}same_edition_removed_feature\0\u{3}new_unstable_feature\0\u{3}unstable_existing_feature\0\u{3}removed_unstable_feature\0")
 

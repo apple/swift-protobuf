@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_Import_Version: Sendable {
+nonisolated struct SwiftDescriptorTest_Import_Version: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,7 +87,7 @@ struct SwiftDescriptorTest_Import_Version: Sendable {
   fileprivate var _suffix: String? = nil
 }
 
-struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -103,7 +103,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct ExtendableTwo: SwiftProtobuf.ExtensibleMessage, Sendable {
+  nonisolated struct ExtendableTwo: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -123,9 +123,9 @@ struct SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.ExtensibleMessage
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test.import"
+fileprivate nonisolated let _protobuf_package = "swift_descriptor_test.import"
 
-extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Version"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}major\0\u{1}minor\0\u{1}patch\0\u{1}suffix\0")
 
@@ -174,7 +174,7 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtendableOne"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_msg_field\0")
 
@@ -218,7 +218,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.Message, Swift
   }
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftDescriptorTest_Import_ExtendableOne.protoMessageName + ".ExtendableTwo"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

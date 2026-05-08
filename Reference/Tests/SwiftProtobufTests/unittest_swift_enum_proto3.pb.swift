@@ -45,12 +45,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
+nonisolated struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,7 +65,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case firstValue // = 0
     case secondValue // = 2
@@ -99,7 +99,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case firstValue // = 0
     case secondValue // = 2
@@ -133,7 +133,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case enumTestNoStem1 // = 0
     case enumTestNoStem2 // = 2
@@ -167,7 +167,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case `var` // = 0
     case notReserved // = 2
@@ -204,7 +204,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: Sendable {
+nonisolated struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -213,7 +213,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo1 // = 0
     static let foo2 = foo1
@@ -260,9 +260,9 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.enum3"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.enum3"
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0")
 
@@ -307,23 +307,23 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_TEST_1_FIRST_VALUE\0\u{2}\u{2}ENUM_TEST_1_SECOND_VALUE\0")
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_TEST_2_FIRST_VALUE\0\u{2}\u{2}SECOND_VALUE\0")
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_TEST_NO_STEM_1\0\u{2}\u{2}ENUM_TEST_NO_STEM_2\0")
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_TEST_RESERVED_WORD_VAR\0\u{2}\u{2}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0")
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
 
@@ -353,6 +353,6 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   }
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{a}\0FOO1\0\u{1}FOO2\0\u{a}\u{2}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0")
 }

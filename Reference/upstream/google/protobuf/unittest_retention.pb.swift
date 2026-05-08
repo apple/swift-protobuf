@@ -22,12 +22,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case topLevelUnknown = 0
 
   init() {
@@ -37,7 +37,7 @@ enum Proto2Unittest_TopLevelEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// Retention attributes set on fields nested within a message
-struct Proto2Unittest_OptionsMessage: Sendable {
+nonisolated struct Proto2Unittest_OptionsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,7 +78,7 @@ struct Proto2Unittest_OptionsMessage: Sendable {
   fileprivate var _sourceRetentionField: Int32? = nil
 }
 
-struct Proto2Unittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -90,7 +90,7 @@ struct Proto2Unittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -116,12 +116,12 @@ struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case i(Int64)
 
   }
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case nestedUnknown = 0
 
     init() {
@@ -130,7 +130,7 @@ struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -155,7 +155,7 @@ struct Proto2Unittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_Extendee {
+nonisolated extension Proto2Unittest_Extendee {
 
   var Proto2Unittest_i: Int32 {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_i) ?? 0}
@@ -188,7 +188,7 @@ extension Proto2Unittest_Extendee {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_EnumOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_EnumOptions {
 
   var Proto2Unittest_enumOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_enum_option) ?? Proto2Unittest_OptionsMessage()}
@@ -206,7 +206,7 @@ extension SwiftProtobuf.Google_Protobuf_EnumOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 
   var Proto2Unittest_enumEntryOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_enum_entry_option) ?? Proto2Unittest_OptionsMessage()}
@@ -224,7 +224,7 @@ extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
 
   var Proto2Unittest_extensionRangeOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_extension_range_option) ?? Proto2Unittest_OptionsMessage()}
@@ -242,7 +242,7 @@ extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var Proto2Unittest_fieldOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_field_option) ?? Proto2Unittest_OptionsMessage()}
@@ -260,7 +260,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_FileOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
   var Proto2Unittest_plainOption: Int32 {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_plain_option) ?? 0}
@@ -328,7 +328,7 @@ extension SwiftProtobuf.Google_Protobuf_FileOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2Unittest_messageOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_message_option) ?? Proto2Unittest_OptionsMessage()}
@@ -346,7 +346,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MethodOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MethodOptions {
 
   var Proto2Unittest_methodOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_method_option) ?? Proto2Unittest_OptionsMessage()}
@@ -364,7 +364,7 @@ extension SwiftProtobuf.Google_Protobuf_MethodOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_OneofOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_OneofOptions {
 
   var Proto2Unittest_oneofOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_oneof_option) ?? Proto2Unittest_OptionsMessage()}
@@ -382,7 +382,7 @@ extension SwiftProtobuf.Google_Protobuf_OneofOptions {
   }
 }
 
-extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 
   var Proto2Unittest_serviceOption: Proto2Unittest_OptionsMessage {
     get {return getExtensionValue(ext: Proto2Unittest_Extensions_service_option) ?? Proto2Unittest_OptionsMessage()}
@@ -407,7 +407,7 @@ extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_plain_option,
   Proto2Unittest_Extensions_runtime_retention_option,
   Proto2Unittest_Extensions_source_retention_option,
@@ -429,77 +429,77 @@ let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMa
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_plain_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2Unittest_Extensions_plain_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 505092806,
   fieldName: "proto2_unittest.plain_option"
 )
 
-let Proto2Unittest_Extensions_runtime_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2Unittest_Extensions_runtime_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 505039132,
   fieldName: "proto2_unittest.runtime_retention_option"
 )
 
-let Proto2Unittest_Extensions_source_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2Unittest_Extensions_source_retention_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504878676,
   fieldName: "proto2_unittest.source_retention_option"
 )
 
-let Proto2Unittest_Extensions_file_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2Unittest_Extensions_file_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504871168,
   fieldName: "proto2_unittest.file_option"
 )
 
-let Proto2Unittest_Extensions_repeated_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+nonisolated let Proto2Unittest_Extensions_repeated_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 504823570,
   fieldName: "proto2_unittest.repeated_options"
 )
 
-let Proto2Unittest_Extensions_extension_range_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions>(
+nonisolated let Proto2Unittest_Extensions_extension_range_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions>(
   _protobuf_fieldNumber: 504822148,
   fieldName: "proto2_unittest.extension_range_option"
 )
 
-let Proto2Unittest_Extensions_message_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+nonisolated let Proto2Unittest_Extensions_message_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 504820819,
   fieldName: "proto2_unittest.message_option"
 )
 
-let Proto2Unittest_Extensions_field_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+nonisolated let Proto2Unittest_Extensions_field_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 504589219,
   fieldName: "proto2_unittest.field_option"
 )
 
-let Proto2Unittest_Extensions_oneof_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_OneofOptions>(
+nonisolated let Proto2Unittest_Extensions_oneof_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_OneofOptions>(
   _protobuf_fieldNumber: 504479153,
   fieldName: "proto2_unittest.oneof_option"
 )
 
-let Proto2Unittest_Extensions_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumOptions>(
+nonisolated let Proto2Unittest_Extensions_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 504451567,
   fieldName: "proto2_unittest.enum_option"
 )
 
-let Proto2Unittest_Extensions_enum_entry_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
+nonisolated let Proto2Unittest_Extensions_enum_entry_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 504450522,
   fieldName: "proto2_unittest.enum_entry_option"
 )
 
-let Proto2Unittest_Extensions_service_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
+nonisolated let Proto2Unittest_Extensions_service_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 504387709,
   fieldName: "proto2_unittest.service_option"
 )
 
-let Proto2Unittest_Extensions_method_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
+nonisolated let Proto2Unittest_Extensions_method_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_OptionsMessage>, SwiftProtobuf.Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 504349420,
   fieldName: "proto2_unittest.method_option"
 )
 
-let Proto2Unittest_Extensions_i = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_Extendee>(
+nonisolated let Proto2Unittest_Extensions_i = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_Extendee>(
   _protobuf_fieldNumber: 1,
   fieldName: "proto2_unittest.i"
 )
 
-extension Proto2Unittest_TopLevelMessage {
+nonisolated extension Proto2Unittest_TopLevelMessage {
   enum Extensions {
     static let s = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_Extendee>(
       _protobuf_fieldNumber: 2,
@@ -510,13 +510,13 @@ extension Proto2Unittest_TopLevelMessage {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TOP_LEVEL_UNKNOWN\0")
 }
 
-extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionsMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}plain_field\0\u{3}runtime_retention_field\0\u{3}source_retention_field\0")
 
@@ -560,7 +560,7 @@ extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension Proto2Unittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Extendee"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -589,7 +589,7 @@ extension Proto2Unittest_Extendee: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}f\0\u{1}i\0")
 
@@ -644,11 +644,11 @@ extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Proto2Unittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NESTED_UNKNOWN\0")
 }
 
-extension Proto2Unittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TopLevelMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

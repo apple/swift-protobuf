@@ -31,13 +31,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// NOTE: The whole .proto file that defined this enum was marked as deprecated.
-enum SwiftProtoTesting_DeprecatedFile_MyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_DeprecatedFile_MyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case one = 1
   case two = 2
   case three = 3
@@ -51,7 +51,7 @@ enum SwiftProtoTesting_DeprecatedFile_MyEnum: Int, SwiftProtobuf.Enum, Swift.Cas
 /// Message comment
 ///
 /// NOTE: The whole .proto file that defined this message was marked as deprecated.
-struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -74,7 +74,7 @@ struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage, 
 }
 
 /// NOTE: The whole .proto file that defined this message was marked as deprecated.
-struct SwiftProtoTesting_DeprecatedFile_MsgScope: Sendable {
+nonisolated struct SwiftProtoTesting_DeprecatedFile_MsgScope: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -93,7 +93,7 @@ struct SwiftProtoTesting_DeprecatedFile_MsgScope: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_DeprecatedFile_MyMsg {
+nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
 
   /// Extension field comment
   ///
@@ -215,7 +215,7 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_DeprecatedFile_UnittestSwiftDeprecatedFile_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_DeprecatedFile_UnittestSwiftDeprecatedFile_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field,
   SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field,
   SwiftProtoTesting_DeprecatedFile_Extensions_fixed_ext_field,
@@ -233,30 +233,30 @@ let SwiftProtoTesting_DeprecatedFile_UnittestSwiftDeprecatedFile_Extensions: Swi
 /// Extension field comment
 ///
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
-let SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
+nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
   _protobuf_fieldNumber: 101,
   fieldName: "swift_proto_testing.deprecated_file.string_ext_field"
 )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
-let SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
+nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
   _protobuf_fieldNumber: 102,
   fieldName: "swift_proto_testing.deprecated_file.int_ext_field"
 )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
-let SwiftProtoTesting_DeprecatedFile_Extensions_fixed_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
+nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_fixed_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
   _protobuf_fieldNumber: 103,
   fieldName: "swift_proto_testing.deprecated_file.fixed_ext_field"
 )
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
-let SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_DeprecatedFile_MyMsg>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
+nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_DeprecatedFile_MyMsg>, SwiftProtoTesting_DeprecatedFile_MyMsg>(
   _protobuf_fieldNumber: 104,
   fieldName: "swift_proto_testing.deprecated_file.msg_ext_field"
 )
 
-extension SwiftProtoTesting_DeprecatedFile_MsgScope {
+nonisolated extension SwiftProtoTesting_DeprecatedFile_MsgScope {
   enum Extensions {
     /// Another extension field comment
     ///
@@ -288,13 +288,13 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.deprecated_file"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.deprecated_file"
 
-extension SwiftProtoTesting_DeprecatedFile_MyEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_DeprecatedFile_MyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MYENUM_ONE\0\u{1}MYENUM_TWO\0\u{1}MYENUM_THREE\0")
 }
 
-extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}string_field\0")
 
@@ -337,7 +337,7 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgScope"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

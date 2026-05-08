@@ -22,12 +22,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_GoFeatures: Sendable {
+nonisolated struct Pb_GoFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct Pb_GoFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum APILevel: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum APILevel: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
     /// API_LEVEL_UNSPECIFIED results in selecting the OPEN API,
     /// but needs to be a separate value to distinguish between
@@ -89,7 +89,7 @@ struct Pb_GoFeatures: Sendable {
 
   }
 
-  enum StripEnumPrefix: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StripEnumPrefix: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case keep = 1
     case generateBoth = 2
@@ -103,7 +103,7 @@ struct Pb_GoFeatures: Sendable {
 
   /// Wrap the OptimizeMode enum in a message for scoping:
   /// This way, users can type shorter names (SPEED, CODE_SIZE).
-  struct OptimizeModeFeature: Sendable {
+  nonisolated struct OptimizeModeFeature: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -111,7 +111,7 @@ struct Pb_GoFeatures: Sendable {
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// The name of this enum matches OptimizeMode in descriptor.proto.
-    enum OptimizeMode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum OptimizeMode: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
       /// OPTIMIZE_MODE_UNSPECIFIED results in falling back to the default
       /// (optimize for code size), but needs to be a separate value to distinguish
@@ -149,7 +149,7 @@ struct Pb_GoFeatures: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_go: Pb_GoFeatures {
     get {return getExtensionValue(ext: Pb_Extensions_go) ?? Pb_GoFeatures()}
@@ -174,7 +174,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Pb_GoFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Pb_GoFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Extensions_go
 ]
 
@@ -182,16 +182,16 @@ let Pb_GoFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_go = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_GoFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+nonisolated let Pb_Extensions_go = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_GoFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   _protobuf_fieldNumber: 1002,
   fieldName: "pb.go"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
+fileprivate nonisolated let _protobuf_package = "pb"
 
-extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GoFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_unmarshal_json_enum\0\u{3}api_level\0\u{3}strip_enum_prefix\0\u{3}optimize_mode\0")
 
@@ -240,15 +240,15 @@ extension Pb_GoFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension Pb_GoFeatures.APILevel: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_GoFeatures.APILevel: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0API_LEVEL_UNSPECIFIED\0\u{1}API_OPEN\0\u{1}API_HYBRID\0\u{1}API_OPAQUE\0")
 }
 
-extension Pb_GoFeatures.StripEnumPrefix: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_GoFeatures.StripEnumPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRIP_ENUM_PREFIX_UNSPECIFIED\0\u{1}STRIP_ENUM_PREFIX_KEEP\0\u{1}STRIP_ENUM_PREFIX_GENERATE_BOTH\0\u{1}STRIP_ENUM_PREFIX_STRIP\0")
 }
 
-extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_GoFeatures.protoMessageName + ".OptimizeModeFeature"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -267,6 +267,6 @@ extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPTIMIZE_MODE_UNSPECIFIED\0\u{1}SPEED\0\u{1}CODE_SIZE\0")
 }

@@ -35,13 +35,13 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// The version number of protocol compiler.
-struct Google_Protobuf_Compiler_Version: Sendable {
+nonisolated struct Google_Protobuf_Compiler_Version: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -95,7 +95,7 @@ struct Google_Protobuf_Compiler_Version: Sendable {
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
+nonisolated struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -160,7 +160,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
+nonisolated struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -224,7 +224,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Sync with code_generator.h.
-  enum Feature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Feature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case none = 0
     case proto3Optional = 1
     case supportsEditions = 2
@@ -236,7 +236,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   }
 
   /// Represents a single generated file.
-  struct File: Sendable {
+  nonisolated struct File: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -349,9 +349,9 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf.compiler"
+fileprivate nonisolated let _protobuf_package = "google.protobuf.compiler"
 
-extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Version"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}major\0\u{1}minor\0\u{1}patch\0\u{1}suffix\0")
 
@@ -400,7 +400,7 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}file_to_generate\0\u{1}parameter\0\u{3}compiler_version\0\u{4}\u{c}proto_file\0\u{4}\u{2}source_file_descriptors\0")
 
@@ -460,7 +460,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}error\0\u{3}supported_features\0\u{3}minimum_edition\0\u{3}maximum_edition\0\u{2}\u{b}file\0")
 
@@ -514,11 +514,11 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FEATURE_NONE\0\u{1}FEATURE_PROTO3_OPTIONAL\0\u{1}FEATURE_SUPPORTS_EDITIONS\0")
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}insertion_point\0\u{2}\u{d}content\0\u{3}generated_code_info\0")
 

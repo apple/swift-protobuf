@@ -28,12 +28,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_LazyImports_ImportedMessage: Sendable {
+nonisolated struct Proto2Unittest_LazyImports_ImportedMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -54,7 +54,7 @@ struct Proto2Unittest_LazyImports_ImportedMessage: Sendable {
   fileprivate var _lazyMessage: Proto2Unittest_LazyImports_LazyMessage? = nil
 }
 
-struct Proto2Unittest_LazyImports_MessageCustomOption: Sendable {
+nonisolated struct Proto2Unittest_LazyImports_MessageCustomOption: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,7 +64,7 @@ struct Proto2Unittest_LazyImports_MessageCustomOption: Sendable {
   init() {}
 }
 
-struct Proto2Unittest_LazyImports_MessageCustomOption2: Sendable {
+nonisolated struct Proto2Unittest_LazyImports_MessageCustomOption2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,9 +76,9 @@ struct Proto2Unittest_LazyImports_MessageCustomOption2: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest.lazy_imports"
 
-extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}lazy_message\0")
 
@@ -112,7 +112,7 @@ extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -131,7 +131,7 @@ extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message,
   }
 }
 
-extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

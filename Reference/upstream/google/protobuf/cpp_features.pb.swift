@@ -22,12 +22,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_CppFeatures: Sendable {
+nonisolated struct Pb_CppFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,7 +65,7 @@ struct Pb_CppFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum StringType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StringType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case view = 1
     case cord = 2
@@ -93,7 +93,7 @@ struct Pb_CppFeatures: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_cpp: Pb_CppFeatures {
     get {return getExtensionValue(ext: Pb_Extensions_cpp) ?? Pb_CppFeatures()}
@@ -118,7 +118,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Pb_CppFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Pb_CppFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Extensions_cpp
 ]
 
@@ -126,16 +126,16 @@ let Pb_CppFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_cpp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CppFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+nonisolated let Pb_Extensions_cpp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CppFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   _protobuf_fieldNumber: 1000,
   fieldName: "pb.cpp"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
+fileprivate nonisolated let _protobuf_package = "pb"
 
-extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_closed_enum\0\u{3}string_type\0\u{3}enum_name_uses_string_view\0")
 
@@ -179,6 +179,6 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRING_TYPE_UNKNOWN\0\u{1}VIEW\0\u{1}CORD\0\u{1}STRING\0")
 }

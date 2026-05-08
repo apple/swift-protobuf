@@ -36,12 +36,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum EditionUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foreignFoo = 4
   case foreignBar = 5
   case foreignBaz = 6
@@ -55,7 +55,7 @@ enum EditionUnittest_ForeignEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum EditionUnittest_TestReservedEnumFields: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_TestReservedEnumFields: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case unknown = 0
 
   init() {
@@ -65,7 +65,7 @@ enum EditionUnittest_TestReservedEnumFields: Int, SwiftProtobuf.Enum, Swift.Case
 }
 
 /// Test an enum that has multiple values with the same number.
-enum EditionUnittest_TestEnumWithDupValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_TestEnumWithDupValue: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case dupUnknown1 = 0
   case dupFoo1 = 1
   case dupBar1 = 2
@@ -81,7 +81,7 @@ enum EditionUnittest_TestEnumWithDupValue: Int, SwiftProtobuf.Enum, Swift.CaseIt
 }
 
 /// Test an enum with large, unordered values.
-enum EditionUnittest_TestSparseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_TestSparseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case sparseA = 123
   case sparseB = 62374
   case sparseC = 12589234
@@ -96,7 +96,7 @@ enum EditionUnittest_TestSparseEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable
 
 }
 
-enum EditionUnittest_VeryLargeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum EditionUnittest_VeryLargeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case enumLabelDefault = 0
   case enumLabel1 = 1
   case enumLabel2 = 2
@@ -207,7 +207,7 @@ enum EditionUnittest_VeryLargeEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable 
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
-struct EditionUnittest_TestAllTypes: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -838,7 +838,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable, Sendable {
+  nonisolated enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(EditionUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -849,7 +849,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
 
   }
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo = 1
     case bar = 2
     case baz = 3
@@ -863,7 +863,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -887,7 +887,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
     fileprivate var _bb: Int32? = nil
   }
 
-  struct OptionalGroup: Sendable {
+  nonisolated struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -908,7 +908,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
     fileprivate var _a: Int32? = nil
   }
 
-  struct RepeatedGroup: Sendable {
+  nonisolated struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -935,7 +935,7 @@ struct EditionUnittest_TestAllTypes: @unchecked Sendable {
 }
 
 /// This proto includes a recursively nested message.
-struct EditionUnittest_NestedTestAllTypes: @unchecked Sendable {
+nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -988,7 +988,7 @@ struct EditionUnittest_NestedTestAllTypes: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1044,7 +1044,7 @@ struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofFields: Equatable, Sendable {
+  nonisolated enum OneOf_OneofFields: Equatable, Sendable {
     /// NOTE: This field was marked as deprecated in the .proto file.
     case deprecatedInt32InOneof(Int32)
 
@@ -1056,7 +1056,7 @@ struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
 }
 
 /// NOTE: This message was marked as deprecated in the .proto file.
-struct EditionUnittest_TestDeprecatedMessage: Sendable {
+nonisolated struct EditionUnittest_TestDeprecatedMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1067,7 +1067,7 @@ struct EditionUnittest_TestDeprecatedMessage: Sendable {
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle that.
-struct EditionUnittest_ForeignMessage: Sendable {
+nonisolated struct EditionUnittest_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1098,7 +1098,7 @@ struct EditionUnittest_ForeignMessage: Sendable {
   fileprivate var _d: Int32? = nil
 }
 
-struct EditionUnittest_TestReservedFields: Sendable {
+nonisolated struct EditionUnittest_TestReservedFields: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1108,7 +1108,7 @@ struct EditionUnittest_TestReservedFields: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1120,7 +1120,7 @@ struct EditionUnittest_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, Senda
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct EditionUnittest_OptionalGroup_extension: Sendable {
+nonisolated struct EditionUnittest_OptionalGroup_extension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1141,7 +1141,7 @@ struct EditionUnittest_OptionalGroup_extension: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct EditionUnittest_RepeatedGroup_extension: Sendable {
+nonisolated struct EditionUnittest_RepeatedGroup_extension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1162,7 +1162,7 @@ struct EditionUnittest_RepeatedGroup_extension: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1186,7 +1186,7 @@ struct EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.ExtensibleMes
   fileprivate var _a: Int32? = nil
 }
 
-struct EditionUnittest_TestGroup: Sendable {
+nonisolated struct EditionUnittest_TestGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1211,7 +1211,7 @@ struct EditionUnittest_TestGroup: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct OptionalGroup: Sendable {
+  nonisolated struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1249,7 +1249,7 @@ struct EditionUnittest_TestGroup: Sendable {
   fileprivate var _optionalForeignEnum: EditionUnittest_ForeignEnum? = nil
 }
 
-struct EditionUnittest_TestGroupExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestGroupExtension: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1261,14 +1261,14 @@ struct EditionUnittest_TestGroupExtension: SwiftProtobuf.ExtensibleMessage, Send
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct EditionUnittest_TestNestedExtension: Sendable {
+nonisolated struct EditionUnittest_TestNestedExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct OptionalGroup_extension: Sendable {
+  nonisolated struct OptionalGroup_extension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1292,7 +1292,7 @@ struct EditionUnittest_TestNestedExtension: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestChildExtension: Sendable {
+nonisolated struct EditionUnittest_TestChildExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1335,7 +1335,7 @@ struct EditionUnittest_TestChildExtension: Sendable {
 
 /// Emulates wireformat data of TestChildExtension with dynamic extension
 /// (DynamicExtension).
-struct EditionUnittest_TestChildExtensionData: Sendable {
+nonisolated struct EditionUnittest_TestChildExtensionData: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1369,7 +1369,7 @@ struct EditionUnittest_TestChildExtensionData: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedTestAllExtensionsData: Sendable {
+  nonisolated struct NestedTestAllExtensionsData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1385,7 +1385,7 @@ struct EditionUnittest_TestChildExtensionData: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct NestedDynamicExtensions: Sendable {
+    nonisolated struct NestedDynamicExtensions: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -1428,7 +1428,7 @@ struct EditionUnittest_TestChildExtensionData: Sendable {
   fileprivate var _optionalExtension: EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData? = nil
 }
 
-struct EditionUnittest_TestNestedChildExtension: Sendable {
+nonisolated struct EditionUnittest_TestNestedChildExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1461,7 +1461,7 @@ struct EditionUnittest_TestNestedChildExtension: Sendable {
 
 /// Emulates wireformat data of TestNestedChildExtension with dynamic extension
 /// (DynamicExtension).
-struct EditionUnittest_TestNestedChildExtensionData: Sendable {
+nonisolated struct EditionUnittest_TestNestedChildExtensionData: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1494,7 +1494,7 @@ struct EditionUnittest_TestNestedChildExtensionData: Sendable {
 
 /// Required and closed enum fields are considered unknown fields if the value is
 /// not valid. We need to make sure it functions as expected.
-struct EditionUnittest_TestRequiredEnum: Sendable {
+nonisolated struct EditionUnittest_TestRequiredEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1527,7 +1527,7 @@ struct EditionUnittest_TestRequiredEnum: Sendable {
 }
 
 /// TestRequiredEnum + using enum values that won't fit to 64 bitmask.
-struct EditionUnittest_TestRequiredEnumNoMask: Sendable {
+nonisolated struct EditionUnittest_TestRequiredEnumNoMask: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1553,7 +1553,7 @@ struct EditionUnittest_TestRequiredEnumNoMask: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case foo = 2
     case bar = 100
@@ -1573,7 +1573,7 @@ struct EditionUnittest_TestRequiredEnumNoMask: Sendable {
   fileprivate var _a: Int32? = nil
 }
 
-struct EditionUnittest_TestRequiredEnumMulti: Sendable {
+nonisolated struct EditionUnittest_TestRequiredEnumMulti: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1618,7 +1618,7 @@ struct EditionUnittest_TestRequiredEnumMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case foo = 1
     case bar = 2
@@ -1638,7 +1638,7 @@ struct EditionUnittest_TestRequiredEnumMulti: Sendable {
   fileprivate var _requiredEnum1: EditionUnittest_ForeignEnum? = nil
 }
 
-struct EditionUnittest_TestRequiredNoMaskMulti: Sendable {
+nonisolated struct EditionUnittest_TestRequiredNoMaskMulti: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1711,7 +1711,7 @@ struct EditionUnittest_TestRequiredNoMaskMulti: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case foo = 1
     case bar = 2
@@ -1739,7 +1739,7 @@ struct EditionUnittest_TestRequiredNoMaskMulti: Sendable {
 /// do anything with it.  Note that we don't need to test every type of
 /// filed because the code output is basically identical to
 /// optional fields for all types.
-struct EditionUnittest_TestRequired: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestRequired: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2060,7 +2060,7 @@ struct EditionUnittest_TestRequired: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_TestRequiredForeign: Sendable {
+nonisolated struct EditionUnittest_TestRequiredForeign: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2104,7 +2104,7 @@ struct EditionUnittest_TestRequiredForeign: Sendable {
   fileprivate var _optionalLazyMessage: EditionUnittest_NestedTestAllTypes? = nil
 }
 
-struct EditionUnittest_TestRequiredMessage: Sendable {
+nonisolated struct EditionUnittest_TestRequiredMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2137,7 +2137,7 @@ struct EditionUnittest_TestRequiredMessage: Sendable {
   fileprivate var _requiredMessage: EditionUnittest_TestRequired? = nil
 }
 
-struct EditionUnittest_TestNestedRequiredForeign: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2214,7 +2214,7 @@ struct EditionUnittest_TestNestedRequiredForeign: @unchecked Sendable {
 }
 
 /// Test that we can use NestedMessage from outside TestAllTypes.
-struct EditionUnittest_TestForeignNested: Sendable {
+nonisolated struct EditionUnittest_TestForeignNested: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2236,7 +2236,7 @@ struct EditionUnittest_TestForeignNested: Sendable {
 }
 
 /// TestEmptyMessage is used to test unknown field support.
-struct EditionUnittest_TestEmptyMessage: Sendable {
+nonisolated struct EditionUnittest_TestEmptyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2248,7 +2248,7 @@ struct EditionUnittest_TestEmptyMessage: Sendable {
 
 /// Like above, but declare all field numbers as potential extensions.  No
 /// actual extensions should ever be defined for this type.
-struct EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2261,14 +2261,14 @@ struct EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.ExtensibleM
 }
 
 /// Needed for a Python test.
-struct EditionUnittest_TestPickleNestedMessage: Sendable {
+nonisolated struct EditionUnittest_TestPickleNestedMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2284,7 +2284,7 @@ struct EditionUnittest_TestPickleNestedMessage: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct NestedNestedMessage: Sendable {
+    nonisolated struct NestedNestedMessage: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -2313,7 +2313,7 @@ struct EditionUnittest_TestPickleNestedMessage: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2326,7 +2326,7 @@ struct EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.ExtensibleMess
 }
 
 /// Test that really large tag numbers don't break anything.
-struct EditionUnittest_TestReallyLargeTagNumber: Sendable {
+nonisolated struct EditionUnittest_TestReallyLargeTagNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2359,7 +2359,7 @@ struct EditionUnittest_TestReallyLargeTagNumber: Sendable {
   fileprivate var _bb: Int32? = nil
 }
 
-struct EditionUnittest_TestRecursiveMessage: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestRecursiveMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2390,7 +2390,7 @@ struct EditionUnittest_TestRecursiveMessage: @unchecked Sendable {
 }
 
 /// Test that mutual recursion works.
-struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2420,7 +2420,7 @@ struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct SubMessage: @unchecked Sendable {
+  nonisolated struct SubMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2441,7 +2441,7 @@ struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct SubGroup: @unchecked Sendable {
+  nonisolated struct SubGroup: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2472,7 +2472,7 @@ struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct SubGroupR: Sendable {
+  nonisolated struct SubGroupR: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2498,7 +2498,7 @@ struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_TestMutualRecursionB: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestMutualRecursionB: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2528,7 +2528,7 @@ struct EditionUnittest_TestMutualRecursionB: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_TestIsInitialized: Sendable {
+nonisolated struct EditionUnittest_TestIsInitialized: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2544,7 +2544,7 @@ struct EditionUnittest_TestIsInitialized: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct SubMessage: Sendable {
+  nonisolated struct SubMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2560,7 +2560,7 @@ struct EditionUnittest_TestIsInitialized: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup: Sendable {
+    nonisolated struct SubGroup: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -2595,7 +2595,7 @@ struct EditionUnittest_TestIsInitialized: Sendable {
 /// parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
 /// to compile with proto1, this will emit an error; so we only include it
 /// in proto2_unittest_proto.
-struct EditionUnittest_TestDupFieldNumber: Sendable {
+nonisolated struct EditionUnittest_TestDupFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2630,7 +2630,7 @@ struct EditionUnittest_TestDupFieldNumber: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Foo: Sendable {
+  nonisolated struct Foo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2651,7 +2651,7 @@ struct EditionUnittest_TestDupFieldNumber: Sendable {
     fileprivate var _a: Int32? = nil
   }
 
-  struct Bar: Sendable {
+  nonisolated struct Bar: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2680,7 +2680,7 @@ struct EditionUnittest_TestDupFieldNumber: Sendable {
 }
 
 /// Additional messages for testing lazy fields.
-struct EditionUnittest_TestEagerMessage: Sendable {
+nonisolated struct EditionUnittest_TestEagerMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2701,7 +2701,7 @@ struct EditionUnittest_TestEagerMessage: Sendable {
   fileprivate var _subMessage: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestLazyMessage: Sendable {
+nonisolated struct EditionUnittest_TestLazyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2722,7 +2722,7 @@ struct EditionUnittest_TestLazyMessage: Sendable {
   fileprivate var _subMessage: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestLazyMessageRepeated: Sendable {
+nonisolated struct EditionUnittest_TestLazyMessageRepeated: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2734,7 +2734,7 @@ struct EditionUnittest_TestLazyMessageRepeated: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestEagerMaybeLazy: Sendable {
+nonisolated struct EditionUnittest_TestEagerMaybeLazy: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2768,7 +2768,7 @@ struct EditionUnittest_TestEagerMaybeLazy: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2797,7 +2797,7 @@ struct EditionUnittest_TestEagerMaybeLazy: Sendable {
 }
 
 /// Needed for a Python test.
-struct EditionUnittest_TestNestedMessageHasBits: Sendable {
+nonisolated struct EditionUnittest_TestNestedMessageHasBits: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2813,7 +2813,7 @@ struct EditionUnittest_TestNestedMessageHasBits: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2834,7 +2834,7 @@ struct EditionUnittest_TestNestedMessageHasBits: Sendable {
 
 /// Test message with CamelCase field names.  This violates Protocol Buffer
 /// standard style.
-struct EditionUnittest_TestCamelCaseFieldNames: Sendable {
+nonisolated struct EditionUnittest_TestCamelCaseFieldNames: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2919,7 +2919,7 @@ struct EditionUnittest_TestCamelCaseFieldNames: Sendable {
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
-struct EditionUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2962,7 +2962,7 @@ struct EditionUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Send
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3005,7 +3005,7 @@ struct EditionUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Send
   fileprivate var _optionalNestedMessage: EditionUnittest_TestFieldOrderings.NestedMessage? = nil
 }
 
-struct EditionUnittest_TestExtensionOrderings1: Sendable {
+nonisolated struct EditionUnittest_TestExtensionOrderings1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3026,7 +3026,7 @@ struct EditionUnittest_TestExtensionOrderings1: Sendable {
   fileprivate var _myString: String? = nil
 }
 
-struct EditionUnittest_TestExtensionOrderings2: Sendable {
+nonisolated struct EditionUnittest_TestExtensionOrderings2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3042,7 +3042,7 @@ struct EditionUnittest_TestExtensionOrderings2: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct TestExtensionOrderings3: Sendable {
+  nonisolated struct TestExtensionOrderings3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3068,7 +3068,7 @@ struct EditionUnittest_TestExtensionOrderings2: Sendable {
   fileprivate var _myString: String? = nil
 }
 
-struct EditionUnittest_TestExtremeDefaultValues: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestExtremeDefaultValues: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3335,7 +3335,7 @@ struct EditionUnittest_TestExtremeDefaultValues: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_SparseEnumMessage: Sendable {
+nonisolated struct EditionUnittest_SparseEnumMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3357,7 +3357,7 @@ struct EditionUnittest_SparseEnumMessage: Sendable {
 }
 
 /// Test String and Bytes: string is for valid UTF-8 strings
-struct EditionUnittest_OneString: Sendable {
+nonisolated struct EditionUnittest_OneString: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3378,7 +3378,7 @@ struct EditionUnittest_OneString: Sendable {
   fileprivate var _data: String? = nil
 }
 
-struct EditionUnittest_MoreString: Sendable {
+nonisolated struct EditionUnittest_MoreString: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3390,7 +3390,7 @@ struct EditionUnittest_MoreString: Sendable {
   init() {}
 }
 
-struct EditionUnittest_OneBytes: Sendable {
+nonisolated struct EditionUnittest_OneBytes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3411,7 +3411,7 @@ struct EditionUnittest_OneBytes: Sendable {
   fileprivate var _data: Data? = nil
 }
 
-struct EditionUnittest_MoreBytes: Sendable {
+nonisolated struct EditionUnittest_MoreBytes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3423,7 +3423,7 @@ struct EditionUnittest_MoreBytes: Sendable {
   init() {}
 }
 
-struct EditionUnittest_ManyOptionalString: @unchecked Sendable {
+nonisolated struct EditionUnittest_ManyOptionalString: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3724,7 +3724,7 @@ struct EditionUnittest_ManyOptionalString: @unchecked Sendable {
 }
 
 /// Test int32, uint32, int64, uint64, and bool are all compatible
-struct EditionUnittest_Int32Message: Sendable {
+nonisolated struct EditionUnittest_Int32Message: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3745,7 +3745,7 @@ struct EditionUnittest_Int32Message: Sendable {
   fileprivate var _data: Int32? = nil
 }
 
-struct EditionUnittest_Uint32Message: Sendable {
+nonisolated struct EditionUnittest_Uint32Message: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3766,7 +3766,7 @@ struct EditionUnittest_Uint32Message: Sendable {
   fileprivate var _data: UInt32? = nil
 }
 
-struct EditionUnittest_Int64Message: Sendable {
+nonisolated struct EditionUnittest_Int64Message: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3787,7 +3787,7 @@ struct EditionUnittest_Int64Message: Sendable {
   fileprivate var _data: Int64? = nil
 }
 
-struct EditionUnittest_Uint64Message: Sendable {
+nonisolated struct EditionUnittest_Uint64Message: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3808,7 +3808,7 @@ struct EditionUnittest_Uint64Message: Sendable {
   fileprivate var _data: UInt64? = nil
 }
 
-struct EditionUnittest_BoolMessage: Sendable {
+nonisolated struct EditionUnittest_BoolMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3830,7 +3830,7 @@ struct EditionUnittest_BoolMessage: Sendable {
 }
 
 /// Test oneofs.
-struct EditionUnittest_TestOneof: Sendable {
+nonisolated struct EditionUnittest_TestOneof: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3871,7 +3871,7 @@ struct EditionUnittest_TestOneof: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable, Sendable {
+  nonisolated enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(EditionUnittest_TestAllTypes)
@@ -3879,7 +3879,7 @@ struct EditionUnittest_TestOneof: Sendable {
 
   }
 
-  struct FooGroup: Sendable {
+  nonisolated struct FooGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3913,7 +3913,7 @@ struct EditionUnittest_TestOneof: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestOneofBackwardsCompatible: Sendable {
+nonisolated struct EditionUnittest_TestOneofBackwardsCompatible: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -3956,7 +3956,7 @@ struct EditionUnittest_TestOneofBackwardsCompatible: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct FooGroup: Sendable {
+  nonisolated struct FooGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3995,7 +3995,7 @@ struct EditionUnittest_TestOneofBackwardsCompatible: Sendable {
   fileprivate var _fooGroup: EditionUnittest_TestOneofBackwardsCompatible.FooGroup? = nil
 }
 
-struct EditionUnittest_TestOneof2: Sendable {
+nonisolated struct EditionUnittest_TestOneof2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4184,7 +4184,7 @@ struct EditionUnittest_TestOneof2: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable, Sendable {
+  nonisolated enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooCord(String)
@@ -4198,7 +4198,7 @@ struct EditionUnittest_TestOneof2: Sendable {
 
   }
 
-  enum OneOf_Bar: Equatable, Sendable {
+  nonisolated enum OneOf_Bar: Equatable, Sendable {
     case barInt(Int32)
     case barString(String)
     case barCord(String)
@@ -4212,7 +4212,7 @@ struct EditionUnittest_TestOneof2: Sendable {
 
   }
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case foo = 1
     case bar = 2
@@ -4224,7 +4224,7 @@ struct EditionUnittest_TestOneof2: Sendable {
 
   }
 
-  struct FooGroup: Sendable {
+  nonisolated struct FooGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4255,7 +4255,7 @@ struct EditionUnittest_TestOneof2: Sendable {
     fileprivate var _b: String? = nil
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4284,7 +4284,7 @@ struct EditionUnittest_TestOneof2: Sendable {
   fileprivate var _bazString: String? = nil
 }
 
-struct EditionUnittest_TestRequiredOneof: Sendable {
+nonisolated struct EditionUnittest_TestRequiredOneof: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4325,7 +4325,7 @@ struct EditionUnittest_TestRequiredOneof: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable, Sendable {
+  nonisolated enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(EditionUnittest_TestRequiredOneof.NestedMessage)
@@ -4350,7 +4350,7 @@ struct EditionUnittest_TestRequiredOneof: Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4374,7 +4374,7 @@ struct EditionUnittest_TestRequiredOneof: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestPackedTypes: Sendable {
+nonisolated struct EditionUnittest_TestPackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4414,7 +4414,7 @@ struct EditionUnittest_TestPackedTypes: Sendable {
 
 /// A message with the same fields as TestPackedTypes, but without packing. Used
 /// to test packed <-> unpacked wire compatibility.
-struct EditionUnittest_TestUnpackedTypes: Sendable {
+nonisolated struct EditionUnittest_TestUnpackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4452,7 +4452,7 @@ struct EditionUnittest_TestUnpackedTypes: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4464,7 +4464,7 @@ struct EditionUnittest_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, Se
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4479,7 +4479,7 @@ struct EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.ExtensibleMessage, 
 /// Used by ExtensionSetTest/DynamicExtensions.  The test actually builds
 /// a set of extensions to TestAllExtensions dynamically, based on the fields
 /// of this message type.
-struct EditionUnittest_TestDynamicExtensions: Sendable {
+nonisolated struct EditionUnittest_TestDynamicExtensions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4535,7 +4535,7 @@ struct EditionUnittest_TestDynamicExtensions: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum DynamicEnumType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum DynamicEnumType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case dynamicUnknown = 0
     case dynamicFoo = 2200
     case dynamicBar = 2201
@@ -4547,7 +4547,7 @@ struct EditionUnittest_TestDynamicExtensions: Sendable {
 
   }
 
-  struct DynamicMessageType: Sendable {
+  nonisolated struct DynamicMessageType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4577,7 +4577,7 @@ struct EditionUnittest_TestDynamicExtensions: Sendable {
   fileprivate var _dynamicMessageExtension: EditionUnittest_TestDynamicExtensions.DynamicMessageType? = nil
 }
 
-struct EditionUnittest_TestRepeatedString: Sendable {
+nonisolated struct EditionUnittest_TestRepeatedString: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4595,7 +4595,7 @@ struct EditionUnittest_TestRepeatedString: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestRepeatedScalarDifferentTagSizes: Sendable {
+nonisolated struct EditionUnittest_TestRepeatedScalarDifferentTagSizes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4625,7 +4625,7 @@ struct EditionUnittest_TestRepeatedScalarDifferentTagSizes: Sendable {
 
 /// Test that if an optional or message/group field appears multiple
 /// times in the input, they need to be merged.
-struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4668,7 +4668,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
   /// RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
   /// Repeated fields in RepeatedFieldsGenerator are expected to be merged into
   /// the corresponding required/optional fields in TestParsingMerge.
-  struct RepeatedFieldsGenerator: Sendable {
+  nonisolated struct RepeatedFieldsGenerator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4689,7 +4689,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct Group1: Sendable {
+    nonisolated struct Group1: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -4710,7 +4710,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
       fileprivate var _field1: EditionUnittest_TestAllTypes? = nil
     }
 
-    struct Group2: Sendable {
+    nonisolated struct Group2: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -4734,7 +4734,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
     init() {}
   }
 
-  struct OptionalGroup: Sendable {
+  nonisolated struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4755,7 +4755,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
     fileprivate var _optionalGroupAllTypes: EditionUnittest_TestAllTypes? = nil
   }
 
-  struct RepeatedGroup: Sendable {
+  nonisolated struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4786,7 +4786,7 @@ struct EditionUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendab
 
 /// Test that the correct exception is thrown by parseFrom in a corner case
 /// involving merging, extensions, and fields.
-struct EditionUnittest_TestMergeException: Sendable {
+nonisolated struct EditionUnittest_TestMergeException: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4807,7 +4807,7 @@ struct EditionUnittest_TestMergeException: Sendable {
   fileprivate var _allExtensions: EditionUnittest_TestAllExtensions? = nil
 }
 
-struct EditionUnittest_TestCommentInjectionMessage: Sendable {
+nonisolated struct EditionUnittest_TestCommentInjectionMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4831,7 +4831,7 @@ struct EditionUnittest_TestCommentInjectionMessage: Sendable {
 
 /// Used to check that the c++ code generator re-orders messages to reduce
 /// padding.
-struct EditionUnittest_TestMessageSize: Sendable {
+nonisolated struct EditionUnittest_TestMessageSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4903,7 +4903,7 @@ struct EditionUnittest_TestMessageSize: Sendable {
 }
 
 /// Tests eager verification of a lazy message field.
-struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
+nonisolated struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4919,7 +4919,7 @@ struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct LazyMessage: Sendable {
+  nonisolated struct LazyMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4946,7 +4946,7 @@ struct EditionUnittest_TestEagerlyVerifiedLazyMessage: Sendable {
 }
 
 /// Test that RPC services work.
-struct EditionUnittest_FooRequest: Sendable {
+nonisolated struct EditionUnittest_FooRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4956,7 +4956,7 @@ struct EditionUnittest_FooRequest: Sendable {
   init() {}
 }
 
-struct EditionUnittest_FooResponse: Sendable {
+nonisolated struct EditionUnittest_FooResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4966,7 +4966,7 @@ struct EditionUnittest_FooResponse: Sendable {
   init() {}
 }
 
-struct EditionUnittest_FooClientMessage: Sendable {
+nonisolated struct EditionUnittest_FooClientMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4976,7 +4976,7 @@ struct EditionUnittest_FooClientMessage: Sendable {
   init() {}
 }
 
-struct EditionUnittest_FooServerMessage: Sendable {
+nonisolated struct EditionUnittest_FooServerMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4986,7 +4986,7 @@ struct EditionUnittest_FooServerMessage: Sendable {
   init() {}
 }
 
-struct EditionUnittest_BarRequest: Sendable {
+nonisolated struct EditionUnittest_BarRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4996,7 +4996,7 @@ struct EditionUnittest_BarRequest: Sendable {
   init() {}
 }
 
-struct EditionUnittest_BarResponse: Sendable {
+nonisolated struct EditionUnittest_BarResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5006,7 +5006,7 @@ struct EditionUnittest_BarResponse: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestJsonName: Sendable {
+nonisolated struct EditionUnittest_TestJsonName: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5087,7 +5087,7 @@ struct EditionUnittest_TestJsonName: Sendable {
   fileprivate var _fieldname7: Int32? = nil
 }
 
-struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5197,7 +5197,7 @@ struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Se
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, Sendable {
+  nonisolated enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(EditionUnittest_TestAllTypes)
     case oneofString(String)
@@ -5205,7 +5205,7 @@ struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Se
 
   }
 
-  struct OptionalGroup: Sendable {
+  nonisolated struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5238,7 +5238,7 @@ struct EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage, Se
   fileprivate var _optionalGroup: EditionUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
 }
 
-struct EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5341,7 +5341,7 @@ struct EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessage
 }
 
 /// NOTE: Intentionally nested to mirror go/glep.
-struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
+nonisolated struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5357,7 +5357,7 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Layer1OptionalGroup: Sendable {
+  nonisolated struct Layer1OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5368,7 +5368,7 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct Layer2RepeatedGroup: SwiftProtobuf.ExtensibleMessage, Sendable {
+    nonisolated struct Layer2RepeatedGroup: SwiftProtobuf.ExtensibleMessage, Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -5390,7 +5390,7 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
       fileprivate var _anotherField: String? = nil
     }
 
-    struct Layer2AnotherOptionalRepeatedGroup: Sendable {
+    nonisolated struct Layer2AnotherOptionalRepeatedGroup: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -5419,7 +5419,7 @@ struct EditionUnittest_TestNestedGroupExtensionOuter: Sendable {
   fileprivate var _lay1Optionalgroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup? = nil
 }
 
-struct EditionUnittest_TestNestedGroupExtensionInnerExtension: Sendable {
+nonisolated struct EditionUnittest_TestNestedGroupExtensionInnerExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5440,7 +5440,7 @@ struct EditionUnittest_TestNestedGroupExtensionInnerExtension: Sendable {
   fileprivate var _innerName: String? = nil
 }
 
-struct EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5492,7 +5492,7 @@ struct EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMess
   fileprivate var _fooFour: Int32? = nil
 }
 
-struct EditionUnittest_TestVerifyInt32Simple: Sendable {
+nonisolated struct EditionUnittest_TestVerifyInt32Simple: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5543,7 +5543,7 @@ struct EditionUnittest_TestVerifyInt32Simple: Sendable {
   fileprivate var _optionalInt3264: Int32? = nil
 }
 
-struct EditionUnittest_TestVerifyInt32: Sendable {
+nonisolated struct EditionUnittest_TestVerifyInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5606,7 +5606,7 @@ struct EditionUnittest_TestVerifyInt32: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyMostlyInt32: Sendable {
+nonisolated struct EditionUnittest_TestVerifyMostlyInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5699,7 +5699,7 @@ struct EditionUnittest_TestVerifyMostlyInt32: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: Sendable {
+nonisolated struct EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5802,7 +5802,7 @@ struct EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyUint32Simple: Sendable {
+nonisolated struct EditionUnittest_TestVerifyUint32Simple: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5853,7 +5853,7 @@ struct EditionUnittest_TestVerifyUint32Simple: Sendable {
   fileprivate var _optionalUint3264: UInt32? = nil
 }
 
-struct EditionUnittest_TestVerifyUint32: Sendable {
+nonisolated struct EditionUnittest_TestVerifyUint32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5916,7 +5916,7 @@ struct EditionUnittest_TestVerifyUint32: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyOneUint32: Sendable {
+nonisolated struct EditionUnittest_TestVerifyOneUint32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -5979,7 +5979,7 @@ struct EditionUnittest_TestVerifyOneUint32: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyOneInt32BigFieldNumber: Sendable {
+nonisolated struct EditionUnittest_TestVerifyOneInt32BigFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6052,7 +6052,7 @@ struct EditionUnittest_TestVerifyOneInt32BigFieldNumber: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyInt32BigFieldNumber: Sendable {
+nonisolated struct EditionUnittest_TestVerifyInt32BigFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6135,7 +6135,7 @@ struct EditionUnittest_TestVerifyInt32BigFieldNumber: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyUint32BigFieldNumber: Sendable {
+nonisolated struct EditionUnittest_TestVerifyUint32BigFieldNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6218,7 +6218,7 @@ struct EditionUnittest_TestVerifyUint32BigFieldNumber: Sendable {
   fileprivate var _optionalAllTypes: EditionUnittest_TestAllTypes? = nil
 }
 
-struct EditionUnittest_TestVerifyBigFieldNumberUint32: Sendable {
+nonisolated struct EditionUnittest_TestVerifyBigFieldNumberUint32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6234,7 +6234,7 @@ struct EditionUnittest_TestVerifyBigFieldNumberUint32: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Nested: @unchecked Sendable {
+  nonisolated struct Nested: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6339,7 +6339,7 @@ struct EditionUnittest_TestVerifyBigFieldNumberUint32: Sendable {
 
 /// This message contains different kind of enums to exercise the different
 /// parsers in table-driven.
-struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+nonisolated struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6584,7 +6584,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum SeqSmall0: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SeqSmall0: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case `default` = 0
     case seqSmall01 = 1
     case seqSmall02 = 2
@@ -6595,7 +6595,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum SeqSmall1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SeqSmall1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case `default` = 1
     case seqSmall12 = 2
@@ -6607,7 +6607,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum SeqLarge: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SeqLarge: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case `default` = -1
     case seqLarge0 = 0
     case seqLarge1 = 1
@@ -6650,7 +6650,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
   }
 
-  enum Arbitrary: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Arbitrary: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case `default` = -123123
     case arbitrary1 = -123
     case arbitrary2 = 213
@@ -6672,7 +6672,7 @@ struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMessage, @unchec
 
 /// This message contains different kind of bool fields to exercise the different
 /// parsers in table-drived.
-struct EditionUnittest_BoolParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_BoolParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6737,7 +6737,7 @@ struct EditionUnittest_BoolParseTester: SwiftProtobuf.ExtensibleMessage, Sendabl
   fileprivate var _otherField: Int32? = nil
 }
 
-struct EditionUnittest_Int32ParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_Int32ParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6802,7 +6802,7 @@ struct EditionUnittest_Int32ParseTester: SwiftProtobuf.ExtensibleMessage, Sendab
   fileprivate var _otherField: Int32? = nil
 }
 
-struct EditionUnittest_Int64ParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_Int64ParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6867,7 +6867,7 @@ struct EditionUnittest_Int64ParseTester: SwiftProtobuf.ExtensibleMessage, Sendab
   fileprivate var _otherField: Int32? = nil
 }
 
-struct EditionUnittest_InlinedStringIdxRegressionProto: @unchecked Sendable {
+nonisolated struct EditionUnittest_InlinedStringIdxRegressionProto: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6920,7 +6920,7 @@ struct EditionUnittest_InlinedStringIdxRegressionProto: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct EditionUnittest_StringParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct EditionUnittest_StringParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6968,7 +6968,7 @@ struct EditionUnittest_StringParseTester: SwiftProtobuf.ExtensibleMessage, Senda
   fileprivate var _optionalStringHifield: String? = nil
 }
 
-struct EditionUnittest_BadFieldNames: Sendable {
+nonisolated struct EditionUnittest_BadFieldNames: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6999,7 +6999,7 @@ struct EditionUnittest_BadFieldNames: Sendable {
   fileprivate var _for: Int32? = nil
 }
 
-struct EditionUnittest_TestNestedMessageRedaction: Sendable {
+nonisolated struct EditionUnittest_TestNestedMessageRedaction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7030,7 +7030,7 @@ struct EditionUnittest_TestNestedMessageRedaction: Sendable {
   fileprivate var _optionalRedactedNestedString: String? = nil
 }
 
-struct EditionUnittest_RedactedFields: Sendable {
+nonisolated struct EditionUnittest_RedactedFields: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7093,7 +7093,7 @@ struct EditionUnittest_RedactedFields: Sendable {
   fileprivate var _optionalUnredactedMessage: EditionUnittest_TestNestedMessageRedaction? = nil
 }
 
-struct EditionUnittest_TestCord: Sendable {
+nonisolated struct EditionUnittest_TestCord: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7124,7 +7124,7 @@ struct EditionUnittest_TestCord: Sendable {
   fileprivate var _optionalBytesCordDefault: Data? = nil
 }
 
-struct EditionUnittest_TestPackedEnumSmallRange: Sendable {
+nonisolated struct EditionUnittest_TestPackedEnumSmallRange: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7133,7 +7133,7 @@ struct EditionUnittest_TestPackedEnumSmallRange: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case foo = 1
     case bar = 2
@@ -7148,14 +7148,14 @@ struct EditionUnittest_TestPackedEnumSmallRange: Sendable {
   init() {}
 }
 
-struct EditionUnittest_EnumsForBenchmark: Sendable {
+nonisolated struct EditionUnittest_EnumsForBenchmark: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Flat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Flat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a0 = 0
     case a1 = 1
     case a2 = 2
@@ -7180,7 +7180,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
   }
 
   /// Has a few holes, bitmap can be used.
-  enum AlmostFlat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum AlmostFlat: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case b0 = 0
     case b1 = 1
     case b2 = 2
@@ -7204,7 +7204,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
 
   }
 
-  enum Sparse: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Sparse: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case c0 = 0
     case c536 = 536
     case c8387 = 8387
@@ -7232,7 +7232,7 @@ struct EditionUnittest_EnumsForBenchmark: Sendable {
   init() {}
 }
 
-struct EditionUnittest_TestMessageWithManyRepeatedPtrFields: @unchecked Sendable {
+nonisolated struct EditionUnittest_TestMessageWithManyRepeatedPtrFields: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7413,7 +7413,7 @@ struct EditionUnittest_TestMessageWithManyRepeatedPtrFields: @unchecked Sendable
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension EditionUnittest_BoolParseTester {
+nonisolated extension EditionUnittest_BoolParseTester {
 
   var EditionUnittest_BoolParseTester_optionalBoolExt: Bool {
     get {return getExtensionValue(ext: EditionUnittest_BoolParseTester.Extensions.optional_bool_ext) ?? false}
@@ -7441,7 +7441,7 @@ extension EditionUnittest_BoolParseTester {
   }
 }
 
-extension EditionUnittest_EnumParseTester {
+nonisolated extension EditionUnittest_EnumParseTester {
 
   var EditionUnittest_EnumParseTester_optionalArbitraryExt: EditionUnittest_EnumParseTester.Arbitrary {
     get {return getExtensionValue(ext: EditionUnittest_EnumParseTester.Extensions.optional_arbitrary_ext) ?? .default}
@@ -7469,7 +7469,7 @@ extension EditionUnittest_EnumParseTester {
   }
 }
 
-extension EditionUnittest_Int32ParseTester {
+nonisolated extension EditionUnittest_Int32ParseTester {
 
   var EditionUnittest_Int32ParseTester_optionalInt32Ext: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_Int32ParseTester.Extensions.optional_int32_ext) ?? 0}
@@ -7497,7 +7497,7 @@ extension EditionUnittest_Int32ParseTester {
   }
 }
 
-extension EditionUnittest_Int64ParseTester {
+nonisolated extension EditionUnittest_Int64ParseTester {
 
   var EditionUnittest_Int64ParseTester_optionalInt64Ext: Int64 {
     get {return getExtensionValue(ext: EditionUnittest_Int64ParseTester.Extensions.optional_int64_ext) ?? 0}
@@ -7525,7 +7525,7 @@ extension EditionUnittest_Int64ParseTester {
   }
 }
 
-extension EditionUnittest_StringParseTester {
+nonisolated extension EditionUnittest_StringParseTester {
 
   var EditionUnittest_StringParseTester_optionalStringExt: String {
     get {return getExtensionValue(ext: EditionUnittest_StringParseTester.Extensions.optional_string_ext) ?? String()}
@@ -7548,7 +7548,7 @@ extension EditionUnittest_StringParseTester {
   }
 }
 
-extension EditionUnittest_TestAllExtensions {
+nonisolated extension EditionUnittest_TestAllExtensions {
 
   /// Singular
   var EditionUnittest_optionalInt32Extension: Int32 {
@@ -8522,7 +8522,7 @@ extension EditionUnittest_TestAllExtensions {
   }
 }
 
-extension EditionUnittest_TestExtensionInsideTable {
+nonisolated extension EditionUnittest_TestExtensionInsideTable {
 
   var EditionUnittest_testExtensionInsideTableExtension: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_test_extension_inside_table_extension) ?? 0}
@@ -8540,7 +8540,7 @@ extension EditionUnittest_TestExtensionInsideTable {
   }
 }
 
-extension EditionUnittest_TestExtensionRangeSerialize {
+nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
 
   var EditionUnittest_TestExtensionRangeSerialize_barOne: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_one) ?? 0}
@@ -8618,7 +8618,7 @@ extension EditionUnittest_TestExtensionRangeSerialize {
   }
 }
 
-extension EditionUnittest_TestFieldOrderings {
+nonisolated extension EditionUnittest_TestFieldOrderings {
 
   var EditionUnittest_myExtensionString: String {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_my_extension_string) ?? String()}
@@ -8696,7 +8696,7 @@ extension EditionUnittest_TestFieldOrderings {
   }
 }
 
-extension EditionUnittest_TestGroupExtension {
+nonisolated extension EditionUnittest_TestGroupExtension {
 
   var EditionUnittest_TestNestedExtension_optionalGroupExtension: EditionUnittest_TestNestedExtension.OptionalGroup_extension {
     get {return getExtensionValue(ext: EditionUnittest_TestNestedExtension.Extensions.OptionalGroup_extension) ?? EditionUnittest_TestNestedExtension.OptionalGroup_extension()}
@@ -8729,7 +8729,7 @@ extension EditionUnittest_TestGroupExtension {
   }
 }
 
-extension EditionUnittest_TestHugeFieldNumbers {
+nonisolated extension EditionUnittest_TestHugeFieldNumbers {
 
   var EditionUnittest_testAllTypes: EditionUnittest_TestAllTypes {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_test_all_types) ?? EditionUnittest_TestAllTypes()}
@@ -8747,7 +8747,7 @@ extension EditionUnittest_TestHugeFieldNumbers {
   }
 }
 
-extension EditionUnittest_TestMixedFieldsAndExtensions {
+nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions {
 
   var EditionUnittest_TestMixedFieldsAndExtensions_c: Int32 {
     get {return getExtensionValue(ext: EditionUnittest_TestMixedFieldsAndExtensions.Extensions.c) ?? 0}
@@ -8770,7 +8770,7 @@ extension EditionUnittest_TestMixedFieldsAndExtensions {
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup {
 
   var EditionUnittest_inner: EditionUnittest_TestNestedGroupExtensionInnerExtension {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_inner) ?? EditionUnittest_TestNestedGroupExtensionInnerExtension()}
@@ -8788,7 +8788,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Laye
   }
 }
 
-extension EditionUnittest_TestPackedExtensions {
+nonisolated extension EditionUnittest_TestPackedExtensions {
 
   var EditionUnittest_packedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_packed_int32_extension) ?? []}
@@ -8861,7 +8861,7 @@ extension EditionUnittest_TestPackedExtensions {
   }
 }
 
-extension EditionUnittest_TestParsingMerge {
+nonisolated extension EditionUnittest_TestParsingMerge {
 
   var EditionUnittest_TestParsingMerge_optionalExt: EditionUnittest_TestAllTypes {
     get {return getExtensionValue(ext: EditionUnittest_TestParsingMerge.Extensions.optional_ext) ?? EditionUnittest_TestAllTypes()}
@@ -8884,7 +8884,7 @@ extension EditionUnittest_TestParsingMerge {
   }
 }
 
-extension EditionUnittest_TestUnpackedExtensions {
+nonisolated extension EditionUnittest_TestUnpackedExtensions {
 
   var EditionUnittest_unpackedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: EditionUnittest_Extensions_unpacked_int32_extension) ?? []}
@@ -8964,7 +8964,7 @@ extension EditionUnittest_TestUnpackedExtensions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionUnittest_Extensions_optional_int32_extension,
   EditionUnittest_Extensions_optional_int64_extension,
   EditionUnittest_Extensions_optional_uint32_extension,
@@ -9114,568 +9114,568 @@ let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let EditionUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "edition_unittest.optional_int32_extension"
 )
 
-let EditionUnittest_Extensions_optional_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "edition_unittest.optional_int64_extension"
 )
 
-let EditionUnittest_Extensions_optional_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 3,
   fieldName: "edition_unittest.optional_uint32_extension"
 )
 
-let EditionUnittest_Extensions_optional_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 4,
   fieldName: "edition_unittest.optional_uint64_extension"
 )
 
-let EditionUnittest_Extensions_optional_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 5,
   fieldName: "edition_unittest.optional_sint32_extension"
 )
 
-let EditionUnittest_Extensions_optional_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 6,
   fieldName: "edition_unittest.optional_sint64_extension"
 )
 
-let EditionUnittest_Extensions_optional_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 7,
   fieldName: "edition_unittest.optional_fixed32_extension"
 )
 
-let EditionUnittest_Extensions_optional_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 8,
   fieldName: "edition_unittest.optional_fixed64_extension"
 )
 
-let EditionUnittest_Extensions_optional_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 9,
   fieldName: "edition_unittest.optional_sfixed32_extension"
 )
 
-let EditionUnittest_Extensions_optional_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 10,
   fieldName: "edition_unittest.optional_sfixed64_extension"
 )
 
-let EditionUnittest_Extensions_optional_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 11,
   fieldName: "edition_unittest.optional_float_extension"
 )
 
-let EditionUnittest_Extensions_optional_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 12,
   fieldName: "edition_unittest.optional_double_extension"
 )
 
-let EditionUnittest_Extensions_optional_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 13,
   fieldName: "edition_unittest.optional_bool_extension"
 )
 
-let EditionUnittest_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 14,
   fieldName: "edition_unittest.optional_string_extension"
 )
 
-let EditionUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 15,
   fieldName: "edition_unittest.optional_bytes_extension"
 )
 
-let EditionUnittest_Extensions_OptionalGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionUnittest_OptionalGroup_extension>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_OptionalGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionUnittest_OptionalGroup_extension>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 16,
   fieldName: "edition_unittest.optionalgroup_extension"
 )
 
-let EditionUnittest_Extensions_optional_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 18,
   fieldName: "edition_unittest.optional_nested_message_extension"
 )
 
-let EditionUnittest_Extensions_optional_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_ForeignMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_ForeignMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 19,
   fieldName: "edition_unittest.optional_foreign_message_extension"
 )
 
-let EditionUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 20,
   fieldName: "edition_unittest.optional_import_message_extension"
 )
 
-let EditionUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 21,
   fieldName: "edition_unittest.optional_nested_enum_extension"
 )
 
-let EditionUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 22,
   fieldName: "edition_unittest.optional_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 23,
   fieldName: "edition_unittest.optional_import_enum_extension"
 )
 
-let EditionUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 24,
   fieldName: "edition_unittest.optional_string_piece_extension"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let EditionUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 25,
   fieldName: "edition_unittest.optional_cord_extension"
 )
 
-let EditionUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 86,
   fieldName: "edition_unittest.optional_bytes_cord_extension"
 )
 
-let EditionUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2UnittestImport_PublicImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 26,
   fieldName: "edition_unittest.optional_public_import_message_extension"
 )
 
-let EditionUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 27,
   fieldName: "edition_unittest.optional_lazy_message_extension"
 )
 
 /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
 /// An extension can't be labeled as "unverified_lazy".
-let EditionUnittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 28,
   fieldName: "edition_unittest.optional_unverified_lazy_message_extension"
 )
 
 /// Repeated
-let EditionUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 31,
   fieldName: "edition_unittest.repeated_int32_extension"
 )
 
-let EditionUnittest_Extensions_repeated_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 32,
   fieldName: "edition_unittest.repeated_int64_extension"
 )
 
-let EditionUnittest_Extensions_repeated_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 33,
   fieldName: "edition_unittest.repeated_uint32_extension"
 )
 
-let EditionUnittest_Extensions_repeated_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 34,
   fieldName: "edition_unittest.repeated_uint64_extension"
 )
 
-let EditionUnittest_Extensions_repeated_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 35,
   fieldName: "edition_unittest.repeated_sint32_extension"
 )
 
-let EditionUnittest_Extensions_repeated_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 36,
   fieldName: "edition_unittest.repeated_sint64_extension"
 )
 
-let EditionUnittest_Extensions_repeated_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 37,
   fieldName: "edition_unittest.repeated_fixed32_extension"
 )
 
-let EditionUnittest_Extensions_repeated_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 38,
   fieldName: "edition_unittest.repeated_fixed64_extension"
 )
 
-let EditionUnittest_Extensions_repeated_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 39,
   fieldName: "edition_unittest.repeated_sfixed32_extension"
 )
 
-let EditionUnittest_Extensions_repeated_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 40,
   fieldName: "edition_unittest.repeated_sfixed64_extension"
 )
 
-let EditionUnittest_Extensions_repeated_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 41,
   fieldName: "edition_unittest.repeated_float_extension"
 )
 
-let EditionUnittest_Extensions_repeated_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 42,
   fieldName: "edition_unittest.repeated_double_extension"
 )
 
-let EditionUnittest_Extensions_repeated_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 43,
   fieldName: "edition_unittest.repeated_bool_extension"
 )
 
-let EditionUnittest_Extensions_repeated_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 44,
   fieldName: "edition_unittest.repeated_string_extension"
 )
 
-let EditionUnittest_Extensions_repeated_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 45,
   fieldName: "edition_unittest.repeated_bytes_extension"
 )
 
-let EditionUnittest_Extensions_RepeatedGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<EditionUnittest_RepeatedGroup_extension>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_RepeatedGroup_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<EditionUnittest_RepeatedGroup_extension>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 46,
   fieldName: "edition_unittest.repeatedgroup_extension"
 )
 
-let EditionUnittest_Extensions_repeated_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 48,
   fieldName: "edition_unittest.repeated_nested_message_extension"
 )
 
-let EditionUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_ForeignMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_ForeignMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 49,
   fieldName: "edition_unittest.repeated_foreign_message_extension"
 )
 
-let EditionUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<Proto2UnittestImport_ImportMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 50,
   fieldName: "edition_unittest.repeated_import_message_extension"
 )
 
-let EditionUnittest_Extensions_repeated_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 51,
   fieldName: "edition_unittest.repeated_nested_enum_extension"
 )
 
-let EditionUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 52,
   fieldName: "edition_unittest.repeated_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 53,
   fieldName: "edition_unittest.repeated_import_enum_extension"
 )
 
-let EditionUnittest_Extensions_repeated_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 54,
   fieldName: "edition_unittest.repeated_string_piece_extension"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let EditionUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 55,
   fieldName: "edition_unittest.repeated_cord_extension"
 )
 
-let EditionUnittest_Extensions_repeated_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_repeated_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 57,
   fieldName: "edition_unittest.repeated_lazy_message_extension"
 )
 
 /// Singular with defaults
-let EditionUnittest_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 61,
   fieldName: "edition_unittest.default_int32_extension"
 )
 
-let EditionUnittest_Extensions_default_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 62,
   fieldName: "edition_unittest.default_int64_extension"
 )
 
-let EditionUnittest_Extensions_default_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 63,
   fieldName: "edition_unittest.default_uint32_extension"
 )
 
-let EditionUnittest_Extensions_default_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 64,
   fieldName: "edition_unittest.default_uint64_extension"
 )
 
-let EditionUnittest_Extensions_default_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 65,
   fieldName: "edition_unittest.default_sint32_extension"
 )
 
-let EditionUnittest_Extensions_default_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 66,
   fieldName: "edition_unittest.default_sint64_extension"
 )
 
-let EditionUnittest_Extensions_default_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 67,
   fieldName: "edition_unittest.default_fixed32_extension"
 )
 
-let EditionUnittest_Extensions_default_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 68,
   fieldName: "edition_unittest.default_fixed64_extension"
 )
 
-let EditionUnittest_Extensions_default_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 69,
   fieldName: "edition_unittest.default_sfixed32_extension"
 )
 
-let EditionUnittest_Extensions_default_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 70,
   fieldName: "edition_unittest.default_sfixed64_extension"
 )
 
-let EditionUnittest_Extensions_default_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 71,
   fieldName: "edition_unittest.default_float_extension"
 )
 
-let EditionUnittest_Extensions_default_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 72,
   fieldName: "edition_unittest.default_double_extension"
 )
 
-let EditionUnittest_Extensions_default_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 73,
   fieldName: "edition_unittest.default_bool_extension"
 )
 
-let EditionUnittest_Extensions_default_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 74,
   fieldName: "edition_unittest.default_string_extension"
 )
 
-let EditionUnittest_Extensions_default_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 75,
   fieldName: "edition_unittest.default_bytes_extension"
 )
 
-let EditionUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_TestAllTypes.NestedEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 81,
   fieldName: "edition_unittest.default_nested_enum_extension"
 )
 
-let EditionUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 82,
   fieldName: "edition_unittest.default_foreign_enum_extension"
 )
 
-let EditionUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2UnittestImport_ImportEnum>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 83,
   fieldName: "edition_unittest.default_import_enum_extension"
 )
 
-let EditionUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 84,
   fieldName: "edition_unittest.default_string_piece_extension"
 )
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
-let EditionUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 85,
   fieldName: "edition_unittest.default_cord_extension"
 )
 
 /// For oneof test
-let EditionUnittest_Extensions_oneof_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_oneof_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 111,
   fieldName: "edition_unittest.oneof_uint32_extension"
 )
 
-let EditionUnittest_Extensions_oneof_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_oneof_nested_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes.NestedMessage>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 112,
   fieldName: "edition_unittest.oneof_nested_message_extension"
 )
 
-let EditionUnittest_Extensions_oneof_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_oneof_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 113,
   fieldName: "edition_unittest.oneof_string_extension"
 )
 
-let EditionUnittest_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
+nonisolated let EditionUnittest_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, EditionUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 114,
   fieldName: "edition_unittest.oneof_bytes_extension"
 )
 
-let EditionUnittest_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestFieldOrderings>(
+nonisolated let EditionUnittest_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
   fieldName: "edition_unittest.my_extension_string"
 )
 
-let EditionUnittest_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestFieldOrderings>(
+nonisolated let EditionUnittest_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestFieldOrderings>(
   _protobuf_fieldNumber: 5,
   fieldName: "edition_unittest.my_extension_int"
 )
 
-let EditionUnittest_Extensions_packed_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 90,
   fieldName: "edition_unittest.packed_int32_extension"
 )
 
-let EditionUnittest_Extensions_packed_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 91,
   fieldName: "edition_unittest.packed_int64_extension"
 )
 
-let EditionUnittest_Extensions_packed_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 92,
   fieldName: "edition_unittest.packed_uint32_extension"
 )
 
-let EditionUnittest_Extensions_packed_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 93,
   fieldName: "edition_unittest.packed_uint64_extension"
 )
 
-let EditionUnittest_Extensions_packed_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 94,
   fieldName: "edition_unittest.packed_sint32_extension"
 )
 
-let EditionUnittest_Extensions_packed_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 95,
   fieldName: "edition_unittest.packed_sint64_extension"
 )
 
-let EditionUnittest_Extensions_packed_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 96,
   fieldName: "edition_unittest.packed_fixed32_extension"
 )
 
-let EditionUnittest_Extensions_packed_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 97,
   fieldName: "edition_unittest.packed_fixed64_extension"
 )
 
-let EditionUnittest_Extensions_packed_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 98,
   fieldName: "edition_unittest.packed_sfixed32_extension"
 )
 
-let EditionUnittest_Extensions_packed_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 99,
   fieldName: "edition_unittest.packed_sfixed64_extension"
 )
 
-let EditionUnittest_Extensions_packed_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 100,
   fieldName: "edition_unittest.packed_float_extension"
 )
 
-let EditionUnittest_Extensions_packed_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 101,
   fieldName: "edition_unittest.packed_double_extension"
 )
 
-let EditionUnittest_Extensions_packed_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 102,
   fieldName: "edition_unittest.packed_bool_extension"
 )
 
-let EditionUnittest_Extensions_packed_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestPackedExtensions>(
+nonisolated let EditionUnittest_Extensions_packed_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestPackedExtensions>(
   _protobuf_fieldNumber: 103,
   fieldName: "edition_unittest.packed_enum_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 90,
   fieldName: "edition_unittest.unpacked_int32_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_int64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 91,
   fieldName: "edition_unittest.unpacked_int64_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_uint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt32>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 92,
   fieldName: "edition_unittest.unpacked_uint32_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_uint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufUInt64>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 93,
   fieldName: "edition_unittest.unpacked_uint64_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_sint32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt32>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 94,
   fieldName: "edition_unittest.unpacked_sint32_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_sint64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSInt64>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 95,
   fieldName: "edition_unittest.unpacked_sint64_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_fixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed32>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 96,
   fieldName: "edition_unittest.unpacked_fixed32_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_fixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFixed64>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 97,
   fieldName: "edition_unittest.unpacked_fixed64_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_sfixed32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed32>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 98,
   fieldName: "edition_unittest.unpacked_sfixed32_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_sfixed64_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufSFixed64>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 99,
   fieldName: "edition_unittest.unpacked_sfixed64_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_float_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufFloat>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 100,
   fieldName: "edition_unittest.unpacked_float_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_double_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufDouble>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 101,
   fieldName: "edition_unittest.unpacked_double_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_bool_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 102,
   fieldName: "edition_unittest.unpacked_bool_extension"
 )
 
-let EditionUnittest_Extensions_unpacked_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestUnpackedExtensions>(
+nonisolated let EditionUnittest_Extensions_unpacked_enum_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<EditionUnittest_ForeignEnum>, EditionUnittest_TestUnpackedExtensions>(
   _protobuf_fieldNumber: 103,
   fieldName: "edition_unittest.unpacked_enum_extension"
 )
 
-let EditionUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes>, EditionUnittest_TestHugeFieldNumbers>(
+nonisolated let EditionUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes>, EditionUnittest_TestHugeFieldNumbers>(
   _protobuf_fieldNumber: 536860000,
   fieldName: "edition_unittest.test_all_types"
 )
 
-let EditionUnittest_Extensions_test_extension_inside_table_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestExtensionInsideTable>(
+nonisolated let EditionUnittest_Extensions_test_extension_inside_table_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestExtensionInsideTable>(
   _protobuf_fieldNumber: 5,
   fieldName: "edition_unittest.test_extension_inside_table_extension"
 )
 
-let EditionUnittest_Extensions_inner = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestNestedGroupExtensionInnerExtension>, EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup>(
+nonisolated let EditionUnittest_Extensions_inner = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestNestedGroupExtensionInnerExtension>, EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup>(
   _protobuf_fieldNumber: 3,
   fieldName: "edition_unittest.inner"
 )
 
-extension EditionUnittest_TestMixedFieldsAndExtensions {
+nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions {
   enum Extensions {
     static let c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestMixedFieldsAndExtensions>(
       _protobuf_fieldNumber: 2,
@@ -9689,7 +9689,7 @@ extension EditionUnittest_TestMixedFieldsAndExtensions {
   }
 }
 
-extension EditionUnittest_TestNestedExtension {
+nonisolated extension EditionUnittest_TestNestedExtension {
   enum Extensions {
     /// Check for bug where string extensions declared in tested scope did not
     /// compile.
@@ -9717,7 +9717,7 @@ extension EditionUnittest_TestNestedExtension {
   }
 }
 
-extension EditionUnittest_TestRequired {
+nonisolated extension EditionUnittest_TestRequired {
   enum Extensions {
     static let single = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestRequired>, EditionUnittest_TestAllExtensions>(
       _protobuf_fieldNumber: 1000,
@@ -9731,7 +9731,7 @@ extension EditionUnittest_TestRequired {
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings1 {
+nonisolated extension EditionUnittest_TestExtensionOrderings1 {
   enum Extensions {
     static let test_ext_orderings1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestExtensionOrderings1>, EditionUnittest_TestFieldOrderings>(
       _protobuf_fieldNumber: 13,
@@ -9740,7 +9740,7 @@ extension EditionUnittest_TestExtensionOrderings1 {
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings2 {
+nonisolated extension EditionUnittest_TestExtensionOrderings2 {
   enum Extensions {
     static let test_ext_orderings2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestExtensionOrderings2>, EditionUnittest_TestFieldOrderings>(
       _protobuf_fieldNumber: 12,
@@ -9749,7 +9749,7 @@ extension EditionUnittest_TestExtensionOrderings2 {
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3 {
+nonisolated extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3 {
   enum Extensions {
     static let test_ext_orderings3 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3>, EditionUnittest_TestFieldOrderings>(
       _protobuf_fieldNumber: 14,
@@ -9758,7 +9758,7 @@ extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3 {
   }
 }
 
-extension EditionUnittest_TestParsingMerge {
+nonisolated extension EditionUnittest_TestParsingMerge {
   enum Extensions {
     static let optional_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionUnittest_TestAllTypes>, EditionUnittest_TestParsingMerge>(
       _protobuf_fieldNumber: 1000,
@@ -9772,7 +9772,7 @@ extension EditionUnittest_TestParsingMerge {
   }
 }
 
-extension EditionUnittest_TestExtensionRangeSerialize {
+nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   enum Extensions {
     static let bar_one = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestExtensionRangeSerialize>(
       _protobuf_fieldNumber: 2,
@@ -9801,7 +9801,7 @@ extension EditionUnittest_TestExtensionRangeSerialize {
   }
 }
 
-extension EditionUnittest_EnumParseTester {
+nonisolated extension EditionUnittest_EnumParseTester {
   enum Extensions {
     static let optional_arbitrary_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<EditionUnittest_EnumParseTester.Arbitrary>, EditionUnittest_EnumParseTester>(
       _protobuf_fieldNumber: 2000000,
@@ -9820,7 +9820,7 @@ extension EditionUnittest_EnumParseTester {
   }
 }
 
-extension EditionUnittest_BoolParseTester {
+nonisolated extension EditionUnittest_BoolParseTester {
   enum Extensions {
     static let optional_bool_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, EditionUnittest_BoolParseTester>(
       _protobuf_fieldNumber: 2000000,
@@ -9839,7 +9839,7 @@ extension EditionUnittest_BoolParseTester {
   }
 }
 
-extension EditionUnittest_Int32ParseTester {
+nonisolated extension EditionUnittest_Int32ParseTester {
   enum Extensions {
     static let optional_int32_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_Int32ParseTester>(
       _protobuf_fieldNumber: 2000000,
@@ -9858,7 +9858,7 @@ extension EditionUnittest_Int32ParseTester {
   }
 }
 
-extension EditionUnittest_Int64ParseTester {
+nonisolated extension EditionUnittest_Int64ParseTester {
   enum Extensions {
     static let optional_int64_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, EditionUnittest_Int64ParseTester>(
       _protobuf_fieldNumber: 2000000,
@@ -9877,7 +9877,7 @@ extension EditionUnittest_Int64ParseTester {
   }
 }
 
-extension EditionUnittest_StringParseTester {
+nonisolated extension EditionUnittest_StringParseTester {
   enum Extensions {
     static let optional_string_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, EditionUnittest_StringParseTester>(
       _protobuf_fieldNumber: 2000000,
@@ -9893,29 +9893,29 @@ extension EditionUnittest_StringParseTester {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "edition_unittest"
+fileprivate nonisolated let _protobuf_package = "edition_unittest"
 
-extension EditionUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0\u{2}\u{1a}FOREIGN_BAX\0")
 }
 
-extension EditionUnittest_TestReservedEnumFields: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestReservedEnumFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0")
 }
 
-extension EditionUnittest_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{a}\0DUP_UNKNOWN1\0\u{1}DUP_UNKNOWN2\0\u{9}DUP_FOO1\0\u{1}DUP_FOO2\0\u{9}DUP_BAR1\0\u{1}DUP_BAR2\0\u{1}DUP_BAZ\0")
 }
 
-extension EditionUnittest_TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}t|r\u{7f}\u{7f}\u{3}SPARSE_E\0\u{2}}B\u{d}SPARSE_D\0\u{2}\u{f}SPARSE_F\0\u{2}\u{2}SPARSE_G\0\u{2}y\u{1}SPARSE_A\0\u{2}kL\u{f}SPARSE_B\0\u{2}LTr/SPARSE_C\0")
 }
 
-extension EditionUnittest_VeryLargeEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_VeryLargeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_LABEL_DEFAULT\0\u{1}ENUM_LABEL_1\0\u{1}ENUM_LABEL_2\0\u{1}ENUM_LABEL_3\0\u{1}ENUM_LABEL_4\0\u{1}ENUM_LABEL_5\0\u{1}ENUM_LABEL_6\0\u{1}ENUM_LABEL_7\0\u{1}ENUM_LABEL_8\0\u{1}ENUM_LABEL_9\0\u{1}ENUM_LABEL_10\0\u{1}ENUM_LABEL_11\0\u{1}ENUM_LABEL_12\0\u{1}ENUM_LABEL_13\0\u{1}ENUM_LABEL_14\0\u{1}ENUM_LABEL_15\0\u{1}ENUM_LABEL_16\0\u{1}ENUM_LABEL_17\0\u{1}ENUM_LABEL_18\0\u{1}ENUM_LABEL_19\0\u{1}ENUM_LABEL_20\0\u{1}ENUM_LABEL_21\0\u{1}ENUM_LABEL_22\0\u{1}ENUM_LABEL_23\0\u{1}ENUM_LABEL_24\0\u{1}ENUM_LABEL_25\0\u{1}ENUM_LABEL_26\0\u{1}ENUM_LABEL_27\0\u{1}ENUM_LABEL_28\0\u{1}ENUM_LABEL_29\0\u{1}ENUM_LABEL_30\0\u{1}ENUM_LABEL_31\0\u{1}ENUM_LABEL_32\0\u{1}ENUM_LABEL_33\0\u{1}ENUM_LABEL_34\0\u{1}ENUM_LABEL_35\0\u{1}ENUM_LABEL_36\0\u{1}ENUM_LABEL_37\0\u{1}ENUM_LABEL_38\0\u{1}ENUM_LABEL_39\0\u{1}ENUM_LABEL_40\0\u{1}ENUM_LABEL_41\0\u{1}ENUM_LABEL_42\0\u{1}ENUM_LABEL_43\0\u{1}ENUM_LABEL_44\0\u{1}ENUM_LABEL_45\0\u{1}ENUM_LABEL_46\0\u{1}ENUM_LABEL_47\0\u{1}ENUM_LABEL_48\0\u{1}ENUM_LABEL_49\0\u{1}ENUM_LABEL_50\0\u{1}ENUM_LABEL_51\0\u{1}ENUM_LABEL_52\0\u{1}ENUM_LABEL_53\0\u{1}ENUM_LABEL_54\0\u{1}ENUM_LABEL_55\0\u{1}ENUM_LABEL_56\0\u{1}ENUM_LABEL_57\0\u{1}ENUM_LABEL_58\0\u{1}ENUM_LABEL_59\0\u{1}ENUM_LABEL_60\0\u{1}ENUM_LABEL_61\0\u{1}ENUM_LABEL_62\0\u{1}ENUM_LABEL_63\0\u{1}ENUM_LABEL_64\0\u{1}ENUM_LABEL_65\0\u{1}ENUM_LABEL_66\0\u{1}ENUM_LABEL_67\0\u{1}ENUM_LABEL_68\0\u{1}ENUM_LABEL_69\0\u{1}ENUM_LABEL_70\0\u{1}ENUM_LABEL_71\0\u{1}ENUM_LABEL_72\0\u{1}ENUM_LABEL_73\0\u{1}ENUM_LABEL_74\0\u{1}ENUM_LABEL_75\0\u{1}ENUM_LABEL_76\0\u{1}ENUM_LABEL_77\0\u{1}ENUM_LABEL_78\0\u{1}ENUM_LABEL_79\0\u{1}ENUM_LABEL_80\0\u{1}ENUM_LABEL_81\0\u{1}ENUM_LABEL_82\0\u{1}ENUM_LABEL_83\0\u{1}ENUM_LABEL_84\0\u{1}ENUM_LABEL_85\0\u{1}ENUM_LABEL_86\0\u{1}ENUM_LABEL_87\0\u{1}ENUM_LABEL_88\0\u{1}ENUM_LABEL_89\0\u{1}ENUM_LABEL_90\0\u{1}ENUM_LABEL_91\0\u{1}ENUM_LABEL_92\0\u{1}ENUM_LABEL_93\0\u{1}ENUM_LABEL_94\0\u{1}ENUM_LABEL_95\0\u{1}ENUM_LABEL_96\0\u{1}ENUM_LABEL_97\0\u{1}ENUM_LABEL_98\0\u{1}ENUM_LABEL_99\0\u{1}ENUM_LABEL_100\0")
 }
 
-extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{7}OptionalGroup\0\u{4}\u{2}optional_nested_message\0\u{3}optional_foreign_message\0\u{3}optional_import_message\0\u{3}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{3}optional_import_enum\0\u{3}optional_string_piece\0\u{3}optional_cord\0\u{3}optional_public_import_message\0\u{3}optional_lazy_message\0\u{3}optional_unverified_lazy_message\0\u{4}\u{3}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{7}RepeatedGroup\0\u{4}\u{2}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{3}repeated_import_message\0\u{3}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{3}repeated_import_enum\0\u{3}repeated_string_piece\0\u{3}repeated_cord\0\u{4}\u{2}repeated_lazy_message\0\u{4}\u{4}default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{4}\u{6}default_nested_enum\0\u{3}default_foreign_enum\0\u{3}default_import_enum\0\u{3}default_string_piece\0\u{3}default_cord\0\u{3}optional_bytes_cord\0\u{4}\u{19}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_cord\0\u{3}oneof_string_piece\0\u{3}oneof_lazy_nested_message\0")
 
@@ -10589,11 +10589,11 @@ extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension EditionUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
@@ -10627,7 +10627,7 @@ extension EditionUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-extension EditionUnittest_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestAllTypes.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
@@ -10661,7 +10661,7 @@ extension EditionUnittest_TestAllTypes.OptionalGroup: SwiftProtobuf.Message, Swi
   }
 }
 
-extension EditionUnittest_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestAllTypes.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
 
@@ -10695,7 +10695,7 @@ extension EditionUnittest_TestAllTypes.RepeatedGroup: SwiftProtobuf.Message, Swi
   }
 }
 
-extension EditionUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}payload\0\u{3}repeated_child\0\u{3}lazy_child\0\u{3}eager_child\0")
 
@@ -10793,7 +10793,7 @@ extension EditionUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}deprecated_int32\0\u{3}deprecated_int32_in_oneof\0\u{3}deprecated_message\0\u{3}deprecated_repeated_string\0\u{1}nested\0")
 
@@ -10898,7 +10898,7 @@ extension EditionUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestDeprecatedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDeprecatedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -10917,7 +10917,7 @@ extension EditionUnittest_TestDeprecatedMessage: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension EditionUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0\u{1}d\0")
 
@@ -10956,7 +10956,7 @@ extension EditionUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension EditionUnittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestReservedFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{b}bar\0\u{b}baz\0\u{c}\u{2}\u{1}\u{c}\u{f}\u{1}\u{c}\u{9}\u{3}")
 
@@ -10975,7 +10975,7 @@ extension EditionUnittest_TestReservedFields: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -11004,7 +11004,7 @@ extension EditionUnittest_TestAllExtensions: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionalGroup_extension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
@@ -11038,7 +11038,7 @@ extension EditionUnittest_OptionalGroup_extension: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroup_extension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}/a\0")
 
@@ -11072,7 +11072,7 @@ extension EditionUnittest_RepeatedGroup_extension: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMixedFieldsAndExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{2}\u{2}b\0")
 
@@ -11121,7 +11121,7 @@ extension EditionUnittest_TestMixedFieldsAndExtensions: SwiftProtobuf.Message, S
   }
 }
 
-extension EditionUnittest_TestGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{8}\u{10}OptionalGroup\0\u{4}\u{6}optional_foreign_enum\0")
 
@@ -11160,7 +11160,7 @@ extension EditionUnittest_TestGroup: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension EditionUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestGroup.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0\u{2}H\u{1}zz\0")
 
@@ -11199,7 +11199,7 @@ extension EditionUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestGroupExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestGroupExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -11228,7 +11228,7 @@ extension EditionUnittest_TestGroupExtension: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -11247,7 +11247,7 @@ extension EditionUnittest_TestNestedExtension: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionUnittest_TestNestedExtension.OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedExtension.OptionalGroup_extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedExtension.protoMessageName + ".OptionalGroup_extension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")
 
@@ -11281,7 +11281,7 @@ extension EditionUnittest_TestNestedExtension.OptionalGroup_extension: SwiftProt
   }
 }
 
-extension EditionUnittest_TestChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestChildExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0\u{3}optional_extension\0")
 
@@ -11330,7 +11330,7 @@ extension EditionUnittest_TestChildExtension: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestChildExtensionData"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0\u{3}optional_extension\0")
 
@@ -11374,7 +11374,7 @@ extension EditionUnittest_TestChildExtensionData: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestChildExtensionData.protoMessageName + ".NestedTestAllExtensionsData"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}@HzZ\u{18}dynamic\0")
 
@@ -11408,7 +11408,7 @@ extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData: Sw
   }
 }
 
-extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.protoMessageName + ".NestedDynamicExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0")
 
@@ -11447,7 +11447,7 @@ extension EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.Nes
   }
 }
 
-extension EditionUnittest_TestNestedChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedChildExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}child\0")
 
@@ -11491,7 +11491,7 @@ extension EditionUnittest_TestNestedChildExtension: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestNestedChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedChildExtensionData"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}child\0")
 
@@ -11530,7 +11530,7 @@ extension EditionUnittest_TestNestedChildExtensionData: SwiftProtobuf.Message, S
   }
 }
 
-extension EditionUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredEnum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_enum\0\u{1}a\0")
 
@@ -11574,7 +11574,7 @@ extension EditionUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_TestRequiredEnumNoMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredEnumNoMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredEnumNoMask"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_enum\0\u{1}a\0")
 
@@ -11618,11 +11618,11 @@ extension EditionUnittest_TestRequiredEnumNoMask: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestRequiredEnumNoMask.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredEnumNoMask.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}BAZ\0\u{1}UNSPECIFIED\0\u{2}\u{2}FOO\0\u{2}b\u{1}BAR\0")
 }
 
-extension EditionUnittest_TestRequiredEnumMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredEnumMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredEnumMulti"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_enum_1\0\u{3}required_enum_2\0\u{3}a_3\0\u{3}required_enum_4\0")
 
@@ -11678,11 +11678,11 @@ extension EditionUnittest_TestRequiredEnumMulti: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension EditionUnittest_TestRequiredEnumMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredEnumMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{2}b\u{1}BAZ\0")
 }
 
-extension EditionUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredNoMaskMulti"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_enum_1\0\u{3}required_enum_2\0\u{3}a_3\0\u{3}required_enum_4\0\u{4}<required_enum_64\0\u{4}\u{6}required_fixed32_70\0\u{4}\u{a}required_fixed32_80\0")
 
@@ -11756,11 +11756,11 @@ extension EditionUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestRequiredNoMaskMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredNoMaskMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{2}b\u{1}BAZ\0")
 }
 
-extension EditionUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}dummy2\0\u{1}b\0\u{1}dummy4\0\u{1}dummy5\0\u{1}dummy6\0\u{1}dummy7\0\u{1}dummy8\0\u{1}dummy9\0\u{1}dummy10\0\u{1}dummy11\0\u{1}dummy12\0\u{1}dummy13\0\u{1}dummy14\0\u{1}dummy15\0\u{1}dummy16\0\u{1}dummy17\0\u{1}dummy18\0\u{1}dummy19\0\u{1}dummy20\0\u{1}dummy21\0\u{1}dummy22\0\u{1}dummy23\0\u{1}dummy24\0\u{1}dummy25\0\u{1}dummy26\0\u{1}dummy27\0\u{1}dummy28\0\u{1}dummy29\0\u{1}dummy30\0\u{1}dummy31\0\u{1}dummy32\0\u{1}c\0\u{3}optional_foreign\0")
 
@@ -12070,7 +12070,7 @@ extension EditionUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredForeign"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0\u{1}dummy\0\u{3}optional_lazy_message\0")
 
@@ -12125,7 +12125,7 @@ extension EditionUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionUnittest_TestRequiredMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0\u{3}required_message\0")
 
@@ -12177,7 +12177,7 @@ extension EditionUnittest_TestRequiredMessage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedRequiredForeign"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}payload\0\u{1}dummy\0\u{4}\u{2}required_enum\0\u{3}required_enum_no_mask\0\u{3}required_enum_multi\0\u{4}\u{2}required_no_mask\0")
 
@@ -12301,7 +12301,7 @@ extension EditionUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swif
   }
 }
 
-extension EditionUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foreign_nested\0")
 
@@ -12335,7 +12335,7 @@ extension EditionUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -12354,7 +12354,7 @@ extension EditionUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageWithExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -12383,7 +12383,7 @@ extension EditionUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestPickleNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPickleNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPickleNestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -12402,7 +12402,7 @@ extension EditionUnittest_TestPickleNestedMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestPickleNestedMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPickleNestedMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestPickleNestedMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
 
@@ -12436,7 +12436,7 @@ extension EditionUnittest_TestPickleNestedMessage.NestedMessage: SwiftProtobuf.M
   }
 }
 
-extension EditionUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestPickleNestedMessage.NestedMessage.protoMessageName + ".NestedNestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}cc\0")
 
@@ -12470,7 +12470,7 @@ extension EditionUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMess
   }
 }
 
-extension EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMultipleExtensionRanges"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -12499,7 +12499,7 @@ extension EditionUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, Sw
   }
 }
 
-extension EditionUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestReallyLargeTagNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{2}~\u{7f}\u{7f}\u{7f}\u{f}bb\0")
 
@@ -12538,7 +12538,7 @@ extension EditionUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}i\0")
 
@@ -12615,7 +12615,7 @@ extension EditionUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0\u{7}SubGroup\0\u{8}\u{3}SubGroupR\0")
 
@@ -12699,7 +12699,7 @@ extension EditionUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestMutualRecursionA.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMutualRecursionA.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestMutualRecursionA.protoMessageName + ".SubMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}b\0")
 
@@ -12769,7 +12769,7 @@ extension EditionUnittest_TestMutualRecursionA.SubMessage: SwiftProtobuf.Message
   }
 }
 
-extension EditionUnittest_TestMutualRecursionA.SubGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMutualRecursionA.SubGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestMutualRecursionA.protoMessageName + ".SubGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{3}sub_message\0\u{3}not_in_this_scc\0")
 
@@ -12846,7 +12846,7 @@ extension EditionUnittest_TestMutualRecursionA.SubGroup: SwiftProtobuf.Message, 
   }
 }
 
-extension EditionUnittest_TestMutualRecursionA.SubGroupR: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMutualRecursionA.SubGroupR: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestMutualRecursionA.protoMessageName + ".SubGroupR"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{6}payload\0")
 
@@ -12880,7 +12880,7 @@ extension EditionUnittest_TestMutualRecursionA.SubGroupR: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{3}optional_int32\0")
 
@@ -12957,7 +12957,7 @@ extension EditionUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestIsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestIsInitialized: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestIsInitialized"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_message\0")
 
@@ -12996,7 +12996,7 @@ extension EditionUnittest_TestIsInitialized: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestIsInitialized.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestIsInitialized.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestIsInitialized.protoMessageName + ".SubMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{7}SubGroup\0")
 
@@ -13035,7 +13035,7 @@ extension EditionUnittest_TestIsInitialized.SubMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension EditionUnittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestIsInitialized.SubMessage.protoMessageName + ".SubGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}i\0")
 
@@ -13074,7 +13074,7 @@ extension EditionUnittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf.M
   }
 }
 
-extension EditionUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDupFieldNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{7}Foo\0\u{7}Bar\0")
 
@@ -13118,7 +13118,7 @@ extension EditionUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestDupFieldNumber.Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDupFieldNumber.Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestDupFieldNumber.protoMessageName + ".Foo"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -13152,7 +13152,7 @@ extension EditionUnittest_TestDupFieldNumber.Foo: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestDupFieldNumber.Bar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDupFieldNumber.Bar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestDupFieldNumber.protoMessageName + ".Bar"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -13186,7 +13186,7 @@ extension EditionUnittest_TestDupFieldNumber.Bar: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_message\0")
 
@@ -13220,7 +13220,7 @@ extension EditionUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLazyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sub_message\0")
 
@@ -13254,7 +13254,7 @@ extension EditionUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestLazyMessageRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestLazyMessageRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestLazyMessageRepeated"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}repeated_message\0")
 
@@ -13284,7 +13284,7 @@ extension EditionUnittest_TestLazyMessageRepeated: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestEagerMaybeLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEagerMaybeLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMaybeLazy"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}message_foo\0\u{3}message_bar\0\u{3}message_baz\0")
 
@@ -13328,7 +13328,7 @@ extension EditionUnittest_TestEagerMaybeLazy: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestEagerMaybeLazy.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEagerMaybeLazy.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestEagerMaybeLazy.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}packed\0")
 
@@ -13362,7 +13362,7 @@ extension EditionUnittest_TestEagerMaybeLazy.NestedMessage: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageHasBits"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_nested_message\0")
 
@@ -13396,7 +13396,7 @@ extension EditionUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestNestedMessageHasBits.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedMessageHasBits.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedMessageHasBits.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nestedmessage_repeated_int32\0\u{3}nestedmessage_repeated_foreignmessage\0")
 
@@ -13431,7 +13431,7 @@ extension EditionUnittest_TestNestedMessageHasBits.NestedMessage: SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}PrimitiveField\0\u{1}StringField\0\u{1}EnumField\0\u{1}MessageField\0\u{1}StringPieceField\0\u{1}CordField\0\u{1}RepeatedPrimitiveField\0\u{1}RepeatedStringField\0\u{1}RepeatedEnumField\0\u{1}RepeatedMessageField\0\u{1}RepeatedStringPieceField\0\u{1}RepeatedCordField\0")
 
@@ -13520,7 +13520,7 @@ extension EditionUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_int\0\u{4}\u{a}my_string\0\u{4}Z\u{1}my_float\0\u{4}c\u{1}optional_nested_message\0")
 
@@ -13579,7 +13579,7 @@ extension EditionUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestFieldOrderings.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0\u{1}oo\0")
 
@@ -13618,7 +13618,7 @@ extension EditionUnittest_TestFieldOrderings.NestedMessage: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtensionOrderings1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionOrderings1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_string\0")
 
@@ -13652,7 +13652,7 @@ extension EditionUnittest_TestExtensionOrderings1: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtensionOrderings2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionOrderings2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_string\0")
 
@@ -13686,7 +13686,7 @@ extension EditionUnittest_TestExtensionOrderings2: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestExtensionOrderings2.protoMessageName + ".TestExtensionOrderings3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_string\0")
 
@@ -13720,7 +13720,7 @@ extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3: Swift
   }
 }
 
-extension EditionUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtremeDefaultValues"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}escaped_bytes\0\u{3}large_uint32\0\u{3}large_uint64\0\u{3}small_int32\0\u{3}small_int64\0\u{3}utf8_string\0\u{3}zero_float\0\u{3}one_float\0\u{3}small_float\0\u{3}negative_one_float\0\u{3}negative_float\0\u{3}large_float\0\u{3}small_negative_float\0\u{3}inf_double\0\u{3}neg_inf_double\0\u{3}nan_double\0\u{3}inf_float\0\u{3}neg_inf_float\0\u{3}nan_float\0\u{3}cpp_trigraph\0\u{3}really_small_int32\0\u{3}really_small_int64\0\u{3}string_with_zero\0\u{3}bytes_with_zero\0\u{3}string_piece_with_zero\0\u{3}cord_with_zero\0\u{3}replacement_string\0")
 
@@ -13972,7 +13972,7 @@ extension EditionUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SparseEnumMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}sparse_enum\0")
 
@@ -14006,7 +14006,7 @@ extension EditionUnittest_SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_OneString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_OneString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneString"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14040,7 +14040,7 @@ extension EditionUnittest_OneString: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension EditionUnittest_MoreString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_MoreString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MoreString"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14070,7 +14070,7 @@ extension EditionUnittest_MoreString: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension EditionUnittest_OneBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_OneBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneBytes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14104,7 +14104,7 @@ extension EditionUnittest_OneBytes: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension EditionUnittest_MoreBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_MoreBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MoreBytes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14134,7 +14134,7 @@ extension EditionUnittest_MoreBytes: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension EditionUnittest_ManyOptionalString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_ManyOptionalString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ManyOptionalString"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}str1\0\u{1}str2\0\u{1}str3\0\u{1}str4\0\u{1}str5\0\u{1}str6\0\u{1}str7\0\u{1}str8\0\u{1}str9\0\u{1}str10\0\u{1}str11\0\u{1}str12\0\u{1}str13\0\u{1}str14\0\u{1}str15\0\u{1}str16\0\u{1}str17\0\u{1}str18\0\u{1}str19\0\u{1}str20\0\u{1}str21\0\u{1}str22\0\u{1}str23\0\u{1}str24\0\u{1}str25\0\u{1}str26\0\u{1}str27\0\u{1}str28\0\u{1}str29\0\u{1}str30\0\u{1}str31\0\u{1}str32\0")
 
@@ -14421,7 +14421,7 @@ extension EditionUnittest_ManyOptionalString: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_Int32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Int32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int32Message"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14455,7 +14455,7 @@ extension EditionUnittest_Int32Message: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_Uint32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Uint32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Uint32Message"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14489,7 +14489,7 @@ extension EditionUnittest_Uint32Message: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_Int64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Int64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int64Message"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14523,7 +14523,7 @@ extension EditionUnittest_Int64Message: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_Uint64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Uint64Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Uint64Message"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14557,7 +14557,7 @@ extension EditionUnittest_Uint64Message: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_BoolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_BoolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BoolMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}data\0")
 
@@ -14591,7 +14591,7 @@ extension EditionUnittest_BoolMessage: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension EditionUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0\u{7}FooGroup\0")
 
@@ -14682,7 +14682,7 @@ extension EditionUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension EditionUnittest_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestOneof.protoMessageName + ".FooGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{5}a\0\u{1}b\0")
 
@@ -14721,7 +14721,7 @@ extension EditionUnittest_TestOneof.FooGroup: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneofBackwardsCompatible"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0\u{7}FooGroup\0")
 
@@ -14770,7 +14770,7 @@ extension EditionUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, S
   }
 }
 
-extension EditionUnittest_TestOneofBackwardsCompatible.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneofBackwardsCompatible.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestOneofBackwardsCompatible.protoMessageName + ".FooGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{5}a\0\u{1}b\0")
 
@@ -14809,7 +14809,7 @@ extension EditionUnittest_TestOneofBackwardsCompatible.FooGroup: SwiftProtobuf.M
   }
 }
 
-extension EditionUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneof2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_cord\0\u{3}foo_string_piece\0\u{3}foo_bytes\0\u{3}foo_enum\0\u{3}foo_message\0\u{7}FooGroup\0\u{4}\u{3}foo_lazy_message\0\u{3}bar_int\0\u{3}bar_string\0\u{3}bar_cord\0\u{3}bar_string_piece\0\u{3}bar_bytes\0\u{3}bar_enum\0\u{3}baz_int\0\u{3}baz_string\0\u{3}bar_string_with_empty_default\0\u{3}bar_cord_with_empty_default\0\u{3}bar_string_piece_with_empty_default\0\u{3}bar_bytes_with_empty_default\0\u{4}\u{7}foo_bytes_cord\0")
 
@@ -15113,11 +15113,11 @@ extension EditionUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension EditionUnittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension EditionUnittest_TestOneof2.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof2.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestOneof2.protoMessageName + ".FooGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{9}a\0\u{1}b\0")
 
@@ -15156,7 +15156,7 @@ extension EditionUnittest_TestOneof2.FooGroup: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestOneof2.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}moo_int\0\u{3}corge_int\0")
 
@@ -15195,7 +15195,7 @@ extension EditionUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOneof"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_int\0\u{3}foo_string\0\u{3}foo_message\0\u{3}foo_lazy_message\0")
 
@@ -15291,7 +15291,7 @@ extension EditionUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestRequiredOneof.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRequiredOneof.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestRequiredOneof.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_double\0")
 
@@ -15330,7 +15330,7 @@ extension EditionUnittest_TestRequiredOneof.NestedMessage: SwiftProtobuf.Message
   }
 }
 
-extension EditionUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}Z\u{1}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_enum\0")
 
@@ -15425,7 +15425,7 @@ extension EditionUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}Z\u{1}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_enum\0")
 
@@ -15520,7 +15520,7 @@ extension EditionUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestPackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -15549,7 +15549,7 @@ extension EditionUnittest_TestPackedExtensions: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -15578,7 +15578,7 @@ extension EditionUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDynamicExtensions"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}P\u{1f}scalar_extension\0\u{3}enum_extension\0\u{3}dynamic_enum_extension\0\u{3}message_extension\0\u{3}dynamic_message_extension\0\u{3}repeated_extension\0\u{3}packed_extension\0")
 
@@ -15642,11 +15642,11 @@ extension EditionUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension EditionUnittest_TestDynamicExtensions.DynamicEnumType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDynamicExtensions.DynamicEnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0DYNAMIC_UNKNOWN\0\u{2}X\"DYNAMIC_FOO\0\u{1}DYNAMIC_BAR\0\u{1}DYNAMIC_BAZ\0")
 }
 
-extension EditionUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestDynamicExtensions.protoMessageName + ".DynamicMessageType"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}t dynamic_field\0")
 
@@ -15680,7 +15680,7 @@ extension EditionUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestRepeatedString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRepeatedString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedString"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}repeated_string1\0\u{3}repeated_string2\0\u{4}\u{9}repeated_bytes11\0\u{3}repeated_bytes12\0")
 
@@ -15725,7 +15725,7 @@ extension EditionUnittest_TestRepeatedString: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedScalarDifferentTagSizes"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{c}repeated_fixed32\0\u{3}repeated_int32\0\u{4}q\u{1f}repeated_fixed64\0\u{3}repeated_int64\0\u{4}\u{7f}_?repeated_float\0\u{3}repeated_uint64\0")
 
@@ -15780,7 +15780,7 @@ extension EditionUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Mes
   }
 }
 
-extension EditionUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_all_types\0\u{3}optional_all_types\0\u{3}repeated_all_types\0\u{8}\u{7}OptionalGroup\0\u{8}\u{a}RepeatedGroup\0")
 
@@ -15844,7 +15844,7 @@ extension EditionUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{8}\u{7}Group1\0\u{8}\u{a}Group2\0\u{2}T\u{f}ext1\0\u{1}ext2\0")
 
@@ -15904,7 +15904,7 @@ extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobu
   }
 }
 
-extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{b}field1\0")
 
@@ -15938,7 +15938,7 @@ extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swift
   }
 }
 
-extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{15}field1\0")
 
@@ -15972,7 +15972,7 @@ extension EditionUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swift
   }
 }
 
-extension EditionUnittest_TestParsingMerge.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestParsingMerge.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{b}optional_group_all_types\0")
 
@@ -16006,7 +16006,7 @@ extension EditionUnittest_TestParsingMerge.OptionalGroup: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestParsingMerge.protoMessageName + ".RepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{15}repeated_group_all_types\0")
 
@@ -16040,7 +16040,7 @@ extension EditionUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestMergeException: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMergeException: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMergeException"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}all_extensions\0")
 
@@ -16079,7 +16079,7 @@ extension EditionUnittest_TestMergeException: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension EditionUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 
@@ -16113,7 +16113,7 @@ extension EditionUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, Sw
   }
 }
 
-extension EditionUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSize"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}m1\0\u{1}m2\0\u{1}m3\0\u{1}m4\0\u{1}m5\0\u{1}m6\0")
 
@@ -16172,7 +16172,7 @@ extension EditionUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestEagerlyVerifiedLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEagerlyVerifiedLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEagerlyVerifiedLazyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}lazy_message\0")
 
@@ -16206,7 +16206,7 @@ extension EditionUnittest_TestEagerlyVerifiedLazyMessage: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestEagerlyVerifiedLazyMessage.protoMessageName + ".LazyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bytes_field\0")
 
@@ -16240,7 +16240,7 @@ extension EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage: SwiftProto
   }
 }
 
-extension EditionUnittest_FooRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_FooRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16259,7 +16259,7 @@ extension EditionUnittest_FooRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension EditionUnittest_FooResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_FooResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooResponse"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16278,7 +16278,7 @@ extension EditionUnittest_FooResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension EditionUnittest_FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooClientMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16297,7 +16297,7 @@ extension EditionUnittest_FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooServerMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16316,7 +16316,7 @@ extension EditionUnittest_FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_BarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_BarRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BarRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16335,7 +16335,7 @@ extension EditionUnittest_BarRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension EditionUnittest_BarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_BarResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BarResponse"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -16354,7 +16354,7 @@ extension EditionUnittest_BarResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension EditionUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestJsonName"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_name1\0\u{1}fieldName2\0\u{1}FieldName3\0\u{3}_field_name4\0\u{3}FIELD_NAME5\0\u{5}field_name6\0@type\0\u{1}fieldname7\0")
 
@@ -16418,7 +16418,7 @@ extension EditionUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}pq\u{7f}\u{7f}\u{1f}optional_int32\0\u{3}fixed_32\0\u{3}repeated_int32\0\u{3}packed_int32\0\u{3}optional_enum\0\u{3}optional_string\0\u{3}optional_bytes\0\u{3}optional_message\0\u{7}OptionalGroup\0\u{4}\u{2}string_string_map\0\u{3}oneof_uint32\0\u{3}oneof_test_all_types\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
 
@@ -16563,7 +16563,7 @@ extension EditionUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension EditionUnittest_TestHugeFieldNumbers.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestHugeFieldNumbers.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestHugeFieldNumbers.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}yq\u{7f}\u{7f}\u{1f}group_a\0")
 
@@ -16597,7 +16597,7 @@ extension EditionUnittest_TestHugeFieldNumbers.OptionalGroup: SwiftProtobuf.Mess
   }
 }
 
-extension EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionInsideTable"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{1}field4\0\u{2}\u{2}field6\0\u{1}field7\0\u{1}field8\0\u{1}field9\0\u{1}field10\0")
 
@@ -16680,7 +16680,7 @@ extension EditionUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedGroupExtensionOuter"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}lay1optionalgroup\0")
 
@@ -16719,7 +16719,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, 
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedGroupExtensionOuter.protoMessageName + ".Layer1OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{8}\u{2}Layer2RepeatedGroup\0\u{8}\u{2}Layer2AnotherOptionalRepeatedGroup\0")
 
@@ -16759,7 +16759,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: Swi
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.protoMessageName + ".Layer2RepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{6}another_field\0")
 
@@ -16802,7 +16802,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Laye
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.protoMessageName + ".Layer2AnotherOptionalRepeatedGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{5}but_why_tho\0")
 
@@ -16836,7 +16836,7 @@ extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Laye
   }
 }
 
-extension EditionUnittest_TestNestedGroupExtensionInnerExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedGroupExtensionInnerExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedGroupExtensionInnerExtension"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}inner_name\0")
 
@@ -16870,7 +16870,7 @@ extension EditionUnittest_TestNestedGroupExtensionInnerExtension: SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestExtensionRangeSerialize"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}foo_one\0\u{4}\u{5}foo_two\0\u{3}foo_three\0\u{4}\u{6}foo_four\0")
 
@@ -16930,7 +16930,7 @@ extension EditionUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, Sw
   }
 }
 
-extension EditionUnittest_TestVerifyInt32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyInt32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32Simple"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_1\0\u{3}optional_int32_2\0\u{4}=optional_int32_63\0\u{3}optional_int32_64\0")
 
@@ -16979,7 +16979,7 @@ extension EditionUnittest_TestVerifyInt32Simple: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension EditionUnittest_TestVerifyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_1\0\u{3}optional_int32_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_int32_63\0\u{3}optional_int32_64\0")
 
@@ -17038,7 +17038,7 @@ extension EditionUnittest_TestVerifyInt32: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_TestVerifyMostlyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyMostlyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyMostlyInt32"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_1\0\u{3}optional_int32_2\0\u{3}optional_int32_3\0\u{3}optional_int32_4\0\u{4}\u{5}optional_all_types\0\u{3}repeated_all_types\0\u{4}\u{14}optional_int64_30\0\u{4}!optional_int32_63\0\u{3}optional_int32_64\0")
 
@@ -17112,7 +17112,7 @@ extension EditionUnittest_TestVerifyMostlyInt32: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyMostlyInt32BigFieldNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_1\0\u{3}optional_int32_2\0\u{3}optional_int32_3\0\u{3}optional_int32_4\0\u{4}\u{5}optional_all_types\0\u{3}repeated_all_types\0\u{4}\u{14}optional_int64_30\0\u{4}!optional_int32_63\0\u{3}optional_int32_64\0\u{4}l\u{3}optional_int32_300\0")
 
@@ -17191,7 +17191,7 @@ extension EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: SwiftProtobuf.Mes
   }
 }
 
-extension EditionUnittest_TestVerifyUint32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyUint32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32Simple"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_uint32_1\0\u{3}optional_uint32_2\0\u{4}=optional_uint32_63\0\u{3}optional_uint32_64\0")
 
@@ -17240,7 +17240,7 @@ extension EditionUnittest_TestVerifyUint32Simple: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension EditionUnittest_TestVerifyUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_uint32_1\0\u{3}optional_uint32_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_uint32_63\0\u{3}optional_uint32_64\0")
 
@@ -17299,7 +17299,7 @@ extension EditionUnittest_TestVerifyUint32: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_TestVerifyOneUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyOneUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyOneUint32"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_uint32_1\0\u{3}optional_int32_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_int32_63\0\u{3}optional_int32_64\0")
 
@@ -17358,7 +17358,7 @@ extension EditionUnittest_TestVerifyOneUint32: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension EditionUnittest_TestVerifyOneInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyOneInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyOneInt32BigFieldNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int64_1\0\u{3}optional_int64_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_int64_63\0\u{3}optional_int64_64\0\u{3}optional_int32_65\0")
 
@@ -17422,7 +17422,7 @@ extension EditionUnittest_TestVerifyOneInt32BigFieldNumber: SwiftProtobuf.Messag
   }
 }
 
-extension EditionUnittest_TestVerifyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32BigFieldNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_1\0\u{3}optional_int32_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_int32_63\0\u{3}optional_int32_64\0\u{3}optional_int32_65\0\u{4}g\u{e}optional_int32_1000\0")
 
@@ -17491,7 +17491,7 @@ extension EditionUnittest_TestVerifyInt32BigFieldNumber: SwiftProtobuf.Message, 
   }
 }
 
-extension EditionUnittest_TestVerifyUint32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyUint32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32BigFieldNumber"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_uint32_1\0\u{3}optional_uint32_2\0\u{4}\u{7}optional_all_types\0\u{3}repeated_all_types\0\u{4}5optional_uint32_63\0\u{3}optional_uint32_64\0\u{3}optional_uint32_65\0\u{4}g\u{e}optional_uint32_1000\0")
 
@@ -17560,7 +17560,7 @@ extension EditionUnittest_TestVerifyUint32BigFieldNumber: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestVerifyBigFieldNumberUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyBigFieldNumberUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestVerifyBigFieldNumberUint32"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_nested\0")
 
@@ -17594,7 +17594,7 @@ extension EditionUnittest_TestVerifyBigFieldNumberUint32: SwiftProtobuf.Message,
   }
 }
 
-extension EditionUnittest_TestVerifyBigFieldNumberUint32.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestVerifyBigFieldNumberUint32.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestVerifyBigFieldNumberUint32.protoMessageName + ".Nested"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_uint32_1\0\u{3}optional_uint32_2\0\u{4}\u{7}optional_nested\0\u{3}repeated_nested\0\u{4}5optional_uint32_63\0\u{3}optional_uint32_64\0\u{3}optional_uint32_65\0\u{3}optional_uint32_66\0\u{4}f\u{e}optional_uint32_1000\0\u{4}`>optional_uint32_5000\0")
 
@@ -17727,7 +17727,7 @@ extension EditionUnittest_TestVerifyBigFieldNumberUint32.Nested: SwiftProtobuf.M
   }
 }
 
-extension EditionUnittest_EnumParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumParseTester"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_seq_small_0_lowfield\0\u{3}repeated_seq_small_0_lowfield\0\u{3}packed_seq_small_0_lowfield\0\u{3}optional_seq_small_1_lowfield\0\u{3}repeated_seq_small_1_lowfield\0\u{3}packed_seq_small_1_lowfield\0\u{3}optional_seq_large_lowfield\0\u{3}repeated_seq_large_lowfield\0\u{3}packed_seq_large_lowfield\0\u{3}optional_arbitrary_lowfield\0\u{3}repeated_arbitrary_lowfield\0\u{3}packed_arbitrary_lowfield\0\u{4}W\u{1}other_field\0\u{4}F\u{e}optional_seq_small_0_midfield\0\u{3}repeated_seq_small_0_midfield\0\u{3}packed_seq_small_0_midfield\0\u{3}optional_seq_small_1_midfield\0\u{3}repeated_seq_small_1_midfield\0\u{3}packed_seq_small_1_midfield\0\u{3}optional_seq_large_midfield\0\u{3}repeated_seq_large_midfield\0\u{3}packed_seq_large_midfield\0\u{3}optional_arbitrary_midfield\0\u{3}repeated_arbitrary_midfield\0\u{3}packed_arbitrary_midfield\0\u{4}Mys\u{3}optional_seq_small_0_hifield\0\u{3}repeated_seq_small_0_hifield\0\u{3}packed_seq_small_0_hifield\0\u{3}optional_seq_small_1_hifield\0\u{3}repeated_seq_small_1_hifield\0\u{3}packed_seq_small_1_hifield\0\u{3}optional_seq_large_hifield\0\u{3}repeated_seq_large_hifield\0\u{3}packed_seq_large_hifield\0\u{3}optional_arbitrary_hifield\0\u{3}repeated_arbitrary_hifield\0\u{3}packed_arbitrary_hifield\0")
 
@@ -18058,23 +18058,23 @@ extension EditionUnittest_EnumParseTester: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_EnumParseTester.SeqSmall0: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumParseTester.SeqSmall0: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SEQ_SMALL_0_DEFAULT\0\u{1}SEQ_SMALL_0_1\0\u{1}SEQ_SMALL_0_2\0")
 }
 
-extension EditionUnittest_EnumParseTester.SeqSmall1: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumParseTester.SeqSmall1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}SEQ_SMALL_1_DEFAULT\0\u{1}SEQ_SMALL_1_2\0\u{1}SEQ_SMALL_1_3\0")
 }
 
-extension EditionUnittest_EnumParseTester.SeqLarge: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumParseTester.SeqLarge: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}SEQ_LARGE_DEFAULT\0\u{1}SEQ_LARGE_0\0\u{1}SEQ_LARGE_1\0\u{1}SEQ_LARGE_2\0\u{1}SEQ_LARGE_3\0\u{1}SEQ_LARGE_4\0\u{1}SEQ_LARGE_5\0\u{1}SEQ_LARGE_6\0\u{1}SEQ_LARGE_7\0\u{1}SEQ_LARGE_8\0\u{1}SEQ_LARGE_9\0\u{1}SEQ_LARGE_10\0\u{1}SEQ_LARGE_11\0\u{1}SEQ_LARGE_12\0\u{1}SEQ_LARGE_13\0\u{1}SEQ_LARGE_14\0\u{1}SEQ_LARGE_15\0\u{1}SEQ_LARGE_16\0\u{1}SEQ_LARGE_17\0\u{1}SEQ_LARGE_18\0\u{1}SEQ_LARGE_19\0\u{1}SEQ_LARGE_20\0\u{1}SEQ_LARGE_21\0\u{1}SEQ_LARGE_22\0\u{1}SEQ_LARGE_23\0\u{1}SEQ_LARGE_24\0\u{1}SEQ_LARGE_25\0\u{1}SEQ_LARGE_26\0\u{1}SEQ_LARGE_27\0\u{1}SEQ_LARGE_28\0\u{1}SEQ_LARGE_29\0\u{1}SEQ_LARGE_30\0\u{1}SEQ_LARGE_31\0\u{1}SEQ_LARGE_32\0\u{1}SEQ_LARGE_33\0")
 }
 
-extension EditionUnittest_EnumParseTester.Arbitrary: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumParseTester.Arbitrary: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}@@@@@\u{2}ARBITRARY_MIN\0\u{2}M|a\u{7f}\u{7f}\u{1}ARBITRARY_DEFAULT\0\u{2}xA\u{1e}ARBITRARY_1\0\u{2}P\u{5}ARBITRARY_2\0\u{2}H@4ARBITRARY_3\0\u{2}b|K\u{7f}\u{7f}\u{1}ARBITRARY_MAX\0")
 }
 
-extension EditionUnittest_BoolParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_BoolParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BoolParseTester"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_bool_lowfield\0\u{3}repeated_bool_lowfield\0\u{3}packed_bool_lowfield\0\u{4}`\u{1}other_field\0\u{4}F\u{e}optional_bool_midfield\0\u{3}repeated_bool_midfield\0\u{3}packed_bool_midfield\0\u{4}Vys\u{3}optional_bool_hifield\0\u{3}repeated_bool_hifield\0\u{3}packed_bool_hifield\0")
 
@@ -18162,7 +18162,7 @@ extension EditionUnittest_BoolParseTester: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension EditionUnittest_Int32ParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Int32ParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int32ParseTester"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32_lowfield\0\u{3}repeated_int32_lowfield\0\u{3}packed_int32_lowfield\0\u{4}`\u{1}other_field\0\u{4}F\u{e}optional_int32_midfield\0\u{3}repeated_int32_midfield\0\u{3}packed_int32_midfield\0\u{4}Vys\u{3}optional_int32_hifield\0\u{3}repeated_int32_hifield\0\u{3}packed_int32_hifield\0")
 
@@ -18250,7 +18250,7 @@ extension EditionUnittest_Int32ParseTester: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_Int64ParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_Int64ParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int64ParseTester"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int64_lowfield\0\u{3}repeated_int64_lowfield\0\u{3}packed_int64_lowfield\0\u{4}`\u{1}other_field\0\u{4}F\u{e}optional_int64_midfield\0\u{3}repeated_int64_midfield\0\u{3}packed_int64_midfield\0\u{4}Vys\u{3}optional_int64_hifield\0\u{3}repeated_int64_hifield\0\u{3}packed_int64_hifield\0")
 
@@ -18338,7 +18338,7 @@ extension EditionUnittest_Int64ParseTester: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension EditionUnittest_InlinedStringIdxRegressionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_InlinedStringIdxRegressionProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InlinedStringIdxRegressionProto"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}str1\0\u{1}sub\0\u{1}str2\0\u{1}str3\0")
 
@@ -18429,7 +18429,7 @@ extension EditionUnittest_InlinedStringIdxRegressionProto: SwiftProtobuf.Message
   }
 }
 
-extension EditionUnittest_StringParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_StringParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".StringParseTester"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_string_lowfield\0\u{3}repeated_string_lowfield\0\u{4}g\u{f}optional_string_midfield\0\u{3}repeated_string_midfield\0\u{4}Wys\u{3}optional_string_hifield\0\u{3}repeated_string_hifield\0")
 
@@ -18497,7 +18497,7 @@ extension EditionUnittest_StringParseTester: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_BadFieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_BadFieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BadFieldNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}OptionalInt32\0\u{1}for\0")
 
@@ -18536,7 +18536,7 @@ extension EditionUnittest_BadFieldNames: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension EditionUnittest_TestNestedMessageRedaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestNestedMessageRedaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageRedaction"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_unredacted_nested_string\0\u{3}optional_redacted_nested_string\0")
 
@@ -18575,7 +18575,7 @@ extension EditionUnittest_TestNestedMessageRedaction: SwiftProtobuf.Message, Swi
   }
 }
 
-extension EditionUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RedactedFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_redacted_string\0\u{3}optional_unredacted_string\0\u{3}repeated_redacted_string\0\u{3}repeated_unredacted_string\0\u{3}optional_redacted_message\0\u{3}optional_unredacted_message\0\u{3}repeated_redacted_message\0\u{3}repeated_unredacted_message\0\u{3}map_redacted_string\0\u{3}map_unredacted_string\0")
 
@@ -18654,7 +18654,7 @@ extension EditionUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension EditionUnittest_TestCord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestCord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCord"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_bytes_cord\0\u{3}optional_bytes_cord_default\0")
 
@@ -18693,7 +18693,7 @@ extension EditionUnittest_TestCord: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension EditionUnittest_TestPackedEnumSmallRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPackedEnumSmallRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedEnumSmallRange"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}vals\0")
 
@@ -18723,11 +18723,11 @@ extension EditionUnittest_TestPackedEnumSmallRange: SwiftProtobuf.Message, Swift
   }
 }
 
-extension EditionUnittest_TestPackedEnumSmallRange.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestPackedEnumSmallRange.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
-extension EditionUnittest_EnumsForBenchmark: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumsForBenchmark: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumsForBenchmark"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -18746,19 +18746,19 @@ extension EditionUnittest_EnumsForBenchmark: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension EditionUnittest_EnumsForBenchmark.Flat: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumsForBenchmark.Flat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0A0\0\u{1}A1\0\u{1}A2\0\u{1}A3\0\u{1}A4\0\u{1}A5\0\u{1}A6\0\u{1}A7\0\u{1}A8\0\u{1}A9\0\u{1}A10\0\u{1}A11\0\u{1}A12\0\u{1}A13\0\u{1}A14\0\u{1}A15\0")
 }
 
-extension EditionUnittest_EnumsForBenchmark.AlmostFlat: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumsForBenchmark.AlmostFlat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0B0\0\u{1}B1\0\u{1}B2\0\u{1}B3\0\u{2}\u{2}B5\0\u{1}B6\0\u{1}B7\0\u{1}B8\0\u{1}B9\0\u{2}\u{2}B11\0\u{1}B12\0\u{1}B13\0\u{1}B14\0\u{1}B15\0\u{2}\u{2}B17\0\u{2}\u{2}B19\0")
 }
 
-extension EditionUnittest_EnumsForBenchmark.Sparse: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_EnumsForBenchmark.Sparse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0C0\0\u{2}X\u{8}C536\0\u{2}kz\u{1}C8387\0\u{2}F\u{14}C9673\0\u{2}d\u{9}C10285\0\u{2}Y/C13318\0\u{2}U)C15963\0\u{2}\\\u{7}C16439\0\u{2}^\u{1b}C18197\0\u{2}Q\u{13}C19430\0\u{2}c\u{e}C20361\0\u{2}Y\u{5}C20706\0\u{2}X\u{5}C21050\0\u{2}X\u{d}C21906\0\u{2}oS\u{1}C27265\0\u{2}\\,C30109\0\u{2}Y\u{18}C31670\0")
 }
 
-extension EditionUnittest_TestMessageWithManyRepeatedPtrFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension EditionUnittest_TestMessageWithManyRepeatedPtrFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithManyRepeatedPtrFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}repeated_string_1\0\u{3}repeated_string_2\0\u{3}repeated_string_3\0\u{3}repeated_string_4\0\u{3}repeated_string_5\0\u{3}repeated_string_6\0\u{3}repeated_string_7\0\u{3}repeated_string_8\0\u{3}repeated_string_9\0\u{3}repeated_string_10\0\u{3}repeated_string_11\0\u{3}repeated_string_12\0\u{3}repeated_string_13\0\u{3}repeated_string_14\0\u{3}repeated_string_15\0\u{3}repeated_string_16\0\u{3}repeated_string_17\0\u{3}repeated_string_18\0\u{3}repeated_string_19\0\u{3}repeated_string_20\0\u{3}repeated_string_21\0\u{3}repeated_string_22\0\u{3}repeated_string_23\0\u{3}repeated_string_24\0\u{3}repeated_string_25\0\u{3}repeated_string_26\0\u{3}repeated_string_27\0\u{3}repeated_string_28\0\u{3}repeated_string_29\0\u{3}repeated_string_30\0\u{3}repeated_string_31\0\u{3}repeated_string_32\0")
 

@@ -49,12 +49,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Message3: @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_Message3: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -475,7 +475,7 @@ struct SwiftProtoTesting_Message3: @unchecked Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -497,7 +497,7 @@ struct SwiftProtoTesting_Message3: @unchecked Sendable {
 
   }
 
-  enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
@@ -544,7 +544,7 @@ struct SwiftProtoTesting_Message3: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_Msg3NoStorage: Sendable {
+nonisolated struct SwiftProtoTesting_Msg3NoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -554,7 +554,7 @@ struct SwiftProtoTesting_Msg3NoStorage: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -577,7 +577,7 @@ struct SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg3NamesNoStorage: Sendable {
+nonisolated struct SwiftProtoTesting_Msg3NamesNoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -594,7 +594,7 @@ struct SwiftProtoTesting_Msg3NamesNoStorage: Sendable {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg3NamesUsesStorage: Sendable {
+nonisolated struct SwiftProtoTesting_Msg3NamesUsesStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -622,9 +622,9 @@ struct SwiftProtoTesting_Msg3NamesUsesStorage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Message3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_message\0\u{3}optional_enum\0\u{4}\u{c}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_message\0\u{3}repeated_enum\0\u{4}\u{2}oneof_int32\0\u{3}oneof_int64\0\u{3}oneof_uint32\0\u{3}oneof_uint64\0\u{3}oneof_sint32\0\u{3}oneof_sint64\0\u{3}oneof_fixed32\0\u{3}oneof_fixed64\0\u{3}oneof_sfixed32\0\u{3}oneof_sfixed64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_bool\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{4}\u{3}oneof_message\0\u{3}oneof_enum\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_message\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_message\0")
 
@@ -1273,11 +1273,11 @@ extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension SwiftProtoTesting_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0\u{2}\u{1c}EXTRA_3\0")
 }
 
-extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1296,7 +1296,7 @@ extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3UsesStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}g\u{f}y\0")
 
@@ -1366,7 +1366,7 @@ extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesNoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}is_initialized\0\u{3}debug_description\0\u{3}has_value\0")
 
@@ -1406,7 +1406,7 @@ extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesUsesStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}is_initialized\0\u{3}debug_description\0\u{1}value\0")
 

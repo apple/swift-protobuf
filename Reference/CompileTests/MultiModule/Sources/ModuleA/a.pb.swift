@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum E: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum E: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case unset = 0
   case a = 1
   case b = 2
@@ -31,7 +31,7 @@ public enum E: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct A: SwiftProtobuf.ExtensibleMessage, Sendable {
+public nonisolated struct A: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -62,7 +62,7 @@ public struct A: SwiftProtobuf.ExtensibleMessage, Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension A {
+nonisolated extension A {
 
   public var extStr: String {
     get {return getExtensionValue(ext: Extensions_ext_str) ?? String()}
@@ -87,7 +87,7 @@ extension A {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-public let A_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+public nonisolated let A_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ext_str
 ]
 
@@ -95,18 +95,18 @@ public let A_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-public let Extensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, A>(
+public nonisolated let Extensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, A>(
   _protobuf_fieldNumber: 100,
   fieldName: "ext_str"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension E: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension E: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_UNSET\0\u{1}E_A\0\u{1}E_B\0")
 }
 
-extension A: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension A: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "A"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0")
 

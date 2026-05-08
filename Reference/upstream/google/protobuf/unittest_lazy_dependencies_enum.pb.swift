@@ -28,12 +28,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case lazyEnum0 = 0
   case lazyEnum1 = 1
 
@@ -45,6 +45,6 @@ enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, Swift.CaseIte
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0LAZY_ENUM_0\0\u{1}LAZY_ENUM_1\0")
 }

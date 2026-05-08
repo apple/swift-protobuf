@@ -29,12 +29,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestField: @unchecked Sendable {
+nonisolated struct Proto2Unittest_TestField: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ struct Proto2Unittest_TestField: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Proto2Unittest_TestDiffMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct Proto2Unittest_TestDiffMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -143,7 +143,7 @@ struct Proto2Unittest_TestDiffMessage: SwiftProtobuf.ExtensibleMessage, Sendable
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Item: Sendable {
+  nonisolated struct Item: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -216,7 +216,7 @@ struct Proto2Unittest_TestDiffMessage: SwiftProtobuf.ExtensibleMessage, Sendable
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestDiffMessage {
+nonisolated extension Proto2Unittest_TestDiffMessage {
 
   var Proto2Unittest_TestField_tf: Proto2Unittest_TestField {
     get {return getExtensionValue(ext: Proto2Unittest_TestField.Extensions.tf) ?? Proto2Unittest_TestField()}
@@ -241,7 +241,7 @@ extension Proto2Unittest_TestDiffMessage {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_TestField.Extensions.tf
 ]
 
@@ -249,7 +249,7 @@ let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.SimpleEx
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_TestField {
+nonisolated extension Proto2Unittest_TestField {
   enum Extensions {
     static let tf = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestField>, Proto2Unittest_TestDiffMessage>(
       _protobuf_fieldNumber: 100,
@@ -260,9 +260,9 @@ extension Proto2Unittest_TestField {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
+fileprivate nonisolated let _protobuf_package = "proto2_unittest"
 
-extension Proto2Unittest_TestField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestField"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0\u{1}rc\0\u{1}a\0\u{1}b\0\u{1}m\0\u{1}rm\0")
 
@@ -367,7 +367,7 @@ extension Proto2Unittest_TestField: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDiffMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{7}Item\0\u{2}\u{9}rw\0\u{1}rv\0\u{1}rm\0\u{1}v\0\u{1}w\0\u{1}m\0\u{1}rany\0")
 
@@ -445,7 +445,7 @@ extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Proto2Unittest_TestDiffMessage.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Proto2Unittest_TestDiffMessage.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestDiffMessage.protoMessageName + ".Item"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}a\0\u{1}ra\0\u{1}b\0\u{1}rb\0\u{1}m\0\u{1}rm\0\u{1}mp\0")
 
