@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
+nonisolated struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,9 +87,9 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
+fileprivate nonisolated let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EditionsMessageForDelimited"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}scalar_field\0\u{3}map_field\0\u{3}message_map_field\0\u{3}delimited_field\0\u{3}length_prefixed_field\0")
 

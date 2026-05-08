@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
@@ -80,7 +80,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case unspecifiedTest // = 0
 
@@ -149,7 +149,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
 /// Meant to encapsulate all types of tests: successes, skips, failures, etc.
 /// Therefore, this may or may not have a failure message. Failure messages
 /// may be truncated for our failure lists.
-struct Conformance_TestStatus: Sendable {
+nonisolated struct Conformance_TestStatus: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -170,7 +170,7 @@ struct Conformance_TestStatus: Sendable {
 /// The conformance runner will request a list of failures as the first request.
 /// This will be known by message_type == "conformance.FailureSet", a conformance
 /// test should return a serialized FailureSet in protobuf_payload.
-struct Conformance_FailureSet: Sendable {
+nonisolated struct Conformance_FailureSet: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -187,7 +187,7 @@ struct Conformance_FailureSet: Sendable {
 ///   1. parse this proto (which should always succeed)
 ///   2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///   3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: Sendable {
+nonisolated struct Conformance_ConformanceRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -266,7 +266,7 @@ struct Conformance_ConformanceRequest: Sendable {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  enum OneOf_Payload: Equatable, Sendable {
+  nonisolated enum OneOf_Payload: Equatable, Sendable {
     case protobufPayload(Data)
     case jsonPayload(String)
     /// Only used inside Google.  Opensource testees just skip it.
@@ -281,7 +281,7 @@ struct Conformance_ConformanceRequest: Sendable {
 }
 
 /// Represents a single test case's output.
-struct Conformance_ConformanceResponse: Sendable {
+nonisolated struct Conformance_ConformanceResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -387,7 +387,7 @@ struct Conformance_ConformanceResponse: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Result: Equatable, Sendable {
+  nonisolated enum OneOf_Result: Equatable, Sendable {
     /// This string should be set to indicate parsing failed.  The string can
     /// provide more information about the parse error if it is available.
     ///
@@ -429,7 +429,7 @@ struct Conformance_ConformanceResponse: Sendable {
 }
 
 /// Encoding options for jspb format.
-struct Conformance_JspbEncodingConfig: Sendable {
+nonisolated struct Conformance_JspbEncodingConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -444,17 +444,17 @@ struct Conformance_JspbEncodingConfig: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "conformance"
+fileprivate nonisolated let _protobuf_package = "conformance"
 
-extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}PROTOBUF\0\u{1}JSON\0\u{1}JSPB\0\u{1}TEXT_FORMAT\0")
 }
 
-extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED_TEST\0\u{1}BINARY_TEST\0\u{1}JSON_TEST\0\u{1}JSON_IGNORE_UNKNOWN_PARSING_TEST\0\u{1}JSPB_TEST\0\u{1}TEXT_FORMAT_TEST\0")
 }
 
-extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStatus"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}failure_message\0\u{3}matched_name\0")
 
@@ -494,7 +494,7 @@ extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FailureSet"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}test\0\u{c}\u{1}\u{1}")
 
@@ -524,7 +524,7 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{3}requested_output_format\0\u{3}message_type\0\u{3}test_category\0\u{3}jspb_encoding_options\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}print_unknown_fields\0")
 
@@ -633,7 +633,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}parse_error\0\u{3}runtime_error\0\u{3}protobuf_payload\0\u{3}json_payload\0\u{1}skipped\0\u{3}serialize_error\0\u{3}jspb_payload\0\u{3}text_payload\0\u{3}timeout_error\0")
 
@@ -774,7 +774,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".JspbEncodingConfig"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}use_jspb_array_any_format\0")
 

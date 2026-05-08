@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -70,7 +70,7 @@ enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProto
 
 }
 
-struct ProtobufTestMessages_EditionUnstable_ComplexMessage: Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_ComplexMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,7 +91,7 @@ struct ProtobufTestMessages_EditionUnstable_ComplexMessage: Sendable {
   fileprivate var _d: Int32? = nil
 }
 
-struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -203,7 +203,7 @@ struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftPr
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -233,7 +233,7 @@ struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Senda
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
+nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
 
   var ProtobufTestMessages_EditionUnstable_extensionInt32: Int32 {
     get {return getExtensionValue(ext: ProtobufTestMessages_EditionUnstable_Extensions_extension_int32) ?? 0}
@@ -258,7 +258,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_EditionUnstable_Extensions_extension_int32
 ]
 
@@ -266,20 +266,20 @@ let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions:
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable>(
+nonisolated let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable>(
   _protobuf_fieldNumber: 120,
   fieldName: "protobuf_test_messages.edition_unstable.extension_int32"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_test_messages.edition_unstable"
+fileprivate nonisolated let _protobuf_package = "protobuf_test_messages.edition_unstable"
 
-extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
 }
 
-extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 
@@ -313,7 +313,7 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Mes
   }
 }
 
-extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEditionUnstable"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_foreign_message\0\u{3}optional_foreign_enum\0\u{3}recursive_message\0\u{3}repeated_int32\0\u{3}repeated_foreign_message\0\u{3}repeated_foreign_enum\0\u{3}map_int32_int32\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_foreign_message\0\u{3}map_string_foreign_enum\0\u{3}optional_bytes\0\u{3}repeated_bytes\0\u{3}map_string_bytes\0")
 
@@ -493,7 +493,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
   }
 }
 
-extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageEditionUnstable"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}c\0")
 

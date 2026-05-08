@@ -50,7 +50,7 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -85,7 +85,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// The text format representation of an `Any` is like a message with one field
 /// whose name is the type URL in brackets. For example, an `Any` containing a
 /// `foo.Bar` message may be written `[type.googleapis.com/foo.Bar] { a: 2 }`.
-public struct Google_Protobuf_Any: @unchecked Sendable {
+public nonisolated struct Google_Protobuf_Any: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -139,9 +139,9 @@ public struct Google_Protobuf_Any: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf"
+fileprivate nonisolated let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
+nonisolated extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Any"
   public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}type_url\0\u{1}value\0")
 

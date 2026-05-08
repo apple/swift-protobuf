@@ -51,12 +51,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Import_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_Import_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case importFoo = 7
   case importBar = 8
   case importBaz = 9
@@ -67,7 +67,7 @@ enum SwiftProtoTesting_Import_ImportEnum: Int, SwiftProtobuf.Enum, Swift.CaseIte
 
 }
 
-struct SwiftProtoTesting_Import_ImportMessage: Sendable {
+nonisolated struct SwiftProtoTesting_Import_ImportMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -90,13 +90,13 @@ struct SwiftProtoTesting_Import_ImportMessage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.import"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.import"
 
-extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_FOO\0\u{1}IMPORT_BAR\0\u{1}IMPORT_BAZ\0")
 }
 
-extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
 

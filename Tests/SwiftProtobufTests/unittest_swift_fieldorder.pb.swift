@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -113,7 +113,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Options: Equatable, Sendable {
+  nonisolated enum OneOf_Options: Equatable, Sendable {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
@@ -121,7 +121,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -163,7 +163,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
 /// These checks how the traverse() generated for a oneof
 /// deals with field orders.  Currently requires inspecting the code.
-struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage, Sendable {
+nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -257,28 +257,28 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Gaps, not no issues, no start:end: on traverse().
-  enum OneOf_OGood: Equatable, Sendable {
+  nonisolated enum OneOf_OGood: Equatable, Sendable {
     case a(Int32)
     case b(Int32)
 
   }
 
   /// Gaps with a field in the middle of the range.
-  enum OneOf_OConflictField: Equatable, Sendable {
+  nonisolated enum OneOf_OConflictField: Equatable, Sendable {
     case a2(Int32)
     case b2(Int32)
 
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsStart: Equatable, Sendable {
+  nonisolated enum OneOf_OConflictExtensionsStart: Equatable, Sendable {
     case a3(Int32)
     case b3(Int32)
 
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsEnd: Equatable, Sendable {
+  nonisolated enum OneOf_OConflictExtensionsEnd: Equatable, Sendable {
     case a4(Int32)
     case b4(Int32)
 
@@ -299,7 +299,7 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Order_TestFieldOrderings {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings {
 
   var SwiftProtoTesting_Order_myExtensionString: String {
     get {return getExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_string) ?? String()}
@@ -339,7 +339,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Order_Extensions_my_extension_string,
   SwiftProtoTesting_Order_Extensions_my_extension_int
 ]
@@ -348,21 +348,21 @@ let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.Si
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Order_TestFieldOrderings>(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Order_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
   fieldName: "swift_proto_testing.order.my_extension_string"
 )
 
-let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Order_TestFieldOrderings>(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Order_TestFieldOrderings>(
   _protobuf_fieldNumber: 5,
   fieldName: "swift_proto_testing.order.my_extension_int"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.order"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.order"
 
-extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}my_int\0\u{4}\u{8}oneof_bool\0\u{3}oneof_int32\0\u{3}my_string\0\u{4}1oneof_int64\0\u{4})my_float\0\u{4}1oneof_string\0\u{4}2optional_nested_message\0")
 
@@ -471,7 +471,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
   }
 }
 
-extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Order_TestFieldOrderings.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0\u{1}oo\0")
 
@@ -510,7 +510,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
   }
 }
 
-extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{2}\u{19}b\0\u{2}K\u{1}a2\0\u{2}\u{c}m\0\u{2}\u{d}b2\0\u{2}K\u{1}a3\0\u{2}\u{19}b3\0\u{2}K\u{1}a4\0\u{2}\u{19}b4\0")
 

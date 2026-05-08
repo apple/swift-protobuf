@@ -687,6 +687,7 @@ message GeneratedSwiftReservedMessages {
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
   message noBytesAvailable { int32 noBytesAvailable = 1; }
+  message nonisolated { int32 nonisolated = 1; }
   message noStandardDescriptorAccessor { int32 noStandardDescriptorAccessor = 1; }
   message nullValue { int32 nullValue = 1; }
   message number { int32 number = 1; }

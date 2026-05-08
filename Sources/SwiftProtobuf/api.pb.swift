@@ -45,7 +45,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -64,7 +64,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-public struct Google_Protobuf_Api: Sendable {
+public nonisolated struct Google_Protobuf_Api: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ public struct Google_Protobuf_Api: Sendable {
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-public struct Google_Protobuf_Method: Sendable {
+public nonisolated struct Google_Protobuf_Method: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -255,7 +255,7 @@ public struct Google_Protobuf_Method: Sendable {
 ///       }
 ///       ...
 ///     }
-public struct Google_Protobuf_Mixin: Sendable {
+public nonisolated struct Google_Protobuf_Mixin: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -274,9 +274,9 @@ public struct Google_Protobuf_Mixin: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf"
+fileprivate nonisolated let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
+nonisolated extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Api"
   public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}methods\0\u{1}options\0\u{1}version\0\u{3}source_context\0\u{1}mixins\0\u{1}syntax\0\u{1}edition\0")
 
@@ -345,7 +345,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
   }
 }
 
-extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
+nonisolated extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Method"
   public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{3}request_type_url\0\u{3}request_streaming\0\u{3}response_type_url\0\u{3}response_streaming\0\u{1}options\0\u{1}syntax\0\u{1}edition\0")
 
@@ -410,7 +410,7 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
   }
 }
 
-extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoNameProviding {
+nonisolated extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
   public static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}root\0")
 

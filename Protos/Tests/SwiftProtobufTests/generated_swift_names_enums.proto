@@ -687,6 +687,7 @@ message GeneratedSwiftReservedEnums {
   enum nil { NONE_nil = 0; }
   enum nilLiteral { NONE_nilLiteral = 0; }
   enum noBytesAvailable { NONE_noBytesAvailable = 0; }
+  enum nonisolated { NONE_nonisolated = 0; }
   enum noStandardDescriptorAccessor { NONE_noStandardDescriptorAccessor = 0; }
   enum nullValue { NONE_nullValue = 0; }
   enum number { NONE_number = 0; }

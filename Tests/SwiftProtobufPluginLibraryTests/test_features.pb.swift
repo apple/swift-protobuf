@@ -27,12 +27,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftFeatureTest_TestFeatures: Sendable {
+nonisolated struct SwiftFeatureTest_TestFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -84,7 +84,7 @@ struct SwiftFeatureTest_TestFeatures: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumFeature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumFeature: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case value1 = 1
     case value2 = 2
@@ -117,7 +117,7 @@ struct SwiftFeatureTest_TestFeatures: Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var SwiftFeatureTest_test: SwiftFeatureTest_TestFeatures {
     get {return getExtensionValue(ext: SwiftFeatureTest_Extensions_test) ?? SwiftFeatureTest_TestFeatures()}
@@ -142,7 +142,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+nonisolated let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftFeatureTest_Extensions_test
 ]
 
@@ -150,16 +150,16 @@ let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap =
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftFeatureTest_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftFeatureTest_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
+nonisolated let SwiftFeatureTest_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftFeatureTest_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   _protobuf_fieldNumber: 9999,
   fieldName: "swift_feature_test.test"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_feature_test"
+fileprivate nonisolated let _protobuf_package = "swift_feature_test"
 
-extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFeatures"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}feature1\0\u{1}feature2\0\u{1}feature3\0\u{1}feature4\0\u{1}feature5\0")
 
@@ -213,6 +213,6 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_FEATURE_UNKNOWN\0\u{1}ENUM_FEATURE_VALUE1\0\u{1}ENUM_FEATURE_VALUE2\0\u{1}ENUM_FEATURE_VALUE3\0\u{1}ENUM_FEATURE_VALUE4\0\u{1}ENUM_FEATURE_VALUE5\0\u{1}ENUM_FEATURE_VALUE6\0")
 }

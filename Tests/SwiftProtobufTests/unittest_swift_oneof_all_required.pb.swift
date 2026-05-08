@@ -45,12 +45,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage1: Sendable {
+nonisolated struct SwiftProtoTesting_OneOfOptionMessage1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,7 +71,7 @@ struct SwiftProtoTesting_OneOfOptionMessage1: Sendable {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage2: Sendable {
+nonisolated struct SwiftProtoTesting_OneOfOptionMessage2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ struct SwiftProtoTesting_OneOfOptionMessage2: Sendable {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct SwiftProtoTesting_OneOfContainer: Sendable {
+nonisolated struct SwiftProtoTesting_OneOfContainer: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ struct SwiftProtoTesting_OneOfContainer: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Option: Equatable, Sendable {
+  nonisolated enum OneOf_Option: Equatable, Sendable {
     case option1(SwiftProtoTesting_OneOfOptionMessage1)
     case option2(SwiftProtoTesting_OneOfOptionMessage2)
     case option3(SwiftProtoTesting_OneOfContainer.Option3)
@@ -162,7 +162,7 @@ struct SwiftProtoTesting_OneOfContainer: Sendable {
 
   }
 
-  struct Option3: Sendable {
+  nonisolated struct Option3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -198,9 +198,9 @@ struct SwiftProtoTesting_OneOfContainer: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requiredField\0")
 
@@ -239,7 +239,7 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}requiredField\0")
 
@@ -278,7 +278,7 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}option1\0\u{1}option2\0\u{7}Option3\0\u{2}\u{3}option4\0")
 
@@ -379,7 +379,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}a\0\u{1}b\0")
 

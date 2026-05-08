@@ -44,12 +44,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -88,7 +88,7 @@ struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -127,7 +127,7 @@ struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
+nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -168,9 +168,9 @@ struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing"
 
-extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}a_foo\0\u{3}a_bar\0\u{3}a_baz\0")
 
@@ -254,7 +254,7 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}a_bar\0\u{3}a_baz\0\u{3}a_foo\0")
 
@@ -338,7 +338,7 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}a_baz\0\u{3}a_foo\0\u{3}a_bar\0")
 

@@ -31,12 +31,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
+nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable, Sendable {
+  nonisolated enum OneOf_O: Equatable, Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SwiftDescriptorTest_Proto3MessageForPresence.SubEnum)
@@ -144,7 +144,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
 
   }
 
-  enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case subValue0 // = 0
     case subValue1 // = 1
@@ -191,7 +191,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
   fileprivate var _optMessageField: SwiftDescriptorTest_OtherMessage? = nil
 }
 
-struct SwiftDescriptorTest_OtherMessage: Sendable {
+nonisolated struct SwiftDescriptorTest_OtherMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -205,9 +205,9 @@ struct SwiftDescriptorTest_OtherMessage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
+fileprivate nonisolated let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Proto3MessageForPresence"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}str_field\0\u{3}int32_field\0\u{3}enum_field\0\u{3}message_field\0\u{4}\u{7}opt_str_field\0\u{3}opt_int32_field\0\u{3}opt_enum_field\0\u{3}opt_message_field\0\u{4}\u{7}repeat_str_field\0\u{3}repeat_int32_field\0\u{3}repeat_enum_field\0\u{3}repeat_message_field\0\u{4}\u{7}oneof_str_field\0\u{3}oneof_int32_field\0\u{3}oneof_enum_field\0\u{3}oneof_message_field\0")
 
@@ -353,11 +353,11 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
   }
 }
 
-extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SUB_VALUE_0\0\u{1}SUB_VALUE_1\0\u{1}SUB_VALUE_2\0")
 }
 
-extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OtherMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field\0")
 

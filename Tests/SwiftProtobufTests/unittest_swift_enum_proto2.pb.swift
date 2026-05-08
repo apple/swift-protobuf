@@ -45,12 +45,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
+nonisolated struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,7 +65,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest1: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case firstValue = 1
     case secondValue = 2
 
@@ -75,7 +75,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTest2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest2: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case firstValue = 1
     case secondValue = 2
 
@@ -85,7 +85,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestNoStem: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestNoStem: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case enumTestNoStem1 = 1
     case enumTestNoStem2 = 2
 
@@ -95,7 +95,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
 
   }
 
-  enum EnumTestReservedWord: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestReservedWord: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case `var` = 1
     case notReserved = 2
 
@@ -108,7 +108,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumTest: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
+nonisolated struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -117,7 +117,7 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithAlias: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumWithAlias: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo1 = 1
     static let foo2 = foo1
 
@@ -137,9 +137,9 @@ struct SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.enum2"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.enum2"
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values1\0\u{1}values2\0\u{1}values3\0\u{1}values4\0")
 
@@ -184,23 +184,23 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_1_FIRST_VALUE\0\u{1}ENUM_TEST_1_SECOND_VALUE\0")
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_2_FIRST_VALUE\0\u{1}SECOND_VALUE\0")
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_NO_STEM_1\0\u{1}ENUM_TEST_NO_STEM_2\0")
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_RESERVED_WORD_VAR\0\u{1}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0")
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}values\0")
 
@@ -230,6 +230,6 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
   }
 }
 
-extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0")
 }

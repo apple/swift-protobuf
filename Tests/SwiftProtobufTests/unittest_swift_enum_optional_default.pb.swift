@@ -31,19 +31,19 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
+nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage: @unchecked Sendable {
+  nonisolated struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -70,7 +70,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
       init() {
@@ -84,7 +84,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct NestedMessage2: Sendable {
+  nonisolated struct NestedMessage2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -100,7 +100,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum Enum: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
       init() {
@@ -119,9 +119,9 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.extend"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.extend"
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumOptionalDefault"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -140,7 +140,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message, S
   }
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}message\0\u{4}\u{10}optional_enum\0")
 
@@ -217,11 +217,11 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
   }
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{11}optional_enum\0")
 
@@ -255,6 +255,6 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
   }
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }

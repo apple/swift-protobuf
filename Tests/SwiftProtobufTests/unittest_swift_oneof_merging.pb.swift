@@ -38,12 +38,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Merging_TestMessage: Sendable {
+nonisolated struct SwiftProtoTesting_Merging_TestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -84,7 +84,7 @@ struct SwiftProtoTesting_Merging_TestMessage: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable, Sendable {
+  nonisolated enum OneOf_OneofField: Equatable, Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_Merging_TestMessage.NestedMessage)
     case oneofString(String)
@@ -92,7 +92,7 @@ struct SwiftProtoTesting_Merging_TestMessage: Sendable {
 
   }
 
-  struct NestedMessage: Sendable {
+  nonisolated struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -136,7 +136,7 @@ struct SwiftProtoTesting_Merging_TestMessage: Sendable {
   init() {}
 }
 
-struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
+nonisolated struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -154,7 +154,7 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct RepeatedFieldsGenerator: Sendable {
+  nonisolated struct RepeatedFieldsGenerator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -175,9 +175,9 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.merging"
+fileprivate nonisolated let _protobuf_package = "swift_proto_testing.merging"
 
-extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}o\u{1}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0")
 
@@ -263,7 +263,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Merging_TestMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}b\0\u{1}c\0")
 
@@ -307,7 +307,7 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Mes
   }
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_message\0\u{3}repeated_message\0")
 
@@ -346,7 +346,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, Swi
   }
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Merging_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0")
 
