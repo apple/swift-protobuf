@@ -79,7 +79,7 @@ let package = Package(
             ],
             sources: [
                 // protoc main
-                "protobuf/src/google/protobuf/compiler/main_no_generators.cc",
+                "main.cc",
 
                 // libprotoc
                 "protobuf/src/google/protobuf/any.cc",
