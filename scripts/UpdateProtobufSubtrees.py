@@ -54,6 +54,13 @@ PROTOBUF_PATHS = [
     "third_party/utf8_range",
 ]
 
+# Files copied from protocolbuffers/protobuf that are deliberately not built.
+PROTOBUF_PRUNE = [
+    # SwiftProtobuf provides its own entry point which includes the include
+    # path to WKTs in the source tree.
+    "src/google/protobuf/compiler/main_no_generators.cc",
+]
+
 # Paths copied from abseil/abseil-cpp.
 ABSEIL_PATHS = [
     "LICENSE",
@@ -157,6 +164,15 @@ def vendor_update(prefix: Path, source_dir: Path, paths: list[str]) -> None:
     for rel in paths:
         copy_glob(source_dir, prefix, rel)
     git(["add", str(prefix)])
+
+
+def prune_vendored(prefix: Path, paths: list[str]) -> None:
+    """Remove files from the vendored tree."""
+    for rel in paths:
+        target = prefix / rel
+        if not target.exists():
+            raise CommandError(f"Prune target missing from vendored tree: {rel}")
+        git(["rm", "-f", str(target)])
 
 
 # Proto files bundled with protoc releases, mirroring wkt_protos_files and
@@ -280,6 +296,7 @@ def main() -> int:
         result.abseil_tag = git(["describe", "--tags", "--abbrev=0"], cwd=abseil_checkout, capture=True, check=False).strip()
 
         vendor_update(PROTOBUF_PREFIX, protobuf_checkout, PROTOBUF_PATHS)
+        prune_vendored(PROTOBUF_PREFIX, PROTOBUF_PRUNE)
         vendor_update(ABSEIL_PREFIX, abseil_checkout, ABSEIL_PATHS)
         build_include_dir(protobuf_checkout)
 
