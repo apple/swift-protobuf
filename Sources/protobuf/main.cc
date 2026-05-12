@@ -35,6 +35,8 @@ bool IsDescriptorSetInFlag(const char* arg) {
 }
 }  // namespace
 
+// Follows the shape of the upstream entrypoint (main_no_generators.cc) but
+// injects an additional "-I" for the WKTs.
 int main(int argc, char* argv[]) {
   absl::InitializeLog();
 
@@ -53,19 +55,17 @@ int main(int argc, char* argv[]) {
   bool has_proto_path = false;
   bool has_descriptor_set_in = false;
 
-  for (int i = 1; i < argc; ++i) {
+  std::string wkt_flag;
+  std::vector<char*> new_argv;
+  new_argv.reserve(argc + 3);
+  for (int i = 0; i < argc; ++i) {
     if (IsProtoPathFlag(argv[i])) {
       has_proto_path = true;
     }
     if (IsDescriptorSetInFlag(argv[i])) {
       has_descriptor_set_in = true;
     }
-  }
 
-  std::string wkt_flag;
-  std::vector<char*> new_argv;
-  new_argv.reserve(argc + 3);
-  for (int i = 0; i < argc; ++i) {
     new_argv.push_back(argv[i]);
   }
 
