@@ -178,8 +178,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -197,8 +198,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -244,8 +246,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -266,8 +269,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains("Unknown field 'unknown'"))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -317,8 +321,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -338,8 +343,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as TextualParsingError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }

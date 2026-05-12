@@ -188,10 +188,12 @@ final class Test_Conformance: XCTestCase, PBTestHelpers {
     }
 
     func test_LiteralIncludeLF() {
+        // The C++ TextFormat parser allows a bare carriage return in a string literal, but not a
+        // newline.
         assertTextFormatDecodeFails("optional_string: 'first line\nsecond line'")
-        assertTextFormatDecodeFails("optional_string: 'first line\rsecond line'")
+        assertTextFormatDecodeSucceeds("optional_string: 'first line\rsecond line'") { _ in true }
         assertTextFormatDecodeFails("optional_bytes: 'first line\nsecond line'")
-        assertTextFormatDecodeFails("optional_bytes: 'first line\rsecond line'")
+        assertTextFormatDecodeSucceeds("optional_bytes: 'first line\rsecond line'") { _ in true }
     }
 
     func testMaps_TextFormatKeysSorted() {

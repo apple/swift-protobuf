@@ -2893,8 +2893,9 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
                     do {
                         let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: withUnknownInput)
                         XCTFail("Shouldn't get here")
-                    } catch TextFormatDecodingError.unknownField {
+                    } catch let error as TextualParsingError {
                         // This is what should have happened.
+                        XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
                     } catch let e {
                         XCTFail("Parsing \(withUnknownInput) failed with error: \(e)")
                     }

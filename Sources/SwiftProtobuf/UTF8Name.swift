@@ -97,3 +97,9 @@ extension String {
         self.init(decoding: protobufUTF8Name.buffer, as: UTF8.self)
     }
 }
+
+extension DefaultStringInterpolation {
+    mutating func appendInterpolation(_ value: UTF8Name) {
+        appendInterpolation(String(protobufUTF8Name: value))
+    }
+}

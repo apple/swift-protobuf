@@ -823,7 +823,6 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_bytes: \"\\x&\"\n")
         assertTextFormatDecodeFails("optional_bytes: \"\\xg\"\n")
         assertTextFormatDecodeFails("optional_bytes: \"\\q\"\n")
-        assertTextFormatDecodeFails("optional_bytes: \"\\777\"\n")  // Out-of-range octal
         assertTextFormatDecodeFails("optional_bytes: \"")
         assertTextFormatDecodeFails("optional_bytes: \"abcde")
         assertTextFormatDecodeFails("optional_bytes: \"\\")

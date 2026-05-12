@@ -20,7 +20,8 @@ extension MessageStorage {
         switch CustomJSONWKTClassification(messageSchema: schema) {
         case .any:
             // Check if the message is the expanded form of `google.protobuf.Any`.
-            if let typeURL = try reader.scanner.nextOptionalAnyURL() {
+            if reader.at(.leftBracket) {
+                let typeURL = try reader.consumeAnyTypeURLOrExtensionName()
                 try parseAsExpandedAny(from: &reader, typeURL: typeURL)
                 break
             }
@@ -30,26 +31,16 @@ extension MessageStorage {
 
         default:
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-            while let fieldNumber = try reader.nextFieldNumber() {
-                // TODO: This is a little awkward, because in the extension case we're doing the lookup
-                // into the extension map twice: inside `reader.nextFieldNumber` (because we need to
-                // find the extension that matches the name we parsed), and then here below. Once we've
-                // removed the relevant bits of the old implementation, we can clean this up by having
-                // a method on `TextFormatReader` that returns a structured value containing either the
-                // `FieldSchema` or the `ExtensionSchema` that corresponds to whatever it reads from the
-                // input.
-                if let field = schema[fieldNumber: fieldNumber] {
+            while let fieldOrExtension = try reader.consumeFieldOrExtensionIfPresent() {
+                switch fieldOrExtension {
+                case .field(let field):
                     try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
-                } else if let extensions = reader.scanner.extensions,
-                          let ext = extensions[fieldNumber: fieldNumber, in: schema]
-                {
+                case .extension(let ext):
                     try extensionStorage.decodeNextExtension(ext, from: &reader)
-                } else {
-                    // The scanner should have already skipped any unknown fields or thrown an error
-                    // (depending on the decoding options), so any field we get back from this reader
-                    // should always exist.
-                    preconditionFailure("unreachable")
+                case .unknown:
+                    try reader.skipField(wasNameAlreadyConsumed: true)
                 }
+                try reader.consumeFieldSeparatorIfPresent()
             }
         }
     }
@@ -64,14 +55,14 @@ extension MessageStorage {
         // A colon after the field name is required unless it's a group/message field.
         switch fieldType {
         case .group, .message:
-            _ = reader.scanner.skipOptionalColon()
+            try reader.consumeIfPresent(.colon)
         default:
-            try reader.scanner.skipRequiredColon()
+            try reader.consume(.colon)
         }
 
         switch field.fieldMode.cardinality {
         case .map:
-            try scanPossibleArray(from: &reader) { reader in
+            try reader.consumePossibleArray { reader in
                 let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
                 let mapEntrySchema = workingSpace.schema
                 try reader.withReaderForNextObject(expectedSchema: mapEntrySchema) { subReader in
@@ -81,35 +72,32 @@ extension MessageStorage {
             }
 
         case .array:
-            try scanPossibleArray(from: &reader) { reader in
+            try reader.consumePossibleArray { reader in
                 switch fieldType {
                 case .bool:
-                    appendValue(try reader.scanner.nextBool(), to: field)
+                    appendValue(try reader.consumeBool(), to: field)
 
                 case .bytes:
-                    appendValue(try reader.scanner.nextBytesValue(), to: field)
+                    appendValue(try reader.consumeBytes(), to: field)
 
                 case .double:
-                    appendValue(try reader.scanner.nextDouble(), to: field)
+                    appendValue(try reader.consumeDouble(), to: field)
 
                 case .enum:
                     appendEnumValue(
-                        withRawValue: try scanEnumValue(field, from: &reader),
+                        withRawValue: try reader.consumeEnumValue(schema: enumSchema(for: field)),
                         toRepeatedEnumField: field
                     )
 
                 case .fixed32, .uint32:
-                    let n = try reader.scanner.nextSInt()
-                    if n > UInt64(UInt32.max) {
-                        throw TextFormatDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
                     appendValue(UInt32(truncatingIfNeeded: n), to: field)
 
                 case .fixed64, .uint64:
-                    appendValue(try reader.scanner.nextUInt(), to: field)
+                    appendValue(try reader.consumeUnsignedInteger(upperBound: UInt64.max), to: field)
 
                 case .float:
-                    appendValue(try reader.scanner.nextFloat(), to: field)
+                    appendValue(try Float(reader.consumeDouble()), to: field)
 
                 case .group, .message:
                     let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
@@ -118,17 +106,14 @@ extension MessageStorage {
                     }
 
                 case .int32, .sfixed32, .sint32:
-                    let n = try reader.scanner.nextSInt()
-                    if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                        throw TextFormatDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
                     appendValue(Int32(truncatingIfNeeded: n), to: field)
 
                 case .int64, .sfixed64, .sint64:
-                    appendValue(try reader.scanner.nextSInt(), to: field)
+                    appendValue(try reader.consumeSignedInteger(upperBound: Int64.max), to: field)
 
                 case .string:
-                    appendValue(try reader.scanner.nextStringValue(), to: field)
+                    appendValue(try reader.consumeString(), to: field)
 
                 default:
                     preconditionFailure("Unreachable")
@@ -138,16 +123,16 @@ extension MessageStorage {
         case .scalar:
             switch fieldType {
             case .bool:
-                updateValue(of: field, to: try reader.scanner.nextBool())
+                updateValue(of: field, to: try reader.consumeBool())
 
             case .bytes:
-                updateValue(of: field, to: try reader.scanner.nextBytesValue())
+                updateValue(of: field, to: try reader.consumeBytes())
 
             case .double:
                 // Special case: If the text format value is negative zero, we need to preserve
                 // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
                 // equality, so we need to manually manage the presence here.
-                let d = try reader.scanner.nextDouble()
+                let d = try reader.consumeDouble()
                 let offset = field.offset
                 switch field.presence {
                 case .hasBit(let hasByteOffset, let hasMask):
@@ -162,23 +147,20 @@ extension MessageStorage {
                 }
 
             case .enum:
-                updateValue(of: field, to: try scanEnumValue(field, from: &reader))
+                updateValue(of: field, to: try reader.consumeEnumValue(schema: enumSchema(for: field)))
 
             case .fixed32, .uint32:
-                let n = try reader.scanner.nextUInt()
-                if n > UInt64(UInt32.max) {
-                    throw TextFormatDecodingError.malformedNumber
-                }
+                let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
                 updateValue(of: field, to: UInt32(truncatingIfNeeded: n))
 
             case .fixed64, .uint64:
-                updateValue(of: field, to: try reader.scanner.nextUInt())
+                updateValue(of: field, to: try reader.consumeUnsignedInteger(upperBound: UInt64.max))
 
             case .float:
                 // Special case: If the text format value is negative zero, we need to preserve
                 // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
                 // equality, so we need to manually manage the presence here.
-                let f = try reader.scanner.nextFloat()
+                let f = Float(try reader.consumeDouble())
                 let offset = field.offset
                 switch field.presence {
                 case .hasBit(let hasByteOffset, let hasMask):
@@ -199,17 +181,14 @@ extension MessageStorage {
                 }
 
             case .int32, .sfixed32, .sint32:
-                let n = try reader.scanner.nextSInt()
-                if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                    throw TextFormatDecodingError.malformedNumber
-                }
+                let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
                 updateValue(of: field, to: Int32(truncatingIfNeeded: n))
 
             case .int64, .sfixed64, .sint64:
-                updateValue(of: field, to: try reader.scanner.nextSInt())
+                updateValue(of: field, to: try reader.consumeSignedInteger(upperBound: Int64.max))
 
             case .string:
-                updateValue(of: field, to: try reader.scanner.nextStringValue())
+                updateValue(of: field, to: try reader.consumeString())
 
             default:
                 preconditionFailure("Unreachable")
@@ -218,30 +197,6 @@ extension MessageStorage {
         default:
             preconditionFailure("Unreachable")
         }
-    }
-
-    /// Scans and returns the enum value of the given field from the reader (handling both name and
-    /// numeric cases).
-    private func scanEnumValue(_ field: FieldSchema, from reader: inout TextFormatReader) throws -> Int32 {
-        let enumSchema = enumSchema(for: field)
-
-        if let name = try reader.scanner.nextOptionalEnumName() {
-            guard let rawValue = enumSchema.enumCase(forTextName: name) else {
-                throw TextFormatDecodingError.unrecognizedEnumValue
-            }
-            return rawValue
-        }
-
-        let number = try reader.scanner.nextSInt()
-        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-            throw TextFormatDecodingError.malformedText
-        }
-
-        let rawValue = Int32(truncatingIfNeeded: number)
-        guard enumSchema.isValidValue(rawValue) else {
-            throw TextFormatDecodingError.unrecognizedEnumValue
-        }
-        return rawValue
     }
 
     /// Parses the next object from the input and interprets it as the expanded form of the
@@ -260,8 +215,8 @@ extension MessageStorage {
         }
         // The expanded form of `Any` can never have additional keys. This call is required to
         // verify that and to consume the closing separator.
-        if try reader.nextFieldNumber() != nil {
-            throw TextFormatDecodingError.malformedText
+        guard reader.at(.rightBrace, .rightAngle, .end) else {
+            throw reader.parsingError(reason: "Expected end of message after expanded 'Any' form")
         }
 
         updateValue(of: KnownField.anyTypeURL(in: schema), to: typeURL)
@@ -269,38 +224,5 @@ extension MessageStorage {
             of: KnownField.anyValue(in: schema),
             to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions())
         )
-    }
-}
-
-/// Called to scan the next value, which might be an array of values.
-///
-/// In text format, repeated fields of non-message types can be represented in two ways:
-/// repetition of the field name and value, or as the field name followed by an array of values
-/// in square brackets. If we detect the square bracket, we delegate to the given closure to
-/// scan and append the value until we encounter the corresponding closing bracket. Otherwise,
-/// we call the closure only once to scan and append an individual value.
-func scanPossibleArray(
-    from reader: inout TextFormatReader,
-    scanAndAppendSingleValue: (inout TextFormatReader) throws -> Void
-) throws {
-    guard reader.scanner.skipOptionalBeginArray() else {
-        // If we didn't see a square bracket, assume it's a single element and call the closure
-        // once.
-        try scanAndAppendSingleValue(&reader)
-        return
-    }
-
-    // We saw a left bracket, so read multiple elements, calling the closure for each one.
-    var firstItem = true
-    while true {
-        if reader.scanner.skipOptionalEndArray() {
-            return
-        }
-        if firstItem {
-            firstItem = false
-        } else {
-            try reader.scanner.skipRequiredComma()
-        }
-        try scanAndAppendSingleValue(&reader)
     }
 }
