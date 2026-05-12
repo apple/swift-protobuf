@@ -19,15 +19,19 @@ std::string WellKnownTypesIncludeFlag() {
 int main(int argc, char* argv[]) {
   absl::InitializeLog();
 
+  // Append (don't prepend) the bundled WKT include path. protoc searches
+  // --proto_path entries in order, so placing ours last lets any caller-
+  // supplied -I take precedence for input canonicalization, avoiding
+  // protoc's "input is shadowed" check when the caller's tree also carries
+  // google/protobuf/*.proto copies.
   const std::string wkt_flag = WellKnownTypesIncludeFlag();
 
   std::vector<char*> new_argv;
   new_argv.reserve(argc + 1);
-  new_argv.push_back(argv[0]);
-  new_argv.push_back(const_cast<char*>(wkt_flag.c_str()));
-  for (int i = 1; i < argc; ++i) {
+  for (int i = 0; i < argc; ++i) {
     new_argv.push_back(argv[i]);
   }
+  new_argv.push_back(const_cast<char*>(wkt_flag.c_str()));
 
   google::protobuf::compiler::CommandLineInterface cli;
   cli.AllowPlugins("protoc-");
