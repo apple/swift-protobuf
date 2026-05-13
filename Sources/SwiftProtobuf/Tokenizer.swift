@@ -31,6 +31,15 @@ package struct Tokenizer {
     package private(set) var current: Token
     package private(set) var previous: Token
 
+    /// The offset of the current token within the buffer.
+    var currentOffset: Int {
+        if let current = current.text.baseAddress {
+            return current - buffer.baseAddress!
+        }
+        // If we have a nil current token text buffer, then we've reached the end of the buffer.
+        return buffer.endIndex
+    }
+
     /// If true, the tokenizer will treat a sequence of URL characters as a single token with the
     /// kind `Token.Kind.urlCharacters`.
     ///
