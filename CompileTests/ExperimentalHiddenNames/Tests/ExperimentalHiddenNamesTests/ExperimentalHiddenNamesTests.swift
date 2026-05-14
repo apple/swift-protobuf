@@ -54,10 +54,14 @@ final class ExperimentalHiddenNamesTests: XCTestCase {
         XCTAssertEqual(msgAll.textFormatString(), "1: \"hidden\"\n2: 1\n")
 
         #if DEBUG
-        let expectedDebugDesc = "ExperimentalHiddenNamesTests.ExperimentalHiddenNames_All_MessageWithAll:\n1: \"hidden\"\n2: 1\n"
+        let expectedDebugDesc =
+            "ExperimentalHiddenNamesTests.ExperimentalHiddenNames_All_MessageWithAll:\n1: \"hidden\"\n2: 1\n"
         XCTAssertEqual(msgAll.debugDescription, expectedDebugDesc)
         #else
-        XCTAssertEqual(msgAll.debugDescription, "ExperimentalHiddenNamesTests.ExperimentalHiddenNames_All_MessageWithAll")
+        XCTAssertEqual(
+            msgAll.debugDescription,
+            "ExperimentalHiddenNamesTests.ExperimentalHiddenNames_All_MessageWithAll"
+        )
         #endif
     }
 }

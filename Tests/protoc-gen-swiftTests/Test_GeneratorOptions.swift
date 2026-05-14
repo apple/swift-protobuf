@@ -10,6 +10,7 @@
 
 import SwiftProtobufPluginLibrary
 import XCTest
+
 @testable import protoc_gen_swift
 
 final class Test_GeneratorOptions: XCTestCase {
@@ -29,7 +30,9 @@ final class Test_GeneratorOptions: XCTestCase {
             XCTAssertEqual(options.experimentalHiddenNames, .fields)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "EnumValues")]))
+            let options = try GeneratorOptions(
+                parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "EnumValues")])
+            )
             XCTAssertEqual(options.experimentalHiddenNames, .enumValues)
         }
         do {
@@ -41,7 +44,9 @@ final class Test_GeneratorOptions: XCTestCase {
             XCTAssertEqual(options.experimentalHiddenNames, .all)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields,Types")]))
+            let options = try GeneratorOptions(
+                parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields,Types")])
+            )
             XCTAssertEqual(options.experimentalHiddenNames, [.fields, .types])
         }
         XCTAssertThrowsError(
