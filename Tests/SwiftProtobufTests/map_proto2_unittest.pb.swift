@@ -149,24 +149,14 @@ struct SwiftProtoTesting_TestEnumMap: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestEnumMapPlusExtra: @unchecked Swift.Sendable {
@@ -245,24 +235,14 @@ struct SwiftProtoTesting_TestEnumMapPlusExtra: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -282,7 +262,6 @@ extension SwiftProtoTesting_Proto2MapEnumPlusExtra {
 }
 
 extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMap"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{1f}\0swift_proto_testing.TestEnumMap"
   #elseif _pointerBitWidth(_32)
@@ -294,7 +273,7 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_KnownMapFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_UnknownMapFieldEntry)
@@ -310,7 +289,7 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
     case 12: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSint64Entry)
     case 13: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry)
     case 14: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)
@@ -431,7 +410,6 @@ extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestEnumMapPlusExtra"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}(\0swift_proto_testing.TestEnumMapPlusExtra"
   #elseif _pointerBitWidth(_32)
@@ -443,7 +421,7 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_KnownMapFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_UnknownMapFieldEntry)
@@ -459,7 +437,7 @@ extension SwiftProtoTesting_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage
     case 12: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSint64Entry)
     case 13: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSfixed32Entry)
     case 14: return .message(_protobuf_mapEntrySchema_UnknownMapFieldSfixed64Entry)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)

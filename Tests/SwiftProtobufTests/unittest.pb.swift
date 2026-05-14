@@ -618,14 +618,6 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(512, 384), to: newValue, oneofPresence: (12, 114)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   /// For oneof test
   enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case oneofUint32(UInt32)
@@ -665,24 +657,14 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct OptionalGroup: @unchecked Swift.Sendable {
@@ -699,24 +681,14 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct RepeatedGroup: @unchecked Swift.Sendable {
@@ -733,36 +705,24 @@ struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// This proto includes a recursively nested message.
@@ -794,24 +754,14 @@ struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -839,24 +789,14 @@ struct SwiftProtoTesting_ForeignMessage: @unchecked Swift.Sendable {
   /// Clears the value of `d`. Subsequent reads from it will return its default value.
   mutating func clearD() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestAllExtensions: @unchecked Swift.Sendable {
@@ -864,24 +804,14 @@ struct SwiftProtoTesting_TestAllExtensions: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_OptionalGroup_extension: @unchecked Swift.Sendable {
@@ -898,24 +828,14 @@ struct SwiftProtoTesting_OptionalGroup_extension: @unchecked Swift.Sendable {
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Swift.Sendable {
@@ -932,24 +852,14 @@ struct SwiftProtoTesting_RepeatedGroup_extension: @unchecked Swift.Sendable {
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestNestedExtension: @unchecked Swift.Sendable {
@@ -957,24 +867,14 @@ struct SwiftProtoTesting_TestNestedExtension: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// We have separate messages for testing required fields because it's
@@ -1295,24 +1195,14 @@ struct SwiftProtoTesting_TestRequired: @unchecked Swift.Sendable {
   /// Clears the value of `optionalForeign`. Subsequent reads from it will return its default value.
   mutating func clearOptionalForeign() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 140), type: SwiftProtoTesting_ForeignMessage.self, hasBit: (4, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestRequiredForeign: @unchecked Swift.Sendable {
@@ -1343,24 +1233,14 @@ struct SwiftProtoTesting_TestRequiredForeign: @unchecked Swift.Sendable {
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
   mutating func clearDummy() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestRequiredMessage: @unchecked Swift.Sendable {
@@ -1391,24 +1271,14 @@ struct SwiftProtoTesting_TestRequiredMessage: @unchecked Swift.Sendable {
   /// Clears the value of `requiredMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_TestRequired.self, hasBit: (0, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// TestEmptyMessage is used to test unknown field support.
@@ -1417,24 +1287,14 @@ struct SwiftProtoTesting_TestEmptyMessage: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Test that really large tag numbers don't break anything.
@@ -1463,24 +1323,14 @@ struct SwiftProtoTesting_TestReallyLargeTagNumber: @unchecked Swift.Sendable {
   /// Clears the value of `bb`. Subsequent reads from it will return its default value.
   mutating func clearBb() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Swift.Sendable {
@@ -1506,24 +1356,14 @@ struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Swift.Sendable {
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
   mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
@@ -1569,14 +1409,6 @@ struct SwiftProtoTesting_TestFieldOrderings: @unchecked Swift.Sendable {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 16, type: SwiftProtoTesting_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1603,36 +1435,24 @@ struct SwiftProtoTesting_TestFieldOrderings: @unchecked Swift.Sendable {
     /// Clears the value of `bb`. Subsequent reads from it will return its default value.
     mutating func clearBb() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Swift.Sendable {
@@ -1877,24 +1697,14 @@ struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Swift.Sendable {
   /// Clears the value of `replacementString`. Subsequent reads from it will return its default value.
   mutating func clearReplacementString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(192, 168), type: String.self, hasBit: (3, 1)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Test oneofs.
@@ -1946,14 +1756,6 @@ struct SwiftProtoTesting_TestOneof: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 28), to: newValue, oneofPresence: (4, 4)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_Foo: Swift.Equatable, Swift.Sendable {
     case fooInt(Int32)
     case fooString(String)
@@ -1984,36 +1786,24 @@ struct SwiftProtoTesting_TestOneof: @unchecked Swift.Sendable {
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestRequiredOneof: @unchecked Swift.Sendable {
@@ -2057,14 +1847,6 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 20), to: newValue, oneofPresence: (4, 3)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_Foo: Swift.Equatable, Swift.Sendable {
     case fooInt(Int32)
     case fooString(String)
@@ -2085,36 +1867,24 @@ struct SwiftProtoTesting_TestRequiredOneof: @unchecked Swift.Sendable {
     /// Clears the value of `requiredDouble`. Subsequent reads from it will return its default value.
     mutating func clearRequiredDouble() { _uniqueStorage().clearValue(at: 8, type: Double.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestPackedTypes: @unchecked Swift.Sendable {
@@ -2192,24 +1962,14 @@ struct SwiftProtoTesting_TestPackedTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A message with the same fields as TestPackedTypes, but without packing. Used
@@ -2289,24 +2049,14 @@ struct SwiftProtoTesting_TestUnpackedTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_TestPackedExtensions: @unchecked Swift.Sendable {
@@ -2314,24 +2064,14 @@ struct SwiftProtoTesting_TestPackedExtensions: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// Test that if an optional or required message/group field appears multiple
@@ -2376,14 +2116,6 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
   var repeatedGroup: [SwiftProtoTesting_TestParsingMerge.RepeatedGroup] {
     get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
-  }
-
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
   }
 
   /// RepeatedFieldsGenerator defines matching field types as TestParsingMerge,
@@ -2431,14 +2163,6 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
     }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
-
     struct Group1: @unchecked Swift.Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -2453,24 +2177,14 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-      var unknownFields: SwiftProtobuf.UnknownStorage {
-        get { _storage.unknownFields }
-        _modify {
-          _ = _uniqueStorage()
-          yield &_storage.unknownFields
-        }
-      }
+      init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-      init() {}
-
-      private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+      private var _storage: SwiftProtobuf.MessageStorage
       private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
         if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
         return _storage
       }
       mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-      func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-      mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
     }
 
     struct Group2: @unchecked Swift.Sendable {
@@ -2487,36 +2201,24 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
       mutating func clearField1() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-      var unknownFields: SwiftProtobuf.UnknownStorage {
-        get { _storage.unknownFields }
-        _modify {
-          _ = _uniqueStorage()
-          yield &_storage.unknownFields
-        }
-      }
+      init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-      init() {}
-
-      private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+      private var _storage: SwiftProtobuf.MessageStorage
       private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
         if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
         return _storage
       }
       mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-      func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-      mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
     }
 
-    init() {}
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct OptionalGroup: @unchecked Swift.Sendable {
@@ -2533,24 +2235,14 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
     /// Clears the value of `optionalGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearOptionalGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct RepeatedGroup: @unchecked Swift.Sendable {
@@ -2567,36 +2259,24 @@ struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable {
     /// Clears the value of `repeatedGroupAllTypes`. Subsequent reads from it will return its default value.
     mutating func clearRepeatedGroupAllTypes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in unittest.proto.
@@ -3963,7 +3643,6 @@ extension SwiftProtoTesting_TestEnumWithDupValue {
 }
 
 extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestAllTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\u{4}\0C\0\0\0\0\0)\0\0\u{11}\0\0P\u{1}\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{5}\u{2}\0\0\0\0p\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0x\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0(\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0,\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\u{8}\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\00\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\04\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{18}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{1c}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\00\u{3}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0@\u{3}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0P\u{1}\0\u{f}\0\u{4}\0\u{a}\u{12}\0\0\0\0X\u{1}\0\u{10}\0\u{5}\0\u{b}\u{13}\0\0\0\0`\u{1}\0\u{11}\0\u{6}\0\u{b}\u{14}\0\0\0\0h\u{1}\0\u{12}\0\u{7}\0\u{b}\u{15}\0\0\0\08\0\0\u{13}\0\u{1}\0\u{e}\u{16}\0\0\0\0<\0\0\u{14}\0\u{2}\0\u{e}\u{17}\0\0\0\0@\0\0\u{15}\0\u{3}\0\u{e}\u{1a}\0\0\0\0p\u{1}\0\u{16}\0\u{8}\0\u{b}\u{1f}\0\0\0\u{2}x\u{1}\0)\0\0\0\u{5} \0\0\0\u{2}\0\u{2}\0*\0\0\0\u{3}!\0\0\0\u{2}\u{8}\u{2}\0+\0\0\0\u{d}\"\0\0\0\u{2}\u{10}\u{2}\0,\0\0\0\u{4}#\0\0\0\u{2}\u{18}\u{2}\0-\0\0\0\u{11}$\0\0\0\u{2} \u{2}\0.\0\0\0\u{12}%\0\0\0\u{2}(\u{2}\0/\0\0\0\u{7}&\0\0\0\u{2}0\u{2}\00\0\0\0\u{6}'\0\0\0\u{2}8\u{2}\01\0\0\0\u{f}(\0\0\0\u{2}@\u{2}\02\0\0\0\u{10})\0\0\0\u{2}H\u{2}\03\0\0\0\u{2}*\0\0\0\u{2}P\u{2}\04\0\0\0\u{1}+\0\0\0\u{2}X\u{2}\05\0\0\0\u{8},\0\0\0\u{2}`\u{2}\06\0\0\0\u{9}-\0\0\0\u{2}h\u{2}\07\0\0\0\u{c}.\0\0\0\u{2}p\u{2}\08\0\u{9}\0\u{a}0\0\0\0\u{2}x\u{2}\09\0\u{5}\0\u{b}1\0\0\0\u{2}\0\u{3}\0:\0\u{6}\0\u{b}2\0\0\0\u{2}\u{8}\u{3}\0;\0\u{7}\0\u{b}3\0\0\0\u{2}\u{10}\u{3}\0<\0\u{1}\0\u{e}4\0\0\0\u{2}\u{18}\u{3}\0=\0\u{2}\0\u{e}5\0\0\0\u{2} \u{3}\0>\0\u{3}\0\u{e}=\0\0\0\0D\0\0\u{17}\0\0\0\u{5}>\0\0\0\0 \u{1}\0\u{18}\0\0\0\u{3}?\0\0\0\0H\0\0\u{19}\0\0\0\u{d}@\0\0\0\0(\u{1}\0\u{1a}\0\0\0\u{4}A\0\0\0\0L\0\0\u{1b}\0\0\0\u{11}B\0\0\0\00\u{1}\0\u{1c}\0\0\0\u{12}C\0\0\0\0P\0\0\u{1d}\0\0\0\u{7}D\0\0\0\08\u{1}\0\u{1e}\0\0\0\u{6}E\0\0\0\0T\0\0\u{1f}\0\0\0\u{f}F\0\0\0\0@\u{1}\0 \0\0\0\u{10}G\0\0\0\0X\0\0!\0\0\0\u{2}H\0\0\0\0H\u{1}\0\"\0\0\0\u{1}I\0\0\0\0\u{1d}\0\0#\0\0\0\u{8}J\0\0\0\0P\u{3}\0$\0\0\0\u{9}K\0\0\0\0`\u{3}\0%\0\0\0\u{c}Q\0\0\0\0\\\0\0&\0\u{1}\0\u{e}R\0\0\0\0`\0\0'\0\u{2}\0\u{e}S\0\0\0\0d\0\0(\0\u{3}\0\u{e}o\0\0\0\0h\0\0s\u{7f}\0\0\u{d}p\0\0\0\0(\u{3}\0s\u{7f}\u{5}\0\u{b}q\0\0\0\0p\u{3}\0s\u{7f}\0\0\u{9}r\0\0\0\0\0\u{4}\0s\u{7f}\0\0\u{c} \0swift_proto_testing.TestAllTypes"
   #elseif _pointerBitWidth(_32)
@@ -3975,7 +3654,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_TestAllTypes.NestedEnum.enumSchema)
     case 2: return .enum(SwiftProtoTesting_ForeignEnum.enumSchema)
@@ -3986,7 +3665,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.GeneratedMessage {
     case 7: return .message(SwiftProtoTesting_Import_ImportMessage.messageSchema)
     case 8: return .message(SwiftProtoTesting_Import_PublicImportMessage.messageSchema)
     case 9: return .message(SwiftProtoTesting_TestAllTypes.RepeatedGroup.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4001,7 +3680,6 @@ extension SwiftProtoTesting_TestAllTypes.NestedEnum {
 }
 
 extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.TestAllTypes.NestedMessage"
   #elseif _pointerBitWidth(_32)
@@ -4018,7 +3696,6 @@ extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".OptionalGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.TestAllTypes.OptionalGroup"
   #elseif _pointerBitWidth(_32)
@@ -4035,7 +3712,6 @@ extension SwiftProtoTesting_TestAllTypes.OptionalGroup: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".RepeatedGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.TestAllTypes.RepeatedGroup"
   #elseif _pointerBitWidth(_32)
@@ -4052,7 +3728,6 @@ extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".NestedTestAllTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{1}\0\u{b}&\0swift_proto_testing.NestedTestAllTypes"
   #elseif _pointerBitWidth(_32)
@@ -4064,11 +3739,11 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_NestedTestAllTypes.messageSchema)
     case 2: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4077,7 +3752,6 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ForeignMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\"\0swift_proto_testing.ForeignMessage"
   #elseif _pointerBitWidth(_32)
@@ -4094,7 +3768,6 @@ extension SwiftProtoTesting_ForeignMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestAllExtensions"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.TestAllExtensions"
   #elseif _pointerBitWidth(_32)
@@ -4115,7 +3788,6 @@ extension SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".OptionalGroup_extension"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.OptionalGroup_extension"
   #elseif _pointerBitWidth(_32)
@@ -4132,7 +3804,6 @@ extension SwiftProtoTesting_OptionalGroup_extension: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".RepeatedGroup_extension"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.RepeatedGroup_extension"
   #elseif _pointerBitWidth(_32)
@@ -4149,7 +3820,6 @@ extension SwiftProtoTesting_RepeatedGroup_extension: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestNestedExtension"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0swift_proto_testing.TestNestedExtension"
   #elseif _pointerBitWidth(_32)
@@ -4166,7 +3836,6 @@ extension SwiftProtoTesting_TestNestedExtension: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_TestRequired: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestRequired"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\"\0\0\u{3}\0\0\"\0\0#\0\0\u{10}\u{1}\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{5}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{6}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{7}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{8}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{9}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{a}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{b}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{c}\0\0\0\04\0\0\u{c}\0\0\0\u{5}\u{d}\0\0\0\08\0\0\u{d}\0\0\0\u{5}\u{e}\0\0\0\0<\0\0\u{e}\0\0\0\u{5}\u{f}\0\0\0\0@\0\0\u{f}\0\0\0\u{5}\u{10}\0\0\0\0D\0\0\u{10}\0\0\0\u{5}\u{11}\0\0\0\0H\0\0\u{11}\0\0\0\u{5}\u{12}\0\0\0\0L\0\0\u{12}\0\0\0\u{5}\u{13}\0\0\0\0P\0\0\u{13}\0\0\0\u{5}\u{14}\0\0\0\0T\0\0\u{14}\0\0\0\u{5}\u{15}\0\0\0\0X\0\0\u{15}\0\0\0\u{5}\u{16}\0\0\0\0\\\0\0\u{16}\0\0\0\u{5}\u{17}\0\0\0\0`\0\0\u{17}\0\0\0\u{5}\u{18}\0\0\0\0d\0\0\u{18}\0\0\0\u{5}\u{19}\0\0\0\0h\0\0\u{19}\0\0\0\u{5}\u{1a}\0\0\0\0l\0\0\u{1a}\0\0\0\u{5}\u{1b}\0\0\0\0p\0\0\u{1b}\0\0\0\u{5}\u{1c}\0\0\0\0t\0\0\u{1c}\0\0\0\u{5}\u{1d}\0\0\0\0x\0\0\u{1d}\0\0\0\u{5}\u{1e}\0\0\0\0|\0\0\u{1e}\0\0\0\u{5}\u{1f}\0\0\0\0\0\u{1}\0\u{1f}\0\0\0\u{5} \0\0\0\0\u{4}\u{1}\0 \0\0\0\u{5}!\0\0\0\0\u{8}\u{1}\0\u{2}\0\0\0\u{5}\"\0\0\0\0\u{10}\u{1}\0!\0\u{1}\0\u{b} \0swift_proto_testing.TestRequired"
   #elseif _pointerBitWidth(_32)
@@ -4178,10 +3847,10 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_ForeignMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4194,7 +3863,6 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestRequiredForeign"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}'\0swift_proto_testing.TestRequiredForeign"
   #elseif _pointerBitWidth(_32)
@@ -4206,10 +3874,10 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.GeneratedMessage 
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestRequired.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4222,7 +3890,6 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestRequiredMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.TestRequiredMessage"
   #elseif _pointerBitWidth(_32)
@@ -4234,10 +3901,10 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.GeneratedMessage 
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestRequired.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4250,7 +3917,6 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestEmptyMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0$\0swift_proto_testing.TestEmptyMessage"
   #elseif _pointerBitWidth(_32)
@@ -4267,7 +3933,6 @@ extension SwiftProtoTesting_TestEmptyMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestReallyLargeTagNumber"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{7f}\u{7f}\u{7f}\u{7f}\0\u{8}\0\0\u{1}\0\0\0\u{5},\0swift_proto_testing.TestReallyLargeTagNumber"
   #elseif _pointerBitWidth(_32)
@@ -4284,7 +3949,6 @@ extension SwiftProtoTesting_TestReallyLargeTagNumber: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestRecursiveMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}(\0swift_proto_testing.TestRecursiveMessage"
   #elseif _pointerBitWidth(_32)
@@ -4296,10 +3960,10 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.GeneratedMessage
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestRecursiveMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4308,7 +3972,6 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.GeneratedMessage
 }
 
 extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestFieldOrderings"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{b}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}e\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{2}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{b}&\0swift_proto_testing.TestFieldOrderings"
   #elseif _pointerBitWidth(_32)
@@ -4320,10 +3983,10 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestFieldOrderings.NestedMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4336,7 +3999,6 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestFieldOrderings.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}4\0swift_proto_testing.TestFieldOrderings.NestedMessage"
   #elseif _pointerBitWidth(_32)
@@ -4353,7 +4015,6 @@ extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestExtremeDefaultValues"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\u{1}\0\u{19}\0\0\0\0\0\u{19}\0\0\u{19}\0\0p\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{c}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{d}\u{3}\0\0\0\08\0\0\u{2}\0\0\0\u{4}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{3}\u{6}\0\0\0\0\0\u{1}\0\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{c}\0\0\u{6}\0\0\0\u{2}\u{8}\0\0\0\0\u{10}\0\0\u{7}\0\0\0\u{2}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{2}\u{a}\0\0\0\0\u{18}\0\0\u{9}\0\0\0\u{2}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0 \0\0\u{b}\0\0\0\u{2}\u{d}\0\0\0\0$\0\0\u{c}\0\0\0\u{2}\u{e}\0\0\0\0H\0\0\u{d}\0\0\0\u{1}\u{f}\0\0\0\0P\0\0\u{e}\0\0\0\u{1}\u{10}\0\0\0\0X\0\0\u{f}\0\0\0\u{1}\u{11}\0\0\0\0(\0\0\u{10}\0\0\0\u{2}\u{12}\0\0\0\0,\0\0\u{11}\0\0\0\u{2}\u{13}\0\0\0\00\0\0\u{12}\0\0\0\u{2}\u{14}\0\0\0\0\u{10}\u{1}\0\u{13}\0\0\0\u{9}\u{15}\0\0\0\04\0\0\u{14}\0\0\0\u{5}\u{16}\0\0\0\0`\0\0\u{15}\0\0\0\u{3}\u{17}\0\0\0\0 \u{1}\0\u{16}\0\0\0\u{9}\u{18}\0\0\0\00\u{1}\0\u{17}\0\0\0\u{c}\u{1b}\0\0\0\0@\u{1}\0\u{18}\0\0\0\u{9},\0swift_proto_testing.TestExtremeDefaultValues"
   #elseif _pointerBitWidth(_32)
@@ -4370,7 +4031,6 @@ extension SwiftProtoTesting_TestExtremeDefaultValues: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_TestOneof: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestOneof"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0{\u{7f}\u{2}\0\u{a}\u{1d}\0swift_proto_testing.TestOneof"
   #elseif _pointerBitWidth(_32)
@@ -4382,11 +4042,11 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
     case 2: return .message(SwiftProtoTesting_TestOneof.FooGroup.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4395,7 +4055,6 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestOneof.protoMessageName + ".FooGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{10}\0\0\u{5}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{6}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}&\0swift_proto_testing.TestOneof.FooGroup"
   #elseif _pointerBitWidth(_32)
@@ -4412,7 +4071,6 @@ extension SwiftProtoTesting_TestOneof.FooGroup: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestRequiredOneof"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{2}\0\0\0\0 \0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}%\0swift_proto_testing.TestRequiredOneof"
   #elseif _pointerBitWidth(_32)
@@ -4424,10 +4082,10 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestRequiredOneof.NestedMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4440,7 +4098,6 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestRequiredOneof.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}3\0swift_proto_testing.TestRequiredOneof.NestedMessage"
   #elseif _pointerBitWidth(_32)
@@ -4461,7 +4118,6 @@ extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestPackedTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0Z\0\0\0\u{a}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{a}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{a}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{a} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{a}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{a}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{a}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{a}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{a}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{a}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{a}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{a}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{a}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{a}p\0\0\u{d}\0\u{1}\0\u{e}#\0swift_proto_testing.TestPackedTypes"
   #elseif _pointerBitWidth(_32)
@@ -4473,10 +4129,10 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_ForeignEnum.enumSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4485,7 +4141,6 @@ extension SwiftProtoTesting_TestPackedTypes: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestUnpackedTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0Z\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{5}[\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{3}\\\0\0\0\u{2}\u{18}\0\0\u{2}\0\0\0\u{d}]\0\0\0\u{2} \0\0\u{3}\0\0\0\u{4}^\0\0\0\u{2}(\0\0\u{4}\0\0\0\u{11}_\0\0\0\u{2}0\0\0\u{5}\0\0\0\u{12}`\0\0\0\u{2}8\0\0\u{6}\0\0\0\u{7}a\0\0\0\u{2}@\0\0\u{7}\0\0\0\u{6}b\0\0\0\u{2}H\0\0\u{8}\0\0\0\u{f}c\0\0\0\u{2}P\0\0\u{9}\0\0\0\u{10}d\0\0\0\u{2}X\0\0\u{a}\0\0\0\u{2}e\0\0\0\u{2}`\0\0\u{b}\0\0\0\u{1}f\0\0\0\u{2}h\0\0\u{c}\0\0\0\u{8}g\0\0\0\u{2}p\0\0\u{d}\0\u{1}\0\u{e}%\0swift_proto_testing.TestUnpackedTypes"
   #elseif _pointerBitWidth(_32)
@@ -4497,10 +4152,10 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_ForeignEnum.enumSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4509,7 +4164,6 @@ extension SwiftProtoTesting_TestUnpackedTypes: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestPackedExtensions"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0swift_proto_testing.TestPackedExtensions"
   #elseif _pointerBitWidth(_32)
@@ -4530,7 +4184,6 @@ extension SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.GeneratedMessage
 }
 
 extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestParsingMerge"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{5}\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{3}\0\u{1}\0\u{b}\u{a}\0\0\0\0 \0\0\u{2}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}$\0swift_proto_testing.TestParsingMerge"
   #elseif _pointerBitWidth(_32)
@@ -4542,12 +4195,12 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
     case 2: return .message(SwiftProtoTesting_TestParsingMerge.OptionalGroup.messageSchema)
     case 3: return .message(SwiftProtoTesting_TestParsingMerge.RepeatedGroup.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4560,7 +4213,6 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{7}\0\0\0\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{1}\0\u{b}\u{a}\0\0\0\u{2} \0\0\u{3}\0\u{2}\0\u{a}\u{14}\0\0\0\u{2}(\0\0\u{4}\0\u{3}\0\u{a}h\u{7}\0\0\u{2}0\0\0\u{5}\0\u{1}\0\u{b}i\u{7}\0\0\u{2}8\0\0\u{6}\0\u{1}\0\u{b}<\0swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator"
   #elseif _pointerBitWidth(_32)
@@ -4572,12 +4224,12 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
     case 2: return .message(SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1.messageSchema)
     case 3: return .message(SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4586,7 +4238,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: SwiftProto
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group1"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}C\0swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator.Group1"
   #elseif _pointerBitWidth(_32)
@@ -4598,10 +4249,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4610,7 +4261,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}C\0swift_proto_testing.TestParsingMerge.RepeatedFieldsGenerator.Group2"
   #elseif _pointerBitWidth(_32)
@@ -4622,10 +4272,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4634,7 +4284,6 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
 }
 
 extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".OptionalGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{b}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.TestParsingMerge.OptionalGroup"
   #elseif _pointerBitWidth(_32)
@@ -4646,10 +4295,10 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Genera
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -4658,7 +4307,6 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_TestParsingMerge.protoMessageName + ".RepeatedGroup"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{15}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}2\0swift_proto_testing.TestParsingMerge.RepeatedGroup"
   #elseif _pointerBitWidth(_32)
@@ -4670,10 +4318,10 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Genera
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_TestAllTypes.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 

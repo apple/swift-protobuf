@@ -79,24 +79,14 @@ struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -104,7 +94,6 @@ struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestAny"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   #elseif _pointerBitWidth(_32)
@@ -116,10 +105,10 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 

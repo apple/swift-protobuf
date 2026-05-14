@@ -230,24 +230,14 @@ struct SwiftProtoTesting_TestWellKnownTypes: @unchecked Swift.Sendable {
   /// Clears the value of `valueField`. Subsequent reads from it will return its default value.
   mutating func clearValueField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(152, 76), type: SwiftProtobuf.Google_Protobuf_Value.self, hasBit: (2, 4)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A repeated field for each well-known type.
@@ -347,24 +337,14 @@ struct SwiftProtoTesting_RepeatedWellKnownTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 72), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 2)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
@@ -513,14 +493,6 @@ struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(216, 144), to: newValue, oneofPresence: (4, 18)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case anyField(SwiftProtobuf.Google_Protobuf_Any)
     case apiField(SwiftProtobuf.Google_Protobuf_Api)
@@ -542,16 +514,14 @@ struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
     case bytesField(SwiftProtobuf.Google_Protobuf_BytesValue)
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 /// A map field for each well-known type. We only
@@ -652,24 +622,14 @@ struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 72), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 2)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -677,7 +637,6 @@ struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing"
 
 extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\00\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\08\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\0`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\0h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\0p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0\u{18}\u{1}\0\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
   #elseif _pointerBitWidth(_32)
@@ -689,7 +648,7 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
     case 2: return .message(SwiftProtobuf.Google_Protobuf_Api.messageSchema)
@@ -710,7 +669,7 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
     case 17: return .message(SwiftProtobuf.Google_Protobuf_StringValue.messageSchema)
     case 18: return .message(SwiftProtobuf.Google_Protobuf_BytesValue.messageSchema)
     case 19: return .message(SwiftProtobuf.Google_Protobuf_Value.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -719,7 +678,6 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".RepeatedWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
   #elseif _pointerBitWidth(_32)
@@ -731,7 +689,7 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessa
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
     case 2: return .message(SwiftProtobuf.Google_Protobuf_Api.messageSchema)
@@ -751,7 +709,7 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessa
     case 16: return .message(SwiftProtobuf.Google_Protobuf_BoolValue.messageSchema)
     case 17: return .message(SwiftProtobuf.Google_Protobuf_StringValue.messageSchema)
     case 18: return .message(SwiftProtobuf.Google_Protobuf_BytesValue.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -760,7 +718,6 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".OneofWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0P\0\0\u{1}\0\0\0\0P\0\0{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0X\0\0{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0`\0\0{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0h\0\0{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0p\0\0{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0x\0\0{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0\0\u{1}\0{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0\u{8}\u{1}\0{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0\u{18}\u{1}\0{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0 \u{1}\0{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0(\u{1}\0{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\00\u{1}\0{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\08\u{1}\0{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0@\u{1}\0{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0H\u{1}\0{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0P\u{1}\0{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0X\u{1}\0{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
   #elseif _pointerBitWidth(_32)
@@ -772,7 +729,7 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage 
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtobuf.Google_Protobuf_Any.messageSchema)
     case 2: return .message(SwiftProtobuf.Google_Protobuf_Api.messageSchema)
@@ -792,7 +749,7 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage 
     case 16: return .message(SwiftProtobuf.Google_Protobuf_BoolValue.messageSchema)
     case 17: return .message(SwiftProtobuf.Google_Protobuf_StringValue.messageSchema)
     case 18: return .message(SwiftProtobuf.Google_Protobuf_BytesValue.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -801,7 +758,6 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".MapWellKnownTypes"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
   #elseif _pointerBitWidth(_32)
@@ -813,7 +769,7 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_AnyFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_ApiFieldEntry)
@@ -833,7 +789,7 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
     case 16: return .message(_protobuf_mapEntrySchema_BoolFieldEntry)
     case 17: return .message(_protobuf_mapEntrySchema_StringFieldEntry)
     case 18: return .message(_protobuf_mapEntrySchema_BytesFieldEntry)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)

@@ -61,7 +61,7 @@ class OneofGenerator {
         // Only valid on message fields.
         var messageType: Descriptor? { fieldDescriptor.messageType }
 
-        let trampolineFieldKind: TrampolineFieldKind?
+        let submessageOrEnumReference: SubmessageOrEnumReference?
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)
@@ -85,11 +85,11 @@ class OneofGenerator {
 
             switch descriptor.type {
             case .group, .message:
-                trampolineFieldKind = .message(swiftType)
+                submessageOrEnumReference = .message(swiftType)
             case .enum:
-                trampolineFieldKind = .enum(swiftType)
+                submessageOrEnumReference = .enum(swiftType)
             default:
-                trampolineFieldKind = nil
+                submessageOrEnumReference = nil
             }
 
             super.init(descriptor: descriptor)

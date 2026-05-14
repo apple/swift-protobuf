@@ -24,7 +24,7 @@ struct MessageSchemaCalculator {
 
     /// Collects submessage information as it is encountered while iterating over the fields of the
     /// message.
-    private var trampolineFieldCollector = TrampolineFieldCollector()
+    private var submessageOrEnumCollector = SubmessageOrEnumCollector()
 
     /// The Swift string literals (without surrounding quotes) that encode the message schema in
     /// the generated source.
@@ -37,8 +37,8 @@ struct MessageSchemaCalculator {
     ///
     /// The first element in this array corresponds to the submessage with index 1, and the rest
     /// increase accordingly.
-    var trampolineFields: [TrampolineField] {
-        trampolineFieldCollector.usedFields.sorted { $0.value.index < $1.value.index }.map { $0.value }
+    var submessageOrEnumFields: [SubmessageOrEnumField] {
+        submessageOrEnumCollector.usedFields.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
 
     /// Creates a new message schema calculator for a message containing the given fields and for
@@ -141,7 +141,7 @@ struct MessageSchemaCalculator {
             field.storageOffsets = byteOffsets
             byteOffsets.add(fieldSizes)
 
-            trampolineFieldCollector.collect(field)
+            submessageOrEnumCollector.collect(field)
         }
         if !foundNontrivial {
             firstNontrivialOffset = byteOffsets
@@ -164,7 +164,7 @@ struct MessageSchemaCalculator {
                 writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)
                 writer.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
                 writer.writeBase128Int(
-                    UInt64(trampolineFieldCollector.fieldNumberToTrampolineIndexMap[field.number, default: 0]),
+                    UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[field.number, default: 0]),
                     byteWidth: 2
                 )
                 writer.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
@@ -176,7 +176,7 @@ struct MessageSchemaCalculator {
 
     /// Creates a new message schema writer for a single extension field.
     init(extensionField: any FieldGenerator, extensionName: String) {
-        trampolineFieldCollector.collect(extensionField)
+        submessageOrEnumCollector.collect(extensionField)
 
         self.schemaWriters = .init(forAllTargets: .init())
         schemaWriters.modify { writer, _ in
@@ -186,7 +186,7 @@ struct MessageSchemaCalculator {
             writer.writeBase128Int(UInt64(0), byteWidth: 3)
             writer.writeBase128Int(UInt64(0), byteWidth: 2)
             writer.writeBase128Int(
-                UInt64(trampolineFieldCollector.fieldNumberToTrampolineIndexMap[extensionField.number, default: 0]),
+                UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[extensionField.number, default: 0]),
                 byteWidth: 2
             )
             writer.writeBase128Int(UInt64(extensionField.rawFieldType.rawValue), byteWidth: 1)
@@ -199,40 +199,41 @@ struct MessageSchemaCalculator {
 
 /// Collects the message and enum types referenced by a message whose schema is being generated,
 /// assigning each one a unique index that will be used when looking them up by the runtime.
-private struct TrampolineFieldCollector {
+private struct SubmessageOrEnumCollector {
     /// Tracks the field numbers of any submessage fields and the corresponding index of that
     /// submessage.
-    var fieldNumberToTrampolineIndexMap: [Int: Int] = [:]
+    var fieldNumberToIndexMap: [Int: Int] = [:]
 
     /// Tracks which submessage types have already been encountered, along with their field
     /// generator and index.
-    var usedFields: [TrampolineFieldKind: TrampolineField] = [:]
+    var usedFields: [SubmessageOrEnumReference: SubmessageOrEnumField] = [:]
 
     /// Tracks the index that will be assigned to the next newly encountered submessage.
     private var nextIndex = 1
 
     /// Tracks the submessage with the given type name and field number.
     mutating func collect(_ field: any FieldGenerator) {
-        guard let kind = field.trampolineFieldKind else { return }
-        let trampolineIndex: Int
+        guard let kind = field.submessageOrEnumReference else { return }
+        let submessageOrEnumIndex: Int
         if let foundIndex = usedFields[kind]?.index {
-            trampolineIndex = foundIndex
+            submessageOrEnumIndex = foundIndex
         } else {
-            trampolineIndex = nextIndex
-            usedFields[kind] = TrampolineField(
+            submessageOrEnumIndex = nextIndex
+            usedFields[kind] = SubmessageOrEnumField(
                 kind: kind,
-                index: trampolineIndex,
+                index: submessageOrEnumIndex,
                 needsIsInitializedCheck: field.needsIsInitializedGeneration
             )
             nextIndex += 1
         }
-        fieldNumberToTrampolineIndexMap[field.number] = trampolineIndex
+        fieldNumberToIndexMap[field.number] = submessageOrEnumIndex
     }
 }
 
-struct TrampolineField {
-    /// The kind and name of the field that needs trampoline generation.
-    var kind: TrampolineFieldKind
+/// Information about a submessage or enum field that needs extra information to generate it.
+struct SubmessageOrEnumField {
+    /// The kind and name of the submessage or enum.
+    var kind: SubmessageOrEnumReference
 
     /// The index of the submessage, which will be used to generate submessage tokens.
     var index: Int

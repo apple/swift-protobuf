@@ -48,25 +48,25 @@
 ///   byte in the final output stream is always 0.
 package enum Compression {
     /// The size of the main frequency model.
-    package static let mainModelSize = 65
+    package static var mainModelSize: Int { 65 }
 
     /// The code used for escaped literals in the main model.
-    package static let escapeCode = 63
+    package static var escapeCode: Int { 63 }
 
     /// The code used for LZSS matches in the main model.
-    package static let matchCode = 64
+    package static var matchCode: Int { 64 }
 
     /// The number of bits used to encode the match offset.
-    package static let windowSizeBits = 7
+    package static var windowSizeBits: Int { 7 }
 
     /// The number of bits used to encode the match length.
-    package static let lengthBits = 4
+    package static var lengthBits: Int { 4 }
 
     /// The size of the sliding window for LZSS.
     package static var windowSize: Int { 1 &<< windowSizeBits }
 
     /// The minimum length of a match to be encoded.
-    package static let minMatchLength = 3
+    package static var minMatchLength: Int { 3 }
 
     /// The maximum length of a match to be encoded.
     package static var maxMatchLength: Int { (1 &<< lengthBits) &+ minMatchLength &- 1 }

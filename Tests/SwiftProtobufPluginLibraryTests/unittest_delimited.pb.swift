@@ -43,24 +43,14 @@ struct EditionsUnittest_LengthPrefixed: @unchecked Swift.Sendable {
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
@@ -86,24 +76,14 @@ struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
@@ -129,24 +109,14 @@ struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
@@ -214,14 +184,6 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
   /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
   mutating func clearMessageimport() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 24), type: EditionsUnittest_MessageImport.self, hasBit: (0, 32)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   struct LengthPrefixed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -245,24 +207,14 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct GroupLike: @unchecked Swift.Sendable {
@@ -288,36 +240,24 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
     mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in unittest_delimited.proto.
@@ -445,7 +385,6 @@ let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
 fileprivate let _protobuf_package = "editions_unittest"
 
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
@@ -462,7 +401,6 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".NotGroupLikeScope"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   #elseif _pointerBitWidth(_32)
@@ -479,7 +417,6 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".GroupLikeFileScope"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   #elseif _pointerBitWidth(_32)
@@ -496,7 +433,6 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestDelimited"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   #elseif _pointerBitWidth(_32)
@@ -508,14 +444,14 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(EditionsUnittest_TestDelimited.LengthPrefixed.messageSchema)
     case 2: return .message(EditionsUnittest_TestDelimited.messageSchema)
     case 3: return .message(EditionsUnittest_TestDelimited.GroupLike.messageSchema)
     case 4: return .message(EditionsUnittest_NotGroupLikeScope.messageSchema)
     case 5: return .message(EditionsUnittest_MessageImport.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -528,7 +464,6 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".LengthPrefixed"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   #elseif _pointerBitWidth(_32)
@@ -545,7 +480,6 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Generated
 }
 
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = EditionsUnittest_TestDelimited.protoMessageName + ".GroupLike"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   #elseif _pointerBitWidth(_32)

@@ -32,16 +32,21 @@ public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
     }
 
     /// The registered extensions, keyed by message schema and field number.
-    private var registryByNumber: [FieldNumberKey: ExtensionSchema] = [:]
+    private var registryByNumber: [FieldNumberKey: ExtensionSchema]
 
     /// The registered extensions, keyed by message schema and field name.
-    private var registryByName: [FieldNameKey: ExtensionSchema] = [:]
+    private var registryByName: [FieldNameKey: ExtensionSchema]
 
     /// Creates a new empty extension map.
-    public init() {}
+    public init() {
+        self.registryByNumber = [:]
+        self.registryByName = [:]
+    }
 
     /// Creates a new extension map from the given sequence of extension schemas.
     public init(arrayLiteral: ExtensionSchema...) {
+        self.registryByNumber = [:]
+        self.registryByName = [:]
         insert(contentsOf: arrayLiteral)
     }
 

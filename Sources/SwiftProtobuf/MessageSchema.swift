@@ -19,8 +19,8 @@ import Foundation
 public struct MessageSchema: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
-    // immortal compile-time constant and we only read from it, and because the trampoline functions
-    // do not capture mutable state.
+    // immortal compile-time constant and we only read from it, and because the resolver/witness
+    // functions do not capture mutable state.
 
     /// The encoded schema of the fields of the message.
     ///
@@ -79,7 +79,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// ```
     /// +---------------------+-----------+-----------+------------------+------------+
     /// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
-    /// | Field number & mode | Offset    | Presence  | Trampoline index | Field type |
+    /// | Field number & mode | Offset    | Presence  | Submessage index | Field type |
     /// +---------------------+-----------+-----------+------------------+------------+
     /// ```
     ///
@@ -120,7 +120,7 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias InvokeWitnessFunction = (MessageWitnessOperation) -> Void
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageOrEnumResolver = (TrampolineToken) -> SubmessageOrEnumSchema
+    public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema
 
     let invokeWitness: InvokeWitnessFunction
 
@@ -477,14 +477,12 @@ extension MessageSchema {
     }
 }
 
-extension MessageSchema {
-    /// An opaque token that is used to ask a message for the metatype of one of its submessage
-    /// or enum fields.
-    @_spi(ForGeneratedCodeOnly)
-    public struct TrampolineToken: Sendable, Equatable {
-        /// The index that identifies the submessage or enum type being requested.
-        public let index: Int
-    }
+/// An opaque token that is used to ask a message for the metatype of one of its submessage
+/// or enum fields.
+@_spi(ForGeneratedCodeOnly)
+public struct SubmessageOrEnumToken: Sendable, Equatable {
+    /// The index that identifies the submessage or enum type being requested.
+    public let index: Int
 }
 
 /// Represents either a message or enum schema returned by the resolver for a message.
@@ -637,24 +635,24 @@ public struct FieldSchema {
 
 /// The type of a field as it is represented on the wire.
 package struct RawFieldType: RawRepresentable, Equatable, Hashable, Sendable {
-    package static let double = Self(rawValue: 1)
-    package static let float = Self(rawValue: 2)
-    package static let int64 = Self(rawValue: 3)
-    package static let uint64 = Self(rawValue: 4)
-    package static let int32 = Self(rawValue: 5)
-    package static let fixed64 = Self(rawValue: 6)
-    package static let fixed32 = Self(rawValue: 7)
-    package static let bool = Self(rawValue: 8)
-    package static let string = Self(rawValue: 9)
-    package static let group = Self(rawValue: 10)
-    package static let message = Self(rawValue: 11)
-    package static let bytes = Self(rawValue: 12)
-    package static let uint32 = Self(rawValue: 13)
-    package static let `enum` = Self(rawValue: 14)
-    package static let sfixed32 = Self(rawValue: 15)
-    package static let sfixed64 = Self(rawValue: 16)
-    package static let sint32 = Self(rawValue: 17)
-    package static let sint64 = Self(rawValue: 18)
+    package static var double: Self { .init(rawValue: 1) }
+    package static var float: Self { .init(rawValue: 2) }
+    package static var int64: Self { .init(rawValue: 3) }
+    package static var uint64: Self { .init(rawValue: 4) }
+    package static var int32: Self { .init(rawValue: 5) }
+    package static var fixed64: Self { .init(rawValue: 6) }
+    package static var fixed32: Self { .init(rawValue: 7) }
+    package static var bool: Self { .init(rawValue: 8) }
+    package static var string: Self { .init(rawValue: 9) }
+    package static var group: Self { .init(rawValue: 10) }
+    package static var message: Self { .init(rawValue: 11) }
+    package static var bytes: Self { .init(rawValue: 12) }
+    package static var uint32: Self { .init(rawValue: 13) }
+    package static var `enum`: Self { .init(rawValue: 14) }
+    package static var sfixed32: Self { .init(rawValue: 15) }
+    package static var sfixed64: Self { .init(rawValue: 16) }
+    package static var sint32: Self { .init(rawValue: 17) }
+    package static var sint64: Self { .init(rawValue: 18) }
 
     package let rawValue: UInt8
 
@@ -669,9 +667,9 @@ package struct FieldMode: RawRepresentable, Equatable, Hashable, Sendable {
     /// Describes the cardinality of a field (whether it represents a scalar value, an array of
     /// values, or a mapping between values).
     package struct Cardinality: RawRepresentable, Equatable, Hashable, Sendable {
-        package static let scalar = Self(rawValue: 0b000_0000)
-        package static let array = Self(rawValue: 0b000_0010)
-        package static let map = Self(rawValue: 0b000_0100)
+        package static var scalar: Self { .init(rawValue: 0b000_0000) }
+        package static var array: Self { .init(rawValue: 0b000_0010) }
+        package static var map: Self { .init(rawValue: 0b000_0100) }
 
         package let rawValue: UInt8
 
@@ -708,19 +706,19 @@ package struct FieldMode: RawRepresentable, Equatable, Hashable, Sendable {
 /// Represents the extensibility of the message.
 package struct ExtensibilityMode: RawRepresentable, Equatable, Hashable, Sendable {
     /// The message is not extensible (it does not declare any extension ranges).
-    package static let nonextensible = Self(rawValue: 0b000_0000)
+    package static var nonextensible: Self { .init(rawValue: 0b000_0000) }
 
     /// The message is extensible (it declares extension ranges).
-    package static let extensible = Self(rawValue: 0b010_0000)
+    package static var extensible: Self { .init(rawValue: 0b010_0000) }
 
     /// The message is a map entry and is thus not extensible.
-    package static let mapEntry = Self(rawValue: 0b100_0000)
+    package static var mapEntry: Self { .init(rawValue: 0b100_0000) }
 
     /// The message is extensible and its extensions fields use message set wire format.
-    package static let messageSet = Self(rawValue: 0b110_0000)
+    package static var messageSet: Self { .init(rawValue: 0b110_0000) }
 
     /// The bitmask used to isolate the extensibility mode in the schema representation.
-    package static let bitMask: UInt8 = 0b0110_0000
+    package static var bitMask: UInt8 { 0b0110_0000 }
 
     package let rawValue: UInt8
 

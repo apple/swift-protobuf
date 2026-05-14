@@ -81,10 +81,9 @@ class MessageGenerator {
             )
         }
 
-        // The layout calculator will distinguish trampoline indices by the type name of the field.
-        // Even though the original descriptors for map entries will be one-per-field (even if a
-        // particular map type occurs multiple times in the message), we key these generators by
-        // type name to ensure that we coalesce them if a particular type occur multiple times.
+        // Since map entry schemas contain a synthesized name based on the name of the
+        // field, this dictionary will always contain unique entries for the map fields
+        // that were found in the descriptor.
         mapEntries = Dictionary(
             uniqueKeysWithValues: descriptor.fields.filter(\.isMap).map {
                 let entryGenerator = MapEntryGenerator(
@@ -171,21 +170,6 @@ class MessageGenerator {
                 f.generateInterface(printer: &p)
             }
 
-            p.print(
-                "",
-                "\(visibility)var unknownFields: \(namer.swiftProtobufModulePrefix)UnknownStorage {"
-            )
-            p.withIndentation { p in
-                p.print("get { _storage.unknownFields }")
-                p.print("_modify {")
-                p.printIndented(
-                    "_ = _uniqueStorage()",
-                    "yield &_storage.unknownFields"
-                )
-                p.print("}")
-            }
-            p.print("}")
-
             for o in oneofs {
                 o.generateMainEnum(printer: &p)
             }
@@ -205,12 +189,12 @@ class MessageGenerator {
             // generates the others doesn't seem to be documented.
             p.print(
                 "",
-                "\(visibility)init() {}"
+                "\(visibility)init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }"
             )
 
             p.print(
                 "",
-                "private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)",
+                "private var _storage: SwiftProtobuf.MessageStorage",
                 "private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {"
             )
             p.withIndentation { p in
@@ -223,12 +207,6 @@ class MessageGenerator {
             p.print(
                 "\(visibility)mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }"
             )
-            p.print(
-                "\(visibility)func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }"
-            )
-            p.print(
-                "\(visibility)mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }"
-            )
         }
         p.print("}")
     }
@@ -239,17 +217,6 @@ class MessageGenerator {
             "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
         )
         p.withIndentation { p in
-            if let parent = parent {
-                p.print(
-                    "\(visibility)static let protoMessageName: Swift.String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
-                )
-            } else if !descriptor.file.package.isEmpty {
-                p.print(
-                    "\(visibility)static let protoMessageName: Swift.String = _protobuf_package + \".\(descriptor.name)\""
-                )
-            } else {
-                p.print("\(visibility)static let protoMessageName: Swift.String = \"\(descriptor.name)\"")
-            }
             generateMessageSchema(printer: &p)
             p.print(
                 "",
@@ -276,14 +243,14 @@ class MessageGenerator {
         }
         p.print(#"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#)
 
-        let trampolineFields = messageSchemaCalculator.trampolineFields
+        let submessageOrEnumFields = messageSchemaCalculator.submessageOrEnumFields
         p.print()
         p.print(
             "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform",
             newlines: false
         )
 
-        if trampolineFields.isEmpty {
+        if submessageOrEnumFields.isEmpty {
             // If there are no submessage or enum fields, we can use the initialize that defaults it
             // to a trapping closure.
             p.print(")")
@@ -292,11 +259,11 @@ class MessageGenerator {
             p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)")
             p.print(
                 "",
-                "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {"
+                "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
-                for field in trampolineFields {
+                for field in submessageOrEnumFields {
                     let schema: String
                     switch field.kind {
                     case .enum(let typeName):
@@ -309,7 +276,7 @@ class MessageGenerator {
                     p.print("case \(field.index): return \(schema)")
                 }
                 p.print(
-                    "default: preconditionFailure(\"invalid trampoline token; this is a generator bug\")",
+                    "default: preconditionFailure(\"invalid submessage/enum token; this is a generator bug\")",
                     "}"
                 )
             }
@@ -318,7 +285,7 @@ class MessageGenerator {
             )
 
             // Generate map entry schemas, if any.
-            for field in trampolineFields {
+            for field in submessageOrEnumFields {
                 if case .map(let schemaName) = field.kind, let entryGenerator = mapEntries[schemaName] {
                     entryGenerator.generateSchema(into: &p)
                 }

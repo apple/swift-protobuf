@@ -19,13 +19,16 @@ public struct JSONDecodingOptions: Sendable {
     /// To prevent corrupt or malicious messages from causing stack overflows,
     /// this controls how deep messages can be nested within other messages
     /// while parsing.
-    public var messageDepthLimit: Int = 100
+    public var messageDepthLimit: Int
 
     /// If unknown fields in the JSON should be ignored. If they aren't
     /// ignored, an error will be raised if one is encountered. This also
     /// causes unknown enum values (especially string values) to be silently
     /// ignored.
-    public var ignoreUnknownFields: Bool = false
+    public var ignoreUnknownFields: Bool
 
-    public init() {}
+    public init() {
+        self.messageDepthLimit = 100
+        self.ignoreUnknownFields = false
+    }
 }

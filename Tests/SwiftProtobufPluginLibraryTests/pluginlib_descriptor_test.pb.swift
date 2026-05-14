@@ -113,14 +113,6 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 36), to: newValue, oneofPresence: (4, 6)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case field3(SDTTopLevelEnum)
     case field4(SDTTopLevelMessage.SubEnum)
@@ -171,36 +163,24 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
     /// Clears the value of `field3`. Subsequent reads from it will return its default value.
     mutating func clearField3() { _uniqueStorage().clearValue(at: 8, type: SDTTopLevelMessage.SubMessage.self, hasBit: (0, 4)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
@@ -226,24 +206,14 @@ struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
   mutating func clearRight() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SDTTopLevelMessage2.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SDTExternalRefs: @unchecked Swift.Sendable {
@@ -269,24 +239,14 @@ struct SDTExternalRefs: @unchecked Swift.Sendable {
   /// Clears the value of `ver`. Subsequent reads from it will return its default value.
   mutating func clearVer() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftDescriptorTest_Import_Version.self, hasBit: (0, 2)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SDTScoperForExt: @unchecked Swift.Sendable {
@@ -294,24 +254,14 @@ struct SDTScoperForExt: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
@@ -454,14 +404,6 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 68), to: newValue, oneofPresence: (4, 34)) }
   }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
@@ -469,16 +411,14 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
     case oneofMessageField(SDTTopLevelMessage)
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
@@ -575,7 +515,6 @@ extension SDTTopLevelEnum {
 }
 
 extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TopLevelMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0 \0\0\u{1}\0\0\0\00\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{e}\u{5}\0\0\0\0 \0\0{\u{7f}\u{3}\0\u{b}\u{6}\0\0\0\0(\0\0{\u{7f}\u{4}\0\u{b}%\0swift_descriptor_test.TopLevelMessage"
   #elseif _pointerBitWidth(_32)
@@ -587,13 +526,13 @@ extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SDTTopLevelEnum.enumSchema)
     case 2: return .enum(SDTTopLevelMessage.SubEnum.enumSchema)
     case 3: return .message(SDTTopLevelMessage.SubMessage.messageSchema)
     case 4: return .message(SDTTopLevelMessage2.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -608,7 +547,6 @@ extension SDTTopLevelMessage.SubEnum {
 }
 
 extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{b}0\0swift_descriptor_test.TopLevelMessage.SubMessage"
   #elseif _pointerBitWidth(_32)
@@ -620,10 +558,10 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SDTTopLevelMessage.SubMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -632,7 +570,6 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TopLevelMessage2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}&\0swift_descriptor_test.TopLevelMessage2"
   #elseif _pointerBitWidth(_32)
@@ -644,11 +581,11 @@ extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SDTTopLevelMessage.messageSchema)
     case 2: return .message(SDTTopLevelMessage2.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -657,7 +594,6 @@ extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ExternalRefs"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\"\0swift_descriptor_test.ExternalRefs"
   #elseif _pointerBitWidth(_32)
@@ -669,11 +605,11 @@ extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftDescriptorTest_Import_ExtendableOne.messageSchema)
     case 2: return .message(SwiftDescriptorTest_Import_Version.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -686,7 +622,6 @@ extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".ScoperForExt"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\"\0swift_descriptor_test.ScoperForExt"
   #elseif _pointerBitWidth(_32)
@@ -703,7 +638,6 @@ extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".Proto2MessageForPresence"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{10}\0\0\u{4}\0\0\u{8}\0\0\u{5}\0\00\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\00\0\0\u{3}\0\u{2}\0\u{b}\u{b}\0\0\0\0\0\u{1}\0\u{4}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{6}\0\u{1}\0\u{e}\u{e}\0\0\0\08\0\0\u{7}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}@\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{2}H\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{2}P\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}X\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0`\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto2MessageForPresence"
   #elseif _pointerBitWidth(_32)
@@ -715,11 +649,11 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SDTTopLevelEnum.enumSchema)
     case 2: return .message(SDTTopLevelMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 

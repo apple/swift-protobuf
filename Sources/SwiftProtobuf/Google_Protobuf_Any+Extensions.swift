@@ -16,7 +16,7 @@
 // don't remove unless obsolete on all platforms
 import Foundation
 
-public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
+public var defaultAnyTypeURLPrefix: String { "type.googleapis.com" }
 
 extension Google_Protobuf_Any {
     /// Initialize an Any object from the provided message.

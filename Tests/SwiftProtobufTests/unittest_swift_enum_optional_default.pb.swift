@@ -41,14 +41,6 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -74,14 +66,6 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.self, hasBit: (0, 2)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
-
     enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
@@ -91,16 +75,14 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
 
     }
 
-    init() {}
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
   struct NestedMessage2: @unchecked Swift.Sendable {
@@ -117,14 +99,6 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, hasBit: (0, 1)) }
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
-
     enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
@@ -134,28 +108,24 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
 
     }
 
-    init() {}
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -163,7 +133,6 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
 fileprivate let _protobuf_package = "swift_proto_testing.extend"
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".EnumOptionalDefault"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0swift_proto_testing.extend.EnumOptionalDefault"
   #elseif _pointerBitWidth(_32)
@@ -180,7 +149,6 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage"
   #elseif _pointerBitWidth(_32)
@@ -192,11 +160,11 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.enumSchema)
     case 2: return .message(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -211,7 +179,6 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
 }
 
 extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2"
   #elseif _pointerBitWidth(_32)
@@ -223,10 +190,10 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.enumSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 

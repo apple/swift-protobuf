@@ -43,14 +43,6 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  public var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   /// Individual listing of the module name and the files that will go
   /// into it.
   public struct Entry: @unchecked Swift.Sendable {
@@ -74,36 +66,24 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
       set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
     }
 
-    public var unknownFields: SwiftProtobuf.UnknownStorage {
-      get { _storage.unknownFields }
-      _modify {
-        _ = _uniqueStorage()
-        yield &_storage.unknownFields
-      }
-    }
+    public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-    public init() {}
-
-    private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+    private var _storage: SwiftProtobuf.MessageStorage
     private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
       if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
       return _storage
     }
     public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-    public func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-    public mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
   }
 
-  public init() {}
+  public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  public func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  public mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -111,7 +91,6 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
 
 extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
-  public static let protoMessageName: Swift.String = _protobuf_package + ".ModuleMappings"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
   #elseif _pointerBitWidth(_32)
@@ -123,10 +102,10 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage 
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(SwiftProtobuf_GenSwift_ModuleMappings.Entry.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
@@ -135,7 +114,6 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
-  public static let protoMessageName: Swift.String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
   #elseif _pointerBitWidth(_32)

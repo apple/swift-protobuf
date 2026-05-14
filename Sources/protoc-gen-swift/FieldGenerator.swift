@@ -72,8 +72,8 @@ package enum FieldPresence {
     }
 }
 
-/// Information about a field that needs to be part of trampoline function generation.
-package enum TrampolineFieldKind: Equatable, Hashable {
+/// References to submessage and enum schemas that are generated into the resolver function.
+package enum SubmessageOrEnumReference: Equatable, Hashable {
     /// The field is a singular or repeated message or group type.
     ///
     /// The associated value is the full Swift name of that type.
@@ -105,8 +105,8 @@ package protocol FieldGenerator: AnyObject {
     /// The raw type of the field.
     var rawFieldType: RawFieldType { get }
 
-    /// The kind and name of a message, group, or enum field that needs trampoline generation.
-    var trampolineFieldKind: TrampolineFieldKind? { get }
+    /// The name of the message, group, or enum used by this field, if it's one of those types.
+    var submessageOrEnumReference: SubmessageOrEnumReference? { get }
 
     /// Additional properties that describe the layout and behavior of the field.
     var fieldMode: FieldMode { get }

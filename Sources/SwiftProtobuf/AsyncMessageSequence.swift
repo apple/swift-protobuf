@@ -54,7 +54,7 @@ public struct AsyncMessageSequence<
     public typealias Element = M
 
     private let base: Base
-    private let extensions: ExtensionMap?
+    private let extensions: Optional<ExtensionMap>
     private let partial: Bool
     private let options: BinaryDecodingOptions
 
@@ -85,9 +85,9 @@ public struct AsyncMessageSequence<
     /// An asynchronous iterator that produces the messages of this asynchronous sequence.
     public struct AsyncIterator: AsyncIteratorProtocol {
         @usableFromInline
-        var iterator: Base.AsyncIterator?
+        var iterator: Optional<Base.AsyncIterator>
         @usableFromInline
-        let extensions: ExtensionMap?
+        let extensions: Optional<ExtensionMap>
         @usableFromInline
         let partial: Bool
         @usableFromInline

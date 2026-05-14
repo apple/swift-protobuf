@@ -126,7 +126,7 @@ extension MessageStorage {
             case .sint32:
                 let values = assumedPresentValue(at: offset, as: [Int32].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: UInt32(zigZagEncoded: $1)) }
                 return isPacked
                     ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
                     : (tagSize * values.count) + dataSize
@@ -134,7 +134,7 @@ extension MessageStorage {
             case .sint64:
                 let values = assumedPresentValue(at: offset, as: [Int64].self)
                 let tagSize = FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
+                let dataSize = values.reduce(0) { $0 + Varint.encodedSize(of: UInt64(zigZagEncoded: $1)) }
                 return isPacked
                     ? tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
                     : (tagSize * values.count) + dataSize
@@ -225,11 +225,11 @@ extension MessageStorage {
 
             case .sint32:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int32.self)))
+                    + Varint.encodedSize(of: UInt32(zigZagEncoded: assumedPresentValue(at: offset, as: Int32.self)))
 
             case .sint64:
                 return FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
-                    + Varint.encodedSize(of: ZigZag.encoded(assumedPresentValue(at: offset, as: Int64.self)))
+                    + Varint.encodedSize(of: UInt64(zigZagEncoded: assumedPresentValue(at: offset, as: Int64.self)))
 
             case .string:
                 let count = assumedPresentValue(at: offset, as: String.self).utf8.count

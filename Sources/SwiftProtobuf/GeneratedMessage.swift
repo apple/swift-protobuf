@@ -19,6 +19,10 @@ public protocol GeneratedMessage: Message {
 }
 
 extension GeneratedMessage {
+    public static var protoMessageName: String {
+        String(protobufUTF8Name: Self.messageSchema.messageName)
+    }
+
     /// All instances of a generated message return the type-wide schema.
     public var messageSchema: MessageSchema {
         return Self.messageSchema

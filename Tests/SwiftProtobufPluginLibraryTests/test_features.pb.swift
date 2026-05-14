@@ -82,14 +82,6 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Clears the value of `feature5`. Subsequent reads from it will return its default value.
   mutating func clearFeature5() { _uniqueStorage().clearValue(at: 20, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 16)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
-
   enum EnumFeature: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case value1 = 1
@@ -105,16 +97,14 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
 
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Extension support defined in test_features.proto.
@@ -164,7 +154,6 @@ let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
 fileprivate let _protobuf_package = "swift_feature_test"
 
 extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".TestFeatures"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures"
   #elseif _pointerBitWidth(_32)
@@ -176,10 +165,10 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .enum(SwiftFeatureTest_TestFeatures.EnumFeature.enumSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 

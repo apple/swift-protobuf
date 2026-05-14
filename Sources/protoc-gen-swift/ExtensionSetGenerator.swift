@@ -30,7 +30,7 @@ class ExtensionSetGenerator {
         let containingTypeSwiftFullName: String
         let swiftFullExtensionName: String
 
-        var trampolineFieldKind: TrampolineFieldKind?
+        var submessageOrEnumReference: SubmessageOrEnumReference?
 
         // For `FieldGenerator` conformance; extension fields are never oneof members.
         var oneofIndex: Int? { nil }
@@ -58,20 +58,20 @@ class ExtensionSetGenerator {
             switch descriptor.type {
             case .group:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                trampolineFieldKind = .message(swiftSingularType)
+                submessageOrEnumReference = .message(swiftSingularType)
             case .message:
                 if descriptor.isMap {
                     let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
-                    trampolineFieldKind = .map(entrySchemaName)
+                    submessageOrEnumReference = .map(entrySchemaName)
                 } else {
                     let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                    trampolineFieldKind = .message(swiftSingularType)
+                    submessageOrEnumReference = .message(swiftSingularType)
                 }
             case .enum:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                trampolineFieldKind = .enum(swiftSingularType)
+                submessageOrEnumReference = .enum(swiftSingularType)
             default:
-                trampolineFieldKind = nil
+                submessageOrEnumReference = nil
             }
 
             super.init(descriptor: descriptor)
@@ -111,7 +111,7 @@ class ExtensionSetGenerator {
 
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
-                if let field = extensionSchemaCalculator.trampolineFields.first {
+                if let field = extensionSchemaCalculator.submessageOrEnumFields.first {
                     let resolver: String
                     switch field.kind {
                     case .message(let name):

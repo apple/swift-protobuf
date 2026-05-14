@@ -25,9 +25,11 @@ public struct UnknownStorage: Equatable, Sendable {
 
     /// The raw protocol buffer binary-encoded bytes that represent the unknown
     /// fields of a decoded message.
-    public private(set) var data = Data()
+    public private(set) var data: Data
 
-    public init() {}
+    public init() {
+        self.data = Data()
+    }
 
     package mutating func append(protobufData: Data) {
         data.append(protobufData)

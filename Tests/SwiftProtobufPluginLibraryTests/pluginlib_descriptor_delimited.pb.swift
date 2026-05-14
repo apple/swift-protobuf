@@ -78,24 +78,14 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
   /// Clears the value of `lengthPrefixedField`. Subsequent reads from it will return its default value.
   mutating func clearLengthPrefixedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 20), type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 4)) }
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get { _storage.unknownFields }
-    _modify {
-      _ = _uniqueStorage()
-      yield &_storage.unknownFields
-    }
-  }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  private var _storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema)
+  private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
-  func _protobuf_extensionStorageImpl() -> Swift.AnyObject { _storage.extensionStorage }
-  mutating func _protobuf_uniqueExtensionStorageImpl() -> Swift.AnyObject { _uniqueStorage().extensionStorage }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -103,7 +93,6 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
 extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
-  static let protoMessageName: Swift.String = _protobuf_package + ".EditionsMessageForDelimited"
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
   #elseif _pointerBitWidth(_32)
@@ -115,12 +104,12 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Generat
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.MessageSchema.TrampolineToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_MapFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_MessageMapFieldEntry)
     case 3: return .message(SwiftDescriptorTest_EditionsMessageForDelimited.messageSchema)
-    default: preconditionFailure("invalid trampoline token; this is a generator bug")
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   #if _pointerBitWidth(_64)

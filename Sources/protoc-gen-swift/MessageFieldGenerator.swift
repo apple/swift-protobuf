@@ -62,7 +62,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
     }
 
-    let trampolineFieldKind: TrampolineFieldKind?
+    let submessageOrEnumReference: SubmessageOrEnumReference?
 
     init(
         descriptor: FieldDescriptor,
@@ -94,20 +94,20 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         switch descriptor.type {
         case .group:
             let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-            trampolineFieldKind = .message(swiftSingularType)
+            submessageOrEnumReference = .message(swiftSingularType)
         case .message:
             if descriptor.isMap {
                 let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
-                trampolineFieldKind = .map(entrySchemaName)
+                submessageOrEnumReference = .map(entrySchemaName)
             } else {
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                trampolineFieldKind = .message(swiftSingularType)
+                submessageOrEnumReference = .message(swiftSingularType)
             }
         case .enum:
             let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-            trampolineFieldKind = .enum(swiftSingularType)
+            submessageOrEnumReference = .enum(swiftSingularType)
         default:
-            trampolineFieldKind = nil
+            submessageOrEnumReference = nil
         }
 
         super.init(descriptor: descriptor)

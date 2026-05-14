@@ -16,7 +16,7 @@
 public struct TextFormatEncodingOptions: Sendable {
 
     /// Default: Do print unknown fields using numeric notation
-    public var printUnknownFields: Bool = true
+    public var printUnknownFields: Bool
 
     /// The extension map to use when encoding messages that have been packed in a
     /// `google.protobuf.Any` message.
@@ -26,7 +26,10 @@ public struct TextFormatEncodingOptions: Sendable {
     /// requires parsing that packed message data in order to re-encode it, because
     /// unlike regular messages where the information about stored extensions is
     /// already in memory, parsing the binary data requires the extension map.
-    public var extensions: ExtensionMap? = nil
+    public var extensions: Optional<ExtensionMap>
 
-    public init() {}
+    public init() {
+        self.printUnknownFields = true
+        self.extensions = nil
+    }
 }
