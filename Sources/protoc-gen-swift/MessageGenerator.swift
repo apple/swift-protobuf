@@ -211,7 +211,9 @@ class MessageGenerator {
             "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {"
         )
         p.withIndentation { p in
-            if let parent = parent {
+            if generatorOptions.experimentalHiddenNames.contains(.types) {
+                p.print("\(visibility)static let protoMessageName: String = \"\"")
+            } else if let parent = parent {
                 p.print(
                     "\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\""
                 )
@@ -250,6 +252,10 @@ class MessageGenerator {
     }
 
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
+        if generatorOptions.experimentalHiddenNames.contains(.fields) {
+            p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
+            return
+        }
         var writer = ProtoNameInstructionWriter()
         for f in fieldsSortedByNumber {
             f.writeProtoNameInstruction(to: &writer)

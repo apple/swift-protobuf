@@ -166,6 +166,13 @@ class EnumGenerator {
     private func generateProtoNameProviding(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
+        if generatorOptions.experimentalHiddenNames.contains(.enumValues) {
+            p.print(
+                "\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()"
+            )
+            return
+        }
+
         var writer = ProtoNameInstructionWriter()
         for v in mainEnumValueDescriptorsSorted {
             if let aliases = aliasInfo.aliases(v) {
