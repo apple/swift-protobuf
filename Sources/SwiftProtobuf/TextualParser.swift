@@ -17,9 +17,24 @@
 protocol TextualParser {
     /// The tokenizer that is used by this parser.
     var tokenizer: Tokenizer { get set }
+
+    /// The remaining recursion budget for this parser.
+    var recursionBudget: Int { get set }
 }
 
 extension TextualParser {
+    /// Decrements the recursion budget, throwing an error if the budget is exceeded.
+    mutating func decrementRecursionBudget() throws {
+        recursionBudget -= 1
+        if recursionBudget < 0 {
+            throw parsingError(reason: "Message is too deep")
+        }
+    }
+
+    /// Increments the recursion budget.
+    mutating func incrementRecursionBudget() {
+        recursionBudget += 1
+    }
     /// Returns a value indicating whether the current token is of the given type, without consuming
     /// it.
     func at(_ kind: Token.Kind) -> Bool {

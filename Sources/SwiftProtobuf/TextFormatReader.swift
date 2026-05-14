@@ -17,11 +17,11 @@ import Foundation
 /// This type is a high-level wrapper around `TextFormatScanner`.
 struct TextFormatReader: TextualParser {
     var tokenizer: Tokenizer
+    var recursionBudget: Int
 
     private var messageSchema: MessageSchema
     private let options: TextFormatDecodingOptions
     private let extensions: ExtensionMap?
-    private var recursionBudget: Int
 
     var complete: Bool { tokenizer.current.kind == .end }
 
@@ -44,19 +44,6 @@ struct TextFormatReader: TextualParser {
         self.extensions = extensions
         self.options = options
         self.recursionBudget = options.messageDepthLimit
-    }
-
-    /// Decrements the recursion budget, throwing an error if the budget is exceeded.
-    private mutating func decrementRecursionBudget() throws {
-        recursionBudget -= 1
-        if recursionBudget < 0 {
-            throw parsingError(reason: "Message is too deep")
-        }
-    }
-
-    /// Increments the recursion budget.
-    private mutating func incrementRecursionBudget() {
-        recursionBudget += 1
     }
 
     /// Consumes a Boolean value from the tokenizer, which may be represented as an identifier or as

@@ -17,11 +17,11 @@ import Foundation
 /// This type is a high-level wrapper around `JSONScanner`.
 struct JSONReader: TextualParser {
     var tokenizer: Tokenizer
+    var recursionBudget: Int
 
     private var messageSchema: MessageSchema
     let options: JSONDecodingOptions
     let extensions: ExtensionMap?
-    private var recursionBudget: Int
 
     var complete: Bool { tokenizer.current.kind == .end }
 
@@ -45,19 +45,6 @@ struct JSONReader: TextualParser {
         self.extensions = extensions
         self.options = options
         self.recursionBudget = options.messageDepthLimit
-    }
-
-    /// Decrements the recursion budget, throwing an error if the budget is exceeded.
-    private mutating func decrementRecursionBudget() throws {
-        recursionBudget -= 1
-        if recursionBudget < 0 {
-            throw parsingError(reason: "Message is too deep")
-        }
-    }
-
-    /// Increments the recursion budget.
-    private mutating func incrementRecursionBudget() {
-        recursionBudget += 1
     }
 
     /// Consumes the next field or extension name (the latter including its square brackets) and
