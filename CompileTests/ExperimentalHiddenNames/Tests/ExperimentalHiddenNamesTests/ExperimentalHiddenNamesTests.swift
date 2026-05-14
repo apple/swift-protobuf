@@ -43,6 +43,7 @@ final class ExperimentalHiddenNamesTests: XCTestCase {
     func testTypes() {
         _ = ExperimentalHiddenNames_Types_MessageWithTypes()
         XCTAssertEqual(ExperimentalHiddenNames_Types_MessageWithTypes.protoMessageName, "")
+        XCTAssertFalse(Google_Protobuf_Any.register(messageType: ExperimentalHiddenNames_Types_MessageWithTypes.self))
     }
 
     func testAll() {

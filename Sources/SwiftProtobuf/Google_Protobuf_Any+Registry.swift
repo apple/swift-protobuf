@@ -126,6 +126,11 @@ extension Google_Protobuf_Any {
     ///   else was already registered for the messageName.
     @discardableResult public static func register(messageType: any Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
+        guard !messageTypeName.isEmpty else {
+            // If the message name was hidden during generation, we can't
+            // register the message.
+            return false
+        }
         var result: Bool = false
         execute(flags: .barrier) {
             if let alreadyRegistered = knownTypes.wrappedValue[messageTypeName] {
