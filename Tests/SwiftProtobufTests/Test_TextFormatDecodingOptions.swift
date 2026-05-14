@@ -38,12 +38,12 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }
-            } catch let error as TextualParsingError {
+            } catch let error as SwiftProtobufError {
                 if expectSuccess {
                     XCTFail("Decode failed because of limit, but should *NOT* have, limit: \(limit)")
                 } else {
                     // This is what was expected.
-                    XCTAssertEqual(error.message, "Message is too deep")
+                    XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
                 }
             } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")
@@ -66,9 +66,9 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         do {
             let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
     }
 
@@ -82,9 +82,9 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         do {
             let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)
@@ -680,7 +680,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 )
                 // If we get here, it should be the expected message.
                 XCTAssertEqual(msg, expected)
-            } catch is TextualParsingError {
+            } catch is SwiftProtobufError {
                 XCTFail("Unexpected malformedText - input: \(testCase)")
             } catch {
                 XCTFail("Unexpected error: \(error) - input: \(testCase)")
@@ -719,7 +719,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                     options: options
                 )
                 XCTAssertTrue(testCase.shouldPass, "\"\(testCase.text)\" passed but should have failed")
-            } catch is TextualParsingError {
+            } catch is SwiftProtobufError {
                 XCTAssertFalse(testCase.shouldPass, "\"\(testCase.text)\" failed but should have passed")
             } catch {
                 XCTFail("Unexpected error: \(error) - input: \(testCase)")
@@ -748,12 +748,12 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }
-            } catch let error as TextualParsingError {
+            } catch let error as SwiftProtobufError {
                 if expectSuccess {
                     XCTFail("Decode failed because of limit, but should *NOT* have, limit: \(limit)")
                 } else {
                     // This is what was expected.
-                    XCTAssertEqual(error.message, "Message is too deep")
+                    XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
                 }
             } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")

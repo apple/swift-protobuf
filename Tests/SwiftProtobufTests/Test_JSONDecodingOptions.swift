@@ -46,12 +46,12 @@ final class Test_JSONDecodingOptions: XCTestCase {
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
-                } catch let error as TextualParsingError {
+                } catch let error as SwiftProtobufError {
                     if expectSuccess {
                         XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
                     } else {
                         // This is what was expected.
-                        XCTAssertEqual(error.message, "Message is too deep")
+                        XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
                     }
                 } catch let e {
                     XCTFail("Decode failed (pass: \(i), limit: \(limit) with unexpected error: \(e)")
@@ -137,8 +137,10 @@ final class Test_JSONDecodingOptions: XCTestCase {
             do {
                 let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput)
                 XCTFail("Input \(i): Should not have gotten here! Input: \(jsonInput)")
-            } catch let error as TextualParsingError {
-                XCTAssertEqual(error.message, "Unknown field 'unknown' on 'swift_proto_testing.TestEmptyMessage'")
+            } catch let error as SwiftProtobufError {
+                XCTAssertTrue(
+                    error.message.hasSuffix(": Unknown field 'unknown' on 'swift_proto_testing.TestEmptyMessage'")
+                )
             } catch let e {
                 XCTFail("Input \(i): Error \(e) decoding into an empty message \(jsonInput)")
             }

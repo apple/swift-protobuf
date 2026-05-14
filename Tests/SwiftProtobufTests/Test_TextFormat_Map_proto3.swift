@@ -178,9 +178,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -198,9 +198,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -246,9 +246,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -269,9 +269,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains("Unknown field 'unknown'"))
+            XCTAssertTrue(error.message.contains(": Unknown field 'unknown'"))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -321,9 +321,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
@@ -343,9 +343,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 options: options
             )
             XCTFail("Should have failed")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }

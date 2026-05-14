@@ -75,12 +75,22 @@ extension Message {
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         if jsonString.isEmpty {
-            throw TextualParsingError(line: 0, column: 0, message: "JSON string must be nonempty")
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be nonempty",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
         if let data = jsonString.data(using: String.Encoding.utf8) {
             return try array(fromJSONUTF8Bytes: data, extensions: extensions, options: options)
         } else {
-            throw TextualParsingError(line: 0, column: 0, message: "JSON string must be valid UTF-8")
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be valid UTF-8",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
     }
 

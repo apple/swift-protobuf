@@ -18,6 +18,7 @@ import Foundation
 struct TextFormatReader: TextualParser {
     var tokenizer: Tokenizer
     var recursionBudget: Int
+    var errorCode: SwiftProtobufError.Code { .textFormatDecodingError }
 
     private var messageSchema: MessageSchema
     private let options: TextFormatDecodingOptions
@@ -36,7 +37,7 @@ struct TextFormatReader: TextualParser {
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 
-        var tokenizer = Tokenizer(buffer: buffer)
+        var tokenizer = Tokenizer(buffer: buffer, mode: .textFormat, errorCode: .textFormatDecodingError)
         try tokenizer.next()
 
         self.tokenizer = tokenizer
@@ -110,7 +111,7 @@ struct TextFormatReader: TextualParser {
         guard at(.integer) else {
             throw parsingError(expected: .integer)
         }
-        let value = try tokenizer.current.integerValue(upperBound: upperBound)
+        let value = try tokenizer.current.integerValue(upperBound: upperBound, errorCode: errorCode)
         _ = try tokenizer.next()
         return value
     }
@@ -254,7 +255,7 @@ struct TextFormatReader: TextualParser {
             return negative ? -value : value
 
         case .float:
-            let value = try tokenizer.current.floatValue()
+            let value = try tokenizer.current.floatValue(errorCode: errorCode)
             _ = try tokenizer.next()
             return negative ? -value : value
 
@@ -286,14 +287,14 @@ struct TextFormatReader: TextualParser {
 
         // Try to parse is as a UInt64 first.
         do {
-            let integerValue = try tokenizer.current.integerValue()
+            let integerValue = try tokenizer.current.integerValue(errorCode: errorCode)
             _ = try tokenizer.next()
             return Double(integerValue)
         } catch {
             // If the integer value is too large to fit in a UInt64, try parsing
             // it as a double instead.
         }
-        let doubleValue = try tokenizer.current.floatValue()
+        let doubleValue = try tokenizer.current.floatValue(errorCode: errorCode)
         _ = try tokenizer.next()
         return doubleValue
     }
@@ -307,7 +308,7 @@ struct TextFormatReader: TextualParser {
 
         var result = Data()
         while at(.string, .stringWithEscapes) {
-            let segment = try tokenizer.current.bytesValue(allowSurrogates: false)
+            let segment = try tokenizer.current.bytesValue(allowSurrogates: false, errorCode: errorCode)
             result.append(segment)
             _ = try tokenizer.next()
         }
@@ -323,7 +324,7 @@ struct TextFormatReader: TextualParser {
 
         var result = ""
         while at(.string, .stringWithEscapes) {
-            let segment = try tokenizer.current.stringValue(allowSurrogates: false)
+            let segment = try tokenizer.current.stringValue(allowSurrogates: false, errorCode: errorCode)
             result += segment
             _ = try tokenizer.next()
         }

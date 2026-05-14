@@ -57,18 +57,23 @@ package struct Tokenizer {
 
     /// The mode in which the tokenizer is operating, which determines whether certain kinds of
     /// tokens are allowed.
-    package var mode: Mode = .textFormat
+    let mode: Mode
+
+    /// The error code that will be reported for any parsing errors encountered by this tokenizer.
+    let errorCode: SwiftProtobufError.Code
 
     /// The number of columns to treat a tab character as.
     private static var tabWidth: Int { 8 }
 
     /// Creates a tokenizer that will tokenize the contents of the given buffer.
-    package init(buffer: UnsafeBufferPointer<UInt8>) {
+    package init(buffer: UnsafeBufferPointer<UInt8>, mode: Mode, errorCode: SwiftProtobufError.Code) {
         self.buffer = buffer
         self.currentIndex = 0
         self.nextIndex = 0
         self.current = .start
         self.previous = .start
+        self.mode = mode
+        self.errorCode = errorCode
 
         if nextIndex != buffer.count {
             currentChar = buffer[nextIndex]
@@ -124,10 +129,11 @@ package struct Tokenizer {
                             && tokenStartLine == current.line
                             && tokenStartColumn == current.endColumn
                         {
-                            throw TextualParsingError(
-                                line: line,
-                                column: column - 2,
-                                message: "A space is required between an identifier and a decimal point"
+                            throw SwiftProtobufError.parsingError(
+                                code: errorCode,
+                                message: "A space is required between an identifier and a decimal point",
+                                inputLine: line,
+                                inputColumn: column - 2
                             )
                         }
                         type = try consumeNumber(startedWithZero: false, startedWithDot: true)
@@ -206,8 +212,13 @@ package struct Tokenizer {
     }
 
     /// Returns a parsing error with the given message and the current position.
-    func makeError(_ message: String) -> TextualParsingError {
-        TextualParsingError(line: line, column: column, message: message)
+    func makeError(_ message: String) -> SwiftProtobufError {
+        SwiftProtobufError.parsingError(
+            code: errorCode,
+            message: message,
+            inputLine: line,
+            inputColumn: column
+        )
     }
 
     /// Tries to consume whitespace characters starting at the current position.
@@ -244,7 +255,7 @@ package struct Tokenizer {
     ///
     /// - Parameter delimiter: The character used to delimit the string (e.g., `"` or `'`).
     /// - Returns: The `Token.Kind` representing the consumed string.
-    /// - Throws: A `TextualParsingError` if the string is malformed.
+    /// - Throws: A `SwiftProtobufError` if the string is malformed.
     mutating func consumeString(delimiter: UInt8) throws -> Token.Kind {
         var hasEscapes = false
         while true {
@@ -307,7 +318,7 @@ package struct Tokenizer {
     ///   - startedWithZero: Whether the number started with a zero.
     ///   - startedWithDot: Whether the number started with a decimal point.
     /// - Returns: The `Token.Kind` representing the consumed number.
-    /// - Throws: A `TextualParsingError` if the number is malformed.
+    /// - Throws: A `SwiftProtobufError` if the number is malformed.
     private mutating func consumeNumber(startedWithZero: Bool, startedWithDot: Bool) throws -> Token.Kind {
         var isFloat = false
 
@@ -370,10 +381,15 @@ package struct Tokenizer {
 
     /// Consumes a symbol, checking for non-UTF-8 code units.
     ///
-    /// - Throws: A `TextualParsingError` if the symbol contains non-UTF-8 code units.
+    /// - Throws: A `SwiftProtobufError` if the symbol contains non-UTF-8 code units.
     private mutating func consumeSymbol() throws {
         if let c = currentChar, (c & 0x80) != 0 {
-            throw TextualParsingError(line: line, column: column, message: "Non-UTF-8 code unit \(c)")
+            throw SwiftProtobufError.parsingError(
+                code: errorCode,
+                message: "Non-UTF-8 code unit \(c)",
+                inputLine: line,
+                inputColumn: column
+            )
         }
         advance()
     }
@@ -420,7 +436,7 @@ package struct Tokenizer {
     /// - Parameters:
     ///   - predicate: The predicate to apply to the current character.
     ///   - error: The error message to use if the predicate is not satisfied.
-    /// - Throws: A `TextualParsingError` if the predicate is not satisfied.
+    /// - Throws: A `SwiftProtobufError` if the predicate is not satisfied.
     private mutating func consumeOneOrMore(_ predicate: (UInt8) -> Bool, _ error: String) throws {
         guard lookingAt(predicate) else {
             throw makeError(error)
@@ -675,7 +691,10 @@ package struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid integer or if it is greater than the
     ///   provided upper bound.
-    package func integerValue(upperBound: UInt64 = UInt64.max) throws -> UInt64 {
+    package func integerValue(
+        upperBound: UInt64 = UInt64.max,
+        errorCode: SwiftProtobufError.Code
+    ) throws -> UInt64 {
         var string = self.exactString
         var radix = 10
         if string.hasPrefix("0x") || string.hasPrefix("0X") {
@@ -686,10 +705,11 @@ package struct Token: Equatable {
             radix = 8
         }
         guard let val = UInt64(string, radix: radix), val <= upperBound else {
-            throw TextualParsingError(
-                line: line,
-                column: column,
-                message: "Expected an integer no larger than \(upperBound)"
+            throw SwiftProtobufError.parsingError(
+                code: errorCode,
+                message: "Expected an integer no larger than \(upperBound)",
+                inputLine: line,
+                inputColumn: column
             )
         }
         return val
@@ -698,7 +718,7 @@ package struct Token: Equatable {
     /// Returns the floating point value of the token.
     ///
     /// - Throws: An error if the token is not a valid floating point number.
-    package func floatValue() throws -> Double {
+    package func floatValue(errorCode: SwiftProtobufError.Code) throws -> Double {
         var string = self.exactString
         if string.lowercased().hasSuffix("f") {
             string.removeLast()
@@ -711,10 +731,11 @@ package struct Token: Equatable {
         {
             return baseVal
         }
-        throw TextualParsingError(
-            line: line,
-            column: column,
-            message: "Expected a floating point number"
+        throw SwiftProtobufError.parsingError(
+            code: errorCode,
+            message: "Expected a floating point number",
+            inputLine: line,
+            inputColumn: column
         )
     }
 
@@ -722,12 +743,17 @@ package struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid UTF-8 string of if it contained surrogates
     ///   when they were not allowed.
-    package func stringValue(allowSurrogates: Bool) throws -> String {
+    package func stringValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> String {
         guard text.count >= 2 else { return "" }
         let content = UnsafeBufferPointer(rebasing: text[1..<text.count - 1])
 
-        func utf8Error() -> TextualParsingError {
-            TextualParsingError(line: line, column: column, message: "Invalid UTF-8 in string")
+        func utf8Error() -> SwiftProtobufError {
+            SwiftProtobufError.parsingError(
+                code: errorCode,
+                message: "Invalid UTF-8 in string",
+                inputLine: line,
+                inputColumn: column
+            )
         }
 
         var result = String.UnicodeScalarView()
@@ -746,7 +772,7 @@ package struct Token: Equatable {
         } else {
             // If it had escapes, `bytesValue` will resolve them and then we can decode
             // the resulting bytes as UTF-8.
-            let bytes = try bytesValue(allowSurrogates: allowSurrogates)
+            let bytes = try bytesValue(allowSurrogates: allowSurrogates, errorCode: errorCode)
             hadErrors = transcode(
                 bytes.makeIterator(),
                 from: UTF8.self,
@@ -767,7 +793,7 @@ package struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid UTF-8 string or if it contained surrogates
     ///   when they were not allowed.
-    package func bytesValue(allowSurrogates: Bool) throws -> Data {
+    package func bytesValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> Data {
         guard text.count >= 2 else { return Data() }
         let content = UnsafeBufferPointer(rebasing: text[1..<text.count - 1])
 
@@ -775,8 +801,13 @@ package struct Token: Equatable {
             return Data(buffer: content)
         }
 
-        func makeError(_ reason: String) -> TextualParsingError {
-            TextualParsingError(line: line, column: column, message: reason)
+        func makeError(_ reason: String) -> SwiftProtobufError {
+            SwiftProtobufError.parsingError(
+                code: errorCode,
+                message: reason,
+                inputLine: line,
+                inputColumn: column
+            )
         }
 
         var outputBytes = Data()

@@ -41,9 +41,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -62,9 +62,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -83,9 +83,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -105,9 +105,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -128,9 +128,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -149,9 +149,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -170,9 +170,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -191,9 +191,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -212,9 +212,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -258,9 +258,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         // Since unknowns are limited to a depth of 10, we should be able to since the inner most
@@ -275,9 +275,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             decodeIgnoreAllUnknownsWithDepthLimit.messageDepthLimit = 5
             let _ = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknownsWithDepthLimit)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertEqual(error.message, "Message is too deep")
+            XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
         }
 
         let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
@@ -293,9 +293,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -314,9 +314,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -367,17 +367,17 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         do {
             let _ = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertEqual(error.message, "Message is too deep")
+            XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
         }
 
         let textWithoutUnknowns = msg.textFormatString(options: encodeWithoutUnknowns)
@@ -393,9 +393,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            XCTAssertTrue(error.message.contains(#/Unknown (field|extension)/#))
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg2 = try MessageTestType(textFormatString: text, options: decodeIgnoreAllUnknowns)  // Shouldn't throw
@@ -423,9 +423,8 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: "1536870911: 1", options: opts)
             XCTFail("Shouldn't get here")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
-            print(error)
         } catch {
             XCTFail("Unexpected error: \(error)")
         }

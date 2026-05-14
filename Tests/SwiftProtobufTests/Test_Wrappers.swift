@@ -25,9 +25,9 @@ final class Test_Wrappers: XCTestCase {
         do {
             _ = try type.init(jsonString: "null")
             XCTFail("Expected decode to throw .illegalNull, but it succeeded")
-        } catch let error as TextualParsingError {
+        } catch let error as SwiftProtobufError {
             // This is the expected error.
-            XCTAssertEqual(error.message, "null is not allowed here")
+            XCTAssertTrue(error.message.hasSuffix(": null is not allowed here"))
         } catch {
             XCTFail("Expected decode to throw .illegalNull, but instead it threw: \(error)")
         }

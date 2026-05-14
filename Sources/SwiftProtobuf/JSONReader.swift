@@ -18,6 +18,7 @@ import Foundation
 struct JSONReader: TextualParser {
     var tokenizer: Tokenizer
     var recursionBudget: Int
+    var errorCode: SwiftProtobufError.Code { .jsonDecodingError }
 
     private var messageSchema: MessageSchema
     let options: JSONDecodingOptions
@@ -36,8 +37,7 @@ struct JSONReader: TextualParser {
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 
-        var tokenizer = Tokenizer(buffer: buffer)
-        tokenizer.mode = .json
+        var tokenizer = Tokenizer(buffer: buffer, mode: .json, errorCode: .jsonDecodingError)
         try tokenizer.next()
 
         self.tokenizer = tokenizer
@@ -80,7 +80,7 @@ struct JSONReader: TextualParser {
     /// Consumes a Boolean value from the tokenizer, which may be represented as an identifier or as
     /// a numeric value.
     mutating func consumeBool(asQuotedString: Bool = false) throws -> Bool {
-        func valueError() -> TextualParsingError {
+        func valueError() -> SwiftProtobufError {
             return parsingError(expected: "true or false")
         }
 
@@ -89,7 +89,7 @@ struct JSONReader: TextualParser {
             guard at(.string, .stringWithEscapes) else {
                 throw valueError()
             }
-            let value = try tokenizer.current.stringValue(allowSurrogates: false)
+            let value = try tokenizer.current.stringValue(allowSurrogates: false, errorCode: errorCode)
             _ = try tokenizer.next()
             switch value {
             case "true": return true
@@ -118,7 +118,7 @@ struct JSONReader: TextualParser {
             throw parsingError(expected: "a string value")
         }
 
-        let string = try tokenizer.current.stringValue(allowSurrogates: false)
+        let string = try tokenizer.current.stringValue(allowSurrogates: false, errorCode: errorCode)
         _ = try tokenizer.next()
         return try decodeBase64(from: string)
     }
@@ -178,7 +178,7 @@ struct JSONReader: TextualParser {
         if at(.float) {
             // Floating-point numbers are allowed as long as they correspond exactly to an integer
             // value.
-            let value = try tokenizer.current.floatValue()
+            let value = try tokenizer.current.floatValue(errorCode: errorCode)
             _ = try tokenizer.next()
             guard let result = UInt64(exactly: value), result <= upperBound else {
                 throw parsingError(reason: "Expected an integer in 0...\(upperBound)")
@@ -190,7 +190,7 @@ struct JSONReader: TextualParser {
         guard at(.integer) else {
             throw parsingError(expected: .integer)
         }
-        let value = try tokenizer.current.integerValue(upperBound: upperBound)
+        let value = try tokenizer.current.integerValue(upperBound: upperBound, errorCode: errorCode)
         _ = try tokenizer.next()
         return value
     }
@@ -202,7 +202,7 @@ struct JSONReader: TextualParser {
     ///   - upperBound: The maximum value of the integer to consume. If the integer is
     ///     greater than `upperBound`, an error will be thrown.
     private mutating func parseUnsignedInteger(from string: Substring, upperBound: UInt64) throws -> UInt64 {
-        func valueError() -> TextualParsingError {
+        func valueError() -> SwiftProtobufError {
             parsingError(reason: "Expected an integer in 0...\(upperBound)")
         }
 
@@ -263,9 +263,9 @@ struct JSONReader: TextualParser {
     /// Parses a floating-point number from a string using the system's `strtod` function.
     ///
     /// - Parameter string: The string to parse.
-    /// - Throws: `TextualParsingError` if the string does not represent a valid floating-point number.
+    /// - Throws: `SwiftProtobufError` if the string does not represent a valid floating-point number.
     private func parseDoubleRaw(_ string: Substring) throws -> Double {
-        func valueError() -> TextualParsingError {
+        func valueError() -> SwiftProtobufError {
             parsingError(reason: "Invalid floating point value")
         }
         
@@ -310,7 +310,7 @@ struct JSONReader: TextualParser {
             throw parsingError(expected: "a string value")
         }
 
-        let string = try tokenizer.current.stringValue(allowSurrogates: true)
+        let string = try tokenizer.current.stringValue(allowSurrogates: true, errorCode: errorCode)
         _ = try tokenizer.next()
         return string
     }
@@ -353,7 +353,7 @@ struct JSONReader: TextualParser {
             return try throwIfNotFinite(negative ? -value : value)
 
         case .float:
-            let value = try tokenizer.current.floatValue()
+            let value = try tokenizer.current.floatValue(errorCode: errorCode)
             _ = try tokenizer.next()
             return try throwIfNotFinite(negative ? -value : value)
 
@@ -373,14 +373,14 @@ struct JSONReader: TextualParser {
 
         // Try to parse is as a UInt64 first.
         do {
-            let integerValue = try tokenizer.current.integerValue()
+            let integerValue = try tokenizer.current.integerValue(errorCode: errorCode)
             _ = try tokenizer.next()
             return try throwIfNotFinite(Double(integerValue))
         } catch {
             // If the integer value is too large to fit in a UInt64, try parsing
             // it as a double instead.
         }
-        let doubleValue = try tokenizer.current.floatValue()
+        let doubleValue = try tokenizer.current.floatValue(errorCode: errorCode)
         _ = try tokenizer.next()
         return try throwIfNotFinite(doubleValue)
     }
@@ -412,7 +412,7 @@ struct JSONReader: TextualParser {
     /// - Returns: The raw value of the enum, or `nil` if the value is not valid and unknown
     ///   fields are being ignored.
     mutating func consumeEnumValue(schema: EnumSchema) throws -> Int32? {
-        func valueError() -> TextualParsingError {
+        func valueError() -> SwiftProtobufError {
             return parsingError(expected: "a valid enum value for \(schema.enumName)")
         }
 

@@ -20,6 +20,9 @@ protocol TextualParser {
 
     /// The remaining recursion budget for this parser.
     var recursionBudget: Int { get set }
+
+    /// The error code that should be associated with any errors thrown by this parser.
+    var errorCode: SwiftProtobufError.Code { get }
 }
 
 extension TextualParser {
@@ -92,15 +95,15 @@ extension TextualParser {
         return true
     }
 
-    /// Creates and returns a `TextualParsingError` describing that a token of one of the expected
+    /// Creates and returns a `SwiftProtobufError` describing that a token of one of the expected
     /// kinds was not found.
-    func parsingError(expected: Token.Kind...) -> TextualParsingError {
+    func parsingError(expected: Token.Kind...) -> SwiftProtobufError {
         parsingError(expected: expected)
     }
 
-    /// Creates and returns a `TextualParsingError` describing that a token of one of the expected
+    /// Creates and returns a `SwiftProtobufError` describing that a token of one of the expected
     /// kinds was not found.
-    func parsingError(expected: [Token.Kind]) -> TextualParsingError {
+    func parsingError(expected: [Token.Kind]) -> SwiftProtobufError {
         assert(!expected.isEmpty)
         let expectation =
             if expected.count == 1 {
@@ -111,36 +114,38 @@ extension TextualParser {
         return parsingError(expected: expectation)
     }
 
-    /// Creates and returns a `TextualParsingError` describing that the token was not what was
+    /// Creates and returns a `SwiftProtobufError` describing that the token was not what was
     /// expected.
     ///
     /// - Parameters:
     ///   - expected: A human-readable description of the token(s) that were expected.
     ///   - token: The token that was actually found, or `nil` to use the current token. The
     ///     location of this token will be associated with the error.
-    func parsingError(expected: String, at token: Token? = nil) -> TextualParsingError {
+    func parsingError(expected: String, at token: Token? = nil) -> SwiftProtobufError {
         let token = token ?? tokenizer.current
         let actual = String(decoding: token.text, as: UTF8.self)
-        return TextualParsingError(
-            line: token.line,
-            column: token.column,
-            message: "Expected \(expected) but found '\(actual)'"
+        return SwiftProtobufError.parsingError(
+            code: errorCode,
+            message: "Expected \(expected) but found '\(actual)'",
+            inputLine: token.line,
+            inputColumn: token.column
         )
     }
 
-    /// Creates and returns a `TextualParsingError` describing some failing condition described by
+    /// Creates and returns a `SwiftProtobufError` describing some failing condition described by
     /// the given reason.
     ///
     /// - Parameters:
     ///   - reason: A human-readable description of the failing condition.
     ///   - token: The token that was found when the condition was detected, or `nil` to use the
     ///     current token. The location of this token will be associated with the error.
-    func parsingError(reason: String, at token: Token? = nil) -> TextualParsingError {
+    func parsingError(reason: String, at token: Token? = nil) -> SwiftProtobufError {
         let token = token ?? tokenizer.current
-        return TextualParsingError(
-            line: token.line,
-            column: token.column,
-            message: reason
+        return SwiftProtobufError.parsingError(
+            code: errorCode,
+            message: reason,
+            inputLine: token.line,
+            inputColumn: token.column
         )
     }
 
@@ -151,18 +156,6 @@ extension TextualParser {
         tokenizer.allowURLCharacters = true
         defer { tokenizer.allowURLCharacters = oldValue }
         return try body(&self)
-    }
-}
-
-/// The error thrown by TextFormat and JSON parsers that indicates where and what kind of error
-/// occurred.
-package struct TextualParsingError: Error, CustomStringConvertible {
-    package let line: Int
-    package let column: Int
-    package let message: String
-
-    package var description: String {
-        "\(line + 1):\(column + 1): \(message)"
     }
 }
 
