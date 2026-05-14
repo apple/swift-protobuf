@@ -718,7 +718,7 @@ package struct ExtensibilityMode: RawRepresentable, Equatable, Hashable, Sendabl
     package static var messageSet: Self { .init(rawValue: 0b110_0000) }
 
     /// The bitmask used to isolate the extensibility mode in the schema representation.
-    package static let bitMask: UInt8 = 0b0110_0000
+    package static var bitMask: UInt8 { 0b0110_0000 }
 
     package let rawValue: UInt8
 
