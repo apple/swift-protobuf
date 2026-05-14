@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package experimental_hidden_names.all;
+
+message MessageWithAll {
+  string full_text = 1;
+  EnumInAll enum_val = 2;
+}
+
+enum EnumInAll {
+  DEFAULT_VALUE = 0;
+  OTHER_VALUE = 1;
+}

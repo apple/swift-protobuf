@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package experimental_hidden_names.fields;
+
+message MessageWithFields {
+  string text_value = 1;
+  int32 number_value = 2;
+}

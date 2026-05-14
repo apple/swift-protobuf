@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package experimental_hidden_names.enum_values;
+
+enum EnumWithValues {
+  UNKNOWN = 0;
+  FIRST = 1;
+  SECOND = 2;
+}
+
+message MessageWithEnum {
+  EnumWithValues value = 1;
+}

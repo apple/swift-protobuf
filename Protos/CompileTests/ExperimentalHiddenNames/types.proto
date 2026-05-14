@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package experimental_hidden_names.types;
+
+message MessageWithTypes {
+  string some_string = 1;
+}

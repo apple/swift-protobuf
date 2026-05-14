@@ -239,6 +239,27 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
+	@mkdir -p _test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/types.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 	diff -ru Reference _test
 
 # Test the SPM plugin.
@@ -248,7 +269,8 @@ test-spm-plugin:
 compile-tests: \
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
-	compile-tests-nonisolateddeclarations
+	compile-tests-nonisolateddeclarations \
+	compile-tests-experimentalhiddennames
 
 # Test that ensures generating public into multiple modules with `import public`
 # yields buildable code.
@@ -264,6 +286,10 @@ compile-tests-internalimportsbydefault:
 # target that has `.defaultIsolation(MainActor.self)`.
 compile-tests-nonisolateddeclarations:
 	${SWIFT} build --package-path CompileTests/NonisolatedDeclarations
+
+# Test that generated code with the `ExperimentalHiddenNames` option compiles and behaves correctly.
+compile-tests-experimentalhiddennames:
+	${SWIFT} test --package-path CompileTests/ExperimentalHiddenNames
 
 # Ensure all the the different traits compile correct.
 # NOTE: Not currently part of the regular "check" target.
@@ -330,6 +356,27 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=Reference/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
+	@mkdir -p Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/types.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -585,7 +632,8 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 regenerate-compiletests-protos: \
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
-	copy-compiletests-nonisolateddeclarations-protos
+	copy-compiletests-nonisolateddeclarations-protos \
+	regenerate-compiletests-experimentalhiddennames-protos
 
 # Update the CompileTests/MultiModule files.
 # NOTE: Any changes here must also be done on the "test-plugin" target so it
@@ -610,6 +658,31 @@ copy-compiletests-internalimportsbydefault-protos:
 # simply copies those files to the NonisolatedDeclarations package in case they change.
 copy-compiletests-nonisolateddeclarations-protos:
 	@cp Protos/CompileTests/NonisolatedDeclarations/* CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos
+
+# Regenerate the CompileTests/ExperimentalHiddenNames files.
+regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
+	find CompileTests/ExperimentalHiddenNames -name "*.pb.swift" -exec rm -f {} \;
+	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/types.proto
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/ExperimentalHiddenNames \
+		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
