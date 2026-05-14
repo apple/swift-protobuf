@@ -25,23 +25,23 @@ final class Test_GeneratorOptions: XCTestCase {
 
     func testExperimentalHiddenNames() throws {
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "fields")]))
+            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields")]))
             XCTAssertEqual(options.experimentalHiddenNames, .fields)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "enumValues")]))
+            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "EnumValues")]))
             XCTAssertEqual(options.experimentalHiddenNames, .enumValues)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "types")]))
+            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Types")]))
             XCTAssertEqual(options.experimentalHiddenNames, .types)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "all")]))
+            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "All")]))
             XCTAssertEqual(options.experimentalHiddenNames, .all)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "fields,types")]))
+            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields,Types")]))
             XCTAssertEqual(options.experimentalHiddenNames, [.fields, .types])
         }
         XCTAssertThrowsError(

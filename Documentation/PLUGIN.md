@@ -242,13 +242,13 @@ protoc --swift_opt=ExperimentalHiddenNames=[values] --swift_out=. foo/bar/*.prot
 
 This option accepts a comma-delimited list of features to hide:
 
-*   `fields`: Suppresses the runtime `_NameMap` for message fields. Serializing to JSON will fail.
+*   `Fields`: Suppresses the runtime `_NameMap` for message fields. Serializing to JSON will fail.
     TextFormat serialization falls back to printing numeric field tags.
-*   `enumValues`: Suppresses the runtime `_NameMap` for enum cases. Serializing to JSON or
+*   `EnumValues`: Suppresses the runtime `_NameMap` for enum cases. Serializing to JSON or
     TextFormat falls back to outputting raw numeric integer values.
-*   `types`: Sets the `protoMessageName` and `_protobuf_package` properties to empty strings.
+*   `Types`: Sets the `protoMessageName` and `_protobuf_package` properties to empty strings.
     Registering affected types in the `Google_Protobuf_Any` registry will safely fail.
-*   `all`: A shorthand equivalent to enabling `fields`, `enumValues`, and `types`.
+*   `All`: A shorthand equivalent to enabling `Fields`, `EnumValues`, and `Types`.
 
 ### Building your project
 

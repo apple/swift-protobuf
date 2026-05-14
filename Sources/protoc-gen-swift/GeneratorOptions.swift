@@ -99,13 +99,13 @@ package class GeneratorOptions {
             var options: ExperimentalHiddenNames = []
             for part in flag.split(separator: ",") {
                 switch part.trimmingCharacters(in: .whitespaces) {
-                case "fields":
+                case "Fields":
                     options.insert(.fields)
-                case "enumValues":
+                case "EnumValues":
                     options.insert(.enumValues)
-                case "types":
+                case "Types":
                     options.insert(.types)
-                case "all":
+                case "All":
                     options.insert(.all)
                 default:
                     return nil

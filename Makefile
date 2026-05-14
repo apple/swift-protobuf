@@ -665,22 +665,22 @@ regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT
 	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_opt=ExperimentalHiddenNames=Fields \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_opt=ExperimentalHiddenNames=Types \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/types.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_opt=ExperimentalHiddenNames=All \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 
