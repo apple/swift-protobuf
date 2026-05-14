@@ -54,13 +54,15 @@ struct TextFormatReader: TextualParser {
         case .integer:
             return try consumeUnsignedInteger(upperBound: 1) == 1
         case .identifier:
+            // Save the token we just peeked at before consuming it.
+            let booleanToken = tokenizer.current
             switch try consumeIdentifier() {
             case "t", "true", "True":
                 return true
             case "f", "false", "False":
                 return false
             default:
-                throw parsingError(expected: "a Boolean value", at: tokenizer.previous)
+                throw parsingError(expected: "a Boolean value", at: booleanToken)
             }
         default:
             throw parsingError(expected: [.integer, .identifier])
@@ -355,6 +357,7 @@ struct TextFormatReader: TextualParser {
     /// in square brackets. If we detect the square bracket, we delegate to the given closure to
     /// scan and append the value until we encounter the corresponding closing bracket. Otherwise,
     /// we call the closure only once to scan and append an individual value.
+    @inline(__always)
     mutating func consumePossibleArray(
         consumeValue: (inout TextFormatReader) throws -> Void
     ) throws {
@@ -499,6 +502,7 @@ struct TextFormatReader: TextualParser {
     ///   - expectedSchema: The `MessageSchema` of the message that we are expecting to read, from
     ///     which the name map will be retrieved.
     ///   - body: A closure that will be executed within the context of the sub-reader.
+    @inline(__always)
     mutating func withReaderForNextObject(
         expectedSchema: MessageSchema,
         _ body: (inout TextFormatReader) throws -> Void

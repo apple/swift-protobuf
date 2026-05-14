@@ -449,6 +449,7 @@ struct JSONReader: TextualParser {
     /// - Parameters:
     ///   - consumeKeyAndValue: A closure that will be called for each key and value in the object.
     ///   - ifEmpty: A closure that will be called if the object is empty.
+    @inline(__always)
     mutating func consumeObject(
         consumeKeyAndValue: (inout JSONReader) throws -> Void,
         ifEmpty: () -> Void = {}
@@ -478,6 +479,7 @@ struct JSONReader: TextualParser {
     /// - Parameter impactsRecursionDepth: Whether consuming the array should impact the recursion
     ///   depth. Used when processing the direct array representation of
     ///   `google.protobuf.ListValue` to ensure that deeply nested lists can't exceed the depth.
+    @inline(__always)
     mutating func consumeArray(
         impactsRecursionDepth: Bool = false,
         consumeValue: (inout JSONReader) throws -> Void

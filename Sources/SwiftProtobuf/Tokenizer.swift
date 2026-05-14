@@ -23,13 +23,12 @@ package struct Tokenizer {
     private(set) var currentIndex: Int
     private var nextIndex: Int
 
-    fileprivate var line: Int = 0
-    fileprivate var column: Int = 0
+    fileprivate var line: Int
+    fileprivate var column: Int
 
     private var currentChar: UInt8?
 
     package private(set) var current: Token
-    package private(set) var previous: Token
 
     /// The offset of the current token within the buffer.
     var currentOffset: Int {
@@ -45,7 +44,7 @@ package struct Tokenizer {
     ///
     /// This is used when parsing extension field names in TextFormat, which allow URL symbols as
     /// part of a bare identifier.
-    var allowURLCharacters = false
+    var allowURLCharacters: Bool
 
     /// The mode in which the tokenizer is operating.
     package enum Mode {
@@ -70,10 +69,12 @@ package struct Tokenizer {
         self.buffer = buffer
         self.currentIndex = 0
         self.nextIndex = 0
+        self.line = 0
+        self.column = 0
         self.current = .start
-        self.previous = .start
         self.mode = mode
         self.errorCode = errorCode
+        self.allowURLCharacters = false
 
         if nextIndex != buffer.count {
             currentChar = buffer[nextIndex]
@@ -89,8 +90,6 @@ package struct Tokenizer {
     /// current and previous tokens, respectively.
     @discardableResult
     package mutating func next() throws -> Bool {
-        previous = current
-
         while true {
             if tryConsumeWhitespace() || tryConsumeComment() {
                 continue
@@ -756,37 +755,23 @@ package struct Token: Equatable {
             )
         }
 
-        var result = String.UnicodeScalarView()
-        let hadErrors: Bool
-
         if self.kind == .string {
             // No escapes, so we can just decode it directly.
-            hadErrors = transcode(
-                content.makeIterator(),
-                from: UTF8.self,
-                to: UTF32.self,
-                stoppingOnError: true
-            ) { codeUnit in
-                result.append(UnicodeScalar(codeUnit)!)
+            guard let str = utf8ToString(bytes: content.baseAddress!, count: content.count) else {
+                throw utf8Error()
             }
+            return str
         } else {
             // If it had escapes, `bytesValue` will resolve them and then we can decode
             // the resulting bytes as UTF-8.
             let bytes = try bytesValue(allowSurrogates: allowSurrogates, errorCode: errorCode)
-            hadErrors = transcode(
-                bytes.makeIterator(),
-                from: UTF8.self,
-                to: UTF32.self,
-                stoppingOnError: true
-            ) { codeUnit in
-                result.append(UnicodeScalar(codeUnit)!)
+            return try bytes.withUnsafeBytes { rawBuffer in
+                guard let str = utf8ToString(bytes: rawBuffer.baseAddress!, count: rawBuffer.count) else {
+                    throw utf8Error()
+                }
+                return str
             }
         }
-
-        guard !hadErrors else {
-            throw utf8Error()
-        }
-        return String(result)
     }
 
     /// Returns the bytes value of the token.
@@ -811,6 +796,10 @@ package struct Token: Equatable {
         }
 
         var outputBytes = Data()
+        // We know the output bytes will be no larger than the input bytes, so reserve that much to
+        // avoid reallocations.
+        outputBytes.reserveCapacity(content.count)
+
         var index = 0
         var highSurrogate: Int? = nil
 
