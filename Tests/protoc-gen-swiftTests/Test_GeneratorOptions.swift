@@ -10,11 +10,10 @@
 
 import SwiftProtobufPluginLibrary
 import XCTest
-
-@testable import protoc_gen_swift
+import protoc_gen_swift
 
 final class Test_GeneratorOptions: XCTestCase {
-    private struct MockParameter: CodeGeneratorParameter {
+    private struct FakeParameter: CodeGeneratorParameter {
         let parameter: String
         let parsedPairs: [(key: String, value: String)]
 
@@ -26,31 +25,31 @@ final class Test_GeneratorOptions: XCTestCase {
 
     func testExperimentalHiddenNames() throws {
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields")]))
+            let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "Fields")]))
             XCTAssertEqual(options.experimentalHiddenNames, .fields)
         }
         do {
             let options = try GeneratorOptions(
-                parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "EnumValues")])
+                parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "EnumValues")])
             )
             XCTAssertEqual(options.experimentalHiddenNames, .enumValues)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Types")]))
+            let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "Types")]))
             XCTAssertEqual(options.experimentalHiddenNames, .types)
         }
         do {
-            let options = try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "All")]))
+            let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "All")]))
             XCTAssertEqual(options.experimentalHiddenNames, .all)
         }
         do {
             let options = try GeneratorOptions(
-                parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "Fields,Types")])
+                parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "Fields,Types")])
             )
             XCTAssertEqual(options.experimentalHiddenNames, [.fields, .types])
         }
         XCTAssertThrowsError(
-            try GeneratorOptions(parameter: MockParameter(pairs: [("ExperimentalHiddenNames", "unknownFeature")]))
+            try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "unknownFeature")]))
         )
     }
 }

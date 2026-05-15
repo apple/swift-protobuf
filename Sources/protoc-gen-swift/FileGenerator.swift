@@ -224,11 +224,10 @@ class FileGenerator {
                 "",
                 "// MARK: - Code below here is support for the SwiftProtobuf runtime."
             )
-            if needsProtoPackage {
-                let packageStr = generatorOptions.experimentalHiddenNames.contains(.types) ? "" : protoPackage
+            if needsProtoPackage && !generatorOptions.experimentalHiddenNames.contains(.types) {
                 p.print(
                     "",
-                    "fileprivate nonisolated let _protobuf_package = \"\(packageStr)\""
+                    "fileprivate nonisolated let _protobuf_package = \"\(protoPackage)\""
                 )
             }
             for e in enums {

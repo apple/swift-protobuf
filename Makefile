@@ -242,22 +242,22 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@mkdir -p _test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_opt=ExperimentalHiddenNames=Fields \
 		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
 		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_opt=ExperimentalHiddenNames=Types \
 		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/types.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_opt=ExperimentalHiddenNames=All \
 		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 	diff -ru Reference _test
@@ -359,22 +359,22 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@mkdir -p Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=fields \
+		--tfiws_opt=ExperimentalHiddenNames=Fields \
 		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=enumValues \
+		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
 		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=types \
+		--tfiws_opt=ExperimentalHiddenNames=Types \
 		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/types.proto
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=all \
+		--tfiws_opt=ExperimentalHiddenNames=All \
 		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 

@@ -121,7 +121,7 @@ package class GeneratorOptions {
     let visibility: Visibility
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
-    let experimentalHiddenNames: ExperimentalHiddenNames
+    package let experimentalHiddenNames: ExperimentalHiddenNames
 
     // The Swift compiler may fail when checking whether large switch statements
     // are exhaustive. See
@@ -145,7 +145,7 @@ package class GeneratorOptions {
         }
     }
 
-    init(parameter: any CodeGeneratorParameter) throws {
+    package init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
         var enumGeneration: EnumGeneration = .none
         var moduleMapPath: String?
