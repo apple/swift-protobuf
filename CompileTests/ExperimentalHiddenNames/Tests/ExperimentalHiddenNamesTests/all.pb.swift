@@ -70,8 +70,6 @@ nonisolated struct ExperimentalHiddenNames_All_MessageWithAll: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate nonisolated let _protobuf_package = ""
-
 nonisolated extension ExperimentalHiddenNames_All_EnumInAll: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 }

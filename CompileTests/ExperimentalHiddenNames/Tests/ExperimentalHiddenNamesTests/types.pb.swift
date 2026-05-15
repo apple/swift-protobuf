@@ -34,8 +34,6 @@ nonisolated struct ExperimentalHiddenNames_Types_MessageWithTypes: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate nonisolated let _protobuf_package = ""
-
 nonisolated extension ExperimentalHiddenNames_Types_MessageWithTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ""
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}some_string\0")
