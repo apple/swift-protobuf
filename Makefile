@@ -219,47 +219,13 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  --tfiws_out=_test/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
-	@mkdir -p _test/CompileTests/MultiModule
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/MultiModule \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
-		--tfiws_out=_test/CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
-	@mkdir -p _test/CompileTests/InternalImportsByDefault
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/InternalImportsByDefault \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=UseAccessLevelOnImports=true \
-		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
-		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/protoc-gen-swiftTests \
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
-	@mkdir -p _test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Fields \
-		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
-		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Types \
-		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/types.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=All \
-		--tfiws_out=_test/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 	diff -ru Reference _test
 
 # Test the SPM plugin.
@@ -336,47 +302,13 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  --tfiws_out=Reference/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
-	@mkdir -p Reference/CompileTests/MultiModule
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/MultiModule \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
-		--tfiws_out=Reference/CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
-	@mkdir -p Reference/CompileTests/InternalImportsByDefault
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/InternalImportsByDefault \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=UseAccessLevelOnImports=true \
-		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
-		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p Reference/Tests/protoc-gen-swiftTests/NonExhaustive
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/protoc-gen-swiftTests \
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=Reference/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
-	@mkdir -p Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Fields \
-		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
-		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Types \
-		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/types.proto
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=All \
-		--tfiws_out=Reference/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/all.proto
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -636,8 +568,9 @@ regenerate-compiletests-protos: \
 	regenerate-compiletests-experimentalhiddennames-protos
 
 # Update the CompileTests/MultiModule files.
-# NOTE: Any changes here must also be done on the "test-plugin" target so it
-# generates in the same way.
+#
+# Most of the CompileTests use the plugin, but this feature is Experimental and not
+# currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
@@ -660,6 +593,9 @@ copy-compiletests-nonisolateddeclarations-protos:
 	@cp Protos/CompileTests/NonisolatedDeclarations/* CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos
 
 # Regenerate the CompileTests/ExperimentalHiddenNames files.
+#
+# Most of the CompileTests use the plugin, but this feature is Experimental and not
+# currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/ExperimentalHiddenNames -name "*.pb.swift" -exec rm -f {} \;
 	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
