@@ -52,10 +52,8 @@ extension TextualParser {
 
     /// Consume the next token if its type is one of the given kinds.
     ///
-    /// - Returns: `true` if the end of the input has been reached, otherwise `false`.
     /// - Throws: an error with the given message if the token was not one of the given kinds.
-    @discardableResult
-    mutating func consume(anyOf kinds: Token.Kind...) throws -> Bool {
+    mutating func consume(anyOf kinds: Token.Kind...) throws {
         guard kinds.contains(tokenizer.current.kind) else {
             let expectedDescription = kinds.map(\.errorDescription).joined(separator: ", ")
             throw tokenizer.makeError(
@@ -63,22 +61,18 @@ extension TextualParser {
             )
         }
         _ = try tokenizer.next()
-        return true
     }
 
-    /// Consume the next token if its type is one of the given kinds.
+    /// Consume the next token if its type is the given kind.
     ///
-    /// - Returns: `true` if the end of the input has been reached, otherwise `false`.
     /// - Throws: an error with the given message if the token was not the given kind.
-    @discardableResult
-    mutating func consume(_ kind: Token.Kind) throws -> Bool {
+    mutating func consume(_ kind: Token.Kind) throws {
         guard tokenizer.current.kind == kind else {
             throw tokenizer.makeError(
                 "Expected \(kind.errorDescription) but found \(tokenizer.current.kind.errorDescription)"
             )
         }
         _ = try tokenizer.next()
-        return true
     }
 
     /// Consume the token of the given type if it is the current token in the input, or leave the

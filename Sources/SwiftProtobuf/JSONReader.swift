@@ -8,13 +8,17 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// High-level wrapper around `JSONScanner`.
+/// High-level wrapper around a `Tokenizer` that knows how to parse JSON input.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-/// This type is a high-level wrapper around `JSONScanner`.
+/// This type is a high-level wrapper around a `Tokenizer` that knows how to
+/// parse JSON input.
+///
+/// This reader adheres to the ProtoJSON Format specification
+/// (https://protobuf.dev/programming-guides/json/).
 struct JSONReader: TextualParser {
     var tokenizer: Tokenizer
     var recursionBudget: Int
@@ -84,28 +88,25 @@ struct JSONReader: TextualParser {
             return parsingError(expected: "true or false")
         }
 
+        let value: String
+
         // When parsing a map key, the value must be a string (required by JSON).
         if asQuotedString {
             guard at(.string, .stringWithEscapes) else {
                 throw valueError()
             }
-            let value = try tokenizer.current.stringValue(allowSurrogates: false, errorCode: errorCode)
-            _ = try tokenizer.next()
-            switch value {
-            case "true": return true
-            case "false": return false
-            default: throw valueError()
+            value = try tokenizer.current.stringValue(allowSurrogates: false, errorCode: errorCode)
+        } else {
+            // Find it as an identifier (an unquoted string).
+            guard at(.identifier) else {
+                throw valueError()
             }
+            value = tokenizer.current.exactString
         }
 
-        // Find it as an identifier (an unquoted string).
-        guard at(.identifier) else {
-            throw valueError()
-        }
-        let identifier = tokenizer.current.exactString
         _ = try tokenizer.next()
 
-        switch identifier {
+        switch value {
         case "true": return true
         case "false": return false
         default: throw valueError()

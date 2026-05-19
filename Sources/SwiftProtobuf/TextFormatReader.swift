@@ -8,13 +8,19 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// High-level wrapper around `TextFormatScanner`.
+/// High-level wrapper around a `Tokenizer` that knows how to parse TextFormat
+/// input.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-/// This type is a high-level wrapper around `TextFormatScanner`.
+/// This type is a high-level wrapper around a `Tokenizer` that knows how to
+/// parse TextFormat input.
+///
+/// This reader adheres to the Text Format specification
+/// (https://protobuf.dev/reference/protobuf/textformat-spec/) and is largely
+/// based on the C++ protobuf implementation.
 struct TextFormatReader: TextualParser {
     var tokenizer: Tokenizer
     var recursionBudget: Int
@@ -56,6 +62,10 @@ struct TextFormatReader: TextualParser {
         case .identifier:
             // Save the token we just peeked at before consuming it.
             let booleanToken = tokenizer.current
+
+            // According to the Text Format specification, the only permitted
+            // non-numeric spellings are "t", "true", "True" for true, and
+            // "f", "false", "False" for false.
             switch try consumeIdentifier() {
             case "t", "true", "True":
                 return true
@@ -232,7 +242,7 @@ struct TextFormatReader: TextualParser {
 
         if at(.integer) {
             // Look up the regular field or extension field by number.
-            let fieldNumber = UInt32(try consumeUnsignedInteger(upperBound: 1 << 29 - 1))
+            let fieldNumber = UInt32(try consumeUnsignedInteger(upperBound: maximumFieldNumber))
             if let ext = extensions?[fieldNumber: fieldNumber, in: messageSchema] {
                 return .extension(ext)
             }
@@ -520,3 +530,8 @@ struct TextFormatReader: TextualParser {
         try consume(delimiter)
     }
 }
+
+/// The highest possible field number allowed by protobuf.
+///
+/// This is a `UInt64` since it's passed as an upper bound to the tokenizer.
+private var maximumFieldNumber: UInt64 { 1 << 29 - 1 }
