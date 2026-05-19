@@ -75,12 +75,22 @@ extension Message {
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         if jsonString.isEmpty {
-            throw JSONDecodingError.truncated
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be nonempty",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
         if let data = jsonString.data(using: String.Encoding.utf8) {
             return try array(fromJSONUTF8Bytes: data, extensions: extensions, options: options)
         } else {
-            throw JSONDecodingError.truncated
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be valid UTF-8",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
     }
 
@@ -104,23 +114,25 @@ extension Message {
                 // TODO: It's a little awkward that we need to create a dummy instance to get the
                 // schema to pass into the reader. Revisit this if we look at a bigger refactor of
                 // the readers/writers or when we look at reflection.
-                var reader = JSONReader(
-                    buffer: body,
-                    messageSchema: Self().messageSchema,
-                    options: options,
-                    extensions: extensions
-                )
+                try body.withMemoryRebound(to: UInt8.self) { buffer in
+                    var reader = try JSONReader(
+                        buffer: buffer,
+                        messageSchema: Self().messageSchema,
+                        options: options,
+                        extensions: extensions
+                    )
 
-                try scanArray(from: &reader) { reader in
-                    let message = Self()
-                    try reader.withReaderForNextObject(expectedSchema: message.messageSchema) { subReader in
-                        try message.storageForRuntime.merge(byParsingJSONFrom: &subReader)
+                    try reader.consumeArray { reader in
+                        let message = Self()
+                        try reader.withReaderForNextObject(expectedSchema: message.messageSchema) { subReader in
+                            try message.storageForRuntime.merge(byParsingJSONFrom: &subReader)
+                        }
+                        array.append(message)
                     }
-                    array.append(message)
-                }
-                
-                guard reader.complete else {
-                    throw JSONDecodingError.trailingGarbage
+
+                    guard reader.complete else {
+                        throw reader.parsingError(reason: "Unexpected trailing garbage")
+                    }
                 }
             }
             return array

@@ -30,52 +30,46 @@ extension ExtensionStorage {
             preconditionFailure("Unreachable")
 
         case .array:
-            try scanArray(from: &reader) { reader in
+            try reader.consumeArray { reader in
                 switch fieldType {
                 case .bool:
-                    appendValue(try reader.scanner.nextBool(), to: schema)
+                    appendValue(try reader.consumeBool(), to: schema)
 
                 case .bytes:
-                    appendValue(try reader.scanner.nextBytesValue(), to: schema)
+                    appendValue(try reader.consumeBytes(), to: schema)
 
                 case .double:
-                    appendValue(try reader.scanner.nextDouble(), to: schema)
+                    appendValue(try reader.consumeDouble(), to: schema)
 
                 case .enum:
-                    do {
-                        appendValue(try scanEnumValue(schema, from: &reader), to: schema)
-                    } catch JSONDecodingError.unrecognizedEnumValue where reader.options.ignoreUnknownFields {
-                        // Ignore unknown enum values if requested.
+                    // This returns nil if the value was unknown and we're ignoring unknowns.
+                    guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
+                        break
                     }
+                    appendValue(value, to: schema)
 
                 case .fixed32, .uint32:
-                    let n = try reader.scanner.nextUInt()
-                    if n > UInt64(UInt32.max) {
-                        throw JSONDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
                     appendValue(UInt32(truncatingIfNeeded: n), to: schema)
 
                 case .fixed64, .uint64:
-                    appendValue(try reader.scanner.nextUInt(), to: schema)
+                    appendValue(try reader.consumeUnsignedInteger(upperBound: UInt64.max), to: schema)
 
                 case .float:
-                    appendValue(try reader.scanner.nextFloat(), to: schema)
+                    appendValue(try reader.consumeFloat(), to: schema)
 
                 case .group, .message:
                     try scanRepeatedMessageField(schema, from: &reader)
 
                 case .int32, .sfixed32, .sint32:
-                    let n = try reader.scanner.nextSInt()
-                    if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                        throw JSONDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
                     appendValue(Int32(truncatingIfNeeded: n), to: schema)
 
                 case .int64, .sfixed64, .sint64:
-                    appendValue(try reader.scanner.nextSInt(), to: schema)
+                    appendValue(try reader.consumeSignedInteger(upperBound: Int64.max), to: schema)
 
                 case .string:
-                    appendValue(try reader.scanner.nextQuotedString(), to: schema)
+                    appendValue(try reader.consumeString(), to: schema)
 
                 default:
                     preconditionFailure("Unreachable")
@@ -98,28 +92,28 @@ extension ExtensionStorage {
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanSingularValue(of schema: ExtensionSchema, from reader: inout JSONReader) throws {
         let field = schema.field
-        let isNull = reader.scanner.skipOptionalNull()
+        let isNull = try reader.consumeNullIfPresent()
         switch field.rawFieldType {
         case .bool:
             if isNull {
                 clearValue(of: schema, type: Bool.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextBool())
+            updateValue(of: schema, to: try reader.consumeBool())
 
         case .bytes:
             if isNull {
                 clearValue(of: schema, type: Data.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextBytesValue())
+            updateValue(of: schema, to: try reader.consumeBytes())
 
         case .double:
             if isNull {
                 clearValue(of: schema, type: Double.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextDouble())
+            updateValue(of: schema, to: try reader.consumeDouble())
 
         case .enum:
             if isNull {
@@ -128,17 +122,18 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: Int32.self)
                 break
             }
-            updateValue(of: schema, to: try scanEnumValue(schema, from: &reader))
+            // This returns nil if the value was unknown and we're ignoring unknowns.
+            guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
+                break
+            }
+            updateValue(of: schema, to: value)
 
         case .fixed32, .uint32:
             if isNull {
                 clearValue(of: schema, type: UInt32.self)
                 break
             }
-            let n = try reader.scanner.nextUInt()
-            if n > UInt64(UInt32.max) {
-                throw JSONDecodingError.malformedNumber
-            }
+            let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
             updateValue(of: schema, to: UInt32(truncatingIfNeeded: n))
 
         case .fixed64, .uint64:
@@ -146,14 +141,14 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: UInt64.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextUInt())
+            updateValue(of: schema, to: try reader.consumeUnsignedInteger(upperBound: UInt64.max))
 
         case .float:
             if isNull {
                 clearValue(of: schema, type: Float.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextFloat())
+            updateValue(of: schema, to: try reader.consumeFloat())
 
         case .group, .message:
             if isNull {
@@ -167,10 +162,7 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: Int32.self)
                 break
             }
-            let n = try reader.scanner.nextSInt()
-            if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                throw JSONDecodingError.malformedNumber
-            }
+            let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
             updateValue(of: schema, to: Int32(truncatingIfNeeded: n))
 
         case .int64, .sfixed64, .sint64:
@@ -178,14 +170,14 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: Int64.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextSInt())
+            updateValue(of: schema, to: try reader.consumeSignedInteger(upperBound: Int64.max))
 
         case .string:
             if isNull {
                 clearValue(of: schema, type: String.self)
                 break
             }
-            updateValue(of: schema, to: try reader.scanner.nextQuotedString())
+            updateValue(of: schema, to: try reader.consumeString())
 
         default:
             preconditionFailure("Unreachable")
@@ -214,45 +206,5 @@ extension ExtensionStorage {
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
-    }
-
-    /// Scans and returns the enum value of the given extension from the reader (handling both name
-    /// and numeric cases).
-    ///
-    /// - Parameters:
-    ///   - schema: The ``ExtensionSchema`` of the field being scanned.
-    ///   - reader: The ``JSONReader`` from which to scan the value.
-    private func scanEnumValue(
-        _ schema: ExtensionSchema,
-        from reader: inout JSONReader,
-    ) throws -> Int32 {
-        let enumSchema = schema.enumSchema
-
-        if let name = try reader.scanner.nextOptionalQuotedString() {
-            guard let number = enumSchema.enumCase(forTextName: name) else {
-                throw JSONDecodingError.unrecognizedEnumValue
-            }
-            return Int32(number)
-        }
-
-        if reader.scanner.skipOptionalNull() {
-            switch CustomJSONWKTClassification(enumSchema: enumSchema) {
-            case .nullValue:
-                return 0
-            default:
-                throw JSONDecodingError.illegalNull
-            }
-        }
-
-        let number = try reader.scanner.nextSInt()
-        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-            throw JSONDecodingError.numberRange
-        }
-
-        let rawValue = Int32(truncatingIfNeeded: number)
-        guard enumSchema.isValidValue(rawValue) else {
-            throw JSONDecodingError.unrecognizedEnumValue
-        }
-        return rawValue
     }
 }

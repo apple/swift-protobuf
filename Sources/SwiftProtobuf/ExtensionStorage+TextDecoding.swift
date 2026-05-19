@@ -28,9 +28,9 @@ extension ExtensionStorage {
         // A colon after the field name is required unless it's a group/message field.
         switch fieldType {
         case .group, .message:
-            _ = reader.scanner.skipOptionalColon()
+            _ = try reader.consumeIfPresent(.colon)
         default:
-            try reader.scanner.skipRequiredColon()
+            try reader.consume(.colon)
         }
 
         switch field.fieldMode.cardinality {
@@ -38,35 +38,32 @@ extension ExtensionStorage {
             preconditionFailure("Unreachable")
 
         case .array:
-            try scanPossibleArray(from: &reader) { reader in
+            try reader.consumePossibleArray { reader in
                 switch fieldType {
                 case .bool:
-                    appendValue(try reader.scanner.nextBool(), to: schema)
+                    appendValue(try reader.consumeBool(), to: schema)
 
                 case .bytes:
-                    appendValue(try reader.scanner.nextBytesValue(), to: schema)
+                    appendValue(try reader.consumeBytes(), to: schema)
 
                 case .double:
-                    appendValue(try reader.scanner.nextDouble(), to: schema)
+                    appendValue(try reader.consumeDouble(), to: schema)
 
                 case .enum:
                     appendEnumValue(
-                        withRawValue: try scanEnumValue(schema, from: &reader),
+                        withRawValue: try reader.consumeEnumValue(schema: schema.enumSchema),
                         toRepeatedEnumField: schema
                     )
 
                 case .fixed32, .uint32:
-                    let n = try reader.scanner.nextSInt()
-                    if n > UInt64(UInt32.max) {
-                        throw TextFormatDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
                     appendValue(UInt32(truncatingIfNeeded: n), to: schema)
 
                 case .fixed64, .uint64:
-                    appendValue(try reader.scanner.nextUInt(), to: schema)
+                    appendValue(try reader.consumeUnsignedInteger(upperBound: UInt64.max), to: schema)
 
                 case .float:
-                    appendValue(try reader.scanner.nextFloat(), to: schema)
+                    appendValue(try Float(reader.consumeDouble()), to: schema)
 
                 case .group, .message:
                     let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
@@ -75,17 +72,14 @@ extension ExtensionStorage {
                     }
 
                 case .int32, .sfixed32, .sint32:
-                    let n = try reader.scanner.nextSInt()
-                    if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                        throw TextFormatDecodingError.malformedNumber
-                    }
+                    let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
                     appendValue(Int32(truncatingIfNeeded: n), to: schema)
 
                 case .int64, .sfixed64, .sint64:
-                    appendValue(try reader.scanner.nextSInt(), to: schema)
+                    appendValue(try reader.consumeSignedInteger(upperBound: Int64.max), to: schema)
 
                 case .string:
-                    appendValue(try reader.scanner.nextStringValue(), to: schema)
+                    appendValue(try reader.consumeString(), to: schema)
 
                 default:
                     preconditionFailure("Unreachable")
@@ -95,29 +89,26 @@ extension ExtensionStorage {
         case .scalar:
             switch fieldType {
             case .bool:
-                updateValue(of: schema, to: try reader.scanner.nextBool())
+                updateValue(of: schema, to: try reader.consumeBool())
 
             case .bytes:
-                updateValue(of: schema, to: try reader.scanner.nextBytesValue())
+                updateValue(of: schema, to: try reader.consumeBytes())
 
             case .double:
-                updateValue(of: schema, to: try reader.scanner.nextDouble())
+                updateValue(of: schema, to: try reader.consumeDouble())
 
             case .enum:
-                updateValue(of: schema, to: try scanEnumValue(schema, from: &reader))
+                updateValue(of: schema, to: try reader.consumeEnumValue(schema: schema.enumSchema))
 
             case .fixed32, .uint32:
-                let n = try reader.scanner.nextUInt()
-                if n > UInt64(UInt32.max) {
-                    throw TextFormatDecodingError.malformedNumber
-                }
+                let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
                 updateValue(of: schema, to: UInt32(truncatingIfNeeded: n))
 
             case .fixed64, .uint64:
-                updateValue(of: schema, to: try reader.scanner.nextUInt())
+                updateValue(of: schema, to: try reader.consumeUnsignedInteger(upperBound: UInt64.max))
 
             case .float:
-                updateValue(of: schema, to: try reader.scanner.nextFloat())
+                updateValue(of: schema, to: try Float(reader.consumeDouble()))
 
             case .group, .message:
                 let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
@@ -126,17 +117,14 @@ extension ExtensionStorage {
                 }
 
             case .int32, .sfixed32, .sint32:
-                let n = try reader.scanner.nextSInt()
-                if n > Int64(Int32.max) || n < Int64(Int32.min) {
-                    throw TextFormatDecodingError.malformedNumber
-                }
+                let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
                 updateValue(of: schema, to: Int32(truncatingIfNeeded: n))
 
             case .int64, .sfixed64, .sint64:
-                updateValue(of: schema, to: try reader.scanner.nextSInt())
+                updateValue(of: schema, to: try reader.consumeSignedInteger(upperBound: Int64.max))
 
             case .string:
-                updateValue(of: schema, to: try reader.scanner.nextStringValue())
+                updateValue(of: schema, to: try reader.consumeString())
 
             default:
                 preconditionFailure("Unreachable")
@@ -145,29 +133,5 @@ extension ExtensionStorage {
         default:
             preconditionFailure("Unreachable")
         }
-    }
-
-    /// Scans the enum value of the given extension field from the reader (handling both name and
-    /// numeric cases), performing the given operation on its raw value (either mutate or append).
-    private func scanEnumValue(_ schema: ExtensionSchema, from reader: inout TextFormatReader) throws -> Int32 {
-        let enumSchema = schema.enumSchema
-
-        if let name = try reader.scanner.nextOptionalEnumName() {
-            guard let rawValue = enumSchema.enumCase(forTextName: name) else {
-                throw TextFormatDecodingError.unrecognizedEnumValue
-            }
-            return rawValue
-        }
-
-        let number = try reader.scanner.nextSInt()
-        guard number >= Int64(Int32.min) && number <= Int64(Int32.max) else {
-            throw TextFormatDecodingError.malformedText
-        }
-
-        let rawValue = Int32(truncatingIfNeeded: number)
-        guard enumSchema.isValidValue(rawValue) else {
-            throw TextFormatDecodingError.unrecognizedEnumValue
-        }
-        return rawValue
     }
 }

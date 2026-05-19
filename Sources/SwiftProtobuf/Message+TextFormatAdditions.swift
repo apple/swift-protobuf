@@ -70,7 +70,7 @@ extension Message {
             guard utf8Buffer.baseAddress != nil, utf8Buffer.count > 0 else { return }
 
             let storage = storageForRuntime
-            var reader = TextFormatReader(
+            var reader = try TextFormatReader(
                 buffer: utf8Buffer,
                 messageSchema: storage.schema,
                 options: options,
@@ -79,7 +79,7 @@ extension Message {
             try storage.merge(byParsingTextFormatFrom: &reader)
 
             guard reader.complete else {
-                throw TextFormatDecodingError.trailingGarbage
+                throw reader.parsingError(reason: "Unexpected trailing garbage")
             }
         }
     }

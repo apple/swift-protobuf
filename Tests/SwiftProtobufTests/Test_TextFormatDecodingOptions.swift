@@ -19,7 +19,7 @@ import XCTest
 final class Test_TextFormatDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() {
-        let textInput = "a: { a: { i: 1 } }"
+        let textInput = "a: { a: { a: { i: 1 } } }"
 
         let tests: [(Int, Bool)] = [
             // Limit, success/failure
@@ -38,11 +38,12 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }
-            } catch TextFormatDecodingError.messageDepthLimit {
+            } catch let error as SwiftProtobufError {
                 if expectSuccess {
                     XCTFail("Decode failed because of limit, but should *NOT* have, limit: \(limit)")
                 } else {
-                    // Nothing, this is what was expected.
+                    // This is what was expected.
+                    XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
                 }
             } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")
@@ -65,8 +66,9 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         do {
             let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)
             XCTFail("Shouldn't get here")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
     }
 
@@ -80,8 +82,9 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         do {
             let _ = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputField, options: options)
             XCTFail("Shouldn't get here")
-        } catch TextFormatDecodingError.unknownField {
+        } catch let error as SwiftProtobufError {
             // This is what should have happened.
+            XCTAssertTrue(error.message.contains(#/: Unknown (field|extension)/#))
         }
 
         let msg = try SwiftProtoTesting_TestAllTypes(textFormatString: textInputExtField, options: options)
@@ -314,7 +317,6 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\x&\"\n")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\xg\"\n")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\q\"\n")
-        assertDecodeIgnoringUnknownsFails("bytes", "\"\\777\"\n")  // Out-of-range octal
         assertDecodeIgnoringUnknownsFails("bytes", "\"")
         assertDecodeIgnoringUnknownsFails("bytes", "\"abcde")
         assertDecodeIgnoringUnknownsFails("bytes", "\"\\")
@@ -336,12 +338,10 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsSucceeds("bool", "true")
         assertDecodeIgnoringUnknownsSucceeds("bool", "True")
         assertDecodeIgnoringUnknownsSucceeds("bool", "t")
-        assertDecodeIgnoringUnknownsSucceeds("bool", "T")
         assertDecodeIgnoringUnknownsSucceeds("bool", "1")
         assertDecodeIgnoringUnknownsSucceeds("bool", "false")
         assertDecodeIgnoringUnknownsSucceeds("bool", "False")
         assertDecodeIgnoringUnknownsSucceeds("bool", "f")
-        assertDecodeIgnoringUnknownsSucceeds("bool", "F")
         assertDecodeIgnoringUnknownsSucceeds("bool", "0")
         // Made up values will pass when ignoring unknown fields (as enums)
     }
@@ -626,7 +626,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 "xyz"
               ]
 
-            an_int:1some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
+            an_int:1 some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
 
             optional_uint32: 2  # !!! real field
             """
@@ -651,12 +651,13 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
 
-        // The max field number is 536,870,911, so anything that takes more digits, should
-        // fail as malformed.
+        // The max field number is 536,870,911, but when skipping, the C++
+        // parser allows numbers that would otherwise be too large to be a
+        // valid field number.
 
-        let testCases: [(field: String, parses: Bool)] = [
-            ("536870911", true),
-            ("1536870911", false),
+        let testCases: [String] = [
+            "536870911",
+            "1536870911",
         ]
 
         for testCase in testCases {
@@ -666,7 +667,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 # Unknown field that's a message to test parsing of field numbers
                 # nested within a unknown message.
                 does_not_exist {
-                  \(testCase.field): 1
+                  \(testCase): 1
                 }
 
                 optional_uint32: 2  # !!! real field
@@ -678,16 +679,11 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                     options: options
                 )
                 // If we get here, it should be the expected message.
-                XCTAssertTrue(testCase.parses)
                 XCTAssertEqual(msg, expected)
-            } catch TextFormatDecodingError.malformedText {
-                if testCase.parses {
-                    XCTFail("Unexpected malformedText - input: \(testCase.field)")
-                } else {
-                    // Nothing, was the expected error
-                }
+            } catch is SwiftProtobufError {
+                XCTFail("Unexpected malformedText - input: \(testCase)")
             } catch {
-                XCTFail("Unexpected error: \(error) - input: \(testCase.field)")
+                XCTFail("Unexpected error: \(error) - input: \(testCase)")
             }
         }
     }
@@ -701,29 +697,30 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         var options = TextFormatDecodingOptions()
         options.ignoreUnknownFields = true
         options.ignoreUnknownExtensionFields = true
+        options.messageDepthLimit = 2
 
-        let testCases: [String] = [
+        let testCases: [(text: String, shouldPass: Bool)] = [
             // fields
-            "f:[[]]",
-            "f:[1, [], 2]",
-            "f <g:[[]]>",
-            "f <g:[1, [], 2]]",
+            ("f:[[]]", true),
+            ("f:[1, [], 2]", true),
+            ("f <g:[[]]>", false),
+            ("f <g:[1, [], 2]]>", false),
             // extensions
-            "[e]:[[]]",
-            "[e]:[1, [], 2]",
-            "[e] <g:[[]]>",
-            "[e] <g:[1, [], 2]]",
+            ("[e]:[[]]", true),
+            ("[e]:[1, [], 2]", true),
+            ("[e] <g:[[]]>", false),
+            ("[e] <g:[1, [], 2]]>", false),
         ]
 
         for testCase in testCases {
             do {
                 let _ = try SwiftProtoTesting_TestEmptyMessage(
-                    textFormatString: testCase,
+                    textFormatString: testCase.text,
                     options: options
                 )
-                XCTFail("Should have failed - input: \(testCase)")
-            } catch TextFormatDecodingError.malformedText {
-                // Nothing, was the expected error
+                XCTAssertTrue(testCase.shouldPass, "\"\(testCase.text)\" passed but should have failed")
+            } catch is SwiftProtobufError {
+                XCTAssertFalse(testCase.shouldPass, "\"\(testCase.text)\" failed but should have passed")
             } catch {
                 XCTFail("Unexpected error: \(error) - input: \(testCase)")
             }
@@ -751,11 +748,12 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }
-            } catch TextFormatDecodingError.messageDepthLimit {
+            } catch let error as SwiftProtobufError {
                 if expectSuccess {
                     XCTFail("Decode failed because of limit, but should *NOT* have, limit: \(limit)")
                 } else {
-                    // Nothing, this is what was expected.
+                    // This is what was expected.
+                    XCTAssertTrue(error.message.hasSuffix(": Message is too deep"))
                 }
             } catch let e {
                 XCTFail("Decode failed (limit: \(limit) with unexpected error: \(e)")

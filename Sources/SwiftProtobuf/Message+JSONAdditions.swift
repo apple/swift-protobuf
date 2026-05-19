@@ -73,12 +73,22 @@ extension Message {
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         if jsonString.isEmpty {
-            throw JSONDecodingError.truncated
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be nonempty",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
         if let data = jsonString.data(using: String.Encoding.utf8) {
             try self.init(jsonUTF8Bytes: data, extensions: extensions, options: options)
         } else {
-            throw JSONDecodingError.truncated
+            throw SwiftProtobufError.parsingError(
+                code: .jsonDecodingError,
+                message: "JSON string must be valid UTF-8",
+                inputLine: 0,
+                inputColumn: 0
+            )
         }
     }
 
@@ -116,16 +126,18 @@ extension Message {
             // Since we're inside an initializer, there's no need to ensure that the storage is unique.
             // If we ever implement a true `merge` for JSON, we would need to do it there.
             let storage = storageForRuntime
-            var reader = JSONReader(
-                buffer: buffer,
-                messageSchema: storage.schema,
-                options: options,
-                extensions: extensions
-            )
-            try storage.merge(byParsingJSONFrom: &reader)
+            try buffer.withMemoryRebound(to: UInt8.self) { buffer in
+                var reader = try JSONReader(
+                    buffer: buffer,
+                    messageSchema: storage.schema,
+                    options: options,
+                    extensions: extensions
+                )
+                try storage.merge(byParsingJSONFrom: &reader)
 
-            guard reader.complete else {
-                throw JSONDecodingError.trailingGarbage
+                guard reader.complete else {
+                    throw reader.parsingError(reason: "Unexpected trailing garbage")
+                }
             }
         }
     }

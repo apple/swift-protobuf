@@ -191,6 +191,23 @@ extension SwiftProtobufError: CustomDebugStringConvertible {
 // - MARK: Common errors
 
 extension SwiftProtobufError {
+    /// General textual parsing errors that apply to TextFormat and JSON.
+    public static func parsingError(
+        code: Code,
+        message: String,
+        inputLine: Int,
+        inputColumn: Int,
+        function: String = #function,
+        file: String = #fileID,
+        line: Int = #line
+    ) -> SwiftProtobufError {
+        SwiftProtobufError(
+            code: code,
+            message: "\(inputLine + 1):\(inputColumn + 1): \(message)",
+            location: SourceLocation(function: function, file: file, line: line)
+        )
+    }
+
     /// Errors arising from binary decoding of data into protobufs.
     public enum BinaryDecoding {
         /// Message is too large. Bytes and Strings have a max size of 2GB.
