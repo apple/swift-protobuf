@@ -59,6 +59,25 @@ PROTOBUF_PRUNE = [
     # SwiftProtobuf provides its own entry point which includes the include
     # path to WKTs in the source tree.
     "src/google/protobuf/compiler/main_no_generators.cc",
+    # SwiftProtobuf's protoc target only supports external protoc-* plugins.
+    # It does not compile or register upstream's built-in language generators,
+    # so keep the vendored checkout smaller by pruning those implementation
+    # trees after the protobuf snapshot is copied.
+    "src/google/protobuf/compiler/cpp",
+    "src/google/protobuf/compiler/csharp",
+    "src/google/protobuf/compiler/java",
+    "src/google/protobuf/compiler/kotlin",
+    "src/google/protobuf/compiler/objectivec",
+    "src/google/protobuf/compiler/php",
+    "src/google/protobuf/compiler/python",
+    "src/google/protobuf/compiler/ruby",
+    "src/google/protobuf/compiler/rust",
+    # Upstream C++ tests and fixtures are not built by SwiftPM here. The Swift
+    # package has its own tests under Tests/, Protos/, Reference/, CompileTests/,
+    # and FuzzTesting/.
+    "src/google/protobuf/testdata",
+    "src/google/protobuf/testing",
+    "src/google/protobuf/util/python/testdata",
 ]
 
 # Paths copied from abseil/abseil-cpp.
@@ -66,6 +85,12 @@ ABSEIL_PATHS = [
     "LICENSE",
     "PrivacyInfo.xcprivacy",
     "absl",
+]
+
+ABSEIL_PRUNE = [
+    # Timezone fixture files support upstream cctz tests only. The package
+    # builds the cctz implementation, but does not run or ship those fixtures.
+    "absl/time/internal/cctz/testdata",
 ]
 
 
@@ -172,7 +197,10 @@ def prune_vendored(prefix: Path, paths: list[str]) -> None:
         target = prefix / rel
         if not target.exists():
             raise CommandError(f"Prune target missing from vendored tree: {rel}")
-        git(["rm", "-f", str(target)])
+        if target.is_dir():
+            git(["rm", "-r", "-f", str(target)])
+        else:
+            git(["rm", "-f", str(target)])
 
 
 # Proto files bundled with protoc releases, mirroring wkt_protos_files and
@@ -298,6 +326,7 @@ def main() -> int:
         vendor_update(PROTOBUF_PREFIX, protobuf_checkout, PROTOBUF_PATHS)
         prune_vendored(PROTOBUF_PREFIX, PROTOBUF_PRUNE)
         vendor_update(ABSEIL_PREFIX, abseil_checkout, ABSEIL_PATHS)
+        prune_vendored(ABSEIL_PREFIX, ABSEIL_PRUNE)
         build_include_dir(protobuf_checkout)
 
         write_json(METADATA_FILE, {
