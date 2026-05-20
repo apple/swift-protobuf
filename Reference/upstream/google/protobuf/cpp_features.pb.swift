@@ -9,7 +9,7 @@
 //   https://github.com/apple/swift-protobuf/
 
 // Protocol Buffers - Google's data interchange format
-// Copyright 2023 Google Inc.  All rights reserved.
+// Copyright 2023 Google LLC.  All rights reserved.
 //
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file or at
@@ -63,6 +63,15 @@ nonisolated struct Pb_CppFeatures: Sendable {
   /// Clears the value of `enumNameUsesStringView`. Subsequent reads from it will return its default value.
   mutating func clearEnumNameUsesStringView() {self._enumNameUsesStringView = nil}
 
+  var repeatedType: Pb_CppFeatures.RepeatedType {
+    get {_repeatedType ?? .unknown}
+    set {_repeatedType = newValue}
+  }
+  /// Returns true if `repeatedType` has been explicitly set.
+  var hasRepeatedType: Bool {self._repeatedType != nil}
+  /// Clears the value of `repeatedType`. Subsequent reads from it will return its default value.
+  mutating func clearRepeatedType() {self._repeatedType = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   nonisolated enum StringType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -77,11 +86,29 @@ nonisolated struct Pb_CppFeatures: Sendable {
 
   }
 
+  nonisolated enum RepeatedType: Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    case unknown = 0
+
+    /// The repeated field will be backed by proto2::Repeated(Ptr)Field, and
+    /// accessors will return a reference/pointer to this type.
+    case legacy = 1
+
+    /// The repeated field has an opaque backing type, and accessors will return
+    /// a RepeatedFieldProxy.
+    case proxy = 2
+
+    init() {
+      self = .unknown
+    }
+
+  }
+
   init() {}
 
   fileprivate var _legacyClosedEnum: Bool? = nil
   fileprivate var _stringType: Pb_CppFeatures.StringType? = nil
   fileprivate var _enumNameUsesStringView: Bool? = nil
+  fileprivate var _repeatedType: Pb_CppFeatures.RepeatedType? = nil
 }
 
 // MARK: - Extension support defined in cpp_features.proto.
@@ -137,7 +164,7 @@ fileprivate nonisolated let _protobuf_package = "pb"
 
 nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_closed_enum\0\u{3}string_type\0\u{3}enum_name_uses_string_view\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}legacy_closed_enum\0\u{3}string_type\0\u{3}enum_name_uses_string_view\0\u{3}repeated_type\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -148,6 +175,7 @@ nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyClosedEnum) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self._stringType) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self._enumNameUsesStringView) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._repeatedType) }()
       default: break
       }
     }
@@ -167,6 +195,9 @@ nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try { if let v = self._enumNameUsesStringView {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     } }()
+    try { if let v = self._repeatedType {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -174,6 +205,7 @@ nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs._legacyClosedEnum != rhs._legacyClosedEnum {return false}
     if lhs._stringType != rhs._stringType {return false}
     if lhs._enumNameUsesStringView != rhs._enumNameUsesStringView {return false}
+    if lhs._repeatedType != rhs._repeatedType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -181,4 +213,8 @@ nonisolated extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
 nonisolated extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRING_TYPE_UNKNOWN\0\u{1}VIEW\0\u{1}CORD\0\u{1}STRING\0")
+}
+
+nonisolated extension Pb_CppFeatures.RepeatedType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0REPEATED_TYPE_UNKNOWN\0\u{1}LEGACY\0\u{1}PROXY\0")
 }

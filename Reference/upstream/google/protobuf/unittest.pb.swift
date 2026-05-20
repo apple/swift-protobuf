@@ -9448,22 +9448,6 @@ nonisolated extension Proto2Unittest_TestAllExtensions {
     clearExtensionValue(ext: Proto2Unittest_Extensions_oneof_bytes_extension)
   }
 
-  /// Singular message containing required fields; used to test initialization.
-  var Proto2Unittest_requiredMessageExtension: Proto2Unittest_TestRequired {
-    get {return getExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension) ?? Proto2Unittest_TestRequired()}
-    set {setExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension, value: newValue)}
-  }
-  /// Returns true if extension `Proto2Unittest_Extensions_required_message_extension`
-  /// has been explicitly set.
-  var hasProto2Unittest_requiredMessageExtension: Bool {
-    return hasExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension)
-  }
-  /// Clears the value of extension `Proto2Unittest_Extensions_required_message_extension`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_requiredMessageExtension() {
-    clearExtensionValue(ext: Proto2Unittest_Extensions_required_message_extension)
-  }
-
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.
   var Proto2Unittest_TestNestedExtension_test: String {
@@ -10057,7 +10041,6 @@ nonisolated let Proto2Unittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensio
   Proto2Unittest_Extensions_oneof_nested_message_extension,
   Proto2Unittest_Extensions_oneof_string_extension,
   Proto2Unittest_Extensions_oneof_bytes_extension,
-  Proto2Unittest_Extensions_required_message_extension,
   Proto2Unittest_Extensions_my_extension_string,
   Proto2Unittest_Extensions_my_extension_int,
   Proto2Unittest_Extensions_packed_int32_extension,
@@ -10526,12 +10509,6 @@ nonisolated let Proto2Unittest_Extensions_oneof_string_extension = SwiftProtobuf
 nonisolated let Proto2Unittest_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestAllExtensions>(
   _protobuf_fieldNumber: 114,
   fieldName: "proto2_unittest.oneof_bytes_extension"
-)
-
-/// Singular message containing required fields; used to test initialization.
-nonisolated let Proto2Unittest_Extensions_required_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestRequired>, Proto2Unittest_TestAllExtensions>(
-  _protobuf_fieldNumber: 117,
-  fieldName: "proto2_unittest.required_message_extension"
 )
 
 nonisolated let Proto2Unittest_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestFieldOrderings>(

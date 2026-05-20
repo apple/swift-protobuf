@@ -69,6 +69,7 @@ class Reflection;       // message.h
 class UnknownFieldSet;  // unknown_field_set.h
 class FeatureSet;
 namespace internal {
+class LazyField;
 struct DescriptorTable;
 class FieldSkipper;     // wire_format_lite.h
 class ReflectionVisit;  // message_reflection_util.h
@@ -99,10 +100,6 @@ PROTOBUF_EXPORT bool IsDescendant(const Message& root, const Message& message);
 template <class T>
 PROTOBUF_FUTURE_ADD_EARLY_NODISCARD inline ::absl::string_view
 GetFeatureSetDefaultsData();
-
-namespace v2 {
-class TableDrivenMessage;
-}  // namespace v2
 
 // Used to store values of type WireFormatLite::FieldType without having to
 // #include wire_format_lite.h.  Also, ensures that we use only one byte to
@@ -243,6 +240,9 @@ class PROTOBUF_EXPORT DescriptorPoolExtensionFinder {
   const Descriptor* containing_type_;
 };
 
+// Turn on direct LazyField access.
+#define PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET
+
 // This is an internal helper class intended for use within the protocol buffer
 // library and generated classes.  Clients should not use it directly.  Instead,
 // use the generated accessors such as GetExtension() of the class being
@@ -258,17 +258,6 @@ class PROTOBUF_EXPORT ExtensionSet {
  public:
   constexpr ExtensionSet() = default;
   ExtensionSet(const ExtensionSet& rhs) = delete;
-
-#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-  // Arena enabled constructors: for internal use only.
-  ExtensionSet(internal::InternalVisibility, Arena* arena)
-      : ExtensionSet(arena) {}
-
-  // TODO: make constructor private, and migrate `ArenaInitialized`
-  // to `InternalVisibility` overloaded constructor(s).
-  explicit constexpr ExtensionSet(Arena* arena);
-  ExtensionSet(ArenaInitialized, Arena* arena) : ExtensionSet(arena) {}
-#endif  // !PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
 
   ExtensionSet& operator=(const ExtensionSet&) = delete;
   ~ExtensionSet();
@@ -418,9 +407,6 @@ class PROTOBUF_EXPORT ExtensionSet {
                                          const FieldDescriptor* descriptor,
                                          MessageFactory* factory);
 #undef desc
-#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-  PROTOBUF_FUTURE_ADD_EARLY_NODISCARD Arena* GetArena() const { return arena_; }
-#endif
 
   // repeated fields -------------------------------------------------
 
@@ -460,7 +446,6 @@ class PROTOBUF_EXPORT ExtensionSet {
   template <typename T>
   auto& Add(Arena* arena, int number, FieldType type,
             const FieldDescriptor* descriptor) {
-    DebugAssertArenaMatches(arena);
     static_assert(std::is_class_v<T>);
     Extension& ext = FindOrCreate(arena, number, type, true, false, descriptor,
                                   &CreateImpl<RepFor<T>>);
@@ -470,7 +455,6 @@ class PROTOBUF_EXPORT ExtensionSet {
   template <typename T>
   void Add(Arena* arena, int number, FieldType type, bool packed, T value,
            const FieldDescriptor* descriptor) {
-    DebugAssertArenaMatches(arena);
     static_assert(std::is_arithmetic_v<T>,
                   "Only arithmetic types take `packed`");
     Extension& ext = FindOrCreate(arena, number, type, true, packed, descriptor,
@@ -635,13 +619,6 @@ class PROTOBUF_EXPORT ExtensionSet {
   // as .dll.
   PROTOBUF_FUTURE_ADD_EARLY_NODISCARD int SpaceUsedExcludingSelf() const;
 
-#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-  PROTOBUF_FUTURE_ADD_EARLY_NODISCARD static constexpr size_t
-  InternalGetArenaOffset(internal::InternalVisibility) {
-    return PROTOBUF_FIELD_OFFSET(ExtensionSet, arena_);
-  }
-#endif
-
   // Moves an extension from one ExtensionSet to another.
   //
   // If the source extension does not exist, then destination extension is
@@ -682,7 +659,6 @@ class PROTOBUF_EXPORT ExtensionSet {
   friend class google::protobuf::internal::ReflectionVisit;
   friend struct google::protobuf::internal::DynamicExtensionInfoHelper;
   friend class google::protobuf::internal::WireFormat;
-  friend class google::protobuf::internal::v2::TableDrivenMessage;
 
   friend void internal::InitializeLazyExtensionSet();
   friend PROTOBUF_EXPORT bool internal::IsDescendant(const Message& root,
@@ -719,66 +695,17 @@ class PROTOBUF_EXPORT ExtensionSet {
                                        int end_field_number, uint8_t* target,
                                        io::EpsCopyOutputStream* stream) const;
   // Interface of a lazily parsed singular message extension.
-  class PROTOBUF_EXPORT LazyMessageExtension {
-   public:
-    LazyMessageExtension() = default;
-    LazyMessageExtension(const LazyMessageExtension&) = delete;
-    LazyMessageExtension& operator=(const LazyMessageExtension&) = delete;
-    virtual ~LazyMessageExtension() = default;
-
-    virtual LazyMessageExtension* Clone(Arena* arena,
-                                        const LazyMessageExtension& other,
-                                        Arena* other_arena) const = 0;
-    virtual const MessageLite& GetMessage(const MessageLite& prototype,
-                                          Arena* arena) const = 0;
-    virtual const MessageLite& GetMessageIgnoreUnparsed(
-        const MessageLite& prototype, Arena* arena) const = 0;
-    virtual MessageLite* MutableMessage(const MessageLite& prototype,
-                                        Arena* arena) = 0;
-    virtual void SetAllocatedMessage(MessageLite* message, Arena* arena) = 0;
-    virtual void UnsafeArenaSetAllocatedMessage(MessageLite* message,
-                                                Arena* arena) = 0;
-    [[nodiscard]] virtual MessageLite* ReleaseMessage(
-        const MessageLite& prototype, Arena* arena) = 0;
-    virtual MessageLite* UnsafeArenaReleaseMessage(const MessageLite& prototype,
-                                                   Arena* arena) = 0;
-
-    virtual bool HasUnparsed() const = 0;
-    virtual bool IsInitialized(const MessageLite* prototype,
-                               Arena* arena) const = 0;
-    virtual bool IsEagerSerializeSafe(const MessageLite* prototype,
-                                      Arena* arena) const = 0;
-    virtual size_t ByteSizeLong() const = 0;
-    virtual size_t SpaceUsedLong() const = 0;
-
-    virtual std::variant<size_t, const MessageLite*> UnparsedSizeOrMessage()
-        const = 0;
-
-    virtual void MergeFrom(const MessageLite* prototype,
-                           const LazyMessageExtension& other, Arena* arena,
-                           Arena* other_arena) = 0;
-    virtual void MergeFromMessage(const MessageLite& msg, Arena* arena) = 0;
-    virtual void Clear() = 0;
-
-    virtual const char* _InternalParse(const MessageLite& prototype,
-                                       Arena* arena, const char* ptr,
-                                       ParseContext* ctx) = 0;
-    virtual uint8_t* WriteMessageToArray(
-        const MessageLite* prototype, int number, uint8_t* target,
-        io::EpsCopyOutputStream* stream) const = 0;
-
-
-    virtual LazyField* GetUnderlyingField() = 0;
-
-   private:
-    virtual void UnusedKeyMethod();  // Dummy key method to avoid weak vtable.
-  };
+  class PROTOBUF_EXPORT LazyMessageExtension;
   // Give access to function defined below to see LazyMessageExtension.
   static LazyMessageExtension* MaybeCreateLazyExtensionImpl(Arena* arena);
+#if defined(PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET)
+  static LazyField* MaybeCreateLazyExtension(Arena* arena);
+#else   // !PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET
   static LazyMessageExtension* MaybeCreateLazyExtension(Arena* arena) {
     auto* f = maybe_create_lazy_extension_.load(std::memory_order_relaxed);
     return f != nullptr ? f(arena) : nullptr;
   }
+#endif  // !PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET
   static std::atomic<LazyMessageExtension* (*)(Arena * arena)>
       maybe_create_lazy_extension_;
 
@@ -831,7 +758,11 @@ class PROTOBUF_EXPORT ExtensionSet {
     union Pointer {
       std::string* string_value;
       MessageLite* message_value;
+#if defined(PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET)
+      LazyField* lazymessage_value;
+#else   // !PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET
       LazyMessageExtension* lazymessage_value;
+#endif  // !PROTOBUF_INTERNAL_DIRECT_LAZY_FIELD_IN_EXTENSION_SET
 
       RepeatedField<int32_t>* repeated_int32_t_value;
       RepeatedField<int64_t>* repeated_int64_t_value;
@@ -1123,6 +1054,9 @@ class PROTOBUF_EXPORT ExtensionSet {
     return flat_size_ == 0 && flat_capacity_ == 0;
   }
 
+  // Reduces the flat_capacity_ to the smallest power of 2 >= flat_size_.
+  void InternalReduceSmallCapacity(Arena* arena);
+
   // Implementation of MergeFrom into the empty ExtensionSet from a small
   // `other`.
   // This is used in all types of copy.
@@ -1306,30 +1240,6 @@ class PROTOBUF_EXPORT ExtensionSet {
                                    uint16_t powerof2_flat_capacity);
   static void DeleteFlatMap(const KeyValue* flat, uint16_t flat_capacity);
 
-  void DebugAssertArenaMatches(Arena* arena) const {
-#ifdef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-    // If we don't have an arena ptr, then we can't DCHECK that the arena is
-    // correct.
-    (void)arena;
-#else
-    ABSL_DCHECK_EQ(arena, GetArena());
-#endif
-  }
-
-  void DebugAssertSameArena(const ExtensionSet& other) const {
-#ifdef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-    // If we don't have an arena ptr, then we can't DCHECK that the arenas
-    // match.
-    (void)other;
-#else
-    ABSL_DCHECK_EQ(GetArena(), other.GetArena());
-#endif
-  }
-
-#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-  Arena* arena_ = nullptr;
-#endif
-
   // Manual memory-management:
   // map_.flat is an allocated array of flat_capacity_ elements.
   // [map_.flat, map_.flat + flat_size_) is the currently-in-use prefix.
@@ -1343,11 +1253,6 @@ class PROTOBUF_EXPORT ExtensionSet {
     LargeMap* large;
   } map_ = {nullptr};
 };
-
-#ifndef PROTOBUF_INTERNAL_REMOVE_ARENA_PTRS_EXTENSION_SET
-constexpr ExtensionSet::ExtensionSet(Arena* arena)
-    : arena_(arena), flat_capacity_(0), flat_size_(0), map_{nullptr} {}
-#endif
 
 // ===================================================================
 // Glue for generated extension accessors
@@ -1738,7 +1643,7 @@ class MessageTypeTraits {
   typedef Type* MutableType;
   using InitType = const void*;
   static ConstType FromInitType(InitType v) {
-    return *static_cast<const Type*>(v);
+    return *internal::MessageGlobalsBase::ToDefaultInstance<Type>(v);
   }
   typedef MessageTypeTraits<Type> Singular;
   static constexpr bool kLifetimeBound = true;
@@ -1789,7 +1694,6 @@ class MessageTypeTraits {
 // Used by WireFormatVerify to extract the verify function from the registry.
 LazyEagerVerifyFnType FindExtensionLazyEagerVerifyFn(
     const MessageLite* extendee, int number);
-
 
 // forward declaration.
 class RepeatedMessageGenericTypeTraits;
@@ -1924,7 +1828,6 @@ auto TryGetLazyMessageFromExtensionSet(
 
 // -------------------------------------------------------------------
 // Generated accessors
-
 
 
 }  // namespace internal
