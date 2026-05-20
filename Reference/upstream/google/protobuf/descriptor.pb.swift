@@ -9,34 +9,11 @@
 //   https://github.com/apple/swift-protobuf/
 
 // Protocol Buffers - Google's data interchange format
-// Copyright 2008 Google Inc.  All rights reserved.
-// https://developers.google.com/protocol-buffers/
+// Copyright 2008 Google LLC.  All rights reserved.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//     * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//     * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
 
 // Author: kenton@google.com (Kenton Varda)
 //  Based on original Protocol Buffers design by
@@ -85,6 +62,7 @@ nonisolated enum Google_Protobuf_Edition: Int, Enum, Swift.CaseIterable {
   /// comparison.
   case edition2023 = 1000
   case edition2024 = 1001
+  case edition2026 = 1002
 
   /// A placeholder edition for developing and testing unscheduled features.
   case unstable = 9999
@@ -2403,6 +2381,7 @@ nonisolated struct Google_Protobuf_FeatureSet: ExtensibleMessage, Sendable {
     case unknown = 0
     case style2024 = 1
     case styleLegacy = 2
+    case style2026 = 3
 
     init() {
       self = .unknown
@@ -2815,7 +2794,7 @@ nonisolated struct Google_Protobuf_GeneratedCodeInfo: Sendable {
 fileprivate nonisolated let _protobuf_package = "google.protobuf"
 
 nonisolated extension Google_Protobuf_Edition: _ProtoNameProviding {
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{2}fL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{1}EDITION_2026\0\u{2}eL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
 nonisolated extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
@@ -3233,7 +3212,7 @@ nonisolated extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageIm
       case 3: try { try decoder.decodeSingularEnumField(value: &self._verification) }()
       case 50: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ExtensionRangeOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -3254,6 +3233,7 @@ nonisolated extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageIm
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3933,7 +3913,7 @@ nonisolated extension Google_Protobuf_FileOptions: Message, _MessageImplementati
         case 45: try { try decoder.decodeSingularStringField(value: &_storage._rubyPackage) }()
         case 50: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
         case 999: try { try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption) }()
-        case 1000..<536870912:
+        case 990..<999, 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber) }()
         default: break
         }
@@ -4007,6 +3987,7 @@ nonisolated extension Google_Protobuf_FileOptions: Message, _MessageImplementati
       try { if let v = _storage._features {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 50)
       } }()
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -4079,7 +4060,7 @@ nonisolated extension Google_Protobuf_MessageOptions: Message, _MessageImplement
       case 11: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 12: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4109,6 +4090,7 @@ nonisolated extension Google_Protobuf_MessageOptions: Message, _MessageImplement
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4214,7 +4196,7 @@ nonisolated extension Google_Protobuf_FieldOptions: Message, _MessageImplementat
         case 21: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
         case 22: try { try decoder.decodeSingularMessageField(value: &_storage._featureSupport) }()
         case 999: try { try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption) }()
-        case 1000..<536870912:
+        case 990..<999, 1000..<536870912:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
         default: break
         }
@@ -4267,6 +4249,7 @@ nonisolated extension Google_Protobuf_FieldOptions: Message, _MessageImplementat
       try { if let v = _storage._featureSupport {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 22)
       } }()
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -4432,7 +4415,7 @@ nonisolated extension Google_Protobuf_OneofOptions: Message, _MessageImplementat
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4447,6 +4430,7 @@ nonisolated extension Google_Protobuf_OneofOptions: Message, _MessageImplementat
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4485,7 +4469,7 @@ nonisolated extension Google_Protobuf_EnumOptions: Message, _MessageImplementati
       case 6: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4509,6 +4493,7 @@ nonisolated extension Google_Protobuf_EnumOptions: Message, _MessageImplementati
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4550,7 +4535,7 @@ nonisolated extension Google_Protobuf_EnumValueOptions: Message, _MessageImpleme
       case 3: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._featureSupport) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4574,6 +4559,7 @@ nonisolated extension Google_Protobuf_EnumValueOptions: Message, _MessageImpleme
     try { if let v = self._featureSupport {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4613,7 +4599,7 @@ nonisolated extension Google_Protobuf_ServiceOptions: Message, _MessageImplement
       case 33: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
       case 34: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4631,6 +4617,7 @@ nonisolated extension Google_Protobuf_ServiceOptions: Message, _MessageImplement
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4669,7 +4656,7 @@ nonisolated extension Google_Protobuf_MethodOptions: Message, _MessageImplementa
       case 34: try { try decoder.decodeSingularEnumField(value: &self._idempotencyLevel) }()
       case 35: try { try decoder.decodeSingularMessageField(value: &self._features) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
-      case 1000..<536870912:
+      case 990..<999, 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber) }()
       default: break
       }
@@ -4690,6 +4677,7 @@ nonisolated extension Google_Protobuf_MethodOptions: Message, _MessageImplementa
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
     } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 990, end: 999)
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -4929,7 +4917,7 @@ nonisolated extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0")
+  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0\u{1}STYLE2026\0")
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {

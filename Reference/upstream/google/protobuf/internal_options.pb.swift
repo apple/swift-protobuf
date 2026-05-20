@@ -80,9 +80,41 @@ nonisolated struct Pb_InternalFieldOptionsCpp: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  var microString: Pb_InternalFieldOptionsCpp.MicroString {
+    get {_microString ?? Pb_InternalFieldOptionsCpp.MicroString()}
+    set {_microString = newValue}
+  }
+  /// Returns true if `microString` has been explicitly set.
+  var hasMicroString: Bool {self._microString != nil}
+  /// Clears the value of `microString`. Subsequent reads from it will return its default value.
+  mutating func clearMicroString() {self._microString = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  nonisolated struct MicroString: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var force: Pb_InternalOptionsForce.Enum {
+      get {_force ?? .unspecified}
+      set {_force = newValue}
+    }
+    /// Returns true if `force` has been explicitly set.
+    var hasForce: Bool {self._force != nil}
+    /// Clears the value of `force`. Subsequent reads from it will return its default value.
+    mutating func clearForce() {self._force = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _force: Pb_InternalOptionsForce.Enum? = nil
+  }
+
   init() {}
+
+  fileprivate var _microString: Pb_InternalFieldOptionsCpp.MicroString? = nil
 }
 
 nonisolated struct Pb_InternalFieldOptions: Sendable {
@@ -182,18 +214,67 @@ nonisolated extension Pb_InternalOptionsForce.Enum: SwiftProtobuf._ProtoNameProv
 
 nonisolated extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalFieldOptionsCpp"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}micro_string\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    // Load everything into unknown fields
-    while try decoder.nextFieldNumber() != nil {}
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._microString) }()
+      default: break
+      }
+    }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._microString {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_InternalFieldOptionsCpp, rhs: Pb_InternalFieldOptionsCpp) -> Bool {
+    if lhs._microString != rhs._microString {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Pb_InternalFieldOptionsCpp.protoMessageName + ".MicroString"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}force\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._force) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._force {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Pb_InternalFieldOptionsCpp.MicroString, rhs: Pb_InternalFieldOptionsCpp.MicroString) -> Bool {
+    if lhs._force != rhs._force {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

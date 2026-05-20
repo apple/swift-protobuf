@@ -1142,6 +1142,21 @@ nonisolated extension EditionUnittest_TestConflictingSymbolNames {
     clearExtensionValue(ext: EditionUnittest_Extensions_void)
   }
 
+  var EditionUnittest_module: Int32 {
+    get {return getExtensionValue(ext: EditionUnittest_Extensions_module) ?? 0}
+    set {setExtensionValue(ext: EditionUnittest_Extensions_module, value: newValue)}
+  }
+  /// Returns true if extension `EditionUnittest_Extensions_module`
+  /// has been explicitly set.
+  var hasEditionUnittest_module: Bool {
+    return hasExtensionValue(ext: EditionUnittest_Extensions_module)
+  }
+  /// Clears the value of extension `EditionUnittest_Extensions_module`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearEditionUnittest_module() {
+    clearExtensionValue(ext: EditionUnittest_Extensions_module)
+  }
+
   var EditionUnittest_TestConflictingSymbolNamesExtension_repeatedInt32Ext: [Int32] {
     get {return getExtensionValue(ext: EditionUnittest_TestConflictingSymbolNamesExtension.Extensions.repeated_int32_ext) ?? []}
     set {setExtensionValue(ext: EditionUnittest_TestConflictingSymbolNamesExtension.Extensions.repeated_int32_ext, value: newValue)}
@@ -1315,6 +1330,7 @@ nonisolated let EditionUnittest_TestBadIdentifiersEditions_Extensions: SwiftProt
   EditionUnittest_Extensions_default_instance,
   EditionUnittest_Extensions_swap,
   EditionUnittest_Extensions_void,
+  EditionUnittest_Extensions_module,
   EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues.Extensions.unknown_fields,
   EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues.Extensions.mutable_unknown_fields,
   EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues.Extensions.descriptor,
@@ -1355,6 +1371,11 @@ nonisolated let EditionUnittest_Extensions_swap = SwiftProtobuf.MessageExtension
 nonisolated let EditionUnittest_Extensions_void = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames>(
   _protobuf_fieldNumber: 314253,
   fieldName: "edition_unittest.void"
+)
+
+nonisolated let EditionUnittest_Extensions_module = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, EditionUnittest_TestConflictingSymbolNames>(
+  _protobuf_fieldNumber: 314254,
+  fieldName: "edition_unittest.module"
 )
 
 nonisolated extension EditionUnittest_TestConflictingSymbolNames.BadKnownNamesValues {
