@@ -95,6 +95,22 @@ final class Test_Duration: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"100.001sXXX\"")
     }
 
+    func testJSON_subsecondDigits() throws {
+        // A fractional part is allowed to have between 1 and 9 digits.
+        assertJSONDecodeSucceeds("\"1.1s\"") { (o: MessageTestType) in
+            o.seconds == 1 && o.nanos == 100_000_000
+        }
+        assertJSONDecodeSucceeds("\"1.123456789s\"") { (o: MessageTestType) in
+            o.seconds == 1 && o.nanos == 123_456_789
+        }
+        // A '.' must be followed by at least one digit.
+        assertJSONDecodeFails("\"1.s\"")
+        // More than nanosecond precision (>9 fractional digits) is invalid and
+        // must not be silently truncated.
+        assertJSONDecodeFails("\"1.1234567890s\"")
+        assertJSONDecodeFails("\"1.123456789012345s\"")
+    }
+
     func testSerializationFailure() throws {
         let maxOutOfRange = Google_Protobuf_Duration(seconds: -315_576_000_001)
         XCTAssertThrowsError(try maxOutOfRange.jsonString())

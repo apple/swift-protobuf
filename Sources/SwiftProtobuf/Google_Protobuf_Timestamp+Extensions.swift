@@ -150,10 +150,17 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     if value[pos] == period {  // "." begins fractional seconds
         pos += 1
         var digitValue = 100_000_000
+        var fractionalDigits = 0
         while pos < value.count && value[pos] >= zero && value[pos] <= nine {
             nanos += Int32(digitValue * (value[pos] - zero))
             digitValue /= 10
+            fractionalDigits += 1
             pos += 1
+        }
+        // The fraction must have between 1 and 9 digits; matches the
+        // RFC 3339 grammar and the reference protobuf JSON parser.
+        if fractionalDigits < 1 || fractionalDigits > 9 {
+            throw JSONDecodingError.malformedTimestamp
         }
     }
 

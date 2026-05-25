@@ -61,14 +61,16 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
             digitCount = 0
         case "s":
             if let _ = seconds {
-                // Seconds already set, digits holds nanos
+                // Seconds already set, digits holds nanos. The fraction must
+                // have between 1 and 9 digits; matches the protobuf grammar
+                // and the reference JSON parser, which reject an empty
+                // fraction or more than nanosecond precision.
+                if digitCount < 1 || digitCount > 9 {
+                    throw JSONDecodingError.malformedDuration
+                }
                 while digitCount < 9 {
                     digits.append(Character("0"))
                     digitCount += 1
-                }
-                while digitCount > 9 {
-                    digits.removeLast()
-                    digitCount -= 1
                 }
                 let digitString = String(digits)
                 if let rawNanos = Int32(digitString) {
