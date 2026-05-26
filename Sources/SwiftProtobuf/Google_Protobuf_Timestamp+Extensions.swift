@@ -153,10 +153,10 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
         var fractionalDigits = 0
         while pos < value.count && value[pos] >= zero && value[pos] <= nine {
             fractionalDigits += 1
-            // The fraction may have at most 9 digits. Reject as soon as a
-            // tenth digit appears so we fail fast and never accumulate past
-            // nanosecond precision, which also keeps the Int32 math below from
-            // trapping on pathological input.
+            // Protobuf encodes sub-second time as nanoseconds, so the fraction
+            // is limited to 9 digits. Reject as soon as a tenth digit appears
+            // so we fail fast, and so the Int32 accumulation below cannot
+            // overflow on pathological input.
             if fractionalDigits > 9 {
                 throw JSONDecodingError.malformedTimestamp
             }
@@ -164,8 +164,8 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
             digitValue /= 10
             pos += 1
         }
-        // The fraction must have at least one digit, matching the RFC 3339
-        // grammar and the reference protobuf JSON parser.
+        // Protobuf JSON also requires at least one digit after the decimal
+        // point. The reference parser rejects an empty fraction.
         if fractionalDigits < 1 {
             throw JSONDecodingError.malformedTimestamp
         }
