@@ -86,7 +86,7 @@ extension UTF8Name {
         if currentPrefixBuffer.elementsEqual(prefixBuffer) {
             let suffixStart = buffer.baseAddress! + prefixCount
             let suffixCount = buffer.count - prefixCount
-            return UTF8Name(start: suffixStart, count: suffixCount)
+            return UTF8Name(start: UnsafeRawPointer(suffixStart), count: suffixCount)
         }
         return nil
     }

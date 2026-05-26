@@ -391,7 +391,7 @@ extension ReflectionTable {
             while ptr[count] != 0 {
                 count += 1
             }
-            return UTF8Name(start: ptr, count: count)
+            return UTF8Name(start: UnsafeRawPointer(ptr), count: count)
         }
     }
 
@@ -415,7 +415,7 @@ extension ReflectionTable {
                 count += 1
                 p += 1
             }
-            return UTF8Name(start: startPtr, count: count)
+            return UTF8Name(start: UnsafeRawPointer(startPtr), count: count)
         }
     }
 }
