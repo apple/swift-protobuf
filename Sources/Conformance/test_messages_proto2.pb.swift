@@ -1195,6 +1195,15 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Swift.Sendable
     /// Clears the value of `i`. Subsequent reads from it will return its default value.
     mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
+    var subMsg: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
+      get { _storage.value(at: 8, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect(), hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    }
+    /// Returns true if `subMsg` has been explicitly set.
+    var hasSubMsg: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
+    /// Clears the value of `subMsg`. Subsequent reads from it will return its default value.
+    mutating func clearSubMsg() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.self, hasBit: (0, 2)) }
+
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
     private var _storage: SwiftProtobuf.MessageStorage
@@ -2229,6 +2238,28 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
   /// Subsequent reads from it will return its default value.
   mutating func clearProtobufTestMessages_Proto2_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_int32, type: Int32.self) }
 
+  var ProtobufTestMessages_Proto2_extensionString: String {
+    get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_extension_string, default: String()) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: ProtobufTestMessages_Proto2_Extensions_extension_string, to: newValue) }
+  }
+  /// Returns true if extension `ProtobufTestMessages_Proto2_Extensions_extension_string`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Proto2_extensionString: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_extension_string) }
+  /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_extension_string`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Proto2_extensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_string, type: String.self) }
+
+  var ProtobufTestMessages_Proto2_extensionBytes: Data {
+    get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes, default: Data()) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes, to: newValue) }
+  }
+  /// Returns true if extension `ProtobufTestMessages_Proto2_Extensions_extension_bytes`
+  /// has been explicitly set.
+  var hasProtobufTestMessages_Proto2_extensionBytes: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_extension_bytes) }
+  /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_extension_bytes`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufTestMessages_Proto2_extensionBytes() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes, type: Data.self) }
+
   var ProtobufTestMessages_Proto2_groupField: ProtobufTestMessages_Proto2_GroupField {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_GroupField, default: ProtobufTestMessages_Proto2_GroupField()) }
     set { _protobuf_uniqueExtensionStorage().updateValue(of: ProtobufTestMessages_Proto2_Extensions_GroupField, to: newValue) }
@@ -2285,6 +2316,8 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
 let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: SwiftProtobuf.ExtensionMap = [
   ProtobufTestMessages_Proto2_Extensions_extension_int32,
+  ProtobufTestMessages_Proto2_Extensions_extension_string,
+  ProtobufTestMessages_Proto2_Extensions_extension_bytes,
   ProtobufTestMessages_Proto2_Extensions_GroupField,
   ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension,
   ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension,
@@ -2299,6 +2332,16 @@ let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: SwiftProtobuf.Ext
 
 let ProtobufTestMessages_Proto2_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.proto2.extension_int32",
+  extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
+  )
+
+let ProtobufTestMessages_Proto2_Extensions_extension_string = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{5}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0protobuf_test_messages.proto2.extension_string",
+  extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
+  )
+
+let ProtobufTestMessages_Proto2_Extensions_extension_bytes = SwiftProtobuf.ExtensionSchema(
+  schema: "\0\u{6}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{c}-\0protobuf_test_messages.proto2.extension_bytes",
   extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
   )
 
@@ -2688,17 +2731,28 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
 
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{a}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2"
   #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2"
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{a}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2"
   #else
     #error("Unsupported platform")
   #endif
-  private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$\u{1a} ef~/C\u{18}H\u{5}]K!\u{1c}`\0\0"
+  private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLI\u{1a}\u{3}\u{14}MOb\u{12}\u{18}\u{12}C[/<0.F'o\u{13}R9m|5\u{1c})IIZ@>*\u{1b}R{f~*2<\u{1d}\u{12}b]N\0\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
+
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+    switch token.index {
+    case 1: return .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema)
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
+    }
+  }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+  public var isInitialized: Swift.Bool {
+    return _storage.isInitialized
+  }
 
 }
 
