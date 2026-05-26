@@ -21,9 +21,8 @@ extension MessageStorage {
         partial: Bool,
         options: BinaryEncodingOptions
     ) throws -> Bytes {
-        if !partial && !isInitialized {
-            throw BinaryEncodingError.missingRequiredFields
-        }
+        var options = options
+        options.checkRequiredFields = !partial
 
         // Note that this assumes `options` will not change the required size.
         let requiredSize = serializedBytesSize()
@@ -54,6 +53,10 @@ extension MessageStorage {
     /// A recursion helper that serializes the message represented by this storage into the given
     /// binary encoder.
     func serializeBytes(into encoder: inout BinaryEncoder, options: BinaryEncodingOptions) throws {
+        if options.checkRequiredFields && !isMessageInitializedShallow {
+            throw BinaryEncodingError.missingRequiredFields
+        }
+
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         for field in schema.fields {
             guard isPresent(field) else { continue }

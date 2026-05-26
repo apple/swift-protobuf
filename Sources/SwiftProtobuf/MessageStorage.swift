@@ -1175,7 +1175,7 @@ extension MessageStorage {
     /// This is a shallow check; it does not recurse into submessages to check their initialized
     /// state.
     @inline(never)
-    private var isMessageInitializedShallow: Bool {
+    var isMessageInitializedShallow: Bool {
         // A message with no required fields is trivially considered initialized.
         guard schema.requiredCount > 0 else { return true }
 
