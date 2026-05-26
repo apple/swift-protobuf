@@ -62,11 +62,12 @@ extension EnumSchema {
     static func valueCount(from buffer: UnsafeRawBufferPointer) -> Int {
         let lowBits = UInt32(littleEndian: buffer.loadUnaligned(fromByteOffset: 1, as: UInt32.self))
         let highBits = buffer.loadUnaligned(fromByteOffset: 5, as: UInt8.self)
-        return Int((lowBits & 0x00_0000_007f)
-            | ((lowBits & 0x00_0000_7f00) >> 1)
-            | ((lowBits & 0x00_007f_0000) >> 2)
-            | ((lowBits & 0x00_7f00_0000) >> 3)
-            | (UInt32(highBits & 0x0f) << 28))
+        let part1 = (lowBits & 0x00_0000_007f)
+        let part2 = ((lowBits & 0x00_0000_7f00) >> 1)
+        let part3 = ((lowBits & 0x00_007f_0000) >> 2)
+        let part4 = ((lowBits & 0x00_7f00_0000) >> 3)
+        let part5 = UInt32(highBits & 0x0f) << 28
+        return Int(part1 | part2 | part3 | part4 | part5)
     }
 
     /// The number of values defined in this enum, excluding aliases.
