@@ -118,7 +118,12 @@ struct WireFormatReader {
     /// - Throws: `BinaryDecodingError` if an error occurred while reading from the input or while
     ///   converting to a tag.
     private mutating func nextTagWithoutUpdatingLastTagPointer() throws -> FieldTag {
+        let start = pointer
         let varint = try nextVarint()
+        // Forces are safe because nextVarint would have failed otherwise.
+        if pointer! - start! > 5 {
+            throw BinaryDecodingError.malformedProtobuf
+        }
         guard varint < UInt64(UInt32.max), let tag = FieldTag(rawValue: UInt32(truncatingIfNeeded: varint)) else {
             throw BinaryDecodingError.malformedProtobuf
         }
