@@ -152,14 +152,21 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
         var digitValue = 100_000_000
         var fractionalDigits = 0
         while pos < value.count && value[pos] >= zero && value[pos] <= nine {
+            fractionalDigits += 1
+            // The fraction may have at most 9 digits. Reject as soon as a
+            // tenth digit appears so we fail fast and never accumulate past
+            // nanosecond precision, which also keeps the Int32 math below from
+            // trapping on pathological input.
+            if fractionalDigits > 9 {
+                throw JSONDecodingError.malformedTimestamp
+            }
             nanos += Int32(digitValue * (value[pos] - zero))
             digitValue /= 10
-            fractionalDigits += 1
             pos += 1
         }
-        // The fraction must have between 1 and 9 digits; matches the
-        // RFC 3339 grammar and the reference protobuf JSON parser.
-        if fractionalDigits < 1 || fractionalDigits > 9 {
+        // The fraction must have at least one digit, matching the RFC 3339
+        // grammar and the reference protobuf JSON parser.
+        if fractionalDigits < 1 {
             throw JSONDecodingError.malformedTimestamp
         }
     }
