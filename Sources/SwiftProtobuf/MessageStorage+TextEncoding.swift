@@ -64,7 +64,6 @@ extension MessageStorage {
                     try messageStorage.merge(
                         byReadingFrom: buffer,
                         extensions: options.extensions,
-                        partial: false,
                         options: BinaryDecodingOptions()
                     )
                 }
