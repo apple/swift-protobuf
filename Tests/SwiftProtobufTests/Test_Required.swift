@@ -471,7 +471,9 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         line: UInt = #line
     ) {
         do {
-            let data: [UInt8] = try message.serializedBytes(partial: true)
+            var options = BinaryEncodingOptions()
+            options.allowPartial = true
+            let data: [UInt8] = try message.serializedBytes(options: options)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
@@ -644,7 +646,9 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
         line: UInt = #line
     ) {
         do {
-            let data: [UInt8] = try message.serializedBytes(partial: true)
+            var options = BinaryEncodingOptions()
+            options.allowPartial = true
+            let data: [UInt8] = try message.serializedBytes(options: options)
             XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)

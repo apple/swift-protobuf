@@ -18,11 +18,8 @@ extension MessageStorage {
     /// Serializes the message represented by this storage into binary format and returns the
     /// corresponding bytes.
     func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
-        partial: Bool,
         options: BinaryEncodingOptions
     ) throws -> Bytes {
-        var options = options
-        options.checkRequiredFields = !partial
 
         // Note that this assumes `options` will not change the required size.
         let requiredSize = serializedBytesSize()
@@ -53,7 +50,7 @@ extension MessageStorage {
     /// A recursion helper that serializes the message represented by this storage into the given
     /// binary encoder.
     func serializeBytes(into encoder: inout BinaryEncoder, options: BinaryEncodingOptions) throws {
-        if options.checkRequiredFields && !isMessageInitializedShallow {
+        if !options.allowPartial && !isMessageInitializedShallow {
             throw BinaryEncodingError.missingRequiredFields
         }
 
