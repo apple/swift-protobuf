@@ -25,30 +25,47 @@ extension MessageStorage {
     ///
     /// - Parameters:
     ///   - buffer: The binary-encoded message data to decode.
+    ///   - extensions: The extension map to use.
     ///   - options: The ``BinaryDecodingOptions`` to use.
+    ///   - isInitializedShallow: An `inout` boolean used to track if required fields are
+    ///     shallowly present across the entire message tree parsed so far. It is passed as `inout`
+    ///     because deep recursion and multi-pass partial updates (e.g. out-of-order fields)
+    ///     require accumulative status tracking across nested submessages and extensions. The
+    ///     caller is assumed to have initialized it to true before the first call, and it will
+    ///     be set to false if any message fails the initialization check while decoding.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
         extensions: ExtensionMap?,
-        options: BinaryDecodingOptions
+        options: BinaryDecodingOptions,
+        isInitializedShallow: inout Bool
     ) throws {
         var reader = WireFormatReader(buffer: buffer, recursionBudget: options.messageDepthLimit)
         try merge(
             byReadingFrom: &reader,
             extensions: extensions,
-            options: options
+            options: options,
+            isInitializedShallow: &isInitializedShallow
         )
     }
 
     /// Decodes field values from the given wire format reader into this storage class.
     ///
     /// - Parameters:
-    ///   - buffer: The binary-encoded message data to decode.
-    ///   - options: The ``BinaryDecodingOptions`` to use.
+    ///   - reader: The wire format reader from which to decode fields.
+    ///   - extensions: The extension map to use.
+    ///   - options: The decoding options.
+    ///   - isInitializedShallow: An `inout` boolean used to track if required fields are
+    ///     shallowly present across the entire message tree parsed so far. It is passed as `inout`
+    ///     because deep recursion and multi-pass partial updates (e.g. out-of-order fields)
+    ///     require accumulative status tracking across nested submessages and extensions. The
+    ///     caller is assumed to have initialized it to true before the first call, and it will
+    ///     be set to false if any message fails the initialization check while decoding.
     func merge(
         byReadingFrom reader: inout WireFormatReader,
         extensions: ExtensionMap?,
-        options: BinaryDecodingOptions
+        options: BinaryDecodingOptions,
+        isInitializedShallow: inout Bool
     ) throws {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         while reader.hasAvailableData {
@@ -58,7 +75,8 @@ extension MessageStorage {
                 tag: tag,
                 extensions: extensions,
                 options: options,
-                mapEntryWorkingSpace: &mapEntryWorkingSpace
+                mapEntryWorkingSpace: &mapEntryWorkingSpace,
+                isInitializedShallow: &isInitializedShallow
             )
             if !consumed {
                 try decodeUnknownField(from: &reader, tag: tag, discard: options.discardUnknownFields)
@@ -69,9 +87,9 @@ extension MessageStorage {
             // group tracking state. If that didn't happen, then we ran out of data too early.
             throw BinaryDecodingError.truncated
         }
-        if !options.allowPartial && !isInitialized {
-            throw BinaryDecodingError.missingRequiredFields
-        }
+        // If partial decoding is not allowed, and we have any missing required fields, the message
+        // is not initialized.
+        isInitializedShallow = isInitializedShallow && (options.allowPartial || isMessageInitializedShallow)
     }
 
     /// Decodes the next field from the binary reader, assuming that its tag has already been read.
@@ -79,6 +97,18 @@ extension MessageStorage {
     /// - Parameters:
     ///   - reader: The reader from which to read the next field's data.
     ///   - tag: The tag that was just read from the reader.
+    ///   - extensions: The extension map to use.
+    ///   - options: The decoding options.
+    ///   - mapEntryWorkingSpace: Temporary storage used for map entries.
+    ///   - isInitializedShallow: An `inout` boolean used to track if required fields are
+    ///     shallowly present across the entire message tree parsed so far. It is passed as `inout`
+    ///     because deep recursion and multi-pass partial updates (e.g. out-of-order fields)
+    ///     require accumulative status tracking across nested submessages and extensions (any
+    ///     missing required field in a nested submessage will set this to false, bubbling all the
+    ///     way up to the top-level caller), whereas the return value represents exclusively
+    ///     whether the field was successfully consumed by the parser. The caller is assumed to
+    ///     have initialized it to true before the first call, and it will be set to false if any
+    ///     message fails the initialization check while decoding.
     /// - Returns: True if the field was consumed, or false to indicate that it should be stored in
     ///   unknown fields (for example, because the field did not exist or the data on the wire did
     ///   not match the expected wire format)).
@@ -87,7 +117,8 @@ extension MessageStorage {
         tag: FieldTag,
         extensions: ExtensionMap?,
         options: BinaryDecodingOptions,
-        mapEntryWorkingSpace: inout MapEntryWorkingSpace
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace,
+        isInitializedShallow: inout Bool
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
             // Just consume it; `nextTag` has already validated that it matches the last started
@@ -102,7 +133,8 @@ extension MessageStorage {
                 return try decodeMessageSetItem(
                     from: &reader,
                     extensions: extensions,
-                    options: options
+                    options: options,
+                    isInitializedShallow: &isInitializedShallow
                 )
             }
             return false
@@ -121,7 +153,8 @@ extension MessageStorage {
                     tag: tag,
                     extensions: extensions,
                     options: options,
-                    unknownFields: &unknownFields
+                    unknownFields: &unknownFields,
+                    isInitializedShallow: &isInitializedShallow
                 )
             {
                 // The extension consumed the field so we're done.
@@ -144,7 +177,8 @@ extension MessageStorage {
                 try workingSpace.merge(
                     byReadingFrom: &subReader,
                     extensions: extensions,
-                    options: options
+                    options: options,
+                    isInitializedShallow: &isInitializedShallow
                 )
                 insertMapEntry(in: field, from: workingSpace)
                 success = true
@@ -227,7 +261,8 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -250,7 +285,8 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -345,7 +381,8 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -366,7 +403,8 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -640,7 +678,8 @@ extension MessageStorage {
     private func decodeMessageSetItem(
         from reader: inout WireFormatReader,
         extensions: ExtensionMap?,
-        options: BinaryDecodingOptions
+        options: BinaryDecodingOptions,
+        isInitializedShallow: inout Bool
     ) throws -> Bool {
         // This is loosely based on the C++:
         //   ExtensionSet::ParseMessageSetItem()
@@ -708,7 +747,8 @@ extension MessageStorage {
         try submessageStorage.merge(
             byReadingFrom: &subReader,
             extensions: extensions,
-            options: options
+            options: options,
+            isInitializedShallow: &isInitializedShallow
         )
         return true
     }

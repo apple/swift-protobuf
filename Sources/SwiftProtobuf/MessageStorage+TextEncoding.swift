@@ -61,10 +61,15 @@ extension MessageStorage {
             let bytes: Data = value(of: valueField)
             do {
                 try bytes.withUnsafeBytes { buffer in
+                    // We still want the expanded verbose output even if the submessage is partial.
+                    var decodingOptions = BinaryDecodingOptions()
+                    decodingOptions.allowPartial = true
+                    var ignored = true
                     try messageStorage.merge(
                         byReadingFrom: buffer,
                         extensions: options.extensions,
-                        options: BinaryDecodingOptions()
+                        options: decodingOptions,
+                        isInitializedShallow: &ignored
                     )
                 }
                 encoder.emitExtensionFieldName(name: typeURL)
