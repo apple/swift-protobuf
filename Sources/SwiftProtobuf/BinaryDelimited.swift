@@ -42,19 +42,16 @@ public enum BinaryDelimited {
     ///   - message: The message to be written.
     ///   - stream: The `OutputStream` to write the message to.  The stream is
     ///     is assumed to be ready to be written to.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///   - options: The ``BinaryEncodingOptions`` to use.
     /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
     /// underlying `OutputStream.streamError` for a stream error.
     public static func serialize(
         message: any Message,
         to stream: OutputStream,
-        partial: Bool = false
+        options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws {
         // TODO: Revisit to avoid the extra buffering when encoding is streamed in general.
-        let serialized: [UInt8] = try message.serializedBytes(partial: partial)
+        let serialized: [UInt8] = try message.serializedBytes(options: options)
         let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
         var bytes: [UInt8] = Array(repeating: 0, count: totalSize)
         bytes.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
@@ -82,6 +79,32 @@ public enum BinaryDelimited {
             }
             throw BinaryDelimited.Error.truncated
         }
+    }
+
+    /// Serialize a single size-delimited message to the given stream. Delimited
+    /// format allows a single file or stream to contain multiple messages,
+    /// whereas normally writing multiple non-delimited messages to the same
+    /// stream would cause them to be merged. A delimited message is a varint
+    /// encoding the message size followed by a message of exactly that size.
+    ///
+    /// - Parameters:
+    ///   - message: The message to be written.
+    ///   - stream: The `OutputStream` to write the message to.  The stream is
+    ///     is assumed to be ready to be written to.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
+    /// underlying `OutputStream.streamError` for a stream error.
+    @available(*, deprecated, message: "Use serialize(message:to:options:) with options.allowPartial instead")
+    public static func serialize(
+        message: any Message,
+        to stream: OutputStream,
+        partial: Bool
+    ) throws {
+        var options = BinaryEncodingOptions()
+        options.allowPartial = partial
+        try serialize(message: message, to: stream, options: options)
     }
 
     /// Reads a single size-delimited message from the given stream. Delimited
