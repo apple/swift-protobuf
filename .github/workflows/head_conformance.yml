@@ -29,14 +29,14 @@ jobs:
       image: swift:latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         path: swift-protobuf
     - name: Update and install dependencies
       # Dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       run: apt-get update && apt-get install -y make g++ cmake
     - name: Checkout protobufbuffers/protobuf
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         repository: protocolbuffers/protobuf
         path: protobuf
