@@ -150,10 +150,24 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     if value[pos] == period {  // "." begins fractional seconds
         pos += 1
         var digitValue = 100_000_000
+        var fractionalDigits = 0
         while pos < value.count && value[pos] >= zero && value[pos] <= nine {
+            fractionalDigits += 1
+            // Protobuf encodes sub-second time as nanoseconds, so the fraction
+            // is limited to 9 digits. Reject as soon as a tenth digit appears
+            // so we fail fast, and so the Int32 accumulation below cannot
+            // overflow on pathological input.
+            if fractionalDigits > 9 {
+                throw JSONDecodingError.malformedTimestamp
+            }
             nanos += Int32(digitValue * (value[pos] - zero))
             digitValue /= 10
             pos += 1
+        }
+        // Protobuf JSON also requires at least one digit after the decimal
+        // point. The reference parser rejects an empty fraction.
+        if fractionalDigits < 1 {
+            throw JSONDecodingError.malformedTimestamp
         }
     }
 
