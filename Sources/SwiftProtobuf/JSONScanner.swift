@@ -980,7 +980,15 @@ internal struct JSONScanner {
                     throw JSONDecodingError.malformedNumber
                 }
                 advance()
-                return Float(d)
+                // A value that parses as a finite Double can still be out of
+                // range for Float (for example "1e39"), in which case the
+                // conversion yields an infinity. Reject it, matching the
+                // unquoted path below.
+                let f = Float(d)
+                if f.isFinite {
+                    return f
+                }
+                throw JSONDecodingError.malformedNumber
             } else {
                 // Slow Path: parseBareDouble returned nil: It might be
                 // a valid float, but had something that
