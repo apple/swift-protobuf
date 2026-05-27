@@ -136,7 +136,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///       "@type": "type.googleapis.com/google.protobuf.Duration",
 ///       "value": "1.212s"
 ///     }
-struct Google_Protobuf_Any: @unchecked Sendable {
+struct Google_Protobuf_Any: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -170,75 +170,42 @@ struct Google_Protobuf_Any: @unchecked Sendable {
   /// Schemes other than `http`, `https` (or the empty scheme) might be
   /// used with implementation specific semantics.
   var typeURL: String {
-    get {_storage._typeURL}
-    set {_uniqueStorage()._typeURL = newValue}
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   /// Must be a valid serialized protocol buffer of the above specified type.
   var value: Data {
-    get {_storage._value}
-    set {_uniqueStorage()._value = newValue}
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
-
-  internal var _storage = _StorageClass.defaultInstance
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Any"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}type_url\0\u{1}value\0")
+extension Google_Protobuf_Any: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MX$R\0*\u{10}u5\u{8}\u{3}MO=\u{1e}\u{16}9ZB}F\\\u{1d}sNIqfaz:~!\",dn\u{1e}K/\u{15}bZ)\u{1}\0"
 
-  typealias _StorageClass = AnyMessageStorage
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  internal mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularStringField(value: &_storage._typeURL) }()
-        case 2: try { try decoder.decodeSingularBytesField(value: &_storage._value) }()
-        default: break
-        }
-      }
-    }
-  }
-
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage.preTraverse()
-      if !_storage._typeURL.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)
-      }
-      if !_storage._value.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._value, fieldNumber: 2)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Google_Protobuf_Any, rhs: Google_Protobuf_Any) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = lhs._storage.isEqualTo(other: rhs._storage)
-      if !storagesAreEqual {return false}
-    }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }

@@ -108,7 +108,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should
 /// be expressed in JSON format as "3.000000001s", and 3 seconds and 1
 /// microsecond should be expressed in JSON format as "3.000001s".
-struct Google_Protobuf_Duration: Sendable {
+struct Google_Protobuf_Duration: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -116,7 +116,10 @@ struct Google_Protobuf_Duration: Sendable {
   /// Signed seconds of the span of time. Must be from -315,576,000,000
   /// to +315,576,000,000 inclusive. Note: these bounds are computed from:
   /// 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
-  var seconds: Int64 = 0
+  var seconds: Int64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
   /// Signed fractions of a second at nanosecond resolution of the span
   /// of time. Durations less than one second are represented with a 0
@@ -124,48 +127,37 @@ struct Google_Protobuf_Duration: Sendable {
   /// of one second or more, a non-zero value for the `nanos` field must be
   /// of the same sign as the `seconds` field. Must be from -999,999,999
   /// to +999,999,999 inclusive.
-  var nanos: Int32 = 0
+  var nanos: Int32 {
+    get { _storage.value(at: 4, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 2)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Duration: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Duration"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}seconds\0\u{1}nanos\0")
+extension Google_Protobuf_Duration: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{18}\0google.protobuf.Duration"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{18}\0google.protobuf.Duration"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HqLj\u{1d}N\"Q(x$Py,Fqy1b<\u{14}'X\u{7}NW`\u{4}\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.seconds) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.nanos) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
-    }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.nanos != rhs.nanos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }

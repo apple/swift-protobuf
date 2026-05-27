@@ -52,50 +52,44 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
-struct Google_Protobuf_SourceContext: Sendable {
+struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The path-qualified name of the .proto file that contained the associated
   /// protobuf element.  For example: `"google/protobuf/source_context.proto"`.
-  var fileName: String = String()
+  var fileName: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_SourceContext: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SourceContext"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}file_name\0")
+extension Google_Protobuf_SourceContext: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hGliX\u{18}j9Rre(lk/\t\u{3}\u{1b}^\u{1}u\u{f}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.fileName) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fileName.isEmpty {
-      try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_SourceContext, rhs: Google_Protobuf_SourceContext) -> Bool {
-    if lhs.fileName != rhs.fileName {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }

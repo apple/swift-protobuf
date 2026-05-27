@@ -139,63 +139,55 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// the Joda Time's [`ISODateTimeFormat.dateTime()`](
 /// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
 /// ) to obtain a formatter capable of generating timestamps in this format.
-struct Google_Protobuf_Timestamp: Sendable {
+struct Google_Protobuf_Timestamp: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
-  /// be between -315576000000 and 315576000000 inclusive (which corresponds to
+  /// be between -62135596800 and 253402300799 inclusive (which corresponds to
   /// 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z).
-  var seconds: Int64 = 0
+  var seconds: Int64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
   /// Non-negative fractions of a second at nanosecond resolution. This field is
   /// the nanosecond portion of the duration, not an alternative to seconds.
   /// Negative second values with fractions must still have non-negative nanos
   /// values that count forward in time. Must be between 0 and 999,999,999
   /// inclusive.
-  var nanos: Int32 = 0
+  var nanos: Int32 {
+    get { _storage.value(at: 4, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 2)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}seconds\0\u{1}nanos\0")
+extension Google_Protobuf_Timestamp: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HqLj\u{1d}N\"Q(x$Py,Fqy1b<\u{14}'X\u{7}NW`\u{4}\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.seconds) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.nanos) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
-    }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.nanos != rhs.nanos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
