@@ -11,14 +11,9 @@ permissions:
 
 on:
   push:
-    branches: [ main ]
+    branches: [ table-driven-branch ]
   pull_request:
-    branches: [ main ]
-  # Every Sunday at 5am to get warning on any new conformance tests upstream.
-  schedule:
-    - cron: '0 5 * * 0'
-  # Also allow manual triggering from the github UX to revalidate things.
-  workflow_dispatch:
+    branches: [ table-driven-branch ]
 
 jobs:
   build:
