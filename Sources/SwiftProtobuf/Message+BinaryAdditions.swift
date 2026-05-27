@@ -20,22 +20,37 @@ extension Message {
     /// format serialization of the message.
     ///
     /// - Parameters:
-    ///   - partial: If `false` (the default), this method will check
-    ///     `Message.isInitialized` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws.
-    ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - options: The ``BinaryEncodingOptions`` to use.
     /// - Returns: A ``SwiftProtobufContiguousBytes`` instance containing the binary serialization
     /// of the message.
     ///
     /// - Throws: ``SwiftProtobufError`` or ``BinaryEncodingError`` if encoding fails.
     public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
-        partial: Bool = false,
+        options: BinaryEncodingOptions = BinaryEncodingOptions()
+    ) throws -> Bytes {
+        return try storageForRuntime.serializedBytes(options: options)
+    }
+
+    /// Returns a ``SwiftProtobufContiguousBytes`` instance containing the Protocol Buffer binary
+    /// format serialization of the message.
+    ///
+    /// - Parameters:
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryEncodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryEncodingOptions`` to use.
+    /// - Returns: A ``SwiftProtobufContiguousBytes`` instance containing the binary serialization
+    /// of the message.
+    ///
+    /// - Throws: ``SwiftProtobufError`` or ``BinaryEncodingError`` if encoding fails.
+    @available(*, deprecated, message: "Use serializedBytes(options:) with options.allowPartial instead")
+    public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
+        partial: Bool,
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Bytes {
         var options = options
-        options.checkRequiredFields = !partial
-        return try storageForRuntime.serializedBytes(partial: partial, options: options)
+        options.allowPartial = partial
+        return try serializedBytes(options: options)
     }
 
     /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value

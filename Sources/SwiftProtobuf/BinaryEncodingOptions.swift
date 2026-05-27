@@ -28,10 +28,16 @@ public struct BinaryEncodingOptions: Sendable {
     /// and subject to change.
     public var useDeterministicOrdering: Bool
 
-    internal var checkRequiredFields: Bool
+    /// Whether to allow partial messages (i.e., messages with missing required fields) to be
+    /// serialized.
+    ///
+    /// If `false` (the default), the encoder will check that all required fields are present in
+    /// the message (recursively checking any nested submessages). If any are missing, the encoder
+    /// will throw ``BinaryEncodingError/missingRequiredFields``.
+    public var allowPartial: Bool
 
     public init() {
         self.useDeterministicOrdering = false
-        self.checkRequiredFields = false
+        self.allowPartial = false
     }
 }

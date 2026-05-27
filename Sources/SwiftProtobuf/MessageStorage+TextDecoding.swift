@@ -220,9 +220,11 @@ extension MessageStorage {
         }
 
         updateValue(of: KnownField.anyTypeURL(in: schema), to: typeURL)
+        var options = BinaryEncodingOptions()
+        options.allowPartial = true
         updateValue(
             of: KnownField.anyValue(in: schema),
-            to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions())
+            to: try messageStorage.serializedBytes(options: options)
         )
     }
 }

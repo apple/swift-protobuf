@@ -548,7 +548,9 @@ extension MessageStorage {
         }
 
         updateValue(of: typeURLField, to: typeURL)
-        updateValue(of: valueField, to: try messageStorage.serializedBytes(partial: true, options: BinaryEncodingOptions()))
+        var options = BinaryEncodingOptions()
+        options.allowPartial = true
+        updateValue(of: valueField, to: try messageStorage.serializedBytes(options: options))
     }
 
     /// Parses the next quoted string from the input and interprets it as the JSON representation

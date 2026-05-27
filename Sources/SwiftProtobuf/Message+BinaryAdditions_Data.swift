@@ -207,31 +207,48 @@ extension Message {
     /// format serialization of the message.
     ///
     /// - Parameters:
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
     /// - Returns: A `Data` instance containing the binary serialization of the message.
     /// - Throws: ``BinaryEncodingError`` if encoding fails.
-    public func serializedData(partial: Bool = false) throws -> Data {
-        try serializedBytes(partial: partial, options: BinaryEncodingOptions())
+    @available(*, deprecated, message: "Use serializedData(options:) with options.allowPartial instead")
+    public func serializedData(partial: Bool) throws -> Data {
+        var options = BinaryEncodingOptions()
+        options.allowPartial = partial
+        return try serializedData(options: options)
     }
 
     /// Returns a `Data` instance containing the Protocol Buffer binary
     /// format serialization of the message.
     ///
     /// - Parameters:
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - options: The ``BinaryEncodingOptions`` to use.
     /// - Returns: A `Data` instance containing the binary serialization of the message.
     /// - Throws: ``BinaryEncodingError`` if encoding fails.
     public func serializedData(
-        partial: Bool = false,
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Data {
-        try serializedBytes(partial: partial, options: options)
+        try serializedBytes(options: options)
+    }
+
+    /// Returns a `Data` instance containing the Protocol Buffer binary
+    /// format serialization of the message.
+    ///
+    /// - Parameters:
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryEncodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryEncodingOptions`` to use.
+    /// - Returns: A `Data` instance containing the binary serialization of the message.
+    /// - Throws: ``BinaryEncodingError`` if encoding fails.
+    @available(*, deprecated, message: "Use serializedData(options:) with options.allowPartial instead")
+    public func serializedData(
+        partial: Bool,
+        options: BinaryEncodingOptions = BinaryEncodingOptions()
+    ) throws -> Data {
+        var options = options
+        options.allowPartial = partial
+        return try serializedData(options: options)
     }
 }
