@@ -29,8 +29,7 @@ extension ExtensionStorage {
         from reader: inout WireFormatReader,
         tag: FieldTag,
         extensions: ExtensionMap?,
-        partial: Bool,
-        discardUnknownFields: Bool,
+        options: BinaryDecodingOptions,
         unknownFields: inout UnknownStorage
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
@@ -103,8 +102,7 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -127,8 +125,7 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -222,8 +219,7 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -244,8 +240,7 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
