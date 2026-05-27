@@ -36,24 +36,18 @@ extension MessageStorage {
         try merge(
             byReadingFrom: &reader,
             extensions: extensions,
-            partial: options.allowPartial,
-            discardUnknownFields: options.discardUnknownFields)
+            options: options)
     }
 
     /// Decodes field values from the given wire format reader into this storage class.
     ///
     /// - Parameters:
     ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
-    ///   - discardUnknownFields: If true, unknown fields will be discarded during
-    ///     parsing.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
     func merge(
         byReadingFrom reader: inout WireFormatReader,
         extensions: ExtensionMap?,
-        partial: Bool,
-        discardUnknownFields: Bool
+        options: BinaryDecodingOptions
     ) throws {
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         while reader.hasAvailableData {
@@ -62,12 +56,11 @@ extension MessageStorage {
                 from: &reader,
                 tag: tag,
                 extensions: extensions,
-                partial: partial,
-                discardUnknownFields: discardUnknownFields,
+                options: options,
                 mapEntryWorkingSpace: &mapEntryWorkingSpace
             )
             if !consumed {
-                try decodeUnknownField(from: &reader, tag: tag, discard: discardUnknownFields)
+                try decodeUnknownField(from: &reader, tag: tag, discard: options.discardUnknownFields)
             }
         }
         if reader.isTrackingGroup {
@@ -75,7 +68,7 @@ extension MessageStorage {
             // group tracking state. If that didn't happen, then we ran out of data too early.
             throw BinaryDecodingError.truncated
         }
-        if !partial && !isInitialized {
+        if !options.allowPartial && !isInitialized {
             throw BinaryDecodingError.missingRequiredFields
         }
     }
@@ -92,8 +85,7 @@ extension MessageStorage {
         from reader: inout WireFormatReader,
         tag: FieldTag,
         extensions: ExtensionMap?,
-        partial: Bool,
-        discardUnknownFields: Bool,
+        options: BinaryDecodingOptions,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
@@ -109,8 +101,7 @@ extension MessageStorage {
                 return try decodeMessageSetItem(
                     from: &reader,
                     extensions: extensions,
-                    partial: partial,
-                    discardUnknownFields: discardUnknownFields
+                    options: options
                 )
             }
             return false
@@ -128,8 +119,7 @@ extension MessageStorage {
                     from: &reader,
                     tag: tag,
                     extensions: extensions,
-                    partial: partial,
-                    discardUnknownFields: discardUnknownFields,
+                    options: options,
                     unknownFields: &unknownFields
                 )
             {
@@ -149,15 +139,11 @@ extension MessageStorage {
             var success: Bool
             do {
                 let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
-                let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
-                let isEnumValue = valueField.rawFieldType == .enum
-
                 var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
                 try workingSpace.merge(
                     byReadingFrom: &subReader,
                     extensions: extensions,
-                    partial: partial,
-                    discardUnknownFields: !isEnumValue
+                    options: options
                 )
                 insertMapEntry(in: field, from: workingSpace)
                 success = true
@@ -205,14 +191,14 @@ extension MessageStorage {
                         from: &reader,
                         fieldNumber: tag.fieldNumber,
                         isRepeated: true,
-                        discardUnknownFields: discardUnknownFields
+                        discardUnknownFields: options.discardUnknownFields
                     )
                 case .lengthDelimited:
                     try appendPackedEnumValues(
                         from: &reader,
                         to: field,
                         fieldNumber: tag.fieldNumber,
-                        discardUnknownFields: discardUnknownFields
+                        discardUnknownFields: options.discardUnknownFields
                     )
                 default:
                     return false
@@ -240,8 +226,7 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -264,8 +249,7 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -338,7 +322,7 @@ extension MessageStorage {
                     from: &reader,
                     fieldNumber: tag.fieldNumber,
                     isRepeated: false,
-                    discardUnknownFields: discardUnknownFields
+                    discardUnknownFields: options.discardUnknownFields
                 )
 
             case .fixed32:
@@ -360,8 +344,7 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -382,8 +365,7 @@ extension MessageStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        partial: partial,
-                        discardUnknownFields: discardUnknownFields
+                        options: options
                     )
                 }
 
@@ -657,8 +639,7 @@ extension MessageStorage {
     private func decodeMessageSetItem(
         from reader: inout WireFormatReader,
         extensions: ExtensionMap?,
-        partial: Bool,
-        discardUnknownFields: Bool
+        options: BinaryDecodingOptions
     ) throws -> Bool {
         // This is loosely based on the C++:
         //   ExtensionSet::ParseMessageSetItem()
@@ -726,8 +707,7 @@ extension MessageStorage {
         try submessageStorage.merge(
             byReadingFrom: &subReader,
             extensions: extensions,
-            partial: partial,
-            discardUnknownFields: discardUnknownFields
+            options: options
         )
         return true
     }
