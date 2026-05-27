@@ -139,16 +139,11 @@ extension MessageStorage {
             var success: Bool
             do {
                 let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
-                let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
-                let isEnumValue = valueField.rawFieldType == .enum
-
                 var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
-                var subOptions = options
-                subOptions.discardUnknownFields = !isEnumValue
                 try workingSpace.merge(
                     byReadingFrom: &subReader,
                     extensions: extensions,
-                    options: subOptions
+                    options: options
                 )
                 insertMapEntry(in: field, from: workingSpace)
                 success = true
