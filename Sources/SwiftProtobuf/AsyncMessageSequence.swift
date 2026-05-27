@@ -23,21 +23,47 @@ extension AsyncSequence where Element == UInt8 {
     ///   - messageType: The type of message to read.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
     ///    messages encoded by this sequence, or in messages nested within these messages.
-    ///   - partial: If `false` (the default),  after decoding a message, ``Message/isInitialized-6abgi`
-    ///     will be checked to ensure all fields are present.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
     @inlinable
     public func binaryProtobufDelimitedMessages<M: Message>(
         of messageType: M.Type = M.self,
         extensions: ExtensionMap? = nil,
-        partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) -> AsyncMessageSequence<Self, M> {
         AsyncMessageSequence<Self, M>(
             base: self,
             extensions: extensions,
-            partial: partial,
+            options: options
+        )
+    }
+
+    /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
+    /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
+    /// is a varint encoding the message size followed by a message of exactly that size.
+    ///
+    /// - Parameters:
+    ///   - messageType: The type of message to read.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
+    ///    messages encoded by this sequence, or in messages nested within these messages.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+    @available(*, deprecated, message: "Use binaryProtobufDelimitedMessages(of:extensions:options:) with options.allowPartial instead")
+    @inlinable
+    public func binaryProtobufDelimitedMessages<M: Message>(
+        of messageType: M.Type = M.self,
+        extensions: ExtensionMap? = nil,
+        partial: Bool,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) -> AsyncMessageSequence<Self, M> {
+        var options = options
+        options.allowPartial = partial
+        return binaryProtobufDelimitedMessages(
+            of: messageType,
+            extensions: extensions,
             options: options
         )
     }
@@ -55,7 +81,6 @@ public struct AsyncMessageSequence<
 
     private let base: Base
     private let extensions: Optional<ExtensionMap>
-    private let partial: Bool
     private let options: BinaryDecodingOptions
 
     /// Reads size-delimited messages from the given sequence of bytes. Delimited
@@ -66,20 +91,41 @@ public struct AsyncMessageSequence<
     ///   - base: The `AsyncSequence` to read messages from.
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
     ///    messages encoded by this sequence, or in messages nested within these messages.
-    ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
-    ///     will be checked to ensure all fields are present.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
     public init(
         base: Base,
         extensions: ExtensionMap? = nil,
-        partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) {
         self.base = base
         self.extensions = extensions
-        self.partial = partial
         self.options = options
+    }
+
+    /// Reads size-delimited messages from the given sequence of bytes. Delimited
+    /// format allows a single file or stream to contain multiple messages. A delimited message
+    /// is a varint encoding the message size followed by a message of exactly that size.
+    ///
+    /// - Parameters:
+    ///   - base: The `AsyncSequence` to read messages from.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
+    ///    messages encoded by this sequence, or in messages nested within these messages.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+    @available(*, deprecated, message: "Use init(base:extensions:options:) with options.allowPartial instead")
+    public init(
+        base: Base,
+        extensions: ExtensionMap? = nil,
+        partial: Bool,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) {
+        var options = options
+        options.allowPartial = partial
+        self.init(base: base, extensions: extensions, options: options)
     }
 
     /// An asynchronous iterator that produces the messages of this asynchronous sequence.
@@ -89,19 +135,15 @@ public struct AsyncMessageSequence<
         @usableFromInline
         let extensions: Optional<ExtensionMap>
         @usableFromInline
-        let partial: Bool
-        @usableFromInline
         let options: BinaryDecodingOptions
 
         init(
             iterator: Base.AsyncIterator,
             extensions: ExtensionMap?,
-            partial: Bool,
             options: BinaryDecodingOptions
         ) {
             self.iterator = iterator
             self.extensions = extensions
-            self.partial = partial
             self.options = options
         }
 
@@ -181,7 +223,6 @@ public struct AsyncMessageSequence<
                 return try M(
                     serializedBytes: [],
                     extensions: extensions,
-                    partial: partial,
                     options: options
                 )
             }
@@ -189,7 +230,6 @@ public struct AsyncMessageSequence<
             return try M(
                 serializedBytes: buffer,
                 extensions: extensions,
-                partial: partial,
                 options: options
             )
         }
@@ -204,7 +244,6 @@ public struct AsyncMessageSequence<
         AsyncIterator(
             iterator: base.makeAsyncIterator(),
             extensions: extensions,
-            partial: partial,
             options: options
         )
     }

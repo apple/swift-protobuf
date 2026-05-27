@@ -25,9 +25,8 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
@@ -51,9 +50,8 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
@@ -78,9 +76,8 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
@@ -115,9 +112,8 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
@@ -130,8 +126,10 @@ extension Message {
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
+        var options = options
+        options.allowPartial = partial
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
+            try _merge(rawBuffer: body, extensions: extensions, options: options)
         }
     }
 
@@ -148,9 +146,8 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
@@ -168,8 +165,10 @@ extension Message {
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
+        var options = options
+        options.allowPartial = partial
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
+            try _merge(rawBuffer: body, extensions: extensions, options: options)
         }
     }
     #endif  // !REMOVE_DEPRECATED_APIS
@@ -187,20 +186,46 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     @inlinable
     public mutating func merge(
         serializedData data: Data,
         extensions: ExtensionMap? = nil,
-        partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
-        try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
+        try merge(serializedBytes: data, extensions: extensions, options: options)
+    }
+
+    /// Updates the message by decoding the given `Data` value
+    /// containing a serialized message in Protocol Buffer binary format into the
+    /// receiver.
+    ///
+    /// - Note: If this method throws an error, the message may still have been
+    ///   partially mutated by the binary data that was decoded before the error
+    ///   occurred.
+    ///
+    /// - Parameters:
+    ///   - data: The binary-encoded message data to decode.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Throws: ``BinaryDecodingError`` if decoding fails.
+    @available(*, deprecated, message: "Use merge(serializedData:extensions:options:) with options.allowPartial instead")
+    @inlinable
+    public mutating func merge(
+        serializedData data: Data,
+        extensions: ExtensionMap? = nil,
+        partial: Bool,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) throws {
+        var options = options
+        options.allowPartial = partial
+        try merge(serializedData: data, extensions: extensions, options: options)
     }
 
     /// Returns a `Data` instance containing the Protocol Buffer binary

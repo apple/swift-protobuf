@@ -25,23 +25,18 @@ extension MessageStorage {
     ///
     /// - Parameters:
     ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
         extensions: ExtensionMap?,
-        partial: Bool,
         options: BinaryDecodingOptions
     ) throws {
         var reader = WireFormatReader(buffer: buffer, recursionBudget: options.messageDepthLimit)
         try merge(
             byReadingFrom: &reader,
             extensions: extensions,
-            partial: partial,
+            partial: options.allowPartial,
             discardUnknownFields: options.discardUnknownFields)
     }
 
@@ -49,9 +44,8 @@ extension MessageStorage {
     ///
     /// - Parameters:
     ///   - buffer: The binary-encoded message data to decode.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - discardUnknownFields: If true, unknown fields will be discarded during
     ///     parsing.

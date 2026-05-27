@@ -35,8 +35,17 @@ public struct BinaryDecodingOptions: Sendable {
     /// object graph being created.
     public var discardUnknownFields: Bool
 
+    /// Whether to allow partial messages (i.e., messages with missing required fields) to be
+    /// decoded.
+    ///
+    /// If `false` (the default), the decoder will check that all required fields are present in
+    /// the message (recursively checking any nested submessages) after decoding. If any are
+    /// missing, the decoder will throw ``BinaryDecodingError/missingRequiredFields``.
+    public var allowPartial: Bool
+
     public init() {
         self.messageDepthLimit = 100
         self.discardUnknownFields = false
+        self.allowPartial = false
     }
 }

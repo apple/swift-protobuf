@@ -120,10 +120,6 @@ public enum BinaryDelimited {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: The message read.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
@@ -132,7 +128,6 @@ public enum BinaryDelimited {
         messageType: M.Type,
         from stream: InputStream,
         extensions: ExtensionMap? = nil,
-        partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws -> M {
         var message = M()
@@ -140,10 +135,47 @@ public enum BinaryDelimited {
             into: &message,
             from: stream,
             extensions: extensions,
-            partial: partial,
             options: options
         )
         return message
+    }
+
+    /// Reads a single size-delimited message from the given stream. Delimited
+    /// format allows a single file or stream to contain multiple messages,
+    /// whereas normally parsing consumes the entire input. A delimited message
+    /// is a varint encoding the message size followed by a message of exactly
+    /// exactly that size.
+    ///
+    /// - Parameters:
+    ///   - messageType: The type of message to read.
+    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
+    ///     to be ready to read from.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryDecodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    /// - Returns: The message read.
+    /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
+    /// some reading errors; or the underlying `InputStream.streamError` for a stream error.
+    @available(*, deprecated, message: "Use parse(messageType:from:extensions:options:) with options.allowPartial instead")
+    public static func parse<M: Message>(
+        messageType: M.Type,
+        from stream: InputStream,
+        extensions: ExtensionMap? = nil,
+        partial: Bool,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) throws -> M {
+        var options = options
+        options.allowPartial = partial
+        return try parse(
+            messageType: messageType,
+            from: stream,
+            extensions: extensions,
+            options: options
+        )
     }
 
     /// Updates the message by reading a single size-delimited message from
@@ -163,10 +195,6 @@ public enum BinaryDelimited {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
     ///   - options: The BinaryDecodingOptions to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
@@ -174,7 +202,6 @@ public enum BinaryDelimited {
         into message: inout M,
         from stream: InputStream,
         extensions: ExtensionMap? = nil,
-        partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         let unsignedLength = try decodeVarint(stream)
@@ -228,7 +255,48 @@ public enum BinaryDelimited {
         try message.merge(
             serializedBytes: data,
             extensions: extensions,
-            partial: partial,
+            options: options
+        )
+    }
+
+    /// Updates the message by reading a single size-delimited message from
+    /// the given stream. Delimited format allows a single file or stream to
+    /// contain multiple messages, whereas normally parsing consumes the entire
+    /// input. A delimited message is a varint encoding the message size
+    /// followed by a message of exactly that size.
+    ///
+    /// - Note: If this method throws an error, the message may still have been
+    ///   partially mutated by the binary data that was decoded before the error
+    ///   occurred.
+    ///
+    /// - Parameters:
+    ///   - message: The message to merge the data into.
+    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
+    ///     to be ready to read from.
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///     extensions in this message or messages nested within this message's
+    ///     fields.
+    ///   - partial: If `false` (the default), this method will check
+    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
+    ///     fields are present. If any are missing, this method throws
+    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///   - options: The BinaryDecodingOptions to use.
+    /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
+    /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
+    @available(*, deprecated, message: "Use merge(into:from:extensions:options:) with options.allowPartial instead")
+    public static func merge<M: Message>(
+        into message: inout M,
+        from stream: InputStream,
+        extensions: ExtensionMap? = nil,
+        partial: Bool,
+        options: BinaryDecodingOptions = BinaryDecodingOptions()
+    ) throws {
+        var options = options
+        options.allowPartial = partial
+        try merge(
+            into: &message,
+            from: stream,
+            extensions: extensions,
             options: options
         )
     }

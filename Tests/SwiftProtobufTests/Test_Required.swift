@@ -370,7 +370,9 @@ final class Test_Required: XCTestCase, PBTestHelpers {
         line: UInt = #line
     ) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            var options = BinaryDecodingOptions()
+            options.allowPartial = true
+            let msg = try MessageTestType(serializedBytes: bytes, options: options)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -580,7 +582,9 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
         line: UInt = #line
     ) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            var options = BinaryDecodingOptions()
+            options.allowPartial = true
+            let msg = try MessageTestType(serializedBytes: bytes, options: options)
             var expected = "SwiftProtobufTests.SwiftProtoTesting_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
