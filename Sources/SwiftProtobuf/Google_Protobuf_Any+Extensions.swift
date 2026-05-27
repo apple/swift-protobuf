@@ -25,17 +25,14 @@ extension Google_Protobuf_Any {
     ///
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryEncodingError/missingRequiredFields``.
+    ///   - options: The ``BinaryEncodingOptions`` to use.
     ///   - typeURLPrefix: The prefix to be used when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
     /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
-    ///   `partial` is false and `message` wasn't fully initialized.
+    ///   `options.allowPartial` is false and `message` wasn't fully initialized.
     public init<M: Message>(
         packing message: M,
-        partial: Bool = false,
+        options: BinaryEncodingOptions = BinaryEncodingOptions(),
         typeURLPrefix: String = defaultAnyTypeURLPrefix
     ) throws {
         // Since we're passing a concrete message type here, we can auto-register it for
@@ -44,7 +41,7 @@ extension Google_Protobuf_Any {
 
         self.init()
         typeURL = buildTypeURL(forMessage: message, typePrefix: typeURLPrefix)
-        value = try message.serializedData(partial: partial)
+        value = try message.serializedData(options: options)
     }
 
     /// Initialize an Any object from the provided message.
@@ -53,18 +50,39 @@ extension Google_Protobuf_Any {
     ///
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
+    ///   - typeURLPrefix: The prefix to be used when building the `type_url`.
+    ///     Defaults to "type.googleapis.com".
+    /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
+    ///   `partial` is false and `message` wasn't fully initialized.
+    @available(*, deprecated, message: "Use init(packing:options:typeURLPrefix:) with options.allowPartial instead")
+    public init<M: Message>(
+        packing message: M,
+        partial: Bool,
+        typeURLPrefix: String = defaultAnyTypeURLPrefix
+    ) throws {
+        var options = BinaryEncodingOptions()
+        options.allowPartial = partial
+        try self.init(packing: message, options: options, typeURLPrefix: typeURLPrefix)
+    }
+
+    /// Initialize an Any object from the provided message.
+    ///
+    /// This corresponds to the `pack` operation in the C++ API.
+    ///
+    /// - Parameters:
+    ///   - message: The ``Message`` to serialized into this Any.
+    ///   - options: The ``BinaryEncodingOptions`` to use.
     ///   - typePrefix: The prefix to be used when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
     /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
-    /// `partial` is false and `message` wasn't fully initialized.
-    @available(*, deprecated, renamed: "init(packing:partial:typeURLPrefix:)")
+    /// `options.allowPartial` is false and `message` wasn't fully initialized.
+    @available(*, deprecated, renamed: "init(packing:options:typeURLPrefix:)")
     public init(
         message: any Message,
-        partial: Bool = false,
+        options: BinaryEncodingOptions = BinaryEncodingOptions(),
         typePrefix: String = defaultAnyTypeURLPrefix
     ) throws {
         // Since we're passing a concrete message type here, we can auto-register it for
@@ -73,7 +91,31 @@ extension Google_Protobuf_Any {
 
         self.init()
         typeURL = buildTypeURL(forMessage: message, typePrefix: typePrefix)
-        value = try message.serializedData(partial: partial)
+        value = try message.serializedData(options: options)
+    }
+
+    /// Initialize an Any object from the provided message.
+    ///
+    /// This corresponds to the `pack` operation in the C++ API.
+    ///
+    /// - Parameters:
+    ///   - message: The ``Message`` to serialized into this Any.
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present before encoding. If any are missing, this method throws
+    ///     ``BinaryEncodingError/missingRequiredFields``.
+    ///   - typePrefix: The prefix to be used when building the `type_url`.
+    ///     Defaults to "type.googleapis.com".
+    /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
+    /// `partial` is false and `message` wasn't fully initialized.
+    @available(*, deprecated, message: "Use init(message:options:typePrefix:) with options.allowPartial instead")
+    public init(
+        message: any Message,
+        partial: Bool,
+        typePrefix: String = defaultAnyTypeURLPrefix
+    ) throws {
+        var options = BinaryEncodingOptions()
+        options.allowPartial = partial
+        try self.init(message: message, options: options, typePrefix: typePrefix)
     }
 
     /// Returns true if this `Google_Protobuf_Any` message contains the given
