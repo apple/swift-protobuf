@@ -28,7 +28,10 @@ public struct BinaryEncodingOptions: Sendable {
     /// and subject to change.
     public var useDeterministicOrdering: Bool
 
+    internal var checkRequiredFields: Bool
+
     public init() {
         self.useDeterministicOrdering = false
+        self.checkRequiredFields = false
     }
 }

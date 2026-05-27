@@ -33,6 +33,8 @@ extension Message {
         partial: Bool = false,
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Bytes {
+        var options = options
+        options.checkRequiredFields = !partial
         return try storageForRuntime.serializedBytes(partial: partial, options: options)
     }
 
