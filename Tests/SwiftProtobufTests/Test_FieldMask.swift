@@ -140,6 +140,70 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
     }
 
+    // A singular message field named directly by the mask should not be
+    // cleared when the source does not set it. The default merge behavior
+    // skips an unset singular message field, leaving the destination intact.
+    func testMergeUnsetMessageFieldOfMessage() throws {
+        var message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 1
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 2
+            }
+        }
+
+        let secondMessage = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 5
+        }
+
+        // The mask covers the message field, but the source leaves it unset,
+        // so the destination keeps its existing value.
+        try message.merge(
+            from: secondMessage,
+            fieldMask: .init(protoPaths: "optional_int32", "optional_nested_message")
+        )
+        XCTAssertEqual(message.optionalInt32, 5)
+        XCTAssertTrue(message.hasOptionalNestedMessage)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 2)
+
+        // When the source does set the message field, it still replaces the
+        // destination value.
+        let thirdMessage = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 7
+            }
+        }
+        try message.merge(from: thirdMessage, fieldMask: .init(protoPaths: "optional_nested_message"))
+        XCTAssertEqual(message.optionalNestedMessage.bb, 7)
+    }
+
+    // Reproduces the report in issue #1875: merging with a mask that covers
+    // every field should not drop fields of the destination that the source
+    // leaves unset. Singular primitives still follow the default of copying
+    // the source value (its default when unset), while the message field is
+    // preserved.
+    func testMergeAllFieldsKeepsUnsetSourceFields() throws {
+        var message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt64 = 1
+            model.optionalString = "blah"
+            model.repeatedInt32 = [3, 4]
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 9
+            }
+        }
+
+        let secondMessage = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt64 = 2
+        }
+
+        let fieldMask = Google_Protobuf_FieldMask(allFieldsOf: SwiftProtoTesting_TestAllTypes.self)
+        try message.merge(from: secondMessage, fieldMask: fieldMask)
+
+        XCTAssertEqual(message.optionalInt64, 2)
+        XCTAssertEqual(message.repeatedInt32, [3, 4])
+        XCTAssertTrue(message.hasOptionalNestedMessage)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 9)
+    }
+
     // Checks merge functionality for repeated field masks.
     func testMergeRepeatedFieldsOfMessage() throws {
         var message = SwiftProtoTesting_TestAllTypes.with { model in
