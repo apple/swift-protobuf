@@ -25,6 +25,6 @@ extension GeneratedMessage {
 
     /// All instances of a generated message return the type-wide schema.
     public var messageSchema: MessageSchema {
-        return Self.messageSchema
+        Self.messageSchema
     }
 }

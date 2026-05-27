@@ -100,7 +100,8 @@ extension ExtensionStorage {
                 var totalSize = 0
                 forEachMessage(inAssumedPresentRepeatedMessageField: schema) { groupStorage in
                     let messageSize = groupStorage.serializedBytesSize()
-                    totalSize += messageSize
+                    totalSize +=
+                        messageSize
                         // Include the size of the length-delimited tag.
                         + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                         // Include the varint-encoded length.

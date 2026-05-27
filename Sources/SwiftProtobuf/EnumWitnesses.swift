@@ -28,13 +28,14 @@ public enum EnumWitnesses<T: Enum> {
 
         case .arrayInitialize(let pointer):
             pointer.bindMemory(to: [T].self, capacity: 1).initialize(to: [])
-        
+
         case .arrayDeinitialize(let pointer):
             pointer.bindMemory(to: [T].self, capacity: 1).deinitialize(count: 1)
 
         case .arrayCopyInitialize(let source, let destination):
             destination.bindMemory(to: [T].self, capacity: 1).initialize(
-                to: source.bindMemory(to: [T].self, capacity: 1).pointee)
+                to: source.bindMemory(to: [T].self, capacity: 1).pointee
+            )
 
         case .arrayGetCount(let pointer, let result):
             result.pointee = pointer.bindMemory(to: [T].self, capacity: 1).pointee.count

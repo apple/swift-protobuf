@@ -51,7 +51,11 @@ extension AsyncSequence where Element == UInt8 {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-    @available(*, deprecated, message: "Use binaryProtobufDelimitedMessages(of:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use binaryProtobufDelimitedMessages(of:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     public func binaryProtobufDelimitedMessages<M: Message>(
         of messageType: M.Type = M.self,
@@ -80,7 +84,7 @@ public struct AsyncMessageSequence<
     public typealias Element = M
 
     private let base: Base
-    private let extensions: Optional<ExtensionMap>
+    private let extensions: ExtensionMap?
     private let options: BinaryDecodingOptions
 
     /// Reads size-delimited messages from the given sequence of bytes. Delimited
@@ -133,7 +137,7 @@ public struct AsyncMessageSequence<
         @usableFromInline
         var iterator: Optional<Base.AsyncIterator>
         @usableFromInline
-        let extensions: Optional<ExtensionMap>
+        let extensions: ExtensionMap?
         @usableFromInline
         let options: BinaryDecodingOptions
 

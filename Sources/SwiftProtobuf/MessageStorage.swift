@@ -99,7 +99,9 @@ import Foundation
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                messageSchema(for: field).invokeWitness(.messageDeinitialize(pointer: buffer.baseAddress! + field.offset))
+                messageSchema(for: field).invokeWitness(
+                    .messageDeinitialize(pointer: buffer.baseAddress! + field.offset)
+                )
             default:
                 // Ignore trivial fields; no deinitialization is necessary.
                 break
@@ -172,7 +174,7 @@ extension MessageStorage {
                     let source = buffer.baseAddress! + field.offset
                     let destination = destination.buffer.baseAddress! + field.offset
                     enumSchema(for: field).invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
-                
+
                 case .group, .message:
                     guard isPresent(field) else { continue }
                     let source = buffer.baseAddress! + field.offset

@@ -179,9 +179,12 @@ struct TextFormatReader: TextualParser {
                     Tokenizer.isHexDigit(urlPrefix.utf8[hex1Index]),
                     Tokenizer.isHexDigit(urlPrefix.utf8[hex2Index])
                 else {
-                    let endIndex = urlPrefix.index(
-                        index, offsetBy: 2, limitedBy: urlPrefix.endIndex
-                    ) ?? urlPrefix.endIndex
+                    let endIndex =
+                        urlPrefix.index(
+                            index,
+                            offsetBy: 2,
+                            limitedBy: urlPrefix.endIndex
+                        ) ?? urlPrefix.endIndex
                     throw reader.parsingError(reason: "Invalid percent encoding: \(urlPrefix[index..<endIndex])")
                 }
                 index = urlPrefix.index(after: hex2Index)

@@ -16,8 +16,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 final class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes

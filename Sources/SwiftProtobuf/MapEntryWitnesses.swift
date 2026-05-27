@@ -30,19 +30,22 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
         switch operation {
         case .mapInitialize(let pointer):
             pointer.bindMemory(to: DictType.self, capacity: 1).initialize(to: [:])
-        
+
         case .mapDeinitialize(let pointer):
             pointer.bindMemory(to: DictType.self, capacity: 1).deinitialize(count: 1)
 
         case .mapCopyInitialize(let source, let destination):
             destination.bindMemory(to: DictType.self, capacity: 1).initialize(
-                to: source.bindMemory(to: DictType.self, capacity: 1).pointee)
+                to: source.bindMemory(to: DictType.self, capacity: 1).pointee
+            )
 
         case .mapGetIteratorSize(let isDeterministicOrder, let size, let alignment):
-            size.pointee = isDeterministicOrder
+            size.pointee =
+                isDeterministicOrder
                 ? MemoryLayout<DeterministicIteratorType>.size
                 : MemoryLayout<StandardIteratorType>.size
-            alignment.pointee = isDeterministicOrder
+            alignment.pointee =
+                isDeterministicOrder
                 ? MemoryLayout<DeterministicIteratorType>.alignment
                 : MemoryLayout<StandardIteratorType>.alignment
 
@@ -82,7 +85,9 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             let valueHasBit = (valueHasByteOffset, valueHasBitMask)
 
             if useDeterministicOrdering {
-                if let (key, value) = iterator.bindMemory(to: DeterministicIteratorType.self, capacity: 1).pointee.next() {
+                if let (key, value) = iterator.bindMemory(to: DeterministicIteratorType.self, capacity: 1).pointee
+                    .next()
+                {
                     K.updateValue(at: keyField.offset, in: workingSpace, to: key, hasBit: keyHasBit)
                     V.updateValue(at: valueField.offset, in: workingSpace, to: value, hasBit: valueHasBit)
                     success.pointee = true

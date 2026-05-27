@@ -11,14 +11,9 @@ permissions:
 
 on:
   push:
-    branches: [ main ]
+    branches: [ table-driven-branch ]
   pull_request:
-    branches: [ main ]
-  # Every Sunday at 5am to get warning on any new conformance tests upstream.
-  schedule:
-    - cron: '0 5 * * 0'
-  # Also allow manual triggering from the github UX to revalidate things.
-  workflow_dispatch:
+    branches: [ table-driven-branch ]
 
 jobs:
   build:
@@ -29,14 +24,14 @@ jobs:
       image: swift:latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         path: swift-protobuf
     - name: Update and install dependencies
       # Dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       run: apt-get update && apt-get install -y make g++ cmake
     - name: Checkout protobufbuffers/protobuf
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         repository: protocolbuffers/protobuf
         path: protobuf

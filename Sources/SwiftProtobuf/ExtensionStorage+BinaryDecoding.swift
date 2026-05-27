@@ -69,13 +69,15 @@ extension ExtensionStorage {
                         from: &reader,
                         fieldNumber: tag.fieldNumber,
                         isRepeated: true,
-                        unknownFields: &unknownFields)
+                        unknownFields: &unknownFields
+                    )
                 case .lengthDelimited:
                     try appendPackedEnumValues(
                         from: &reader,
                         to: schema,
                         fieldNumber: tag.fieldNumber,
-                        unknownFields: &unknownFields)
+                        unknownFields: &unknownFields
+                    )
                 default:
                     return false
                 }
@@ -198,7 +200,8 @@ extension ExtensionStorage {
                     from: &reader,
                     fieldNumber: tag.fieldNumber,
                     isRepeated: false,
-                    unknownFields: &unknownFields)
+                    unknownFields: &unknownFields
+                )
 
             case .fixed32:
                 guard tag.wireFormat == .fixed32 else { return false }
@@ -487,4 +490,3 @@ extension ExtensionStorage {
         }
     }
 }
-

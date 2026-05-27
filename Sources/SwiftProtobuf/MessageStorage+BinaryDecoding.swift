@@ -36,7 +36,8 @@ extension MessageStorage {
         try merge(
             byReadingFrom: &reader,
             extensions: extensions,
-            options: options)
+            options: options
+        )
     }
 
     /// Decodes field values from the given wire format reader into this storage class.
@@ -649,7 +650,7 @@ extension MessageStorage {
 
         var extensionSchema: ExtensionSchema?
         var messageBytes: UnsafeRawBufferPointer?
-        let success =  try reader.withReaderForNextGroup(
+        let success = try reader.withReaderForNextGroup(
             withFieldNumber: KnownField.messageSetItem.number
         ) { subReader in
             while subReader.hasAvailableData {

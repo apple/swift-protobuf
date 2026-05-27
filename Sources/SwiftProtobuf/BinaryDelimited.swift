@@ -160,7 +160,11 @@ public enum BinaryDelimited {
     /// - Returns: The message read.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// some reading errors; or the underlying `InputStream.streamError` for a stream error.
-    @available(*, deprecated, message: "Use parse(messageType:from:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use parse(messageType:from:extensions:options:) with options.allowPartial instead"
+    )
     public static func parse<M: Message>(
         messageType: M.Type,
         from stream: InputStream,

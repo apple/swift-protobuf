@@ -200,16 +200,18 @@ package struct ReflectionTableCalculator {
                 multipleElementReservedRanges.append(range)
             }
         }
-        guard reservedNames.count <= 1 << 16
-            && singleElementReservedRanges.count <= 1 << 16
-            && multipleElementReservedRanges.count <= 1 << 16
+        guard
+            reservedNames.count <= 1 << 16
+                && singleElementReservedRanges.count <= 1 << 16
+                && multipleElementReservedRanges.count <= 1 << 16
         else {
             // Nobody should ever hit this.
             fatalError(
                 """
                 The current metadata format only supports a maximum of 2^16 reserved names, \
                 2^16 single-element reserved ranges, and 2^16 multi-element reserved ranges.
-                """)
+                """
+            )
         }
         singleElementReservedRanges.sort()
         multipleElementReservedRanges.sort { $0.lowerBound < $1.lowerBound }
@@ -236,13 +238,13 @@ package struct ReflectionTableCalculator {
             }
 
             // Text format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-            for (offsetAndName, number) in textOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
+            for (offsetAndName, number) in textOffsetToNumber.sorted(by: { $0.key.name < $1.key.name }) {
                 appendInteger(offsetAndName.offset)
                 appendInteger(number)
             }
 
             // JSON format name offset to field/case number (UInt32 -> UInt32), in alphabetical order.
-            for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: { $0.key.name < $1.key.name}) {
+            for (offsetAndName, number) in jsonOffsetToNumber.sorted(by: { $0.key.name < $1.key.name }) {
                 appendInteger(offsetAndName.offset)
                 appendInteger(number)
             }

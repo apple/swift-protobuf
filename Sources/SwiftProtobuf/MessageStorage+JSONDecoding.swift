@@ -368,7 +368,7 @@ extension MessageStorage {
             default:
                 clearSingularMessageField(field)
             }
- 
+
         case .int32, .sfixed32, .sint32:
             if isNull {
                 clearValue(of: field, type: Int32.self)
@@ -526,7 +526,8 @@ extension MessageStorage {
                 buffer: buffer,
                 messageSchema: messageSchema,
                 options: reader.options,
-                extensions: reader.extensions)
+                extensions: reader.extensions
+            )
             try messageStorage.merge(byParsingJSONFrom: &subReader)
         }
 

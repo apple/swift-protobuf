@@ -85,7 +85,7 @@ struct JSONReader: TextualParser {
     /// a numeric value.
     mutating func consumeBool(asQuotedString: Bool = false) throws -> Bool {
         func valueError() -> SwiftProtobufError {
-            return parsingError(expected: "true or false")
+            parsingError(expected: "true or false")
         }
 
         let value: String
@@ -269,7 +269,7 @@ struct JSONReader: TextualParser {
         func valueError() -> SwiftProtobufError {
             parsingError(reason: "Invalid floating point value")
         }
-        
+
         // Reject unreasonably small or large numbers, or numbers that don't start with a digit or
         // minus sign (strtod isn't very strict and allows leading whitespace).
         let capacity = 128
@@ -304,7 +304,7 @@ struct JSONReader: TextualParser {
             return doubleValue
         }
     }
-    
+
     /// Consumes a double-quoted string, resolving any escapes.
     mutating func consumeString() throws -> String {
         guard at(.string, .stringWithEscapes) else {
@@ -414,7 +414,7 @@ struct JSONReader: TextualParser {
     ///   fields are being ignored.
     mutating func consumeEnumValue(schema: EnumSchema) throws -> Int32? {
         func valueError() -> SwiftProtobufError {
-            return parsingError(expected: "a valid enum value for \(schema.enumName)")
+            parsingError(expected: "a valid enum value for \(schema.enumName)")
         }
 
         if try consumeNullIfPresent() {
@@ -748,7 +748,7 @@ struct JSONReader: TextualParser {
 // Note that both "-" and "+" decode to 62 and "/" and "_" both
 // decode as 63.
 // swift-format-ignore: NoBlockComments
-fileprivate let base64Values: [Int] = [
+private let base64Values: [Int] = [
     /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
     /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
     /* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63,

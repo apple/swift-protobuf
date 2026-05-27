@@ -286,7 +286,7 @@ extension Compression {
 
             // Renormalization: If the top 8 bits of 'low' and 'low + size' are
             // identical, they are fixed. We emit them and shift.
-            while (low & 0xFF000000) == ((low &+ size) & 0xFF000000) {
+            while (low & 0xFF00_0000) == ((low &+ size) & 0xFF00_0000) {
                 output.append(UInt8(low &>> 24))
                 low &<<= 8
                 size &<<= 8

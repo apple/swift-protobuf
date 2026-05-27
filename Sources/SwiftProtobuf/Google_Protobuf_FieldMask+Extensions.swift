@@ -307,7 +307,7 @@ extension Google_Protobuf_FieldMask {
     public func isValid<M: GeneratedMessage>(
         for messageType: M.Type
     ) -> Bool {
-        return paths.allSatisfy { path in
+        paths.allSatisfy { path in
             M.messageSchema.isPathValid(path)
         }
     }

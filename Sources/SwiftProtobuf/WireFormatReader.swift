@@ -109,7 +109,7 @@ struct WireFormatReader {
     /// Reads the next varint from the input and returns the equivalent `FieldTag` without checking
     /// for group balancing.
     internal mutating func nextTagWithoutGroupCheck() throws -> FieldTag {
-        return try nextTagWithoutUpdatingLastTagPointer()
+        try nextTagWithoutUpdatingLastTagPointer()
     }
 
     /// Reads the next varint from the input and returns the equivalent `FieldTag` without updating

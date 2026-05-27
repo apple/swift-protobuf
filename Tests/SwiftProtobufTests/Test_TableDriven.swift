@@ -195,10 +195,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofString(let value)? = msg.oneofField {
             XCTAssertEqual(value, "some string")
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofString but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "some string")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -209,10 +211,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofBytes(let value)? = msg.oneofField {
             XCTAssertEqual(value, Data([1, 2, 3]))
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofBytes but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -225,10 +229,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofNestedMessage(let value)? = msg.oneofField {
             XCTAssertEqual(value.bb, 100)
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofNestedMessage but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -239,10 +245,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofUint32(let value)? = msg.oneofField {
             XCTAssertEqual(value, 987)
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofUint32 but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 987)
@@ -262,10 +270,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofString(let value)? = msg.oneofField {
             XCTAssertEqual(value, "some string")
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofString but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "some string")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -276,10 +286,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofBytes(let value)? = msg.oneofField {
             XCTAssertEqual(value, Data([1, 2, 3]))
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofBytes but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -293,10 +305,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofNestedMessage(let value)? = msg.oneofField {
             XCTAssertEqual(value.bb, 100)
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofNestedMessage but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 0)
@@ -307,10 +321,12 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
         if case .oneofUint32(let value)? = msg.oneofField {
             XCTAssertEqual(value, 987)
         } else {
-            XCTFail("""
+            XCTFail(
+                """
                 oneof case was wrong; expected oneofUint32 but got \
                 \(msg.oneofField.map(String.init(describing:)) ?? "nil")
-                """)
+                """
+            )
         }
         XCTAssertEqual(msg.oneofString, "")
         XCTAssertEqual(msg.oneofUint32, 987)

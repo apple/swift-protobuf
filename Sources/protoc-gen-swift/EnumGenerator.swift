@@ -79,10 +79,12 @@ class EnumGenerator {
         swiftDefaultValue = namer.dottedRelativeName(enumValue: enumDescriptor.values.first!)
 
         self.enumSchemaCalculator = EnumSchemaCalculator(
-            fullyQualifiedName: enumDescriptor.fullName, enumValues: mainEnumValueDescriptorsSorted
+            fullyQualifiedName: enumDescriptor.fullName,
+            enumValues: mainEnumValueDescriptorsSorted
         )
         self.compressedReflectionData = ReflectionTableCalculator(
-            enumValues: mainEnumValueDescriptorsSorted, aliasInfo: aliasInfo
+            enumValues: mainEnumValueDescriptorsSorted,
+            aliasInfo: aliasInfo
         ).stringLiteral()
     }
 
