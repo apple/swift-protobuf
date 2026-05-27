@@ -129,11 +129,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # "undefined", "scudo" not supported on x86_64.
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
-        exclude: # Excluded due to a clang crasher that is fixed in a more recent clang https://github.com/llvm/llvm-project/issues/95928
-         - sanitizer: "address"
-           swiftpm_config: "debug"
     container:
       # Test on the latest Swift release.
       image: swift:latest
