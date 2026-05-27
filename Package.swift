@@ -11,6 +11,14 @@
 
 import PackageDescription
 
+#if canImport(Darwin)
+let resources: [Resource] = [
+    .copy("PrivacyInfo.xcprivacy")
+]
+#else
+let resources = [Resource]()
+#endif
+
 let package = Package(
     name: "SwiftProtobuf",
     products: [
@@ -35,18 +43,27 @@ let package = Package(
             targets: ["SwiftProtobufPlugin"]
         ),
     ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description:
+                "This trait enables the APIs to serializing binary delimited messages with Foundation Input/Output streams."
+        ),
+        .trait(name: "FieldMaskUtilities", description: "This trait enables APIs for improved FieldMask support."),
+        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskUtilities"]),
+    ],
     targets: [
         .target(
             name: "SwiftProtobuf",
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
             name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"],
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
@@ -62,7 +79,7 @@ let package = Package(
             ],
             sources: [
                 // protoc main
-                "protobuf/src/google/protobuf/compiler/main_no_generators.cc",
+                "main.cc",
 
                 // libprotoc
                 "protobuf/src/google/protobuf/any.cc",
@@ -141,6 +158,7 @@ let package = Package(
                 "protobuf/src/google/protobuf/source_context.pb.cc",
                 "protobuf/src/google/protobuf/struct.pb.cc",
                 "protobuf/src/google/protobuf/stubs/common.cc",
+                "protobuf/src/google/protobuf/symbol_checker.cc",
                 "protobuf/src/google/protobuf/text_format.cc",
                 "protobuf/src/google/protobuf/timestamp.pb.cc",
                 "protobuf/src/google/protobuf/type.pb.cc",
@@ -288,9 +306,9 @@ let package = Package(
                 "protobuf/upb/wire/reader.c",
                 "protobuf/upb/wire/byte_size.c",
                 "protobuf/upb/wire/internal/decoder.c",
+                "protobuf/upb/wire/decode_fast/cardinality.c",
                 "protobuf/upb/wire/decode_fast/dispatch.c",
                 "protobuf/upb/wire/decode_fast/field_fixed.c",
-                "protobuf/upb/wire/decode_fast/field_generic.c",
                 "protobuf/upb/wire/decode_fast/field_message.c",
                 "protobuf/upb/wire/decode_fast/field_string.c",
                 "protobuf/upb/wire/decode_fast/field_varint.c",
@@ -311,7 +329,9 @@ let package = Package(
                 "protobuf/upb/message/internal/iterator.c",
                 "protobuf/upb/message/internal/message.c",
                 "protobuf/upb/mini_table/compat.c",
+                "protobuf/upb/mini_table/debug_string.c",
                 "protobuf/upb/mini_table/extension_registry.c",
+                "protobuf/upb/mini_table/generated_registry.c",
                 "protobuf/upb/mini_table/message.c",
                 "protobuf/upb/mini_table/internal/message.c",
                 "protobuf/upb/mini_descriptor/build_enum.c",
@@ -417,7 +437,7 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageModes: [.v5],
+    swiftLanguageModes: [.v6],
     cxxLanguageStandard: .gnucxx17
 )
 
@@ -426,8 +446,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableExperimentalFeature("StrictConcurrency=complete"),
-            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }
