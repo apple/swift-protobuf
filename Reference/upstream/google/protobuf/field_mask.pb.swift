@@ -162,24 +162,22 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// An implementation may provide options to override this default behavior for
 /// repeated and message fields.
 ///
-/// In order to reset a field's value to the default, the field must
-/// be in the mask and set to the default value in the provided resource.
-/// Hence, in order to reset all fields of a resource, provide a default
-/// instance of the resource and set all fields in the mask, or do
-/// not provide a mask as described below.
+/// Note that libraries which implement FieldMask resolution have various
+/// different behaviors in the face of empty masks or the special "*" mask.
+/// When implementing a service you should confirm these cases have the
+/// appropriate behavior in the underlying FieldMask library that you desire,
+/// and you may need to special case those cases in your application code if
+/// the underlying field mask library behavior differs from your intended
+/// service semantics.
 ///
-/// If a field mask is not present on update, the operation applies to
-/// all fields (as if a field mask of all fields has been specified).
-/// Note that in the presence of schema evolution, this may mean that
-/// fields the client does not know and has therefore not filled into
-/// the request will be reset to their default. If this is unwanted
-/// behavior, a specific service may require a client to always specify
-/// a field mask, producing an error if not.
+/// Update methods implementing https://google.aip.dev/134
+/// - MUST support the special value * meaning "full replace"
+/// - MUST treat an omitted field mask as "replace fields which are present".
 ///
-/// As with get operations, the location of the resource which
-/// describes the updated values in the request message depends on the
-/// operation kind. In any case, the effect of the field mask is
-/// required to be honored by the API.
+/// Other methods implementing https://google.aip.dev/157
+/// - SHOULD support the special value "*" to mean "get all".
+/// - MUST treat an omitted field mask to mean "get all", unless otherwise
+/// documented.
 ///
 /// ## Considerations for HTTP REST
 ///
@@ -249,49 +247,43 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// The implementation of any API method which has a FieldMask type field in the
 /// request should verify the included field paths, and return an
 /// `INVALID_ARGUMENT` error if any path is unmappable.
-struct Google_Protobuf_FieldMask: Sendable {
+struct Google_Protobuf_FieldMask: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The set of field mask paths.
-  var paths: [String] = []
+  var paths: [String] {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FieldMask"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}paths\0")
+extension Google_Protobuf_FieldMask: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}\u{19}\0google.protobuf.FieldMask"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOt-SU=oR\u{2}\u{1e}N\01\0\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedStringField(value: &self.paths) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.paths.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_FieldMask, rhs: Google_Protobuf_FieldMask) -> Bool {
-    if lhs.paths != rhs.paths {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }

@@ -50,29 +50,34 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
   typealias Version = _2
 }
 
-/// `NullValue` is a singleton enumeration to represent the null value for the
-/// `Value` type union.
+/// Represents a JSON `null`.
 ///
-/// The JSON representation for `NullValue` is JSON `null`.
+/// `NullValue` is a sentinel, using an enum with only one value to represent
+/// the null value for the `Value` type union.
+///
+/// A field of type `NullValue` with any value other than `0` is considered
+/// invalid. Most ProtoJSON serializers will emit a Value with a `null_value` set
+/// as a JSON `null` regardless of the integer value, and so will round trip to
+/// a `0` value.
 enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
-  typealias RawValue = Int
+  typealias RawValue = Swift.Int
 
   /// Null value.
   case nullValue // = 0
-  case UNRECOGNIZED(Int)
+  case UNRECOGNIZED(Swift.Int)
 
   init() {
     self = .nullValue
   }
 
-  init?(rawValue: Int) {
+  init?(rawValue: Swift.Int) {
     switch rawValue {
     case 0: self = .nullValue
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
-  var rawValue: Int {
+  var rawValue: Swift.Int {
     switch self {
     case .nullValue: return 0
     case .UNRECOGNIZED(let i): return i
@@ -86,312 +91,254 @@ enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
 
 }
 
-/// `Struct` represents a structured data value, consisting of fields
-/// which map to dynamically typed values. In some languages, `Struct`
-/// might be supported by a native representation. For example, in
-/// scripting languages like JS a struct is represented as an
-/// object. The details of that representation are described together
-/// with the proto support for the language.
+/// Represents a JSON object.
 ///
-/// The JSON representation for `Struct` is JSON object.
-struct Google_Protobuf_Struct: Sendable {
+/// An unordered key-value map, intending to perfectly capture the semantics of a
+/// JSON object. This enables parsing any arbitrary JSON payload as a message
+/// field in ProtoJSON format.
+///
+/// This follows RFC 8259 guidelines for interoperable JSON: notably this type
+/// cannot represent large Int64 values or `NaN`/`Infinity` numbers,
+/// since the JSON format generally does not support those values in its number
+/// type.
+///
+/// If you do not intend to parse arbitrary JSON into your message, a custom
+/// typed message should be preferred instead of using this type.
+struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Unordered map of dynamically typed values.
-  var fields: Dictionary<String,Google_Protobuf_Value> = [:]
+  var fields: [String: Google_Protobuf_Value] {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
+/// Represents a JSON value.
+///
 /// `Value` represents a dynamically typed value which can be either
 /// null, a number, a string, a boolean, a recursive struct value, or a
 /// list of values. A producer of value is expected to set one of these
-/// variants. Absence of any variant indicates an error.
-///
-/// The JSON representation for `Value` is JSON value.
-struct Google_Protobuf_Value: Sendable {
+/// variants. Absence of any variant is an invalid state.
+struct Google_Protobuf_Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The kind of value.
-  var kind: Google_Protobuf_Value.OneOf_Kind? = nil
+  var kind: Google_Protobuf_Value.OneOf_Kind? {
+    get {
+      let populatedField = _storage.populatedOneofMember(at: 4)
+      switch populatedField {
+      case 0: return nil
+      case 1: return .nullValue(nullValue)
+      case 2: return .numberValue(numberValue)
+      case 3: return .stringValue(stringValue)
+      case 4: return .boolValue(boolValue)
+      case 5: return .structValue(structValue)
+      case 6: return .listValue(listValue)
+      default: preconditionFailure("Internal logic error; populated oneof field \(populatedField) is not a member of this oneof")
+      }
+    }
+    set {
+      switch newValue {
+      case nil: _storage.clearPopulatedOneofMember(at: 4)
+      case .nullValue(let value)?: self.nullValue = value
+      case .numberValue(let value)?: self.numberValue = value
+      case .stringValue(let value)?: self.stringValue = value
+      case .boolValue(let value)?: self.boolValue = value
+      case .structValue(let value)?: self.structValue = value
+      case .listValue(let value)?: self.listValue = value
+      }
+    }
+  }
 
-  /// Represents a null value.
+  /// Represents a JSON `null`.
   var nullValue: Google_Protobuf_NullValue {
-    get {
-      if case .nullValue(let v)? = kind {return v}
-      return .nullValue
-    }
-    set {kind = .nullValue(newValue)}
+    get { return _storage.value(at: 32, default: .nullValue, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(at: 32, to: newValue, oneofPresence: (4, 1)) }
   }
 
-  /// Represents a double value.
+  /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+  /// `-Infinity`, since those are not supported in JSON. This also cannot
+  /// represent large Int64 values, since JSON format generally does not
+  /// support them in its number type.
   var numberValue: Double {
-    get {
-      if case .numberValue(let v)? = kind {return v}
-      return 0
-    }
-    set {kind = .numberValue(newValue)}
+    get { return _storage.value(at: 40, oneofPresence: (4, 2)) }
+    set { _uniqueStorage().updateValue(at: 40, to: newValue, oneofPresence: (4, 2)) }
   }
 
-  /// Represents a string value.
+  /// Represents a JSON string.
   var stringValue: String {
-    get {
-      if case .stringValue(let v)? = kind {return v}
-      return String()
-    }
-    set {kind = .stringValue(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 60), oneofPresence: (4, 3)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 60), to: newValue, oneofPresence: (4, 3)) }
   }
 
-  /// Represents a boolean value.
+  /// Represents a JSON boolean (`true` or `false` literal in JSON).
   var boolValue: Bool {
-    get {
-      if case .boolValue(let v)? = kind {return v}
-      return false
-    }
-    set {kind = .boolValue(newValue)}
+    get { return _storage.value(at: 28, oneofPresence: (4, 4)) }
+    set { _uniqueStorage().updateValue(at: 28, to: newValue, oneofPresence: (4, 4)) }
   }
 
-  /// Represents a structured value.
+  /// Represents a JSON object.
   var structValue: Google_Protobuf_Struct {
-    get {
-      if case .structValue(let v)? = kind {return v}
-      return Google_Protobuf_Struct()
-    }
-    set {kind = .structValue(newValue)}
+    get { return _storage.value(at: 48, default: Google_Protobuf_Struct(), oneofPresence: (4, 5)) }
+    set { _uniqueStorage().updateValue(at: 48, to: newValue, oneofPresence: (4, 5)) }
   }
 
-  /// Represents a repeated `Value`.
+  /// Represents a JSON array.
   var listValue: Google_Protobuf_ListValue {
-    get {
-      if case .listValue(let v)? = kind {return v}
-      return Google_Protobuf_ListValue()
-    }
-    set {kind = .listValue(newValue)}
+    get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 52), default: Google_Protobuf_ListValue(), oneofPresence: (4, 6)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 52), to: newValue, oneofPresence: (4, 6)) }
   }
-
-  var unknownFields = UnknownStorage()
 
   /// The kind of value.
-  enum OneOf_Kind: Equatable, Sendable {
-    /// Represents a null value.
+  enum OneOf_Kind: Swift.Equatable, Swift.Sendable {
+    /// Represents a JSON `null`.
     case nullValue(Google_Protobuf_NullValue)
-    /// Represents a double value.
+    /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+    /// `-Infinity`, since those are not supported in JSON. This also cannot
+    /// represent large Int64 values, since JSON format generally does not
+    /// support them in its number type.
     case numberValue(Double)
-    /// Represents a string value.
+    /// Represents a JSON string.
     case stringValue(String)
-    /// Represents a boolean value.
+    /// Represents a JSON boolean (`true` or `false` literal in JSON).
     case boolValue(Bool)
-    /// Represents a structured value.
+    /// Represents a JSON object.
     case structValue(Google_Protobuf_Struct)
-    /// Represents a repeated `Value`.
+    /// Represents a JSON array.
     case listValue(Google_Protobuf_ListValue)
-
   }
 
-  init() {}
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-/// `ListValue` is a wrapper around a repeated field of values.
-///
-/// The JSON representation for `ListValue` is JSON array.
-struct Google_Protobuf_ListValue: Sendable {
+/// Represents a JSON array.
+struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Repeated field of dynamically typed values.
-  var values: [Google_Protobuf_Value] = []
+  var values: [Google_Protobuf_Value] {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_NullValue: _ProtoNameProviding {
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0NULL_VALUE\0")
+extension Google_Protobuf_NullValue {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{19}\0google.protobuf.NullValue"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m\u{7f})\u{18}v\u{1e}ip\"-q\u{19}\u{1}\u{5}1:\0\0\0"
+  static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Struct"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}fields\0")
+extension Google_Protobuf_Struct: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Struct"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Struct"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps+\u{b}&2I\\PX\u{14}]\0(\0\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: &self.fields) }()
-      default: break
-      }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
+
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+    switch token.index {
+    case 1: return .message(_protobuf_mapEntrySchema_FieldsEntry)
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_mapEntrySchema_FieldsEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\"\0google.protobuf.Struct.FieldsEntry"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_mapEntrySchema_FieldsEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\"\0google.protobuf.Struct.FieldsEntry"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_mapEntrySchema_FieldsEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_FieldsEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<Google_Protobuf_Value>.self)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fields.isEmpty {
-      try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: self.fields, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Struct, rhs: Google_Protobuf_Struct) -> Bool {
-    if lhs.fields != rhs.fields {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Value"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}null_value\0\u{3}number_value\0\u{3}string_value\0\u{3}bool_value\0\u{3}struct_value\0\u{3}list_value\0")
+extension Google_Protobuf_Value: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\00\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\08\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\00\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\00\0\0{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\04\0\0{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\u{2}\0\0\0\u{1f}0g\u{1d}ZO2\r&@LKM\u{19}r)?@\u{1b}=m\u{5}>)\u{e}n=g@\u{17}Jfh)+S>a\u{1}F\u{3}3\u{19}\u{2}^\tNp.[=0\u{10}\u{17}N#*=J\u{15}[0h\u{10}\u{7f}~X~-\u{11}VL]\u{1f}BlY\u{19}hL\u{e}A\u{b}\u{2}\u{11}'xcc}#>\u{1a}2\u{c}w5\u{13}C/{.-=H\0]A_9p5\u{7}wM\u{1f}\u{7f}\u{3}S=a\u{15}?\u{1b}Pb\"\u{7}cb\u{6}\"7p[xw\u{15}i.TnI$0x:_:Y\u{5}\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: Google_Protobuf_NullValue?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {
-          if self.kind != nil {try decoder.handleConflictingOneOf()}
-          self.kind = .nullValue(v)
-        }
-      }()
-      case 2: try {
-        var v: Double?
-        try decoder.decodeSingularDoubleField(value: &v)
-        if let v = v {
-          if self.kind != nil {try decoder.handleConflictingOneOf()}
-          self.kind = .numberValue(v)
-        }
-      }()
-      case 3: try {
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {
-          if self.kind != nil {try decoder.handleConflictingOneOf()}
-          self.kind = .stringValue(v)
-        }
-      }()
-      case 4: try {
-        var v: Bool?
-        try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {
-          if self.kind != nil {try decoder.handleConflictingOneOf()}
-          self.kind = .boolValue(v)
-        }
-      }()
-      case 5: try {
-        var v: Google_Protobuf_Struct?
-        var hadOneofValue = false
-        if let current = self.kind {
-          hadOneofValue = true
-          if case .structValue(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kind = .structValue(v)
-        }
-      }()
-      case 6: try {
-        var v: Google_Protobuf_ListValue?
-        var hadOneofValue = false
-        if let current = self.kind {
-          hadOneofValue = true
-          if case .listValue(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.kind = .listValue(v)
-        }
-      }()
-      default: break
-      }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
+
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+    switch token.index {
+    case 1: return .enum(Google_Protobuf_NullValue.enumSchema)
+    case 2: return .message(Google_Protobuf_Struct.messageSchema)
+    case 3: return .message(Google_Protobuf_ListValue.messageSchema)
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.kind {
-    case .nullValue?: try {
-      guard case .nullValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    }()
-    case .numberValue?: try {
-      guard case .numberValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
-    }()
-    case .stringValue?: try {
-      guard case .stringValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    }()
-    case .boolValue?: try {
-      guard case .boolValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
-    }()
-    case .structValue?: try {
-      guard case .structValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case .listValue?: try {
-      guard case .listValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Value, rhs: Google_Protobuf_Value) -> Bool {
-    if lhs.kind != rhs.kind {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_ListValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ListValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}values\0")
+extension Google_Protobuf_ListValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{19}\0google.protobuf.ListValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{19}\0google.protobuf.ListValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.values) }()
-      default: break
-      }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
+
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+    switch token.index {
+    case 1: return .message(Google_Protobuf_Value.messageSchema)
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.values.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_ListValue, rhs: Google_Protobuf_ListValue) -> Bool {
-    if lhs.values != rhs.values {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }

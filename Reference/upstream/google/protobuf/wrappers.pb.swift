@@ -74,17 +74,25 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_DoubleValue: Sendable {
+struct Google_Protobuf_DoubleValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The double value.
-  var value: Double = 0
+  var value: Double {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `float`.
@@ -93,17 +101,25 @@ struct Google_Protobuf_DoubleValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_FloatValue: Sendable {
+struct Google_Protobuf_FloatValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The float value.
-  var value: Float = 0
+  var value: Float {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `int64`.
@@ -112,17 +128,25 @@ struct Google_Protobuf_FloatValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_Int64Value: Sendable {
+struct Google_Protobuf_Int64Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The int64 value.
-  var value: Int64 = 0
+  var value: Int64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `uint64`.
@@ -131,17 +155,25 @@ struct Google_Protobuf_Int64Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_UInt64Value: Sendable {
+struct Google_Protobuf_UInt64Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The uint64 value.
-  var value: UInt64 = 0
+  var value: UInt64 {
+    get { _storage.value(at: 8, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `int32`.
@@ -150,17 +182,25 @@ struct Google_Protobuf_UInt64Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_Int32Value: Sendable {
+struct Google_Protobuf_Int32Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The int32 value.
-  var value: Int32 = 0
+  var value: Int32 {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `uint32`.
@@ -169,17 +209,25 @@ struct Google_Protobuf_Int32Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_UInt32Value: Sendable {
+struct Google_Protobuf_UInt32Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The uint32 value.
-  var value: UInt32 = 0
+  var value: UInt32 {
+    get { _storage.value(at: 4, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `bool`.
@@ -188,17 +236,25 @@ struct Google_Protobuf_UInt32Value: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_BoolValue: Sendable {
+struct Google_Protobuf_BoolValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The bool value.
-  var value: Bool = false
+  var value: Bool {
+    get { _storage.value(at: 1, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 1, to: newValue, willBeSet: newValue != false, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `string`.
@@ -207,17 +263,25 @@ struct Google_Protobuf_BoolValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_StringValue: Sendable {
+struct Google_Protobuf_StringValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The string value.
-  var value: String = String()
+  var value: String {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 /// Wrapper message for `bytes`.
@@ -226,289 +290,171 @@ struct Google_Protobuf_StringValue: Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-struct Google_Protobuf_BytesValue: Sendable {
+struct Google_Protobuf_BytesValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The bytes value.
-  var value: Data = Data()
+  var value: Data {
+    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+  }
 
-  var unknownFields = UnknownStorage()
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
-  init() {}
+  private var _storage: SwiftProtobuf.MessageStorage
+  private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+    if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+    return _storage
+  }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DoubleValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_DoubleValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}\u{1b}\0google.protobuf.DoubleValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}\u{1b}\0google.protobuf.DoubleValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularDoubleField(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value.bitPattern != 0 {
-      try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_DoubleValue, rhs: Google_Protobuf_DoubleValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".FloatValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_FloatValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}\u{1a}\0google.protobuf.FloatValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}\u{1a}\0google.protobuf.FloatValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularFloatField(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_FloatValue, rhs: Google_Protobuf_FloatValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Int64Value"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_Int64Value: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1a}\0google.protobuf.Int64Value"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1a}\0google.protobuf.Int64Value"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Int64Value, rhs: Google_Protobuf_Int64Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UInt64Value"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_UInt64Value: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{1b}\0google.protobuf.UInt64Value"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{1b}\0google.protobuf.UInt64Value"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_UInt64Value, rhs: Google_Protobuf_UInt64Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Int32Value"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_Int32Value: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{1a}\0google.protobuf.Int32Value"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{1a}\0google.protobuf.Int32Value"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_Int32Value, rhs: Google_Protobuf_Int32Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UInt32Value"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_UInt32Value: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{1b}\0google.protobuf.UInt32Value"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{1b}\0google.protobuf.UInt32Value"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_UInt32Value, rhs: Google_Protobuf_UInt32Value) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BoolValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_BoolValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{19}\0google.protobuf.BoolValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{19}\0google.protobuf.BoolValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != false {
-      try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_BoolValue, rhs: Google_Protobuf_BoolValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".StringValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_StringValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1b}\0google.protobuf.StringValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{1b}\0google.protobuf.StringValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_StringValue, rhs: Google_Protobuf_StringValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
-extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BytesValue"
-  static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}value\0")
+extension Google_Protobuf_BytesValue: GeneratedMessage {
+  #if _pointerBitWidth(_64)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{c}\u{1a}\0google.protobuf.BytesValue"
+  #elseif _pointerBitWidth(_32)
+    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{c}\u{1a}\0google.protobuf.BytesValue"
+  #else
+    #error("Unsupported platform")
+  #endif
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
-  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.value) }()
-      default: break
-      }
-    }
-  }
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  static func ==(lhs: Google_Protobuf_BytesValue, rhs: Google_Protobuf_BytesValue) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
