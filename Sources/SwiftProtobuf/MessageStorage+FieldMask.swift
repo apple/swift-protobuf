@@ -30,21 +30,22 @@ extension MessageStorage {
         for path in fieldMask.paths {
             let components = path.split(separator: ".")
             guard !components.isEmpty else { continue }
-            
+
             let component = String(components[0])
             // `fieldNumber(forTextName:)` does a fallback that allows lowercased
             // group names. We don't want to match those for field masks, so we
             // double-check that the name we got back was an exact match.
             guard let fieldNumber = schema.fieldNumber(forTextName: component),
-                  let textName = schema.textName(forFieldNumber: fieldNumber),
-                  String(protobufUTF8Name: textName) == component else {
+                let textName = schema.textName(forFieldNumber: fieldNumber),
+                String(protobufUTF8Name: textName) == component
+            else {
                 continue
             }
-            
+
             guard let field = schema[fieldNumber: fieldNumber] else {
                 throw FieldMaskError.invalidPath
             }
-            
+
             if components.count == 1 {
                 // We're merging a top-level field, so it can be any type.
                 if source.isPresent(field) {
@@ -84,7 +85,7 @@ extension MessageStorage {
     @discardableResult
     func trim(keeping fieldMask: Google_Protobuf_FieldMask, prefix: String = "") -> Bool {
         var changed = false
-        
+
         for field in schema.fields {
             guard let name = schema.textName(forFieldNumber: field.fieldNumber) else {
                 continue
@@ -94,7 +95,7 @@ extension MessageStorage {
             if fieldMask.contains(fullPath) {
                 continue
             }
-            
+
             // Check if the current field is a prefix of any path in the mask.
             let isPrefix = fieldMask.paths.contains { $0.hasPrefix("\(fullPath).") }
             if isPrefix {
@@ -259,7 +260,9 @@ extension MessageStorage {
                     }
                     let fullSubMask = Google_Protobuf_FieldMask(protoPaths: subPaths)
                     try destinationSubstorage.merge(
-                        from: sourceSubstorage, fieldMask: fullSubMask, mergeOptions: mergeOptions
+                        from: sourceSubstorage,
+                        fieldMask: fullSubMask,
+                        mergeOptions: mergeOptions
                     )
                 } else {
                     // If the destination field is not set, copy the source message into the

@@ -123,7 +123,9 @@ class ExtensionSetGenerator {
                     }
                     p.print(
                         ",",
-                        "submessageOrEnumResolver: { \(resolver) }", newlines: false)
+                        "submessageOrEnumResolver: { \(resolver) }",
+                        newlines: false
+                    )
                 }
                 p.print(
                     "",

@@ -25,7 +25,8 @@ extension ExtensionStorage {
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
             ext.messageSchema.invokeWitness(
-              .messageGetStorage(pointer: value.unsafeRawPointer, result: $0))
+                .messageGetStorage(pointer: value.unsafeRawPointer, result: $0)
+            )
         }
         return submessageStorage!.takeUnretainedValue()
     }
@@ -42,13 +43,21 @@ extension ExtensionStorage {
             if let value = values[ext.field.fieldNumber] {
                 // The message already exists, so ensure that its storage is unique for mutation
                 // before returning it.
-                ext.messageSchema.invokeWitness(.messageGetUniqueStorage(
-                    pointer: value.unsafeMutableRawPointer, result: submessageStoragePointer))
+                ext.messageSchema.invokeWitness(
+                    .messageGetUniqueStorage(
+                        pointer: value.unsafeMutableRawPointer,
+                        result: submessageStoragePointer
+                    )
+                )
             } else {
                 // If the extension is not present, initialize it.
                 let value = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                ext.messageSchema.invokeWitness(.messageInitialize(
-                    pointer: value.unsafeMutableRawPointer, result: submessageStoragePointer))
+                ext.messageSchema.invokeWitness(
+                    .messageInitialize(
+                        pointer: value.unsafeMutableRawPointer,
+                        result: submessageStoragePointer
+                    )
+                )
                 values[ext.field.fieldNumber] = value
             }
         }
@@ -78,7 +87,8 @@ extension ExtensionStorage {
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
             ext.messageSchema.invokeWitness(
-                .arrayGetElementStorage(pointer: value.unsafeRawPointer, index: index, result: $0))
+                .arrayGetElementStorage(pointer: value.unsafeRawPointer, index: index, result: $0)
+            )
         }
         return submessageStorage!.takeUnretainedValue()
     }
@@ -116,8 +126,12 @@ extension ExtensionStorage {
                 values[ext.field.fieldNumber] = value
             }
             // Append a new element to the array and return its storage.
-            messageSchema.invokeWitness(.arrayAppendNew(
-                pointer: value.unsafeMutableRawPointer, result: submessageStoragePointer))
+            messageSchema.invokeWitness(
+                .arrayAppendNew(
+                    pointer: value.unsafeMutableRawPointer,
+                    result: submessageStoragePointer
+                )
+            )
         }
         return submessageStorage!.takeUnretainedValue()
     }
@@ -167,7 +181,8 @@ extension ExtensionStorage {
         var rawValue: Int32 = 0
         withUnsafeMutablePointer(to: &rawValue) {
             ext.enumSchema.invokeWitness(
-                .arrayGetElementRawValue(pointer: value.unsafeRawPointer, index: index, result: $0))
+                .arrayGetElementRawValue(pointer: value.unsafeRawPointer, index: index, result: $0)
+            )
         }
         return rawValue
     }
@@ -202,7 +217,11 @@ extension ExtensionStorage {
             enumSchema.invokeWitness(.arrayInitialize(pointer: value.unsafeMutableRawPointer))
             values[ext.field.fieldNumber] = value
         }
-        enumSchema.invokeWitness(.arrayAppendRawValue(
-            pointer: value.unsafeMutableRawPointer, rawValue: rawValue))
+        enumSchema.invokeWitness(
+            .arrayAppendRawValue(
+                pointer: value.unsafeMutableRawPointer,
+                rawValue: rawValue
+            )
+        )
     }
 }

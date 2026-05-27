@@ -14,8 +14,9 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import Foundation
+import XCTest
+
 @testable import SwiftProtobuf
 
 final class Test_Map_Binary: XCTestCase, PBTestHelpers {
@@ -24,12 +25,12 @@ final class Test_Map_Binary: XCTestCase, PBTestHelpers {
     func testMapInt64Int64() throws {
         let bytes: [UInt8] = [
             (2 << 3) | 2,  // mapInt64Int64, length delimited
-            4,             // length of map entry
+            4,  // length of map entry
             (1 << 3) | 0, 1,  // key = 1, wire type 0
-            (2 << 3) | 0, 2   // value = 2, wire type 0
+            (2 << 3) | 0, 2,  // value = 2, wire type 0
         ]
         let m = try SwiftProtoTesting_TestMap(serializedBytes: bytes)
-        
+
         XCTAssertEqual(m.mapInt64Int64.count, 1)
         XCTAssertEqual(m.mapInt64Int64[1], 2)
     }
@@ -37,12 +38,12 @@ final class Test_Map_Binary: XCTestCase, PBTestHelpers {
     func testMapFixed64Fixed64() throws {
         let bytes: [UInt8] = [
             (8 << 3) | 2,  // mapFixed64Fixed64, length delimited
-            18,            // length of map entry
+            18,  // length of map entry
             (1 << 3) | 1, 1, 0, 0, 0, 0, 0, 0, 0,  // key = 1, wire type 1
-            (2 << 3) | 1, 2, 0, 0, 0, 0, 0, 0, 0   // value = 2, wire type 1
+            (2 << 3) | 1, 2, 0, 0, 0, 0, 0, 0, 0,  // value = 2, wire type 1
         ]
         let m = try SwiftProtoTesting_TestMap(serializedBytes: bytes)
-        
+
         XCTAssertEqual(m.mapFixed64Fixed64.count, 1)
         XCTAssertEqual(m.mapFixed64Fixed64[1], 2)
     }

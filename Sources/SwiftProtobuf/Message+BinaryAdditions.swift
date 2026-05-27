@@ -28,7 +28,7 @@ extension Message {
     public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
         options: BinaryEncodingOptions = BinaryEncodingOptions()
     ) throws -> Bytes {
-        return try storageForRuntime.serializedBytes(options: options)
+        try storageForRuntime.serializedBytes(options: options)
     }
 
     /// Returns a ``SwiftProtobufContiguousBytes`` instance containing the Protocol Buffer binary
@@ -87,7 +87,11 @@ extension Message {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    @available(*, deprecated, message: "Use init(serializedBytes:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use init(serializedBytes:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     public init<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
@@ -137,7 +141,11 @@ extension Message {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    @available(*, deprecated, message: "Use init(serializedBytes:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use init(serializedBytes:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
@@ -198,7 +206,11 @@ extension Message {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    @available(*, deprecated, message: "Use merge(serializedBytes:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use merge(serializedBytes:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
@@ -256,7 +268,11 @@ extension Message {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    @available(*, deprecated, message: "Use merge(serializedBytes:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use merge(serializedBytes:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(

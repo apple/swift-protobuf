@@ -275,7 +275,7 @@ extension MessageSchema {
         }
 
         static func == (lhs: Key, rhs: Key) -> Bool {
-            return lhs.value == rhs.value
+            lhs.value == rhs.value
         }
     }
 }
@@ -302,8 +302,9 @@ extension MessageSchema {
 
     /// The extensibility mode of the message.
     var extensibilityMode: ExtensibilityMode {
-        return ExtensibilityMode(
-            rawValue: schema.load(fromByteOffset: 3, as: UInt8.self) & ExtensibilityMode.bitMask)
+        ExtensibilityMode(
+            rawValue: schema.load(fromByteOffset: 3, as: UInt8.self) & ExtensibilityMode.bitMask
+        )
     }
 
     /// The number of non-extension fields defined by the message.

@@ -34,7 +34,7 @@ package struct UTF8Name: @unchecked Sendable {
 
 extension UTF8Name: Equatable {
     package static func == (lhs: UTF8Name, rhs: UTF8Name) -> Bool {
-        return lhs.buffer.elementsEqual(rhs.buffer)
+        lhs.buffer.elementsEqual(rhs.buffer)
     }
 }
 
@@ -52,7 +52,7 @@ extension UTF8Name {
     ///
     /// This is used when binary searching name tables for arbitrary strings.
     package func utf8CodeUnitsEqual(_ other: String) -> Bool {
-        return buffer.elementsEqual(other.utf8)
+        buffer.elementsEqual(other.utf8)
     }
 
     /// Returns true if the receiver lexicographically precedes the given string.

@@ -215,7 +215,7 @@ extension Compression {
 
             // Renormalization: If the top 8 bits of 'low' and 'low + size' are
             // identical, they are fixed. We shift them out and read a new byte.
-            while (low & 0xFF000000) == ((low &+ size) & 0xFF000000) {
+            while (low & 0xFF00_0000) == ((low &+ size) & 0xFF00_0000) {
                 low &<<= 8
                 size &<<= 8
                 guard let byte = self.input.nextByte() else {

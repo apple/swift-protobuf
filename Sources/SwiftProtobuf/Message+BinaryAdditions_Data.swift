@@ -215,7 +215,11 @@ extension Message {
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
-    @available(*, deprecated, message: "Use merge(serializedData:extensions:options:) with options.allowPartial instead")
+    @available(
+        *,
+        deprecated,
+        message: "Use merge(serializedData:extensions:options:) with options.allowPartial instead"
+    )
     @inlinable
     public mutating func merge(
         serializedData data: Data,

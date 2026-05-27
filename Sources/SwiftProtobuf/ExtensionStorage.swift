@@ -97,13 +97,21 @@ public final class ExtensionStorage {
                     destination.values[fieldNumber] = .init(schema: ext, value: value.value(as: [Double].self))
                 case .enum:
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.enumSchema.invokeWitness(.arrayCopyInitialize(
-                        source: value.unsafeRawPointer, destination: destinationValue.unsafeMutableRawPointer))
+                    ext.enumSchema.invokeWitness(
+                        .arrayCopyInitialize(
+                            source: value.unsafeRawPointer,
+                            destination: destinationValue.unsafeMutableRawPointer
+                        )
+                    )
                     destination.values[fieldNumber] = destinationValue
                 case .group, .message:
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.messageSchema.invokeWitness(.arrayCopyInitialize(
-                        source: value.unsafeRawPointer, destination: destinationValue.unsafeMutableRawPointer))
+                    ext.messageSchema.invokeWitness(
+                        .arrayCopyInitialize(
+                            source: value.unsafeRawPointer,
+                            destination: destinationValue.unsafeMutableRawPointer
+                        )
+                    )
                     destination.values[fieldNumber] = destinationValue
                 case .fixed32, .uint32:
                     destination.values[fieldNumber] = .init(schema: ext, value: value.value(as: [UInt32].self))
@@ -128,8 +136,12 @@ public final class ExtensionStorage {
 
                 case .group, .message:
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.messageSchema.invokeWitness(.messageCopyInitialize(
-                        source: value.unsafeRawPointer, destination: destinationValue.unsafeMutableRawPointer))
+                    ext.messageSchema.invokeWitness(
+                        .messageCopyInitialize(
+                            source: value.unsafeRawPointer,
+                            destination: destinationValue.unsafeMutableRawPointer
+                        )
+                    )
                     destination.values[fieldNumber] = destinationValue
 
                 case .string:

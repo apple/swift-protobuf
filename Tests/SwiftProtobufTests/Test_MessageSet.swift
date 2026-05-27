@@ -13,9 +13,9 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 // TODO: Remove SPI when we have a real reflection API and use that instead.
 @_spi(ForGeneratedCodeOnly) import SwiftProtobuf
+import XCTest
 
 extension SwiftProtoTesting_RawMessageSet.Item {
     fileprivate init(typeID: UInt32, message: Data) {

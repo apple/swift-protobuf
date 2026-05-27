@@ -408,7 +408,7 @@ extension ReflectionTable {
             while p.pointee != 0 {
                 p += 1
             }
-            p += 1 // Skip the null terminator of the first string
+            p += 1  // Skip the null terminator of the first string
             let startPtr = p
             var count = 0
             while p.pointee != 0 {
@@ -426,10 +426,10 @@ extension ReflectionTable {
         fieldCount: 2,
         data: [
             56, 0, 0, 0,  // Offset to Section 1
-            0, 0,         // distinctJSONNameCount (0)
-            0, 0,         // reservedNameCount (0)
-            2, 0,         // textNameTableCount (2)
-            0, 0,         // Padding
+            0, 0,  // distinctJSONNameCount (0)
+            0, 0,  // reservedNameCount (0)
+            2, 0,  // textNameTableCount (2)
+            0, 0,  // Padding
             // Field number to text offset table
             1, 0, 0, 0,  // field 1
             0, 0, 0, 0,  // offset 0

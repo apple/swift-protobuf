@@ -27,40 +27,45 @@ public enum MessageWitnesses<T: Message> {
             let messagePointer = pointer.bindMemory(to: T.self, capacity: 1)
             messagePointer.initialize(to: T())
             result.pointee = Unmanaged.passUnretained(messagePointer.pointee.storageForRuntime)
-        
+
         case .messageDeinitialize(let pointer):
             pointer.bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
 
         case .messageCopyInitialize(let source, let destination):
             destination.bindMemory(to: T.self, capacity: 1).initialize(
-                to: source.bindMemory(to: T.self, capacity: 1).pointee)
+                to: source.bindMemory(to: T.self, capacity: 1).pointee
+            )
 
         case .messageGetStorage(let pointer, let result):
             result.pointee = Unmanaged.passUnretained(
-                pointer.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime)
+                pointer.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime
+            )
 
         case .messageGetUniqueStorage(let pointer, let result):
             pointer.bindMemory(to: T.self, capacity: 1).pointee
                 ._protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
             result.pointee = Unmanaged.passUnretained(
-                pointer.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime)
+                pointer.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime
+            )
 
         case .arrayInitialize(let pointer):
             pointer.bindMemory(to: [T].self, capacity: 1).initialize(to: [])
-        
+
         case .arrayDeinitialize(let pointer):
             pointer.bindMemory(to: [T].self, capacity: 1).deinitialize(count: 1)
 
         case .arrayCopyInitialize(let source, let destination):
             destination.bindMemory(to: [T].self, capacity: 1).initialize(
-                to: source.bindMemory(to: [T].self, capacity: 1).pointee)
+                to: source.bindMemory(to: [T].self, capacity: 1).pointee
+            )
 
         case .arrayGetCount(let pointer, let result):
             result.pointee = pointer.bindMemory(to: [T].self, capacity: 1).pointee.count
 
         case .arrayGetElementStorage(let pointer, let index, let result):
             result.pointee = Unmanaged.passUnretained(
-                pointer.bindMemory(to: [T].self, capacity: 1).pointee[index].storageForRuntime)
+                pointer.bindMemory(to: [T].self, capacity: 1).pointee[index].storageForRuntime
+            )
 
         case .arrayAppendNew(let pointer, let result):
             let arrayPointer = pointer.bindMemory(to: [T].self, capacity: 1)
@@ -120,7 +125,9 @@ public enum MessageWitnessOperation {
     /// Populates `result` with an unretained reference to the `MessageStorage` for the message at `index` in
     /// the array stored at `pointer`.
     case arrayGetElementStorage(
-        pointer: UnsafeRawPointer, index: Int, result: UnsafeMutablePointer<Unmanaged<MessageStorage>?>
+        pointer: UnsafeRawPointer,
+        index: Int,
+        result: UnsafeMutablePointer<Unmanaged<MessageStorage>?>
     )
 
     /// Appends a new, default-initialized element to the array at `pointer` and populates `result` with

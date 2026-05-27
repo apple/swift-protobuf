@@ -18,12 +18,12 @@ extension MessageSchema {
         let components = path.split(separator: ".")
         guard !components.isEmpty else { return false }
         var currentSchema = self
-        
+
         for (i, component) in components.enumerated() {
             guard let fieldNumber = currentSchema.fieldNumber(forTextName: String(component)) else {
                 return false
             }
-            
+
             if i == components.count - 1 {
                 // This was the last component and it was found.
                 return true

@@ -392,7 +392,11 @@ extension MessageStorage {
         let bytes = assumedPresentValue(at: valueField.offset) as Data
         try bytes.withUnsafeBytes { buffer in
             let messageStorage = MessageStorage(schema: messageSchema)
-            try messageStorage.merge(byReadingFrom: buffer, extensions: options.extensions, options: BinaryDecodingOptions())
+            try messageStorage.merge(
+                byReadingFrom: buffer,
+                extensions: options.extensions,
+                options: BinaryDecodingOptions()
+            )
             try messageStorage.serializeJSON(into: &encoder, options: options, shouldInlineFields: !isWKT)
         }
     }

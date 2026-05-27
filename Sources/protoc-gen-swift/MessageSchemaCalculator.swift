@@ -182,7 +182,9 @@ struct MessageSchemaCalculator {
         schemaWriters.modify { writer, _ in
             writer.writeBase128Int(0, byteWidth: 1)
             writer.writeBase128Int(
-                UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28), byteWidth: 5)
+                UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28),
+                byteWidth: 5
+            )
             writer.writeBase128Int(UInt64(0), byteWidth: 3)
             writer.writeBase128Int(UInt64(0), byteWidth: 2)
             writer.writeBase128Int(

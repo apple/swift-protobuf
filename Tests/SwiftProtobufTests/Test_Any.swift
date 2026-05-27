@@ -455,7 +455,8 @@ final class Test_Any: XCTestCase {
     // TODO: Test remaining XxxValue types
 
     func test_Any_Struct_JSON_roundtrip() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1.0}}}"
+        let start =
+            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start)
             XCTAssertNotNil(decoded.optionalAny)
@@ -600,7 +601,8 @@ final class Test_Any: XCTestCase {
 
     func test_Any_Value_struct_JSON_roundtrip() throws {
         // Value holding a JSON Struct
-        let start1 = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1.0}}}"
+        let start1 =
+            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: start1)
             XCTAssertNotNil(decoded1.optionalAny)

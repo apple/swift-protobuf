@@ -17,7 +17,7 @@
 extension GeneratedMessage {
     /// Checks whether the given path is valid for this message type.
     public static func isPathValid(_ path: String) -> Bool {
-        return messageSchema.isPathValid(path)
+        messageSchema.isPathValid(path)
     }
 }
 

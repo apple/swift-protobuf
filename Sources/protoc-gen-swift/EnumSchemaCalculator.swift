@@ -24,7 +24,7 @@ import SwiftProtobufPluginLibrary
 struct EnumSchemaCalculator {
     /// Manages the generation of the Swift string literals that encode the enum schema in the
     /// generated source.
-    /// 
+    ///
     /// Unlike message schemas, which need different storage offsets on different platforms due to
     /// pointer sizes, enum schemas are consistent across all platforms.
     private var schemaWriter: SchemaWriter

@@ -107,7 +107,8 @@ extension MessageStorage {
                 var totalSize = 0
                 forEachMessage(inAssumedPresentRepeatedMessageField: field) {
                     let messageSize = $0.serializedBytesSize()
-                    totalSize += messageSize
+                    totalSize +=
+                        messageSize
                         // Include the size of the length-delimited tag.
                         + FieldTag.encodedSize(ofTagWithFieldNumber: fieldNumber)
                         // Include the varint-encoded length.
