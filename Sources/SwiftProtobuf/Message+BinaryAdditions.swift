@@ -70,7 +70,9 @@ extension Message {
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         self.init()
-        try merge(serializedBytes: bytes, extensions: extensions, options: options)
+        try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+            try _parse(rawBuffer: body, extensions: extensions, options: options)
+        }
     }
 
     /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
@@ -124,7 +126,9 @@ extension Message {
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         self.init()
-        try merge(serializedBytes: bytes, extensions: extensions, options: options)
+        try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+            try _parse(rawBuffer: body, extensions: extensions, options: options)
+        }
     }
 
     /// Creates a new message by decoding the bytes provided by a `RawSpan`
@@ -287,17 +291,57 @@ extension Message {
     }
     #endif
 
-    // Helper for `merge()`s to keep the Decoder internal to SwiftProtobuf while
-    // allowing the generic over `SwiftProtobufContiguousBytes` to get better codegen from the
-    // compiler by being `@inlinable`. For some discussion on this see
-    // https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
+    // Helper for public methods that initialize a new instance. For some historical discussion on the
+    // inline usage, see https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
+    @usableFromInline
+    mutating func _parse(
+        rawBuffer body: UnsafeRawBufferPointer,
+        extensions: ExtensionMap?,
+        options: BinaryDecodingOptions
+    ) throws {
+        _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
+        var isShallowInitCheckPassed = true
+        try storageForRuntime.merge(
+            byReadingFrom: body,
+            extensions: extensions,
+            options: options,
+            isInitializedShallow: &isShallowInitCheckPassed
+        )
+        if !options.allowPartial && !isShallowInitCheckPassed {
+            // Fallback: A shallow check failure might be a false positive if a submessage was
+            // parsed as incomplete initially but completed by a subsequent payload block in the
+            // stream. We must run a full deep `isInitialized` check to verify actual completeness.
+            guard isInitialized else {
+                throw BinaryDecodingError.missingRequiredFields
+            }
+        }
+    }
+
+    // Helper for public methods that merge into existing instance. For some historical discussion
+    // on the inline usage, see https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
     @usableFromInline
     mutating func _merge(
         rawBuffer body: UnsafeRawBufferPointer,
         extensions: ExtensionMap?,
         options: BinaryDecodingOptions
     ) throws {
+        // Optimization: Since we are merging into an existing message structure, we must
+        // always perform a final deep recursive `isInitialized` check at the end (because
+        // required fields in pre-existing submessages not present in the binary payload
+        // won't be visited during decoding). Therefore, we bypass all parsing-time shallow
+        // validation checks by setting `allowPartial = true` during the merge execution.
+        var subOptions = options
+        subOptions.allowPartial = true
         _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-        try storageForRuntime.merge(byReadingFrom: body, extensions: extensions, options: options)
+        var ignored = true
+        try storageForRuntime.merge(
+            byReadingFrom: body,
+            extensions: extensions,
+            options: subOptions,
+            isInitializedShallow: &ignored
+        )
+        if !options.allowPartial && !isInitialized {
+            throw BinaryDecodingError.missingRequiredFields
+        }
     }
 }

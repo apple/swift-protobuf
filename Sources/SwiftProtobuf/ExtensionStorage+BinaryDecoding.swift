@@ -21,6 +21,18 @@ extension ExtensionStorage {
     /// - Parameters:
     ///   - reader: The reader from which to read the next field's data.
     ///   - tag: The tag that was just read from the reader.
+    ///   - extensions: The extension map to use.
+    ///   - options: The decoding options.
+    ///   - unknownFields: The unknown fields storage.
+    ///   - isInitializedShallow: An `inout` boolean used to track if required fields are
+    ///     shallowly present across the entire message tree parsed so far. It is passed as `inout`
+    ///     because deep recursion and multi-pass partial updates (e.g. out-of-order fields)
+    ///     require accumulative status tracking across nested submessages and extensions (any
+    ///     missing required field in a nested submessage will set this to false, bubbling all the
+    ///     way up to the top-level caller), whereas the return value represents exclusively
+    ///     whether the field was successfully consumed by the parser. The caller is assumed to
+    ///     have initialized it to true before the first call, and it will be set to false if any
+    ///     message fails the initialization check while decoding.
     /// - Returns: True if the field was consumed, or false to indicate that it should be stored in
     ///   unknown fields (for example, because the field did not exist or the data on the wire did
     ///   not match the expected wire format)).
@@ -30,7 +42,8 @@ extension ExtensionStorage {
         tag: FieldTag,
         extensions: ExtensionMap?,
         options: BinaryDecodingOptions,
-        unknownFields: inout UnknownStorage
+        unknownFields: inout UnknownStorage,
+        isInitializedShallow: inout Bool
     ) throws -> Bool {
         guard tag.wireFormat != .endGroup else {
             // Just consume it; `nextTag` has already validated that it matches the last started
@@ -104,7 +117,8 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -127,7 +141,8 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -222,7 +237,8 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
@@ -243,7 +259,8 @@ extension ExtensionStorage {
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
                         extensions: extensions,
-                        options: options
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
                     )
                 }
 
