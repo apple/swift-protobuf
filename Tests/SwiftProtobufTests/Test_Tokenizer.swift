@@ -703,4 +703,85 @@ func expectThrowsError<T>(
             matching: testCase.expectedError
         )
     }
+
+    struct CharClassTestCase: Sendable {
+        var name: String
+        var classifier: @Sendable (UInt8) -> Bool
+        var allowedCharacters: String
+        var allowedControlChars: [UInt8] = []
+    }
+
+    @Test(arguments: [
+        CharClassTestCase(
+            name: "isWhitespace",
+            classifier: Tokenizer.isWhitespace,
+            allowedCharacters: " \t\n\r",
+            allowedControlChars: [11, 12]
+        ),
+        CharClassTestCase(
+            name: "isDigit",
+            classifier: Tokenizer.isDigit,
+            allowedCharacters: "0123456789"
+        ),
+        CharClassTestCase(
+            name: "isOctalDigit",
+            classifier: Tokenizer.isOctalDigit,
+            allowedCharacters: "01234567"
+        ),
+        CharClassTestCase(
+            name: "isHexDigit",
+            classifier: Tokenizer.isHexDigit,
+            allowedCharacters: "0123456789abcdefABCDEF"
+        ),
+        CharClassTestCase(
+            name: "isLetter",
+            classifier: Tokenizer.isLetter,
+            allowedCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+        ),
+        CharClassTestCase(
+            name: "isAlphanumeric",
+            classifier: Tokenizer.isAlphanumeric,
+            allowedCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789"
+        ),
+        CharClassTestCase(
+            name: "isEscape",
+            classifier: Tokenizer.isEscape,
+            allowedCharacters: "abfnrtv\\?'\""
+        ),
+        CharClassTestCase(
+            name: "isJSONEscape",
+            classifier: Tokenizer.isJSONEscape,
+            allowedCharacters: "bfnrt\\/\""
+        ),
+        CharClassTestCase(
+            name: "isJSONSymbol",
+            classifier: Tokenizer.isJSONSymbol,
+            allowedCharacters: "{}[]:,-"
+        ),
+        CharClassTestCase(
+            name: "isURLCharacter",
+            classifier: Tokenizer.isURLCharacter,
+            allowedCharacters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789-.~!$&()*+,;=%/"
+        ),
+        CharClassTestCase(
+            name: "isUnprintable",
+            classifier: Tokenizer.isUnprintable,
+            allowedCharacters: "",
+            allowedControlChars: Array(1...8) + Array(14...31)
+        ),
+    ])
+    func characterClassification(testCase: CharClassTestCase) {
+        let allowedBytes = Set(testCase.allowedCharacters.utf8)
+        let allowedControlBytes = Set(testCase.allowedControlChars)
+
+        for byte in 0...255 {
+            let isAllowed = allowedBytes.contains(UInt8(byte)) || allowedControlBytes.contains(UInt8(byte))
+            let result = testCase.classifier(UInt8(byte))
+            #expect(
+                result == isAllowed,
+                "Classifier '\(testCase.name)' failed for byte \(byte) ('\(UnicodeScalar(UInt8(byte)))'). Expected \(isAllowed) but got \(result)."
+            )
+        }
+    }
 }
+

@@ -450,33 +450,33 @@ package struct Tokenizer {
     }
 
     /// Returns `true` if the given byte is considered whitespace.
-    private static func isWhitespace(_ c: UInt8) -> Bool {
+    package static func isWhitespace(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x01) != 0
     }
 
     /// Returns `true` if the given byte is a decimal digit.
-    static func isDigit(_ c: UInt8) -> Bool {
+    package static func isDigit(_ c: UInt8) -> Bool {
         // Identical to `isHexdigit && !isLetter`.
         (characterTable[Int(c)] & 0x06) == 0x02
     }
 
     /// Returns `true` if the given byte is an octal digit.
-    fileprivate static func isOctalDigit(_ c: UInt8) -> Bool {
+    package static func isOctalDigit(_ c: UInt8) -> Bool {
         c >= 48 && c <= 55
     }
 
     /// Returns `true` if the given byte is a hexadecimal digit.
-    static func isHexDigit(_ c: UInt8) -> Bool {
+    package static func isHexDigit(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x02) != 0
     }
 
     /// Returns `true` if the given byte is a letter.
-    private static func isLetter(_ c: UInt8) -> Bool {
+    package static func isLetter(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x04) != 0
     }
 
     /// Returns `true` if the given byte is an alphanumeric character.
-    private static func isAlphanumeric(_ c: UInt8) -> Bool {
+    package static func isAlphanumeric(_ c: UInt8) -> Bool {
         // Identical to `isHexDigit || isLetter`.
         (characterTable[Int(c)] & 0x06) != 0
     }
@@ -485,7 +485,7 @@ package struct Tokenizer {
     ///
     /// Valid escape characters (that is, characters that may follow a backslash) are `a`, `b`, `f`,
     /// `n`, `r`, `t`, `v`, `\`, `?`, `'`, and `"`.
-    private static func isEscape(_ c: UInt8) -> Bool {
+    package static func isEscape(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x08) != 0
     }
 
@@ -493,7 +493,7 @@ package struct Tokenizer {
     ///
     /// Valid escape characters (that is, characters that may follow a backslash) are `b`, `f`, `n`,
     /// `r`, `t`, `\`, `/`, and `"`.
-    private static func isJSONEscape(_ c: UInt8) -> Bool {
+    package static func isJSONEscape(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x10) != 0
     }
 
@@ -501,7 +501,7 @@ package struct Tokenizer {
     ///
     /// Valid symbols are `{`, `}`, `[`, `]`, `:`, `,`, and `-` (because we tokenize minus
     /// separately for consistency with TextFormat).
-    private static func isJSONSymbol(_ c: UInt8) -> Bool {
+    package static func isJSONSymbol(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x20) != 0
     }
 
@@ -509,12 +509,12 @@ package struct Tokenizer {
     ///
     /// Valid URL characters are alphanumeric characters as well as any of `-`, `.`, `~`, `!`,
     /// `$`, `&`, `(`, `)`, `*`, `+`, `,`, `;`, `=`, `%`, and `/`.
-    private static func isURLCharacter(_ c: UInt8) -> Bool {
+    package static func isURLCharacter(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x40) != 0
     }
 
     /// Returns `true` if the given byte is an unprintable character.
-    private static func isUnprintable(_ c: UInt8) -> Bool {
+    package static func isUnprintable(_ c: UInt8) -> Bool {
         (characterTable[Int(c)] & 0x80) != 0
     }
 }
