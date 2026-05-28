@@ -9,9 +9,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import Testing
-
 import SwiftProtobuf
+import Testing
 
 func withTokenizer(
     for input: String,
@@ -139,7 +138,8 @@ func expectThrowsError<T>(
             input: "",
             expected: [
                 TokenData(kind: .end, text: "", line: 0, column: 0, endColumn: 0)
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "foo 1 1.2 + 'bar'",
             expected: [
@@ -149,7 +149,8 @@ func expectThrowsError<T>(
                 TokenData(kind: .symbol(UInt8(ascii: "+")), text: "+", line: 0, column: 10, endColumn: 11),
                 TokenData(kind: .string, text: "'bar'", line: 0, column: 12, endColumn: 17),
                 TokenData(kind: .end, text: "", line: 0, column: 17, endColumn: 17),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "!@+%",
             expected: [
@@ -158,7 +159,8 @@ func expectThrowsError<T>(
                 TokenData(kind: .symbol(UInt8(ascii: "+")), text: "+", line: 0, column: 2, endColumn: 3),
                 TokenData(kind: .symbol(UInt8(ascii: "%")), text: "%", line: 0, column: 3, endColumn: 4),
                 TokenData(kind: .end, text: "", line: 0, column: 4, endColumn: 4),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "foo bar\nrab oof",
             expected: [
@@ -167,7 +169,8 @@ func expectThrowsError<T>(
                 TokenData(kind: .identifier, text: "rab", line: 1, column: 0, endColumn: 3),
                 TokenData(kind: .identifier, text: "oof", line: 1, column: 4, endColumn: 7),
                 TokenData(kind: .end, text: "", line: 1, column: 7, endColumn: 7),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "foo\tbar  \tbaz",
             expected: [
@@ -175,28 +178,32 @@ func expectThrowsError<T>(
                 TokenData(kind: .identifier, text: "bar", line: 0, column: 8, endColumn: 11),
                 TokenData(kind: .identifier, text: "baz", line: 0, column: 16, endColumn: 19),
                 TokenData(kind: .end, text: "", line: 0, column: 19, endColumn: 19),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "\"foo\tbar\" baz",
             expected: [
                 TokenData(kind: .string, text: "\"foo\tbar\"", line: 0, column: 0, endColumn: 12),
                 TokenData(kind: .identifier, text: "baz", line: 0, column: 13, endColumn: 16),
                 TokenData(kind: .end, text: "", line: 0, column: 16, endColumn: 16),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "foo # comment\nbar",
             expected: [
                 TokenData(kind: .identifier, text: "foo", line: 0, column: 0, endColumn: 3),
                 TokenData(kind: .identifier, text: "bar", line: 1, column: 0, endColumn: 3),
                 TokenData(kind: .end, text: "", line: 1, column: 3, endColumn: 3),
-            ]),
+            ]
+        ),
         MultiTokenCase(
             input: "foo\n\t\r\u{B}\u{C}bar",
             expected: [
                 TokenData(kind: .identifier, text: "foo", line: 0, column: 0, endColumn: 3),
                 TokenData(kind: .identifier, text: "bar", line: 1, column: 11, endColumn: 14),
                 TokenData(kind: .end, text: "", line: 1, column: 14, endColumn: 14),
-            ]),
+            ]
+        ),
     ])
     func multipleTokens(testCase: MultiTokenCase) throws {
         try withTokenizer(for: testCase.input, mode: testCase.mode) { tokenizer in
@@ -238,9 +245,18 @@ func expectThrowsError<T>(
         ErrorCase(input: "0123.4 foo", expectedError: "1:5: Hex and octal numbers must be integers"),
         ErrorCase(input: "1e foo", expectedError: "1:3: \"e\" must be followed by exponent"),
         ErrorCase(input: "1e- foo", expectedError: "1:4: \"e\" must be followed by exponent"),
-        ErrorCase(input: "1.2.3 foo", expectedError: "1:4: Already saw decimal point or exponent; can't have another one"),
-        ErrorCase(input: "1e2.3 foo", expectedError: "1:4: Already saw decimal point or exponent; can't have another one"),
-        ErrorCase(input: "a.1 foo", expectedError: "1:2: A space is required between an identifier and a decimal point"),
+        ErrorCase(
+            input: "1.2.3 foo",
+            expectedError: "1:4: Already saw decimal point or exponent; can't have another one"
+        ),
+        ErrorCase(
+            input: "1e2.3 foo",
+            expectedError: "1:4: Already saw decimal point or exponent; can't have another one"
+        ),
+        ErrorCase(
+            input: "a.1 foo",
+            expectedError: "1:2: A space is required between an identifier and a decimal point"
+        ),
         ErrorCase(input: "1.0f foo", expectedError: "1:4: Need space between number and identifier", mode: .json),
         ErrorCase(input: "\u{8} foo", expectedError: "1:1: Invalid control characters encountered in text"),
         ErrorCase(input: "\u{C0}foo", expectedError: "1:1: Non-UTF-8 code unit 195"),
@@ -276,7 +292,10 @@ func expectThrowsError<T>(
         var result: String = ""
         try withTokenizer(for: input) { tokenizer in
             try expectNext(&tokenizer)
-            result = try tokenizer.current.stringValue(allowSurrogates: allowSurrogates, errorCode: .textFormatDecodingError)
+            result = try tokenizer.current.stringValue(
+                allowSurrogates: allowSurrogates,
+                errorCode: .textFormatDecodingError
+            )
         }
         return result
     }
@@ -285,7 +304,10 @@ func expectThrowsError<T>(
         var result = Data()
         try withTokenizer(for: input) { tokenizer in
             try expectNext(&tokenizer)
-            result = try tokenizer.current.bytesValue(allowSurrogates: allowSurrogates, errorCode: .textFormatDecodingError)
+            result = try tokenizer.current.bytesValue(
+                allowSurrogates: allowSurrogates,
+                errorCode: .textFormatDecodingError
+            )
         }
         return result
     }
@@ -515,14 +537,14 @@ func expectThrowsError<T>(
 
     @Test func jsonMode() throws {
         let input = """
-          {
-            "string": "hello\\u0020world",
-            "number": \t -12.34,
-            "bool":\ntrue,
-            "otherBool": false,
-            "nothing": null
-          }
-          """
+            {
+              "string": "hello\\u0020world",
+              "number": \t -12.34,
+              "bool":\ntrue,
+              "otherBool": false,
+              "nothing": null
+            }
+            """
         try withTokenizer(for: input, mode: .json) { tokenizer in
             let expected: [(String, Token.Kind)] = [
                 ("{", .leftBrace),
@@ -610,18 +632,18 @@ func expectThrowsError<T>(
     @Test func currentOffset() throws {
         let input = "foo 123"
         try withTokenizer(for: input) { tokenizer in
-            #expect(tokenizer.currentOffset == 0) // at start
+            #expect(tokenizer.currentOffset == 0)  // at start
 
             try expectNext(&tokenizer)
             #expect(tokenizer.current.kind == .identifier)
-            #expect(tokenizer.currentOffset == 0) // "foo" starts at 0
+            #expect(tokenizer.currentOffset == 0)  // "foo" starts at 0
 
             try expectNext(&tokenizer)
             #expect(tokenizer.current.kind == .integer)
-            #expect(tokenizer.currentOffset == 4) // "123" starts at 4
+            #expect(tokenizer.currentOffset == 4)  // "123" starts at 4
 
             try expectNoNext(&tokenizer)
-            #expect(tokenizer.currentOffset == 7) // at end
+            #expect(tokenizer.currentOffset == 7)  // at end
         }
     }
 
@@ -784,4 +806,3 @@ func expectThrowsError<T>(
         }
     }
 }
-
