@@ -610,7 +610,7 @@ func expectThrowsError<T>(
     @Test func currentOffset() throws {
         let input = "foo 123"
         try withTokenizer(for: input) { tokenizer in
-            #expect(tokenizer.currentOffset == 7) // at start
+            #expect(tokenizer.currentOffset == 0) // at start
 
             try expectNext(&tokenizer)
             #expect(tokenizer.current.kind == .identifier)

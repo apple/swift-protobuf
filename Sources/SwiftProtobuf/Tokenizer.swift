@@ -35,6 +35,10 @@ package struct Tokenizer {
         if let current = current.text.baseAddress {
             return current - buffer.baseAddress!
         }
+        // .start uses a fake buffer, so ensure it returns zero.
+        if current.kind == .start {
+            return 0
+        }
         // If we have a nil current token text buffer, then we've reached the end of the buffer.
         return buffer.endIndex
     }
