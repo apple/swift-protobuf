@@ -18,7 +18,7 @@ import Foundation
 /// parser.
 ///
 /// This is largely based on the `Tokenizer` class from the C++ protobuf implementation.
-struct Tokenizer {
+package struct Tokenizer {
     let buffer: UnsafeBufferPointer<UInt8>
     private(set) var currentIndex: Int
     private var nextIndex: Int
@@ -28,10 +28,10 @@ struct Tokenizer {
 
     private var currentChar: UInt8?
 
-    private(set) var current: Token
+    package private(set) var current: Token
 
     /// The offset of the current token within the buffer.
-    var currentOffset: Int {
+    package var currentOffset: Int {
         if let current = current.text.baseAddress {
             return current - buffer.baseAddress!
         }
@@ -44,10 +44,10 @@ struct Tokenizer {
     ///
     /// This is used when parsing extension field names in TextFormat, which allow URL symbols as
     /// part of a bare identifier.
-    var allowURLCharacters: Bool
+    package var allowURLCharacters: Bool
 
     /// The mode in which the tokenizer is operating.
-    enum Mode {
+    package enum Mode {
         /// TextFormat mode.
         case textFormat
         /// JSON mode.
@@ -56,7 +56,7 @@ struct Tokenizer {
 
     /// The mode in which the tokenizer is operating, which determines whether certain kinds of
     /// tokens are allowed.
-    let mode: Mode
+    package let mode: Mode
 
     /// The error code that will be reported for any parsing errors encountered by this tokenizer.
     let errorCode: SwiftProtobufError.Code
@@ -65,7 +65,7 @@ struct Tokenizer {
     private static var tabWidth: Int { 8 }
 
     /// Creates a tokenizer that will tokenize the contents of the given buffer.
-    init(buffer: UnsafeBufferPointer<UInt8>, mode: Mode, errorCode: SwiftProtobufError.Code) {
+    package init(buffer: UnsafeBufferPointer<UInt8>, mode: Mode, errorCode: SwiftProtobufError.Code) {
         self.buffer = buffer
         self.currentIndex = 0
         self.nextIndex = 0
@@ -89,7 +89,7 @@ struct Tokenizer {
     /// After this function returns, `self.current` and `self.previous` will be updated to hold the
     /// current and previous tokens, respectively.
     @discardableResult
-    mutating func next() throws -> Bool {
+    package mutating func next() throws -> Bool {
         while true {
             if tryConsumeWhitespace() || tryConsumeComment() {
                 continue
@@ -180,7 +180,7 @@ struct Tokenizer {
     }
 
     /// Returns true if the given text represents a valid identifier.
-    static func isIdentifier(_ text: some StringProtocol) -> Bool {
+    package static func isIdentifier(_ text: some StringProtocol) -> Bool {
         let utf8 = text.utf8
         guard let first = utf8.first, Tokenizer.isLetter(first) else {
             return false
@@ -536,9 +536,9 @@ private let characterTable: [UInt8] = [
 ]
 
 /// Represents a token read from the token stream.
-struct Token: Equatable {
+package struct Token: Equatable {
     /// The kind of token.
-    enum Kind: Equatable {
+    package enum Kind: Equatable {
         /// The start of input; `next()` has not yet been called.
         case start
 
@@ -615,7 +615,7 @@ struct Token: Equatable {
 
         /// The description of the token that should be used by parsers when reporting that a token
         /// of an expected kind was not found.
-        var errorDescription: String {
+        package var errorDescription: String {
             switch self {
             case .start: "start of input"
             case .end: "end of input"
@@ -640,22 +640,22 @@ struct Token: Equatable {
     }
 
     /// The kind of token.
-    let kind: Kind
+    package let kind: Kind
 
     /// The exact text of the token as it appeared in the input. For example, tokens of
     /// ``Kind.stringWithEscapes`` will still be escaped and in quotes.
-    let text: UnsafeBufferPointer<UInt8>
+    package let text: UnsafeBufferPointer<UInt8>
 
     /// Zero-based index of the first character of the token within the input stream.
-    let line: Int
+    package let line: Int
 
     /// Zero-based index of the first character of the token within the input stream.
-    let column: Int
+    package let column: Int
 
     /// Zero-based index of the first character of the token within the input stream.
-    let endColumn: Int
+    package let endColumn: Int
 
-    init(
+    package init(
         type: Kind,
         text: UnsafeBufferPointer<UInt8>,
         line: Int,
@@ -673,16 +673,16 @@ struct Token: Equatable {
     ///
     /// Note that for ``Kind.string`` and ``Kind.stringWithEscapes``, this returns the raw text
     /// including the quotes and escapes. Callers should use `stringValue` to get the decoded value.
-    var exactString: String {
+    package var exactString: String {
         String(decoding: text, as: UTF8.self)
     }
 
-    static func == (lhs: Token, rhs: Token) -> Bool {
+    package static func == (lhs: Token, rhs: Token) -> Bool {
         lhs.kind == rhs.kind && lhs.line == rhs.line && lhs.column == rhs.column && lhs.endColumn == rhs.endColumn
             && lhs.text.elementsEqual(rhs.text)
     }
 
-    static var start: Token {
+    package static var start: Token {
         Token(type: .start, text: UnsafeBufferPointer(start: nil, count: 0), line: 0, column: 0, endColumn: 0)
     }
 
@@ -690,7 +690,7 @@ struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid integer or if it is greater than the
     ///   provided upper bound.
-    func integerValue(
+    package func integerValue(
         upperBound: UInt64 = UInt64.max,
         errorCode: SwiftProtobufError.Code
     ) throws -> UInt64 {
@@ -717,7 +717,7 @@ struct Token: Equatable {
     /// Returns the floating point value of the token.
     ///
     /// - Throws: An error if the token is not a valid floating point number.
-    func floatValue(errorCode: SwiftProtobufError.Code) throws -> Double {
+    package func floatValue(errorCode: SwiftProtobufError.Code) throws -> Double {
         var string = self.exactString
         if string.lowercased().hasSuffix("f") {
             string.removeLast()
@@ -742,7 +742,7 @@ struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid UTF-8 string of if it contained surrogates
     ///   when they were not allowed.
-    func stringValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> String {
+    package func stringValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> String {
         guard text.count >= 2 else { return "" }
         let content = UnsafeBufferPointer(rebasing: text[1..<text.count - 1])
 
@@ -778,7 +778,7 @@ struct Token: Equatable {
     ///
     /// - Throws: An error if the token is not a valid UTF-8 string or if it contained surrogates
     ///   when they were not allowed.
-    func bytesValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> Data {
+    package func bytesValue(allowSurrogates: Bool, errorCode: SwiftProtobufError.Code) throws -> Data {
         guard text.count >= 2 else { return Data() }
         let content = UnsafeBufferPointer(rebasing: text[1..<text.count - 1])
 
@@ -920,12 +920,12 @@ struct Token: Equatable {
     }
 
     /// Indicates whether the token is a valid hexadecimal number.
-    var isHexNumber: Bool {
+    package var isHexNumber: Bool {
         text.count > 2 && text[0] == UInt8(ascii: "0") && (text[1] == UInt8(ascii: "x") || text[1] == UInt8(ascii: "X"))
     }
 
     /// Indicates whether the token is a valid octal number.
-    var isOctalNumber: Bool {
+    package var isOctalNumber: Bool {
         text.count > 2 && text[0] == UInt8(ascii: "0") && (text[1] >= UInt8(ascii: "0") && text[1] <= UInt8(ascii: "7"))
     }
 }
