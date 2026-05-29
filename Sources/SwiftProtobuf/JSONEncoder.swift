@@ -69,8 +69,6 @@ internal struct JSONEncoder {
 
     internal init() {}
 
-    internal var dataResult: [UInt8] { data }
-
     internal var stringResult: String {
         get {
             String(decoding: data, as: UTF8.self)

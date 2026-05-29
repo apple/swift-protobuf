@@ -35,6 +35,7 @@ private let tab = [UInt8](repeating: asciiSpace, count: tabSize)
 internal struct TextFormatEncoder {
     private var data = [UInt8]()
     private var indentString: [UInt8] = []
+
     var stringResult: String {
         get {
             String(decoding: data, as: UTF8.self)
