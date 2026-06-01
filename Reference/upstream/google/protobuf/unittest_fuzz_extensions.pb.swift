@@ -2093,10 +2093,6 @@ extension FuzzUnittest_FuzzMostTypes: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension FuzzUnittest_FuzzMostTypes.NestedEnum {
@@ -2183,10 +2179,6 @@ extension FuzzUnittest_FuzzMostExtensions: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension FuzzUnittest_TestRequired: SwiftProtobuf.GeneratedMessage {
@@ -2202,10 +2194,6 @@ extension FuzzUnittest_TestRequired: SwiftProtobuf.GeneratedMessage {
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 

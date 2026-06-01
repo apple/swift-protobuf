@@ -615,10 +615,6 @@ extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
@@ -658,9 +654,5 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

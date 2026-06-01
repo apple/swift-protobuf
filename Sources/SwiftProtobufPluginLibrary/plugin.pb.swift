@@ -403,10 +403,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Generated
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.GeneratedMessage {

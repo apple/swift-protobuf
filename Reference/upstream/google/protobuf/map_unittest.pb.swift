@@ -1015,10 +1015,6 @@ extension Proto2Unittest_TestRequiredMessageMap: SwiftProtobuf.GeneratedMessage 
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestArenaMap: SwiftProtobuf.GeneratedMessage {

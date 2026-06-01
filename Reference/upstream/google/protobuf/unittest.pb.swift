@@ -11520,10 +11520,6 @@ extension Proto2Unittest_TestAllExtensions: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_OptionalGroup_extension: SwiftProtobuf.GeneratedMessage {
@@ -11571,10 +11567,6 @@ extension Proto2Unittest_TestMixedFieldsAndExtensions: SwiftProtobuf.GeneratedMe
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -11632,10 +11624,6 @@ extension Proto2Unittest_TestGroupExtension: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestNestedExtension: SwiftProtobuf.GeneratedMessage {
@@ -11690,10 +11678,6 @@ extension Proto2Unittest_TestChildExtension: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -11780,10 +11764,6 @@ extension Proto2Unittest_TestNestedChildExtension: SwiftProtobuf.GeneratedMessag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestNestedChildExtensionData: SwiftProtobuf.GeneratedMessage {
@@ -11830,10 +11810,6 @@ extension Proto2Unittest_TestRequiredEnum: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredOpenEnum: SwiftProtobuf.GeneratedMessage {
@@ -11857,10 +11833,6 @@ extension Proto2Unittest_TestRequiredOpenEnum: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredEnumNoMask: SwiftProtobuf.GeneratedMessage {
@@ -11883,10 +11855,6 @@ extension Proto2Unittest_TestRequiredEnumNoMask: SwiftProtobuf.GeneratedMessage 
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -11918,10 +11886,6 @@ extension Proto2Unittest_TestRequiredEnumMulti: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredEnumMulti.NestedEnum {
@@ -11951,10 +11915,6 @@ extension Proto2Unittest_TestRequiredNoMaskMulti: SwiftProtobuf.GeneratedMessage
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -11994,10 +11954,6 @@ extension Proto2Unittest_TestRequired: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredForeign: SwiftProtobuf.GeneratedMessage {
@@ -12022,10 +11978,6 @@ extension Proto2Unittest_TestRequiredForeign: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredMessage: SwiftProtobuf.GeneratedMessage {
@@ -12048,10 +12000,6 @@ extension Proto2Unittest_TestRequiredMessage: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12076,10 +12024,6 @@ extension Proto2Unittest_TestRequiredLazyMessage: SwiftProtobuf.GeneratedMessage
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12108,10 +12052,6 @@ extension Proto2Unittest_TestNestedRequiredForeign: SwiftProtobuf.GeneratedMessa
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12167,10 +12107,6 @@ extension Proto2Unittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Generated
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12235,10 +12171,6 @@ extension Proto2Unittest_TestMultipleExtensionRanges: SwiftProtobuf.GeneratedMes
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12420,10 +12352,6 @@ extension Proto2Unittest_TestIsInitialized: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestIsInitialized.SubMessage: SwiftProtobuf.GeneratedMessage {
@@ -12447,10 +12375,6 @@ extension Proto2Unittest_TestIsInitialized.SubMessage: SwiftProtobuf.GeneratedMe
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf.GeneratedMessage {
@@ -12466,10 +12390,6 @@ extension Proto2Unittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf.Ge
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12599,10 +12519,6 @@ extension Proto2Unittest_TestLazyRequiredEnum: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -12766,10 +12682,6 @@ extension Proto2Unittest_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13207,10 +13119,6 @@ extension Proto2Unittest_TestRequiredOneof: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestRequiredOneof.NestedMessage: SwiftProtobuf.GeneratedMessage {
@@ -13226,10 +13134,6 @@ extension Proto2Unittest_TestRequiredOneof.NestedMessage: SwiftProtobuf.Generate
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13293,10 +13197,6 @@ extension Proto2Unittest_TestPackedExtensions: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestUnpackedExtensions: SwiftProtobuf.GeneratedMessage {
@@ -13312,10 +13212,6 @@ extension Proto2Unittest_TestUnpackedExtensions: SwiftProtobuf.GeneratedMessage 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13421,10 +13317,6 @@ extension Proto2Unittest_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13565,10 +13457,6 @@ extension Proto2Unittest_TestMergeException: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13818,10 +13706,6 @@ extension Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestHugeFieldNumbers.OptionalGroup: SwiftProtobuf.GeneratedMessage {
@@ -13854,10 +13738,6 @@ extension Proto2Unittest_TestExtensionInsideTable: SwiftProtobuf.GeneratedMessag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestNestedGroupExtensionOuter: SwiftProtobuf.GeneratedMessage {
@@ -13880,10 +13760,6 @@ extension Proto2Unittest_TestNestedGroupExtensionOuter: SwiftProtobuf.GeneratedM
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13909,10 +13785,6 @@ extension Proto2Unittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: Swif
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup: SwiftProtobuf.GeneratedMessage {
@@ -13928,10 +13800,6 @@ extension Proto2Unittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -13980,10 +13848,6 @@ extension Proto2Unittest_TestExtensionRangeSerialize: SwiftProtobuf.GeneratedMes
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -14273,10 +14137,6 @@ extension Proto2Unittest_EnumParseTester: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_EnumParseTester.SeqSmall0 {
@@ -14317,10 +14177,6 @@ extension Proto2Unittest_BoolParseTester: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_Int32ParseTester: SwiftProtobuf.GeneratedMessage {
@@ -14337,10 +14193,6 @@ extension Proto2Unittest_Int32ParseTester: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_Int64ParseTester: SwiftProtobuf.GeneratedMessage {
@@ -14356,10 +14208,6 @@ extension Proto2Unittest_Int64ParseTester: SwiftProtobuf.GeneratedMessage {
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -14399,10 +14247,6 @@ extension Proto2Unittest_StringParseTester: SwiftProtobuf.GeneratedMessage {
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -14476,10 +14320,6 @@ extension Proto2Unittest_RedactedFields: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_mapEntrySchema_MapUnredactedStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUnredactedStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -14726,9 +14566,5 @@ extension Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.GeneratedMessage
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

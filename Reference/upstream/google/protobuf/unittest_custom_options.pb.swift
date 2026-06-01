@@ -1928,10 +1928,6 @@ extension Proto2Unittest_CustomOptionLifetimesMessage: SwiftProtobuf.GeneratedMe
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_NestedCustomOptionLifetimesMessage: SwiftProtobuf.GeneratedMessage {
@@ -2247,10 +2243,6 @@ extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_ComplexOptionType2: SwiftProtobuf.GeneratedMessage {
@@ -2274,10 +2266,6 @@ extension Proto2Unittest_ComplexOptionType2: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -2382,10 +2370,6 @@ extension Proto2Unittest_AggregateMessageSet: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_AggregateMessageSetElement: SwiftProtobuf.GeneratedMessage {
@@ -2427,10 +2411,6 @@ extension Proto2Unittest_Aggregate: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -2509,10 +2489,6 @@ extension Proto2Unittest_OldOptionType: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_OldOptionType.TestEnum {
@@ -2541,10 +2517,6 @@ extension Proto2Unittest_NewOptionType: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 

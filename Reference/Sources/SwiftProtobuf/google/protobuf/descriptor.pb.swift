@@ -2949,10 +2949,6 @@ extension Google_Protobuf_FileDescriptorSet: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_FileDescriptorProto: GeneratedMessage {
@@ -2981,10 +2977,6 @@ extension Google_Protobuf_FileDescriptorProto: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3016,10 +3008,6 @@ extension Google_Protobuf_DescriptorProto: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange: GeneratedMessage {
@@ -3042,10 +3030,6 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3088,10 +3072,6 @@ extension Google_Protobuf_ExtensionRangeOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3140,10 +3120,6 @@ extension Google_Protobuf_FieldDescriptorProto: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_FieldDescriptorProto.TypeEnum {
@@ -3179,10 +3155,6 @@ extension Google_Protobuf_OneofDescriptorProto: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_EnumDescriptorProto: GeneratedMessage {
@@ -3208,10 +3180,6 @@ extension Google_Protobuf_EnumDescriptorProto: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3252,10 +3220,6 @@ extension Google_Protobuf_EnumValueDescriptorProto: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_ServiceDescriptorProto: GeneratedMessage {
@@ -3280,10 +3244,6 @@ extension Google_Protobuf_ServiceDescriptorProto: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_MethodDescriptorProto: GeneratedMessage {
@@ -3306,10 +3266,6 @@ extension Google_Protobuf_MethodDescriptorProto: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3335,10 +3291,6 @@ extension Google_Protobuf_FileOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3370,10 +3322,6 @@ extension Google_Protobuf_MessageOptions: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_FieldOptions: GeneratedMessage {
@@ -3403,10 +3351,6 @@ extension Google_Protobuf_FieldOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3502,10 +3446,6 @@ extension Google_Protobuf_OneofOptions: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_EnumOptions: GeneratedMessage {
@@ -3529,10 +3469,6 @@ extension Google_Protobuf_EnumOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3559,10 +3495,6 @@ extension Google_Protobuf_EnumValueOptions: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_ServiceOptions: GeneratedMessage {
@@ -3586,10 +3518,6 @@ extension Google_Protobuf_ServiceOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3615,10 +3543,6 @@ extension Google_Protobuf_MethodOptions: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3649,10 +3573,6 @@ extension Google_Protobuf_UninterpretedOption: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMessage {
@@ -3668,10 +3588,6 @@ extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMessage {
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3702,10 +3618,6 @@ extension Google_Protobuf_FeatureSet: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3795,10 +3707,6 @@ extension Google_Protobuf_FeatureSetDefaults: GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: GeneratedMessage {
@@ -3823,10 +3731,6 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Generated
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Google_Protobuf_SourceCodeInfo: GeneratedMessage {
@@ -3849,10 +3753,6 @@ extension Google_Protobuf_SourceCodeInfo: GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 

@@ -193,10 +193,6 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Generated
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.GeneratedMessage {
@@ -213,10 +209,6 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.GeneratedMessage {
@@ -232,9 +224,5 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

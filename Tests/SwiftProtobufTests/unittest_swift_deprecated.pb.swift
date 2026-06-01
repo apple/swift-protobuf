@@ -402,10 +402,6 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage {
@@ -444,9 +440,5 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.GeneratedMessage {
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

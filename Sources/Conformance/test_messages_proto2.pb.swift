@@ -2622,10 +2622,6 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Generate
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum {
@@ -2654,10 +2650,6 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage: SwiftPro
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -2707,10 +2699,6 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect: Swif
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1: SwiftProtobuf.GeneratedMessage {
@@ -2749,10 +2737,6 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -2940,10 +2924,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedEnum {
@@ -2973,10 +2953,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedMessage: 
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.DataMessage: SwiftProtobuf.GeneratedMessage {
@@ -2992,10 +2968,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.DataMessage: Sw
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -3013,10 +2985,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorre
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1: SwiftProtobuf.GeneratedMessage {
@@ -3033,10 +3001,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorre
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2: SwiftProtobuf.GeneratedMessage {
@@ -3052,10 +3016,6 @@ extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorre
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 

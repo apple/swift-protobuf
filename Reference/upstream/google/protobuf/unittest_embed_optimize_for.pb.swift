@@ -89,8 +89,4 @@ extension Proto2Unittest_TestEmbedOptimizedForSize: SwiftProtobuf.GeneratedMessa
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
