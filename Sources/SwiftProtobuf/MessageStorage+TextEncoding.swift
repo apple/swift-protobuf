@@ -64,12 +64,11 @@ extension MessageStorage {
                     // We still want the expanded verbose output even if the submessage is partial.
                     var decodingOptions = BinaryDecodingOptions()
                     decodingOptions.allowPartial = true
-                    var ignored = true
                     try messageStorage.merge(
                         byReadingFrom: buffer,
                         extensions: options.extensions,
                         options: decodingOptions,
-                        isInitializedShallow: &ignored
+                        target: .newInstance
                     )
                 }
                 encoder.emitExtensionFieldName(name: typeURL)

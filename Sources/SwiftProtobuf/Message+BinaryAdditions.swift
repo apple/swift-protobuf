@@ -71,7 +71,7 @@ extension Message {
     ) throws {
         self.init()
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _parse(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: true)
         }
     }
 
@@ -127,7 +127,7 @@ extension Message {
     ) throws {
         self.init()
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _parse(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: true)
         }
     }
 
@@ -187,7 +187,7 @@ extension Message {
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: false)
         }
     }
 
@@ -250,7 +250,7 @@ extension Message {
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: false)
         }
     }
 
@@ -291,57 +291,19 @@ extension Message {
     }
     #endif
 
-    // Helper for public methods that initialize a new instance. For some historical discussion on the
-    // inline usage, see https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
     @usableFromInline
-    mutating func _parse(
+    mutating func _decode(
         rawBuffer body: UnsafeRawBufferPointer,
         extensions: ExtensionMap?,
-        options: BinaryDecodingOptions
+        options: BinaryDecodingOptions,
+        isNewInstance: Bool
     ) throws {
         _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-        var isShallowInitCheckPassed = true
         try storageForRuntime.merge(
             byReadingFrom: body,
             extensions: extensions,
             options: options,
-            isInitializedShallow: &isShallowInitCheckPassed
+            target: isNewInstance ? .newInstance : .existingInstance
         )
-        if !options.allowPartial && !isShallowInitCheckPassed {
-            // Fallback: A shallow check failure might be a false positive if a submessage was
-            // parsed as incomplete initially but completed by a subsequent payload block in the
-            // stream. We must run a full deep `isInitialized` check to verify actual completeness.
-            guard isInitialized else {
-                throw BinaryDecodingError.missingRequiredFields
-            }
-        }
-    }
-
-    // Helper for public methods that merge into existing instance. For some historical discussion
-    // on the inline usage, see https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
-    @usableFromInline
-    mutating func _merge(
-        rawBuffer body: UnsafeRawBufferPointer,
-        extensions: ExtensionMap?,
-        options: BinaryDecodingOptions
-    ) throws {
-        // Optimization: Since we are merging into an existing message structure, we must
-        // always perform a final deep recursive `isInitialized` check at the end (because
-        // required fields in pre-existing submessages not present in the binary payload
-        // won't be visited during decoding). Therefore, we bypass all parsing-time shallow
-        // validation checks by setting `allowPartial = true` during the merge execution.
-        var subOptions = options
-        subOptions.allowPartial = true
-        _protobuf_ensureUniqueStorage(accessToken: MessageStorageToken())
-        var ignored = true
-        try storageForRuntime.merge(
-            byReadingFrom: body,
-            extensions: extensions,
-            options: subOptions,
-            isInitializedShallow: &ignored
-        )
-        if !options.allowPartial && !isInitialized {
-            throw BinaryDecodingError.missingRequiredFields
-        }
     }
 }

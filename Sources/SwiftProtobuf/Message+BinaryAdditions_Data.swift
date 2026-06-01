@@ -129,7 +129,7 @@ extension Message {
         var options = options
         options.allowPartial = partial
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: false)
         }
     }
 
@@ -168,7 +168,7 @@ extension Message {
         var options = options
         options.allowPartial = partial
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-            try _merge(rawBuffer: body, extensions: extensions, options: options)
+            try _decode(rawBuffer: body, extensions: extensions, options: options, isNewInstance: false)
         }
     }
     #endif  // !REMOVE_DEPRECATED_APIS
