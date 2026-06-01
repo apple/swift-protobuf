@@ -205,45 +205,6 @@ extension Descriptor {
         return false
     }
 
-    /// Returns True if this message recursively contains a required field.
-    /// This is a helper for generating isInitialized methods.
-    ///
-    /// The logic for this check comes from google/protobuf; the C++ and Java
-    /// generators specifically
-    func containsRequiredFields() -> Bool {
-        var alreadySeen = Set<String>()
-
-        func helper(_ descriptor: Descriptor) -> Bool {
-            if alreadySeen.contains(descriptor.fullName) {
-                // First required thing found causes this to return true, so one can
-                // assume if it is already visited and and wasn't cached, it is part
-                // of a recursive cycle, so return false without caching to allow
-                // the evaluation to continue on other fields of the message.
-                return false
-            }
-            alreadySeen.insert(descriptor.fullName)
-
-            // If it can support extensions, then return true as an extension could
-            // have a required field.
-            if !descriptor.messageExtensionRanges.isEmpty {
-                return true
-            }
-
-            for f in descriptor.fields {
-                if f.isRequired {
-                    return true
-                }
-                if let messageType = f.messageType, helper(messageType) {
-                    return true
-                }
-            }
-
-            return false
-        }
-
-        return helper(self)
-    }
-
     /// The `extensionRanges` are in the order they appear in the original .proto
     /// file; this orders them and then merges any ranges that are actually
     /// contiguous (i.e. - [(21,30),(10,20)] -> [(10,30)])

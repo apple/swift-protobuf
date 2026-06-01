@@ -42,10 +42,6 @@ class ExtensionSetGenerator {
             set { preconditionFailure("this should be unreachable; it is a generator bug") }
         }
 
-        // For `FieldGenerator` conformance; extension fields track presence differently so we
-        // don't need to special case `isInitialized`.
-        var needsIsInitializedGeneration: Bool { false }
-
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             self.generatorOptions = generatorOptions
             self.namer = namer

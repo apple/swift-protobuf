@@ -223,8 +223,6 @@ class MessageGenerator {
                 "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }",
                 ""
             )
-            generateIsInitialized(printer: &p)
-            // generateIsInitialized provides a blank line after itself.
         }
         p.print("}")
 
@@ -293,28 +291,6 @@ class MessageGenerator {
         }
     }
 
-    /// Generates the `isInitialized` property for the message, if needed.
-    ///
-    /// This may generate nothing, if the `isInitialized` property is not
-    /// needed.
-    ///
-    /// - Parameter printer: The code printer.
-    private func generateIsInitialized(printer p: inout CodePrinter) {
-        // If the message does not have any fields that need this check, don't generate it; we'll
-        // use the protocol extension default.
-        guard descriptor.containsRequiredFields() else {
-            return
-        }
-
-        p.print("public var isInitialized: Swift.Bool {")
-        p.withIndentation { p in
-            p.print("return _storage.isInitialized")
-        }
-        p.print(
-            "}",
-            ""
-        )
-    }
 }
 
 private struct MessageFieldFactory {

@@ -35,10 +35,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
     var oneofIndex: Int? { nil }
 
-    var needsIsInitializedGeneration: Bool {
-        isRequired || (isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields())
-    }
-
     private var hasBitIndex: Int {
         switch presence {
         case .hasBit(let index):

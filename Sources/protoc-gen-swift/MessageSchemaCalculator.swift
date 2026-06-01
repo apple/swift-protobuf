@@ -223,8 +223,7 @@ private struct SubmessageOrEnumCollector {
             submessageOrEnumIndex = nextIndex
             usedFields[kind] = SubmessageOrEnumField(
                 kind: kind,
-                index: submessageOrEnumIndex,
-                needsIsInitializedCheck: field.needsIsInitializedGeneration
+                index: submessageOrEnumIndex
             )
             nextIndex += 1
         }
@@ -239,9 +238,4 @@ struct SubmessageOrEnumField {
 
     /// The index of the submessage, which will be used to generate submessage tokens.
     var index: Int
-
-    /// Indicates whether we need to recursively walk this submessage to implement the
-    /// `isInitialized` check or if it can vacuously return true (e.g., if it has no required fields
-    /// or submessages with required fields).
-    var needsIsInitializedCheck: Bool
 }

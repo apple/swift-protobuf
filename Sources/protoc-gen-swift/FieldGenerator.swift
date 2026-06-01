@@ -135,10 +135,6 @@ package protocol FieldGenerator: AnyObject {
     /// the message.
     var storageOffsets: TargetSpecificValues<Int> { get set }
 
-    /// Indicates whether this field should cause its parent message to have `isInitialized`
-    /// generated.
-    var needsIsInitializedGeneration: Bool { get }
-
     /// The text format name of the field.
     var name: String { get }
 
