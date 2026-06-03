@@ -207,7 +207,6 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		${GENERATE_SRCS_BASE} \
 		  -I "${LOCAL_PROTOBUF}/src" \
 		  -I "${LOCAL_PROTOBUF}" \
-		  -I "${LOCAL_PROTOBUF}/src/google/protobuf/compiler/ruby" \
 		  --tfiws_out=_test/upstream $$p || exit 1; \
 	done
 	for d in ${PROTOS_DIRS}; do \
@@ -290,7 +289,6 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		${GENERATE_SRCS_BASE} \
 		  -I "${LOCAL_PROTOBUF}/src" \
 		  -I "${LOCAL_PROTOBUF}" \
-		  -I "${LOCAL_PROTOBUF}/src/google/protobuf/compiler/ruby" \
 		  --tfiws_out=Reference/upstream $$p || exit 1; \
 	done
 	for d in ${PROTOS_DIRS}; do \

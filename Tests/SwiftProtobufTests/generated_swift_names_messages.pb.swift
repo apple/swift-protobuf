@@ -4351,6 +4351,18 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: S
     init() {}
   }
 
+  nonisolated struct fractionalDigits: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var fractionalDigits: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   nonisolated struct from: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -23284,6 +23296,36 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forWritingInto, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forWritingInto) -> Bool {
     if lhs.forWritingInto != rhs.forWritingInto {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fractionalDigits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".fractionalDigits"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fractionalDigits\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.fractionalDigits) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.fractionalDigits != 0 {
+      try visitor.visitSingularInt32Field(value: self.fractionalDigits, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fractionalDigits, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fractionalDigits) -> Bool {
+    if lhs.fractionalDigits != rhs.fractionalDigits {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

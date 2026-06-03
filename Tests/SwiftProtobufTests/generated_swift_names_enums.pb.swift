@@ -10831,6 +10831,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum fractionalDigits: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneFractionalDigits // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFractionalDigits
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFractionalDigits
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFractionalDigits: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fractionalDigits] = [
+      .noneFractionalDigits,
+    ]
+
+  }
+
   nonisolated enum from: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneFrom // = 0
@@ -32575,6 +32605,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Fo
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.forWritingInto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_forWritingInto\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.fractionalDigits: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_fractionalDigits\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.from: SwiftProtobuf._ProtoNameProviding {
