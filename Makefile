@@ -81,7 +81,7 @@ SWIFT_BUILD_TEST_HOOK?=
 # NOTE: Sources/Conformance is *not* in here as of Jan 2026 there are some proto file that
 # use features the release version of protobuf doesn't support. So this keeps
 # `test-plugin` working with the tagged version that predates that support.
-PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
+PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/protoc-gen-swift Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
 
 .PHONY: \
 	all \
@@ -210,6 +210,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		${GENERATE_SRCS_BASE} \
 		  -I Protos/Sources/SwiftProtobuf \
 		  -I Protos/Sources/SwiftProtobufPluginLibrary \
+		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
@@ -289,6 +290,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		${GENERATE_SRCS_BASE} \
 		  -I Protos/Sources/SwiftProtobuf \
 		  -I Protos/Sources/SwiftProtobufPluginLibrary \
+		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=Reference/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
@@ -351,6 +353,12 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
+	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+	    -I Protos/Sources/protoc-gen-swift \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Sources/protoc-gen-swift \
+		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
 
 # Is this based on the upstream bazel rules `compile_edition_defaults` and
 # `embed_edition_defaults`.
@@ -627,6 +635,11 @@ update-proto-files: check-for-protobuf-checkout
 	  Protos/Sources/SwiftProtobuf/google/protobuf
 	@rm -rf Protos/Sources/SwiftProtobufPluginLibrary/google && mkdir -p Protos/Sources/SwiftProtobufPluginLibrary/google/protobuf/compiler
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/Sources/SwiftProtobufPluginLibrary/google/protobuf/compiler
+	@rm -rf Protos/Sources/protoc-gen-swift/google && mkdir -p Protos/Sources/protoc-gen-swift/google/protobuf/compiler
+	@cp -v \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/json_options.proto \
+	  "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/json_enumvalue_options.proto \
+	  Protos/Sources/protoc-gen-swift/google/protobuf
 
 #
 # Helper to see if update-proto-files should be done
@@ -640,14 +653,17 @@ check-proto-files: check-for-protobuf-checkout
 	@rm -f _check_protos.txt && touch _check_protos.txt
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto conformance/test_protos/*.proto`; do \
 		diff -u "Protos/Sources/Conformance/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" >> _check_protos.txt; \
-	done
-	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test | grep -v features | grep -v option | grep -v sample`; do \
+	done ; \
+	for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test | grep -v features | grep -v option | grep -v sample`; do \
 		diff -u "Protos/Sources/SwiftProtobuf/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
-	done
-	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
+	done ; \
+	for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
 		diff -u "Protos/Sources/SwiftProtobufPluginLibrary/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
-	done
-	@if [ -s _check_protos.txt ] ; then \
+	done ; \
+	for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/json_*options*.proto`; do \
+		diff -u "Protos/Sources/protoc-gen-swift/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" >> _check_protos.txt; \
+	done ; \
+	if [ -s _check_protos.txt ] ; then \
 	    cat _check_protos.txt; \
 	    rm -f _check_protos.txt; \
 	    echo "ERROR: Time to do a 'make update-proto-files'"; \
