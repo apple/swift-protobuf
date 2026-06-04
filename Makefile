@@ -191,6 +191,8 @@ test-runtime: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
+# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
+# json options are no longer locked to "unstable".
 test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf _test && mkdir -p _test/upstream
 	for p in `find \
@@ -213,7 +215,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
-		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
 	done
 	@mkdir -p _test/CompileTests/MultiModule
 	${GENERATE_SRCS} \
@@ -271,6 +273,8 @@ compile-tests-internalimportsbydefault:
 # Note: Some of the upstream protos define the same package.(message|enum)s, so
 # they can't be done in a single protoc/proto-gen-swift invoke and have to be
 # done one at a time instead.
+# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
+# json options are no longer locked to "unstable".
 reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf Reference && mkdir -p Reference/upstream
 	for p in `find \
@@ -278,7 +282,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	            "${LOCAL_PROTOBUF}/go" \
 	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
 	            "${LOCAL_PROTOBUF}/src" \
-	            -type f -name '*.proto'`; do \
+	            -type f -name '*.proto' `; do \
 		${GENERATE_SRCS_BASE} \
 		  -I "${LOCAL_PROTOBUF}/src" \
 		  -I "${LOCAL_PROTOBUF}" \
@@ -293,7 +297,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=Reference/$$d \
-		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
 	done
 	@mkdir -p Reference/CompileTests/MultiModule
 	${GENERATE_SRCS} \
@@ -397,12 +401,18 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
+# TODO(tvl): Revisit "-I Protos/Sources/protoc-gen-swift" once we the files is in a
+# protobuf release.
+# TODO(tvl): Remove "--experimental_editions" the java_options are no longer locked down
+# to "unstable".
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
+	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
+		--experimental_editions \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
