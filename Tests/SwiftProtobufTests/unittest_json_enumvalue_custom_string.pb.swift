@@ -117,7 +117,7 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
 fileprivate nonisolated let _protobuf_package = "swift_proto_testing.enum_value_json_string"
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{1}ENUM_CUSTOM_JSON_STRING_QUOTED\0\u{1}ENUM_CUSTOM_JSON_STRING_BLANK\0\u{1}ENUM_CUSTOM_JSON_STRING_ESCAPES\0\u{1}ENUM_CUSTOM_JSON_STRING_SIX\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0")
 }
 
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

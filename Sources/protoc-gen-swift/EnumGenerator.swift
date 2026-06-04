@@ -175,7 +175,29 @@ class EnumGenerator {
 
         var writer = ProtoNameInstructionWriter()
         for v in mainEnumValueDescriptorsSorted {
-            if let aliases = aliasInfo.aliases(v) {
+            // descriptor.cc (i.e. - protoc) validates that if
+            // 'pb.enumvalue.json' is used on an enum value where there are
+            // aliases, they all must have the *same* value set
+            // (descriptor_unittest.cc also confirms this). Meaning that there
+            // aren't multiple json names when there are aliases.
+            // json_enumval_custom_string_test.cc also goes on to test/confirm
+            // that the proto name and the json name are always accepted for
+            // json.
+            //
+            // There is no opcode in the NameMap handling to hand a custom json
+            // name along with aliases, if we write out the aliases first, and
+            // then write out the unique value second the number to names map
+            // will get the correct json/proto names to use. If there are no
+            // aliases, we can also still use unique value. So the aliases case
+            // gets a small amount of bloat compared to what might otherwise be
+            // optimial, but give the edge case that this is (use of the option
+            // AND aliases), that seems reasonable.
+            if v.options.hasPb_Enumvalue_json {
+                if let aliases = aliasInfo.aliases(v) {
+                    writer.writeAliased(v, aliases: aliases)
+                }
+                writer.writeUnique(number: v.number, protoName: v.name, jsonName: v.options.Pb_Enumvalue_json.string)
+            } else if let aliases = aliasInfo.aliases(v) {
                 writer.writeAliased(v, aliases: aliases)
             } else {
                 writer.writeSame(number: v.number, name: v.name)
