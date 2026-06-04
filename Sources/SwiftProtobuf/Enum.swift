@@ -46,14 +46,20 @@ extension Enum {
 
     /// Internal convenience property representing the name of the enum value (or
     /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
-    ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
     package var name: _NameMap.Name? {
         guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
             return nil
         }
         return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
+    }
+
+    /// Internal convenience property representing the JSON name of the enum value (or
+    /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
+    package var jsonName: _NameMap.Name? {
+        guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
+            return nil
+        }
+        return nameProviding._protobuf_nameMap.names(for: rawValue)?.json
     }
 
     /// Internal convenience initializer that returns the enum value with the
