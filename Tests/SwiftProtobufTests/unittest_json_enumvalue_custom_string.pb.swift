@@ -121,7 +121,7 @@ fileprivate let _protobuf_package = "swift_proto_testing.enum_value_json_string"
 
 extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{3}\0\0 ?^t.9M\u{14}'Ij\\hZ\u{c}\u{1d}ub2y49k\u{1e}\u{3}\"gpp\u{17}Lf`\u{5}U\u{3}<)*`V\te\u{7f}HQ\u{1f}!\u{5}9>x\u{11}\n/(tZ2wOZ\u{1e}9\u{16}\u{1b} \u{1d}e\u{4}iGlF|vT>ncKl\u{10}\"\u{1c}_bFp8N\u{1d}#c9\u{12}U\u{6}&@X\u{16}\u{10}W\u{1f}`Yzy.~*)'mg\u{2}\u{15}*\u{1f}\u{6}hW1b\u{11}Tr\u{1e}k,+/Z\u{7}t'\u{19}M4Ws\u{10}\u{13}n\u{11}ab\u{14}6\u{12}lNk\u{7f}|\u{15}{\u{1d}I\u{17}]\u{7f}\u{8}\u{1}`4\u{1d}\u{10}\u{14}\\jX \u{3}\0\0"
+  private static let _protobuf_reflectionData: Swift.StaticString = "x\u{3}\0\00\u{1f}9 QZOr::\u{2}M\u{7}\0\nzx!B\u{1a}\r,\u{4}:#-JK~\u{3}[W\u{7f}&FrXF?y'3\u{7}\u{5}\u{7f}HfN\"\u{e}*F8*rs\\yqy~?\u{11}:rH\u{7f}\u{14}\u{7}j9\0Vu\u{3}S uF/HL\u{15}{<\\:\u{f}\u{1d}(e\u{17}\u{1a}wbwC< \u{3}.W\u{f}dbp'IR\u{1b}.ZwJO1xQ{x\0t|YyC-!wh7\u{e}>e-v3\u{2}G\u{17}\u{1a}p Q\n.\u{13}Z8:/I\u{6}W@@\u{17}b$B@ whL\u{18}>\u{6}\rU!O4$\u{4}9cG\u{8}:\u{14}05VbB\u{f}\t8\u{e}z^:3#OK^qpZ\u{1b}9^DA&avD\u{1}@\u{7f}7(KH}<\u{13}6k7mBn+\r?|\u{3}\u{17}EYcBL\n*vJ>\u{17}no\t\u{7}1y[\u{15}|\u{7f}u7\u{1}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
