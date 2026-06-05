@@ -11,6 +11,8 @@ struct SwiftProtobufPlugin {
         case invalidInputFileExtension(String)
         /// Indicates that there was no configuration file at the required location.
         case noConfigFound(String)
+        /// Indicates that the configuration set a `fileNaming` option the build plugin does not support.
+        case unsupportedFileNaming(String)
 
         var description: String {
             switch self {
@@ -22,6 +24,13 @@ struct SwiftProtobufPlugin {
                 return """
                     No configuration file found named '\(path)'. The file must not be listed in the \
                     'exclude:' argument for the target in Package.swift.
+                    """
+            case let .unsupportedFileNaming(value):
+                return """
+                    The 'fileNaming' option '\(value)' is not supported by the build plugin. The build \
+                    plugin always generates files using the 'PathToUnderscores' naming because the \
+                    generated files go into the build directory and the name is never observed. Remove \
+                    the 'fileNaming' option or set it to 'PathToUnderscores'.
                     """
             }
         }
@@ -106,6 +115,12 @@ struct SwiftProtobufPlugin {
             /// The visibility of the generated files.
             var visibility: Visibility?
             /// The file naming strategy to use.
+            ///
+            /// The build plugin always generates files with `PathToUnderscores` naming. The
+            /// generated files live in the build directory, so the file name on disk is never
+            /// observed and there is no benefit to giving users a choice here. This field is kept
+            /// for backwards compatibility: it may be omitted or set to `PathToUnderscores`. Any
+            /// other value is rejected so an explicit setting is never silently ignored.
             var fileNaming: FileNaming?
             /// Whether internal imports should be annotated as `@_implementationOnly`.
             var implementationOnlyImports: Bool?
@@ -222,10 +237,11 @@ struct SwiftProtobufPlugin {
             protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue)")
         }
 
-        // Add the file naming if it was set
-        if let fileNaming = invocation.fileNaming {
-            protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue)")
-        }
+        // Always generate with PathToUnderscores naming. The declared output paths below are
+        // derived the same way, so the names the build system expects can never drift from the
+        // names protoc-gen-swift actually writes. The configured fileNaming, if any, was already
+        // validated to be PathToUnderscores.
+        protocArgs.append("--swift_opt=FileNaming=\(Configuration.Invocation.FileNaming.pathToUnderscores.rawValue)")
 
         // Add the implementation only imports flag if it was set
         if let implementationOnlyImports = invocation.implementationOnlyImports {
@@ -244,17 +260,19 @@ struct SwiftProtobufPlugin {
         var inputFiles = [URL]()
         var outputFiles = [URL]()
 
-        for var file in invocation.protoFiles {
+        for file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append(file)
             inputFiles.append(protoDirectory.appending(path: file))
 
-            // The name of the output file is based on the name of the input file.
-            // We validated in the beginning that every file has the suffix of .proto
-            // This means we can just drop the last 5 elements and append the new suffix
-            file.removeLast(5)
-            file.append("pb.swift")
-            let protobufOutputPath = outputDirectory.appending(path: file)
+            // The output file name has to match exactly what protoc-gen-swift writes, otherwise
+            // the build system looks for a file that does not exist and the build fails. We always
+            // generate with PathToUnderscores naming, so the relative proto path becomes a single
+            // file name with the directory separators replaced by underscores. We validated up
+            // front that every file has the .proto suffix, which is dropped for .pb.swift.
+            let outputName = String(file.dropLast(".proto".count))
+                .replacingOccurrences(of: "/", with: "_") + ".pb.swift"
+            let protobufOutputPath = outputDirectory.appending(path: outputName)
 
             // Add the outputPath as an output file
             outputFiles.append(protobufOutputPath)
@@ -279,6 +297,11 @@ struct SwiftProtobufPlugin {
                 if !protoFile.hasSuffix(".proto") {
                     throw PluginError.invalidInputFileExtension(protoFile)
                 }
+            }
+            // The build plugin always uses PathToUnderscores naming. Reject any other explicit
+            // value so the setting is never silently ignored.
+            if let fileNaming = invocation.fileNaming, fileNaming != .pathToUnderscores {
+                throw PluginError.unsupportedFileNaming(fileNaming.rawValue)
             }
         }
     }
