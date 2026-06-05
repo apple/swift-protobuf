@@ -364,6 +364,7 @@ message GeneratedSwiftReservedEnums {
   enum forTypeURL { NONE_forTypeURL = 0; }
   enum ForwardParser { NONE_ForwardParser = 0; }
   enum forWritingInto { NONE_forWritingInto = 0; }
+  enum fractionalDigits { NONE_fractionalDigits = 0; }
   enum from { NONE_from = 0; }
   enum fromAscii2 { NONE_fromAscii2 = 0; }
   enum fromAscii4 { NONE_fromAscii4 = 0; }
