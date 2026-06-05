@@ -11,8 +11,6 @@ struct SwiftProtobufPlugin {
         case invalidInputFileExtension(String)
         /// Indicates that there was no configuration file at the required location.
         case noConfigFound(String)
-        /// Indicates that the configuration set a `fileNaming` option the build plugin does not support.
-        case unsupportedFileNaming(String)
 
         var description: String {
             switch self {
@@ -24,13 +22,6 @@ struct SwiftProtobufPlugin {
                 return """
                     No configuration file found named '\(path)'. The file must not be listed in the \
                     'exclude:' argument for the target in Package.swift.
-                    """
-            case let .unsupportedFileNaming(value):
-                return """
-                    The 'fileNaming' option '\(value)' is not supported by the build plugin. The build \
-                    plugin always generates files using the 'PathToUnderscores' naming because the \
-                    generated files go into the build directory and the name is never observed. Remove \
-                    the 'fileNaming' option or set it to 'PathToUnderscores'.
                     """
             }
         }
@@ -298,10 +289,16 @@ struct SwiftProtobufPlugin {
                     throw PluginError.invalidInputFileExtension(protoFile)
                 }
             }
-            // The build plugin always uses PathToUnderscores naming. Reject any other explicit
-            // value so the setting is never silently ignored.
+            // The build plugin always uses PathToUnderscores naming. Warn on any other explicit
+            // value so the setting is never silently ignored, without breaking existing builds.
             if let fileNaming = invocation.fileNaming, fileNaming != .pathToUnderscores {
-                throw PluginError.unsupportedFileNaming(fileNaming.rawValue)
+                Diagnostics.warning(
+                    """
+                    The 'fileNaming' option '\(fileNaming.rawValue)' is ignored by the build plugin. The build \
+                    plugin always generates files using the 'PathToUnderscores' naming because the \
+                    generated files go into the build directory and the name is never observed.
+                    """
+                )
             }
         }
     }
