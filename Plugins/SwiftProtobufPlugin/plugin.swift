@@ -241,7 +241,7 @@ struct SwiftProtobufPlugin {
         // derived the same way, so the names the build system expects can never drift from the
         // names protoc-gen-swift actually writes. The configured fileNaming, if any, was already
         // validated to be PathToUnderscores.
-        protocArgs.append("--swift_opt=FileNaming=\(Configuration.Invocation.FileNaming.pathToUnderscores.rawValue)")
+        protocArgs.append("--swift_opt=FileNaming=PathToUnderscores")
 
         // Add the implementation only imports flag if it was set
         if let implementationOnlyImports = invocation.implementationOnlyImports {
