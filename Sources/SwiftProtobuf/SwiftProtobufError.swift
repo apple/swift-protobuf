@@ -11,10 +11,10 @@
 /// A SwiftProtobuf specific error.
 ///
 /// All errors have a high-level ``SwiftProtobufError/Code-swift.struct`` which identifies the domain
-/// of the error. For example, an issue when encoding a proto into binary data will result in a
-/// ``SwiftProtobufError/Code-swift.struct/binaryEncodingError`` error code.
+/// of the error. For example, an issue when decoding binary data into a proto will result in a
+/// ``SwiftProtobufError/Code-swift.struct/binaryDecodingError`` error code.
 /// Errors also include a message describing what went wrong and how to remedy it (if applicable). The
-/// ``SwiftProtobufError/message`` is not static and may include dynamic information such as the
+/// message is not static and may include dynamic information such as the
 /// type URL for a type that could not be decoded, for example.
 public struct SwiftProtobufError: Error, @unchecked Sendable {
     // Note: @unchecked because we use a backing class for storage.

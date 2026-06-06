@@ -73,6 +73,7 @@ extension Message {
     /// - Parameters:
     ///   - source: Message that should be merged to the original one.
     ///   - fieldMask: FieldMask specifies which fields should be merged.
+    ///   - mergeOption: Options that customize how the fields are merged.
     public mutating func merge(
         from source: Self,
         fieldMask: Google_Protobuf_FieldMask,
