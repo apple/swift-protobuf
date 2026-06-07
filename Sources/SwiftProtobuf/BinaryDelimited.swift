@@ -93,7 +93,7 @@ public enum BinaryDelimited {
     ///     is assumed to be ready to be written to.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while encoding. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///     ``BinaryEncodingError/missingRequiredFields``.
     /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
     /// underlying `OutputStream.streamError` for a stream error.
     @available(*, deprecated, message: "Use serialize(message:to:options:) with options.allowPartial instead")
@@ -282,7 +282,7 @@ public enum BinaryDelimited {
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
     ///     fields are present while decoding. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The BinaryDecodingOptions to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.
