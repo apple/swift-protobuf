@@ -45,7 +45,7 @@ public enum BinaryDelimited {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///     ``BinaryEncodingError/missingRequiredFields``.
     /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
     /// underlying `OutputStream.streamError` for a stream error.
     public static func serialize(
@@ -143,7 +143,7 @@ public enum BinaryDelimited {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``BinaryDelimited/Error/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The BinaryDecodingOptions to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// and for some reading errors; or the underlying `InputStream.streamError` for a stream error.

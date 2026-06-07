@@ -58,7 +58,7 @@ extension Message {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -85,7 +85,7 @@ extension Message {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -122,7 +122,7 @@ extension Message {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
@@ -155,7 +155,7 @@ extension Message {
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
-    ///     ``SwiftProtobufError/BinaryDecoding/missingRequiredFields``.
+    ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``SwiftProtobufError`` if decoding fails.
     @inlinable
