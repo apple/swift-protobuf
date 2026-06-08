@@ -33,11 +33,6 @@ class OneofGenerator {
 
         var presence: FieldPresence = .oneofMember(0)
 
-        var needsIsInitializedGeneration: Bool {
-            // oneof fields can't be required, so we only have to consider the submessage case.
-            isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields()
-        }
-
         fileprivate var oneofOffset: UInt16 {
             switch presence {
             case .hasBit:

@@ -1263,10 +1263,6 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.G
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
@@ -1295,10 +1291,6 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 

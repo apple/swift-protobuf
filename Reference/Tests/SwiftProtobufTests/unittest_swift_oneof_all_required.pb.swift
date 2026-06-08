@@ -214,10 +214,6 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage 
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage {
@@ -233,10 +229,6 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -263,10 +255,6 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessage {
@@ -282,9 +270,5 @@ extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessa
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

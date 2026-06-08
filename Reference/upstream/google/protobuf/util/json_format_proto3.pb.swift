@@ -2220,10 +2220,6 @@ extension Proto3_TestExtensions: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto3_TestEnumValue: SwiftProtobuf.GeneratedMessage {

@@ -393,18 +393,12 @@ extension MessageStorage {
         try bytes.withUnsafeBytes { buffer in
             let messageStorage = MessageStorage(schema: messageSchema)
             // TODO: Should we keep the original behavior of failing for required fields in JSON?
-            var isShallowInitCheckPassed = true
             try messageStorage.merge(
                 byReadingFrom: buffer,
                 extensions: options.extensions,
                 options: BinaryDecodingOptions(),
-                isInitializedShallow: &isShallowInitCheckPassed
+                target: .newInstance
             )
-            if !isShallowInitCheckPassed {
-                guard messageStorage.isInitialized else {
-                    throw BinaryDecodingError.missingRequiredFields
-                }
-            }
             try messageStorage.serializeJSON(into: &encoder, options: options, shouldInlineFields: !isWKT)
         }
     }

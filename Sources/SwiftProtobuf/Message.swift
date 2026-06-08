@@ -109,8 +109,7 @@ extension Message {
     /// implementation of this property that tests that all required fields are
     /// set. Users of the generated code SHOULD NOT override this property.
     public var isInitialized: Bool {
-        // The generated code will include a specialization as needed.
-        true
+        storageForRuntime.isInitialized
     }
 
     public var unknownFields: UnknownStorage {

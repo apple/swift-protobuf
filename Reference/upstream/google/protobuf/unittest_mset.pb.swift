@@ -409,10 +409,6 @@ extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.GeneratedMessage
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
@@ -436,10 +432,6 @@ extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.GeneratedM
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
 
@@ -487,10 +479,6 @@ extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.GeneratedMessag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.GeneratedMessage {
@@ -530,10 +518,6 @@ extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.GeneratedMessag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_RawMessageSet: SwiftProtobuf.GeneratedMessage {
@@ -557,10 +541,6 @@ extension Proto2Unittest_RawMessageSet: SwiftProtobuf.GeneratedMessage {
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2Unittest_RawMessageSet.Item: SwiftProtobuf.GeneratedMessage {
@@ -576,9 +556,5 @@ extension Proto2Unittest_RawMessageSet.Item: SwiftProtobuf.GeneratedMessage {
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }

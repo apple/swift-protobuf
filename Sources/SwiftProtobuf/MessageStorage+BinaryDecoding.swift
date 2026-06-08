@@ -21,6 +21,66 @@ extension MessageStorage {
         case unknownEnumValueInMapValue
     }
 
+    /// The target state to use when decoding a message from binary format.
+    enum DecodingTarget {
+        /// Decode into a new message instance.
+        case newInstance
+        /// Merge into an existing message instance.
+        case existingInstance
+    }
+
+    /// Decodes field values from the given binary-encoded buffer into this storage class.
+    ///
+    /// - Parameters:
+    ///   - buffer: The binary-encoded message data to decode.
+    ///   - extensions: The extension map to use.
+    ///   - options: The ``BinaryDecodingOptions`` to use.
+    ///   - target: The ``DecodingTarget`` to use.
+    /// - Throws: ``BinaryDecodingError`` if decoding fails.
+    func merge(
+        byReadingFrom buffer: UnsafeRawBufferPointer,
+        extensions: ExtensionMap?,
+        options: BinaryDecodingOptions,
+        target: DecodingTarget
+    ) throws {
+        switch target {
+        case .newInstance:
+            var isShallowInitCheckPassed = true
+            try merge(
+                byReadingFrom: buffer,
+                extensions: extensions,
+                options: options,
+                isInitializedShallow: &isShallowInitCheckPassed
+            )
+            if !options.allowPartial && !isShallowInitCheckPassed {
+                // Fallback: A shallow check failure might be a false positive if a submessage was
+                // parsed as incomplete initially but completed by a subsequent payload block in the
+                // stream. We must run a full deep `isInitialized` check to verify actual completeness.
+                guard isInitialized else {
+                    throw BinaryDecodingError.missingRequiredFields
+                }
+            }
+        case .existingInstance:
+            // Optimization: Since we are merging into an existing message structure, we must
+            // always perform a final deep recursive `isInitialized` check at the end (because
+            // required fields in pre-existing submessages not present in the binary payload
+            // won't be visited during decoding). Therefore, we bypass all parsing-time shallow
+            // validation checks by setting `allowPartial = true` during the merge execution.
+            var subOptions = options
+            subOptions.allowPartial = true
+            var ignored = true
+            try merge(
+                byReadingFrom: buffer,
+                extensions: extensions,
+                options: subOptions,
+                isInitializedShallow: &ignored
+            )
+            if !options.allowPartial && !isInitialized {
+                throw BinaryDecodingError.missingRequiredFields
+            }
+        }
+    }
+
     /// Decodes field values from the given binary-encoded buffer into this storage class.
     ///
     /// - Parameters:

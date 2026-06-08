@@ -91,10 +91,6 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.GeneratedMessag
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
-
 }
 
 extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.GeneratedMessage {
@@ -117,9 +113,5 @@ extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProto
   }
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
-
-  public var isInitialized: Swift.Bool {
-    return _storage.isInitialized
-  }
 
 }
