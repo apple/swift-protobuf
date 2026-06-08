@@ -26,8 +26,9 @@ extension Message {
     ///   - options: The JSONEncodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONEncodingError`` if encoding fails.
     public func jsonString(options: JSONEncodingOptions = JSONEncodingOptions()) throws -> String {
-        let data: [UInt8] = try jsonUTF8Bytes(options: options)
-        return String(decoding: data, as: UTF8.self)
+        var encoder = JSONEncoder()
+        try storageForRuntime.serializeJSON(into: &encoder, options: options)
+        return encoder.stringResult
     }
 
     /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the message.
