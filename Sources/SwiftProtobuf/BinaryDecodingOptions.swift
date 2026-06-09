@@ -39,7 +39,7 @@ public struct BinaryDecodingOptions: Sendable {
     /// decoded.
     ///
     /// If `false` (the default), the decoder will check that all required fields are present in
-    /// the message (recursively checking any nested submessages) after decoding. If any are
+    /// the message (recursively checking any nested submessages) while decoding. If any are
     /// missing, the decoder will throw ``BinaryDecodingError/missingRequiredFields``.
     public var allowPartial: Bool
 

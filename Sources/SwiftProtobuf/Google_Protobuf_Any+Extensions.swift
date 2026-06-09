@@ -51,7 +51,7 @@ extension Google_Protobuf_Any {
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while encoding. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - typeURLPrefix: The prefix to be used when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
@@ -101,7 +101,7 @@ extension Google_Protobuf_Any {
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while encoding. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - typePrefix: The prefix to be used when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
