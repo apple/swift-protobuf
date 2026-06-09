@@ -47,7 +47,7 @@ extension AsyncSequence where Element == UInt8 {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
     ///    messages encoded by this sequence, or in messages nested within these messages.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
@@ -116,7 +116,7 @@ public struct AsyncMessageSequence<
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
     ///    messages encoded by this sequence, or in messages nested within these messages.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.

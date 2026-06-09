@@ -92,7 +92,7 @@ public enum BinaryDelimited {
     ///   - stream: The `OutputStream` to write the message to.  The stream is
     ///     is assumed to be ready to be written to.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while encoding. If any are missing, this method throws
     ///     ``BinaryDelimited/Error/missingRequiredFields``.
     /// - Throws: ``BinaryDelimited/Error`` if encoding fails or some writing errors occur; or the
     /// underlying `OutputStream.streamError` for a stream error.
@@ -154,7 +154,7 @@ public enum BinaryDelimited {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Returns: The message read.
@@ -280,9 +280,8 @@ public enum BinaryDelimited {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    ///   - partial: If `false` (the default), this method will check
-    ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
-    ///     fields are present. If any are missing, this method throws
+    ///   - partial: If `false` (the default), this method will verify that all required
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDelimited/Error/missingRequiredFields``.
     ///   - options: The BinaryDecodingOptions to use.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,

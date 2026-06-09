@@ -36,7 +36,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while encoding. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - options: The ``BinaryEncodingOptions`` to use.
     /// - Returns: A ``SwiftProtobufContiguousBytes`` instance containing the binary serialization
@@ -85,7 +85,7 @@ extension Message {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
@@ -141,7 +141,7 @@ extension Message {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
@@ -206,7 +206,7 @@ extension Message {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
@@ -268,7 +268,7 @@ extension Message {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will verify that all required
-    ///     fields are present before encoding. If any are missing, this method throws
+    ///     fields are present while decoding. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
