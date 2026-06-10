@@ -352,12 +352,6 @@ extension MessageSchema {
         return UTF8Name(start: schema.baseAddress! + nameStart, count: length)
     }
 
-    /// Returns a value indicating whether or not the given field is required.
-    func isFieldRequired(_ field: FieldSchema) -> Bool {
-        let raw = field.rawPresence
-        return 0 <= raw && raw < requiredCount
-    }
-
     /// Returns a value indicating whether ot not the given field has explicit presence.
     func fieldHasPresence(_ field: FieldSchema) -> Bool {
         let raw = field.rawPresence

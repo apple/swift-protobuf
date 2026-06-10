@@ -1215,12 +1215,9 @@ extension MessageStorage {
         for field in schema.fields {
             switch field.rawFieldType {
             case .message, .group:
+                // The shallow check above already catches if this was required but not set, here
+                // all that has to be done is check if it was set before recursing through it.
                 guard isPresent(field) else {
-                    // If the submessage is not present, check if it's required. If it is, then
-                    // we're not initialized; otherwise, we can skip to the next field.
-                    if schema.isFieldRequired(field) {
-                        return false
-                    }
                     continue
                 }
                 switch field.fieldMode.cardinality {
