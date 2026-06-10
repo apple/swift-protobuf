@@ -25,35 +25,36 @@ final class Test_FieldOrdering: XCTestCase {
 
     func test_FieldOrdering() throws {
         throw XCTSkip("Disabling until we decide on extension serialization determinism strategy")
-        var m = MessageTestType()
-        m.myString = "abc"
-        m.myInt = 1
-        m.myFloat = 1.0
-        var nest = MessageTestType.NestedMessage()
-        nest.oo = 1
-        nest.bb = 2
-        m.optionalNestedMessage = nest
-        m.SwiftProtoTesting_Order_myExtensionInt = 12
-        m.SwiftProtoTesting_Order_myExtensionString = "def"
-        m.oneofInt32 = 7
-
-        let encoded1: [UInt8] = try m.serializedBytes()
-        XCTAssertEqual(
-            [
-                8, 1, 40, 12, 80, 7, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 173, 6, 0, 0, 128, 63, 194, 12, 4, 8,
-                2, 16, 1,
-            ],
-            encoded1
-        )
-
-        m.oneofInt64 = 8
-        let encoded2: [UInt8] = try m.serializedBytes()
-        XCTAssertEqual(
-            [
-                8, 1, 40, 12, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 224, 3, 8, 173, 6, 0, 0, 128, 63, 194, 12, 4,
-                8, 2, 16, 1,
-            ],
-            encoded2
-        )
+        // TODO: Revisit and figure out how/what to test since extensions now come after normal fields.
+        // var m = MessageTestType()
+        // m.myString = "abc"
+        // m.myInt = 1
+        // m.myFloat = 1.0
+        // var nest = MessageTestType.NestedMessage()
+        // nest.oo = 1
+        // nest.bb = 2
+        // m.optionalNestedMessage = nest
+        // m.SwiftProtoTesting_Order_myExtensionInt = 12
+        // m.SwiftProtoTesting_Order_myExtensionString = "def"
+        // m.oneofInt32 = 7
+        //
+        // let encoded1: [UInt8] = try m.serializedBytes()
+        // XCTAssertEqual(
+        //     [
+        //         8, 1, 40, 12, 80, 7, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 173, 6, 0, 0, 128, 63, 194, 12, 4, 8,
+        //         2, 16, 1,
+        //     ],
+        //     encoded1
+        // )
+        //
+        // m.oneofInt64 = 8
+        // let encoded2: [UInt8] = try m.serializedBytes()
+        // XCTAssertEqual(
+        //     [
+        //         8, 1, 40, 12, 90, 3, 97, 98, 99, 146, 3, 3, 100, 101, 102, 224, 3, 8, 173, 6, 0, 0, 128, 63, 194, 12, 4,
+        //         8, 2, 16, 1,
+        //     ],
+        //     encoded2
+        // )
     }
 }
