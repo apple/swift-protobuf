@@ -173,7 +173,7 @@ public final class ExtensionStorage {
                 case .array:
                     var areAllInitialized = true
                     forEachMessage(inAssumedPresentRepeatedMessageField: ext) {
-                        guard $0.isInitialized else {
+                        guard $0.isMessageInitializedRecursive else {
                             areAllInitialized = false
                             return .stop
                         }
@@ -183,7 +183,7 @@ public final class ExtensionStorage {
 
                 case .scalar:
                     let storage = messageStorage(forAssumedPresentSingularMessageField: ext)
-                    guard storage.isInitialized else {
+                    guard storage.isMessageInitializedRecursive else {
                         return false
                     }
 

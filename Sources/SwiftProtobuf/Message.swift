@@ -99,7 +99,7 @@ extension Message {
     /// True if all required fields (if any) on this message and any nested
     /// messages (recursively) have values set; otherwise, false.
     public var isInitialized: Bool {
-        storageForRuntime.isInitialized
+        storageForRuntime.isMessageInitializedRecursive
     }
 
     /// Some formats include enough information to transport fields that were

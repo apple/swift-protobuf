@@ -615,10 +615,8 @@ message GeneratedSwiftReservedEnums {
   enum isEscape { NONE_isEscape = 0; }
   enum isExtension { NONE_isExtension = 0; }
   enum isField { NONE_isField = 0; }
-  enum isFieldInitialized { NONE_isFieldInitialized = 0; }
   enum isFieldNameReserved { NONE_isFieldNameReserved = 0; }
   enum isFieldNumberReserved { NONE_isFieldNumberReserved = 0; }
-  enum isFieldRequired { NONE_isFieldRequired = 0; }
   enum isFloat { NONE_isFloat = 0; }
   enum isHexDigit { NONE_isHexDigit = 0; }
   enum isHexNumber { NONE_isHexNumber = 0; }
@@ -628,6 +626,7 @@ message GeneratedSwiftReservedEnums {
   enum isJSONSymbol { NONE_isJSONSymbol = 0; }
   enum isLetter { NONE_isLetter = 0; }
   enum isMapField { NONE_isMapField = 0; }
+  enum isMessageInitializedRecursive { NONE_isMessageInitializedRecursive = 0; }
   enum isMessageInitializedShallow { NONE_isMessageInitializedShallow = 0; }
   enum isNameReserved { NONE_isNameReserved = 0; }
   enum isNegative { NONE_isNegative = 0; }
