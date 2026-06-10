@@ -22,7 +22,7 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     func assertAnyTest<M: Message & Equatable>(
         _ message: M,
         expected: String,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         let empty = MessageTestType()

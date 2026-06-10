@@ -26,7 +26,7 @@ import XCTest
 
 final class Test_FuzzTests: XCTestCase {
 
-    func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
         XCTAssertThrowsError(
             try SwiftProtoTesting_Fuzz_Message(
                 serializedBytes: bytes,
@@ -37,7 +37,7 @@ final class Test_FuzzTests: XCTestCase {
         )
     }
 
-    func assertJSONFails(_ jsonBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertJSONFails(_ jsonBytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
         XCTAssertThrowsError(
             try SwiftProtoTesting_Fuzz_Message(
                 jsonUTF8Bytes: jsonBytes,
@@ -48,7 +48,7 @@ final class Test_FuzzTests: XCTestCase {
         )
     }
 
-    func assertJSONFails(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertJSONFails(_ json: String, file: XCTestFileArgType = #filePath, line: UInt = #line) {
         XCTAssertThrowsError(
             try SwiftProtoTesting_Fuzz_Message(
                 jsonString: json,
@@ -62,7 +62,7 @@ final class Test_FuzzTests: XCTestCase {
     func assertTextFormatFails(
         _ textFormat: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         XCTAssertThrowsError(
@@ -79,7 +79,7 @@ final class Test_FuzzTests: XCTestCase {
     func assertTextFormatFails(
         _ asBytes: [UInt8],
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         guard let str = String(data: Data(asBytes), encoding: .utf8) else {
@@ -105,7 +105,7 @@ final class Test_FuzzTests: XCTestCase {
     func assertTextFormatSucceeds(
         _ textFormat: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         XCTAssertNoThrow(
@@ -122,7 +122,7 @@ final class Test_FuzzTests: XCTestCase {
     func assertTextFormatSucceeds(
         _ asBytes: [UInt8],
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         guard let str = String(data: Data(asBytes), encoding: .utf8) else {

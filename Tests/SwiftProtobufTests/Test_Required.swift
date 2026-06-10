@@ -349,7 +349,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -366,7 +366,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialDecodeSucceeds(
         _ bytes: [UInt8],
         _ expectedTextFormat: String,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -452,7 +452,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert encoding fails with a not initialized error.
     fileprivate func assertEncodeFailsNotInitialized(
         _ message: MessageTestType,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -469,7 +469,7 @@ final class Test_Required: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(
         _ message: MessageTestType,
         _ expectedBytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -561,7 +561,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -578,7 +578,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialDecodeSucceeds(
         _ bytes: [UInt8],
         _ expectedTextFormat: String,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -629,7 +629,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert encoding fails with a not initialized error.
     fileprivate func assertEncodeFailsNotInitialized(
         _ message: MessageTestType,
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
@@ -646,7 +646,7 @@ final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(
         _ message: MessageTestType,
         _ expectedBytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line
     ) {
         do {
