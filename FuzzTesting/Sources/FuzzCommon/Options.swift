@@ -123,9 +123,6 @@ public struct BinaryFuzzingOptions: SupportsFuzzOptions {
     public var decoding = BinaryDecodingOptions()
     public var encoding = BinaryEncodingOptions()
 
-    // Historically this never was in BinaryDecodingOptions, so control it via a standalone boolean.
-    public var partialDecoding: Bool = false
-
     public init() {}
 
     public static var fuzzOptionsList: [FuzzOption<Self>] {
@@ -137,8 +134,9 @@ public struct BinaryFuzzingOptions: SupportsFuzzOptions {
             // avoid allowing larger depths that could timeout.
             .byte(\.decoding.messageDepthLimit, mod: 8),
             .boolean(\.decoding.discardUnknownFields),
-            .boolean(\.partialDecoding),
+            .boolean(\.decoding.allowPartial),
             .boolean(\.encoding.useDeterministicOrdering),
+            .boolean(\.encoding.allowPartial),
         ]
     }
 }
