@@ -10,6 +10,12 @@ import Foundation
 import FuzzCommon
 import SwiftProtobuf
 
+// Put a limit on how many messages will be read because oss-fuzz seems
+// occational timeouts on really large input sets, likely because there is just
+// too much garbage so things just keep failing to parse. Just need to exercise
+// things enough to read a few messages in a row.
+private let kMaxMessages = 50
+
 private func asyncByteStream(bytes: UnsafeRawBufferPointer) -> AsyncStream<UInt8> {
     AsyncStream(UInt8.self) { continuation in
         for i in 0..<bytes.count {
@@ -34,6 +40,7 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer, _ count: Int) ->
     let semaphore = DispatchSemaphore(value: 0)
     Task {
         do {
+            var msgCount = 0
             for try await _ in decoding {
                 // TODO: Test serialization for completeness.
                 // We could serialize individual messages like this:
@@ -43,6 +50,11 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer, _ count: Int) ->
 
                 // Also, serialization here more than doubles the total
                 // run time, leading to timeouts for the fuzz tester. :(
+
+                msgCount += 1
+                guard msgCount < kMaxMessages else {
+                    break
+                }
             }
         } catch {
             // Error parsing are to be expected since not all input will be well formed.

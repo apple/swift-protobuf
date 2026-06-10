@@ -28,7 +28,7 @@ When doing a Swift Protobuf library release:
 1. Update the version on _main_
 
    ```
-   DevTools/LibraryVersions.py [a.b.c]
+   scripts/LibraryVersions.py [a.b.c]
    ```
 
    If you aren't sure if `b` or `c`, rather then checking all the _semver_ tags on the

@@ -20,7 +20,7 @@ final class Test_Map: XCTestCase, PBTestHelpers {
 
     func assertMapEncode(
         _ expectedBlocks: [[UInt8]],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {

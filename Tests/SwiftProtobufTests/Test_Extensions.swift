@@ -24,7 +24,7 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertEncode(
         _ expected: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
@@ -53,7 +53,7 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertDecodeSucceeds(
         _ bytes: [UInt8],
-        file: XCTestFileArgType = #file,
+        file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
@@ -74,7 +74,7 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
-    func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #filePath, line: UInt = #line) {
         do {
             let _ = try MessageTestType(serializedBytes: bytes, extensions: extensions)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
