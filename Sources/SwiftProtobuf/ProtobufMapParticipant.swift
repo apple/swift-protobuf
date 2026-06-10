@@ -16,7 +16,7 @@ import Foundation
 
 /// Defines the common operations for a proxy type that participates in a protobuf map (as either a
 /// key or a value).
-@_spi(ForGeneratedCodeOnly) public protocol ProtobufMapParticipant {
+@_spi(ForGeneratedCodeOnly) public protocol ProtobufMapParticipant: Sendable {
     /// The actual Swift type of the field as it is represented in memory.
     associatedtype Base: Equatable
 
