@@ -1,4 +1,4 @@
-// Tests/SwiftProtobufTests/Test_Leaks.swift - Proto3 coding/decoding
+// Tests/SwiftProtobufTests/Test_Leaks.swift - Memory leak detection
 //
 // Copyright (c) 2014 - 2026 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
