@@ -45,14 +45,6 @@ public protocol Message: Sendable, Equatable, Hashable, CustomDebugStringConvert
     /// including any relevant package name.
     static var protoMessageName: String { get }
 
-    /// True if all required fields (if any) on this message and any nested
-    /// messages (recursively) have values set; otherwise, false.
-    var isInitialized: Bool { get }
-
-    /// Some formats include enough information to transport fields that were
-    /// not known at generation time. When encountered, they are stored here.
-    var unknownFields: UnknownStorage { get set }
-
     /// The schema that describes this message.
     ///
     /// The schema describes the layout of the message with only enough detail that the Swift
@@ -104,14 +96,14 @@ extension Message {
         self.storageForRuntime.hash(into: &hasher)
     }
 
-    /// Generated proto2 messages that contain required fields, nested messages
-    /// that contain required fields, and/or extensions will provide their own
-    /// implementation of this property that tests that all required fields are
-    /// set. Users of the generated code SHOULD NOT override this property.
+    /// True if all required fields (if any) on this message and any nested
+    /// messages (recursively) have values set; otherwise, false.
     public var isInitialized: Bool {
         storageForRuntime.isInitialized
     }
 
+    /// Some formats include enough information to transport fields that were
+    /// not known at generation time. When encountered, they are stored here.
     public var unknownFields: UnknownStorage {
         get { storageForRuntime.unknownFields }
         _modify {
