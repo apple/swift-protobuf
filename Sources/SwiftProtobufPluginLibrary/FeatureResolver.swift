@@ -98,6 +98,9 @@ package class FeatureResolver {
             extensionMap = nil
         } else {
             for e in extensions {
+                // TODO: For reflection users, we'll want to expose a `String`
+                // instead of a `UTF8Name`. That would clean up these usage
+                // sites as well.
                 let extendedMessageName = e.extendedMessage.messageName
                 guard extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FeatureSet") else {
                     throw Error.invalidExtension(type: String(protobufUTF8Name: extendedMessageName))

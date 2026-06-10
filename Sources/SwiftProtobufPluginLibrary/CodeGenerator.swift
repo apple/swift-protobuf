@@ -120,6 +120,9 @@ extension CodeGenerator {
         if !customOptionExtensions.isEmpty {
             for e in customOptionExtensions {
                 // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.
+                // TODO: For reflection users, we'll want to expose a `String`
+                // instead of a `UTF8Name`. That would clean up these usage
+                // sites as well.
                 let extendedMessageName = e.extendedMessage.messageName
                 precondition(
                     extendedMessageName.utf8CodeUnitsEqual("google.protobuf.EnumOptions")
