@@ -28,7 +28,7 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         let empty = MessageTestType()
         var configured = empty
         do {
-            configured.anyField = try Google_Protobuf_Any(message: message)
+            configured.anyField = try Google_Protobuf_Any(packing: message)
         } catch {
             XCTFail("Assigning to any field failed: \(error)", file: file, line: line)
         }
@@ -66,7 +66,7 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         // Nested any
         let a = try SwiftProtoTesting_TestWellKnownTypes.with {
             $0.anyField = try Google_Protobuf_Any(
-                message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234_567_890))
+                packing: Google_Protobuf_Any(packing: Google_Protobuf_Duration(seconds: 123, nanos: 234_567_890))
             )
         }
         let a_encoded = a.textFormatString()

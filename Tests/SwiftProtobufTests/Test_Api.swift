@@ -36,7 +36,7 @@ final class Test_Api: XCTestCase, PBTestHelpers {
         m.methods = [method]
         var option = Google_Protobuf_Option()
         option.name = "option1"
-        option.value = try Google_Protobuf_Any(message: Google_Protobuf_StringValue("value1"))
+        option.value = try Google_Protobuf_Any(packing: Google_Protobuf_StringValue("value1"))
         m.options = [option]
         m.version = "1.0.0"
         m.syntax = .proto3

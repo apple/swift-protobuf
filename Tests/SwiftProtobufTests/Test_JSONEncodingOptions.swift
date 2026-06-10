@@ -108,7 +108,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
         let content = SwiftProtoTesting_TestAllTypes.with {
             $0.optionalInt64 = 1_656_338_459_803
         }
-        let msg7 = try! Google_Protobuf_Any(message: content)
+        let msg7 = try! Google_Protobuf_Any(packing: content)
         XCTAssertEqual(
             try msg7.jsonString(options: asStrings),
             "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt64\":\"1656338459803\"}"
@@ -233,7 +233,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
         let content = SwiftProtoTesting_TestAllTypes.with {
             $0.optionalNestedEnum = .neg
         }
-        let msg7 = try! Google_Protobuf_Any(message: content)
+        let msg7 = try! Google_Protobuf_Any(packing: content)
         XCTAssertEqual(
             try msg7.jsonString(options: asStrings),
             "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}"
@@ -330,7 +330,7 @@ final class Test_JSONEncodingOptions: XCTestCase {
         let content = SwiftProtoTesting_TestAllTypes.with {
             $0.optionalNestedEnum = .neg
         }
-        let msg7 = try! Google_Protobuf_Any(message: content)
+        let msg7 = try! Google_Protobuf_Any(packing: content)
         XCTAssertEqual(
             try msg7.jsonString(options: jsonNames),
             "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}"
