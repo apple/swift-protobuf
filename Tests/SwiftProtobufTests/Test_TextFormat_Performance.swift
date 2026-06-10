@@ -80,7 +80,7 @@ final class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
         let msg = MessageTestType.with {
             let child = MessageTestType.with {
                 let duration = Google_Protobuf_Duration(seconds: 123, nanos: 123_456_789)
-                $0.wktAny = try! Google_Protobuf_Any(message: duration)
+                $0.wktAny = try! Google_Protobuf_Any(packing: duration)
             }
             let array = [MessageTestType](repeating: child, count: repeats)
             $0.repeatedMessage = array
