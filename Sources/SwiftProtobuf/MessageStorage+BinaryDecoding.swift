@@ -56,7 +56,7 @@ extension MessageStorage {
                 // Fallback: A shallow check failure might be a false positive if a submessage was
                 // parsed as incomplete initially but completed by a subsequent payload block in the
                 // stream. We must run a full deep `isInitialized` check to verify actual completeness.
-                guard isInitialized else {
+                guard isMessageInitializedRecursive else {
                     throw BinaryDecodingError.missingRequiredFields
                 }
             }
@@ -75,7 +75,7 @@ extension MessageStorage {
                 options: subOptions,
                 isInitializedShallow: &ignored
             )
-            if !options.allowPartial && !isInitialized {
+            if !options.allowPartial && !isMessageInitializedRecursive {
                 throw BinaryDecodingError.missingRequiredFields
             }
         }

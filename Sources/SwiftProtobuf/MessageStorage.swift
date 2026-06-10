@@ -1206,9 +1206,11 @@ extension MessageStorage {
 
     /// Indicates whether all required fields are present in this message, recursively checking
     /// submessages.
-    public var isInitialized: Bool {
+    public var isMessageInitializedRecursive: Bool {
+        // Quickly check all required local fields
         guard isMessageInitializedShallow else { return false }
 
+        // Now recurse through any field type that could hold Messages.
         var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
         for field in schema.fields {
             switch field.rawFieldType {
@@ -1226,7 +1228,7 @@ extension MessageStorage {
                     let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
                     var areAllInitialized = true
                     forEachMapEntry(in: field, useDeterministicOrdering: false, workingSpace: workingSpace) {
-                        if !$0.isInitialized {
+                        if !$0.isMessageInitializedRecursive {
                             areAllInitialized = false
                             return .stop
                         }
@@ -1239,7 +1241,7 @@ extension MessageStorage {
                 case .array:
                     var areAllInitialized = true
                     forEachMessage(inAssumedPresentRepeatedMessageField: field) {
-                        guard $0.isInitialized else {
+                        guard $0.isMessageInitializedRecursive else {
                             areAllInitialized = false
                             return .stop
                         }
@@ -1249,7 +1251,7 @@ extension MessageStorage {
 
                 case .scalar:
                     let storage = messageStorage(forAssumedPresentSingularMessageField: field)
-                    guard storage.isInitialized else {
+                    guard storage.isMessageInitializedRecursive else {
                         return false
                     }
 
@@ -1269,20 +1271,6 @@ extension MessageStorage {
         guard extensionStorage.allSubmessagesAreInitialized else { return false }
 
         return true
-    }
-
-    /// Returns whether the given field in the receiver, which must be another message type, is
-    /// initialized (recursively).
-    public func isFieldInitialized<T: Message>(_ field: FieldSchema, type: T.Type) -> Bool {
-        (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee.isInitialized
-    }
-
-    /// Returns whether the given field in the receiver, which must be an array of a message type,
-    /// is initialized (recursively).
-    public func isFieldInitialized<T: Message>(_ field: FieldSchema, type: [T].Type) -> Bool {
-        (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1).pointee.allSatisfy {
-            $0.isInitialized
-        }
     }
 }
 
