@@ -423,8 +423,9 @@ final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         do {
             let _ = try MessageTestType(textFormatString: "1536870911: 1", options: opts)
             XCTFail("Shouldn't get here")
-        } catch let error as SwiftProtobufError {
+        } catch let e as SwiftProtobufError {
             // This is what should have happened.
+            XCTAssertTrue(e.message.contains(#/: Expected an integer no larger than /#))
         } catch {
             XCTFail("Unexpected error: \(error)")
         }
