@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// The storage for a single extension field in a message.
 ///
 /// This can be thought of as a miniature version of `MessageStorage`, but which only holds the
@@ -69,25 +71,62 @@
         self.storage = UInt64(UInt(bitPattern: pointer))
     }
 
+    /// Deinitializes the value stored in the receiver and deallocates its heap storage if it uses
+    /// any.
+    ///
+    /// The receiver should not be used after this method is called.
+    @usableFromInline
+    func release() {
+        let field = schema.field
+        switch field.fieldMode.cardinality {
+        case .map:
+            preconditionFailure("Unreachable")
+
+        case .array:
+            switch field.rawFieldType {
+            case .bool: release(type: [Bool].self)
+            case .bytes: release(type: [Data].self)
+            case .double: release(type: [Double].self)
+            case .enum:
+                schema.enumSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
+                unsafeMutableRawPointer.deallocate()
+            case .group, .message:
+                schema.messageSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
+                unsafeMutableRawPointer.deallocate()
+            case .fixed32, .uint32: release(type: [UInt32].self)
+            case .fixed64, .uint64: release(type: [UInt64].self)
+            case .float: release(type: [Float].self)
+            case .int32, .sfixed32, .sint32: release(type: [Int32].self)
+            case .int64, .sfixed64, .sint64: release(type: [Int64].self)
+            case .string: release(type: [String].self)
+            default: preconditionFailure("Unreachable")
+            }
+
+        case .scalar:
+            switch field.rawFieldType {
+            case .bytes: release(type: Data.self)
+            case .string: release(type: String.self)
+            case .group, .message:
+                schema.messageSchema.invokeWitness(.messageDeinitialize(pointer: unsafeMutableRawPointer))
+                unsafeMutableRawPointer.deallocate()
+            default:
+                // Ignore trivial fields; no deinitialization is necessary.
+                break
+            }
+
+        default:
+            preconditionFailure("Unreachable")
+        }
+    }
+
     /// Deinitializes the stored value in the receiver and then deallocates its heap storage.
     ///
     /// - Precondition: This must only be called on values for which `storage` is a pointer to
     ///   heap-allocated storage.
     @_alwaysEmitIntoClient @inline(__always)
-    func release<Value>(type: Value.Type) {
+    private func release<Value>(type: Value.Type) {
         let pointer = UnsafeMutablePointer<Value>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!
         pointer.deinitialize(count: 1)
-        pointer.deallocate()
-    }
-
-    /// Deinitializes the singular message value stored in the receiver and deallocates its heap
-    /// storage.
-    ///
-    /// - Precondition: This must only be called on values for which `storage` is a pointer to
-    ///   heap-allocated storage and contains an initialized concrete message instance.
-    func releaseMessageValue() {
-        let pointer = unsafeMutableRawPointer
-        schema.messageSchema.invokeWitness(.messageDeinitialize(pointer: pointer))
         pointer.deallocate()
     }
 

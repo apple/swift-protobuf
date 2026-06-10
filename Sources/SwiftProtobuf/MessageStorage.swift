@@ -68,10 +68,13 @@ import Foundation
         buffer.deallocate()
     }
 
-    /// Deinitializes the given field.
+    /// Deinitializes the given field if it is present.
     @usableFromInline func deinitializeField(_ field: FieldSchema) {
         guard isPresent(field) else { return }
+        deinitializeFieldForced(field)
+    }
 
+    @usableFromInline func deinitializeFieldForced(_ field: FieldSchema) {
         switch field.fieldMode.cardinality {
         case .map:
             messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: buffer.baseAddress! + field.offset))
@@ -267,9 +270,14 @@ extension MessageStorage {
     /// Updates the presence of a field, returning the old presence value before it was changed.
     @_alwaysEmitIntoClient @inline(__always)
     func updatePresence(hasBit: HasBit, willBeSet: Bool) -> Bool {
-        let oldValue = buffer.load(fromByteOffset: hasBit.offset, as: UInt8.self) & ~hasBit.mask
-        buffer.storeBytes(of: oldValue | (willBeSet ? hasBit.mask : 0), toByteOffset: hasBit.offset, as: UInt8.self)
-        return oldValue != 0
+        let presenceByte = buffer.load(fromByteOffset: hasBit.offset, as: UInt8.self)
+        let wasSet = presenceByte & hasBit.mask != 0
+        buffer.storeBytes(
+            of: (presenceByte & ~hasBit.mask) | (willBeSet ? hasBit.mask : 0),
+            toByteOffset: hasBit.offset,
+            as: UInt8.self
+        )
+        return wasSet
     }
 }
 
@@ -1156,10 +1164,14 @@ extension MessageStorage {
     /// - Precondition: The value associated with this field must be initialized.
     @_alwaysEmitIntoClient @inline(__always)
     private func deinitializeOneofMember(_ field: FieldSchema) {
+        // If this is being called when a value is being updated, we will have already updated the
+        // presence of the field, so we have to use `deinitializeFieldForced` to avoid an incorrect
+        // presence check.
+        deinitializeFieldForced(field)
+
         // TODO: We could skip zeroing out the backing storage if this is part of a mutation that
         // is setting the same member that's being deinitialized. Determine if that's a worthwhile
         // optimization.
-        deinitializeField(field)
         let stride = field.scalarStride
         (buffer.baseAddress! + field.offset).withMemoryRebound(to: UInt8.self, capacity: stride) { bytes in
             bytes.initialize(repeating: 0, count: stride)

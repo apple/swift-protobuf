@@ -145,16 +145,7 @@ extension ExtensionStorage {
         guard let value = values.removeValue(forKey: ext.field.fieldNumber) else {
             return
         }
-        value.releaseMessageValue()
-    }
-
-    /// Clears the repeated or map field.
-    ///
-    /// If the field is not present, this method does nothing.
-    ///
-    /// - Precondition: The field must be a repeated or map field.
-    func clearRepeatedField(_ ext: ExtensionSchema) {
-        // TODO
+        value.release()
     }
 }
 
