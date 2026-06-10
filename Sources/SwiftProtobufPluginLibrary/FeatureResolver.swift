@@ -98,11 +98,13 @@ package class FeatureResolver {
             extensionMap = nil
         } else {
             for e in extensions {
-                // TODO: We may need an API on the new ExtensionSchema to query or compare the
-                // extended message.
-                // if e.messageType != Google_Protobuf_FeatureSet.self {
-                //     throw Error.invalidExtension(type: e.messageType.protoMessageName)
-                // }
+                // TODO: For reflection users, we'll want to expose a `String`
+                // instead of a `UTF8Name`. That would clean up these usage
+                // sites as well.
+                let extendedMessageName = e.extendedMessage.messageName
+                guard extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FeatureSet") else {
+                    throw Error.invalidExtension(type: String(protobufUTF8Name: extendedMessageName))
+                }
             }
             var simpleMap = ExtensionMap()
             simpleMap.insert(contentsOf: extensions)

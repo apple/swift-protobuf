@@ -345,7 +345,7 @@ extension MessageSchema {
     }
 
     /// The fully-qualified name of the message.
-    var messageName: UTF8Name {
+    package var messageName: UTF8Name {
         let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
