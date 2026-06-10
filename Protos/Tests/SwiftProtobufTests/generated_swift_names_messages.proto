@@ -615,10 +615,8 @@ message GeneratedSwiftReservedMessages {
   message isEscape { int32 isEscape = 1; }
   message isExtension { int32 isExtension = 1; }
   message isField { int32 isField = 1; }
-  message isFieldInitialized { int32 isFieldInitialized = 1; }
   message isFieldNameReserved { int32 isFieldNameReserved = 1; }
   message isFieldNumberReserved { int32 isFieldNumberReserved = 1; }
-  message isFieldRequired { int32 isFieldRequired = 1; }
   message isFloat { int32 isFloat = 1; }
   message isHexDigit { int32 isHexDigit = 1; }
   message isHexNumber { int32 isHexNumber = 1; }
@@ -628,6 +626,7 @@ message GeneratedSwiftReservedMessages {
   message isJSONSymbol { int32 isJSONSymbol = 1; }
   message isLetter { int32 isLetter = 1; }
   message isMapField { int32 isMapField = 1; }
+  message isMessageInitializedRecursive { int32 isMessageInitializedRecursive = 1; }
   message isMessageInitializedShallow { int32 isMessageInitializedShallow = 1; }
   message isNameReserved { int32 isNameReserved = 1; }
   message isNegative { int32 isNegative = 1; }
