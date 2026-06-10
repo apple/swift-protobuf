@@ -32,44 +32,7 @@ public final class ExtensionStorage {
 
     deinit {
         for (_, value) in values {
-            let ext = value.schema
-            let field = ext.field
-            switch field.fieldMode.cardinality {
-            case .map:
-                preconditionFailure("Unreachable")
-
-            case .array:
-                switch field.rawFieldType {
-                case .bool: value.release(type: [Bool].self)
-                case .bytes: value.release(type: [Data].self)
-                case .double: value.release(type: [Double].self)
-                case .enum:
-                    ext.enumSchema.invokeWitness(.arrayDeinitialize(pointer: value.unsafeMutableRawPointer))
-                case .group, .message:
-                    ext.messageSchema.invokeWitness(.arrayDeinitialize(pointer: value.unsafeMutableRawPointer))
-                case .fixed32, .uint32: value.release(type: [UInt32].self)
-                case .fixed64, .uint64: value.release(type: [UInt64].self)
-                case .float: value.release(type: [Float].self)
-                case .int32, .sfixed32, .sint32: value.release(type: [Int32].self)
-                case .int64, .sfixed64, .sint64: value.release(type: [Int64].self)
-                case .string: value.release(type: [String].self)
-                default: preconditionFailure("Unreachable")
-                }
-
-            case .scalar:
-                switch field.rawFieldType {
-                case .bytes: value.release(type: Data.self)
-                case .string: value.release(type: String.self)
-                case .group, .message:
-                    ext.messageSchema.invokeWitness(.messageDeinitialize(pointer: value.unsafeMutableRawPointer))
-                default:
-                    // Ignore trivial fields; no deinitialization is necessary.
-                    break
-                }
-
-            default:
-                preconditionFailure("Unreachable")
-            }
+            value.release()
         }
     }
 
@@ -230,14 +193,8 @@ extension ExtensionStorage {
 
     /// Clears the value of the given message extension.
     @_alwaysEmitIntoClient @inline(__always)
-    public func clearValue<Value: BitwiseCopyable>(of ext: ExtensionSchema, type: Value.Type) {
-        values.removeValue(forKey: ext.field.fieldNumber)
-    }
-
-    /// Clears the value of the given message extension.
-    @_alwaysEmitIntoClient @inline(__always)
     public func clearValue<Value>(of ext: ExtensionSchema, type: Value.Type) {
-        values.removeValue(forKey: ext.field.fieldNumber)?.release(type: Value.self)
+        values.removeValue(forKey: ext.field.fieldNumber)?.release()
     }
 
     /// Appends the given value to the array-typed value of the message extension, creating a new
