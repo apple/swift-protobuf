@@ -120,20 +120,19 @@ extension CodeGenerator {
         if !customOptionExtensions.isEmpty {
             for e in customOptionExtensions {
                 // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.
-                // TODO: We may need an API on the new ExtensionSchema to query or compare the
-                // extended message.
-                // precondition(
-                //     e.messageType == Google_Protobuf_EnumOptions.self
-                //         || e.messageType == Google_Protobuf_EnumValueOptions.self
-                //         || e.messageType == Google_Protobuf_ExtensionRangeOptions.self
-                //         || e.messageType == Google_Protobuf_FieldOptions.self
-                //         || e.messageType == Google_Protobuf_FileOptions.self
-                //         || e.messageType == Google_Protobuf_MessageOptions.self
-                //         || e.messageType == Google_Protobuf_MethodOptions.self
-                //         || e.messageType == Google_Protobuf_OneofOptions.self
-                //         || e.messageType == Google_Protobuf_ServiceOptions.self,
-                //     "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(e.messageType)."
-                // )
+                let extendedMessageName = e.extendedMessage.messageName
+                precondition(
+                    extendedMessageName.utf8CodeUnitsEqual("google.protobuf.EnumOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.EnumValueOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.ExtensionRangeOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FieldOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FileOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.MessageOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.MethodOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.OneofOptions")
+                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.ServiceOptions"),
+                    "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(extendedMessageName)."
+                )
             }
             extensionMap.insert(contentsOf: customOptionExtensions)
         }

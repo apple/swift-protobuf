@@ -99,7 +99,7 @@ extension String {
 }
 
 extension DefaultStringInterpolation {
-    mutating func appendInterpolation(_ value: UTF8Name) {
+    package mutating func appendInterpolation(_ value: UTF8Name) {
         appendInterpolation(String(protobufUTF8Name: value))
     }
 }

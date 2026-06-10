@@ -63,7 +63,7 @@ public struct ExtensionSchema: @unchecked Sendable {
     let submessageOrEnumResolver: SubmessageOrEnumResolver
 
     /// The `MessageSchema` of the message that this extension field extends.
-    var extendedMessage: MessageSchema { extendedMessageResolver() }
+    package var extendedMessage: MessageSchema { extendedMessageResolver() }
 
     /// Creates a new extension schema for an extension field that is not a message or enum field.
     @_spi(ForGeneratedCodeOnly)
