@@ -50,10 +50,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
   typealias Version = _2
 }
 
-/// `NullValue` is a singleton enumeration to represent the null value for the
-/// `Value` type union.
+/// Represents a JSON `null`.
 ///
-/// The JSON representation for `NullValue` is JSON `null`.
+/// `NullValue` is a sentinel, using an enum with only one value to represent
+/// the null value for the `Value` type union.
+///
+/// A field of type `NullValue` with any value other than `0` is considered
+/// invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value`
+/// set as a JSON `null` regardless of the integer value, and so will round trip
+/// to a `0` value.
 public enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
   public typealias RawValue = Swift.Int
 
@@ -86,14 +91,19 @@ public enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
 
 }
 
-/// `Struct` represents a structured data value, consisting of fields
-/// which map to dynamically typed values. In some languages, `Struct`
-/// might be supported by a native representation. For example, in
-/// scripting languages like JS a struct is represented as an
-/// object. The details of that representation are described together
-/// with the proto support for the language.
+/// Represents a JSON object.
 ///
-/// The JSON representation for `Struct` is JSON object.
+/// An unordered key-value map, intending to perfectly capture the semantics of a
+/// JSON object. This enables parsing any arbitrary JSON payload as a message
+/// field in ProtoJSON format.
+///
+/// This follows RFC 8259 guidelines for interoperable JSON: notably this type
+/// cannot represent large Int64 values or `NaN`/`Infinity` numbers,
+/// since the JSON format generally does not support those values in its number
+/// type.
+///
+/// If you do not intend to parse arbitrary JSON into your message, a custom
+/// typed message should be preferred instead of using this type.
 public struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -115,12 +125,12 @@ public struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
+/// Represents a JSON value.
+///
 /// `Value` represents a dynamically typed value which can be either
 /// null, a number, a string, a boolean, a recursive struct value, or a
 /// list of values. A producer of value is expected to set one of these
-/// variants. Absence of any variant indicates an error.
-///
-/// The JSON representation for `Value` is JSON value.
+/// variants. Absence of any variant is an invalid state.
 public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -154,37 +164,40 @@ public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
     }
   }
 
-  /// Represents a null value.
+  /// Represents a JSON `null`.
   public var nullValue: Google_Protobuf_NullValue {
     get { return _storage.value(at: 32, default: .nullValue, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(at: 32, to: newValue, oneofPresence: (4, 1)) }
   }
 
-  /// Represents a double value.
+  /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+  /// `-Infinity`, since those are not supported in JSON. This also cannot
+  /// represent large Int64 values, since JSON format generally does not
+  /// support them in its number type.
   public var numberValue: Double {
     get { return _storage.value(at: 40, oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(at: 40, to: newValue, oneofPresence: (4, 2)) }
   }
 
-  /// Represents a string value.
+  /// Represents a JSON string.
   public var stringValue: String {
     get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 60), oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 60), to: newValue, oneofPresence: (4, 3)) }
   }
 
-  /// Represents a boolean value.
+  /// Represents a JSON boolean (`true` or `false` literal in JSON).
   public var boolValue: Bool {
     get { return _storage.value(at: 28, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(at: 28, to: newValue, oneofPresence: (4, 4)) }
   }
 
-  /// Represents a structured value.
+  /// Represents a JSON object.
   public var structValue: Google_Protobuf_Struct {
     get { return _storage.value(at: 48, default: Google_Protobuf_Struct(), oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(at: 48, to: newValue, oneofPresence: (4, 5)) }
   }
 
-  /// Represents a repeated `Value`.
+  /// Represents a JSON array.
   public var listValue: Google_Protobuf_ListValue {
     get { return _storage.value(at: SwiftProtobuf._fieldOffset(56, 52), default: Google_Protobuf_ListValue(), oneofPresence: (4, 6)) }
     set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 52), to: newValue, oneofPresence: (4, 6)) }
@@ -192,17 +205,20 @@ public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
 
   /// The kind of value.
   public enum OneOf_Kind: Swift.Equatable, Swift.Sendable {
-    /// Represents a null value.
+    /// Represents a JSON `null`.
     case nullValue(Google_Protobuf_NullValue)
-    /// Represents a double value.
+    /// Represents a JSON number. Must not be `NaN`, `Infinity` or
+    /// `-Infinity`, since those are not supported in JSON. This also cannot
+    /// represent large Int64 values, since JSON format generally does not
+    /// support them in its number type.
     case numberValue(Double)
-    /// Represents a string value.
+    /// Represents a JSON string.
     case stringValue(String)
-    /// Represents a boolean value.
+    /// Represents a JSON boolean (`true` or `false` literal in JSON).
     case boolValue(Bool)
-    /// Represents a structured value.
+    /// Represents a JSON object.
     case structValue(Google_Protobuf_Struct)
-    /// Represents a repeated `Value`.
+    /// Represents a JSON array.
     case listValue(Google_Protobuf_ListValue)
   }
 
@@ -216,9 +232,7 @@ public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-/// `ListValue` is a wrapper around a repeated field of values.
-///
-/// The JSON representation for `ListValue` is JSON array.
+/// Represents a JSON array.
 public struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
