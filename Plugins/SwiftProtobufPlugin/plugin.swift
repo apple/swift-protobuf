@@ -228,10 +228,23 @@ struct SwiftProtobufPlugin {
             protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue)")
         }
 
+        // The build plugin always uses PathToUnderscores naming. Warn once per invocation on any
+        // other explicit value so the setting is never silently ignored, without breaking existing
+        // builds.
+        if let fileNaming = invocation.fileNaming, fileNaming != .pathToUnderscores {
+            Diagnostics.warning(
+                """
+                The 'fileNaming' option '\(fileNaming.rawValue)' is ignored by the build plugin. The build \
+                plugin always generates files using the 'PathToUnderscores' naming because the \
+                generated files go into the build directory and the name is never observed.
+                """
+            )
+        }
+
         // Always generate with PathToUnderscores naming. The declared output paths below are
         // derived the same way, so the names the build system expects can never drift from the
-        // names protoc-gen-swift actually writes. The configured fileNaming, if any, was already
-        // validated to be PathToUnderscores.
+        // names protoc-gen-swift actually writes. The configured fileNaming, if any, only triggers
+        // the warning above and does not change the naming used.
         protocArgs.append("--swift_opt=FileNaming=PathToUnderscores")
 
         // Add the implementation only imports flag if it was set
@@ -288,17 +301,6 @@ struct SwiftProtobufPlugin {
                 if !protoFile.hasSuffix(".proto") {
                     throw PluginError.invalidInputFileExtension(protoFile)
                 }
-            }
-            // The build plugin always uses PathToUnderscores naming. Warn on any other explicit
-            // value so the setting is never silently ignored, without breaking existing builds.
-            if let fileNaming = invocation.fileNaming, fileNaming != .pathToUnderscores {
-                Diagnostics.warning(
-                    """
-                    The 'fileNaming' option '\(fileNaming.rawValue)' is ignored by the build plugin. The build \
-                    plugin always generates files using the 'PathToUnderscores' naming because the \
-                    generated files go into the build directory and the name is never observed.
-                    """
-                )
             }
         }
     }
