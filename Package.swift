@@ -21,6 +21,9 @@ let resources = [Resource]()
 
 let package = Package(
     name: "SwiftProtobuf",
+    platforms: [
+        .watchOS(.v9),
+    ],
     products: [
         .executable(
             name: "protoc-gen-swift",
