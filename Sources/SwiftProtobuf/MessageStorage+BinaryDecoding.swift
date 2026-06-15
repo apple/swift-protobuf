@@ -529,7 +529,7 @@ extension MessageStorage {
     ///   what was expected.
     private func appendMaybePackedValues<T: BitwiseCopyable>(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
+        to field: MessageSchema.Field,
         tag: FieldTag,
         unpackedWireFormat: WireFormat,
         decodeElement: (inout WireFormatReader) throws -> T
@@ -560,7 +560,7 @@ extension MessageStorage {
     /// This method handles both the singular case (by setting the field) and the repeated unpacked
     /// case (by appending to it).
     private func updateEnumValue(
-        of field: FieldSchema,
+        of field: MessageSchema.Field,
         from reader: inout WireFormatReader,
         fieldNumber: Int,
         isRepeated: Bool,
@@ -612,7 +612,7 @@ extension MessageStorage {
     ///   - tag: The tag that was read from the wire.
     private func appendPackedEnumValues(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
+        to field: MessageSchema.Field,
         fieldNumber: Int,
         discardUnknownFields: Bool
     ) throws {
@@ -677,7 +677,7 @@ extension MessageStorage {
     ///     elements and reads and returns a single element from it.
     private func appendPackedValues<T: BitwiseCopyable>(
         from reader: inout WireFormatReader,
-        to field: FieldSchema,
+        to field: MessageSchema.Field,
         hasVarints: Bool,
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws {

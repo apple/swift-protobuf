@@ -31,7 +31,10 @@ extension MessageStorage {
     /// Returns the serialized byte size of the value of the given field.
     ///
     /// - Precondition: The field is already known to be present.
-    private func serializedByteSize(of field: FieldSchema, mapEntryWorkingSpace: inout MapEntryWorkingSpace) -> Int {
+    private func serializedByteSize(
+        of field: MessageSchema.Field,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace
+    ) -> Int {
         // TODO: Unify our field number APIs around `UInt32` to avoid casting.
         let fieldNumber = Int(field.fieldNumber)
         let offset = field.offset
@@ -281,9 +284,9 @@ extension MessageStorage {
     /// Returns the serialized byte size of the given repeated enum field.
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
-    private func serializedByteSize(ofRepeatedEnumField field: FieldSchema, fieldNumber: Int) -> Int {
+    /// from the `MessageSchema.Field` to avoid the (minor but non-zero) cost of decoding it again
+    /// from the schema, since that has already been done by the caller.
+    private func serializedByteSize(ofRepeatedEnumField field: MessageSchema.Field, fieldNumber: Int) -> Int {
         var totalEnumsSize = 0
         let count = elementCount(forAssumedPresentRepeatedEnumField: field)
         for i in 0..<count {
@@ -302,10 +305,10 @@ extension MessageStorage {
     /// Returns the serialized byte size of the given map field.
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
+    /// from the `MessageSchema.Field` to avoid the (minor but non-zero) cost of decoding it again
+    /// from the schema, since that has already been done by the caller.
     private func serializedByteSize(
-        ofMapField field: FieldSchema,
+        ofMapField field: MessageSchema.Field,
         fieldNumber: Int,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) -> Int {

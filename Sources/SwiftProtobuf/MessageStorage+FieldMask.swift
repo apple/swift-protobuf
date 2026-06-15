@@ -119,7 +119,7 @@ extension MessageStorage {
 
     /// Copies a field value from source to destination.
     private func mergeField(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         from source: MessageStorage,
         mergeOptions: Google_Protobuf_FieldMask.MergeOptions
     ) throws {
@@ -301,7 +301,7 @@ extension MessageStorage {
     ///     should be appended to the existing values.
     ///   - type: The array type of the repeated field.
     private func mergeRepeatedField<T>(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         from source: MessageStorage,
         replace: Bool,
         type: [T].Type
@@ -322,7 +322,7 @@ extension MessageStorage {
     }
 
     /// Updates the presence of the given field to indicate that it is set.
-    private func setPresence(of field: FieldSchema) {
+    private func setPresence(of field: MessageSchema.Field) {
         switch field.presence {
         case .hasBit(let byteOffset, let mask):
             _ = updatePresence(hasBit: (byteOffset, mask), willBeSet: true)
@@ -333,7 +333,7 @@ extension MessageStorage {
 
     /// Clears the value of a field and returns a value indicating whether that changed the message.
     @discardableResult
-    private func clearValue(of field: FieldSchema) -> Bool {
+    private func clearValue(of field: MessageSchema.Field) -> Bool {
         if isPresent(field) {
             deinitializeField(field)
 

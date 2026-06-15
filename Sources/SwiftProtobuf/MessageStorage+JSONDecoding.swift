@@ -151,7 +151,7 @@ extension MessageStorage {
     /// Decodes the value of the next regular (non-extension) field from the JSON reader.
     private func decodeNextFieldValue(
         from reader: inout JSONReader,
-        field: FieldSchema,
+        field: MessageSchema.Field,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         let fieldType = field.rawFieldType
@@ -226,7 +226,7 @@ extension MessageStorage {
     /// given field schema.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldSchema`` of the field being scanned.
+    ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - requireQuotedBool: If true and the field's type is `bool`, the value is expected to be
     ///     quoted. This is used when scanning map keys.
@@ -235,7 +235,7 @@ extension MessageStorage {
     ///   instead of throwing an error.
     @discardableResult
     private func scanSingularValue(
-        of field: FieldSchema,
+        of field: MessageSchema.Field,
         from reader: inout JSONReader,
         requireQuotedBool: Bool = false
     ) throws -> Bool {
@@ -271,8 +271,8 @@ extension MessageStorage {
                 break
             }
             // Special case: If the JSON value is negative zero, we need to preserve that. The
-            // `updateValue` overload that takes a `FieldSchema` only checks for zero equality, so
-            // we need to manually manage the presence here.
+            // `updateValue` overload that takes a `MessageSchema.Field` only checks for zero
+            // equality, so we need to manually manage the presence here.
             let d = try reader.consumeDouble()
             let offset = field.offset
             switch field.presence {
@@ -328,8 +328,8 @@ extension MessageStorage {
                 break
             }
             // Special case: If the JSON value is negative zero, we need to preserve that. The
-            // `updateValue` overload that takes a `FieldSchema` only checks for zero equality, so
-            // we need to manually manage the presence here.
+            // `updateValue` overload that takes a `MessageSchema.Field` only checks for zero
+            // equality, so we need to manually manage the presence here.
             let f = try reader.consumeFloat()
             let offset = field.offset
             switch field.presence {
@@ -400,12 +400,12 @@ extension MessageStorage {
     /// Scans a map represented as a JSON object from the reader.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldSchema`` of the field being scanned.
+    ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     ///   - mapEntryWorkingSpace: The working space that manages reusable map storage objects during
     ///     decoding.
     private func scanMapField(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         from reader: inout JSONReader,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
@@ -438,9 +438,9 @@ extension MessageStorage {
     /// Scans the next message from the JSON reader into the storage of the given field.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldSchema`` of the field being scanned.
+    ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
-    private func scanSingularMessageField(_ field: FieldSchema, from reader: inout JSONReader) throws {
+    private func scanSingularMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
         let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
@@ -450,9 +450,9 @@ extension MessageStorage {
     /// Scans the next message from the JSON reader and appends it to the repeated message field.
     ///
     /// - Parameters:
-    ///   - field: The ``FieldSchema`` of the field being scanned.
+    ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
-    private func scanRepeatedMessageField(_ field: FieldSchema, from reader: inout JSONReader) throws {
+    private func scanRepeatedMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
         let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)

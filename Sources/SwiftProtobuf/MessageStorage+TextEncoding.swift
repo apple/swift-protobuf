@@ -96,7 +96,7 @@ extension MessageStorage {
 
     /// Serializes a single field in the storage into the given text format encoder.
     private func serializeField(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         into encoder: inout TextFormatEncoder,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: TextFormatEncodingOptions
@@ -282,7 +282,7 @@ extension MessageStorage {
 
     /// Emits the name and values of a repeated enum field, using compact representation if the
     /// field is packed.
-    private func emitRepeatedEnumField(_ field: FieldSchema, into encoder: inout TextFormatEncoder) {
+    private func emitRepeatedEnumField(_ field: MessageSchema.Field, into encoder: inout TextFormatEncoder) {
         let fieldNumber = field.fieldNumber
         let enumSchema = enumSchema(for: field)
         if field.fieldMode.isPacked {

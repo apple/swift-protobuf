@@ -110,7 +110,7 @@ extension MessageStorage {
 
     /// Serializes a single field in the storage into the given JSON  encoder.
     private func serializeField(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         into encoder: inout JSONEncoder,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: JSONEncodingOptions
@@ -260,7 +260,7 @@ extension MessageStorage {
 
     /// Emits the JSON value for the field with the given number.
     private func emitSingularValue(
-        of field: FieldSchema,
+        of field: MessageSchema.Field,
         to encoder: inout JSONEncoder,
         options: JSONEncodingOptions
     ) throws {
@@ -318,7 +318,7 @@ extension MessageStorage {
 
     /// Emits the JSON value for the field with the given number, treating it as needed for a valid
     /// map key (i.e., always double-quoted).
-    private func emitAsMapKey(_ field: FieldSchema, to encoder: inout JSONEncoder) throws {
+    private func emitAsMapKey(_ field: MessageSchema.Field, to encoder: inout JSONEncoder) throws {
         let offset = field.offset
         switch field.rawFieldType {
         case .bool:

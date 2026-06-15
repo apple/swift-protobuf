@@ -280,8 +280,8 @@ extension ExtensionStorage {
     /// Returns the serialized byte size of the given repeated enum field.
     ///
     /// This function takes the field number as a separate argument even though it can be computed
-    /// from the `FieldSchema` to avoid the (minor but non-zero) cost of decoding it again from the
-    /// schema, since that has already been done by the caller.
+    /// from the `MessageSchema.Field` to avoid the (minor but non-zero) cost of decoding it again
+    /// from the schema, since that has already been done by the caller.
     private func serializedByteSize(
         ofRepeatedEnumExtension schema: ExtensionSchema,
         fieldNumber: Int,
