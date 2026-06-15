@@ -358,7 +358,6 @@ message GeneratedSwiftReservedMessages {
   message FieldOrExtensionSchema { int32 FieldOrExtensionSchema = 1; }
   message fieldPresence { int32 fieldPresence = 1; }
   message fields { int32 fields = 1; }
-  message FieldSchema { int32 FieldSchema = 1; }
   message fieldSchemaSize { int32 fieldSchemaSize = 1; }
   message fieldSize { int32 fieldSize = 1; }
   message FieldTag { int32 FieldTag = 1; }
@@ -585,7 +584,6 @@ message GeneratedSwiftReservedMessages {
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message in { int32 in = 1; }
   message inAssumedPresentRepeatedEnumField { int32 inAssumedPresentRepeatedEnumField = 1; }
-  message inAssumedPresentRepeatedMessageField { int32 inAssumedPresentRepeatedMessageField = 1; }
   message incrementFrequency { int32 incrementFrequency = 1; }
   message incrementRecursionBudget { int32 incrementRecursionBudget = 1; }
   message index { int32 index = 1; }
@@ -683,7 +681,6 @@ message GeneratedSwiftReservedMessages {
   message kinds { int32 kinds = 1; }
   message label { int32 label = 1; }
   message lastConsumed { int32 lastConsumed = 1; }
-  message layout { int32 layout = 1; }
   message lazy { int32 lazy = 1; }
   message leadingComments { int32 leadingComments = 1; }
   message leadingDetachedComments { int32 leadingDetachedComments = 1; }
