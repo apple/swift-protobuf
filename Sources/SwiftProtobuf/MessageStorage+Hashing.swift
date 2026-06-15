@@ -111,7 +111,7 @@ extension MessageStorage {
     }
 
     /// Hashes the value of the field, given the expected type of that field.
-    private func hashField<T: Hashable>(_ field: FieldSchema, into hasher: inout Hasher, type: T.Type) {
+    private func hashField<T: Hashable>(_ field: MessageSchema.Field, into hasher: inout Hasher, type: T.Type) {
         hasher.combine((buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).pointee)
     }
 }

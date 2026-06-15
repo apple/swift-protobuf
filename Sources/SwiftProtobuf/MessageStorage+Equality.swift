@@ -171,7 +171,7 @@ extension MessageStorage {
     /// Returns whether the given field in the receiver is equal to the same field in the other
     /// storage, given the expected type of that field.
     func isField<T: Equatable>(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         equalToSameFieldIn other: MessageStorage,
         type: T.Type
     ) -> Bool {
@@ -195,7 +195,10 @@ extension MessageStorage {
     }
 
     /// Returns whether a field is present in both messages, neither message, or only one of them.
-    private func mutualPresence(of field: FieldSchema, withSameFieldIn other: MessageStorage) -> MutualPresence {
+    private func mutualPresence(
+        of field: MessageSchema.Field,
+        withSameFieldIn other: MessageStorage
+    ) -> MutualPresence {
         let isSelfPresent = isPresent(field)
         let isOtherPresent = other.isPresent(field)
         if isSelfPresent && isOtherPresent {

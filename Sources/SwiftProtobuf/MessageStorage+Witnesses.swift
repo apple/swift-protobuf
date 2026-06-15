@@ -25,7 +25,7 @@ extension MessageStorage {
     /// Returns the message schema for the given field.
     ///
     /// - Precondition: The field must be a message, group, or map field.
-    func messageSchema(for field: FieldSchema) -> MessageSchema {
+    func messageSchema(for field: MessageSchema.Field) -> MessageSchema {
         let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
         guard case .message(let subSchema) = resolution else {
             preconditionFailure("Field should have a message schema; this is a generator bug")
@@ -36,7 +36,7 @@ extension MessageStorage {
     /// Returns the enum schema for the given field.
     ///
     /// - Precondition: The field must be an enum field.
-    func enumSchema(for field: FieldSchema) -> EnumSchema {
+    func enumSchema(for field: MessageSchema.Field) -> EnumSchema {
         let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
         guard case .enum(let enumSchema) = resolution else {
             preconditionFailure("Field should have an enum schema; this is a generator bug")
@@ -51,7 +51,7 @@ extension MessageStorage {
     /// Returns the storage for the given submessage field.
     ///
     /// - Precondition: The field must be present and must be a message or group field.
-    func messageStorage(forAssumedPresentSingularMessageField field: FieldSchema) -> MessageStorage {
+    func messageStorage(forAssumedPresentSingularMessageField field: MessageSchema.Field) -> MessageStorage {
         let pointer = buffer.baseAddress! + field.offset
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
@@ -66,7 +66,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be a singular message or group field.
     @inline(never)
-    func uniqueMessageStorage(forSingularMessageField field: FieldSchema) -> MessageStorage {
+    func uniqueMessageStorage(forSingularMessageField field: MessageSchema.Field) -> MessageStorage {
         let pointer = buffer.baseAddress! + field.offset
         let submessageSchema = messageSchema(for: field)
 
@@ -95,7 +95,7 @@ extension MessageStorage {
     /// Returns the number of elements for the given repeated submessage field.
     ///
     /// - Precondition: The field must be present and must be a repeated message or group field.
-    func elementCount(forAssumedPresentRepeatedMessageField field: FieldSchema) -> Int {
+    func elementCount(forAssumedPresentRepeatedMessageField field: MessageSchema.Field) -> Int {
         let pointer = buffer.baseAddress! + field.offset
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
@@ -107,7 +107,10 @@ extension MessageStorage {
     /// Returns the storage for the element at the given index in the given repeated submessage field.
     ///
     /// - Precondition: The field must be present and must be a repeated message or group field.
-    func messageStorage(at index: Int, inAssumedPresentRepeatedMessageField field: FieldSchema) -> MessageStorage {
+    func messageStorage(
+        at index: Int,
+        inAssumedPresentRepeatedMessageField field: MessageSchema.Field
+    ) -> MessageStorage {
         let pointer = buffer.baseAddress! + field.offset
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
@@ -120,7 +123,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func forEachMessage(
-        inAssumedPresentRepeatedMessageField field: FieldSchema,
+        inAssumedPresentRepeatedMessageField field: MessageSchema.Field,
         perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedMessageField: field)
@@ -135,7 +138,7 @@ extension MessageStorage {
     /// If the field is not yet present, its array value will be initialized first.
     ///
     /// - Precondition: The field must be a repeated message or group field.
-    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField field: FieldSchema) -> MessageStorage {
+    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField field: MessageSchema.Field) -> MessageStorage {
         let pointer = buffer.baseAddress! + field.offset
         let submessageSchema = messageSchema(for: field)
 
@@ -163,7 +166,7 @@ extension MessageStorage {
     /// If the field is not present, this method does nothing.
     ///
     /// - Precondition: The field must be a singular message or group field.
-    func clearSingularMessageField(_ field: FieldSchema) {
+    func clearSingularMessageField(_ field: MessageSchema.Field) {
         guard isPresent(field) else { return }
 
         let pointer = buffer.baseAddress! + field.offset
@@ -186,7 +189,7 @@ extension MessageStorage {
     /// If the field is not present, this method does nothing.
     ///
     /// - Precondition: The field must be a repeated or map field.
-    func clearRepeatedOrMapField(_ field: FieldSchema) {
+    func clearRepeatedOrMapField(_ field: MessageSchema.Field) {
         precondition(field.fieldMode.cardinality != .scalar)
         guard isPresent(field) else { return }
 
@@ -216,7 +219,7 @@ extension MessageStorage {
     /// Returns the number of elements for the given repeated enum field.
     ///
     /// - Precondition: The field must be present and must be a repeated enum field.
-    func elementCount(forAssumedPresentRepeatedEnumField field: FieldSchema) -> Int {
+    func elementCount(forAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int {
         let pointer = buffer.baseAddress! + field.offset
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
@@ -228,7 +231,7 @@ extension MessageStorage {
     /// Returns the raw value for the enum element at the given index in the given repeated enum field.
     ///
     /// - Precondition: The field must be present and must be a repeated enum field.
-    func rawValue(at index: Int, inAssumedPresentRepeatedEnumField field: FieldSchema) -> Int32 {
+    func rawValue(at index: Int, inAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int32 {
         let pointer = buffer.baseAddress! + field.offset
         var value: Int32 = 0
         withUnsafeMutablePointer(to: &value) {
@@ -241,7 +244,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated enum field.
     func forEachRawValue(
-        inAssumedPresentRepeatedEnumField field: FieldSchema,
+        inAssumedPresentRepeatedEnumField field: MessageSchema.Field,
         perform: (Int32) throws -> IterationBehavior
     ) rethrows {
         let count = elementCount(forAssumedPresentRepeatedEnumField: field)
@@ -256,7 +259,7 @@ extension MessageStorage {
     /// If the field is not yet present, its array value will be initialized first.
     ///
     /// - Precondition: The field must be a repeated enum field.
-    func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField field: FieldSchema) {
+    func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField field: MessageSchema.Field) {
         let pointer = buffer.baseAddress! + field.offset
         let enumSchema = enumSchema(for: field)
 
@@ -289,7 +292,7 @@ extension MessageStorage {
     ///   - perform: The closure to perform for each map entry.
     @inline(never)
     func forEachMapEntry(
-        in field: FieldSchema,
+        in field: MessageSchema.Field,
         useDeterministicOrdering: Bool,
         workingSpace: MessageStorage,
         perform: (MessageStorage) throws -> IterationBehavior
@@ -361,7 +364,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be a map field.
     @inline(never)
-    func insertMapEntry(in field: FieldSchema, from workingSpace: MessageStorage) {
+    func insertMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) {
         let pointer = buffer.baseAddress! + field.offset
         let mapSchema = messageSchema(for: field)
 
@@ -381,7 +384,7 @@ extension MessageStorage {
     /// Checks equality between two map fields.
     ///
     /// - Precondition: The field must be present and must be a map field.
-    func isMapField(_ field: FieldSchema, equalToSameFieldIn other: MessageStorage) -> Bool {
+    func isMapField(_ field: MessageSchema.Field, equalToSameFieldIn other: MessageStorage) -> Bool {
         let mapSchema = messageSchema(for: field)
         let pointer = buffer.baseAddress! + field.offset
         let otherPointer = other.buffer.baseAddress! + field.offset

@@ -47,7 +47,7 @@ extension MessageStorage {
 
     private func decodeNextFieldValue(
         from reader: inout TextFormatReader,
-        field: FieldSchema,
+        field: MessageSchema.Field,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         let fieldType = field.rawFieldType
@@ -130,8 +130,8 @@ extension MessageStorage {
 
             case .double:
                 // Special case: If the text format value is negative zero, we need to preserve
-                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
-                // equality, so we need to manually manage the presence here.
+                // that. The `updateValue` overload that takes a `MessageSchema.Field` only checks
+                // for zero equality, so we need to manually manage the presence here.
                 let d = try reader.consumeDouble()
                 let offset = field.offset
                 switch field.presence {
@@ -158,8 +158,8 @@ extension MessageStorage {
 
             case .float:
                 // Special case: If the text format value is negative zero, we need to preserve
-                // that. The `updateValue` overload that takes a `FieldSchema` only checks for zero
-                // equality, so we need to manually manage the presence here.
+                // that. The `updateValue` overload that takes a `MessageSchema.Field` only checks
+                // for zero equality, so we need to manually manage the presence here.
                 let f = Float(try reader.consumeDouble())
                 let offset = field.offset
                 switch field.presence {

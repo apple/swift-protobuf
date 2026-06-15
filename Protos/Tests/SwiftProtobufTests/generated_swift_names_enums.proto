@@ -358,7 +358,6 @@ message GeneratedSwiftReservedEnums {
   enum FieldOrExtensionSchema { NONE_FieldOrExtensionSchema = 0; }
   enum fieldPresence { NONE_fieldPresence = 0; }
   enum fields { NONE_fields = 0; }
-  enum FieldSchema { NONE_FieldSchema = 0; }
   enum fieldSchemaSize { NONE_fieldSchemaSize = 0; }
   enum fieldSize { NONE_fieldSize = 0; }
   enum FieldTag { NONE_FieldTag = 0; }
@@ -585,7 +584,6 @@ message GeneratedSwiftReservedEnums {
   enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum in { NONE_in = 0; }
   enum inAssumedPresentRepeatedEnumField { NONE_inAssumedPresentRepeatedEnumField = 0; }
-  enum inAssumedPresentRepeatedMessageField { NONE_inAssumedPresentRepeatedMessageField = 0; }
   enum incrementFrequency { NONE_incrementFrequency = 0; }
   enum incrementRecursionBudget { NONE_incrementRecursionBudget = 0; }
   enum index { NONE_index = 0; }
@@ -683,7 +681,6 @@ message GeneratedSwiftReservedEnums {
   enum kinds { NONE_kinds = 0; }
   enum label { NONE_label = 0; }
   enum lastConsumed { NONE_lastConsumed = 0; }
-  enum layout { NONE_layout = 0; }
   enum lazy { NONE_lazy = 0; }
   enum leadingComments { NONE_leadingComments = 0; }
   enum leadingDetachedComments { NONE_leadingDetachedComments = 0; }

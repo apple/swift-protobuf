@@ -38,7 +38,7 @@ public struct ExtensionSchema: @unchecked Sendable {
     ///     compatibility. **Important:** This must always match the version number of the message
     ///     schema used by the same generation.
     /// *   Bytes 1-13: The schema of the extension field. This is identical to the schema defined by
-    ///     `FieldSchema` for the message schema with the same version number.
+    ///     `MessageSchema.Field` for the message schema with the same version number.
     /// *   Bytes 14-variable: A 7-bit-encoded 2-byte integer indicating the length of the extension's
     ///     name followed by the UTF-8 blob that contains the name of the extension field.
     ///
@@ -108,8 +108,8 @@ extension ExtensionSchema {
     }
 
     /// The schema of the extension field.
-    @usableFromInline var field: FieldSchema {
-        FieldSchema(slice: schema[1..<(1 + fieldSchemaSize)])
+    @usableFromInline var field: MessageSchema.Field {
+        MessageSchema.Field(slice: schema[1..<(1 + fieldSchemaSize)])
     }
 
     /// The field number of the extension field.

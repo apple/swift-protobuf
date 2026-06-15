@@ -19,9 +19,10 @@
 ///
 /// *   If the field number itself is needed (for example, to match during
 ///     decoding), use the `number` property.
-/// *   As a convenience to get the `FieldSchema` from a `MessageSchema`, call
-///     the `KnownField` instance as a function: `KnownField.name(in: schema)`
-///     where `name` is one of the static properties.
+/// *   As a convenience to get the `MessageSchema.Field` from a
+///     `MessageSchema`, call the `KnownField` instance as a function:
+///     `KnownField.name(in: schema)` where `name` is one of the static
+///     properties.
 ///
 /// We use computed properties rather than stored properties to avoid the values
 /// having storage or generating an `unsafeMutableAddressor`.
@@ -33,8 +34,9 @@ struct KnownField: ExpressibleByIntegerLiteral {
         self.number = number
     }
 
-    /// Returns the `FieldSchema` for this field number in the given schema.
-    func callAsFunction(in schema: MessageSchema) -> FieldSchema {
+    /// Returns the `MessageSchema.Field` for this field number in the given
+    /// schema.
+    func callAsFunction(in schema: MessageSchema) -> MessageSchema.Field {
         schema[fieldNumber: number]!
     }
 }

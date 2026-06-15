@@ -69,12 +69,12 @@ import Foundation
     }
 
     /// Deinitializes the given field if it is present.
-    @usableFromInline func deinitializeField(_ field: FieldSchema) {
+    @usableFromInline func deinitializeField(_ field: MessageSchema.Field) {
         guard isPresent(field) else { return }
         deinitializeFieldForced(field)
     }
 
-    @usableFromInline func deinitializeFieldForced(_ field: FieldSchema) {
+    @usableFromInline func deinitializeFieldForced(_ field: MessageSchema.Field) {
         switch field.fieldMode.cardinality {
         case .map:
             messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: buffer.baseAddress! + field.offset))
@@ -116,7 +116,7 @@ import Foundation
     }
 
     /// Deinitializes the field associated with the given concrete type information.
-    private func deinitializeField<T>(_ field: FieldSchema, type: T.Type) {
+    private func deinitializeField<T>(_ field: MessageSchema.Field, type: T.Type) {
         (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
     }
 
@@ -129,7 +129,7 @@ import Foundation
     /// Generated accessors do not use this function. Since they can encode their presence
     /// information directly, they use more efficient code paths that do not require the full
     /// field layout.
-    func isPresent(_ field: FieldSchema) -> Bool {
+    func isPresent(_ field: MessageSchema.Field) -> Bool {
         switch field.presence {
         case .oneOfMember(let oneofOffset):
             return populatedOneofMember(at: oneofOffset) == field.fieldNumber
@@ -242,7 +242,7 @@ extension MessageStorage {
 
     /// Copy-initializes the field associated with the given layout information in the destination
     /// storage using its value from this storage.
-    private func copyField<T>(_ field: FieldSchema, to destination: MessageStorage, type: T.Type) {
+    private func copyField<T>(_ field: MessageSchema.Field, to destination: MessageStorage, type: T.Type) {
         guard isPresent(field) else { return }
 
         let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
@@ -445,7 +445,8 @@ extension MessageStorage {
 // set/present, we store the new value; otherwise, we leave it uninitialized and zero it out.
 //
 // These APIs take the offset and has-bit directly because generating that produces more efficient
-// code for accessors than one that would have to extract the same information from a `FieldSchema`.
+// code for accessors than one that would have to extract the same information from a
+// `MessageSchema.Field`.
 
 extension MessageStorage {
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
@@ -557,13 +558,13 @@ extension MessageStorage {
 
 // MARK: - Field accessors and mutators used for parsing and reflection APIs
 
-// Unlike the above APIs, these only take a `FieldSchema` as an argument. These are used when
-// parsing messages and in reflection APIs, where we don't know the nature of an arbitrary field's
-// explicit presence (or lack of it) as we do when we generate accessors directly.
+// Unlike the above APIs, these only take a `MessageSchema.Field` as an argument. These are used
+// when parsing messages and in reflection APIs, where we don't know the nature of an arbitrary
+// field's explicit presence (or lack of it) as we do when we generate accessors directly.
 
 extension MessageStorage {
     /// Returns the `Bool` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Bool = false) -> Bool {
+    func value(of field: MessageSchema.Field, default: Bool = false) -> Bool {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -575,7 +576,7 @@ extension MessageStorage {
     }
 
     /// Returns the `Int32` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Int32 = 0) -> Int32 {
+    func value(of field: MessageSchema.Field, default: Int32 = 0) -> Int32 {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -587,7 +588,7 @@ extension MessageStorage {
     }
 
     /// Returns the `UInt32` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: UInt32 = 0) -> UInt32 {
+    func value(of field: MessageSchema.Field, default: UInt32 = 0) -> UInt32 {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -599,7 +600,7 @@ extension MessageStorage {
     }
 
     /// Returns the `Int64` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Int64 = 0) -> Int64 {
+    func value(of field: MessageSchema.Field, default: Int64 = 0) -> Int64 {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -611,7 +612,7 @@ extension MessageStorage {
     }
 
     /// Returns the `UInt64` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: UInt64 = 0) -> UInt64 {
+    func value(of field: MessageSchema.Field, default: UInt64 = 0) -> UInt64 {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -623,7 +624,7 @@ extension MessageStorage {
     }
 
     /// Returns the `Float` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Float = 0) -> Float {
+    func value(of field: MessageSchema.Field, default: Float = 0) -> Float {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -635,7 +636,7 @@ extension MessageStorage {
     }
 
     /// Returns the `Double` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Double = 0) -> Double {
+    func value(of field: MessageSchema.Field, default: Double = 0) -> Double {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -647,7 +648,7 @@ extension MessageStorage {
     }
 
     /// Returns the `String` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: String = "") -> String {
+    func value(of field: MessageSchema.Field, default: String = "") -> String {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -659,7 +660,7 @@ extension MessageStorage {
     }
 
     /// Returns the `Data` value of the given field, or the default value if it is not present.
-    func value(of field: FieldSchema, default: Data = Data()) -> Data {
+    func value(of field: MessageSchema.Field, default: Data = Data()) -> Data {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -671,7 +672,7 @@ extension MessageStorage {
     }
 
     /// Returns the enum value of the given field, or the default value if it is not present.
-    func value<T: Enum>(of field: FieldSchema, default: T = .init()) -> T {
+    func value<T: Enum>(of field: MessageSchema.Field, default: T = .init()) -> T {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -683,7 +684,7 @@ extension MessageStorage {
     }
 
     /// Returns the array value of the given field, or the default value if it is not present.
-    func value<T>(of field: FieldSchema, default: [T] = []) -> [T] {
+    func value<T>(of field: MessageSchema.Field, default: [T] = []) -> [T] {
         guard isPresent(field) else { return `default` }
         let offset = field.offset
         switch field.presence {
@@ -696,7 +697,7 @@ extension MessageStorage {
 
     /// Returns the field number of the oneof member that is populated, using the given field to
     /// look up its containing oneof.
-    public func populatedOneofMember(of field: FieldSchema) -> UInt32 {
+    func populatedOneofMember(of field: MessageSchema.Field) -> UInt32 {
         switch field.presence {
         case .hasBit:
             preconditionFailure("field was not a member of a oneof")
@@ -706,7 +707,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Bool` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Bool) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Bool) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -722,7 +723,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Int32` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Int32) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Int32) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -738,7 +739,7 @@ extension MessageStorage {
     }
 
     /// Updates the `UInt32` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: UInt32) {
+    func updateValue(of field: MessageSchema.Field, to newValue: UInt32) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -754,7 +755,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Int64` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Int64) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Int64) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -770,7 +771,7 @@ extension MessageStorage {
     }
 
     /// Updates the `UInt64` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: UInt64) {
+    func updateValue(of field: MessageSchema.Field, to newValue: UInt64) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -786,7 +787,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Float` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Float) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Float) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -802,7 +803,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Double` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Double) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Double) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -818,7 +819,7 @@ extension MessageStorage {
     }
 
     /// Updates the `String` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: String) {
+    func updateValue(of field: MessageSchema.Field, to newValue: String) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -834,7 +835,7 @@ extension MessageStorage {
     }
 
     /// Updates the `Data` value of the given field, tracking its presence accordingly.
-    func updateValue(of field: FieldSchema, to newValue: Data) {
+    func updateValue(of field: MessageSchema.Field, to newValue: Data) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -850,7 +851,7 @@ extension MessageStorage {
     }
 
     /// Updates the protobuf enum value of the given field, tracking its presence accordingly.
-    func updateValue<T: Enum>(of field: FieldSchema, to newValue: T) {
+    func updateValue<T: Enum>(of field: MessageSchema.Field, to newValue: T) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -867,7 +868,7 @@ extension MessageStorage {
 
     /// Appends the given value to the values already present in the field, initializing the field
     /// if necessary.
-    func appendValue<T>(_ value: T, to field: FieldSchema) {
+    func appendValue<T>(_ value: T, to field: MessageSchema.Field) {
         // If the field isn't already present, we need to initialize a new array first.
         let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
         if !isPresent(field) {
@@ -884,7 +885,7 @@ extension MessageStorage {
     }
 
     /// Clears the given non-enum field, tracking its presence accordingly.
-    func clearValue<T>(of field: FieldSchema, type: T.Type = T.self) {
+    func clearValue<T>(of field: MessageSchema.Field, type: T.Type = T.self) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -897,7 +898,7 @@ extension MessageStorage {
     /// Clears the given enum field, tracking its presence accordingly.
     ///
     /// This specialization is necessary since enums are stored as their raw values in memory.
-    func clearValue<T: Enum>(of field: FieldSchema, type: T.Type = T.self) {
+    func clearValue<T: Enum>(of field: MessageSchema.Field, type: T.Type = T.self) {
         let offset = field.offset
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
@@ -1163,7 +1164,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The value associated with this field must be initialized.
     @_alwaysEmitIntoClient @inline(__always)
-    private func deinitializeOneofMember(_ field: FieldSchema) {
+    private func deinitializeOneofMember(_ field: MessageSchema.Field) {
         // If this is being called when a value is being updated, we will have already updated the
         // presence of the field, so we have to use `deinitializeFieldForced` to avoid an incorrect
         // presence check.

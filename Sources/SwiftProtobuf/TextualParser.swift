@@ -157,7 +157,7 @@ extension TextualParser {
 /// returned when parsing TextFormat or JSON.
 enum FieldOrExtensionSchema {
     /// A regular field.
-    case field(FieldSchema)
+    case field(MessageSchema.Field)
 
     /// An extension field.
     case `extension`(ExtensionSchema)

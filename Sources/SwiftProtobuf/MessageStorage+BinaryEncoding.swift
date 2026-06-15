@@ -65,7 +65,7 @@ extension MessageStorage {
 
     /// Serializes a single field in the storage into the given binary encoder.
     private func serializeField(
-        _ field: FieldSchema,
+        _ field: MessageSchema.Field,
         into encoder: inout BinaryEncoder,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         options: BinaryEncodingOptions
@@ -367,7 +367,7 @@ extension MessageStorage {
     /// Serializes the field tag and values for a repeated (packed or unpacked) `enum` field.
     private func serializeRepeatedEnumField(
         for fieldNumber: Int,
-        field: FieldSchema,
+        field: MessageSchema.Field,
         into encoder: inout BinaryEncoder,
         isPacked: Bool
     ) throws {

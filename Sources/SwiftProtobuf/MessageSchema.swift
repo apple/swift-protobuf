@@ -353,7 +353,7 @@ extension MessageSchema {
     }
 
     /// Returns a value indicating whether ot not the given field has explicit presence.
-    func fieldHasPresence(_ field: FieldSchema) -> Bool {
+    func fieldHasPresence(_ field: Field) -> Bool {
         let raw = field.rawPresence
         return 0 <= raw && raw < explicitPresenceCount
     }
@@ -428,17 +428,17 @@ extension MessageSchema {
             self.end = fields.endIndex
         }
 
-        mutating func next() -> FieldSchema? {
+        mutating func next() -> Field? {
             guard offset < end else { return nil }
             let fieldPtr = baseAddress + offset
             offset += fieldSchemaSize
-            return FieldSchema(start: fieldPtr, count: fieldSchemaSize)
+            return Field(start: fieldPtr, count: fieldSchemaSize)
         }
     }
 
     /// Returns a sequence that represents the schemas of the fields in the message, in field number
     /// order.
-    var fields: some Sequence<FieldSchema> {
+    var fields: some Sequence<Field> {
         // For ease of iteration, we strip off the message schema header at the beginning and the
         // message name at the end, leaving only the slice containing the fixed-size field schemas.
         let endOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
@@ -447,10 +447,10 @@ extension MessageSchema {
 
     /// Returns the schema for the field with the given number in the message, or nil if the field
     /// is not defined.
-    @usableFromInline subscript(fieldNumber number: UInt32) -> FieldSchema? {
+    @usableFromInline subscript(fieldNumber number: UInt32) -> Field? {
         if number < denseBelow {
             let index = messageSchemaHeaderSize + (Int(number) - 1) * fieldSchemaSize
-            return FieldSchema(slice: schema[index..<(index + fieldSchemaSize)])
+            return Field(slice: schema[index..<(index + fieldSchemaSize)])
         }
 
         var low = Int(denseBelow - 1)
@@ -458,7 +458,7 @@ extension MessageSchema {
         while high >= low {
             let mid = (high + low) / 2
             let index = messageSchemaHeaderSize + mid * fieldSchemaSize
-            let field = FieldSchema(slice: schema[index..<(index + fieldSchemaSize)])
+            let field = Field(slice: schema[index..<(index + fieldSchemaSize)])
             if number == field.fieldNumber {
                 return field
             }
@@ -487,144 +487,147 @@ public enum SubmessageOrEnumSchema {
     case `enum`(EnumSchema)
 }
 
-/// Provides access to the properties of a field's schema based on a slice of the raw message
-/// schema string.
-public struct FieldSchema {
-    /// Describes the presence information of a field, translated from its raw bytecode
-    /// representation.
-    enum Presence: Sendable, Equatable {
-        /// The byte offset and mask of the has-bit for this field that is not a oneof member.
-        case hasBit(byteOffset: Int, mask: UInt8)
+extension MessageSchema {
+    /// Provides access to the properties of a field's schema based on a slice of the raw message
+    /// schema string.
+    @usableFromInline
+    struct Field {
+        /// Describes the presence information of a field, translated from its raw bytecode
+        /// representation.
+        enum Presence: Sendable, Equatable {
+            /// The byte offset and mask of the has-bit for this field that is not a oneof member.
+            case hasBit(byteOffset: Int, mask: UInt8)
 
-        /// The byte offset of the 32-bit integer that holds the field number of the currently set
-        /// oneof member.
-        case oneOfMember(Int)
+            /// The byte offset of the 32-bit integer that holds the field number of the currently set
+            /// oneof member.
+            case oneOfMember(Int)
 
-        fileprivate init(rawValue: Int) {
-            // The raw value needs to be treated as a 14-bit signed integer where the MSB (bit 13)
-            // acts as the sign bit. Therefore, we need to check the range of the value to
-            // determine if it's a oneof (0x2000...0x3fff) or not (0x0000...0x1fff), then
-            // sign-extend it to 16 bits so that we can correctly take its inverse.
-            if rawValue >= 0x2000 {
-                self = .oneOfMember(Int(~(UInt16(rawValue) | 0xc000)))
-            } else {
-                self = .hasBit(byteOffset: rawValue >> 3, mask: 1 << UInt8(rawValue & 7))
+            fileprivate init(rawValue: Int) {
+                // The raw value needs to be treated as a 14-bit signed integer where the MSB (bit 13)
+                // acts as the sign bit. Therefore, we need to check the range of the value to
+                // determine if it's a oneof (0x2000...0x3fff) or not (0x0000...0x1fff), then
+                // sign-extend it to 16 bits so that we can correctly take its inverse.
+                if rawValue >= 0x2000 {
+                    self = .oneOfMember(Int(~(UInt16(rawValue) | 0xc000)))
+                } else {
+                    self = .hasBit(byteOffset: rawValue >> 3, mask: 1 << UInt8(rawValue & 7))
+                }
             }
         }
-    }
 
-    /// The rebased slice of `MessageSchema.schema` that describes the schema of this field.
-    private let buffer: UnsafeRawBufferPointer
+        /// The rebased slice of `MessageSchema.schema` that describes the schema of this field.
+        private let buffer: UnsafeRawBufferPointer
 
-    /// The number of the field whose schema is being described.
-    @usableFromInline package var fieldNumber: UInt32 {
-        // The schema ensures that there will always be at least 8 bytes that we can read here, so
-        // we can do a single memory read and mask off what we don't need.
-        let rawBits = UInt64(littleEndian: buffer.loadUnaligned(fromByteOffset: 0, as: UInt64.self))
-        return UInt32(
-            truncatingIfNeeded: (rawBits & 0x00_0000_007f)
-                | ((rawBits & 0x00_0000_7f00) >> 1)
-                | ((rawBits & 0x00_007f_0000) >> 2)
-                | ((rawBits & 0x00_7f00_0000) >> 3)
-                | ((rawBits & 0x01_0000_0000) >> 4)
-        )
-    }
-
-    /// The offset, in bytes, where this field's value is stored in in-memory storage.
-    @usableFromInline var offset: Int {
-        fixed3ByteBase128(in: buffer, atByteOffset: 5)
-    }
-
-    /// The raw presence value.
-    ///
-    /// For `oneof` fields, this is the bitwise inverse of the _byte_ offset in storage where the
-    /// populated `oneof` member's field number is stored. For non-`oneof` fields, this is the index
-    /// of the has-bit for this field.
-    var rawPresence: Int {
-        fixed2ByteBase128(in: buffer, atByteOffset: 8)
-    }
-
-    /// The presence information for this field.
-    ///
-    /// This value is an enum that provides structured access to the information based on whether it
-    /// is a `oneof` member or a regular field.
-    var presence: Presence {
-        Presence(rawValue: rawPresence)
-    }
-
-    /// The index that is used when requesting the metatype of this field from its containing
-    /// message.
-    var submessageIndex: Int {
-        fixed2ByteBase128(in: buffer, atByteOffset: 10)
-    }
-
-    /// The raw type of the field as it is represented on the wire.
-    var rawFieldType: RawFieldType {
-        RawFieldType(rawValue: buffer.load(fromByteOffset: 12, as: UInt8.self))
-    }
-
-    /// Mode properties of the field.
-    var fieldMode: FieldMode {
-        FieldMode(rawValue: buffer.load(fromByteOffset: 4, as: UInt8.self) & 0x1e)
-    }
-
-    /// The wire format used by this field.
-    var wireFormat: WireFormat {
-        switch rawFieldType {
-        case .bool: return .varint
-        case .bytes: return .lengthDelimited
-        case .double: return .fixed64
-        case .enum: return .varint
-        case .fixed32: return .fixed32
-        case .fixed64: return .fixed64
-        case .float: return .fixed32
-        case .group: return .startGroup
-        case .int32: return .varint
-        case .int64: return .varint
-        case .message: return .lengthDelimited
-        case .sfixed32: return .fixed32
-        case .sfixed64: return .fixed64
-        case .sint32: return .varint
-        case .sint64: return .varint
-        case .string: return .lengthDelimited
-        case .uint32: return .varint
-        case .uint64: return .varint
-        default: preconditionFailure("Unreachable")
+        /// The number of the field whose schema is being described.
+        @usableFromInline package var fieldNumber: UInt32 {
+            // The schema ensures that there will always be at least 8 bytes that we can read here, so
+            // we can do a single memory read and mask off what we don't need.
+            let rawBits = UInt64(littleEndian: buffer.loadUnaligned(fromByteOffset: 0, as: UInt64.self))
+            return UInt32(
+                truncatingIfNeeded: (rawBits & 0x00_0000_007f)
+                    | ((rawBits & 0x00_0000_7f00) >> 1)
+                    | ((rawBits & 0x00_007f_0000) >> 2)
+                    | ((rawBits & 0x00_7f00_0000) >> 3)
+                    | ((rawBits & 0x01_0000_0000) >> 4)
+            )
         }
-    }
 
-    /// The in-memory stride of a value of this field's type on the current platform.
-    @usableFromInline var scalarStride: Int {
-        switch rawFieldType {
-        case .double: return MemoryLayout<Double>.stride
-        case .float: return MemoryLayout<Float>.stride
-        case .int64, .sfixed64, .sint64: return MemoryLayout<Int64>.stride
-        case .uint64, .fixed64: return MemoryLayout<UInt64>.stride
-        case .int32, .sfixed32, .sint32, .enum: return MemoryLayout<Int32>.stride
-        case .fixed32, .uint32: return MemoryLayout<UInt32>.stride
-        case .bool: return MemoryLayout<Bool>.stride
-        case .string: return MemoryLayout<String>.stride
-        case .group, .message: return MemoryLayout<MessageStorage>.stride
-        case .bytes: return MemoryLayout<Data>.stride
-        default: preconditionFailure("Unreachable")
+        /// The offset, in bytes, where this field's value is stored in in-memory storage.
+        @usableFromInline var offset: Int {
+            fixed3ByteBase128(in: buffer, atByteOffset: 5)
         }
-    }
 
-    /// Creates a new field schema from the given slice of a message's field schema string.
-    init(slice: Slice<UnsafeRawBufferPointer>) {
-        self.buffer = UnsafeRawBufferPointer(rebasing: slice)
-    }
+        /// The raw presence value.
+        ///
+        /// For `oneof` fields, this is the bitwise inverse of the _byte_ offset in storage where the
+        /// populated `oneof` member's field number is stored. For non-`oneof` fields, this is the index
+        /// of the has-bit for this field.
+        var rawPresence: Int {
+            fixed2ByteBase128(in: buffer, atByteOffset: 8)
+        }
 
-    /// Creates a new field schema from a raw pointer and count.
-    init(start: UnsafeRawPointer, count: Int) {
-        self.buffer = UnsafeRawBufferPointer(start: start, count: count)
-    }
+        /// The presence information for this field.
+        ///
+        /// This value is an enum that provides structured access to the information based on whether it
+        /// is a `oneof` member or a regular field.
+        var presence: Presence {
+            Presence(rawValue: rawPresence)
+        }
 
-    /// Creates a new field layout from the given string that describes exactly one field.
-    ///
-    /// This initializer is used by generated code to represent extension fields.
-    public init(layout: StaticString) {
-        self.buffer = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        /// The index that is used when requesting the metatype of this field from its containing
+        /// message.
+        var submessageIndex: Int {
+            fixed2ByteBase128(in: buffer, atByteOffset: 10)
+        }
+
+        /// The raw type of the field as it is represented on the wire.
+        var rawFieldType: RawFieldType {
+            RawFieldType(rawValue: buffer.load(fromByteOffset: 12, as: UInt8.self))
+        }
+
+        /// Mode properties of the field.
+        var fieldMode: FieldMode {
+            FieldMode(rawValue: buffer.load(fromByteOffset: 4, as: UInt8.self) & 0x1e)
+        }
+
+        /// The wire format used by this field.
+        var wireFormat: WireFormat {
+            switch rawFieldType {
+            case .bool: return .varint
+            case .bytes: return .lengthDelimited
+            case .double: return .fixed64
+            case .enum: return .varint
+            case .fixed32: return .fixed32
+            case .fixed64: return .fixed64
+            case .float: return .fixed32
+            case .group: return .startGroup
+            case .int32: return .varint
+            case .int64: return .varint
+            case .message: return .lengthDelimited
+            case .sfixed32: return .fixed32
+            case .sfixed64: return .fixed64
+            case .sint32: return .varint
+            case .sint64: return .varint
+            case .string: return .lengthDelimited
+            case .uint32: return .varint
+            case .uint64: return .varint
+            default: preconditionFailure("Unreachable")
+            }
+        }
+
+        /// The in-memory stride of a value of this field's type on the current platform.
+        @usableFromInline var scalarStride: Int {
+            switch rawFieldType {
+            case .double: return MemoryLayout<Double>.stride
+            case .float: return MemoryLayout<Float>.stride
+            case .int64, .sfixed64, .sint64: return MemoryLayout<Int64>.stride
+            case .uint64, .fixed64: return MemoryLayout<UInt64>.stride
+            case .int32, .sfixed32, .sint32, .enum: return MemoryLayout<Int32>.stride
+            case .fixed32, .uint32: return MemoryLayout<UInt32>.stride
+            case .bool: return MemoryLayout<Bool>.stride
+            case .string: return MemoryLayout<String>.stride
+            case .group, .message: return MemoryLayout<MessageStorage>.stride
+            case .bytes: return MemoryLayout<Data>.stride
+            default: preconditionFailure("Unreachable")
+            }
+        }
+
+        /// Creates a new field schema from the given slice of a message's field schema string.
+        init(slice: Slice<UnsafeRawBufferPointer>) {
+            self.buffer = UnsafeRawBufferPointer(rebasing: slice)
+        }
+
+        /// Creates a new field schema from a raw pointer and count.
+        init(start: UnsafeRawPointer, count: Int) {
+            self.buffer = UnsafeRawBufferPointer(start: start, count: count)
+        }
+
+        /// Creates a new field layout from the given string that describes exactly one field.
+        ///
+        /// This initializer is used by generated code to represent extension fields.
+        init(layout: StaticString) {
+            self.buffer = UnsafeRawBufferPointer(start: layout.utf8Start, count: layout.utf8CodeUnitCount)
+        }
     }
 }
 
