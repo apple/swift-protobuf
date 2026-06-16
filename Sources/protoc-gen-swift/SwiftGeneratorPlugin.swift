@@ -58,6 +58,10 @@ struct SwiftGeneratorPlugin: CodeGenerator {
     var copyrightLine: String? { "\(Version.copyright)" }
     var projectURL: String? { "https://github.com/apple/swift-protobuf" }
 
+    var customOptionExtensions: [any AnyMessageExtension] {
+        [Pb_Enumvalue_Extensions_json]
+    }
+
     private func auditProtoCVersion(context: any SwiftProtobufPluginLibrary.ProtoCompilerContext) {
         guard context.version != nil else {
             Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
