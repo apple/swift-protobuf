@@ -1234,3 +1234,44 @@ final class Test_JSONrepeated: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"repeatedInt32\":[1,2]}") { $0.repeatedInt32 == [1, 2] }
     }
 }
+
+final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage
+
+    func testRepeatedEnum() {
+        // No option
+        assertJSONEncode("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_NORMAL\"}") { (o: inout MessageTestType) in
+            o.testCase = .normal
+        }
+
+        // Some interesting option values
+        assertJSONEncode("{\"testCase\":\"something special\"}") { (o: inout MessageTestType) in
+            o.testCase = .somethingSpecial
+        }
+        assertJSONEncode("{\"testCase\":\"\"}") { (o: inout MessageTestType) in
+            o.testCase = .blank
+        }
+        assertJSONEncode("{\"testCase\":\"\\\"testing\\\"\"}") { (o: inout MessageTestType) in
+            o.testCase = .quoted
+        }
+        assertJSONEncode("{\"testCase\":\"tab\\tnewline\\nquote\\\"done\"}") { (o: inout MessageTestType) in
+            o.testCase = .escapes
+        }
+
+        // Check a few cases to confirm the proto name still works even with the json option set.
+        assertJSONDecodeSucceeds("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\"}") {
+            $0.testCase == .somethingSpecial
+        }
+        assertJSONDecodeSucceeds("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_QUOTED\"}") { $0.testCase == .quoted }
+        assertJSONDecodeSucceeds("{\"testCase\":\"ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\"}") {
+            $0.testCase == .somethingSpecial
+        }
+
+        // When the value is a number and the same number as the enum value.
+        assertJSONEncode("{\"testCase\":\"6\"}") { (o: inout MessageTestType) in
+            o.testCase = .six
+        }
+        // And still that the raw number also works (like it normally does)
+        assertJSONDecodeSucceeds("{\"testCase\":6}") { $0.testCase == .six }
+    }
+}

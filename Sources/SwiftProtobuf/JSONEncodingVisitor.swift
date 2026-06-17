@@ -166,7 +166,7 @@ internal struct JSONEncodingVisitor: Visitor {
         if let e = value as? (any _CustomJSONCodable) {
             let json = try e.encodedJSONString(options: options)
             encoder.append(text: json)
-        } else if !options.alwaysPrintEnumsAsInts, let n = value.name {
+        } else if !options.alwaysPrintEnumsAsInts, let n = value.jsonName {
             encoder.appendQuoted(name: n)
         } else {
             encoder.putEnumInt(value: value.rawValue)
