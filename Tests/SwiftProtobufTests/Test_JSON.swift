@@ -753,6 +753,22 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testOptionalString_rawControlCharactersRejected() {
+        // Unescaped C0 control characters (U+0000...U+001F) are not allowed
+        // inside a JSON string and must be rejected, matching the upstream
+        // protobuf JSON parser. Note the values below are literal control
+        // bytes in the input, not "\u00xx" escapes.
+        assertJSONDecodeFails("{\"optionalString\":\"\u{00}\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"\u{01}\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{09}b\"}")  // tab
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{0a}b\"}")  // newline
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{0d}b\"}")  // carriage return
+        assertJSONDecodeFails("{\"optionalString\":\"\u{1f}\"}")
+        // The escaped forms remain valid and decode to the control character.
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\u0001\"}") { $0.optionalString == "\u{01}" }
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\t\"}") { $0.optionalString == "\u{09}" }
+    }
+
     func testOptionalBytes() throws {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()

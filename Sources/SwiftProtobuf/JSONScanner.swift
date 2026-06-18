@@ -815,6 +815,10 @@ internal struct JSONScanner {
                     return nil  // Unterminated escape
                 }
                 sawBackslash = true
+            case 0..<asciiSpace:
+                // Unescaped control characters (U+0000...U+001F) are not
+                // allowed inside a JSON string; they must be escaped.
+                return nil
             default:
                 break
             }
@@ -1269,7 +1273,9 @@ internal struct JSONScanner {
         advance()
         let nameStart = index
         while hasMoreContent && currentByte != asciiDoubleQuote {
-            if currentByte == asciiBackslash {
+            if currentByte == asciiBackslash || currentByte < asciiSpace {
+                // Backslash escapes go through the slow path; unescaped control
+                // characters are invalid there and get rejected uniformly.
                 index = stringStart  // Reset to open quote
                 return nil
             }
