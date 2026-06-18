@@ -49,9 +49,6 @@ extension Enum {
 
     /// Internal convenience property representing the name of the enum value (or
     /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
-    ///
-    /// Since the text format and JSON names are always identical, we don't need
-    /// to distinguish them.
     package var textFormatName: UTF8Name? {
         Self.enumSchema.textName(forEnumCase: Int32(rawValue))
     }

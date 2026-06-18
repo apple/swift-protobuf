@@ -97,13 +97,23 @@ extension EnumSchema {
         return isValid
     }
 
-    /// The text and JSON name for the given enum case value.
+    /// The text name for the given enum case value.
     func textName(forEnumCase value: Int32) -> UTF8Name? {
         reflection.withTable { $0.textName(forEnumCase: value) }
     }
 
-    /// The enum case value for the given text and JSON name.
+    /// The JSON name for the given enum case value.
+    func jsonName(forEnumCase value: Int32) -> UTF8Name? {
+        reflection.withTable { $0.jsonName(forEnumCase: value) }
+    }
+
+    /// The enum case value for the given text name.
     func enumCase(forTextName name: String) -> Int32? {
         reflection.withTable { $0.enumCase(forTextName: name) }
+    }
+
+    /// The enum case value for the given JSON name.
+    func enumCase(forJSONName name: String) -> Int32? {
+        reflection.withTable { $0.enumCase(forJSONName: name) }
     }
 }

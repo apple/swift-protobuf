@@ -428,7 +428,7 @@ struct JSONReader: TextualParser {
 
         if at(.string, .stringWithEscapes) {
             let enumValue = try consumeString()
-            if let rawValue = schema.enumCase(forTextName: enumValue) {
+            if let rawValue = schema.enumCase(forJSONName: enumValue) {
                 return rawValue
             }
         } else if at(.minus, .integer) {
