@@ -1,0 +1,39 @@
+// Protos/unittest_swift_enum_optional_default.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2026 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test support for the option for enum value custom json values.
+///
+// -----------------------------------------------------------------------------
+
+edition = "UNSTABLE";
+
+package swift_proto_testing.enum_value_json_string;
+
+import "google/protobuf/json_options.proto";
+
+enum EnumCustomJSONString {
+  option allow_alias = true;
+
+  ENUM_CUSTOM_JSON_STRING_UNKNOWN = 0;
+  ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL = 1 [(pb.enumvalue.json).string = "something special"];
+  ENUM_CUSTOM_JSON_STRING_NORMAL = 2;
+  ENUM_CUSTOM_JSON_STRING_QUOTED = 3 [(pb.enumvalue.json).string = "\"testing\""];
+  ENUM_CUSTOM_JSON_STRING_BLANK = 4 [(pb.enumvalue.json).string = ""];
+  ENUM_CUSTOM_JSON_STRING_ESCAPES = 5 [(pb.enumvalue.json).string = "tab\tnewline\nquote\"done"];
+  ENUM_CUSTOM_JSON_STRING_SIX = 6 [(pb.enumvalue.json).string = "6"];
+
+  ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS = 1 [(pb.enumvalue.json).string = "something special"];
+}
+
+message EnumCustomJSONStringsMessage {
+  EnumCustomJSONString test_case = 1;
+}

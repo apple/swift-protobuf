@@ -241,8 +241,7 @@ internal struct JSONEncoder {
             putNullValue()
             return
         }
-        // JSON names of enum cases are equivalent to their text format names.
-        if !alwaysPrintEnumsAsInts, let name = enumSchema.textName(forEnumCase: rawValue) {
+        if !alwaysPrintEnumsAsInts, let name = enumSchema.jsonName(forEnumCase: rawValue) {
             putDoubleQuotedUTF8Name(name)
         } else {
             appendInt(value: Int64(rawValue))

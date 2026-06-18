@@ -79,7 +79,14 @@ package struct ReflectionTableCalculator {
     /// Adds information about an enum value and all of its aliases to the reflection tables.
     private mutating func addEnumValue(_ enumValue: EnumValueDescriptor, aliases: [EnumValueDescriptor]) {
         let valueNumber = UInt32(bitPattern: enumValue.number)
-        var list = [Names(name: enumValue.name, jsonName: nil)]
+        // descriptor.cc (i.e. - protoc) validates that if 'pb.enumvalue.json' is used on an enum
+        // value where there are aliases, they all must have the *same* value set
+        // (descriptor_unittest.cc also confirms this). Meaning that there aren't multiple json
+        // names when there are aliases. json_enumval_custom_string_test.cc also goes on to
+        // test/confirm that the proto name and the json name are always accepted for json.
+        let jsonName: String? =
+            (enumValue.options.hasPb_Enumvalue_json) ? enumValue.options.Pb_Enumvalue_json.string : nil
+        var list = [Names(name: enumValue.name, jsonName: jsonName)]
         for alias in aliases {
             list.append(Names(name: alias.name, jsonName: nil))
         }
