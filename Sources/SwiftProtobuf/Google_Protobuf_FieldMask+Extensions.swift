@@ -47,10 +47,7 @@ private func ProtoToJSON(name: String) -> String? {
         case "a"..."z", "0"..."9", ".", "(", ")":
             jsonPath.append(c)
         default:
-            // TODO: Change this to `return nil`
-            // once we know everything legal is handled
-            // above.
-            jsonPath.append(c)
+            return nil
         }
     }
     return jsonPath
@@ -69,10 +66,7 @@ private func JSONToProto(name: String) -> String? {
         case "a"..."z", "0"..."9", ".", "(", ")":
             path.append(c)
         default:
-            // TODO: Change to `return nil` once
-            // we know everything legal is being
-            // handled above
-            path.append(c)
+            return nil
         }
     }
     return path
