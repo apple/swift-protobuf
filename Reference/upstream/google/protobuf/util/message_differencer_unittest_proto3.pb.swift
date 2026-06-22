@@ -81,8 +81,6 @@ struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_unittest"
-
 extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{5}\0\0\0\u{8}#\0proto3_unittest.TestNoPresenceField"

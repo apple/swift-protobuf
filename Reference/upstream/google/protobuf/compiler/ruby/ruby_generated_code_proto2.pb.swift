@@ -458,8 +458,6 @@ struct A_B_C_TestMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "A.B.C"
-
 extension A_B_C_TestEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{e}\0A.B.C.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nCO&\u{1d}\tcE\u{11}JrR<\u{7f}=;)N.\u{b}r:N)\u{7}!-T\u{13}\u{c}q}p=\"bM.19,\u{10}\t^g%\u{3}\0"

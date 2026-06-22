@@ -88,8 +88,6 @@ struct Proto2Unittest_RepeatedFieldProxyTestImportMessage: @unchecked Swift.Send
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_RepeatedFieldProxyTestImportEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\00\0proto2_unittest.RepeatedFieldProxyTestImportEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\u{1}\0\00?0\u{5}]1\t\u{e}S\u{1b}*>\u{18}<yP\u{13}/L$7\u{e}SAn!bIxtf]\u{5}j\u{c}@Wd%~O\u{7f}970,eD357+^\0\u{e}<DS\u{14}\u{6}tWKm1\u{19}g x&\u{7}TV\0:\u{7}\ndbq\u{1}-$o\n ZZF7\u{13}\u{1f}\u{15}[ \0])3NO\t71\u{3}I\u{1f}"

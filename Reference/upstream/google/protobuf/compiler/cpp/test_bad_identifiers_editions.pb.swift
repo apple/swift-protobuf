@@ -1568,8 +1568,6 @@ extension EditionUnittest_TestConflictingSymbolNamesExtension {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "edition_unittest"
-
 extension EditionUnittest_bool {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{15}\0edition_unittest.bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'KHc>\u{10}\u{8}1cz@TJg@.sR\u{7f}\u{12}uoTW$_))d\u{7f}\u{e}cnS5SV\u{13}^NJY4r?Gl\t\u{14}s_uH\u{1b}a-\u{19}\toUd?\u{7f}\u{6}f=ksy\r(&\0\0"

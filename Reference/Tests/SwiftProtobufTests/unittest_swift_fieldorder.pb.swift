@@ -402,8 +402,6 @@ let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.Extensio
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.order"
-
 extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0 \u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\00\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0@\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0P\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"

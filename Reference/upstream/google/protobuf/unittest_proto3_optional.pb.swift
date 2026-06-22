@@ -434,8 +434,6 @@ extension Proto2Unittest_Proto3OptionalExtensions {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{15}\0\0\0\0\0\u{13}\0\0\u{11}\0\0`\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{10}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{18}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{3}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0p\0\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\u{1}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{10}\u{1}\0\u{f}\0\0\0\u{9}\u{12}\0\0\0\0`\0\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0h\0\0\u{11}\0\u{2}\0\u{b}\u{15}\0\0\0\0\u{1c}\0\0\u{12}\0\u{1}\0\u{e}\u{16}\0\0\0\0 \0\0\u{13}\0\0\0\u{5}\u{17}\0\0\0\0X\0\0\u{14}\0\0\0\u{3}\"\0proto2_unittest.TestProto3Optional"

@@ -173,8 +173,6 @@ extension Proto2Unittest_AbseilFlagTestProto {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_OpenEnumForFlagTest {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0#\0proto2_unittest.OpenEnumForFlagTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8ny'B\u{3}D\0sHJ3F.7\u{1d}\u{5}7QO\u{5}W\u{7}W\u{6}S\u{7f}7)\u{1b}<?\u{7f}\0\0"

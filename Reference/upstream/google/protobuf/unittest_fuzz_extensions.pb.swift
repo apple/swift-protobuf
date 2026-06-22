@@ -2055,8 +2055,6 @@ extension FuzzUnittest_TestNestedExtension {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "fuzz_unittest"
-
 extension FuzzUnittest_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{19}\0fuzz_unittest.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{1}\0\0 ?a{-\u{6}*HKI\u{13}\u{14}\u{8}1\u{12}\n\tS$S\tn\r%\u{16}\u{19}}TBa\u{1d}:;8W0z\u{3}\u{1d}s\u{1d}2`tey\tN*=;i[co\u{1a}&\u{c}b&M,\u{1c}\u{17}e'E\u{3}\u{3}'\u{1b}Z\u{1b}l\u{7}\u{1e}X0As7\0^;:~&e\u{8}"

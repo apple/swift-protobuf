@@ -668,8 +668,6 @@ extension Pb_TestMessage.Nested {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
-
 extension Pb_CustomOptionLifetimesEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1c}\0pb.CustomOptionLifetimesEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\u{10}0:,\u{c}\u{16}\u{1e}\u{2}0D\u{2}\u{1}\t:_Jy2Gl\u{10}\nXE-*\u{8}\u{15}\u{1b}.2#\u{1a}x\u{e}\u{14}0c[fC4\u{c}"

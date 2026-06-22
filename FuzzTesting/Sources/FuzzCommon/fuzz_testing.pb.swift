@@ -2586,8 +2586,6 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.fuzz"
-
 extension SwiftProtoTesting_Fuzz_AnEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{1f}\0swift_proto_testing.fuzz.AnEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}^\u{3}G\u{3}#\tcE1C\u{1f}\u{1f}9x\u{e}JmUAp|S\u{6}-@K?im\u{6}EuM%fl5\u{1d}*[w\u{1e}\u{3}I_\u{14}d#W\u{1e}\0"

@@ -472,8 +472,6 @@ extension Proto2Unittest_TestRequiredLite {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_Proto2MapEnumLite {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0!\0proto2_unittest.Proto2MapEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*Xt\\=6'\u{b}k\u{1d}Ndj\u{17}1!c\u{7f}s#6Kr[\u{c}=Bn8tsE(K\u{17}khwR0)\u{5}\u{13}j|%l+G0vcAo\u{7}QH:e\u{19}\u{7}\u{1}^&+\u{1}\0"

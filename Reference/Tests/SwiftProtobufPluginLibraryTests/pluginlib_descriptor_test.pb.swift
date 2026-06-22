@@ -506,8 +506,6 @@ extension SDTScoperForExt {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
-
 extension SDTTopLevelEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\"\0swift_descriptor_test.TopLevelEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}~\u{3}XIM!cg7VO+&\t\nWb(Kp\tEv=yjj-r$&\u{1}h$/\u{15}\u{2}\rj}\u{11}\u{15}\u{1}@\0\0"

@@ -272,8 +272,6 @@ let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProto
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_test_messages.edition_unstable"
-
 extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0B\0protobuf_test_messages.edition_unstable.ForeignEnumEditionUnstable"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"

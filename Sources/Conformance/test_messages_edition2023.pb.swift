@@ -1033,8 +1033,6 @@ let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.Exten
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_test_messages.editions"
-
 extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2023"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"

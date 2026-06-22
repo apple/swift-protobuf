@@ -728,8 +728,6 @@ extension Proto2Unittest_TestExtension {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_EnumValue {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{19}\0proto2_unittest.EnumValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJT\u{12}wt\u{12}1cz@TJ\n_/sR\u{7f}ZEyC\\\u{14}\tE#(N\u{5}\u{19}Jv\tQ=/\u{17}Elx\u{8}N25)w\u{1e}B\u{1c}#K\u{6}\u{4}\0"

@@ -168,8 +168,6 @@ let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.Exte
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{9}\u{2}\0\0\0\00\0\0\u{1}\0\0\0\u{c}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{c}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{9}\u{1e}\0proto2_unittest.TestStringView"

@@ -248,8 +248,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Swift.Se
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
-
 extension Proto3PreserveUnknownEnumUnittest_MyEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0,\0proto3_preserve_unknown_enum_unittest.MyEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"

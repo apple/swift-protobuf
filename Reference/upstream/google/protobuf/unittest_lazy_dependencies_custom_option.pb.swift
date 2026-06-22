@@ -101,8 +101,6 @@ let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.Exten
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
-
 extension Proto2Unittest_LazyImports_LazyMessage: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0proto2_unittest.lazy_imports.LazyMessage"

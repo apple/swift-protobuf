@@ -352,8 +352,6 @@ let Proto2Unittest_Extensions_test_nested_message_enum = SwiftProtobuf.Extension
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_MetaAnnotatedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0!\0proto2_unittest.MetaAnnotatedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\u{1}\0\0 \u{1f}5^\u{19}\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}nc\u{7f}h\u{15}o51!EWP\u{4}\u{8}hm'H\u{1d}y%.gb\u{1b}\n`\u{1c}\u{1d}?\u{1}d\tZtq]i\u{1b}\u{1}y]\u{12}Rc\u{15}:\u{18}\u{18}n1L\\;\u{c}#+Z^qo(1\u{c}D`/9,G\u{3}q\u{1f}u\u{1f}\u{1}1\u{5}\u{2}\";\u{5}\0"
