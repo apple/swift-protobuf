@@ -104,7 +104,7 @@ class MessageGenerator {
             extensibilityMode = .nonextensible
         }
         self.messageSchemaCalculator = MessageSchemaCalculator(
-            fullyQualifiedName: descriptor.fullName,
+            fullyQualifiedName: generatorOptions.experimentalHiddenNames.contains(.types) ? "" : descriptor.fullName,
             fieldsSortedByNumber: fieldsSortedByNumber,
             extensibilityMode: extensibilityMode
         )
@@ -113,7 +113,8 @@ class MessageGenerator {
         self.compressedReflectionData = ReflectionTableCalculator(
             fields: fieldsSortedByNumber,
             reservedRanges: descriptor.reservedRanges,
-            reservedNames: descriptor.reservedNames
+            reservedNames: descriptor.reservedNames,
+            suppressNames: generatorOptions.experimentalHiddenNames.contains(.fields)
         ).stringLiteral()
     }
 

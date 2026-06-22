@@ -62,7 +62,7 @@ class MapEntryGenerator {
         let fieldsSortedByNumber = fields.sorted { $0.number < $1.number }
 
         self.entrySchemaCalculator = MessageSchemaCalculator(
-            fullyQualifiedName: descriptor.fullName,
+            fullyQualifiedName: generatorOptions.experimentalHiddenNames.contains(.types) ? "" : descriptor.fullName,
             fieldsSortedByNumber: fieldsSortedByNumber,
             extensibilityMode: .mapEntry
         )

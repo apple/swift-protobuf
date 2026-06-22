@@ -84,7 +84,10 @@ class ExtensionSetGenerator {
                 extensionName = fieldDescriptor.fullName
             }
 
-            let extensionSchemaCalculator = MessageSchemaCalculator(extensionField: self, extensionName: extensionName)
+            let extensionSchemaCalculator = MessageSchemaCalculator(
+                extensionField: self,
+                extensionName: generatorOptions.experimentalHiddenNames.contains(.fields) ? "" : extensionName
+            )
             guard let schemaLiteral = extensionSchemaCalculator.schemaLiterals.valueIfAllEqual else {
                 preconditionFailure("extension field schemas should not be target-sensitive")
             }

@@ -140,6 +140,7 @@ private func loadUInt32(from bytes: UnsafeRawBufferPointer, at offset: Int) -> U
 extension ReflectionTable {
     /// Returns the text name for the given field number.
     package func textName(forFieldNumber fieldNumber: UInt32) -> UTF8Name? {
+        guard textNameTableCount > 0 else { return nil }
         guard let offset = taggedTextOffset(forFieldNumber: fieldNumber) else { return nil }
         return name(at: offset)
     }
@@ -151,6 +152,7 @@ extension ReflectionTable {
 
     /// Returns the JSON name for the given field number.
     package func jsonName(forFieldNumber fieldNumber: UInt32) -> UTF8Name? {
+        guard textNameTableCount > 0 else { return nil }
         guard let offset = taggedTextOffset(forFieldNumber: fieldNumber) else { return nil }
         return secondName(at: offset)
     }

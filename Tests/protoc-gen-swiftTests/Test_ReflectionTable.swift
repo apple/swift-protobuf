@@ -157,3 +157,42 @@ class DummyFieldGenerator: FieldGenerator {
     #expect(table.isNumberReserved(10) == false)
     #expect(table.isNumberReserved(1) == false)
 }
+
+@Test func suppressedNames() throws {
+    let field1 = DummyFieldGenerator(number: 1, name: "key", jsonName: "key")
+    let field2 = DummyFieldGenerator(number: 2, name: "value", jsonName: "value")
+    let field3 = DummyFieldGenerator(number: 3, name: "foo", jsonName: "bar")  // Distinct JSON name
+    let fields = [field1, field2, field3]
+
+    let calculator = ReflectionTableCalculator(
+        fields: fields,
+        reservedRanges: [10..<11],
+        reservedNames: ["reserved1"],
+        suppressNames: true
+    )
+    let result = calculator.uncompressedData()
+    let table = ReflectionTable(fieldCount: fields.count, data: result)
+
+    // Verify field names return nil when suppressed.
+    #expect(table.textName(forFieldNumber: 1) == nil)
+    #expect(table.jsonName(forFieldNumber: 1) == nil)
+    #expect(table.textName(forFieldNumber: 2) == nil)
+    #expect(table.jsonName(forFieldNumber: 2) == nil)
+    #expect(table.textName(forFieldNumber: 3) == nil)
+    #expect(table.jsonName(forFieldNumber: 3) == nil)
+
+    // Verify lookup by name returns nil.
+    #expect(table.fieldNumber(forTextName: "key") == nil)
+    #expect(table.fieldNumber(forJSONName: "key") == nil)
+    #expect(table.fieldNumber(forTextName: "value") == nil)
+    #expect(table.fieldNumber(forJSONName: "value") == nil)
+    #expect(table.fieldNumber(forTextName: "foo") == nil)
+    #expect(table.fieldNumber(forJSONName: "bar") == nil)
+
+    // Verify reserved names are not recognized (since they are suppressed/omitted).
+    #expect(table.isNameReserved("reserved1") == false)
+
+    // Verify reserved numbers still work.
+    #expect(table.isNumberReserved(10) == true)
+    #expect(table.isNumberReserved(1) == false)
+}
