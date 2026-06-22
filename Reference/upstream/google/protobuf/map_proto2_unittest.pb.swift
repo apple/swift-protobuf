@@ -391,8 +391,6 @@ struct Proto2Unittest_TestProto2BytesMap: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_Proto2MapEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1d}\0proto2_unittest.Proto2MapEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK\u{14}\u{1a}:m&\u{1}q+\u{7f}l{\u{15}7B\\HF\0\t\u{1e}sZ>s4EEMVp!3`A=m3=j\u{10}M\tj,/\u{f}\u{1f}cD.`V<.\u{1e}}Z}\u{4}\0"

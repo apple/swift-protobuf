@@ -475,8 +475,6 @@ extension Proto2Unittest_TopLevelMessage {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_TopLevelEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1c}\0proto2_unittest.TopLevelEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@H1\u{c}q\u{16}e^p{\u{1c}}H\u{7f}J<{be-\n\u{18}\u{8}^\u{18}\0"

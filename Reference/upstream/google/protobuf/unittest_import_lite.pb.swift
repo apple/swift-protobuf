@@ -68,8 +68,6 @@ struct Proto2UnittestImport_ImportMessageLite: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest_import"
-
 extension Proto2UnittestImport_ImportEnumLite {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0proto2_unittest_import.ImportEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\jV\u{1c}e\u{7f}6@Kq.\u{1a}<P\u{6}{Bi2?\u{10}^-_\rD;\u{1f}\u{12}\u{17}\u{13}@%)k\u{6}c\u{1b}\u{13}0<h?Q\u{6}'zy~.M\nGDX\u{f}\u{13}\u{3}\0"

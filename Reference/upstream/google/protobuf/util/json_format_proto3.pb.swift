@@ -1656,8 +1656,6 @@ struct Proto3_MapM: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3"
-
 extension Proto3_EnumType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{f}\0proto3.EnumType"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\.\u{1d}f5HJ8Gg;?~{FfBx\u{8}R!@kQFT\0\0"

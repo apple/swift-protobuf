@@ -210,19 +210,11 @@ class FileGenerator {
             extensionSet.generateProtobufExtensionDeclarations(printer: &p)
         }
 
-        let protoPackage = fileDescriptor.package
-        let needsProtoPackage: Bool = !protoPackage.isEmpty && !messages.isEmpty
-        if needsProtoPackage || !enums.isEmpty || !messages.isEmpty {
+        if !enums.isEmpty || !messages.isEmpty {
             p.print(
                 "",
                 "// MARK: - Code below here is support for the SwiftProtobuf runtime."
             )
-            if needsProtoPackage {
-                p.print(
-                    "",
-                    "fileprivate let _protobuf_package = \"\(protoPackage)\""
-                )
-            }
             for e in enums {
                 e.generateRuntimeSupport(printer: &p)
             }

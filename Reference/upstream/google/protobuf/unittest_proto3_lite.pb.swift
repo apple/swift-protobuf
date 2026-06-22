@@ -711,8 +711,6 @@ struct Proto3LiteUnittest_TestEmptyMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_lite_unittest"
-
 extension Proto3LiteUnittest_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0 \0proto3_lite_unittest.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}\u{5}XI\u{6}*\u{10}\u{8}4yP\u{12}y\u{1d}<\u{b}$\u{14}>\u{b}Y\0@02r=^CH~`4L{Dl0\u{14}J~]\u{14}eq0_\u{1}Q6\u{19}MGb`\u{1d}=M\u{1d}\u{1}{g*'\u{15};t$\u{1}"

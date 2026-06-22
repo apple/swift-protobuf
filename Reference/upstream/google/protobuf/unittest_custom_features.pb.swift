@@ -465,8 +465,6 @@ let CustomFeatures_Extensions_test = SwiftProtobuf.ExtensionSchema(
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "custom_features"
-
 extension CustomFeatures_EnumFeature {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{10}\0\0\0\0\u{1b}\0custom_features.EnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{3}\0\0 ?^t.9M\u{14}W+cDhZ\u{c}\u{1d}5B\u{10}s\u{4}wi*\u{1a}\\\u{e}\u{14}ZzSvjNJzBf4Lq\u{5}$pxm\u{b}\u{1b}Q5k%52ad\u{11}\u{1c}. 83 CFoO)\u{4}ac\u{1f}rOt+\u{11}\u{1b}]~Y%2a?IIkt;nd8co\u{6}>yykg{X&\u{b}\u{3};w\u{1d}A\u{e}\u{7f}A^|DA\u{10}H`{Kk\u{1}\\\u{19}\u{10}c\u{2}h5~l)C\t!i\tm&M2Tw/!d\u{1f}w:\u{1d}m5qOB\u{1e}F)6+\u{4}h9G\u{5}}A \u{14}\u{1e}tFuL\"Y\u{12}G<\u{19}\r7cEMP x0\u{1d}Va2HcEnri\0Lt.P\u{15};DC:\u{1f}\u{1b};3W\u{18}Db!\0\0\0\0"

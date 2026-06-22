@@ -3320,8 +3320,6 @@ extension Proto2Unittest_TestParsingMergeLite {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_ForeignEnumLite {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1f}\0proto2_unittest.ForeignEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}b)4\u{4}t3^/\u{16}Oi}]Z8y}\u{1a}\u{e},8Kbhp\t\u{16}RaB\u{1d}\u{7f}, X|.\u{1a}3D\u{12}D>lZ\u{4}\u{12}A\u{1a}_\u{18}$r$|(\r\u{1}\0"

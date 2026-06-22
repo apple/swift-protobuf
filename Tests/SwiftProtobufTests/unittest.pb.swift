@@ -3628,8 +3628,6 @@ extension SwiftProtoTesting_TestParsingMerge {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing"
-
 extension SwiftProtoTesting_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1f}\0swift_proto_testing.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{15}\u{c})fE`\u{6}cl&Fzo*\0S0\u{15}mhuF}+Oun&~c`\u{4}\u{10}dm\u{b}sbu3\u{7}k\u{12}tMqE=\0\0\0"

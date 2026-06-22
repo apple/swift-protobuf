@@ -69,8 +69,6 @@ struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: @unchecked Swift.Sen
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "third_party.protobuf.util.python.testdata"
-
 extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}:\0third_party.protobuf.util.python.testdata.TimestampWrapper"

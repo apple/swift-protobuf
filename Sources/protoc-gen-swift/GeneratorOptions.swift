@@ -64,11 +64,44 @@ package class GeneratorOptions {
         }
     }
 
+    package struct ExperimentalHiddenNames: OptionSet {
+        package let rawValue: Int
+        package init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+
+        package static let fields = ExperimentalHiddenNames(rawValue: 1 << 0)
+        package static let enumValues = ExperimentalHiddenNames(rawValue: 1 << 1)
+        package static let types = ExperimentalHiddenNames(rawValue: 1 << 2)
+
+        package static let all: ExperimentalHiddenNames = [.fields, .enumValues, .types]
+
+        init?(flag: String) {
+            var options: ExperimentalHiddenNames = []
+            for part in flag.split(separator: ",") {
+                switch part.trimmingCharacters(in: .whitespaces) {
+                case "Fields":
+                    options.insert(.fields)
+                case "EnumValues":
+                    options.insert(.enumValues)
+                case "Types":
+                    options.insert(.types)
+                case "All":
+                    options.insert(.all)
+                default:
+                    return nil
+                }
+            }
+            self = options
+        }
+    }
+
     let outputNaming: OutputNaming
     let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
+    package let experimentalHiddenNames: ExperimentalHiddenNames
 
     // The Swift compiler may fail when checking whether large switch statements
     // are exhaustive. See
@@ -83,7 +116,7 @@ package class GeneratorOptions {
     /// A string snippet to insert for the visibility
     let visibilitySourceSnippet: String
 
-    init(parameter: any CodeGeneratorParameter) throws {
+    package init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
         var moduleMapPath: String?
         var visibility: Visibility = .internal
@@ -91,6 +124,7 @@ package class GeneratorOptions {
         var implementationOnlyImports: Bool = false
         var useAccessLevelOnImports = false
         var experimentalStripNonfunctionalCodegen: Bool = false
+        var experimentalHiddenNames: ExperimentalHiddenNames = []
 
         for pair in parameter.parsedPairs {
             switch pair.key {
@@ -156,6 +190,15 @@ package class GeneratorOptions {
                         value: pair.value
                     )
                 }
+            case "ExperimentalHiddenNames":
+                if let value = ExperimentalHiddenNames(flag: pair.value) {
+                    experimentalHiddenNames = value
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
             default:
                 throw GenerationError.unknownParameter(name: pair.key)
             }
@@ -190,6 +233,7 @@ package class GeneratorOptions {
         }
 
         self.experimentalStripNonfunctionalCodegen = experimentalStripNonfunctionalCodegen
+        self.experimentalHiddenNames = experimentalHiddenNames
 
         switch (implementationOnlyImports, useAccessLevelOnImports) {
         case (false, false): self.importDirective = .plain

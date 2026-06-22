@@ -95,8 +95,6 @@ extension ProtobufUnittest_Proto3FileExtensions {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
 extension ProtobufUnittest_Proto3FileExtensions: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0&\0protobuf_unittest.Proto3FileExtensions"

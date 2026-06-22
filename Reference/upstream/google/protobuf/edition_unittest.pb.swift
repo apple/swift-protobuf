@@ -10246,8 +10246,6 @@ extension EditionUnittest_StringParseTester {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "edition_unittest"
-
 extension EditionUnittest_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{1c}\0edition_unittest.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*\u{10}HR\u{13}\u{14}';WL7HjvU1c\n-\u{15}2$`#m\u{1a}]\rz&7+\u{1a}\u{7f}H\u{7}\0b*>\u{7f}\u{6}s_=o\"d\u{10}w\u{1d}\u{e}yes~9\u{11}w-6s,\u{10}\u{2}\0"

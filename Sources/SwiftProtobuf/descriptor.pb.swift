@@ -2936,8 +2936,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf"
-
 extension Google_Protobuf_Edition {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{e}\0\0\0\0\u{17}\0google.protobuf.Edition"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\u{3}\0\00?e=f85-\u{1b}KL:Dr?|eUs\u{12}$%mX\u{12}2JI\u{1d}\u{5}\u{10}\u{1f}e:\u{16}mQZ]\u{e}=x\u{14}\u{1a}\u{c}\t\u{1d}jx\u{18}M&\u{11}f\u{5}yIRFR\u{4} R\u{15}[~/jO9C0\u{b}iU\u{2}N/OFYP2kE@f\u{6}\u{1b}\u{5}2Fkq\\F\"h\u{1f}\u{19}x\n\u{13}6T4j\u{11}?\t=\tfv(|WmY_\u{c}qdt:G2n\u{11}\u{3}^\u{8}2SX\tbcg\u{12}o5?\u{18}\"t\u{18}\u{12}h}rbn0\\c\u{18}n\u{1e};d\u{7}i\u{7}\u{11}\u{3}e|g\u{15}\u{10}c(Mka.R\u{e}s'eAX-WI=cL\u{16}'9\u{b}\u{1e}2+\t\u{1}m\u{16}E>C%Jmuz&\u{b}+f\u{f}\u{17}*TC\0G H5.b}L>^\u{3})&(6Zo\u{c}KmR\u{b}\0\0"

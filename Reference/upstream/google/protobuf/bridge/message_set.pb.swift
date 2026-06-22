@@ -89,8 +89,6 @@ struct Google_Protobuf_Bridge_MessageSet: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf.bridge"
-
 extension Google_Protobuf_Bridge_MessageSet: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0!\0google.protobuf.bridge.MessageSet"

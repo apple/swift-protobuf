@@ -89,8 +89,6 @@ struct Proto2Unittest_LazyImports_MessageCustomOption2: @unchecked Swift.Sendabl
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest.lazy_imports"
-
 extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b},\0proto2_unittest.lazy_imports.ImportedMessage"

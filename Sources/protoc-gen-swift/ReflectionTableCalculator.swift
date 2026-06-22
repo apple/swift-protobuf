@@ -52,18 +52,29 @@ package struct ReflectionTableCalculator {
     package init(
         fields: [any FieldGenerator],
         reservedRanges: [Range<Int32>],
-        reservedNames: [String]
+        reservedNames: [String],
+        suppressNames: Bool = false
     ) {
+        self.reservedRanges = reservedRanges
+        self.reservedNames = suppressNames ? [] : reservedNames
+
+        // TODO: When we add default values for fields, we'll need to call `addField` even when
+        // suppressing names; we can push the `suppressNames` parameter down into that function to
+        // add the default but skip the name.
+        guard !suppressNames else { return }
         for field in fields {
             addField(field)
         }
-        self.reservedRanges = reservedRanges
-        self.reservedNames = reservedNames
     }
 
     /// Initializes a new reflection table calculator for an enum with the given values and alias
     /// information.
-    package init(enumValues: [EnumValueDescriptor], aliasInfo: EnumDescriptor.ValueAliasInfo) {
+    package init(
+        enumValues: [EnumValueDescriptor],
+        aliasInfo: EnumDescriptor.ValueAliasInfo,
+        suppressNames: Bool = false
+    ) {
+        guard !suppressNames else { return }
         for enumValue in enumValues {
             addEnumValue(enumValue, aliases: aliasInfo.aliases(enumValue) ?? [])
         }

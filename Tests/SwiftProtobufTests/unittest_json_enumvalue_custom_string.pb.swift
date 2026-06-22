@@ -117,8 +117,6 @@ struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: @unch
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.enum_value_json_string"
-
 extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{3}\0\00\u{1f}9 QZOr::\u{2}M\u{7}\0\nzx!B\u{1a}\r,\u{4}:#-JK~\u{3}[W\u{7f}&FrXF?y'3\u{7}\u{5}\u{7f}HfN\"\u{e}*F8*rs\\yqy~?\u{11}:rH\u{7f}\u{14}\u{7}j9\0Vu\u{3}S uF/HL\u{15}{<\\:\u{f}\u{1d}(e\u{17}\u{1a}wbwC< \u{3}.W\u{f}dbp'IR\u{1b}.ZwJO1xQ{x\0t|YyC-!wh7\u{e}>e-v3\u{2}G\u{17}\u{1a}p Q\n.\u{13}Z8:/I\u{6}W@@\u{17}b$B@ whL\u{18}>\u{6}\rU!O4$\u{4}9cG\u{8}:\u{14}05VbB\u{f}\t8\u{e}z^:3#OK^qpZ\u{1b}9^DA&avD\u{1}@\u{7f}7(KH}<\u{13}6k7mBn+\r?|\u{3}\u{17}EYcBL\n*vJ>\u{17}no\t\u{7}1y[\u{15}|\u{7f}u7\u{1}\0\0\0"

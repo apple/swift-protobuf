@@ -501,8 +501,6 @@ struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "conformance"
-
 extension Conformance_WireFormat {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{16}\0conformance.WireFormat"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}~#p*K!cg'vsE*~f\\2j_j;@\u{1}ADpqQ\u{7}_\t\t)p<]l,io*c\u{1e}\u{f}@f1=N_\u{7f}\\\u{10}a\u{1d}?}\u{e}>F\u{7}\u{12}gS*y:\u{e}HG#p\u{c}d'J\t|\u{19}\u{6}\0\0"

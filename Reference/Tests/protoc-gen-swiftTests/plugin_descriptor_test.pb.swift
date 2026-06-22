@@ -177,8 +177,6 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Swift.
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_descriptor_test"
-
 extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0/\0swift_descriptor_test.MsgExtensionRangeOrdering"

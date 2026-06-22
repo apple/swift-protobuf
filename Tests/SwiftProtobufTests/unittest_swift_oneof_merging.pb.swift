@@ -202,8 +202,6 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.merging"
-
 extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{18}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{b}q\0\0\0\0 \0\0{\u{7f}\0\0\u{9}r\0\0\0\00\0\0{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"

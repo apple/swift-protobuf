@@ -93,8 +93,6 @@ struct SwiftProtoTesting_Import_ImportMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_proto_testing.import"
-
 extension SwiftProtoTesting_Import_ImportEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0swift_proto_testing.import.ImportEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{18}\u{18}MfevYayH\u{1c}LM*kyGzo\u{12}\u{11}_\u{c}.GCnE%\0KHC1r\u{6}\ta-ao\u{1f}J+|w$J\u{4}?\u{1}\0"

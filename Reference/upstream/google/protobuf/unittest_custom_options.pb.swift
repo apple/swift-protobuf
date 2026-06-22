@@ -1886,8 +1886,6 @@ extension Proto2Unittest_NestedOptionType {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_unittest"
-
 extension Proto2Unittest_MethodOpt1 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1a}\0proto2_unittest.MethodOpt1"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKd!?an\u{b}!\u{14}\u{8}HI\u{7}wVo@\u{1a}'2qk\u{8}&C[B\u{18}@u.l\u{5}\u{8} \0kN{\n\0\0"

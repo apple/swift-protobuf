@@ -103,8 +103,6 @@ let Pb_Enumvalue_Extensions_json = SwiftProtobuf.ExtensionSchema(
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb.enumvalue"
-
 extension Pb_Enumvalue_JsonEnumValueOptions: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}!\0pb.enumvalue.JsonEnumValueOptions"

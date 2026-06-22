@@ -127,8 +127,6 @@ let Pb_Extensions_java_mutable = SwiftProtobuf.ExtensionSchema(
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "pb"
-
 extension Pb_JavaMutableFeatures: SwiftProtobuf.GeneratedMessage {
   #if _pointerBitWidth(_64)
     private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{6}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{16}\0pb.JavaMutableFeatures"
