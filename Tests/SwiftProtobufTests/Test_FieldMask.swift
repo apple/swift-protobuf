@@ -43,6 +43,14 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("foo,bar\"")
         assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"")  // Reject non-ASCII
         assertJSONDecodeFails("abc_def")  // Reject underscores
+        // Reject characters outside [A-Za-z0-9.] in a path segment, matching the
+        // upstream parser ("unexpected character in FieldMask").
+        assertJSONDecodeFails("\"foo-bar\"")
+        assertJSONDecodeFails("\"foo/bar\"")
+        assertJSONDecodeFails("\"foo!bar\"")
+        assertJSONDecodeFails("\"foo~bar\"")
+        assertJSONDecodeFails("\"foo@bar\"")
+        assertJSONDecodeFails("\"foo bar\"")
     }
 
     func testProtobuf() {
@@ -105,8 +113,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
 
     func testSerializationFailure() {
         // If the proto fieldname can't be converted to a JSON field name,
-        // then JSON serialization should fail:
-        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
+        // then JSON serialization should fail. This includes a path holding the
+        // ',' separator, which otherwise round-trips into two separate paths.
+        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ", "foo,bar", "foo-bar", "foo/bar"]
         for c in cases {
             let m = Google_Protobuf_FieldMask(protoPaths: c)
             XCTAssertThrowsError(try m.jsonString())
