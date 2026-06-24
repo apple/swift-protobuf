@@ -209,6 +209,8 @@ extension Compression {
         ///   - total: The total frequency of all symbols in the model.
         mutating func remove(cumulativeFrequency: UInt32, frequency: UInt32, total: UInt32) {
             let r = size / total
+            assert(r > 0)
+
             low &+= cumulativeFrequency &* r
             code &-= cumulativeFrequency &* r
             size = frequency &* r
@@ -227,7 +229,7 @@ extension Compression {
             // Underflow prevention: If 'size' becomes too small but the top
             // bits didn't match, we force a shift to maintain precision for
             // division.
-            if size < 0x10000 {
+            while size < 0x10000 {
                 low &<<= 8
                 guard let byte = self.input.nextByte() else {
                     preconditionFailure("truncated compressed data")

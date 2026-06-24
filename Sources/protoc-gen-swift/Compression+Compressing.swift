@@ -281,6 +281,8 @@ extension Compression {
         ///   - total: The total frequency of all symbols in the model.
         mutating func encode(cumulativeFrequency: UInt32, frequency: UInt32, total: UInt32) {
             let r = size / total
+            assert(r > 0)
+
             low &+= cumulativeFrequency &* r
             size = frequency &* r
 
@@ -295,7 +297,7 @@ extension Compression {
             // Underflow prevention: If 'size' becomes too small but the top
             // bits didn't match, we force a shift to maintain precision for
             // division.
-            if size < 0x10000 {
+            while size < 0x10000 {
                 output.append(UInt8(low &>> 24))
                 low &<<= 8
                 size = 0 &- low  // no unary minus for UInt32
