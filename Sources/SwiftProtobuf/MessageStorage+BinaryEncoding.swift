@@ -71,7 +71,7 @@ extension MessageStorage {
         options: BinaryEncodingOptions
     ) throws {
         let fieldNumber = Int(field.fieldNumber)
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.fieldMode.cardinality {
         case .map:
             let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)

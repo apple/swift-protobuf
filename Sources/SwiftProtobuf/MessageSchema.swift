@@ -357,6 +357,12 @@ extension MessageSchema {
         let raw = field.rawPresence
         return 0 <= raw && raw < explicitPresenceCount
     }
+
+    /// Returns the byte offset of the given field in in-memory storage.
+    @usableFromInline
+    func byteOffset(of field: Field) -> Int {
+        field.offset
+    }
 }
 
 extension MessageSchema {
@@ -533,7 +539,7 @@ extension MessageSchema {
         }
 
         /// The offset, in bytes, where this field's value is stored in in-memory storage.
-        @usableFromInline var offset: Int {
+        fileprivate var offset: Int {
             fixed3ByteBase128(in: buffer, atByteOffset: 5)
         }
 

@@ -73,8 +73,9 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
 
         case .mapNextElement(let iterator, let useDeterministicOrdering, let workingSpace, let success):
-            let keyField = KnownField.mapEntryKey(in: workingSpace.schema)
-            let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
+            let schema = workingSpace.schema
+            let keyField = KnownField.mapEntryKey(in: schema)
+            let valueField = KnownField.mapEntryValue(in: schema)
             guard
                 case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
                 case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
@@ -83,13 +84,14 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
             let keyHasBit = (keyHasByteOffset, keyHasBitMask)
             let valueHasBit = (valueHasByteOffset, valueHasBitMask)
-
+            let keyOffset = schema.byteOffset(of: keyField)
+            let valueOffset = schema.byteOffset(of: valueField)
             if useDeterministicOrdering {
                 if let (key, value) = iterator.bindMemory(to: DeterministicIteratorType.self, capacity: 1).pointee
                     .next()
                 {
-                    K.updateValue(at: keyField.offset, in: workingSpace, to: key, hasBit: keyHasBit)
-                    V.updateValue(at: valueField.offset, in: workingSpace, to: value, hasBit: valueHasBit)
+                    K.updateValue(at: keyOffset, in: workingSpace, to: key, hasBit: keyHasBit)
+                    V.updateValue(at: valueOffset, in: workingSpace, to: value, hasBit: valueHasBit)
                     success.pointee = true
                     return
                 }
@@ -98,16 +100,17 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
 
             if let (key, value) = iterator.bindMemory(to: StandardIteratorType.self, capacity: 1).pointee.next() {
-                K.updateValue(at: keyField.offset, in: workingSpace, to: key, hasBit: keyHasBit)
-                V.updateValue(at: valueField.offset, in: workingSpace, to: value, hasBit: valueHasBit)
+                K.updateValue(at: keyOffset, in: workingSpace, to: key, hasBit: keyHasBit)
+                V.updateValue(at: valueOffset, in: workingSpace, to: value, hasBit: valueHasBit)
                 success.pointee = true
                 return
             }
             success.pointee = false
 
         case .mapInsertElement(let pointer, let workingSpace):
-            let keyField = KnownField.mapEntryKey(in: workingSpace.schema)
-            let valueField = KnownField.mapEntryValue(in: workingSpace.schema)
+            let schema = workingSpace.schema
+            let keyField = KnownField.mapEntryKey(in: schema)
+            let valueField = KnownField.mapEntryValue(in: schema)
             guard
                 case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence,
                 case .hasBit(let valueHasByteOffset, let valueHasBitMask) = valueField.presence
@@ -116,10 +119,11 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
             let keyHasBit = (keyHasByteOffset, keyHasBitMask)
             let valueHasBit = (valueHasByteOffset, valueHasBitMask)
-
+            let keyOffset = schema.byteOffset(of: keyField)
+            let valueOffset = schema.byteOffset(of: valueField)
             let dictionaryPointer = pointer.bindMemory(to: DictType.self, capacity: 1)
-            let key = K.value(at: keyField.offset, in: workingSpace, hasBit: keyHasBit)
-            let value = V.value(at: valueField.offset, in: workingSpace, hasBit: valueHasBit)
+            let key = K.value(at: keyOffset, in: workingSpace, hasBit: keyHasBit)
+            let value = V.value(at: valueOffset, in: workingSpace, hasBit: valueHasBit)
             dictionaryPointer.pointee[key] = value
 
         case .mapCheckEquality(let lhs, let rhs, let result):

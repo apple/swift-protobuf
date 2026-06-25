@@ -117,7 +117,7 @@ extension MessageStorage {
     ) throws {
         let fieldNumber = field.fieldNumber
         let fieldType = field.rawFieldType
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
 
         try emitKey(forFieldNumber: fieldNumber, into: &encoder, options: options)
 
@@ -265,7 +265,7 @@ extension MessageStorage {
         options: JSONEncodingOptions
     ) throws {
         let fieldType = field.rawFieldType
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
 
         switch fieldType {
         case .bool:
@@ -319,7 +319,7 @@ extension MessageStorage {
     /// Emits the JSON value for the field with the given number, treating it as needed for a valid
     /// map key (i.e., always double-quoted).
     private func emitAsMapKey(_ field: MessageSchema.Field, to encoder: inout JSONEncoder) throws {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.rawFieldType {
         case .bool:
             encoder.putQuotedBoolValue(value: assumedPresentValue(at: offset))
@@ -389,7 +389,7 @@ extension MessageStorage {
         if isWKT {
             encoder.startField(name: "value")
         }
-        let bytes = assumedPresentValue(at: valueField.offset) as Data
+        let bytes = assumedPresentValue(at: schema.byteOffset(of: valueField)) as Data
         try bytes.withUnsafeBytes { buffer in
             let messageStorage = MessageStorage(schema: messageSchema)
             // TODO: Should we keep the original behavior of failing for required fields in JSON?

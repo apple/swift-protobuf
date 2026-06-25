@@ -37,7 +37,7 @@ extension MessageStorage {
     ) -> Int {
         // TODO: Unify our field number APIs around `UInt32` to avoid casting.
         let fieldNumber = Int(field.fieldNumber)
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.fieldMode.cardinality {
         case .map:
             return serializedByteSize(
