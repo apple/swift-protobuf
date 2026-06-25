@@ -877,6 +877,7 @@ message GeneratedSwiftReservedEnums {
   enum rawBufferPointer { NONE_rawBufferPointer = 0; }
   enum rawChars { NONE_rawChars = 0; }
   enum rawFieldType { NONE_rawFieldType = 0; }
+  enum rawPointer { NONE_rawPointer = 0; }
   enum rawPresence { NONE_rawPresence = 0; }
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum rawValue { NONE_rawValue = 0; }
@@ -1053,6 +1054,7 @@ message GeneratedSwiftReservedEnums {
   enum tryConsumeWhitespace { NONE_tryConsumeWhitespace = 0; }
   enum type { NONE_type = 0; }
   enum typealias { NONE_typealias = 0; }
+  enum typedPointer { NONE_typedPointer = 0; }
   enum TypeEnum { NONE_TypeEnum = 0; }
   enum typeName { NONE_typeName = 0; }
   enum typePrefix { NONE_typePrefix = 0; }
@@ -1143,4 +1145,5 @@ message GeneratedSwiftReservedEnums {
   enum wrappedValue { NONE_wrappedValue = 0; }
   enum written { NONE_written = 0; }
   enum yday { NONE_yday = 0; }
+  enum zeroOut { NONE_zeroOut = 0; }
 }
