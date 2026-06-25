@@ -52,7 +52,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a message or group field.
     func messageStorage(forAssumedPresentSingularMessageField field: MessageSchema.Field) -> MessageStorage {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
             messageSchema(for: field).invokeWitness(.messageGetStorage(pointer: pointer, result: $0))
@@ -67,7 +67,7 @@ extension MessageStorage {
     /// - Precondition: The field must be a singular message or group field.
     @inline(never)
     func uniqueMessageStorage(forSingularMessageField field: MessageSchema.Field) -> MessageStorage {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         let submessageSchema = messageSchema(for: field)
 
         var submessageStorage: Unmanaged<MessageStorage>? = nil
@@ -96,7 +96,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func elementCount(forAssumedPresentRepeatedMessageField field: MessageSchema.Field) -> Int {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
             messageSchema(for: field).invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
@@ -111,7 +111,7 @@ extension MessageStorage {
         at index: Int,
         inAssumedPresentRepeatedMessageField field: MessageSchema.Field
     ) -> MessageStorage {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
             messageSchema(for: field).invokeWitness(.arrayGetElementStorage(pointer: pointer, index: index, result: $0))
@@ -139,7 +139,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be a repeated message or group field.
     func messageStorage(forNewlyAppendedElementOfRepeatedMessageField field: MessageSchema.Field) -> MessageStorage {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         let submessageSchema = messageSchema(for: field)
 
         if !isPresent(field) {
@@ -169,7 +169,7 @@ extension MessageStorage {
     func clearSingularMessageField(_ field: MessageSchema.Field) {
         guard isPresent(field) else { return }
 
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             let wasSet = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: false)
@@ -193,7 +193,7 @@ extension MessageStorage {
         precondition(field.fieldMode.cardinality != .scalar)
         guard isPresent(field) else { return }
 
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             let wasSet = updatePresence(hasBit: (hasByteOffset, hasMask), willBeSet: false)
@@ -220,7 +220,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated enum field.
     func elementCount(forAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
             enumSchema(for: field).invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
@@ -232,7 +232,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a repeated enum field.
     func rawValue(at index: Int, inAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int32 {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         var value: Int32 = 0
         withUnsafeMutablePointer(to: &value) {
             enumSchema(for: field).invokeWitness(.arrayGetElementRawValue(pointer: pointer, index: index, result: $0))
@@ -260,7 +260,7 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be a repeated enum field.
     func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField field: MessageSchema.Field) {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         let enumSchema = enumSchema(for: field)
 
         if !isPresent(field) {
@@ -297,7 +297,7 @@ extension MessageStorage {
         workingSpace: MessageStorage,
         perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         let mapSchema = messageSchema(for: field)
 
         // Compute the required size and alignment for the map iterator.
@@ -365,7 +365,7 @@ extension MessageStorage {
     /// - Precondition: The field must be a map field.
     @inline(never)
     func insertMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) {
-        let pointer = buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
         let mapSchema = messageSchema(for: field)
 
         if !isPresent(field) {
@@ -386,8 +386,8 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a map field.
     func isMapField(_ field: MessageSchema.Field, equalToSameFieldIn other: MessageStorage) -> Bool {
         let mapSchema = messageSchema(for: field)
-        let pointer = buffer.baseAddress! + field.offset
-        let otherPointer = other.buffer.baseAddress! + field.offset
+        let pointer = rawPointer(for: field)
+        let otherPointer = other.rawPointer(for: field)
         var result: Bool = false
         withUnsafeMutablePointer(to: &result) {
             mapSchema.invokeWitness(.mapCheckEquality(lhs: pointer, rhs: otherPointer, result: $0))

@@ -682,7 +682,7 @@ extension MessageStorage {
         decodeElement: (inout WireFormatReader) throws -> T
     ) throws {
         // If the field isn't already present, we need to initialize a new array first.
-        let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+        let pointer = typedPointer(for: field, as: [T].self)
         if !isPresent(field) {
             pointer.initialize(to: [])
             switch field.presence {

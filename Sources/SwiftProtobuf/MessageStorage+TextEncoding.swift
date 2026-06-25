@@ -52,7 +52,7 @@ extension MessageStorage {
     ) {
         let typeURLField = KnownField.anyTypeURL(in: schema)
         let valueField = KnownField.anyValue(in: schema)
-        let valueOffset = valueField.offset
+        let valueOffset = schema.byteOffset(of: valueField)
 
         // If we can unpack it, emit the verbose form.
         let typeURL = value(of: typeURLField) as String
@@ -103,7 +103,7 @@ extension MessageStorage {
     ) {
         let fieldNumber = field.fieldNumber
         let fieldType = field.rawFieldType
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
 
         switch field.fieldMode.cardinality {
         case .map:

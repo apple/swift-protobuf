@@ -877,6 +877,7 @@ message GeneratedSwiftReservedMessages {
   message rawBufferPointer { int32 rawBufferPointer = 1; }
   message rawChars { int32 rawChars = 1; }
   message rawFieldType { int32 rawFieldType = 1; }
+  message rawPointer { int32 rawPointer = 1; }
   message rawPresence { int32 rawPresence = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message rawValue { int32 rawValue = 1; }
@@ -1053,6 +1054,7 @@ message GeneratedSwiftReservedMessages {
   message tryConsumeWhitespace { int32 tryConsumeWhitespace = 1; }
   message type { int32 type = 1; }
   message typealias { int32 typealias = 1; }
+  message typedPointer { int32 typedPointer = 1; }
   message TypeEnum { int32 TypeEnum = 1; }
   message typeName { int32 typeName = 1; }
   message typePrefix { int32 typePrefix = 1; }
@@ -1143,4 +1145,5 @@ message GeneratedSwiftReservedMessages {
   message wrappedValue { int32 wrappedValue = 1; }
   message written { int32 written = 1; }
   message yday { int32 yday = 1; }
+  message zeroOut { int32 zeroOut = 1; }
 }

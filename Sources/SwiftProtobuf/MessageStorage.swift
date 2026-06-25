@@ -67,7 +67,57 @@ import Foundation
         }
         buffer.deallocate()
     }
+}
 
+// MARK: - Low-level pointer/memory utilities
+
+extension MessageStorage {
+    /// Returns a raw pointer to the given byte offset in the storage buffer.
+    @_alwaysEmitIntoClient @inline(__always)
+    func rawPointer(at offset: Int) -> UnsafeMutableRawPointer {
+        buffer.baseAddress! + offset
+    }
+
+    /// Returns a typed pointer to the given byte offset in the storage buffer.
+    @_alwaysEmitIntoClient @inline(__always)
+    func typedPointer<T>(at offset: Int, as type: T.Type) -> UnsafeMutablePointer<T> {
+        rawPointer(at: offset).bindMemory(to: T.self, capacity: 1)
+    }
+
+    /// Zeros out `count` bytes starting at the given pointer.
+    @_alwaysEmitIntoClient @inline(__always)
+    func zeroOut(pointer: UnsafeMutableRawPointer, count: Int) {
+        pointer.withMemoryRebound(to: UInt8.self, capacity: count) { bytes in
+            bytes.initialize(repeating: 0, count: count)
+        }
+    }
+
+    /// Zeros out `count` bytes starting at the given offset in the storage buffer.
+    @_alwaysEmitIntoClient @inline(__always)
+    func zeroOut(at offset: Int, count: Int) {
+        zeroOut(pointer: rawPointer(at: offset), count: count)
+    }
+
+    /// Returns a raw pointer to the memory backing the given field.
+    @usableFromInline
+    func rawPointer(for field: MessageSchema.Field) -> UnsafeMutableRawPointer {
+        let offset = schema.byteOffset(of: field)
+        return buffer.baseAddress! + offset
+    }
+
+    /// Returns a typed pointer to the memory backing the given field.
+    @usableFromInline
+    func typedPointer<T>(
+        for field: MessageSchema.Field,
+        as type: T.Type
+    ) -> UnsafeMutablePointer<T> {
+        rawPointer(for: field).bindMemory(to: T.self, capacity: 1)
+    }
+}
+
+// MARK: - Whole-message operations
+
+extension MessageStorage {
     /// Deinitializes the given field if it is present.
     @usableFromInline func deinitializeField(_ field: MessageSchema.Field) {
         guard isPresent(field) else { return }
@@ -77,7 +127,7 @@ import Foundation
     @usableFromInline func deinitializeFieldForced(_ field: MessageSchema.Field) {
         switch field.fieldMode.cardinality {
         case .map:
-            messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: buffer.baseAddress! + field.offset))
+            messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: rawPointer(for: field)))
 
         case .array:
             switch field.rawFieldType {
@@ -85,9 +135,9 @@ import Foundation
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
             case .enum:
-                enumSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: buffer.baseAddress! + field.offset))
+                enumSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .group, .message:
-                messageSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: buffer.baseAddress! + field.offset))
+                messageSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
             case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
             case .float: deinitializeField(field, type: [Float].self)
@@ -103,7 +153,7 @@ import Foundation
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
                 messageSchema(for: field).invokeWitness(
-                    .messageDeinitialize(pointer: buffer.baseAddress! + field.offset)
+                    .messageDeinitialize(pointer: rawPointer(for: field))
                 )
             default:
                 // Ignore trivial fields; no deinitialization is necessary.
@@ -117,7 +167,7 @@ import Foundation
 
     /// Deinitializes the field associated with the given concrete type information.
     private func deinitializeField<T>(_ field: MessageSchema.Field, type: T.Type) {
-        (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1).deinitialize(count: 1)
+        typedPointer(for: field, as: T.self).deinitialize(count: 1)
     }
 
     /// Returns a value indicating whether the field with the given presence has been explicitly
@@ -137,11 +187,7 @@ import Foundation
             return isPresent(hasBit: (byteOffset, mask))
         }
     }
-}
 
-// MARK: - Whole-message operations
-
-extension MessageStorage {
     /// Creates and returns an independent copy of the values in this storage.
     ///
     /// This is used to implement copy-on-write behavior.
@@ -154,19 +200,20 @@ extension MessageStorage {
         // so that we can bitwise copy those as a block afterward.
         var firstNontrivialStorageOffset = schema.storageSize
         for field in schema.fields {
+            let offset = schema.byteOffset(of: field)
             switch field.fieldMode.cardinality {
             case .map:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
+                if offset < firstNontrivialStorageOffset {
+                    firstNontrivialStorageOffset = offset
                 }
                 guard isPresent(field) else { continue }
-                let source = buffer.baseAddress! + field.offset
-                let destination = destination.buffer.baseAddress! + field.offset
+                let source = rawPointer(for: field)
+                let destination = destination.rawPointer(for: field)
                 messageSchema(for: field).invokeWitness(.mapCopyInitialize(source: source, destination: destination))
 
             case .array:
-                if field.offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = field.offset
+                if offset < firstNontrivialStorageOffset {
+                    firstNontrivialStorageOffset = offset
                 }
                 switch field.rawFieldType {
                 case .bool: copyField(field, to: destination, type: [Bool].self)
@@ -174,14 +221,14 @@ extension MessageStorage {
                 case .double: copyField(field, to: destination, type: [Double].self)
                 case .enum:
                     guard isPresent(field) else { continue }
-                    let source = buffer.baseAddress! + field.offset
-                    let destination = destination.buffer.baseAddress! + field.offset
+                    let source = rawPointer(for: field)
+                    let destination = destination.rawPointer(for: field)
                     enumSchema(for: field).invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
 
                 case .group, .message:
                     guard isPresent(field) else { continue }
-                    let source = buffer.baseAddress! + field.offset
-                    let destination = destination.buffer.baseAddress! + field.offset
+                    let source = rawPointer(for: field)
+                    let destination = destination.rawPointer(for: field)
                     messageSchema(for: field).invokeWitness(
                         .arrayCopyInitialize(source: source, destination: destination)
                     )
@@ -198,25 +245,25 @@ extension MessageStorage {
             case .scalar:
                 switch field.rawFieldType {
                 case .bytes:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
+                    if offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = offset
                     }
                     copyField(field, to: destination, type: Data.self)
 
                 case .group, .message:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
+                    if offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = offset
                     }
                     guard isPresent(field) else { continue }
-                    let source = buffer.baseAddress! + field.offset
-                    let destination = destination.buffer.baseAddress! + field.offset
+                    let source = rawPointer(for: field)
+                    let destination = destination.rawPointer(for: field)
                     messageSchema(for: field).invokeWitness(
                         .messageCopyInitialize(source: source, destination: destination)
                     )
 
                 case .string:
-                    if field.offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = field.offset
+                    if offset < firstNontrivialStorageOffset {
+                        firstNontrivialStorageOffset = offset
                     }
                     copyField(field, to: destination, type: String.self)
 
@@ -245,11 +292,8 @@ extension MessageStorage {
     private func copyField<T>(_ field: MessageSchema.Field, to destination: MessageStorage, type: T.Type) {
         guard isPresent(field) else { return }
 
-        let sourcePointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-        let destinationPointer = (destination.buffer.baseAddress! + field.offset).bindMemory(
-            to: T.self,
-            capacity: 1
-        )
+        let sourcePointer = typedPointer(for: field, as: T.self)
+        let destinationPointer = destination.typedPointer(for: field, as: T.self)
         destinationPointer.initialize(from: sourcePointer, count: 1)
     }
 }
@@ -328,7 +372,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Bool = false, hasBit: HasBit) -> Bool {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Bool.self).pointee
     }
 
     /// Returns the `Int32` value at the given offset in the storage, or the default value if the
@@ -336,7 +380,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Int32 = 0, hasBit: HasBit) -> Int32 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Int32.self).pointee
     }
 
     /// Returns the `UInt32` value at the given offset in the storage, or the default value if the
@@ -344,7 +388,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: UInt32 = 0, hasBit: HasBit) -> UInt32 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: UInt32.self).pointee
     }
 
     /// Returns the `Int64` value at the given offset in the storage, or the default value if the
@@ -352,7 +396,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Int64 = 0, hasBit: HasBit) -> Int64 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Int64.self).pointee
     }
 
     /// Returns the `UInt64` value at the given offset in the storage, or the default value if the
@@ -360,7 +404,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: UInt64 = 0, hasBit: HasBit) -> UInt64 {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: UInt64.self).pointee
     }
 
     /// Returns the `Float` value at the given offset in the storage, or the default value if the
@@ -368,7 +412,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Float = 0, hasBit: HasBit) -> Float {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Float.self).pointee
     }
 
     /// Returns the `Double` value at the given offset in the storage, or the default value if the
@@ -376,7 +420,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Double = 0, hasBit: HasBit) -> Double {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Double.self).pointee
     }
 
     /// Returns the string value at the given offset in the storage, or the default value if the
@@ -384,7 +428,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: String = "", hasBit: HasBit) -> String {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: String.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: String.self).pointee
     }
 
     /// Returns the `Data` value at the given offset in the storage, or the default value if the
@@ -392,7 +436,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value(at offset: Int, default defaultValue: Data = Data(), hasBit: HasBit) -> Data {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Data.self).pointee
     }
 
     /// Returns the `Array` value at the given offset in the storage, or the empty array if the
@@ -400,7 +444,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value<Element>(at offset: Int, hasBit: HasBit) -> [Element] {
         guard isPresent(hasBit: hasBit) else { return [] }
-        return (buffer.baseAddress! + offset).bindMemory(to: [Element].self, capacity: 1).pointee
+        return typedPointer(at: offset, as: [Element].self).pointee
     }
 
     /// Returns the `Dictionary` value at the given offset in the storage, or the empty array if
@@ -408,7 +452,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value<Key, Value>(at offset: Int, hasBit: HasBit) -> [Key: Value] {
         guard isPresent(hasBit: hasBit) else { return [:] }
-        return (buffer.baseAddress! + offset).bindMemory(to: [Key: Value].self, capacity: 1).pointee
+        return typedPointer(at: offset, as: [Key: Value].self).pointee
     }
 
     /// Returns the protobuf enum value at the given offset in the storage, or the default value if
@@ -420,9 +464,7 @@ extension MessageStorage {
         // fails. For closed enums, it fails if the raw value is not a valid case, but such a value
         // should never cause presence to be set. For example, during decoding such a value would be
         // placed in unknown fields.
-        //
-        // TODO: Change this to `Int32` when we're using that as the raw value type.
-        return T(rawValue: Int((buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee))!
+        return T(rawValue: Int(typedPointer(at: offset, as: Int32.self).pointee))!
     }
 
     /// Returns the value at the given offset in the storage, or the default value if the value is
@@ -430,7 +472,7 @@ extension MessageStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func value<T>(at offset: Int, default defaultValue: T, hasBit: HasBit) -> T {
         guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: T.self).pointee
     }
 }
 
@@ -452,72 +494,63 @@ extension MessageStorage {
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Bool, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1)
+        typedPointer(at: offset, as: Bool.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `Int32` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Int32, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
+        typedPointer(at: offset, as: Int32.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `UInt32` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: UInt32, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1)
+        typedPointer(at: offset, as: UInt32.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `Int64` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Int64, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1)
+        typedPointer(at: offset, as: Int64.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `UInt64` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: UInt64, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1)
+        typedPointer(at: offset, as: UInt64.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `Float` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Float, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1)
+        typedPointer(at: offset, as: Float.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the `Double` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Double, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1)
+        typedPointer(at: offset, as: Double.self).pointee = newValue
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = newValue
     }
 
     /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T: Enum>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
+        typedPointer(at: offset, as: Int32.self).pointee = Int32(newValue.rawValue)
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
-        pointer.pointee = Int32(newValue.rawValue)
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
-        let rawPointer = buffer.baseAddress! + offset
-        let pointer = rawPointer.bindMemory(to: T.self, capacity: 1)
+        let pointer = typedPointer(at: offset, as: T.self)
         let wasSet = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
         if wasSet {
             pointer.deinitialize(count: 1)
@@ -525,24 +558,19 @@ extension MessageStorage {
         if willBeSet {
             pointer.initialize(to: newValue)
         } else {
-            rawPointer.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<T>.stride) { bytes in
-                bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
-            }
+            zeroOut(at: offset, count: MemoryLayout<T>.stride)
         }
     }
 
     /// Clears the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func clearValue<T>(at offset: Int, type: T.Type, hasBit: HasBit) {
-        let rawPointer = buffer.baseAddress! + offset
-        let pointer = rawPointer.bindMemory(to: T.self, capacity: 1)
+        let pointer = typedPointer(at: offset, as: T.self)
         let wasSet = updatePresence(hasBit: hasBit, willBeSet: false)
         if wasSet {
             pointer.deinitialize(count: 1)
         }
-        rawPointer.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<T>.stride) { bytes in
-            bytes.initialize(repeating: 0, count: MemoryLayout<T>.stride)
-        }
+        zeroOut(at: offset, count: MemoryLayout<T>.stride)
     }
 
     /// Clears the value at the given offset in the storage, along with its presence.
@@ -550,7 +578,7 @@ extension MessageStorage {
     /// This specialization is necessary since enums are stored as their raw values in memory.
     @_alwaysEmitIntoClient @inline(__always)
     public func clearValue<T: Enum>(at offset: Int, type: T.Type, hasBit: HasBit) {
-        let pointer = (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1)
+        let pointer = typedPointer(at: offset, as: Int32.self)
         _ = updatePresence(hasBit: hasBit, willBeSet: false)
         pointer.pointee = 0
     }
@@ -566,7 +594,7 @@ extension MessageStorage {
     /// Returns the `Bool` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Bool = false) -> Bool {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -578,7 +606,7 @@ extension MessageStorage {
     /// Returns the `Int32` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Int32 = 0) -> Int32 {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -590,7 +618,7 @@ extension MessageStorage {
     /// Returns the `UInt32` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: UInt32 = 0) -> UInt32 {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -602,7 +630,7 @@ extension MessageStorage {
     /// Returns the `Int64` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Int64 = 0) -> Int64 {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -614,7 +642,7 @@ extension MessageStorage {
     /// Returns the `UInt64` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: UInt64 = 0) -> UInt64 {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -626,7 +654,7 @@ extension MessageStorage {
     /// Returns the `Float` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Float = 0) -> Float {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -638,7 +666,7 @@ extension MessageStorage {
     /// Returns the `Double` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Double = 0) -> Double {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -650,7 +678,7 @@ extension MessageStorage {
     /// Returns the `String` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: String = "") -> String {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -662,7 +690,7 @@ extension MessageStorage {
     /// Returns the `Data` value of the given field, or the default value if it is not present.
     func value(of field: MessageSchema.Field, default: Data = Data()) -> Data {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -674,7 +702,7 @@ extension MessageStorage {
     /// Returns the enum value of the given field, or the default value if it is not present.
     func value<T: Enum>(of field: MessageSchema.Field, default: T = .init()) -> T {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, default: `default`, hasBit: (hasByteOffset, hasMask))
@@ -686,7 +714,7 @@ extension MessageStorage {
     /// Returns the array value of the given field, or the default value if it is not present.
     func value<T>(of field: MessageSchema.Field, default: [T] = []) -> [T] {
         guard isPresent(field) else { return `default` }
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             return value(at: offset, hasBit: (hasByteOffset, hasMask))
@@ -708,7 +736,7 @@ extension MessageStorage {
 
     /// Updates the `Bool` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Bool) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -724,7 +752,7 @@ extension MessageStorage {
 
     /// Updates the `Int32` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Int32) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -740,7 +768,7 @@ extension MessageStorage {
 
     /// Updates the `UInt32` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: UInt32) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -756,7 +784,7 @@ extension MessageStorage {
 
     /// Updates the `Int64` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Int64) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -772,7 +800,7 @@ extension MessageStorage {
 
     /// Updates the `UInt64` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: UInt64) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -788,7 +816,7 @@ extension MessageStorage {
 
     /// Updates the `Float` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Float) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -804,7 +832,7 @@ extension MessageStorage {
 
     /// Updates the `Double` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Double) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -820,7 +848,7 @@ extension MessageStorage {
 
     /// Updates the `String` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: String) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -836,7 +864,7 @@ extension MessageStorage {
 
     /// Updates the `Data` value of the given field, tracking its presence accordingly.
     func updateValue(of field: MessageSchema.Field, to newValue: Data) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -852,7 +880,7 @@ extension MessageStorage {
 
     /// Updates the protobuf enum value of the given field, tracking its presence accordingly.
     func updateValue<T: Enum>(of field: MessageSchema.Field, to newValue: T) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             updateValue(
@@ -870,7 +898,7 @@ extension MessageStorage {
     /// if necessary.
     func appendValue<T>(_ value: T, to field: MessageSchema.Field) {
         // If the field isn't already present, we need to initialize a new array first.
-        let pointer = (buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+        let pointer = typedPointer(for: field, as: [T].self)
         if !isPresent(field) {
             pointer.initialize(to: [value])
             switch field.presence {
@@ -886,7 +914,7 @@ extension MessageStorage {
 
     /// Clears the given non-enum field, tracking its presence accordingly.
     func clearValue<T>(of field: MessageSchema.Field, type: T.Type = T.self) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             clearValue(at: offset, type: T.self, hasBit: (hasByteOffset, hasMask))
@@ -899,7 +927,7 @@ extension MessageStorage {
     ///
     /// This specialization is necessary since enums are stored as their raw values in memory.
     func clearValue<T: Enum>(of field: MessageSchema.Field, type: T.Type = T.self) {
-        let offset = field.offset
+        let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
             clearValue(at: offset, type: T.self, hasBit: (hasByteOffset, hasMask))
@@ -919,7 +947,7 @@ extension MessageStorage {
     /// the storage buffer.
     @_alwaysEmitIntoClient @inline(__always)
     public func populatedOneofMember(at oneofOffset: Int) -> UInt32 {
-        (buffer.baseAddress! + oneofOffset).bindMemory(to: UInt32.self, capacity: 1).pointee
+        typedPointer(at: oneofOffset, as: UInt32.self).pointee
     }
 
     /// Updates the field number of the oneof member that is populated, given the oneof offset into
@@ -927,7 +955,7 @@ extension MessageStorage {
     /// none was set).
     @_alwaysEmitIntoClient @inline(__always)
     public func updatePopulatedOneofMember(_ presence: OneofPresence) -> UInt32 {
-        let offsetPointer = (buffer.baseAddress! + presence.offset).bindMemory(to: UInt32.self, capacity: 1)
+        let offsetPointer = typedPointer(at: presence.offset, as: UInt32.self)
         let oldFieldNumber = offsetPointer.pointee
         offsetPointer.pointee = presence.fieldNumber
         return oldFieldNumber
@@ -940,7 +968,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Bool.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Bool.self).pointee
     }
 
     /// Returns the `Int32` value at the given offset in the storage if it is the currently
@@ -950,7 +978,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Int32.self).pointee
     }
 
     /// Returns the `UInt32` value at the given offset in the storage if it is the currently
@@ -960,7 +988,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: UInt32.self).pointee
     }
 
     /// Returns the `Int64` value at the given offset in the storage if it is the currently
@@ -970,7 +998,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Int64.self).pointee
     }
 
     /// Returns the `UInt64` value at the given offset in the storage if it is the currently
@@ -980,7 +1008,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: UInt64.self).pointee
     }
 
     /// Returns the `Float` value at the given offset in the storage if it is the currently
@@ -990,7 +1018,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Float.self).pointee
     }
 
     /// Returns the `Double` value at the given offset in the storage if it is the currently
@@ -1000,7 +1028,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Double.self).pointee
     }
 
     /// Returns the `String` value at the given offset in the storage if it is the currently
@@ -1010,7 +1038,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: String.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: String.self).pointee
     }
 
     /// Returns the `Data` value at the given offset in the storage if it is the currently
@@ -1020,7 +1048,7 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: Data.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: Data.self).pointee
     }
 
     /// Returns the protobuf enum value at the given offset in the storage if it is the currently
@@ -1036,7 +1064,7 @@ extension MessageStorage {
         // placed in unknown fields.
         //
         // TODO: Change this to `Int32` when we're using that as the raw value type.
-        return T(rawValue: Int((buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee))!
+        return T(rawValue: Int(typedPointer(at: offset, as: Int32.self).pointee))!
     }
 
     /// Returns the value at the given offset in the storage if it is the currently populated
@@ -1046,19 +1074,18 @@ extension MessageStorage {
         guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
             return defaultValue
         }
-        return (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).pointee
+        return typedPointer(at: offset, as: T.self).pointee
     }
 
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Bool, oneofPresence: OneofPresence) {
-        let rawPointer = buffer.baseAddress! + offset
         let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
         if oldFieldNumber != 0 {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        rawPointer.bindMemory(to: Bool.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: Bool.self).pointee = newValue
     }
 
     /// Updates the `Int32` value at the given offset in the storage, along with its presence.
@@ -1069,7 +1096,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: Int32.self).pointee = newValue
     }
 
     /// Updates the `UInt32` value at the given offset in the storage, along with its presence.
@@ -1080,7 +1107,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: UInt32.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: UInt32.self).pointee = newValue
     }
 
     /// Updates the `Int64` value at the given offset in the storage, along with its presence.
@@ -1091,7 +1118,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: Int64.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: Int64.self).pointee = newValue
     }
 
     /// Updates the `UInt64` value at the given offset in the storage, along with its presence.
@@ -1102,7 +1129,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: UInt64.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: UInt64.self).pointee = newValue
     }
 
     /// Updates the `Float` value at the given offset in the storage, along with its presence.
@@ -1113,7 +1140,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: Float.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: Float.self).pointee = newValue
     }
 
     /// Updates the `Double` value at the given offset in the storage, along with its presence.
@@ -1124,7 +1151,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: Double.self, capacity: 1).pointee = newValue
+        typedPointer(at: offset, as: Double.self).pointee = newValue
     }
 
     /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
@@ -1135,7 +1162,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: Int32.self, capacity: 1).initialize(to: Int32(newValue.rawValue))
+        typedPointer(at: offset, as: Int32.self).initialize(to: Int32(newValue.rawValue))
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.
@@ -1146,7 +1173,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        (buffer.baseAddress! + offset).bindMemory(to: T.self, capacity: 1).initialize(to: newValue)
+        typedPointer(at: offset, as: T.self).initialize(to: newValue)
     }
 
     /// Clears the populated oneof member give the oneof offset into the storage buffer,
@@ -1174,9 +1201,7 @@ extension MessageStorage {
         // is setting the same member that's being deinitialized. Determine if that's a worthwhile
         // optimization.
         let stride = field.scalarStride
-        (buffer.baseAddress! + field.offset).withMemoryRebound(to: UInt8.self, capacity: stride) { bytes in
-            bytes.initialize(repeating: 0, count: stride)
-        }
+        zeroOut(pointer: rawPointer(for: field), count: stride)
     }
 }
 

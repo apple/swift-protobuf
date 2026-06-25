@@ -274,7 +274,7 @@ extension MessageStorage {
             // `updateValue` overload that takes a `MessageSchema.Field` only checks for zero
             // equality, so we need to manually manage the presence here.
             let d = try reader.consumeDouble()
-            let offset = field.offset
+            let offset = schema.byteOffset(of: field)
             switch field.presence {
             case .hasBit(let hasByteOffset, let hasMask):
                 updateValue(
@@ -331,7 +331,7 @@ extension MessageStorage {
             // `updateValue` overload that takes a `MessageSchema.Field` only checks for zero
             // equality, so we need to manually manage the presence here.
             let f = try reader.consumeFloat()
-            let offset = field.offset
+            let offset = schema.byteOffset(of: field)
             switch field.presence {
             case .hasBit(let hasByteOffset, let hasMask):
                 updateValue(
@@ -360,7 +360,7 @@ extension MessageStorage {
                     preconditionFailure("expected nullValue to be a oneof member; this is a generator bug")
                 }
                 submessageStorage.updateValue(
-                    at: nullValueField.offset,
+                    at: submessageStorage.schema.byteOffset(of: nullValueField),
                     to: Int32(0),
                     oneofPresence: (oneofOffset, 1)
                 )

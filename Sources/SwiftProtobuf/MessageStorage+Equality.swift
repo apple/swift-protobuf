@@ -181,8 +181,8 @@ extension MessageStorage {
         case .neitherPresent:
             return true
         case .bothPresent:
-            let selfPointer = (buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
-            let otherPointer = (other.buffer.baseAddress! + field.offset).bindMemory(to: T.self, capacity: 1)
+            let selfPointer = typedPointer(for: field, as: T.self)
+            let otherPointer = other.typedPointer(for: field, as: T.self)
             return selfPointer.pointee == otherPointer.pointee
         }
     }

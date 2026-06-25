@@ -133,7 +133,7 @@ extension MessageStorage {
                 // that. The `updateValue` overload that takes a `MessageSchema.Field` only checks
                 // for zero equality, so we need to manually manage the presence here.
                 let d = try reader.consumeDouble()
-                let offset = field.offset
+                let offset = schema.byteOffset(of: field)
                 switch field.presence {
                 case .hasBit(let hasByteOffset, let hasMask):
                     updateValue(
@@ -161,7 +161,7 @@ extension MessageStorage {
                 // that. The `updateValue` overload that takes a `MessageSchema.Field` only checks
                 // for zero equality, so we need to manually manage the presence here.
                 let f = Float(try reader.consumeDouble())
-                let offset = field.offset
+                let offset = schema.byteOffset(of: field)
                 switch field.presence {
                 case .hasBit(let hasByteOffset, let hasMask):
                     updateValue(

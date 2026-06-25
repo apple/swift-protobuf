@@ -123,8 +123,8 @@ extension MessageStorage {
         from source: MessageStorage,
         mergeOptions: Google_Protobuf_FieldMask.MergeOptions
     ) throws {
-        let sourcePointer = source.buffer.baseAddress! + field.offset
-        let destinationPointer = self.buffer.baseAddress! + field.offset
+        let sourcePointer = source.rawPointer(for: field)
+        let destinationPointer = self.rawPointer(for: field)
 
         // If the destination doesn't have the field set, we can essentially treat that the same
         // as a "replacement".
@@ -306,8 +306,8 @@ extension MessageStorage {
         replace: Bool,
         type: [T].Type
     ) {
-        let sourcePointer = (source.buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
-        let destinationPointer = (self.buffer.baseAddress! + field.offset).bindMemory(to: [T].self, capacity: 1)
+        let sourcePointer = source.typedPointer(for: field, as: [T].self)
+        let destinationPointer = self.typedPointer(for: field, as: [T].self)
 
         if replace {
             // Deinitialize the field (a no-op if it's not already present) and then copy-initialize
