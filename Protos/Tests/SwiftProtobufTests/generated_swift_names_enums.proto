@@ -44,6 +44,7 @@ message GeneratedSwiftReservedEnums {
   enum AsyncMessageSequence { NONE_AsyncMessageSequence = 0; }
   enum at { NONE_at = 0; }
   enum atByteOffset { NONE_atByteOffset = 0; }
+  enum atIndex { NONE_atIndex = 0; }
   enum available { NONE_available = 0; }
   enum Base { NONE_Base = 0; }
   enum baseAddress { NONE_baseAddress = 0; }
@@ -972,6 +973,7 @@ message GeneratedSwiftReservedEnums {
   enum span { NONE_span = 0; }
   enum spi { NONE_spi = 0; }
   enum split { NONE_split = 0; }
+  enum stable { NONE_stable = 0; }
   enum start { NONE_start = 0; }
   enum startArray { NONE_startArray = 0; }
   enum startField { NONE_startField = 0; }

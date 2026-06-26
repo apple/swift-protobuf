@@ -152,13 +152,7 @@ let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _Qy=\u{6}*HKI\u{13}\u{11}|xa\u{15}X\"llA\u{f}s\u{11}stf\u{14}\u{7}+K\u{6}\u{f}\u{5}Pc2c\\\u{f}z\u{19}V$w\u{2}i1Z. i;\u{1f}_'?G\n\u{18}s\u{7f}\u{2}\u{c}~G;^@%\u{8}|\u{e}7 \u{b}|\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

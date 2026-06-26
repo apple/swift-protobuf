@@ -44,6 +44,7 @@ message GeneratedSwiftReservedMessages {
   message AsyncMessageSequence { int32 AsyncMessageSequence = 1; }
   message at { int32 at = 1; }
   message atByteOffset { int32 atByteOffset = 1; }
+  message atIndex { int32 atIndex = 1; }
   message available { int32 available = 1; }
   message Base { int32 Base = 1; }
   message baseAddress { int32 baseAddress = 1; }
@@ -972,6 +973,7 @@ message GeneratedSwiftReservedMessages {
   message span { int32 span = 1; }
   message spi { int32 spi = 1; }
   message split { int32 split = 1; }
+  message stable { int32 stable = 1; }
   message start { int32 start = 1; }
   message startArray { int32 startArray = 1; }
   message startField { int32 startField = 1; }

@@ -56,23 +56,23 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var values1: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var values2: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var values3: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var values4: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 3, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -227,8 +227,8 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var values: [SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -286,13 +286,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{18}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a} \0\0\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum3.SwiftEnumTest"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{4}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a}\u{10}\0\0\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum3.SwiftEnumTest"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{1}\0\u{10}\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{2}\0\u{10}\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a}\u{3}\0\u{10}\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum3.SwiftEnumTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'KH+\u{1e}\u{17}d GMwQ\tT\0\u{1}9)rw*h!_I>^\\5XP\u{6}\u{7f}V a9#`\u{c}\u{7f}Gn*\u{7f}\u{c}\u{1f}`\u{17}d{22\u{b}i\u{1d}[\u{1c}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -336,13 +330,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord {
 }
 
 extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum3.SwiftEnumWithAliasTest"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum3.SwiftEnumWithAliasTest"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum3.SwiftEnumWithAliasTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

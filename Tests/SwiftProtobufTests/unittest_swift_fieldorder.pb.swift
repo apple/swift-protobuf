@@ -42,13 +42,13 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var myString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 60), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 60), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `myString` has been explicitly set.
   var hasMyString: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `myString`. Subsequent reads from it will return its default value.
-  mutating func clearMyString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(64, 60), type: String.self, hasBit: (0, 2)) }
+  mutating func clearMyString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var myInt: Int64 {
     get { _storage.value(at: 32, default: 0, hasBit: (0, 1)) }
@@ -102,8 +102,8 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
   }
 
   var oneofString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(80, 72), oneofPresence: (4, 150)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 72), to: newValue, oneofPresence: (4, 150)) }
+    get { return _storage.value(atIndex: 1, oneofPresence: (4, 150)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 150)) }
   }
 
   var oneofInt32: Int32 {
@@ -112,13 +112,13 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
   }
 
   var optionalNestedMessage: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage {
-    get { _storage.value(at: 48, default: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 48, type: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
+  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
 
   enum OneOf_Options: Swift.Equatable, Swift.Sendable {
     case oneofInt64(Int64)
@@ -403,13 +403,7 @@ let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.Extensio
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0 \u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\00\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0@\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0P\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0T\0 \u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\00\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0<\0\0\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0H\0\0{\u{7f}\0\0\u{9}H\u{1}\0\0\00\0\0\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0\u{1}\0@{\u{7f}\0\0\u{9}H\u{1}\0\0\0\0\00\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{3}\0\0 _Nr=[ky!Vj@4\u{19}Hs\t>\u{1f}8ujI-1\u{14}\nd,^[\u{b}QAQiA\u{1e}\u{c}s\u{8}U1\u{4}@9gNrKe\u{f}-_GTz\u{1e}wfYixc'J\u{14}x^v? ~:1\u{13}6_2\u{1c}\u{f}jw`\0-zHoF;? B.?+?9woGC\u{7f}\u{10}QN[/0v)EPXY\u{1d}x[JDQ\u{5}uC|t\u{7}3\u{1a}:,\u{7f}gWv\u{8}yD{\u{13}QiGUokx\nB\u{8}mRJD\u{c}dcsIQ9o\u{3}V#)\u{1b}x\u{2}\0s)@B\u{19}09S\u{2}@<3h^G$,SEhV\u{3}D`Ah=*9\t\u{6}R\u{10}X|vH5_\u{16}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -426,13 +420,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}:\0swift_proto_testing.order.TestFieldOrderings.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}:\0swift_proto_testing.order.TestFieldOrderings.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}:\0swift_proto_testing.order.TestFieldOrderings.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}PLUCBU\u{13}iR\u{13}(e<\u{11}dOOnh\u{14}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -442,13 +430,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
 }
 
 extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0 \u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0H\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0 \u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0H\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0 \u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\u{1}\0\0 \u{1f}y>\u{15}\u{6}. \tF\u{2}\u{11}tt)%\t7[\"j\u{4}\0{ZsB^\u{1e}\u{8}\u{16}wdiD)\u{4}\u{13}'O&7\u{1b}E!B\u{1d}>,R\"k\u{17}{u?\u{15}\u{3}\u{8}>2\rCt\"~OyUa?i\u{c}\u{4}\u{1e}'sC0\u{e}J<5MU\u{1c}$!iTPE\u{5}`8Bhwkp^UCL8ps\u{6}#\u{1}\u{19}\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
