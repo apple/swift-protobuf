@@ -88,10 +88,7 @@ class ExtensionSetGenerator {
                 extensionField: self,
                 extensionName: generatorOptions.experimentalHiddenNames.contains(.fields) ? "" : extensionName
             )
-            guard let schemaLiteral = extensionSchemaCalculator.schemaLiterals.valueIfAllEqual else {
-                preconditionFailure("extension field schemas should not be target-sensitive")
-            }
-
+            let schemaLiteral = extensionSchemaCalculator.schemaLiteral
             let visibility = generatorOptions.visibilitySourceSnippet
             let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)

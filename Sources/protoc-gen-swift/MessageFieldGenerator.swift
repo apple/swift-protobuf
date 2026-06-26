@@ -155,9 +155,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             }
         }
 
+        let atLabel = storageBucket == .stable ? "at" : "atIndex"
         p.printIndented(
-            "get { _storage.value(at: \(storageOffsetExpression), \(defaultValueArgument)\(hasBitArgument)) }",
-            "set { _uniqueStorage().updateValue(at: \(storageOffsetExpression), to: newValue, \(willBeSetArgument)\(hasBitArgument)) }"
+            "get { _storage.value(\(atLabel): \(storageOffsetOrIndex), \(defaultValueArgument)\(hasBitArgument)) }",
+            "set { _uniqueStorage().updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument)) }"
         )
         p.print("}")
 
@@ -172,7 +173,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value."
         )
         p.print(
-            "\(visibility)mutating func \(swiftClearName)() { _uniqueStorage().clearValue(at: \(storageOffsetExpression), type: \(swiftType).self, \(hasBitArgument)) }"
+            "\(visibility)mutating func \(swiftClearName)() { _uniqueStorage().clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument)) }"
         )
     }
 }

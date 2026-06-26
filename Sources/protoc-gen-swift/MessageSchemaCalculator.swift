@@ -18,18 +18,18 @@ import SwiftProtobuf
 /// Iterates over the fields of a message to compute the encoded schema string that will be emitted
 /// into generated code.
 struct MessageSchemaCalculator {
-    /// Manages the generation of the Swift string literals that encode the message schema in the
+    /// Manages the generation of the Swift string literal that encodes the message schema in the
     /// generated source.
-    private var schemaWriters: TargetSpecificValues<SchemaWriter>
+    private var schemaWriter: SchemaWriter
 
     /// Collects submessage information as it is encountered while iterating over the fields of the
     /// message.
     private var submessageOrEnumCollector = SubmessageOrEnumCollector()
 
-    /// The Swift string literals (without surrounding quotes) that encode the message schema in
+    /// The Swift string literal (without surrounding quotes) that encodes the message schema in
     /// the generated source.
-    var schemaLiterals: TargetSpecificValues<String> {
-        schemaWriters.map(\.schemaCode)
+    var schemaLiteral: String {
+        schemaWriter.schemaCode
     }
 
     /// The fully-qualified names of all submessages used by the message whose schema is being
@@ -41,14 +41,13 @@ struct MessageSchemaCalculator {
         submessageOrEnumCollector.usedFields.sorted { $0.value.index < $1.value.index }.map { $0.value }
     }
 
-    /// Creates a new message schema calculator for a message containing the given fields and for
-    /// a platform with the given pointer bit-width.
+    /// Creates a new message schema calculator for a message containing the given fields.
     init(
         fullyQualifiedName: String,
         fieldsSortedByNumber: [any FieldGenerator],
         extensibilityMode: ExtensibilityMode = .nonextensible
     ) {
-        self.schemaWriters = .init(forAllTargets: .init())
+        self.schemaWriter = .init()
 
         let fieldCount = fieldsSortedByNumber.count
 
@@ -117,85 +116,118 @@ struct MessageSchemaCalculator {
             byteOffset += deferredOneofMembers.count * MemoryLayout<UInt32>.stride
         }
 
-        // Compute the byte offset of each field in storage. From this point on, we need to use
-        // target-specific values because fields might have different sizes on different
-        // architectures.
-        //
-        // See the documentation for `FieldStorageKind` for more information about why this order
-        // has been chosen.
-        var byteOffsets = TargetSpecificValues<Int>(forAllTargets: byteOffset)
-        let fieldsSortedByStorage = fieldsSortedByNumber.sorted { $0.storageKind < $1.storageKind }
-        var firstNontrivialOffset = TargetSpecificValues<Int>(forAllTargets: 0)
-        var foundNontrivial = false
-        for field in fieldsSortedByStorage {
-            let fieldSizes = field.storageKind.strides
+        // Group fields into their respective storage buckets.
+        var stableFields = [any FieldGenerator]()
+        var repeatedFields = [any FieldGenerator]()
+        var mapFields = [any FieldGenerator]()
+        var messageFields = [any FieldGenerator]()
+        var stringFields = [any FieldGenerator]()
+        var bytesFields = [any FieldGenerator]()
 
-            // Make sure we're properly aligned for this type.
-            byteOffsets.align(to: fieldSizes)
-
-            if (field.storageKind == .pointer || field.storageKind == .stringOrData) && !foundNontrivial {
-                firstNontrivialOffset = byteOffsets
-                foundNontrivial = true
+        for field in fieldsSortedByNumber {
+            switch field.storageBucket {
+            case .stable:
+                stableFields.append(field)
+            case .repeated:
+                repeatedFields.append(field)
+            case .map:
+                mapFields.append(field)
+            case .message:
+                messageFields.append(field)
+            case .string:
+                stringFields.append(field)
+            case .bytes:
+                bytesFields.append(field)
+            default:
+                preconditionFailure("Unreachable")
             }
+        }
 
-            field.storageOffsets = byteOffsets
-            byteOffsets.add(fieldSizes)
-
+        // Lay out stable-size fields. Since stable-size fields only have sizes of 1, 4, or 8 bytes
+        // (which are identical on 32-bit and 64-bit platforms), their layout is 100% target-independent.
+        let stableFieldsSortedByStorage = stableFields.sorted { $0.stableStride < $1.stableStride }
+        for field in stableFieldsSortedByStorage {
+            let stride = field.stableStride
+            let misalignment = byteOffset % stride
+            if misalignment != 0 {
+                byteOffset += stride - misalignment
+            }
+            field.storageOffsetOrIndex = byteOffset
+            byteOffset += stride
             submessageOrEnumCollector.collect(field)
         }
-        if !foundNontrivial {
-            firstNontrivialOffset = byteOffsets
+        let stableSize = byteOffset
+
+        // Helper to assign zero-based indices to unstable-size fields within their respective buckets.
+        func assignIndices(to bucket: [any FieldGenerator]) {
+            for (index, field) in bucket.enumerated() {
+                field.storageOffsetOrIndex = index
+                submessageOrEnumCollector.collect(field)
+            }
         }
+        assignIndices(to: repeatedFields)
+        assignIndices(to: mapFields)
+        assignIndices(to: messageFields)
+        assignIndices(to: stringFields)
+        assignIndices(to: bytesFields)
 
         // Now we have all the information we need to generate the schema string. First we write
         // the header, then the fields in order of field number.
-        schemaWriters.modify { writer, which in
-            writer.writeBase128Int(0, byteWidth: 1)
-            let messageSize = UInt64(byteOffsets[which])
-            let encodedSize = messageSize | (UInt64(extensibilityMode.rawValue) << 14)
-            writer.writeBase128Int(encodedSize, byteWidth: 3)
-            writer.writeBase128Int(UInt64(fieldsSortedByNumber.count), byteWidth: 3)
-            writer.writeBase128Int(UInt64(requiredCount), byteWidth: 3)
-            writer.writeBase128Int(UInt64(explicitPresenceCount), byteWidth: 3)
-            writer.writeBase128Int(UInt64(denseBelow), byteWidth: 3)
-            writer.writeBase128Int(UInt64(firstNontrivialOffset[which]), byteWidth: 3)
-            for field in fieldsSortedByNumber {
-                writer.writeBase128Int(UInt64(field.number) | (UInt64(field.fieldMode.rawValue) << 28), byteWidth: 5)
-                writer.writeBase128Int(UInt64(field.storageOffsets[which]), byteWidth: 3)
-                writer.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
-                writer.writeBase128Int(
-                    UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[field.number, default: 0]),
-                    byteWidth: 2
-                )
-                writer.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
-            }
-            writer.writeBase128Int(UInt64(fullyQualifiedName.utf8.count), byteWidth: 2)
-            writer.writeString(fullyQualifiedName)
+        schemaWriter.writeBase128Int(0, byteWidth: 1)
+        let encodedSize = UInt64(stableSize) | (UInt64(extensibilityMode.rawValue) << 14)
+        schemaWriter.writeBase128Int(encodedSize, byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(fieldsSortedByNumber.count), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(requiredCount), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(explicitPresenceCount), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(denseBelow), byteWidth: 3)
+
+        // Append 5 independent 3-byte base-128 bucket counts
+        schemaWriter.writeBase128Int(UInt64(repeatedFields.count), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(mapFields.count), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(messageFields.count), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(stringFields.count), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(bytesFields.count), byteWidth: 3)
+
+        for field in fieldsSortedByNumber {
+            schemaWriter.writeBase128Int(UInt64(field.number) | (UInt64(field.fieldMode.rawValue) << 28), byteWidth: 5)
+
+            // Pack 3-bit StorageBucket into the top 3 bits (bits 18-20) of the 21-bit offset/index payload
+            let rawOffsetOrIndex = UInt64(field.storageOffsetOrIndex)
+            let bucket = field.storageBucket
+            let packedOffsetOrIndex = rawOffsetOrIndex | (UInt64(bucket.rawValue) << 18)
+            schemaWriter.writeBase128Int(packedOffsetOrIndex, byteWidth: 3)
+
+            schemaWriter.writeBase128Int(UInt64(field.presence.rawPresence), byteWidth: 2)
+            schemaWriter.writeBase128Int(
+                UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[field.number, default: 0]),
+                byteWidth: 2
+            )
+            schemaWriter.writeBase128Int(UInt64(field.rawFieldType.rawValue), byteWidth: 1)
         }
+        schemaWriter.writeBase128Int(UInt64(fullyQualifiedName.utf8.count), byteWidth: 2)
+        schemaWriter.writeString(fullyQualifiedName)
     }
 
     /// Creates a new message schema writer for a single extension field.
     init(extensionField: any FieldGenerator, extensionName: String) {
         submessageOrEnumCollector.collect(extensionField)
 
-        self.schemaWriters = .init(forAllTargets: .init())
-        schemaWriters.modify { writer, _ in
-            writer.writeBase128Int(0, byteWidth: 1)
-            writer.writeBase128Int(
-                UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28),
-                byteWidth: 5
-            )
-            writer.writeBase128Int(UInt64(0), byteWidth: 3)
-            writer.writeBase128Int(UInt64(0), byteWidth: 2)
-            writer.writeBase128Int(
-                UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[extensionField.number, default: 0]),
-                byteWidth: 2
-            )
-            writer.writeBase128Int(UInt64(extensionField.rawFieldType.rawValue), byteWidth: 1)
+        self.schemaWriter = .init()
+        schemaWriter.writeBase128Int(0, byteWidth: 1)
+        schemaWriter.writeBase128Int(
+            UInt64(extensionField.number) | (UInt64(extensionField.fieldMode.rawValue) << 28),
+            byteWidth: 5
+        )
+        schemaWriter.writeBase128Int(UInt64(0), byteWidth: 3)
+        schemaWriter.writeBase128Int(UInt64(0), byteWidth: 2)
+        schemaWriter.writeBase128Int(
+            UInt64(submessageOrEnumCollector.fieldNumberToIndexMap[extensionField.number, default: 0]),
+            byteWidth: 2
+        )
+        schemaWriter.writeBase128Int(UInt64(extensionField.rawFieldType.rawValue), byteWidth: 1)
 
-            writer.writeBase128Int(UInt64(extensionName.utf8.count), byteWidth: 2)
-            writer.writeString(extensionName)
-        }
+        schemaWriter.writeBase128Int(UInt64(extensionName.utf8.count), byteWidth: 2)
+        schemaWriter.writeString(extensionName)
     }
 }
 

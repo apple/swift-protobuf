@@ -73,11 +73,9 @@ class MapEntryGenerator {
     }
 
     func generateSchema(into printer: inout CodePrinter) {
-        entrySchemaCalculator.schemaLiterals.printConditionalBlocks(to: &printer) { value, _, p in
-            p.print(
-                #"private static let \#(entrySchemaName)_string: Swift.StaticString = "\#(value)""#
-            )
-        }
+        printer.print(
+            #"private static let \#(entrySchemaName)_string: Swift.StaticString = "\#(entrySchemaCalculator.schemaLiteral)""#
+        )
         printer.print(
             "private static let \(entrySchemaName) = SwiftProtobuf.MessageSchema(schema: \(entrySchemaName)_string, forMapEntryWithKeyType: \(keyParticipantType).self, valueType: \(valueParticipantType).self)"
         )

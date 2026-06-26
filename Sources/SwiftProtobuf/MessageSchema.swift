@@ -731,6 +731,35 @@ package struct ExtensibilityMode: RawRepresentable, Equatable, Hashable, Sendabl
     }
 }
 
+/// The indices of buckets in the storage buffer that hold values with unstable sizes (i.e., sizes
+/// not known when the code is generated).
+package struct StorageBucket: RawRepresentable, Equatable, Hashable, Sendable {
+    /// Primitive values have their offsets precomputed.
+    package static var stable: Self { .init(rawValue: 0) }
+
+    /// The bucket for repeated fields (represented in Swift as `Array`).
+    package static var repeated: Self { .init(rawValue: 1) }
+
+    /// The bucket for map fields (represented in Swift as `Dictionary`).
+    package static var map: Self { .init(rawValue: 2) }
+
+    /// The bucket for singular message fields (represented in Swift as their concrete message
+    /// type).
+    package static var message: Self { .init(rawValue: 3) }
+
+    /// The bucket for singular string fields (represented in Swift as `String`).
+    package static var string: Self { .init(rawValue: 4) }
+
+    /// The bucket for singular bytes fields (represented in Swift as `Data`).
+    package static var bytes: Self { .init(rawValue: 5) }
+
+    package let rawValue: UInt8
+
+    package init(rawValue: UInt8) {
+        self.rawValue = rawValue
+    }
+}
+
 /// Returns the up-to-14-bit unsigned integer that has been base-128 encoded at the given byte
 /// offset in the buffer.
 @_alwaysEmitIntoClient @inline(__always)

@@ -237,9 +237,9 @@ class MessageGenerator {
     }
 
     private func generateMessageSchema(printer p: inout CodePrinter) {
-        messageSchemaCalculator.schemaLiterals.printConditionalBlocks(to: &p) { value, _, p in
-            p.print(#"private static let _protobuf_messageSchemaString: Swift.StaticString = "\#(value)""#)
-        }
+        p.print(
+            #"private static let _protobuf_messageSchemaString: Swift.StaticString = "\#(messageSchemaCalculator.schemaLiteral)""#
+        )
         p.print(#"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#)
 
         let submessageOrEnumFields = messageSchemaCalculator.submessageOrEnumFields
