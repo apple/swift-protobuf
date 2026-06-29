@@ -116,14 +116,14 @@ public struct Google_Protobuf_Any: @unchecked Swift.Sendable {
   /// implemented one and considers contacting these URLs to be problematic and
   /// a potential security issue. Do not attempt to contact type URLs.
   public var typeURL: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   /// Holds a Protobuf serialization of the type described by type_url.
   public var value: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -139,13 +139,7 @@ public struct Google_Protobuf_Any: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Google_Protobuf_Any: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}\u{13}\0google.protobuf.Any"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MX$R\0*\u{10}u5\u{8}\u{3}MO=\u{1e}\u{16}9ZB}F\\\u{1d}sNIqfaz:~!\",dn\u{1e}K/\u{15}bZ)\u{1}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

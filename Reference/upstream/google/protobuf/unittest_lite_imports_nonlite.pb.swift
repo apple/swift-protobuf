@@ -37,23 +37,23 @@ struct Proto2Unittest_TestLiteImportsNonlite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var message: Proto2Unittest_TestAllTypes {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2Unittest_TestAllTypes(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypes(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `message` has been explicitly set.
   var hasMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
-  mutating func clearMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2Unittest_TestAllTypes.self, hasBit: (0, 1)) }
+  mutating func clearMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestAllTypes.self, hasBit: (0, 1)) }
 
   /// Verifies that transitive required fields generates valid code.
   var messageWithRequired: Proto2Unittest_TestRequired {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: Proto2Unittest_TestRequired(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestRequired(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `messageWithRequired` has been explicitly set.
   var hasMessageWithRequired: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `messageWithRequired`. Subsequent reads from it will return its default value.
-  mutating func clearMessageWithRequired() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: Proto2Unittest_TestRequired.self, hasBit: (0, 2)) }
+  mutating func clearMessageWithRequired() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_TestRequired.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -68,13 +68,7 @@ struct Proto2Unittest_TestLiteImportsNonlite: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_TestLiteImportsNonlite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}&\0proto2_unittest.TestLiteImportsNonlite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}&\0proto2_unittest.TestLiteImportsNonlite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}&\0proto2_unittest.TestLiteImportsNonlite"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#`~\u{18}J%l\u{2}5<1\u{17}dJ(\u{7f}\u{12}J'}%nS\r;\u{1d}0IW`/\u{7f}kM8a0}>\u{c}c@\u{e}\u{15}K\r2@\u{1b}yRA%.\u{1f}9\u{b}gP\u{2}\u{1a}/_J\u{1c}6\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

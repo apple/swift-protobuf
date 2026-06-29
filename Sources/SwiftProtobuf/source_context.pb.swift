@@ -60,8 +60,8 @@ public struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
   /// The path-qualified name of the .proto file that contained the associated
   /// protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   public var fileName: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -77,13 +77,7 @@ public struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Google_Protobuf_SourceContext: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hGliX\u{18}j9Rre(lk/\t\u{3}\u{1b}^\u{1}u\u{f}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

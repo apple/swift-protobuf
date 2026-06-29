@@ -78,13 +78,13 @@ struct SwiftProtoTesting_Deprecated_MyMsg: @unchecked Swift.Sendable {
   ///
   /// NOTE: This field was marked as deprecated in the .proto file.
   var stringField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `stringField` has been explicitly set.
   var hasStringField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
-  mutating func clearStringField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
+  mutating func clearStringField() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var intField: Int32 {
@@ -98,19 +98,19 @@ struct SwiftProtoTesting_Deprecated_MyMsg: @unchecked Swift.Sendable {
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var fixedField: [UInt32] {
-    get { _storage.value(at: 8, hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var msgField: SwiftProtoTesting_Deprecated_MyMsg {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: SwiftProtoTesting_Deprecated_MyMsg(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Deprecated_MyMsg(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `msgField` has been explicitly set.
   var hasMsgField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `msgField`. Subsequent reads from it will return its default value.
-  mutating func clearMsgField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: SwiftProtoTesting_Deprecated_MyMsg.self, hasBit: (0, 4)) }
+  mutating func clearMsgField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Deprecated_MyMsg.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -147,13 +147,13 @@ struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var stringField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `stringField` has been explicitly set.
   var hasStringField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
-  mutating func clearStringField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
+  mutating func clearStringField() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var intField: Int32 {
     get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
@@ -165,18 +165,18 @@ struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Swift.Sendable {
   mutating func clearIntField() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var fixedField: [UInt32] {
-    get { _storage.value(at: 8, hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var msgField: SwiftProtoTesting_Deprecated_MyMsg2 {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: SwiftProtoTesting_Deprecated_MyMsg2(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Deprecated_MyMsg2(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `msgField` has been explicitly set.
   var hasMsgField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `msgField`. Subsequent reads from it will return its default value.
-  mutating func clearMsgField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: SwiftProtoTesting_Deprecated_MyMsg2.self, hasBit: (0, 4)) }
+  mutating func clearMsgField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Deprecated_MyMsg2.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -380,13 +380,7 @@ extension SwiftProtoTesting_Deprecated_MyEnum2 {
 }
 
 extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0 \u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\0\0\u{10}\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}$\0swift_proto_testing.deprecated.MyMsg"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -403,13 +397,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0swift_proto_testing.deprecated.MsgScope"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0swift_proto_testing.deprecated.MsgScope"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'\0swift_proto_testing.deprecated.MsgScope"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -419,13 +407,7 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{4}\0\0\u{1}\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\0\0\u{10}\u{3}\0\0\0\u{7}\u{4}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}%\0swift_proto_testing.deprecated.MyMsg2"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\u{1}\0\00\u{7f}H8}[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{Z*d\u{1a}\u{1e}\u{e}r\u{1b}Z_\u{c}veWwzyTD\u{12}#Do7\u{c}3\"G@\u{1f}@B\"$6u86d*ySIDD~9\u{6}#\u{16}=\u{19}a|C#[QYD\u{1}xI6\n\u{14}<a3\u{e}\u{15}\u{8}J.\u{3}/*\u{7f}NLNVz qD~,p\u{2}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

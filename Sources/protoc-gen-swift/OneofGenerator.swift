@@ -273,9 +273,10 @@ class OneofGenerator {
             "",
             "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {"
         )
+        let atLabel = field.storageBucket == .stable ? "at" : "atIndex"
         p.printIndented(
-            "get { return _storage.value(at: \(field.storageOffsetExpression), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
-            "set { _uniqueStorage().updateValue(at: \(field.storageOffsetExpression), to: newValue, oneofPresence: \(oneofPresence)) }"
+            "get { return _storage.value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
+            "set { _uniqueStorage().updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence)) }"
         )
         p.print("}")
     }

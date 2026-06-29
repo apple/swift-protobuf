@@ -108,37 +108,37 @@ struct Google_Protobuf_Type: @unchecked Swift.Sendable {
 
   /// The fully qualified message name.
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   /// The list of fields.
   var fields: [Google_Protobuf_Field] {
-    get { _storage.value(at: 8, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   /// The list of types appearing in `oneof` definitions in this type.
   var oneofs: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   /// The protocol buffer options.
   var options: [Google_Protobuf_Option] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   /// The source context.
   var sourceContext: Google_Protobuf_SourceContext {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 20), default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 20), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.
   var hasSourceContext: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
-  mutating func clearSourceContext() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 20), type: Google_Protobuf_SourceContext.self, hasBit: (0, 1)) }
+  mutating func clearSourceContext() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_SourceContext.self, hasBit: (0, 1)) }
 
   /// The source syntax.
   var syntax: Google_Protobuf_Syntax {
@@ -148,8 +148,8 @@ struct Google_Protobuf_Type: @unchecked Swift.Sendable {
 
   /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
   var edition: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 36), hasBit: (0, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -193,15 +193,15 @@ struct Google_Protobuf_Field: @unchecked Swift.Sendable {
 
   /// The field name.
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   /// The field type URL, without the scheme, for message or enumeration
   /// types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
   var typeURL: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   /// The index of the field type in `Type.oneofs`, for message or enumeration
@@ -219,20 +219,20 @@ struct Google_Protobuf_Field: @unchecked Swift.Sendable {
 
   /// The protocol buffer options.
   var options: [Google_Protobuf_Option] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 20), hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   /// The field JSON name.
   var jsonName: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 48), hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
+    get { _storage.value(atIndex: 2, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   /// The string value of the default value of this field. Proto2 syntax only.
   var defaultValue: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 60), hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
+    get { _storage.value(atIndex: 3, hasBit: (1, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   /// Basic field types.
@@ -450,31 +450,31 @@ struct Google_Protobuf_Enum: @unchecked Swift.Sendable {
 
   /// Enum type name.
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   /// Enum value definitions.
   var enumvalue: [Google_Protobuf_EnumValue] {
-    get { _storage.value(at: 8, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   /// Protocol buffer options.
   var options: [Google_Protobuf_Option] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   /// The source context.
   var sourceContext: Google_Protobuf_SourceContext {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.
   var hasSourceContext: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
-  mutating func clearSourceContext() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 16), type: Google_Protobuf_SourceContext.self, hasBit: (0, 1)) }
+  mutating func clearSourceContext() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_SourceContext.self, hasBit: (0, 1)) }
 
   /// The source syntax.
   var syntax: Google_Protobuf_Syntax {
@@ -484,8 +484,8 @@ struct Google_Protobuf_Enum: @unchecked Swift.Sendable {
 
   /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
   var edition: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -511,8 +511,8 @@ struct Google_Protobuf_EnumValue: @unchecked Swift.Sendable {
 
   /// Enum value name.
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   /// Enum value number.
@@ -523,8 +523,8 @@ struct Google_Protobuf_EnumValue: @unchecked Swift.Sendable {
 
   /// Protocol buffer options.
   var options: [Google_Protobuf_Option] {
-    get { _storage.value(at: 8, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -553,8 +553,8 @@ struct Google_Protobuf_Option: @unchecked Swift.Sendable {
   /// For custom options, it should be the fully-qualified name. For example,
   /// `"google.api.http"`.
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   /// The option's value packed in an Any message. If the value is a primitive,
@@ -562,13 +562,13 @@ struct Google_Protobuf_Option: @unchecked Swift.Sendable {
   /// should be used. If the value is an enum, it should be stored as an int32
   /// value using the google.protobuf.Int32Value type.
   var value: Google_Protobuf_Any {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Google_Protobuf_Any(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Google_Protobuf_Any(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
   var hasValue: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
-  mutating func clearValue() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Google_Protobuf_Any.self, hasBit: (0, 1)) }
+  mutating func clearValue() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_Any.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -589,13 +589,7 @@ extension Google_Protobuf_Syntax {
 }
 
 extension Google_Protobuf_Type: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{8}\0\0\u{1}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{18}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0 \0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0@\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{10}\0\0\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0\u{14}\0\0\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0$\0\0\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{7}\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{1}\0\u{10}\u{3}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{2}\0\u{10}\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\0\0\00\0\0\u{4}\0\u{b}\u{6}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1}\0@\u{6}\0\0\0\u{9}\u{14}\0google.protobuf.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\u{1}\0\00_Pyu[\u{7}c\0$I9\u{b}^TTX$ws hh&Xc.TvW4\u{6}U\u{c})6_G1(/Po&X\t\u{3}P\u{1e}m\u{1}6\u{1f}\u{5}\u{1}Z\u{11}9)\r5\u{10}\u{1d}abk7\u{2}\u{1}[#('3\u{b}CSqCt\u{1d}S (\u{2}?X#\u{3}o'Yc,Ed5\u{e}m0?xh&FUf2gk\u{4}E@Z\u{2}4hZjb'\01;H!|Q\t\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -615,13 +609,7 @@ extension Google_Protobuf_Type: GeneratedMessage {
 }
 
 extension Google_Protobuf_Field: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\00\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{18}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\0@\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0P\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{14}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{6}\0\0\0\0$\0\0\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\u{14}\0\0\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\00\0\0\u{8}\0\0\0\u{9}\u{b}\0\0\0\0<\0\0\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{a}\0\0\0\0\0\0\0\0\u{5}\0\0\u{1}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}\u{6}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{7}\0\0\0\0\u{10}\0\0\u{5}\0\0\0\u{5}\u{8}\0\0\0\0\u{2}\0\0\u{6}\0\0\0\u{8}\u{9}\0\0\0\u{2}\0\0\u{10}\u{7}\0\u{3}\0\u{b}\u{a}\0\0\0\0\u{2}\0@\u{8}\0\0\0\u{9}\u{b}\0\0\0\0\u{3}\0@\u{9}\0\0\0\u{9}\u{15}\0google.protobuf.Field"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\u{2}\0\0\u{10}\u{15}O\u{b}\u{6}R\u{1}%\u{1d}7E;lV;Wa\tU\u{1}$\u{7}pu\u{18}\u{1}%\0a*u\u{5})|5n`*L\"+N\u{1}\u{3}\rI>\u{1b}\u{1b}Gy\\MyB?m91`V\u{1c}\\IlQ'\tzC)O\\[iL\u{18}<\u{8}:\0h\u{1a}+:Q\u{1f}lyp\u{5}xG\u{1f}1\u{1}K\u{4}0qw\u{11}\u{1f}E\u{1e}\t3\u{e}\u{13}[\u{13}\u{7}\u{1d}\u{10}H#\u{f}1&)f\u{11}\u{13}A&]j[E4SUo\u{c}9+4\u{2}Wb_3B1hU_moMrW\u{15}R,\u{1b}otlCKV]idk=!DjM[+\tOJoQ5\u{1c}p\0H\u{16}u\u{12}x;\u{8}\u{7}%\rUugNh\u{13}E\u{1d}unc\u{3})t8\n\u{b}|\u{14}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -652,13 +640,7 @@ extension Google_Protobuf_Field.Cardinality {
 }
 
 extension Google_Protobuf_Enum: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0$\0\0\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{1}\0\u{10}\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\0\00\0\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0\u{1}\0@\u{5}\0\0\0\u{9}\u{14}\0google.protobuf.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}}\u{17}\tZC#Dc`\n;n\u{16}VS\ttw@}QH\u{1e}\u{1a}\u{12}\u{8}LN\u{2}\rMLc);vP\u{14}9\u{10}4w\"\u{1e}\u{e}Z|Vl\u{f}`j'D%\u{1a}u[CS!\u{2}\u{4}\u{c}/x\u{7f}\u{18}*(K\u{8}|I\n~\u{7}go\u{e}\u{5}\u{7}!\u{3}v_k*\u{1e}\u{6}>bjO\u{11}\u{13}\u{7f}Mn5em\u{c}\u{6}\u{10}I\u{2}\u{2}zzus[}Yp\u{10}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -678,13 +660,7 @@ extension Google_Protobuf_Enum: GeneratedMessage {
 }
 
 extension Google_Protobuf_EnumValue: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{19}\0google.protobuf.EnumValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\011S*Hs0\u{14}}G\u{10}%OF\u{10}\r\u{17}kiu,gc,\u{1}u\u{1a}D\u{1b}9\u{f}1j{\u{1c}#(6\u{1f}\u{8}\0HPm\u{10}lf*\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -701,13 +677,7 @@ extension Google_Protobuf_EnumValue: GeneratedMessage {
 }
 
 extension Google_Protobuf_Option: GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Option"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}\u{14}}\u{14}JBU\u{13}i^3?\u{10}\u{8}Y1<\u{10}|\u{13}Et+6\u{3} \u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

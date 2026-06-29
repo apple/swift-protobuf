@@ -53,13 +53,13 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var field1: String {
-    get { _storage.value(at: 48, default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 48, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `field1` has been explicitly set.
   var hasField1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `field1`. Subsequent reads from it will return its default value.
-  mutating func clearField1() { _uniqueStorage().clearValue(at: 48, type: String.self, hasBit: (0, 1)) }
+  mutating func clearField1() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var field2: Int32 {
     get { _storage.value(at: 20, default: 0, hasBit: (0, 2)) }
@@ -104,13 +104,13 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
   }
 
   var field5: SDTTopLevelMessage.SubMessage {
-    get { return _storage.value(at: 32, default: SDTTopLevelMessage.SubMessage(), oneofPresence: (4, 5)) }
-    set { _uniqueStorage().updateValue(at: 32, to: newValue, oneofPresence: (4, 5)) }
+    get { return _storage.value(atIndex: 0, default: SDTTopLevelMessage.SubMessage(), oneofPresence: (4, 5)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 5)) }
   }
 
   var field6: SDTTopLevelMessage2 {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(40, 36), default: SDTTopLevelMessage2(), oneofPresence: (4, 6)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 36), to: newValue, oneofPresence: (4, 6)) }
+    get { return _storage.value(atIndex: 1, default: SDTTopLevelMessage2(), oneofPresence: (4, 6)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 6)) }
   }
 
   enum OneOf_O: Swift.Equatable, Swift.Sendable {
@@ -146,22 +146,22 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
     mutating func clearField1() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var field2: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 2)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+      get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `field2` has been explicitly set.
     var hasField2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `field2`. Subsequent reads from it will return its default value.
-    mutating func clearField2() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
+    mutating func clearField2() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
     var field3: SDTTopLevelMessage.SubMessage {
-      get { _storage.value(at: 8, default: SDTTopLevelMessage.SubMessage(), hasBit: (0, 4)) }
-      set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+      get { _storage.value(atIndex: 0, default: SDTTopLevelMessage.SubMessage(), hasBit: (0, 4)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `field3` has been explicitly set.
     var hasField3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
     /// Clears the value of `field3`. Subsequent reads from it will return its default value.
-    mutating func clearField3() { _uniqueStorage().clearValue(at: 8, type: SDTTopLevelMessage.SubMessage.self, hasBit: (0, 4)) }
+    mutating func clearField3() { _uniqueStorage().clearValue(atIndex: 0, type: SDTTopLevelMessage.SubMessage.self, hasBit: (0, 4)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -189,22 +189,22 @@ struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var left: SDTTopLevelMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SDTTopLevelMessage(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SDTTopLevelMessage(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `left` has been explicitly set.
   var hasLeft: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
-  mutating func clearLeft() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SDTTopLevelMessage.self, hasBit: (0, 1)) }
+  mutating func clearLeft() { _uniqueStorage().clearValue(atIndex: 0, type: SDTTopLevelMessage.self, hasBit: (0, 1)) }
 
   var right: SDTTopLevelMessage2 {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SDTTopLevelMessage2(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: SDTTopLevelMessage2(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `right` has been explicitly set.
   var hasRight: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
-  mutating func clearRight() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SDTTopLevelMessage2.self, hasBit: (0, 2)) }
+  mutating func clearRight() { _uniqueStorage().clearValue(atIndex: 1, type: SDTTopLevelMessage2.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -222,22 +222,22 @@ struct SDTExternalRefs: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var one: SwiftDescriptorTest_Import_ExtendableOne {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftDescriptorTest_Import_ExtendableOne(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftDescriptorTest_Import_ExtendableOne(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `one` has been explicitly set.
   var hasOne: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `one`. Subsequent reads from it will return its default value.
-  mutating func clearOne() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftDescriptorTest_Import_ExtendableOne.self, hasBit: (0, 1)) }
+  mutating func clearOne() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftDescriptorTest_Import_ExtendableOne.self, hasBit: (0, 1)) }
 
   var ver: SwiftDescriptorTest_Import_Version {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftDescriptorTest_Import_Version(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: SwiftDescriptorTest_Import_Version(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `ver` has been explicitly set.
   var hasVer: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `ver`. Subsequent reads from it will return its default value.
-  mutating func clearVer() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftDescriptorTest_Import_Version.self, hasBit: (0, 2)) }
+  mutating func clearVer() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftDescriptorTest_Import_Version.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -270,13 +270,13 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var reqStrField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 72), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 72), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `reqStrField` has been explicitly set.
   var hasReqStrField: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `reqStrField`. Subsequent reads from it will return its default value.
-  mutating func clearReqStrField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(112, 72), type: String.self, hasBit: (0, 1)) }
+  mutating func clearReqStrField() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var reqInt32Field: Int32 {
     get { _storage.value(at: 20, default: 0, hasBit: (0, 2)) }
@@ -297,22 +297,22 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   mutating func clearReqEnumField() { _uniqueStorage().clearValue(at: 24, type: SDTTopLevelEnum.self, hasBit: (0, 4)) }
 
   var reqMessageField: SDTTopLevelMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 44), default: SDTTopLevelMessage(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 44), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, default: SDTTopLevelMessage(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `reqMessageField` has been explicitly set.
   var hasReqMessageField: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `reqMessageField`. Subsequent reads from it will return its default value.
-  mutating func clearReqMessageField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 44), type: SDTTopLevelMessage.self, hasBit: (0, 8)) }
+  mutating func clearReqMessageField() { _uniqueStorage().clearValue(atIndex: 0, type: SDTTopLevelMessage.self, hasBit: (0, 8)) }
 
   var optStrField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 84), default: String(), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 84), to: newValue, willBeSet: true, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optStrField` has been explicitly set.
   var hasOptStrField: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `optStrField`. Subsequent reads from it will return its default value.
-  mutating func clearOptStrField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(128, 84), type: String.self, hasBit: (0, 16)) }
+  mutating func clearOptStrField() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (0, 16)) }
 
   var optInt32Field: Int32 {
     get { _storage.value(at: 28, default: 0, hasBit: (0, 32)) }
@@ -333,32 +333,32 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   mutating func clearOptEnumField() { _uniqueStorage().clearValue(at: 32, type: SDTTopLevelEnum.self, hasBit: (0, 64)) }
 
   var optMessageField: SDTTopLevelMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 48), default: SDTTopLevelMessage(), hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 48), to: newValue, willBeSet: true, hasBit: (0, 128)) }
+    get { _storage.value(atIndex: 1, default: SDTTopLevelMessage(), hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `optMessageField` has been explicitly set.
   var hasOptMessageField: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `optMessageField`. Subsequent reads from it will return its default value.
-  mutating func clearOptMessageField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(56, 48), type: SDTTopLevelMessage.self, hasBit: (0, 128)) }
+  mutating func clearOptMessageField() { _uniqueStorage().clearValue(atIndex: 1, type: SDTTopLevelMessage.self, hasBit: (0, 128)) }
 
   var repeatStrField: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 52), hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var repeatInt32Field: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 56), hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (1, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var repeatEnumField: [SDTTopLevelEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 60), hasBit: (1, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (1, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var repeatMessageField: [SDTTopLevelMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 64), hasBit: (1, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 64), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
+    get { _storage.value(atIndex: 3, hasBit: (1, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var o: SDTProto2MessageForPresence.OneOf_O? {
@@ -385,8 +385,8 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   }
 
   var oneofStrField: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(144, 96), oneofPresence: (4, 31)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 96), to: newValue, oneofPresence: (4, 31)) }
+    get { return _storage.value(atIndex: 2, oneofPresence: (4, 31)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 31)) }
   }
 
   var oneofInt32Field: Int32 {
@@ -400,8 +400,8 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   }
 
   var oneofMessageField: SDTTopLevelMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 68), default: SDTTopLevelMessage(), oneofPresence: (4, 34)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 68), to: newValue, oneofPresence: (4, 34)) }
+    get { return _storage.value(atIndex: 2, default: SDTTopLevelMessage(), oneofPresence: (4, 34)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 34)) }
   }
 
   enum OneOf_O: Swift.Equatable, Swift.Sendable {
@@ -513,13 +513,7 @@ extension SDTTopLevelEnum {
 }
 
 extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0 \0\0\u{1}\0\0\0\00\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{e}\u{5}\0\0\0\0 \0\0{\u{7f}\u{3}\0\u{b}\u{6}\0\0\0\0(\0\0{\u{7f}\u{4}\0\u{b}%\0swift_descriptor_test.TopLevelMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0<\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0 \0\0\u{1}\0\0\0\00\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{e}\u{5}\0\0\0\0 \0\0{\u{7f}\u{3}\0\u{b}\u{6}\0\0\0\0$\0\0{\u{7f}\u{4}\0\u{b}%\0swift_descriptor_test.TopLevelMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{e}\u{5}\0\0\0\0\0\00{\u{7f}\u{3}\0\u{b}\u{6}\0\0\0\0\u{1}\00{\u{7f}\u{4}\0\u{b}%\0swift_descriptor_test.TopLevelMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{1}\0\0 _\u{1d}\u{1b}1\u{6}*\0_ \u{f}\u{11}|xa\u{15}X\",`\u{2}jlI\u{1f}I\u{11}E\u{12}\u{11}+2>$al,C\u{8}.DF\u{10}}?\u{e}t#%\u{1d}-dDe_\u{2},\0If\t\u{e}4s\u{1e}tMN}!Ulc?\"q}\u{15},OZI\"Bp\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -545,13 +539,7 @@ extension SDTTopLevelMessage.SubEnum {
 }
 
 extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{b}0\0swift_descriptor_test.TopLevelMessage.SubMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{b}0\0swift_descriptor_test.TopLevelMessage.SubMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}0\0swift_descriptor_test.TopLevelMessage.SubMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJTZV{n GMwQys\u{7f}5;k\u{1d}@*vm[\u{5}&\u{16}\u{3}y3XUyCm%ufxN9F\u{6}Y8\u{c}6\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -568,13 +556,7 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}&\0swift_descriptor_test.TopLevelMessage2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}&\0swift_descriptor_test.TopLevelMessage2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}&\0swift_descriptor_test.TopLevelMessage2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}\u{14}}\u{14}JBU\u{13}i^3\u{16}6`f\u{1}\u{18}iE\u{b}G\u{1e}\u{1c}\u{2}&\u{3}\u{6}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -592,13 +574,7 @@ extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\"\0swift_descriptor_test.ExternalRefs"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\"\0swift_descriptor_test.ExternalRefs"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\"\0swift_descriptor_test.ExternalRefs"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}p$mF?+V'$h3\u{16}p$\"L\r\u{1f}VX'\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -616,13 +592,7 @@ extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\"\0swift_descriptor_test.ScoperForExt"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\"\0swift_descriptor_test.ScoperForExt"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\"\0swift_descriptor_test.ScoperForExt"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -632,13 +602,7 @@ extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{10}\0\0\u{4}\0\0\u{8}\0\0\u{5}\0\00\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\00\0\0\u{3}\0\u{2}\0\u{b}\u{b}\0\0\0\0\0\u{1}\0\u{4}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{6}\0\u{1}\0\u{e}\u{e}\0\0\0\08\0\0\u{7}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}@\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{2}H\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{2}P\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}X\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0`\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto2MessageForPresence"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0l\0\0\u{10}\0\0\u{4}\0\0\u{8}\0\0\u{5}\0\0,\0\0\u{1}\0\0\0\0H\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0,\0\0\u{3}\0\u{2}\0\u{b}\u{b}\0\0\0\0T\0\0\u{4}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{6}\0\u{1}\0\u{e}\u{e}\0\0\0\00\0\0\u{7}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}4\0\0\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{2}8\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{2}<\0\0\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}@\0\0\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0`\0\0{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0D\0\0{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto2MessageForPresence"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0,\0\0\u{10}\0\0\u{4}\0\0\u{8}\0\0\u{5}\0\0\u{4}\0\0\0\0\0\u{3}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\0\00\u{3}\0\u{2}\0\u{b}\u{b}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{6}\0\u{1}\0\u{e}\u{e}\0\0\0\0\u{1}\00\u{7}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}\0\0\u{10}\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{2}\u{1}\0\u{10}\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{2}\u{2}\0\u{10}\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}\u{3}\0\u{10}\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0\u{2}\00{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto2MessageForPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{7}\0\0 _\u{12}Sv\u{17}'DTH']5\u{7f}<\u{b}56{D;?\u{5}\"\u{b}L(<.VXlMk\u{b}\u{7f}@Ww\u{7f}?n+\u{7}\u{17}w-\t[\u{17}\u{1b}a9.hF,\u{7}\u{1a})6|\u{5}j,=^\u{8}p{\n\u{18}TezU%}L<p&KW.|}n}?{\u{10}:&\u{1a}+N{\\0\u{1e}+\u{e}$\u{1}$N3l\u{2}1r77q\r0hDl\u{1d}\u{1}.MEU\t\nn\u{e}%a1 =\\\r)\u{17}K^\u{5}m9\u{11}d~dz} )j\u{c}?$u\u{16}/U?\u{4}|\u{1f}c!TD\u{c}]\u{11}5\r+_~>emp\u{10}h[Iv\u{12}@ \u{1b}\u{3}B\u{10}I@WFR?|4\u{c}S\u{1}Z\\fK._\u{14}MJJIM\u{7}U/8=s!x\u{16}|\u{17}.g||\u{10}#^f\u{12}FhKhQ\u{15}A29`),<mT}o\u{6}cv\u{17}\0\u{e}\";?V&P`Qh9\u{10}w>/;^]\u{4}>*k~CO88'HO\"(P\u{1c}-\u{1e}\u{b}a\u{6}@c\u{14}^4wF%(7\0Ps'5<U\\aV\u{7}F\u{b}~zkk* \u{1e}N>g\u{16}\u{8}P\u{17}+^=\u{4}L7e~K\"NBxh^4&t\u{1c}nb g\u{7f}}KY\u{11}Qa{.\u{1e}WMv3:\u{13}lr\u{1c}\u{e}Qj\u{2}S\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

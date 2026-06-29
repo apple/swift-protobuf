@@ -74,13 +74,13 @@ struct Proto2Unittest_TestRedactedNestMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var foo: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `foo` has been explicitly set.
   var hasFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
-  mutating func clearFoo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearFoo() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -98,13 +98,13 @@ struct Proto2Unittest_TestRepeatedRedactedNestMessage: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var bar: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `bar` has been explicitly set.
   var hasBar: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
-  mutating func clearBar() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearBar() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -122,8 +122,8 @@ struct Proto2Unittest_TestMessageEnum: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var redactableEnum: [Proto2Unittest_MetaAnnotatedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -142,27 +142,27 @@ struct Proto2Unittest_TestNestedMessageEnum: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var directEnum: [Proto2Unittest_MetaAnnotatedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var nestedEnum: Proto2Unittest_TestMessageEnum {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: Proto2Unittest_TestMessageEnum(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestMessageEnum(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedEnum` has been explicitly set.
   var hasNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearNestedEnum() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: Proto2Unittest_TestMessageEnum.self, hasBit: (0, 1)) }
+  mutating func clearNestedEnum() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestMessageEnum.self, hasBit: (0, 1)) }
 
   var redactedString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 12), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `redactedString` has been explicitly set.
   var hasRedactedString: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `redactedString`. Subsequent reads from it will return its default value.
-  mutating func clearRedactedString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 12), type: String.self, hasBit: (0, 2)) }
+  mutating func clearRedactedString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -181,94 +181,94 @@ struct Proto2Unittest_TestRedactedMessage: @unchecked Swift.Sendable {
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var textField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `textField` has been explicitly set.
   var hasTextField: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `textField`. Subsequent reads from it will return its default value.
-  mutating func clearTextField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearTextField() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var metaAnnotated: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `metaAnnotated` has been explicitly set.
   var hasMetaAnnotated: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `metaAnnotated`. Subsequent reads from it will return its default value.
-  mutating func clearMetaAnnotated() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
+  mutating func clearMetaAnnotated() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (0, 2)) }
 
   var repeatedMetaAnnotated: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), default: String(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, default: String(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `repeatedMetaAnnotated` has been explicitly set.
   var hasRepeatedMetaAnnotated: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `repeatedMetaAnnotated`. Subsequent reads from it will return its default value.
-  mutating func clearRepeatedMetaAnnotated() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 36), type: String.self, hasBit: (0, 4)) }
+  mutating func clearRepeatedMetaAnnotated() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (0, 4)) }
 
   var unredactedRepeatedAnnotations: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 48), default: String(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 48), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 3, default: String(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `unredactedRepeatedAnnotations` has been explicitly set.
   var hasUnredactedRepeatedAnnotations: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `unredactedRepeatedAnnotations`. Subsequent reads from it will return its default value.
-  mutating func clearUnredactedRepeatedAnnotations() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(64, 48), type: String.self, hasBit: (0, 8)) }
+  mutating func clearUnredactedRepeatedAnnotations() { _uniqueStorage().clearValue(atIndex: 3, type: String.self, hasBit: (0, 8)) }
 
   var unreportedNonMetaDebugRedactField: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 60), default: String(), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 60), to: newValue, willBeSet: true, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 4, default: String(), hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `unreportedNonMetaDebugRedactField` has been explicitly set.
   var hasUnreportedNonMetaDebugRedactField: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `unreportedNonMetaDebugRedactField`. Subsequent reads from it will return its default value.
-  mutating func clearUnreportedNonMetaDebugRedactField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(80, 60), type: String.self, hasBit: (0, 16)) }
+  mutating func clearUnreportedNonMetaDebugRedactField() { _uniqueStorage().clearValue(atIndex: 4, type: String.self, hasBit: (0, 16)) }
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `anyField` has been explicitly set.
   var hasAnyField: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `anyField`. Subsequent reads from it will return its default value.
-  mutating func clearAnyField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (0, 32)) }
+  mutating func clearAnyField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (0, 32)) }
 
   var redactableFalse: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 72), default: String(), hasBit: (0, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 72), to: newValue, willBeSet: true, hasBit: (0, 64)) }
+    get { _storage.value(atIndex: 5, default: String(), hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `redactableFalse` has been explicitly set.
   var hasRedactableFalse: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `redactableFalse`. Subsequent reads from it will return its default value.
-  mutating func clearRedactableFalse() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(96, 72), type: String.self, hasBit: (0, 64)) }
+  mutating func clearRedactableFalse() { _uniqueStorage().clearValue(atIndex: 5, type: String.self, hasBit: (0, 64)) }
 
   var testDirectMessageEnum: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 84), default: String(), hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 84), to: newValue, willBeSet: true, hasBit: (0, 128)) }
+    get { _storage.value(atIndex: 6, default: String(), hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `testDirectMessageEnum` has been explicitly set.
   var hasTestDirectMessageEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `testDirectMessageEnum`. Subsequent reads from it will return its default value.
-  mutating func clearTestDirectMessageEnum() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(112, 84), type: String.self, hasBit: (0, 128)) }
+  mutating func clearTestDirectMessageEnum() { _uniqueStorage().clearValue(atIndex: 6, type: String.self, hasBit: (0, 128)) }
 
   var testNestedMessageEnum: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 96), default: String(), hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 96), to: newValue, willBeSet: true, hasBit: (1, 1)) }
+    get { _storage.value(atIndex: 7, default: String(), hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `testNestedMessageEnum` has been explicitly set.
   var hasTestNestedMessageEnum: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `testNestedMessageEnum`. Subsequent reads from it will return its default value.
-  mutating func clearTestNestedMessageEnum() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(128, 96), type: String.self, hasBit: (1, 1)) }
+  mutating func clearTestNestedMessageEnum() { _uniqueStorage().clearValue(atIndex: 7, type: String.self, hasBit: (1, 1)) }
 
   var testRedactedMessageEnum: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 108), default: String(), hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 108), to: newValue, willBeSet: true, hasBit: (1, 2)) }
+    get { _storage.value(atIndex: 8, default: String(), hasBit: (1, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `testRedactedMessageEnum` has been explicitly set.
   var hasTestRedactedMessageEnum: Swift.Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `testRedactedMessageEnum`. Subsequent reads from it will return its default value.
-  mutating func clearTestRedactedMessageEnum() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 108), type: String.self, hasBit: (1, 2)) }
+  mutating func clearTestRedactedMessageEnum() { _uniqueStorage().clearValue(atIndex: 8, type: String.self, hasBit: (1, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -359,13 +359,7 @@ extension Proto2Unittest_MetaAnnotatedEnum {
 }
 
 extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}'\0proto2_unittest.TestRedactedNestMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}'\0proto2_unittest.TestRedactedNestMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}'\0proto2_unittest.TestRedactedNestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wps;\u{e}7p-H\u{11}3\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -375,13 +369,7 @@ extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.GeneratedMessage
 }
 
 extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}/\0proto2_unittest.TestRepeatedRedactedNestMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}/\0proto2_unittest.TestRepeatedRedactedNestMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}/\0proto2_unittest.TestRepeatedRedactedNestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpOc@GN\u{13}dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -391,13 +379,7 @@ extension Proto2Unittest_TestRepeatedRedactedNestMessage: SwiftProtobuf.Generate
 }
 
 extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{e}\u{1f}\0proto2_unittest.TestMessageEnum"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{e}\u{1f}\0proto2_unittest.TestMessageEnum"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{e}\u{1f}\0proto2_unittest.TestMessageEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`nI3ZLIJww:\u{16}+|8_h:\u{6}:\u{1b}iX<}Hud&\u{5}42Q\u{6}|%~OS\u{f}RU\u{1f}\u{16}`\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -414,13 +396,7 @@ extension Proto2Unittest_TestMessageEnum: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{10}\0\0\0\0\u{2}\0\u{b}\u{3}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}%\0proto2_unittest.TestNestedMessageEnum"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\u{2}\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}%\0proto2_unittest.TestNestedMessageEnum"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{e}\u{2}\0\0\0\0\0\00\0\0\u{2}\0\u{b}\u{3}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}%\0proto2_unittest.TestNestedMessageEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{1}\0\0 ?)5\u{1d}Zs5&L\u{6}\u{10}al;tE#Cwg>w\u{f}~6\"7\u{5}ekTqxRn3`\u{8}Ew\"m{@*\\y#WgA\u{10}FfNIQ9QJGyM~\u{1b}?'M3vs\u{16}:mic\u{13}v\u{15}y8*&\u{1}PFC\u{19}<_'FvKF..\u{c}~\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -438,13 +414,7 @@ extension Proto2Unittest_TestNestedMessageEnum: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestRedactedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{a}\0\0\0\0\0\u{a}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{8}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{9}\0\0\0\00\0\0\u{2}\0\0\0\u{9}\u{a}\0\0\0\0@\0\0\u{3}\0\0\0\u{9}\u{11}\0\0\0\0P\0\0\u{4}\0\0\0\u{9}\u{12}\0\0\0\0\u{8}\0\0\u{5}\0\u{1}\0\u{b}\u{13}\0\0\0\0`\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0p\0\0\u{7}\0\0\0\u{9}\u{17}\0\0\0\0\0\u{1}\0\u{8}\0\0\0\u{9}\u{18}\0\0\0\0\u{10}\u{1}\0\u{9}\0\0\0\u{9}#\0proto2_unittest.TestRedactedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0x\0\0\u{a}\0\0\0\0\0\u{a}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{8}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{9}\0\0\0\0$\0\0\u{2}\0\0\0\u{9}\u{a}\0\0\0\00\0\0\u{3}\0\0\0\u{9}\u{11}\0\0\0\0<\0\0\u{4}\0\0\0\u{9}\u{12}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{b}\u{13}\0\0\0\0H\0\0\u{6}\0\0\0\u{9}\u{16}\0\0\0\0T\0\0\u{7}\0\0\0\u{9}\u{17}\0\0\0\0`\0\0\u{8}\0\0\0\u{9}\u{18}\0\0\0\0l\0\0\u{9}\0\0\0\u{9}#\0proto2_unittest.TestRedactedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{a}\0\0\0\0\0\u{a}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{9}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{8}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{9}\0\0\0\0\u{2}\0@\u{2}\0\0\0\u{9}\u{a}\0\0\0\0\u{3}\0@\u{3}\0\0\0\u{9}\u{11}\0\0\0\0\u{4}\0@\u{4}\0\0\0\u{9}\u{12}\0\0\0\0\0\00\u{5}\0\u{1}\0\u{b}\u{13}\0\0\0\0\u{5}\0@\u{6}\0\0\0\u{9}\u{16}\0\0\0\0\u{6}\0@\u{7}\0\0\0\u{9}\u{17}\0\0\0\0\u{7}\0@\u{8}\0\0\0\u{9}\u{18}\0\0\0\0\u{8}\0@\u{9}\0\0\0\u{9}#\0proto2_unittest.TestRedactedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{5}\0\0 \u{1f}nv<9iYV\u{7}?;u[\r(18v.3<<Kd!\u{1d}G\\G?\u{13}^O\u{b}o|w~-z'_tggB01\u{e}P/03*n\u{e}\u{6}\u{16}\u{1f}\u{3}rdU?]i+`G\u{18}<\u{2}PP\u{1d}#^\u{12}=(\u{f}k(0fEg\0U2JvL4vQq?~:%-[\u{12}`\nC\u{19}=Tu\u{b}1+ZQDCLJ(\u{19}@4\u{5}C/=T\u{c}u\0\u{3}A\u{6}YEm\u{b}\u{e}E8,c0* ^5f\u{f}0Pj/'lG\u{5},\u{1c}\u{3}=\u{17}\u{7f}H\u{1f}T\u{1f}cA?O\u{11}\u{1f}&m\u{15}:h1X-]6NjRZ D\u{1d}?bI\u{1c}sV\t\u{e}\u{16}\n\u{b}Z\u{e}i\u{13}06t6,\u{c}?5k+\tc!:]-\u{4}x\t\u{13}}H&D`L+\u{15}\u{11}tWrH1\u{6}A\u{7f}$A^YY\u{16}r}MiMsi05\n\u{7}O\u{17}10cS\u{14}\u{5}%u\u{5}Cx\u{1d}{,!c\u{7}\u{7}\u{c}XCu?\u{b}\t'{Y5?A:J0b1!-i(\"bbO\tu\u{17}O48E~/-ssw\u{b}\u{8}\u{1f}<\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

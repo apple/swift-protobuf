@@ -28,36 +28,36 @@ struct Proto2Unittest_TestStringView: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var singularString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `singularString` has been explicitly set.
   var hasSingularString: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `singularString`. Subsequent reads from it will return its default value.
-  mutating func clearSingularString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearSingularString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var singularBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), default: Data(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: Data(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `singularBytes` has been explicitly set.
   var hasSingularBytes: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `singularBytes`. Subsequent reads from it will return its default value.
-  mutating func clearSingularBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 24), type: Data.self, hasBit: (0, 2)) }
+  mutating func clearSingularBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (0, 2)) }
 
   var implicitPresence: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 36), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var repeatedString: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var repeatedBytes: [Data] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -169,13 +169,7 @@ let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.Exte
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0P\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{9}\u{2}\0\0\0\00\0\0\u{1}\0\0\0\u{c}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{10}\0\0\u{3}\0\0\0\u{c}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{9}\u{1e}\0proto2_unittest.TestStringView"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}\u{3}\0\0\0\u{2}\u{4}\0\0\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{8}\0\0\u{3}\0\0\0\u{c}\u{5}\0\0\0\0$\0\0\u{4}\0\0\0\u{9}\u{1e}\0proto2_unittest.TestStringView"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{2}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{1}\0\u{10}\u{3}\0\0\0\u{c}\u{5}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{1e}\0proto2_unittest.TestStringView"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\u{2}\0\0\0?(&%ZO\u{2}+\rPLN1,V2\u{7f}7+3qQH\u{7f}\u{14}t(E~0nn{'~\t\u{16} :S*NS\u{1f}y\u{14}-K~?-\t{uB&X.%\u{2}w#\u{1f}n7h^n$W|zy#b8*mY\u{17}e%\u{b}I\\uhzZQ4_y\u{12}\u{1a} v>e)\u{1f}S{ au\u{6}\u{1d}{fKP\tfs\u{1c};'\u{e}s#NybT]h:/8;'\u{1b}!+(\u{16}D\u{10}\u{7}A1:xiH\u{1a}%\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -185,13 +179,7 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0proto2_unittest.TestStringViewExtension"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0'\0proto2_unittest.TestStringViewExtension"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'\0proto2_unittest.TestStringViewExtension"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

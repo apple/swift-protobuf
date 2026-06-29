@@ -151,20 +151,20 @@ struct Conformance_TestStatus: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var name: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var failureMessage: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   /// What an actual test name matched to in a failure list. Can be wildcarded or
   /// an exact match without wildcards.
   var matchedName: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -186,8 +186,8 @@ struct Conformance_FailureSet: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var test: [Conformance_TestStatus] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -237,24 +237,24 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
   }
 
   var protobufPayload: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(48, 36), oneofPresence: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 36), to: newValue, oneofPresence: (4, 1)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var jsonPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 48), oneofPresence: (4, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 48), to: newValue, oneofPresence: (4, 2)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 2)) }
   }
 
   /// Only used inside Google.  Opensource testees just skip it.
   var jspbPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 72), oneofPresence: (4, 7)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 72), to: newValue, oneofPresence: (4, 7)) }
+    get { return _storage.value(atIndex: 2, oneofPresence: (4, 7)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 7)) }
   }
 
   var textPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 84), oneofPresence: (4, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 84), to: newValue, oneofPresence: (4, 8)) }
+    get { return _storage.value(atIndex: 3, oneofPresence: (4, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (4, 8)) }
   }
 
   /// Which format should the testee serialize its message to?
@@ -271,8 +271,8 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
   /// protobuf_test_messages.editions.TestAllTypesEdition2023 or
   /// protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.
   var messageType: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 60), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   /// Each test is given a specific test category. Some category may need
@@ -285,13 +285,13 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
 
   /// Specify details for how to encode jspb.
   var jspbEncodingOptions: Conformance_JspbEncodingConfig {
-    get { _storage.value(at: 32, default: Conformance_JspbEncodingConfig(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Conformance_JspbEncodingConfig(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `jspbEncodingOptions` has been explicitly set.
   var hasJspbEncodingOptions: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `jspbEncodingOptions`. Subsequent reads from it will return its default value.
-  mutating func clearJspbEncodingOptions() { _uniqueStorage().clearValue(at: 32, type: Conformance_JspbEncodingConfig.self, hasBit: (0, 1)) }
+  mutating func clearJspbEncodingOptions() { _uniqueStorage().clearValue(atIndex: 0, type: Conformance_JspbEncodingConfig.self, hasBit: (0, 1)) }
 
   /// This can be used in json and text format. If true, testee should print
   /// unknown fields instead of ignore. This feature is optional.
@@ -366,68 +366,68 @@ struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
   /// Setting this string does not necessarily mean the testee failed the
   /// test.  Some of the test cases are intentionally invalid input.
   var parseError: String {
-    get { return _storage.value(at: 48, oneofPresence: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: 48, to: newValue, oneofPresence: (4, 1)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   /// If the input was successfully parsed but errors occurred when
   /// serializing it to the requested output format, set the error message in
   /// this field.
   var serializeError: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(128, 108), oneofPresence: (4, 6)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 108), to: newValue, oneofPresence: (4, 6)) }
+    get { return _storage.value(atIndex: 4, oneofPresence: (4, 6)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, oneofPresence: (4, 6)) }
   }
 
   /// This should be set if the test program timed out.  The string should
   /// provide more information about what the child process was doing when it
   /// was killed.
   var timeoutError: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(176, 144), oneofPresence: (4, 9)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(176, 144), to: newValue, oneofPresence: (4, 9)) }
+    get { return _storage.value(atIndex: 7, oneofPresence: (4, 9)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, oneofPresence: (4, 9)) }
   }
 
   /// This should be set if some other error occurred.  This will always
   /// indicate that the test failed.  The string can provide more information
   /// about the failure.
   var runtimeError: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(64, 60), oneofPresence: (4, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 60), to: newValue, oneofPresence: (4, 2)) }
+    get { return _storage.value(atIndex: 1, oneofPresence: (4, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 2)) }
   }
 
   /// If the input was successfully parsed and the requested output was
   /// protobuf, serialize it to protobuf and set it in this field.
   var protobufPayload: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(80, 72), oneofPresence: (4, 3)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 72), to: newValue, oneofPresence: (4, 3)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 3)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
   /// If the input was successfully parsed and the requested output was JSON,
   /// serialize to JSON and set it in this field.
   var jsonPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(96, 84), oneofPresence: (4, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 84), to: newValue, oneofPresence: (4, 4)) }
+    get { return _storage.value(atIndex: 2, oneofPresence: (4, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 4)) }
   }
 
   /// For when the testee skipped the test, likely because a certain feature
   /// wasn't supported, like JSON input/output.
   var skipped: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(112, 96), oneofPresence: (4, 5)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 96), to: newValue, oneofPresence: (4, 5)) }
+    get { return _storage.value(atIndex: 3, oneofPresence: (4, 5)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (4, 5)) }
   }
 
   /// If the input was successfully parsed and the requested output was JSPB,
   /// serialize to JSPB and set it in this field. JSPB is only used inside
   /// Google. Opensource testees can just skip it.
   var jspbPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(144, 120), oneofPresence: (4, 7)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 120), to: newValue, oneofPresence: (4, 7)) }
+    get { return _storage.value(atIndex: 5, oneofPresence: (4, 7)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, oneofPresence: (4, 7)) }
   }
 
   /// If the input was successfully parsed and the requested output was
   /// TEXT_FORMAT, serialize to TEXT_FORMAT and set it in this field.
   var textPayload: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(160, 132), oneofPresence: (4, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(160, 132), to: newValue, oneofPresence: (4, 8)) }
+    get { return _storage.value(atIndex: 6, oneofPresence: (4, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, oneofPresence: (4, 8)) }
   }
 
   enum OneOf_Result: Swift.Equatable, Swift.Sendable {
@@ -514,13 +514,7 @@ extension Conformance_TestCategory {
 }
 
 extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\00\0\0\u{2}\0\0\0\u{9}\u{16}\0conformance.TestStatus"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{9}\u{16}\0conformance.TestStatus"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{2}\0@\u{2}\0\0\0\u{9}\u{16}\0conformance.TestStatus"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _\u{11}r5Z[,E\u{3} r4S/sd7j'/y\u{7}sv([8|a\"?\u{15}\u{13}bcE4+R\u{19}3DaE}&e\u{3}\u{2}xQ\u{12}\u{1f}Vx\u{7f}v\u{7f}I\u{f}\u{3}[[bG<36@@RQ\t]\0cDa@j0A~[H)+=\u{5}%"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -530,13 +524,7 @@ extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0\u{2}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{16}\0conformance.FailureSet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{2}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{16}\0conformance.FailureSet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{16}\0conformance.FailureSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0?k,%\u{7}&p\rM$\u{13}\u{4}\u{11}f~/#\u{1a}\nX\u{3}\u{2}p\u{11}#V\u{14}M\u{3}\"\u{7}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -553,13 +541,7 @@ extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{1}\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0 \0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0P\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0 \0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{c}\u{2}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0<\0\0\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0 \0\0\0\0\u{3}\0\u{b}\u{7}\0\0\0\0H\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0P{\u{7f}\0\0\u{c}\u{2}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{1}\0@\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0\0\00\0\0\u{3}\0\u{b}\u{7}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{3}\0@{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{4}\0\0\0\u{7f}L\u{2}`89s&\u{1}Zj\u{16}.j}\u{1a});I\u{4}p\u{6}T\u{1d}I\0\u{f}\na\u{12}\u{1a}\u{e}\u{11}xIrLttVOI^\u{1a}\rW[sw\u{1d}\u{e}X\nQZU\u{18}\u{17}s\u{16}YU|\u{19}'\u{10}ha~o\u{e}`yn`\u{1a},R\u{4}\u{4}Z(\u{1a}F>.nf=CK/e\u{1c}\u{b}3-;|~\tb\u{16}RYkI\u{16}\u{10}l1+\u{1b}._X\u{f}7*4'w\u{18}\n`[.\u{8}\u{12}W`D9&\u{1d};<\u{6}vm\u{1a}\u{15}DTiF\\)Vr>htk>QN,\u{6}\u{f}gAgWV-9\\\u{e}\u{11}E\u{1e}9g!5|hoMtM\u{4}\u{1c}2\u{1f}K\u{11}~<:V\u{1d}\u{1d}8F\"*`\u{6}5\n\u{7}^,<\u{5}xT2a[F0y8$_7ISpLbf\0U>}}Aj\u{14}aV4\0=.v\\Qm\u{c}k\u{7f}_x\u{13}\u{1}\u{7f}9^_\u{19}s[r_-IJqo??v3kqE\u{2}O0CmBx\u{e}W4\0t\u{15}9g\u{6}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -578,13 +560,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\u{1}\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\00\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0@\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0P\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0p\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\0\u{1}\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0 \u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\00\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\u{1}\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\00\0\0\u{1}\0\0\0\00\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0<\0\0{\u{7f}\0\0\u{9}\u{3}\0\0\0\0H\0\0{\u{7f}\0\0\u{c}\u{4}\0\0\0\0T\0\0{\u{7f}\0\0\u{9}\u{5}\0\0\0\0`\0\0{\u{7f}\0\0\u{9}\u{6}\0\0\0\0l\0\0{\u{7f}\0\0\u{9}\u{7}\0\0\0\0x\0\0{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{4}\u{1}\0{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{10}\u{1}\0{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\0\0\0\0\0\0\0\0\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\0\0P{\u{7f}\0\0\u{c}\u{4}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9}\u{5}\0\0\0\0\u{3}\0@{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\u{4}\0@{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{5}\0@{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{6}\0@{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{7}\0@{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{3}\0\00\u{7f}\u{1}Y\t[S\u{2}B\u{4}\u{13}X\u{2}7!\u{2}\u{1}t\u{2}^\u{4}\u{5}{{P>\u{b}w4\u{16}W\u{1c}\"'42~VyLibpw\u{1a}&O1h\u{1e}UK\u{1c}\tk\u{1e}Ae\n+\u{1c}D\0r,j%N\u{16}iMm\u{4}\u{e}\\/{8##z\u{17}\\_\u{1b}8&S[sY?y\u{17}\u{1}\u{1c}\u{13}\u{10}b\u{8}do\u{2};\u{2}TDUB[\u{14}$U\u{1d}<\u{12}\u{5}LJ\u{11}fO\u{1}\u{c}0(\u{b}u2w\u{18}>x+,]:\u{15}\u{7}B\u{5}P7\u{19}Q_CJ\u{5}\n;SBIP,Si*\u{18}\u{e}#<*\u{6}$\u{3}NL#}p\0Rxp\u{f}p\u{11}L]#a!\u{16}<'<Rs\u{14}&%=M\u{2}*3\u{11}}3%\u{2}MHV\u{5}d>m! G'.VF\u{18}\u{b}:YH!T\n\u{1b}p<\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -594,13 +570,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Conformance_JspbEncodingConfig: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{1e}\0conformance.JspbEncodingConfig"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{1e}\0conformance.JspbEncodingConfig"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{1e}\0conformance.JspbEncodingConfig"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PvJ+\nMIJww:\u{16}+|8_h:W\u{17}yR\u{1e},0CR\u{c}PE\u{1f}\u{12}\u{f}\\C=fP<\u{1d}-ei\u{6}(\u{18}mJ\u{12}>B\u{16})P7\"w!Rg\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

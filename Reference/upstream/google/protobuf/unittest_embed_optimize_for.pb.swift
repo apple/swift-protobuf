@@ -41,17 +41,17 @@ struct Proto2Unittest_TestEmbedOptimizedForSize: @unchecked Swift.Sendable {
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
   var optionalMessage: Proto2Unittest_TestOptimizedForSize {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2Unittest_TestOptimizedForSize(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestOptimizedForSize(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
   var hasOptionalMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2Unittest_TestOptimizedForSize.self, hasBit: (0, 1)) }
+  mutating func clearOptionalMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestOptimizedForSize.self, hasBit: (0, 1)) }
 
   var repeatedMessage: [Proto2Unittest_TestOptimizedForSize] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -67,13 +67,7 @@ struct Proto2Unittest_TestEmbedOptimizedForSize: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_TestEmbedOptimizedForSize: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestEmbedOptimizedForSize"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestEmbedOptimizedForSize"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestEmbedOptimizedForSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}EPAZ[,%L\u{6}\u{10}al;t5(F\\0n\u{b}uM\u{4}LZ3VSb\u{1a}#C;\u{f}Ft9W2^r\"\"6<\"b\u{15}h\u{11}9\"!z#jvP0%f5`PM\u{1a}.u\u{1c}t\u{1}\u{c}|\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

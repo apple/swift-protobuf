@@ -17,42 +17,6 @@ import Foundation
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
-/// Abstractly represents the amount of memory needed to store a field's value in memory.
-///
-/// The order of these cases is important, because the fields in a message will be ordered such
-/// that their layout in-memory is in these groups. This allows us to optimize across two factors:
-/// how well they are packed to avoid excessive padding (by keeping values with smaller alignments
-/// together) and grouping all trivial fields together before non-trivial fields.
-package enum FieldStorageKind: Comparable {
-    /// The field occupies 1 byte in memory, regardless of target architecture.
-    case oneByteScalar
-
-    /// The field occupies 4 bytes in memory, regardless of target architecture.
-    case fourByteScalar
-
-    /// The field occupies 8 bytes in memory, regardless of target architecture.
-    case eightByteScalar
-
-    /// The field occupies a pointer's width in memory; 8 bytes on 64-bit and 4 bytes on 32-bit.
-    case pointer
-
-    /// The field is a Swift `String` or a Foundation `Data` value, which have a 16 byte stride on
-    /// 64-bit and a 12 byte stride on 32-bit.
-    case stringOrData
-
-    /// Returns the number of bytes that a field with this storage kind occupies in memory,
-    /// including alignment padding.
-    var strides: TargetSpecificValues<Int> {
-        switch self {
-        case .oneByteScalar: return .init(forAllTargets: 1)
-        case .fourByteScalar: return .init(forAllTargets: 4)
-        case .eightByteScalar: return .init(forAllTargets: 8)
-        case .pointer: return .init([.pointerWidth64: 8, .pointerWidth32: 4])
-        case .stringOrData: return .init([.pointerWidth64: 16, .pointerWidth32: 12])
-        }
-    }
-}
-
 /// Represents the presence information for a field in memory.
 package enum FieldPresence {
     /// The field is not a member of a `oneof` and this is the index of its has-bit.
@@ -111,12 +75,8 @@ package protocol FieldGenerator: AnyObject {
     /// Additional properties that describe the layout and behavior of the field.
     var fieldMode: FieldMode { get }
 
-    /// An abstract representation of how the field is stored in memory.
-    ///
-    /// Since the size of a field may be platform-specific depending on the field's type, this
-    /// represents a "storage class" that can be turned into a concrete size later in a context
-    /// where the platform is known.
-    var storageKind: FieldStorageKind { get }
+    /// The stride (and alignment) in bytes that this stable-size field occupies in storage.
+    var stableStride: Int { get }
 
     /// The index of the `oneof` of which this field is a member, or `nil` if it is not a member of
     /// a `oneof`.
@@ -128,12 +88,9 @@ package protocol FieldGenerator: AnyObject {
     /// the message.
     var presence: FieldPresence { get set }
 
-    /// The offsets in bytes into in-memory storage where this field is stored, for 64-bit and
-    /// 32-bit platforms.
-    ///
-    /// This is expected to be populated during an iteration that computes the in-memory layout of
-    /// the message.
-    var storageOffsets: TargetSpecificValues<Int> { get set }
+    /// The offset in bytes into in-memory storage where this field is stored (stable absolute offset
+    /// or zero-based unstable index).
+    var storageOffsetOrIndex: Int { get set }
 
     /// The text format name of the field.
     var name: String { get }
@@ -150,7 +107,7 @@ class FieldGeneratorBase {
     let number: Int
     let fieldDescriptor: FieldDescriptor
 
-    var storageOffsets = TargetSpecificValues(forAllTargets: 0)
+    var storageOffsetOrIndex = 0
 
     var isRequired: Bool {
         fieldDescriptor.isRequired
@@ -176,41 +133,6 @@ class FieldGeneratorBase {
             result.cardinality = .scalar
         }
         return result
-    }
-
-    var storageKind: FieldStorageKind {
-        if fieldDescriptor.isRepeated || fieldDescriptor.isMap {
-            return .pointer
-        }
-        switch fieldDescriptor.type {
-        case .int64, .uint64, .sint64, .fixed64, .sfixed64, .double:
-            return .eightByteScalar
-        case .int32, .uint32, .sint32, .fixed32, .sfixed32, .float, .enum:
-            return .fourByteScalar
-        case .bool:
-            return .oneByteScalar
-        case .message, .group:
-            return .pointer
-        case .string, .bytes:
-            return .stringOrData
-        }
-    }
-
-    /// Generates the Swift expression that will be used by the field's accessors to specify the
-    /// field's offset in memory, taking into account the target platform.
-    var storageOffsetExpression: String {
-        // If all the values are the same, generate cleaner code by just passing the single value
-        // directly.
-        if let valueIfAllEqual = storageOffsets.valueIfAllEqual {
-            return "\(valueIfAllEqual)"
-        }
-
-        // Otherwise, generate a call to the helper function that chooses the right value based on
-        // target platform.
-        let fieldOffsetArguments = TargetSpecificValueChoice.allCases.map {
-            "\(storageOffsets[$0])"
-        }.joined(separator: ", ")
-        return "SwiftProtobuf._fieldOffset(\(fieldOffsetArguments))"
     }
 
     var name: String {
@@ -255,6 +177,48 @@ extension RawFieldType {
         case .string: self = .string
         case .uint32: self = .uint32
         case .uint64: self = .uint64
+        }
+    }
+}
+
+extension FieldGenerator {
+    /// Determines the storage bucket where this field's offset or index is stored.
+    package var storageBucket: StorageBucket {
+        switch fieldMode.cardinality {
+        case .map:
+            return .map
+        case .array:
+            return .repeated
+        case .scalar:
+            switch rawFieldType {
+            case .message, .group:
+                return .message
+            case .string:
+                return .string
+            case .bytes:
+                return .bytes
+            default:
+                return .stable
+            }
+        default:
+            preconditionFailure("Unreachable")
+        }
+    }
+
+    /// The stride (and alignment) in bytes that this stable-size field occupies in storage.
+    ///
+    /// - Precondition: The field's storage bucket must be `.stable`.
+    package var stableStride: Int {
+        precondition(storageBucket == .stable)
+        switch rawFieldType {
+        case .bool:
+            return 1
+        case .int32, .uint32, .sint32, .fixed32, .sfixed32, .float, .enum:
+            return 4
+        case .int64, .uint64, .sint64, .fixed64, .sfixed64, .double:
+            return 8
+        default:
+            preconditionFailure("Unexpected stable field type: \(rawFieldType)")
         }
     }
 }

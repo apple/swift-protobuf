@@ -51,32 +51,32 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
   mutating func clearScalarField() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var mapField: [Int32: String] {
-    get { _storage.value(at: 8, hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var messageMapField: [Int32: SwiftDescriptorTest_EditionsMessageForDelimited] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var delimitedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.
   var hasDelimitedField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
-  mutating func clearDelimitedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 16), type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 2)) }
+  mutating func clearDelimitedField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 2)) }
 
   var lengthPrefixedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 20), default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 20), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 1, default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lengthPrefixedField` has been explicitly set.
   var hasLengthPrefixedField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `lengthPrefixedField`. Subsequent reads from it will return its default value.
-  mutating func clearLengthPrefixedField() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 20), type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 4)) }
+  mutating func clearLengthPrefixedField() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -91,13 +91,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{10}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0 \0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\u{8}\0\0\u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{10}\0\0\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\0\0 \u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{1}\0 \u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\0\00\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{1}\00\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{2}\0\0\0?dE)ZO\u{2}+\rPLN1,V2\u{7f}7+3o%B%\u{b}n=gt2*n\u{8}i\\Pw\u{5}cS\u{11}:Ij~#&sP<]\u{1f},gr\u{3}\u{5}\u{8}'m~$6r+,w\\dd$\u{10}~V2@]V\0\u{1f}'\u{c}uQc\u{10}zA./ZV(\u{1}W1Wu*:\u{16}\nH?e6>c\u{10}\"Si_\u{3} R_RIzm\u{e}<xJ|&Kb\u{5}<*-F;7\u{19}az8hK\u{f}y8_:e\u{14}\rn\u{7}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -110,21 +104,9 @@ extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.Generat
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}?\0swift_descriptor_test.EditionsMessageForDelimited.MapFieldEntry"
   private static let _protobuf_mapEntrySchema_MapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapStringField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MessageMapFieldEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}F\0swift_descriptor_test.EditionsMessageForDelimited.MessageMapFieldEntry"
   private static let _protobuf_mapEntrySchema_MessageMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MessageMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<SwiftDescriptorTest_EditionsMessageForDelimited>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }

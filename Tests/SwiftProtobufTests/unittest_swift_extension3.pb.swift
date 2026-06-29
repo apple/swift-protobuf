@@ -201,13 +201,7 @@ extension SwiftProtoTesting_Extend3_MyMessage {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.extend3.MyMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0%\0swift_proto_testing.extend3.MyMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0%\0swift_proto_testing.extend3.MyMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -217,13 +211,7 @@ extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{1e}\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend3.MyMessage.C"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{1e}\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend3.MyMessage.C"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1e}\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend3.MyMessage.C"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$/VORV7n?a8\\U\u{6}\u{b}1<\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -233,13 +221,7 @@ extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0(\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend3.C"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0(\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend3.C"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0(\u{a}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend3.C"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rMd:\u{2}RSV7n?a8\\5d~\"<\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

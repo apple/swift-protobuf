@@ -39,13 +39,13 @@ struct Proto2Unittest_LazyImports_ImportedMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var lazyMessage: Proto2Unittest_LazyImports_LazyMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2Unittest_LazyImports_LazyMessage(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_LazyImports_LazyMessage(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lazyMessage` has been explicitly set.
   var hasLazyMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `lazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearLazyMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2Unittest_LazyImports_LazyMessage.self, hasBit: (0, 1)) }
+  mutating func clearLazyMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_LazyImports_LazyMessage.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -90,13 +90,7 @@ struct Proto2Unittest_LazyImports_MessageCustomOption2: @unchecked Swift.Sendabl
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b},\0proto2_unittest.lazy_imports.ImportedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b},\0proto2_unittest.lazy_imports.ImportedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b},\0proto2_unittest.lazy_imports.ImportedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}o]^ \u{18}+\u{1d}&\u{6}0{,#ZQ#\u{14}wF\u{3}$!x\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -113,13 +107,7 @@ extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMes
 }
 
 extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\00\0proto2_unittest.lazy_imports.MessageCustomOption"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\00\0proto2_unittest.lazy_imports.MessageCustomOption"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\00\0proto2_unittest.lazy_imports.MessageCustomOption"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -129,13 +117,7 @@ extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Generate
 }
 
 extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0proto2_unittest.lazy_imports.MessageCustomOption2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0proto2_unittest.lazy_imports.MessageCustomOption2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\01\0proto2_unittest.lazy_imports.MessageCustomOption2"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

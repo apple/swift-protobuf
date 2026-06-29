@@ -202,13 +202,7 @@ let Pb_Extensions_java = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Pb_JavaFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{3}\0\0\u{3}\0\0\0\u{8}\u{5}\0\0\0\0\u{8}\0\0\u{4}\0\u{2}\0\u{e}\u{f}\0pb.JavaFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{3}\0\0\u{3}\0\0\0\u{8}\u{5}\0\0\0\0\u{8}\0\0\u{4}\0\u{2}\0\u{e}\u{f}\0pb.JavaFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{3}\0\0\u{3}\0\0\0\u{8}\u{5}\0\0\0\0\u{8}\0\0\u{4}\0\u{2}\0\u{e}\u{f}\0pb.JavaFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\u{2}\0\0\u{10}\u{7f}CI\tZO\u{2}+\rPLN1,V2\u{7f}7+3qyU\n\u{1b}.H\u{1}&\u{15}\u{14}]\u{2}X\u{19}yQFhI\u{1f}\u{1f}tvVyCI\u{2}@\u{7}ZIj>\u{c}\u{16}]\u{3}6H_0Y\u{1c}\"Hy:\u{c}?tW\u{13}\t~sD\u{14}\u{16}U\u{c}LZW7VJVy\u{10}~\t/@U:Td1\u{14}&W#\u{6}\n\u{3}\u{1b}sPY\u{10}\u{1d}\u{16}D+Kjv\u{12}\"\u{11}FVLC.szK\u{1d}b_=`$;|jD\u{8}\u{2}dF\u{e}C.O7\u{8}yy\u{b}P\u{1d}]x?Q7\u{3}\u{1d}`_U]cJ\u{1e}L\u{17}/@D\u{4}\u{3}\ti5\u{1b}4O\u{1a}\u{15}\u{4}\0~1ERJ{\u{1e}:\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -232,13 +226,7 @@ extension Pb_JavaFeatures.Utf8Validation {
 }
 
 extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0&\0pb.JavaFeatures.NestInFileClassFeature"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0&\0pb.JavaFeatures.NestInFileClassFeature"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0&\0pb.JavaFeatures.NestInFileClassFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\0\0\0\0_Si=A~a\u{12}5U\u{3}\u{19})0\u{1}$z^C\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

@@ -266,8 +266,8 @@ struct Pb_CustomOptionLifetimesMessage: @unchecked Swift.Sendable {
   mutating func clearCustomEnum() { _uniqueStorage().clearValue(at: 4, type: Pb_CustomOptionLifetimesEnum.self, hasBit: (0, 1)) }
 
   var repeatedCustomEnum: [Pb_CustomOptionLifetimesEnum] {
-    get { _storage.value(at: 8, hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -693,13 +693,7 @@ extension Pb_ValueLifetimeFeature {
 }
 
 extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{1f}\0pb.CustomOptionLifetimesMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{1f}\0pb.CustomOptionLifetimesMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\0\0\u{10}\u{1}\0\u{1}\0\u{e}\u{1f}\0pb.CustomOptionLifetimesMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZ[,%L\u{6}\u{10}al;tEH:\u{19}LO}O$\u{4}ErV\u{2}\"7\u{1a}Z<L\u{13}RUaHnTk\u{e}S\u{1d}3's/\u{14}\\LdW\nN],\u{5}Q\"\u{16}'%^\0v\u{11}B\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -716,13 +710,7 @@ extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_TestMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{e}\0pb.TestMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{e}\0pb.TestMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{e}\0pb.TestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -732,13 +720,7 @@ extension Pb_TestMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_TestMessage.Nested: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0pb.TestMessage.Nested"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0pb.TestMessage.Nested"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{15}\0pb.TestMessage.Nested"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -748,13 +730,7 @@ extension Pb_TestMessage.Nested: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_TestMessageFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{16}\0pb.TestMessageFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{16}\0pb.TestMessageFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{16}\0pb.TestMessageFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}i}s#%/\u{7}M7`\u{f}!\0Exl3\u{7f}\u{3} A>\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -771,13 +747,7 @@ extension Pb_TestMessageFeatures: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_TestNestedFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{15}\0pb.TestNestedFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{15}\0pb.TestNestedFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{15}\0pb.TestNestedFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}i}s#%/\u{7}M7`\u{f}!\0Exl3\u{7f}\u{3} A>\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -794,13 +764,7 @@ extension Pb_TestNestedFeatures: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_TestFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0T\0\0\u{15}\0\0\0\0\0\u{15}\0\0\u{c}\0\0T\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{1}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{1}\0\u{e}\u{a}\0\0\0\0(\0\0\u{9}\0\u{1}\0\u{e}\u{b}\0\0\0\0\u{3}\0\0\u{a}\0\0\0\u{8}\u{f}\0\0\0\0,\0\0\u{b}\0\u{1}\0\u{e}\u{10}\0\0\0\00\0\0\u{c}\0\u{1}\0\u{e}\u{11}\0\0\0\04\0\0\u{d}\0\u{1}\0\u{e}\u{12}\0\0\0\08\0\0\u{e}\0\u{1}\0\u{e}\u{13}\0\0\0\0<\0\0\u{f}\0\u{1}\0\u{e}\u{14}\0\0\0\0@\0\0\u{10}\0\u{2}\0\u{e}\u{15}\0\0\0\0D\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0H\0\0\u{12}\0\u{3}\0\u{e}\u{17}\0\0\0\0L\0\0\u{13}\0\u{3}\0\u{e}\u{18}\0\0\0\0P\0\0\u{14}\0\u{3}\0\u{e}\u{f}\0pb.TestFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0T\0\0\u{15}\0\0\0\0\0\u{15}\0\0\u{c}\0\0T\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{1}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{1}\0\u{e}\u{a}\0\0\0\0(\0\0\u{9}\0\u{1}\0\u{e}\u{b}\0\0\0\0\u{3}\0\0\u{a}\0\0\0\u{8}\u{f}\0\0\0\0,\0\0\u{b}\0\u{1}\0\u{e}\u{10}\0\0\0\00\0\0\u{c}\0\u{1}\0\u{e}\u{11}\0\0\0\04\0\0\u{d}\0\u{1}\0\u{e}\u{12}\0\0\0\08\0\0\u{e}\0\u{1}\0\u{e}\u{13}\0\0\0\0<\0\0\u{f}\0\u{1}\0\u{e}\u{14}\0\0\0\0@\0\0\u{10}\0\u{2}\0\u{e}\u{15}\0\0\0\0D\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0H\0\0\u{12}\0\u{3}\0\u{e}\u{17}\0\0\0\0L\0\0\u{13}\0\u{3}\0\u{e}\u{18}\0\0\0\0P\0\0\u{14}\0\u{3}\0\u{e}\u{f}\0pb.TestFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0T\0\0\u{15}\0\0\0\0\0\u{15}\0\0\u{c}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{1}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{1}\0\u{e}\u{a}\0\0\0\0(\0\0\u{9}\0\u{1}\0\u{e}\u{b}\0\0\0\0\u{3}\0\0\u{a}\0\0\0\u{8}\u{f}\0\0\0\0,\0\0\u{b}\0\u{1}\0\u{e}\u{10}\0\0\0\00\0\0\u{c}\0\u{1}\0\u{e}\u{11}\0\0\0\04\0\0\u{d}\0\u{1}\0\u{e}\u{12}\0\0\0\08\0\0\u{e}\0\u{1}\0\u{e}\u{13}\0\0\0\0<\0\0\u{f}\0\u{1}\0\u{e}\u{14}\0\0\0\0@\0\0\u{10}\0\u{2}\0\u{e}\u{15}\0\0\0\0D\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0H\0\0\u{12}\0\u{3}\0\u{e}\u{17}\0\0\0\0L\0\0\u{13}\0\u{3}\0\u{e}\u{18}\0\0\0\0P\0\0\u{14}\0\u{3}\0\u{e}\u{f}\0pb.TestFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\t\0\00?e=Au\u{10}m QEj\u{16}.j}\u{1a}Izlh\u{3}\u{7f}o\u{11}I\nO5\u{4}f\\5V\u{b}\u{16}\u{10}'m\"V(\u{1b}\u{8}},\u{3}\u{12}\u{11}5P\\1pE\u{7f}>4-a\u{2}~)gJV`PcCm\u{1b}e+sF?Lf\u{13}5\u{1a}:B\t5\u{5}W\"\u{b}D\\-9J'}\u{14}\u{1f}\u{16}\u{6}9\u{12}?R5wlzo~*!6\u{f}\u{c}\u{4}\u{14}?'0L&v9*/b\u{e}-d^^9\u{11}m=D\u{19}P\u{f}~3U\u{12}\u{1d}g\u{7}DF\u{1c}\rI\u{12}vD\u{18}+G$g'Lmq\u{7f};o\u{1b}WI-.c2iG4\r\u{16}1#!(\u{1c}4WQFQ&N`>1blp\u{1}\u{12}t`\u{12}:\r{\u{5}m0r\u{1c}f;+=oZ\"\t\u{1c}E[-\u{1}\u{c}[\u{1d}zJ\u{11}AW\u{c}quy>\r\u{1a}LuE\u{1f}Ojl}@o^lJ 1Rvv8\u{1d}|\u{15}_\\.\u{1c}\u{6}\u{13}y\u{b}la!Q\u{1e}xY\u{7f}*kh&\u{1a}\u{19}LVr*9\u{1b}\u{1c}A\thhHy\u{18}[\u{1e}WiHdB%\u{12}N[LE\u{19}\u{5}|'v3\u{1b},ggV<\r3GYFYc\u{1d}`=\u{11}\u{16}J>'a`\u{8}&P.XPA\u{19}^:M{&VL\u{6}*A<?e\u{5}HT4.\u{11}\u{7}zU>D&\rrg\u{11}B5%Er7X\u{8}\u{7f}?\u{1a}?md\u{e}\u{1c}\u{15}fCj\u{1b}?I*)cO\0\\R\tc\u{4}E3V4\u{1b}Cn\u{b}\u{c} A4j\u{c}0CEXEh7I)<lW_\u{b}Jc!A\u{1f} \u{11}n6:+\"F^\u{10}C!\u{5}0\"\u{1e}\u{17}\u{1e}vv,WzI,BT\u{4}K[\u{19}i\nDP\\Y\u{1d}\u{7f}\u{2}1<_\"\u{17}\0;$AQr=\u{12}^Y\u{b}\u{1d}_\\FvOU9\u{5}eJv\u{3}50j&/f\u{7}M\\r\u{2}\u{1f}uz>4Gj?+ZI:pP&\u{b}vn_J3\t\u{16}@#ZS]C\u{3}Q\u{7}JR\u{1d}6q))\t\u{1c}0+{7e\u{17}\u{1a}_b=j\t0\u{13},Suz\u{11}\u{19}tc\u{f}9P\"1!\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

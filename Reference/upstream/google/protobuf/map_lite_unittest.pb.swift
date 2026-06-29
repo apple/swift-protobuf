@@ -68,93 +68,93 @@ struct Proto2Unittest_TestMapLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var mapInt64Int64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var mapUint32Uint32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var mapUint64Uint64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 3, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var mapSint32Sint32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 4, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var mapSint64Sint64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 5, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var mapFixed32Fixed32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
+    get { _storage.value(atIndex: 6, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   var mapFixed64Fixed64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+    get { _storage.value(atIndex: 7, hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   var mapSfixed32Sfixed32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
+    get { _storage.value(atIndex: 8, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var mapSfixed64Sfixed64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 40), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
+    get { _storage.value(atIndex: 9, hasBit: (1, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var mapInt32Float: [Int32: Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 44), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
+    get { _storage.value(atIndex: 10, hasBit: (1, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var mapInt32Double: [Int32: Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
+    get { _storage.value(atIndex: 11, hasBit: (1, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var mapBoolBool: [Bool: Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
+    get { _storage.value(atIndex: 12, hasBit: (1, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
   }
 
   var mapStringString: [String: String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
+    get { _storage.value(atIndex: 13, hasBit: (1, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
   var mapInt32Bytes: [Int32: Data] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(120, 60), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(120, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 14, hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
   }
 
   var mapInt32Enum: [Int32: Proto2Unittest_MapEnumLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 64), hasBit: (1, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 64), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 128)) }
+    get { _storage.value(atIndex: 15, hasBit: (1, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 128)) }
   }
 
   var mapInt32ForeignMessage: [Int32: Proto2Unittest_ForeignMessageLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(136, 68), hasBit: (2, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(136, 68), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 1)) }
+    get { _storage.value(atIndex: 16, hasBit: (2, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 1)) }
   }
 
   var teboring: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 72), hasBit: (2, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 72), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 2)) }
+    get { _storage.value(atIndex: 17, hasBit: (2, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -173,88 +173,88 @@ struct Proto2Unittest_TestArenaMapLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var mapInt32Int32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var mapInt64Int64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var mapUint32Uint32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var mapUint64Uint64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 3, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var mapSint32Sint32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 4, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var mapSint64Sint64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 5, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var mapFixed32Fixed32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(56, 28), hasBit: (0, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(56, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
+    get { _storage.value(atIndex: 6, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
   }
 
   var mapFixed64Fixed64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(64, 32), hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(64, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+    get { _storage.value(atIndex: 7, hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
   var mapSfixed32Sfixed32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(72, 36), hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(72, 36), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
+    get { _storage.value(atIndex: 8, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
   }
 
   var mapSfixed64Sfixed64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(80, 40), hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(80, 40), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
+    get { _storage.value(atIndex: 9, hasBit: (1, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
   }
 
   var mapInt32Float: [Int32: Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(88, 44), hasBit: (1, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(88, 44), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
+    get { _storage.value(atIndex: 10, hasBit: (1, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
   }
 
   var mapInt32Double: [Int32: Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(96, 48), hasBit: (1, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(96, 48), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
+    get { _storage.value(atIndex: 11, hasBit: (1, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 8)) }
   }
 
   var mapBoolBool: [Bool: Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 52), hasBit: (1, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 52), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
+    get { _storage.value(atIndex: 12, hasBit: (1, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 16)) }
   }
 
   var mapStringString: [String: String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 56), hasBit: (1, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 56), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
+    get { _storage.value(atIndex: 13, hasBit: (1, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
   var mapInt32Bytes: [Int32: Data] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(120, 60), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(120, 60), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 14, hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 64)) }
   }
 
   var mapInt32Enum: [Int32: Proto2Unittest_MapEnumLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 64), hasBit: (1, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 64), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 128)) }
+    get { _storage.value(atIndex: 15, hasBit: (1, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 128)) }
   }
 
   var mapInt32ForeignMessage: [Int32: Proto2Unittest_ForeignMessageArenaLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(136, 68), hasBit: (2, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(136, 68), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 1)) }
+    get { _storage.value(atIndex: 16, hasBit: (2, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (2, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -274,8 +274,8 @@ struct Proto2Unittest_TestRequiredMessageMapLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var mapField: [Int32: Proto2Unittest_TestRequiredLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -294,13 +294,13 @@ struct Proto2Unittest_TestEnumMapLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var knownMapField: [Int32: Proto2Unittest_Proto2MapEnumLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var unknownMapField: [Int32: Proto2Unittest_Proto2MapEnumLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -319,13 +319,13 @@ struct Proto2Unittest_TestEnumMapPlusExtraLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var knownMapField: [Int32: Proto2Unittest_Proto2MapEnumPlusExtraLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var unknownMapField: [Int32: Proto2Unittest_Proto2MapEnumPlusExtraLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -344,8 +344,8 @@ struct Proto2Unittest_TestMessageMapLite: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var mapInt32Message: [Int32: Proto2Unittest_TestAllTypesLite] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -491,13 +491,7 @@ extension Proto2Unittest_MapEnumLite {
 }
 
 extension Proto2Unittest_TestMapLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\u{1}\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{10}\u{1}\0\u{11}\0\u{12}\0\u{b}\u{1b}\0proto2_unittest.TestMapLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}D\0\0\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}H\0\0\u{11}\0\u{12}\0\u{b}\u{1b}\0proto2_unittest.TestMapLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\0\0\0\u{12}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}\u{e}\0 \u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\u{f}\0 \u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{10}\0 \u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{11}\0 \u{11}\0\u{12}\0\u{b}\u{1b}\0proto2_unittest.TestMapLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{8}\0\0\0_\u{10}c\u{19}u\u{c}U\u{19}T`H\u{13}\u{1}qL`*7=d!\u{1f}\u{e}x~s^\rA\u{1c}\u{18}K\u{15}f[E\u{1a}\u{b}s$;oO\u{b}d^a'\u{14}RkE8HG}v\u{1d}\u{14}~\u{3}9N6Do\u{8}\u{6}\u{16}Z\u{2}0\u{1e}F\t\u{1c}eQSo5r\u{f}iV\u{1e}Vb\n,\u{4}B9j\tlAkYq\r.hO\"R\u{7f}b!\u{11}\n%Cg=n\u{6}ejG[Q\r\t\0\u{5}7MU7A\u{3},\u{1d}Ww{Fk=\u{14}\u{1d}\u{1e}11F_fzq!Yd0IYFc.ab<\u{7f}%;4<%&\u{1e}\u{3}Ll`PA`u\u{3}3$\u{2}t\"M\u{e}(}~\u{7}tL\u{17}\u{15}qy&xN(3\u{13}p4r(\n@B`P\u{c}0iivvHKMR+0&\u{5}1Hsz\u{15}6J&]./%qAnHx^~\\\u{7}/4'?d\u{1d}*?&\u{15}h\u{1f}bofd\u{15}C\u{1a}\u{e}\u{3}\u{1d}d%J\u{e}Wje8M\rDD_F5U\u{7}\u{1c}R\u{2}\u{1c}\u{8}\u{1e}\u{f}-0&w?)j\u{13}Y+c\u{b}Diy}xVA}\u{e}n`J&\".\u{7}{\u{10}#\u{14}VuE(b^\u{b}x>\u{17}* \u{b}DZn;\u{e}}\"\u{1d}\u{c}5^Uk\u{1a}cK[\u{1f}\u{1}r Ch\u{1c}\u{4}0Jx`'\u{1f}'\u{19}8,@tqQ\u{c}$Ocf,L\t\u{14}S+_x\"Z\u{b}\rZ\u{15}\u{1e}i\u{1f}Y\u{1b}1\u{e}W5_'\u{e}*lK(h\u{18}\u{f}C\u{4}9WnI+=\u{7}=\u{15}{,\\f\u{19}_\u{1f}\u{b}h`Nb\u{e}\u{1c}R#\u{b}c\u{1e}cT\u{15}w?*_.h\u{1c}D\u{14}\n3WEO\u{7f},;{\r\u{7}|/\\RA@0b/al\u{18}\u{7f}s[DUV\u{e}oN\u{c}Z\u{13}hXB0\u{12}1&#@k@\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -525,149 +519,41 @@ extension Proto2Unittest_TestMapLite: SwiftProtobuf.GeneratedMessage {
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0proto2_unittest.TestMapLite.MapInt32Int32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0proto2_unittest.TestMapLite.MapInt32Int32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0proto2_unittest.TestMapLite.MapInt32Int32Entry"
   private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}.\0proto2_unittest.TestMapLite.MapInt64Int64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}.\0proto2_unittest.TestMapLite.MapInt64Int64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}.\0proto2_unittest.TestMapLite.MapInt64Int64Entry"
   private static let _protobuf_mapEntrySchema_MapInt64Int64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt64Int64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}0\0proto2_unittest.TestMapLite.MapUint32Uint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}0\0proto2_unittest.TestMapLite.MapUint32Uint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}0\0proto2_unittest.TestMapLite.MapUint32Uint32Entry"
   private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint32Uint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}0\0proto2_unittest.TestMapLite.MapUint64Uint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}0\0proto2_unittest.TestMapLite.MapUint64Uint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}0\0proto2_unittest.TestMapLite.MapUint64Uint64Entry"
   private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint64Uint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}0\0proto2_unittest.TestMapLite.MapSint32Sint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}0\0proto2_unittest.TestMapLite.MapSint32Sint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}0\0proto2_unittest.TestMapLite.MapSint32Sint32Entry"
   private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint32Sint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}0\0proto2_unittest.TestMapLite.MapSint64Sint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}0\0proto2_unittest.TestMapLite.MapSint64Sint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}0\0proto2_unittest.TestMapLite.MapSint64Sint64Entry"
   private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint64Sint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}2\0proto2_unittest.TestMapLite.MapFixed32Fixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}2\0proto2_unittest.TestMapLite.MapFixed32Fixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}2\0proto2_unittest.TestMapLite.MapFixed32Fixed32Entry"
   private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}2\0proto2_unittest.TestMapLite.MapFixed64Fixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}2\0proto2_unittest.TestMapLite.MapFixed64Fixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}2\0proto2_unittest.TestMapLite.MapFixed64Fixed64Entry"
   private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}4\0proto2_unittest.TestMapLite.MapSfixed32Sfixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}4\0proto2_unittest.TestMapLite.MapSfixed32Sfixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}4\0proto2_unittest.TestMapLite.MapSfixed32Sfixed32Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}4\0proto2_unittest.TestMapLite.MapSfixed64Sfixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}4\0proto2_unittest.TestMapLite.MapSfixed64Sfixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}4\0proto2_unittest.TestMapLite.MapSfixed64Sfixed64Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}.\0proto2_unittest.TestMapLite.MapInt32FloatEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}.\0proto2_unittest.TestMapLite.MapInt32FloatEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}.\0proto2_unittest.TestMapLite.MapInt32FloatEntry"
   private static let _protobuf_mapEntrySchema_MapInt32FloatEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32FloatEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}/\0proto2_unittest.TestMapLite.MapInt32DoubleEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}/\0proto2_unittest.TestMapLite.MapInt32DoubleEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}/\0proto2_unittest.TestMapLite.MapInt32DoubleEntry"
   private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32DoubleEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8},\0proto2_unittest.TestMapLite.MapBoolBoolEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8},\0proto2_unittest.TestMapLite.MapBoolBoolEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8},\0proto2_unittest.TestMapLite.MapBoolBoolEntry"
   private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}0\0proto2_unittest.TestMapLite.MapStringStringEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}0\0proto2_unittest.TestMapLite.MapStringStringEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}0\0proto2_unittest.TestMapLite.MapStringStringEntry"
   private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}.\0proto2_unittest.TestMapLite.MapInt32BytesEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}.\0proto2_unittest.TestMapLite.MapInt32BytesEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}.\0proto2_unittest.TestMapLite.MapInt32BytesEntry"
   private static let _protobuf_mapEntrySchema_MapInt32BytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32BytesEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}-\0proto2_unittest.TestMapLite.MapInt32EnumEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}-\0proto2_unittest.TestMapLite.MapInt32EnumEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}-\0proto2_unittest.TestMapLite.MapInt32EnumEntry"
   private static let _protobuf_mapEntrySchema_MapInt32EnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32EnumEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_MapEnumLite>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMapLite.MapInt32ForeignMessageEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMapLite.MapInt32ForeignMessageEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMapLite.MapInt32ForeignMessageEntry"
   private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<Proto2Unittest_ForeignMessageLite>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_TeboringEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0proto2_unittest.TestMapLite.TeboringEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_TeboringEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0proto2_unittest.TestMapLite.TeboringEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_TeboringEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0proto2_unittest.TestMapLite.TeboringEntry"
   private static let _protobuf_mapEntrySchema_TeboringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_TeboringEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -675,13 +561,7 @@ extension Proto2Unittest_TestMapLite: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestArenaMapLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\u{1}\0\u{11}\0\0\0\0\0\0\0\0\u{12}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4} \0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}(\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}0\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}8\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}@\0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}H\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}P\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}X\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}`\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}h\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}p\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}x\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\0\u{1}\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{8}\u{1}\0\u{10}\0\u{11}\0\u{b} \0proto2_unittest.TestArenaMapLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{11}\0\0\0\0\0\0\0\0\u{12}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{10}\0\0\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{14}\0\0\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{18}\0\0\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{1c}\0\0\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4} \0\0\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}$\0\0\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}(\0\0\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4},\0\0\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}0\0\0\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}4\0\0\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}8\0\0\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}<\0\0\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}@\0\0\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}D\0\0\u{10}\0\u{11}\0\u{b} \0proto2_unittest.TestArenaMapLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{11}\0\0\0\0\0\0\0\0\u{12}\0\0\0\0\0\u{11}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}\u{e}\0 \u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\u{f}\0 \u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{10}\0 \u{10}\0\u{11}\0\u{b} \0proto2_unittest.TestArenaMapLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\u{7}\0\00\u{1f}u?\u{12}\u{17}',w\u{15}SG\u{10}&hh+\u{1e}Blh\u{3}\u{7f}7\u{7}r\rFg\u{14}7bA\u{7}e-\u{6};\\D9{7\u{1d}'\u{e}&{\u{16}>D.B\u{17}C'\u{11}93\u{1d}2\u{16}/\u{1}%d\u{c}\u{16}\u{15}f:\u{e}He}T\u{e}ov\\\t7n|w/q>|\n\u{e}HrPQCDSS|_Y\u{1b}|\nju6O3bC\u{10}MWd\u{17}af\u{1c}QLxbMVX\u{13}\u{1e}Kx\u{12}q=m\u{8}R.\"<@:\"=\u{7f}Locb\u{10}F @[\u{c}JYB=:vV~]D-_E\u{17}D\u{13}4 \u{3}PnIsOnPyD-Dr\u{c}\\\\{9z7F\u{3}v {\u{1e}\u{f}{J*%oHMFl\u{3}]^f9\u{12}+\u{1e}#\u{f}z(`z\u{1}\u{13}(\u{3}x#I\u{3}v#5@/\u{c}K\u{16}_\u{15}5\u{2}\u{f}\u{1}E\u{5}y5_KJ?/\\tW\u{1c}ZU-2\u{10}_S`\u{18}@\u{1d}M]G:ZfxiOnj#\u{11}359\t\u{16};T\u{e}.XuA\u{12}\u{e}\u{1d}QZ\u{e}\u{19}VN+t\u{12}w\u{19}\u{11}%XA$t~K\u{14}@+\u{16},G\\\u{17}\u{5}&p)aiy~:{p,)\u{18}\u{7f}wIw\u{5}L<h\u{1e}\u{b}+\u{7f}wfX'wCXQY;%D\u{13}\u{e}{IRx;\0\u{1}<//[U\u{7f}V$b[k(2\u{1f}N\u{2}\r\u{7}t\u{e}h4=_v,G(HO*\u{1f}y XM\u{c}(?U1JM\u{3}MW\u{5}^l\u{8}9?\nWBao-JUthz\u{10}x5\u{5}9F:tStB\"\u{e}`&Z\u{1a}\0+KV\u{1d}'w+C!o\u{1e}9tNd1\u{14}\u{19}?b,\u{1d}x\u{1b} lh\u{11}\"\u{16}9\\ 8\u{3}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -708,141 +588,39 @@ extension Proto2Unittest_TestArenaMapLite: SwiftProtobuf.GeneratedMessage {
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}3\0proto2_unittest.TestArenaMapLite.MapInt32Int32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}3\0proto2_unittest.TestArenaMapLite.MapInt32Int32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}3\0proto2_unittest.TestArenaMapLite.MapInt32Int32Entry"
   private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}3\0proto2_unittest.TestArenaMapLite.MapInt64Int64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}3\0proto2_unittest.TestArenaMapLite.MapInt64Int64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}3\0proto2_unittest.TestArenaMapLite.MapInt64Int64Entry"
   private static let _protobuf_mapEntrySchema_MapInt64Int64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt64Int64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}5\0proto2_unittest.TestArenaMapLite.MapUint32Uint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}5\0proto2_unittest.TestArenaMapLite.MapUint32Uint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}5\0proto2_unittest.TestArenaMapLite.MapUint32Uint32Entry"
   private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint32Uint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}5\0proto2_unittest.TestArenaMapLite.MapUint64Uint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}5\0proto2_unittest.TestArenaMapLite.MapUint64Uint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}5\0proto2_unittest.TestArenaMapLite.MapUint64Uint64Entry"
   private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint64Uint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}5\0proto2_unittest.TestArenaMapLite.MapSint32Sint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}5\0proto2_unittest.TestArenaMapLite.MapSint32Sint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}5\0proto2_unittest.TestArenaMapLite.MapSint32Sint32Entry"
   private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint32Sint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}5\0proto2_unittest.TestArenaMapLite.MapSint64Sint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}5\0proto2_unittest.TestArenaMapLite.MapSint64Sint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}5\0proto2_unittest.TestArenaMapLite.MapSint64Sint64Entry"
   private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint64Sint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}7\0proto2_unittest.TestArenaMapLite.MapFixed32Fixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}7\0proto2_unittest.TestArenaMapLite.MapFixed32Fixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}7\0proto2_unittest.TestArenaMapLite.MapFixed32Fixed32Entry"
   private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}7\0proto2_unittest.TestArenaMapLite.MapFixed64Fixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}7\0proto2_unittest.TestArenaMapLite.MapFixed64Fixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}7\0proto2_unittest.TestArenaMapLite.MapFixed64Fixed64Entry"
   private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}9\0proto2_unittest.TestArenaMapLite.MapSfixed32Sfixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}9\0proto2_unittest.TestArenaMapLite.MapSfixed32Sfixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}9\0proto2_unittest.TestArenaMapLite.MapSfixed32Sfixed32Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}9\0proto2_unittest.TestArenaMapLite.MapSfixed64Sfixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}9\0proto2_unittest.TestArenaMapLite.MapSfixed64Sfixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}9\0proto2_unittest.TestArenaMapLite.MapSfixed64Sfixed64Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}3\0proto2_unittest.TestArenaMapLite.MapInt32FloatEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}3\0proto2_unittest.TestArenaMapLite.MapInt32FloatEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}3\0proto2_unittest.TestArenaMapLite.MapInt32FloatEntry"
   private static let _protobuf_mapEntrySchema_MapInt32FloatEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32FloatEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}4\0proto2_unittest.TestArenaMapLite.MapInt32DoubleEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}4\0proto2_unittest.TestArenaMapLite.MapInt32DoubleEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}4\0proto2_unittest.TestArenaMapLite.MapInt32DoubleEntry"
   private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32DoubleEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}1\0proto2_unittest.TestArenaMapLite.MapBoolBoolEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}1\0proto2_unittest.TestArenaMapLite.MapBoolBoolEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}1\0proto2_unittest.TestArenaMapLite.MapBoolBoolEntry"
   private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}5\0proto2_unittest.TestArenaMapLite.MapStringStringEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}5\0proto2_unittest.TestArenaMapLite.MapStringStringEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}5\0proto2_unittest.TestArenaMapLite.MapStringStringEntry"
   private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{c}3\0proto2_unittest.TestArenaMapLite.MapInt32BytesEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{c}3\0proto2_unittest.TestArenaMapLite.MapInt32BytesEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32BytesEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}3\0proto2_unittest.TestArenaMapLite.MapInt32BytesEntry"
   private static let _protobuf_mapEntrySchema_MapInt32BytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32BytesEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDataField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestArenaMapLite.MapInt32EnumEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestArenaMapLite.MapInt32EnumEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32EnumEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestArenaMapLite.MapInt32EnumEntry"
   private static let _protobuf_mapEntrySchema_MapInt32EnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32EnumEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_MapEnumLite>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}<\0proto2_unittest.TestArenaMapLite.MapInt32ForeignMessageEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}<\0proto2_unittest.TestArenaMapLite.MapInt32ForeignMessageEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}<\0proto2_unittest.TestArenaMapLite.MapInt32ForeignMessageEntry"
   private static let _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32ForeignMessageEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<Proto2Unittest_ForeignMessageArenaLite>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -850,13 +628,7 @@ extension Proto2Unittest_TestArenaMapLite: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestRequiredMessageMapLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}*\0proto2_unittest.TestRequiredMessageMapLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}*\0proto2_unittest.TestRequiredMessageMapLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}*\0proto2_unittest.TestRequiredMessageMapLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hHfA\nK\\W\u{1e}Yy\\)qz(uJH%o\u{f}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -867,13 +639,7 @@ extension Proto2Unittest_TestRequiredMessageMapLite: SwiftProtobuf.GeneratedMess
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}8\0proto2_unittest.TestRequiredMessageMapLite.MapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}8\0proto2_unittest.TestRequiredMessageMapLite.MapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}8\0proto2_unittest.TestRequiredMessageMapLite.MapFieldEntry"
   private static let _protobuf_mapEntrySchema_MapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<Proto2Unittest_TestRequiredLite>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -881,13 +647,7 @@ extension Proto2Unittest_TestRequiredMessageMapLite: SwiftProtobuf.GeneratedMess
 }
 
 extension Proto2Unittest_TestEnumMapLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{1f}\0proto2_unittest.TestEnumMapLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{1f}\0proto2_unittest.TestEnumMapLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0e\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{1f}\0proto2_unittest.TestEnumMapLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZ[,EJGF&ol:0@.\u{17}\u{b}\u{12}B9\nA]A!6\u{e}Z\t\u{11}@\u{f}5)\u{2}!9Ix\u{12}R\u{b}>s51\u{14}\u{1e}\rU\u{c}7\u{1a}\u{1}Z@0&\u{12}\r\u{1c}O\\!7i@\u{6}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -899,21 +659,9 @@ extension Proto2Unittest_TestEnumMapLite: SwiftProtobuf.GeneratedMessage {
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestEnumMapLite.KnownMapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestEnumMapLite.KnownMapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}2\0proto2_unittest.TestEnumMapLite.KnownMapFieldEntry"
   private static let _protobuf_mapEntrySchema_KnownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_KnownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_Proto2MapEnumLite>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0proto2_unittest.TestEnumMapLite.UnknownMapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0proto2_unittest.TestEnumMapLite.UnknownMapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}4\0proto2_unittest.TestEnumMapLite.UnknownMapFieldEntry"
   private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_Proto2MapEnumLite>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -921,13 +669,7 @@ extension Proto2Unittest_TestEnumMapLite: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestEnumMapPlusExtraLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{10}\0\0\u{1}\0\u{2}\0\u{b}(\0proto2_unittest.TestEnumMapPlusExtraLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0e\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{8}\0\0\u{1}\0\u{2}\0\u{b}(\0proto2_unittest.TestEnumMapPlusExtraLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0e\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}(\0proto2_unittest.TestEnumMapPlusExtraLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZ[,EJGF&ol:0@.\u{17}\u{b}\u{12}B9\nA]A!6\u{e}Z\t\u{11}@\u{f}5)\u{2}!9Ix\u{12}R\u{b}>s51\u{14}\u{1e}\rU\u{c}7\u{1a}\u{1}Z@0&\u{12}\r\u{1c}O\\!7i@\u{6}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -939,21 +681,9 @@ extension Proto2Unittest_TestEnumMapPlusExtraLite: SwiftProtobuf.GeneratedMessag
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0proto2_unittest.TestEnumMapPlusExtraLite.KnownMapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0proto2_unittest.TestEnumMapPlusExtraLite.KnownMapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_KnownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e};\0proto2_unittest.TestEnumMapPlusExtraLite.KnownMapFieldEntry"
   private static let _protobuf_mapEntrySchema_KnownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_KnownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_Proto2MapEnumPlusExtraLite>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0proto2_unittest.TestEnumMapPlusExtraLite.UnknownMapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0proto2_unittest.TestEnumMapPlusExtraLite.UnknownMapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}=\0proto2_unittest.TestEnumMapPlusExtraLite.UnknownMapFieldEntry"
   private static let _protobuf_mapEntrySchema_UnknownMapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_UnknownMapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapEnumField<Proto2Unittest_Proto2MapEnumPlusExtraLite>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -961,13 +691,7 @@ extension Proto2Unittest_TestEnumMapPlusExtraLite: SwiftProtobuf.GeneratedMessag
 }
 
 extension Proto2Unittest_TestMessageMapLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{8}\0\0\0\0\u{1}\0\u{b}\"\0proto2_unittest.TestMessageMapLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{4}\u{4}\0\0\0\0\u{1}\0\u{b}\"\0proto2_unittest.TestMessageMapLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\"\0proto2_unittest.TestMessageMapLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLIJww:\u{16}+|8_hz\t\0`fIZq>\u{1f}\u{7f}H\u{11}Mk(v7])!/\u{1d}@W\u{1b}A>\u{2}l\u{11}\u{2}\u{e}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -978,13 +702,7 @@ extension Proto2Unittest_TestMessageMapLite: SwiftProtobuf.GeneratedMessage {
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32MessageEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMessageMapLite.MapInt32MessageEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32MessageEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMessageMapLite.MapInt32MessageEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32MessageEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}7\0proto2_unittest.TestMessageMapLite.MapInt32MessageEntry"
   private static let _protobuf_mapEntrySchema_MapInt32MessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32MessageEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapMessageField<Proto2Unittest_TestAllTypesLite>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -992,13 +710,7 @@ extension Proto2Unittest_TestMessageMapLite: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestRequiredLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\u{3}\0\0\u{3}\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5} \0proto2_unittest.TestRequiredLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\u{3}\0\0\u{3}\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5} \0proto2_unittest.TestRequiredLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\u{3}\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5} \0proto2_unittest.TestRequiredLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KTZV{n GMwYY&|FK\u{e}gz\u{12}\rb gl^\u{1}K>\u{1c}y;? \u{1d}\u{b}\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1008,13 +720,7 @@ extension Proto2Unittest_TestRequiredLite: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_ForeignMessageArenaLite: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0proto2_unittest.ForeignMessageArenaLite"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0proto2_unittest.ForeignMessageArenaLite"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0proto2_unittest.ForeignMessageArenaLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

@@ -35,13 +35,13 @@ struct Proto2Unittest_RepeatedFieldProxyTestSimpleMessage: @unchecked Swift.Send
   mutating func clearValue() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var nested: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage {
-    get { _storage.value(at: 8, default: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nested` has been explicitly set.
   var hasNested: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
-  mutating func clearNested() { _uniqueStorage().clearValue(at: 8, type: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage.self, hasBit: (0, 2)) }
+  mutating func clearNested() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -59,13 +59,13 @@ struct Proto2Unittest_TestRepeatedMessageProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var nestedMessages: [Proto2Unittest_TestRepeatedMessageProxy.NestedMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var nestedMessagesProxy: [Proto2Unittest_TestRepeatedMessageProxy.NestedMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   struct NestedMessage: @unchecked Swift.Sendable {
@@ -108,8 +108,8 @@ struct Proto2Unittest_TestRepeatedImportMessageProxy: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   var importMessagesProxy: [Proto2Unittest_RepeatedFieldProxyTestImportMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -128,13 +128,13 @@ struct Proto2Unittest_TestRepeatedIntProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var ints: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var intsProxy: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -153,13 +153,13 @@ struct Proto2Unittest_TestRepeatedEnumProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var enums: [Proto2Unittest_TestRepeatedEnumProxy.Enum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var enumsProxy: [Proto2Unittest_TestRepeatedEnumProxy.Enum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   enum Enum: SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -221,8 +221,8 @@ struct Proto2Unittest_TestRepeatedImportEnumProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var enumsProxy: [Proto2Unittest_RepeatedFieldProxyTestImportEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -241,13 +241,13 @@ struct Proto2Unittest_TestRepeatedStdStringProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var strings: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var stringsProxy: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -266,13 +266,13 @@ struct Proto2Unittest_TestRepeatedStringViewProxy: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var stringViews: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   var stringViewsProxy: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -288,13 +288,7 @@ struct Proto2Unittest_TestRepeatedStringViewProxy: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_RepeatedFieldProxyTestSimpleMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}3\0proto2_unittest.RepeatedFieldProxyTestSimpleMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}3\0proto2_unittest.RepeatedFieldProxyTestSimpleMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}3\0proto2_unittest.RepeatedFieldProxyTestSimpleMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HYH(\u{8}N\tcK=t'X\u{7}V1-=]0#w\0Ns[@\u{19}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -311,13 +305,7 @@ extension Proto2Unittest_RepeatedFieldProxyTestSimpleMessage: SwiftProtobuf.Gene
 }
 
 extension Proto2Unittest_TestRepeatedMessageProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\u{1}\0\u{b}(\0proto2_unittest.TestRepeatedMessageProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\u{1}\0\u{b}(\0proto2_unittest.TestRepeatedMessageProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{1}\0\u{10}\u{1}\0\u{1}\0\u{b}(\0proto2_unittest.TestRepeatedMessageProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}M\u{11}9Z[,%L\u{6}\u{10}al;tecq+\u{11}\u{13}>u4PS&\u{14}\te\u{2}?\u{1c}\u{10}r&a5\t\u{1}\u{7}}\u{1d}\tT\u{1c}x<>bA\u{c}.8H|O,f\u{1b}{\u{5}\0]\0fT\00\u{6}\u{8}xC\u{e}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -334,13 +322,7 @@ extension Proto2Unittest_TestRepeatedMessageProxy: SwiftProtobuf.GeneratedMessag
 }
 
 extension Proto2Unittest_TestRepeatedMessageProxy.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}6\0proto2_unittest.TestRepeatedMessageProxy.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}6\0proto2_unittest.TestRepeatedMessageProxy.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}6\0proto2_unittest.TestRepeatedMessageProxy.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -350,13 +332,7 @@ extension Proto2Unittest_TestRepeatedMessageProxy.NestedMessage: SwiftProtobuf.G
 }
 
 extension Proto2Unittest_TestRepeatedImportMessageProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}.\0proto2_unittest.TestRepeatedImportMessageProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}.\0proto2_unittest.TestRepeatedImportMessageProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}.\0proto2_unittest.TestRepeatedImportMessageProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0PTZ-~LIJww:\u{16}+|8_hZP\u{b}k[?_w}*\u{6}jI\u{7f}\u{1a}wnW\ni\0\u{17}]/%\u{7f}\u{b}7\u{2}P\u{1a}*sO\u{12}k\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -373,13 +349,7 @@ extension Proto2Unittest_TestRepeatedImportMessageProxy: SwiftProtobuf.Generated
 }
 
 extension Proto2Unittest_TestRepeatedIntProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\0\0\u{f}$\0proto2_unittest.TestRepeatedIntProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\0\0\u{f}$\0proto2_unittest.TestRepeatedIntProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\0\0\u{f}\u{2}\0\0\0\u{a}\u{1}\0\u{10}\u{1}\0\0\0\u{f}$\0proto2_unittest.TestRepeatedIntProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0PTZ-~LI\u{1a}\u{3}\u{14}MX$R\u{4}$/{zKp!vV\r;\u{1d}0IQ\u{1c}'t\u{1c} v\u{1b}k\u{5}nX7m\u{f}XxfLn\u{3}\nl\u{7f}o\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -389,13 +359,7 @@ extension Proto2Unittest_TestRepeatedIntProxy: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestRepeatedEnumProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{10}\0\0\u{1}\0\u{1}\0\u{e}%\0proto2_unittest.TestRepeatedEnumProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{8}\0\0\u{1}\0\u{1}\0\u{e}%\0proto2_unittest.TestRepeatedEnumProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{1}\0\u{10}\u{1}\0\u{1}\0\u{e}%\0proto2_unittest.TestRepeatedEnumProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PvJ+\nMI\u{1a}\u{3}\u{14}MX$R\u{4}$/[|.J#Z`H\u{f};\u{f}7u\u{8}\u{10}-(-\u{5} mTN&;\t(\u{b}V\u{1e}uZ[\u{1c}lAn3O\u{6}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -418,13 +382,7 @@ extension Proto2Unittest_TestRepeatedEnumProxy.Enum {
 }
 
 extension Proto2Unittest_TestRepeatedImportEnumProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{a}\u{8}\0\0\0\0\u{1}\0\u{e}+\0proto2_unittest.TestRepeatedImportEnumProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{a}\u{4}\0\0\0\0\u{1}\0\u{e}+\0proto2_unittest.TestRepeatedImportEnumProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}+\0proto2_unittest.TestRepeatedImportEnumProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\u{7}LQ)v\u{1a}M\u{e},F\u{5}K!4? CQ-uopM\u{3}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -441,13 +399,7 @@ extension Proto2Unittest_TestRepeatedImportEnumProxy: SwiftProtobuf.GeneratedMes
 }
 
 extension Proto2Unittest_TestRepeatedStdStringProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{9}*\0proto2_unittest.TestRepeatedStdStringProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}*\0proto2_unittest.TestRepeatedStdStringProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{1}\0\u{10}\u{1}\0\0\0\u{9}*\0proto2_unittest.TestRepeatedStdStringProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R\u{4}$/{\u{7f}r?[U@1t.vq\u{c}o0`\u{8}3F\u{1c}E~\u{c}(GdqcJ<4A\u{15}kV\u{1f}_~mh\u{13}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -457,13 +409,7 @@ extension Proto2Unittest_TestRepeatedStdStringProxy: SwiftProtobuf.GeneratedMess
 }
 
 extension Proto2Unittest_TestRepeatedStringViewProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{10}\0\0\u{1}\0\0\0\u{9}+\0proto2_unittest.TestRepeatedStringViewProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}+\0proto2_unittest.TestRepeatedStringViewProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{1}\0\u{10}\u{1}\0\0\0\u{9}+\0proto2_unittest.TestRepeatedStringViewProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZ[,%L\u{6}\u{10}al;tEH:\u{19}S1\u{5}IT\u{6}vUK(p\"\t?(U\u{f}P/4boV{~\u{17}\u{c}6-\u{b}LQOkYZvK;3\u{18}n#\u{1e}?@/\u{13}\u{1c}b2\u{5}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

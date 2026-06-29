@@ -26,27 +26,27 @@ struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: @unchecked Swift.Sen
   // methods supported on all messages.
 
   var nestedMessage: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
   var hasNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearNestedMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage.self, hasBit: (0, 1)) }
+  mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage.self, hasBit: (0, 1)) }
 
   var repeatedNestedMessage: [ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var nestedMessage2: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nestedMessage2` has been explicitly set.
   var hasNestedMessage2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `nestedMessage2`. Subsequent reads from it will return its default value.
-  mutating func clearNestedMessage2() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage.self, hasBit: (0, 2)) }
+  mutating func clearNestedMessage2() { _uniqueStorage().clearValue(atIndex: 1, type: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage.self, hasBit: (0, 2)) }
 
   struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -94,13 +94,7 @@ struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: @unchecked Swift.Sen
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{b}6\0third_party_protobuf_util.TestTrimMessageRepeatedField"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{1}\0\u{1}\0\u{b}6\0third_party_protobuf_util.TestTrimMessageRepeatedField"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{1}\00\u{1}\0\u{1}\0\u{b}6\0third_party_protobuf_util.TestTrimMessageRepeatedField"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\u{1}\0\00\u{7f}DX\u{1}Z7$\u{1b}\rE;p\u{13}r.?\u{1f}.S:I\u{8}vZ?D=\u{18}7?)aK\u{1c}^FxE\u{2}N\u{13}]\u{1e}\u{13}\u{11}ST:\u{8}lK\u{1d}\u{b}6=d\u{f}1tN-g|u\u{14}2\u{1f}\rQT.XGoP\u{14}h*\nRkF2E$t7j2T*D\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -117,13 +111,7 @@ extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: SwiftProtobuf.Gen
 }
 
 extension ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}D\0third_party_protobuf_util.TestTrimMessageRepeatedField.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}D\0third_party_protobuf_util.TestTrimMessageRepeatedField.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}D\0third_party_protobuf_util.TestTrimMessageRepeatedField.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}PLUCBU\u{13}iVc=(g\u{14}\u{1d}#D[;\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

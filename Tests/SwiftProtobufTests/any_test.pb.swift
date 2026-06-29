@@ -61,22 +61,22 @@ struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
   }
 
   var anyValue: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(at: 8, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `anyValue` has been explicitly set.
   var hasAnyValue: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `anyValue`. Subsequent reads from it will return its default value.
-  mutating func clearAnyValue() { _uniqueStorage().clearValue(at: 8, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (0, 1)) }
+  mutating func clearAnyValue() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (0, 1)) }
 
   var repeatedAnyValue: [SwiftProtobuf.Google_Protobuf_Any] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var text: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -92,13 +92,7 @@ struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}}\u{17}\tZs5F#`Oz$+q\0`W9\u{1c}kIwW;\u{15}g\u{b}fa{;\u{16}_~XfC}%RT\0J-e\tn\u{10}3s\u{1d}g\u{11}bo\u{17}=N\u{f}PQ-\u{17}B/c\u{e},Lz.\u{18}\u{f}J\u{b}\u{1d}M[\u{1e}^j(\u{4}.$*\u{14}yh`7Z}hM\u{1b}\u{11}ht<d`}\u{6}|fo\u{1}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

@@ -55,31 +55,31 @@ struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
   var hasAFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
-  mutating func clearAFoo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 1)) }
+  mutating func clearAFoo() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 1)) }
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_CycleBar(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aBar` has been explicitly set.
   var hasABar: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
-  mutating func clearABar() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 2)) }
+  mutating func clearABar() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 2)) }
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
   var hasABaz: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
-  mutating func clearABaz() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 4)) }
+  mutating func clearABaz() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -97,31 +97,31 @@ struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_CycleBar(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aBar` has been explicitly set.
   var hasABar: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
-  mutating func clearABar() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 1)) }
+  mutating func clearABar() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 1)) }
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
   var hasABaz: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
-  mutating func clearABaz() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 2)) }
+  mutating func clearABaz() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 2)) }
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
   var hasAFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
-  mutating func clearAFoo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 4)) }
+  mutating func clearAFoo() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -139,31 +139,31 @@ struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
   var hasABaz: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
-  mutating func clearABaz() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 1)) }
+  mutating func clearABaz() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 1)) }
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
   var hasAFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
-  mutating func clearAFoo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 2)) }
+  mutating func clearAFoo() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 2)) }
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: SwiftProtoTesting_CycleBar(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aBar` has been explicitly set.
   var hasABar: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
-  mutating func clearABar() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 4)) }
+  mutating func clearABar() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 4)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -178,13 +178,7 @@ struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/}\u{18}Vt<M_m\u{19}pvsN%tk\u{1e}W-7X\u{3}f1;]:\u{13}\r2W\0SA\u{1c}\u{5}\u{1a}sTi-xR! z\u{1e}ch\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -203,13 +197,7 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/\u{5}%_W\r\u{15}\u{7f}\u{6}\u{1e}vtXffi,\u{1f}\nq#:3C\u{10}n\0 _\u{6}\0-\u{12}-\u{15}u|$A*!et/4iNSZ1,\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -228,13 +216,7 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/sh&r0lR\u{1b}\u{f}\u{7}gCaox&\u{4}\u{1f}NYQ/3o.6\u{8}=\u{16}J\u{f}$K\u{5}\u{6}9snie\u{5}\u{18}>\u{4}\u{c}h'/I\u{7f}\u{6}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

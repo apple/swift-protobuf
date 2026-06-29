@@ -10104,8 +10104,8 @@ struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Sendable {
   }
 
   var str: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), oneofPresence: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, oneofPresence: (4, 1)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
@@ -10129,13 +10129,13 @@ struct SwiftProtoTesting_Names_SpecialNames2: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var newValue: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `newValue` has been explicitly set.
   var hasNewValue: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
-  mutating func clearNewValue() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearNewValue() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -10171,18 +10171,18 @@ struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Sendable {
   }
 
   var str: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), oneofPresence: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, oneofPresence: (4, 1)) }
+    get { return _storage.value(atIndex: 0, oneofPresence: (4, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames3 {
-    get { _storage.value(at: 8, default: SwiftProtoTesting_Names_SpecialNames3(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Names_SpecialNames3(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `forcesStorage` has been explicitly set.
   var hasForcesStorage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
-  mutating func clearForcesStorage() { _uniqueStorage().clearValue(at: 8, type: SwiftProtoTesting_Names_SpecialNames3.self, hasBit: (0, 1)) }
+  mutating func clearForcesStorage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Names_SpecialNames3.self, hasBit: (0, 1)) }
 
   enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
     case str(String)
@@ -10205,22 +10205,22 @@ struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var newValue: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `newValue` has been explicitly set.
   var hasNewValue: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
-  mutating func clearNewValue() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearNewValue() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames4 {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: SwiftProtoTesting_Names_SpecialNames4(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Names_SpecialNames4(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `forcesStorage` has been explicitly set.
   var hasForcesStorage: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
-  mutating func clearForcesStorage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: SwiftProtoTesting_Names_SpecialNames4.self, hasBit: (0, 2)) }
+  mutating func clearForcesStorage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Names_SpecialNames4.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -12042,13 +12042,7 @@ extension SwiftProtoTesting_Names_EnumFieldNames2 {
 }
 
 extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12058,13 +12052,7 @@ extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{7}\0^\u{1}\0\0\0\0^\u{1}\0\u{e}\0\0\u{14}\u{7}\0\u{1}\0\0\0\0\u{1c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0(\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0,\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\04\0\0\u{6}\0\0\0\u{5}\u{8}\0\0\0\08\0\0\u{7}\0\0\0\u{5}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{5}\u{a}\0\0\0\0@\0\0\u{9}\0\0\0\u{5}\u{b}\0\0\0\0D\0\0\u{a}\0\0\0\u{5}\u{c}\0\0\0\0H\0\0\u{b}\0\0\0\u{5}\u{d}\0\0\0\0L\0\0\u{c}\0\0\0\u{5}\u{f}\0\0\0\0P\0\0\u{d}\0\0\0\u{5}\u{10}\0\0\0\0T\0\0\u{e}\0\0\0\u{5}\u{11}\0\0\0\0X\0\0\u{f}\0\0\0\u{5}\u{12}\0\0\0\0\\\0\0\u{10}\0\0\0\u{5}\u{13}\0\0\0\0`\0\0\u{11}\0\0\0\u{5}\u{14}\0\0\0\0d\0\0\u{12}\0\0\0\u{5}\u{15}\0\0\0\0h\0\0\u{13}\0\0\0\u{5}\u{16}\0\0\0\0l\0\0\u{14}\0\0\0\u{5}\u{17}\0\0\0\0p\0\0\u{15}\0\0\0\u{5}\u{18}\0\0\0\0t\0\0\u{16}\0\0\0\u{5}\u{19}\0\0\0\0x\0\0\u{17}\0\0\0\u{5}\u{1a}\0\0\0\0|\0\0\u{18}\0\0\0\u{5}\u{1b}\0\0\0\0\0\u{1}\0\u{19}\0\0\0\u{5}\u{1c}\0\0\0\0\u{4}\u{1}\0\u{1a}\0\0\0\u{5}\u{1d}\0\0\0\0\u{8}\u{1}\0\u{1b}\0\0\0\u{5}\u{1e}\0\0\0\0\u{c}\u{1}\0\u{1c}\0\0\0\u{5}\u{1f}\0\0\0\0\u{10}\u{1}\0\u{1d}\0\0\0\u{5} \0\0\0\0\u{14}\u{1}\0\u{1e}\0\0\0\u{5}!\0\0\0\0\u{18}\u{1}\0\u{1f}\0\0\0\u{5}\"\0\0\0\0\u{1c}\u{1}\0 \0\0\0\u{5}#\0\0\0\0 \u{1}\0!\0\0\0\u{5}$\0\0\0\0$\u{1}\0\"\0\0\0\u{5}%\0\0\0\0(\u{1}\0#\0\0\0\u{5}&\0\0\0\0,\u{1}\0$\0\0\0\u{5}'\0\0\0\00\u{1}\0%\0\0\0\u{5}(\0\0\0\04\u{1}\0&\0\0\0\u{5})\0\0\0\08\u{1}\0'\0\0\0\u{5}*\0\0\0\0<\u{1}\0(\0\0\0\u{5}+\0\0\0\0@\u{1}\0)\0\0\0\u{5},\0\0\0\0D\u{1}\0*\0\0\0\u{5}-\0\0\0\0H\u{1}\0+\0\0\0\u{5}.\0\0\0\0L\u{1}\0,\0\0\0\u{5}/\0\0\0\0P\u{1}\0-\0\0\0\u{5}0\0\0\0\0T\u{1}\0.\0\0\0\u{5}1\0\0\0\0X\u{1}\0/\0\0\0\u{5}2\0\0\0\0\\\u{1}\00\0\0\0\u{5}3\0\0\0\0`\u{1}\01\0\0\0\u{5}4\0\0\0\0d\u{1}\02\0\0\0\u{5}5\0\0\0\0h\u{1}\03\0\0\0\u{5}6\0\0\0\0l\u{1}\04\0\0\0\u{5}7\0\0\0\0p\u{1}\05\0\0\0\u{5}9\0\0\0\0t\u{1}\06\0\0\0\u{5}:\0\0\0\0x\u{1}\07\0\0\0\u{5};\0\0\0\0|\u{1}\08\0\0\0\u{5}<\0\0\0\0\0\u{2}\09\0\0\0\u{5}=\0\0\0\0\u{4}\u{2}\0:\0\0\0\u{5}>\0\0\0\0\u{8}\u{2}\0;\0\0\0\u{5}?\0\0\0\0\u{c}\u{2}\0<\0\0\0\u{5}@\0\0\0\0\u{10}\u{2}\0=\0\0\0\u{5}A\0\0\0\0\u{14}\u{2}\0>\0\0\0\u{5}B\0\0\0\0\u{18}\u{2}\0?\0\0\0\u{5}C\0\0\0\0\u{1c}\u{2}\0@\0\0\0\u{5}D\0\0\0\0 \u{2}\0A\0\0\0\u{5}E\0\0\0\0$\u{2}\0B\0\0\0\u{5}F\0\0\0\0(\u{2}\0C\0\0\0\u{5}G\0\0\0\0,\u{2}\0D\0\0\0\u{5}H\0\0\0\00\u{2}\0E\0\0\0\u{5}I\0\0\0\04\u{2}\0F\0\0\0\u{5}J\0\0\0\08\u{2}\0G\0\0\0\u{5}K\0\0\0\0<\u{2}\0H\0\0\0\u{5}L\0\0\0\0@\u{2}\0I\0\0\0\u{5}M\0\0\0\0D\u{2}\0J\0\0\0\u{5}N\0\0\0\0H\u{2}\0K\0\0\0\u{5}O\0\0\0\0L\u{2}\0L\0\0\0\u{5}P\0\0\0\0P\u{2}\0M\0\0\0\u{5}Q\0\0\0\0T\u{2}\0N\0\0\0\u{5}R\0\0\0\0X\u{2}\0O\0\0\0\u{5}S\0\0\0\0\\\u{2}\0P\0\0\0\u{5}U\0\0\0\0`\u{2}\0Q\0\0\0\u{5}V\0\0\0\0d\u{2}\0R\0\0\0\u{5}W\0\0\0\0h\u{2}\0S\0\0\0\u{5}X\0\0\0\0l\u{2}\0T\0\0\0\u{5}Y\0\0\0\0p\u{2}\0U\0\0\0\u{5}Z\0\0\0\0t\u{2}\0V\0\0\0\u{5}[\0\0\0\0x\u{2}\0W\0\0\0\u{5}\\\0\0\0\0|\u{2}\0X\0\0\0\u{5}]\0\0\0\0\0\u{3}\0Y\0\0\0\u{5}`\0\0\0\0\u{4}\u{3}\0Z\0\0\0\u{5}b\0\0\0\0\u{8}\u{3}\0[\0\0\0\u{5}c\0\0\0\0\u{c}\u{3}\0\\\0\0\0\u{5}d\0\0\0\0\u{10}\u{3}\0]\0\0\0\u{5}f\0\0\0\0\u{14}\u{3}\0^\0\0\0\u{5}g\0\0\0\0\u{18}\u{3}\0_\0\0\0\u{5}h\0\0\0\0\u{1c}\u{3}\0`\0\0\0\u{5}i\0\0\0\0 \u{3}\0a\0\0\0\u{5}j\0\0\0\0$\u{3}\0b\0\0\0\u{5}k\0\0\0\0(\u{3}\0c\0\0\0\u{5}l\0\0\0\0,\u{3}\0d\0\0\0\u{5}m\0\0\0\00\u{3}\0e\0\0\0\u{5}n\0\0\0\04\u{3}\0f\0\0\0\u{5}r\0\0\0\08\u{3}\0g\0\0\0\u{5}s\0\0\0\0<\u{3}\0h\0\0\0\u{5}t\0\0\0\0@\u{3}\0i\0\0\0\u{5}v\0\0\0\0D\u{3}\0j\0\0\0\u{5}w\0\0\0\0H\u{3}\0k\0\0\0\u{5}x\0\0\0\0L\u{3}\0l\0\0\0\u{5}y\0\0\0\0P\u{3}\0m\0\0\0\u{5}{\0\0\0\0T\u{3}\0n\0\0\0\u{5}}\0\0\0\0X\u{3}\0o\0\0\0\u{5}\u{7f}\0\0\0\0\\\u{3}\0p\0\0\0\u{5}\u{2}\u{1}\0\0\0`\u{3}\0q\0\0\0\u{5}\u{3}\u{1}\0\0\0d\u{3}\0r\0\0\0\u{5}\u{4}\u{1}\0\0\0h\u{3}\0s\0\0\0\u{5}\u{8}\u{1}\0\0\0l\u{3}\0t\0\0\0\u{5}\u{9}\u{1}\0\0\0p\u{3}\0u\0\0\0\u{5}\u{b}\u{1}\0\0\0t\u{3}\0v\0\0\0\u{5}\u{d}\u{1}\0\0\0x\u{3}\0w\0\0\0\u{5}\u{e}\u{1}\0\0\0|\u{3}\0x\0\0\0\u{5}\u{f}\u{1}\0\0\0\0\u{4}\0y\0\0\0\u{5}\u{10}\u{1}\0\0\0\u{4}\u{4}\0z\0\0\0\u{5}\u{11}\u{1}\0\0\0\u{8}\u{4}\0{\0\0\0\u{5}\u{12}\u{1}\0\0\0\u{c}\u{4}\0|\0\0\0\u{5}\u{13}\u{1}\0\0\0\u{10}\u{4}\0}\0\0\0\u{5}\u{14}\u{1}\0\0\0\u{14}\u{4}\0~\0\0\0\u{5}\u{16}\u{1}\0\0\0\u{18}\u{4}\0\u{7f}\0\0\0\u{5}\u{17}\u{1}\0\0\0\u{1c}\u{4}\0\0\u{1}\0\0\u{5}\u{19}\u{1}\0\0\0 \u{4}\0\u{1}\u{1}\0\0\u{5}\u{1b}\u{1}\0\0\0$\u{4}\0\u{2}\u{1}\0\0\u{5}\u{1c}\u{1}\0\0\0(\u{4}\0\u{3}\u{1}\0\0\u{5}\u{1e}\u{1}\0\0\0,\u{4}\0\u{4}\u{1}\0\0\u{5}\u{1f}\u{1}\0\0\00\u{4}\0\u{5}\u{1}\0\0\u{5} \u{1}\0\0\04\u{4}\0\u{6}\u{1}\0\0\u{5}\"\u{1}\0\0\08\u{4}\0\u{7}\u{1}\0\0\u{5}#\u{1}\0\0\0<\u{4}\0\u{8}\u{1}\0\0\u{5}&\u{1}\0\0\0@\u{4}\0\u{9}\u{1}\0\0\u{5}'\u{1}\0\0\0D\u{4}\0\u{a}\u{1}\0\0\u{5}(\u{1}\0\0\0H\u{4}\0\u{b}\u{1}\0\0\u{5},\u{1}\0\0\0L\u{4}\0\u{c}\u{1}\0\0\u{5}-\u{1}\0\0\0P\u{4}\0\u{d}\u{1}\0\0\u{5}.\u{1}\0\0\0T\u{4}\0\u{e}\u{1}\0\0\u{5}/\u{1}\0\0\0X\u{4}\0\u{f}\u{1}\0\0\u{5}0\u{1}\0\0\0\\\u{4}\0\u{10}\u{1}\0\0\u{5}1\u{1}\0\0\0`\u{4}\0\u{11}\u{1}\0\0\u{5}2\u{1}\0\0\0d\u{4}\0\u{12}\u{1}\0\0\u{5}3\u{1}\0\0\0h\u{4}\0\u{13}\u{1}\0\0\u{5}4\u{1}\0\0\0l\u{4}\0\u{14}\u{1}\0\0\u{5}5\u{1}\0\0\0p\u{4}\0\u{15}\u{1}\0\0\u{5}7\u{1}\0\0\0t\u{4}\0\u{16}\u{1}\0\0\u{5}8\u{1}\0\0\0x\u{4}\0\u{17}\u{1}\0\0\u{5}9\u{1}\0\0\0|\u{4}\0\u{18}\u{1}\0\0\u{5}:\u{1}\0\0\0\0\u{5}\0\u{19}\u{1}\0\0\u{5};\u{1}\0\0\0\u{4}\u{5}\0\u{1a}\u{1}\0\0\u{5}<\u{1}\0\0\0\u{8}\u{5}\0\u{1b}\u{1}\0\0\u{5}@\u{1}\0\0\0\u{c}\u{5}\0\u{1c}\u{1}\0\0\u{5}A\u{1}\0\0\0\u{10}\u{5}\0\u{1d}\u{1}\0\0\u{5}B\u{1}\0\0\0\u{14}\u{5}\0\u{1e}\u{1}\0\0\u{5}E\u{1}\0\0\0\u{18}\u{5}\0\u{1f}\u{1}\0\0\u{5}F\u{1}\0\0\0\u{1c}\u{5}\0 \u{1}\0\0\u{5}G\u{1}\0\0\0 \u{5}\0!\u{1}\0\0\u{5}H\u{1}\0\0\0$\u{5}\0\"\u{1}\0\0\u{5}I\u{1}\0\0\0(\u{5}\0#\u{1}\0\0\u{5}J\u{1}\0\0\0,\u{5}\0$\u{1}\0\0\u{5}K\u{1}\0\0\00\u{5}\0%\u{1}\0\0\u{5}L\u{1}\0\0\04\u{5}\0&\u{1}\0\0\u{5}M\u{1}\0\0\08\u{5}\0'\u{1}\0\0\u{5}N\u{1}\0\0\0<\u{5}\0(\u{1}\0\0\u{5}O\u{1}\0\0\0@\u{5}\0)\u{1}\0\0\u{5}P\u{1}\0\0\0D\u{5}\0*\u{1}\0\0\u{5}Q\u{1}\0\0\0H\u{5}\0+\u{1}\0\0\u{5}R\u{1}\0\0\0L\u{5}\0,\u{1}\0\0\u{5}S\u{1}\0\0\0P\u{5}\0-\u{1}\0\0\u{5}T\u{1}\0\0\0T\u{5}\0.\u{1}\0\0\u{5}U\u{1}\0\0\0X\u{5}\0/\u{1}\0\0\u{5}V\u{1}\0\0\0\\\u{5}\00\u{1}\0\0\u{5}W\u{1}\0\0\0`\u{5}\01\u{1}\0\0\u{5}X\u{1}\0\0\0d\u{5}\02\u{1}\0\0\u{5}Y\u{1}\0\0\0h\u{5}\03\u{1}\0\0\u{5}Z\u{1}\0\0\0l\u{5}\04\u{1}\0\0\u{5}[\u{1}\0\0\0p\u{5}\05\u{1}\0\0\u{5}\\\u{1}\0\0\0t\u{5}\06\u{1}\0\0\u{5}]\u{1}\0\0\0x\u{5}\07\u{1}\0\0\u{5}^\u{1}\0\0\0|\u{5}\08\u{1}\0\0\u{5}_\u{1}\0\0\0\0\u{6}\09\u{1}\0\0\u{5}`\u{1}\0\0\0\u{4}\u{6}\0:\u{1}\0\0\u{5}a\u{1}\0\0\0\u{8}\u{6}\0;\u{1}\0\0\u{5}b\u{1}\0\0\0\u{c}\u{6}\0<\u{1}\0\0\u{5}c\u{1}\0\0\0\u{10}\u{6}\0=\u{1}\0\0\u{5}d\u{1}\0\0\0\u{14}\u{6}\0>\u{1}\0\0\u{5}e\u{1}\0\0\0\u{18}\u{6}\0?\u{1}\0\0\u{5}f\u{1}\0\0\0\u{1c}\u{6}\0@\u{1}\0\0\u{5}g\u{1}\0\0\0 \u{6}\0A\u{1}\0\0\u{5}h\u{1}\0\0\0$\u{6}\0B\u{1}\0\0\u{5}i\u{1}\0\0\0(\u{6}\0C\u{1}\0\0\u{5}j\u{1}\0\0\0,\u{6}\0D\u{1}\0\0\u{5}k\u{1}\0\0\00\u{6}\0E\u{1}\0\0\u{5}l\u{1}\0\0\04\u{6}\0F\u{1}\0\0\u{5}m\u{1}\0\0\08\u{6}\0G\u{1}\0\0\u{5}n\u{1}\0\0\0<\u{6}\0H\u{1}\0\0\u{5}o\u{1}\0\0\0@\u{6}\0I\u{1}\0\0\u{5}p\u{1}\0\0\0D\u{6}\0J\u{1}\0\0\u{5}q\u{1}\0\0\0H\u{6}\0K\u{1}\0\0\u{5}r\u{1}\0\0\0L\u{6}\0L\u{1}\0\0\u{5}s\u{1}\0\0\0P\u{6}\0M\u{1}\0\0\u{5}t\u{1}\0\0\0T\u{6}\0N\u{1}\0\0\u{5}u\u{1}\0\0\0X\u{6}\0O\u{1}\0\0\u{5}v\u{1}\0\0\0\\\u{6}\0P\u{1}\0\0\u{5}w\u{1}\0\0\0`\u{6}\0Q\u{1}\0\0\u{5}z\u{1}\0\0\0d\u{6}\0R\u{1}\0\0\u{5}{\u{1}\0\0\0h\u{6}\0S\u{1}\0\0\u{5}|\u{1}\0\0\0l\u{6}\0T\u{1}\0\0\u{5}}\u{1}\0\0\0p\u{6}\0U\u{1}\0\0\u{5}~\u{1}\0\0\0t\u{6}\0V\u{1}\0\0\u{5}\u{7f}\u{1}\0\0\0x\u{6}\0W\u{1}\0\0\u{5}\0\u{2}\0\0\0|\u{6}\0X\u{1}\0\0\u{5}\u{1}\u{2}\0\0\0\0\u{7}\0Y\u{1}\0\0\u{5}\u{2}\u{2}\0\0\0\u{4}\u{7}\0Z\u{1}\0\0\u{5}\u{3}\u{2}\0\0\0\u{8}\u{7}\0[\u{1}\0\0\u{5}\u{4}\u{2}\0\0\0\u{c}\u{7}\0\\\u{1}\0\0\u{5}\u{5}\u{2}\0\0\0\u{10}\u{7}\0]\u{1}\0\0\u{5}$\0swift_proto_testing.names.FieldNames"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{7}\0^\u{1}\0\0\0\0^\u{1}\0\u{e}\0\0\u{14}\u{7}\0\u{1}\0\0\0\0\u{1c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0(\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0,\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\04\0\0\u{6}\0\0\0\u{5}\u{8}\0\0\0\08\0\0\u{7}\0\0\0\u{5}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{5}\u{a}\0\0\0\0@\0\0\u{9}\0\0\0\u{5}\u{b}\0\0\0\0D\0\0\u{a}\0\0\0\u{5}\u{c}\0\0\0\0H\0\0\u{b}\0\0\0\u{5}\u{d}\0\0\0\0L\0\0\u{c}\0\0\0\u{5}\u{f}\0\0\0\0P\0\0\u{d}\0\0\0\u{5}\u{10}\0\0\0\0T\0\0\u{e}\0\0\0\u{5}\u{11}\0\0\0\0X\0\0\u{f}\0\0\0\u{5}\u{12}\0\0\0\0\\\0\0\u{10}\0\0\0\u{5}\u{13}\0\0\0\0`\0\0\u{11}\0\0\0\u{5}\u{14}\0\0\0\0d\0\0\u{12}\0\0\0\u{5}\u{15}\0\0\0\0h\0\0\u{13}\0\0\0\u{5}\u{16}\0\0\0\0l\0\0\u{14}\0\0\0\u{5}\u{17}\0\0\0\0p\0\0\u{15}\0\0\0\u{5}\u{18}\0\0\0\0t\0\0\u{16}\0\0\0\u{5}\u{19}\0\0\0\0x\0\0\u{17}\0\0\0\u{5}\u{1a}\0\0\0\0|\0\0\u{18}\0\0\0\u{5}\u{1b}\0\0\0\0\0\u{1}\0\u{19}\0\0\0\u{5}\u{1c}\0\0\0\0\u{4}\u{1}\0\u{1a}\0\0\0\u{5}\u{1d}\0\0\0\0\u{8}\u{1}\0\u{1b}\0\0\0\u{5}\u{1e}\0\0\0\0\u{c}\u{1}\0\u{1c}\0\0\0\u{5}\u{1f}\0\0\0\0\u{10}\u{1}\0\u{1d}\0\0\0\u{5} \0\0\0\0\u{14}\u{1}\0\u{1e}\0\0\0\u{5}!\0\0\0\0\u{18}\u{1}\0\u{1f}\0\0\0\u{5}\"\0\0\0\0\u{1c}\u{1}\0 \0\0\0\u{5}#\0\0\0\0 \u{1}\0!\0\0\0\u{5}$\0\0\0\0$\u{1}\0\"\0\0\0\u{5}%\0\0\0\0(\u{1}\0#\0\0\0\u{5}&\0\0\0\0,\u{1}\0$\0\0\0\u{5}'\0\0\0\00\u{1}\0%\0\0\0\u{5}(\0\0\0\04\u{1}\0&\0\0\0\u{5})\0\0\0\08\u{1}\0'\0\0\0\u{5}*\0\0\0\0<\u{1}\0(\0\0\0\u{5}+\0\0\0\0@\u{1}\0)\0\0\0\u{5},\0\0\0\0D\u{1}\0*\0\0\0\u{5}-\0\0\0\0H\u{1}\0+\0\0\0\u{5}.\0\0\0\0L\u{1}\0,\0\0\0\u{5}/\0\0\0\0P\u{1}\0-\0\0\0\u{5}0\0\0\0\0T\u{1}\0.\0\0\0\u{5}1\0\0\0\0X\u{1}\0/\0\0\0\u{5}2\0\0\0\0\\\u{1}\00\0\0\0\u{5}3\0\0\0\0`\u{1}\01\0\0\0\u{5}4\0\0\0\0d\u{1}\02\0\0\0\u{5}5\0\0\0\0h\u{1}\03\0\0\0\u{5}6\0\0\0\0l\u{1}\04\0\0\0\u{5}7\0\0\0\0p\u{1}\05\0\0\0\u{5}9\0\0\0\0t\u{1}\06\0\0\0\u{5}:\0\0\0\0x\u{1}\07\0\0\0\u{5};\0\0\0\0|\u{1}\08\0\0\0\u{5}<\0\0\0\0\0\u{2}\09\0\0\0\u{5}=\0\0\0\0\u{4}\u{2}\0:\0\0\0\u{5}>\0\0\0\0\u{8}\u{2}\0;\0\0\0\u{5}?\0\0\0\0\u{c}\u{2}\0<\0\0\0\u{5}@\0\0\0\0\u{10}\u{2}\0=\0\0\0\u{5}A\0\0\0\0\u{14}\u{2}\0>\0\0\0\u{5}B\0\0\0\0\u{18}\u{2}\0?\0\0\0\u{5}C\0\0\0\0\u{1c}\u{2}\0@\0\0\0\u{5}D\0\0\0\0 \u{2}\0A\0\0\0\u{5}E\0\0\0\0$\u{2}\0B\0\0\0\u{5}F\0\0\0\0(\u{2}\0C\0\0\0\u{5}G\0\0\0\0,\u{2}\0D\0\0\0\u{5}H\0\0\0\00\u{2}\0E\0\0\0\u{5}I\0\0\0\04\u{2}\0F\0\0\0\u{5}J\0\0\0\08\u{2}\0G\0\0\0\u{5}K\0\0\0\0<\u{2}\0H\0\0\0\u{5}L\0\0\0\0@\u{2}\0I\0\0\0\u{5}M\0\0\0\0D\u{2}\0J\0\0\0\u{5}N\0\0\0\0H\u{2}\0K\0\0\0\u{5}O\0\0\0\0L\u{2}\0L\0\0\0\u{5}P\0\0\0\0P\u{2}\0M\0\0\0\u{5}Q\0\0\0\0T\u{2}\0N\0\0\0\u{5}R\0\0\0\0X\u{2}\0O\0\0\0\u{5}S\0\0\0\0\\\u{2}\0P\0\0\0\u{5}U\0\0\0\0`\u{2}\0Q\0\0\0\u{5}V\0\0\0\0d\u{2}\0R\0\0\0\u{5}W\0\0\0\0h\u{2}\0S\0\0\0\u{5}X\0\0\0\0l\u{2}\0T\0\0\0\u{5}Y\0\0\0\0p\u{2}\0U\0\0\0\u{5}Z\0\0\0\0t\u{2}\0V\0\0\0\u{5}[\0\0\0\0x\u{2}\0W\0\0\0\u{5}\\\0\0\0\0|\u{2}\0X\0\0\0\u{5}]\0\0\0\0\0\u{3}\0Y\0\0\0\u{5}`\0\0\0\0\u{4}\u{3}\0Z\0\0\0\u{5}b\0\0\0\0\u{8}\u{3}\0[\0\0\0\u{5}c\0\0\0\0\u{c}\u{3}\0\\\0\0\0\u{5}d\0\0\0\0\u{10}\u{3}\0]\0\0\0\u{5}f\0\0\0\0\u{14}\u{3}\0^\0\0\0\u{5}g\0\0\0\0\u{18}\u{3}\0_\0\0\0\u{5}h\0\0\0\0\u{1c}\u{3}\0`\0\0\0\u{5}i\0\0\0\0 \u{3}\0a\0\0\0\u{5}j\0\0\0\0$\u{3}\0b\0\0\0\u{5}k\0\0\0\0(\u{3}\0c\0\0\0\u{5}l\0\0\0\0,\u{3}\0d\0\0\0\u{5}m\0\0\0\00\u{3}\0e\0\0\0\u{5}n\0\0\0\04\u{3}\0f\0\0\0\u{5}r\0\0\0\08\u{3}\0g\0\0\0\u{5}s\0\0\0\0<\u{3}\0h\0\0\0\u{5}t\0\0\0\0@\u{3}\0i\0\0\0\u{5}v\0\0\0\0D\u{3}\0j\0\0\0\u{5}w\0\0\0\0H\u{3}\0k\0\0\0\u{5}x\0\0\0\0L\u{3}\0l\0\0\0\u{5}y\0\0\0\0P\u{3}\0m\0\0\0\u{5}{\0\0\0\0T\u{3}\0n\0\0\0\u{5}}\0\0\0\0X\u{3}\0o\0\0\0\u{5}\u{7f}\0\0\0\0\\\u{3}\0p\0\0\0\u{5}\u{2}\u{1}\0\0\0`\u{3}\0q\0\0\0\u{5}\u{3}\u{1}\0\0\0d\u{3}\0r\0\0\0\u{5}\u{4}\u{1}\0\0\0h\u{3}\0s\0\0\0\u{5}\u{8}\u{1}\0\0\0l\u{3}\0t\0\0\0\u{5}\u{9}\u{1}\0\0\0p\u{3}\0u\0\0\0\u{5}\u{b}\u{1}\0\0\0t\u{3}\0v\0\0\0\u{5}\u{d}\u{1}\0\0\0x\u{3}\0w\0\0\0\u{5}\u{e}\u{1}\0\0\0|\u{3}\0x\0\0\0\u{5}\u{f}\u{1}\0\0\0\0\u{4}\0y\0\0\0\u{5}\u{10}\u{1}\0\0\0\u{4}\u{4}\0z\0\0\0\u{5}\u{11}\u{1}\0\0\0\u{8}\u{4}\0{\0\0\0\u{5}\u{12}\u{1}\0\0\0\u{c}\u{4}\0|\0\0\0\u{5}\u{13}\u{1}\0\0\0\u{10}\u{4}\0}\0\0\0\u{5}\u{14}\u{1}\0\0\0\u{14}\u{4}\0~\0\0\0\u{5}\u{16}\u{1}\0\0\0\u{18}\u{4}\0\u{7f}\0\0\0\u{5}\u{17}\u{1}\0\0\0\u{1c}\u{4}\0\0\u{1}\0\0\u{5}\u{19}\u{1}\0\0\0 \u{4}\0\u{1}\u{1}\0\0\u{5}\u{1b}\u{1}\0\0\0$\u{4}\0\u{2}\u{1}\0\0\u{5}\u{1c}\u{1}\0\0\0(\u{4}\0\u{3}\u{1}\0\0\u{5}\u{1e}\u{1}\0\0\0,\u{4}\0\u{4}\u{1}\0\0\u{5}\u{1f}\u{1}\0\0\00\u{4}\0\u{5}\u{1}\0\0\u{5} \u{1}\0\0\04\u{4}\0\u{6}\u{1}\0\0\u{5}\"\u{1}\0\0\08\u{4}\0\u{7}\u{1}\0\0\u{5}#\u{1}\0\0\0<\u{4}\0\u{8}\u{1}\0\0\u{5}&\u{1}\0\0\0@\u{4}\0\u{9}\u{1}\0\0\u{5}'\u{1}\0\0\0D\u{4}\0\u{a}\u{1}\0\0\u{5}(\u{1}\0\0\0H\u{4}\0\u{b}\u{1}\0\0\u{5},\u{1}\0\0\0L\u{4}\0\u{c}\u{1}\0\0\u{5}-\u{1}\0\0\0P\u{4}\0\u{d}\u{1}\0\0\u{5}.\u{1}\0\0\0T\u{4}\0\u{e}\u{1}\0\0\u{5}/\u{1}\0\0\0X\u{4}\0\u{f}\u{1}\0\0\u{5}0\u{1}\0\0\0\\\u{4}\0\u{10}\u{1}\0\0\u{5}1\u{1}\0\0\0`\u{4}\0\u{11}\u{1}\0\0\u{5}2\u{1}\0\0\0d\u{4}\0\u{12}\u{1}\0\0\u{5}3\u{1}\0\0\0h\u{4}\0\u{13}\u{1}\0\0\u{5}4\u{1}\0\0\0l\u{4}\0\u{14}\u{1}\0\0\u{5}5\u{1}\0\0\0p\u{4}\0\u{15}\u{1}\0\0\u{5}7\u{1}\0\0\0t\u{4}\0\u{16}\u{1}\0\0\u{5}8\u{1}\0\0\0x\u{4}\0\u{17}\u{1}\0\0\u{5}9\u{1}\0\0\0|\u{4}\0\u{18}\u{1}\0\0\u{5}:\u{1}\0\0\0\0\u{5}\0\u{19}\u{1}\0\0\u{5};\u{1}\0\0\0\u{4}\u{5}\0\u{1a}\u{1}\0\0\u{5}<\u{1}\0\0\0\u{8}\u{5}\0\u{1b}\u{1}\0\0\u{5}@\u{1}\0\0\0\u{c}\u{5}\0\u{1c}\u{1}\0\0\u{5}A\u{1}\0\0\0\u{10}\u{5}\0\u{1d}\u{1}\0\0\u{5}B\u{1}\0\0\0\u{14}\u{5}\0\u{1e}\u{1}\0\0\u{5}E\u{1}\0\0\0\u{18}\u{5}\0\u{1f}\u{1}\0\0\u{5}F\u{1}\0\0\0\u{1c}\u{5}\0 \u{1}\0\0\u{5}G\u{1}\0\0\0 \u{5}\0!\u{1}\0\0\u{5}H\u{1}\0\0\0$\u{5}\0\"\u{1}\0\0\u{5}I\u{1}\0\0\0(\u{5}\0#\u{1}\0\0\u{5}J\u{1}\0\0\0,\u{5}\0$\u{1}\0\0\u{5}K\u{1}\0\0\00\u{5}\0%\u{1}\0\0\u{5}L\u{1}\0\0\04\u{5}\0&\u{1}\0\0\u{5}M\u{1}\0\0\08\u{5}\0'\u{1}\0\0\u{5}N\u{1}\0\0\0<\u{5}\0(\u{1}\0\0\u{5}O\u{1}\0\0\0@\u{5}\0)\u{1}\0\0\u{5}P\u{1}\0\0\0D\u{5}\0*\u{1}\0\0\u{5}Q\u{1}\0\0\0H\u{5}\0+\u{1}\0\0\u{5}R\u{1}\0\0\0L\u{5}\0,\u{1}\0\0\u{5}S\u{1}\0\0\0P\u{5}\0-\u{1}\0\0\u{5}T\u{1}\0\0\0T\u{5}\0.\u{1}\0\0\u{5}U\u{1}\0\0\0X\u{5}\0/\u{1}\0\0\u{5}V\u{1}\0\0\0\\\u{5}\00\u{1}\0\0\u{5}W\u{1}\0\0\0`\u{5}\01\u{1}\0\0\u{5}X\u{1}\0\0\0d\u{5}\02\u{1}\0\0\u{5}Y\u{1}\0\0\0h\u{5}\03\u{1}\0\0\u{5}Z\u{1}\0\0\0l\u{5}\04\u{1}\0\0\u{5}[\u{1}\0\0\0p\u{5}\05\u{1}\0\0\u{5}\\\u{1}\0\0\0t\u{5}\06\u{1}\0\0\u{5}]\u{1}\0\0\0x\u{5}\07\u{1}\0\0\u{5}^\u{1}\0\0\0|\u{5}\08\u{1}\0\0\u{5}_\u{1}\0\0\0\0\u{6}\09\u{1}\0\0\u{5}`\u{1}\0\0\0\u{4}\u{6}\0:\u{1}\0\0\u{5}a\u{1}\0\0\0\u{8}\u{6}\0;\u{1}\0\0\u{5}b\u{1}\0\0\0\u{c}\u{6}\0<\u{1}\0\0\u{5}c\u{1}\0\0\0\u{10}\u{6}\0=\u{1}\0\0\u{5}d\u{1}\0\0\0\u{14}\u{6}\0>\u{1}\0\0\u{5}e\u{1}\0\0\0\u{18}\u{6}\0?\u{1}\0\0\u{5}f\u{1}\0\0\0\u{1c}\u{6}\0@\u{1}\0\0\u{5}g\u{1}\0\0\0 \u{6}\0A\u{1}\0\0\u{5}h\u{1}\0\0\0$\u{6}\0B\u{1}\0\0\u{5}i\u{1}\0\0\0(\u{6}\0C\u{1}\0\0\u{5}j\u{1}\0\0\0,\u{6}\0D\u{1}\0\0\u{5}k\u{1}\0\0\00\u{6}\0E\u{1}\0\0\u{5}l\u{1}\0\0\04\u{6}\0F\u{1}\0\0\u{5}m\u{1}\0\0\08\u{6}\0G\u{1}\0\0\u{5}n\u{1}\0\0\0<\u{6}\0H\u{1}\0\0\u{5}o\u{1}\0\0\0@\u{6}\0I\u{1}\0\0\u{5}p\u{1}\0\0\0D\u{6}\0J\u{1}\0\0\u{5}q\u{1}\0\0\0H\u{6}\0K\u{1}\0\0\u{5}r\u{1}\0\0\0L\u{6}\0L\u{1}\0\0\u{5}s\u{1}\0\0\0P\u{6}\0M\u{1}\0\0\u{5}t\u{1}\0\0\0T\u{6}\0N\u{1}\0\0\u{5}u\u{1}\0\0\0X\u{6}\0O\u{1}\0\0\u{5}v\u{1}\0\0\0\\\u{6}\0P\u{1}\0\0\u{5}w\u{1}\0\0\0`\u{6}\0Q\u{1}\0\0\u{5}z\u{1}\0\0\0d\u{6}\0R\u{1}\0\0\u{5}{\u{1}\0\0\0h\u{6}\0S\u{1}\0\0\u{5}|\u{1}\0\0\0l\u{6}\0T\u{1}\0\0\u{5}}\u{1}\0\0\0p\u{6}\0U\u{1}\0\0\u{5}~\u{1}\0\0\0t\u{6}\0V\u{1}\0\0\u{5}\u{7f}\u{1}\0\0\0x\u{6}\0W\u{1}\0\0\u{5}\0\u{2}\0\0\0|\u{6}\0X\u{1}\0\0\u{5}\u{1}\u{2}\0\0\0\0\u{7}\0Y\u{1}\0\0\u{5}\u{2}\u{2}\0\0\0\u{4}\u{7}\0Z\u{1}\0\0\u{5}\u{3}\u{2}\0\0\0\u{8}\u{7}\0[\u{1}\0\0\u{5}\u{4}\u{2}\0\0\0\u{c}\u{7}\0\\\u{1}\0\0\u{5}\u{5}\u{2}\0\0\0\u{10}\u{7}\0]\u{1}\0\0\u{5}$\0swift_proto_testing.names.FieldNames"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{7}\0^\u{1}\0\0\0\0^\u{1}\0\u{e}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0(\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0,\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\04\0\0\u{6}\0\0\0\u{5}\u{8}\0\0\0\08\0\0\u{7}\0\0\0\u{5}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{5}\u{a}\0\0\0\0@\0\0\u{9}\0\0\0\u{5}\u{b}\0\0\0\0D\0\0\u{a}\0\0\0\u{5}\u{c}\0\0\0\0H\0\0\u{b}\0\0\0\u{5}\u{d}\0\0\0\0L\0\0\u{c}\0\0\0\u{5}\u{f}\0\0\0\0P\0\0\u{d}\0\0\0\u{5}\u{10}\0\0\0\0T\0\0\u{e}\0\0\0\u{5}\u{11}\0\0\0\0X\0\0\u{f}\0\0\0\u{5}\u{12}\0\0\0\0\\\0\0\u{10}\0\0\0\u{5}\u{13}\0\0\0\0`\0\0\u{11}\0\0\0\u{5}\u{14}\0\0\0\0d\0\0\u{12}\0\0\0\u{5}\u{15}\0\0\0\0h\0\0\u{13}\0\0\0\u{5}\u{16}\0\0\0\0l\0\0\u{14}\0\0\0\u{5}\u{17}\0\0\0\0p\0\0\u{15}\0\0\0\u{5}\u{18}\0\0\0\0t\0\0\u{16}\0\0\0\u{5}\u{19}\0\0\0\0x\0\0\u{17}\0\0\0\u{5}\u{1a}\0\0\0\0|\0\0\u{18}\0\0\0\u{5}\u{1b}\0\0\0\0\0\u{1}\0\u{19}\0\0\0\u{5}\u{1c}\0\0\0\0\u{4}\u{1}\0\u{1a}\0\0\0\u{5}\u{1d}\0\0\0\0\u{8}\u{1}\0\u{1b}\0\0\0\u{5}\u{1e}\0\0\0\0\u{c}\u{1}\0\u{1c}\0\0\0\u{5}\u{1f}\0\0\0\0\u{10}\u{1}\0\u{1d}\0\0\0\u{5} \0\0\0\0\u{14}\u{1}\0\u{1e}\0\0\0\u{5}!\0\0\0\0\u{18}\u{1}\0\u{1f}\0\0\0\u{5}\"\0\0\0\0\u{1c}\u{1}\0 \0\0\0\u{5}#\0\0\0\0 \u{1}\0!\0\0\0\u{5}$\0\0\0\0$\u{1}\0\"\0\0\0\u{5}%\0\0\0\0(\u{1}\0#\0\0\0\u{5}&\0\0\0\0,\u{1}\0$\0\0\0\u{5}'\0\0\0\00\u{1}\0%\0\0\0\u{5}(\0\0\0\04\u{1}\0&\0\0\0\u{5})\0\0\0\08\u{1}\0'\0\0\0\u{5}*\0\0\0\0<\u{1}\0(\0\0\0\u{5}+\0\0\0\0@\u{1}\0)\0\0\0\u{5},\0\0\0\0D\u{1}\0*\0\0\0\u{5}-\0\0\0\0H\u{1}\0+\0\0\0\u{5}.\0\0\0\0L\u{1}\0,\0\0\0\u{5}/\0\0\0\0P\u{1}\0-\0\0\0\u{5}0\0\0\0\0T\u{1}\0.\0\0\0\u{5}1\0\0\0\0X\u{1}\0/\0\0\0\u{5}2\0\0\0\0\\\u{1}\00\0\0\0\u{5}3\0\0\0\0`\u{1}\01\0\0\0\u{5}4\0\0\0\0d\u{1}\02\0\0\0\u{5}5\0\0\0\0h\u{1}\03\0\0\0\u{5}6\0\0\0\0l\u{1}\04\0\0\0\u{5}7\0\0\0\0p\u{1}\05\0\0\0\u{5}9\0\0\0\0t\u{1}\06\0\0\0\u{5}:\0\0\0\0x\u{1}\07\0\0\0\u{5};\0\0\0\0|\u{1}\08\0\0\0\u{5}<\0\0\0\0\0\u{2}\09\0\0\0\u{5}=\0\0\0\0\u{4}\u{2}\0:\0\0\0\u{5}>\0\0\0\0\u{8}\u{2}\0;\0\0\0\u{5}?\0\0\0\0\u{c}\u{2}\0<\0\0\0\u{5}@\0\0\0\0\u{10}\u{2}\0=\0\0\0\u{5}A\0\0\0\0\u{14}\u{2}\0>\0\0\0\u{5}B\0\0\0\0\u{18}\u{2}\0?\0\0\0\u{5}C\0\0\0\0\u{1c}\u{2}\0@\0\0\0\u{5}D\0\0\0\0 \u{2}\0A\0\0\0\u{5}E\0\0\0\0$\u{2}\0B\0\0\0\u{5}F\0\0\0\0(\u{2}\0C\0\0\0\u{5}G\0\0\0\0,\u{2}\0D\0\0\0\u{5}H\0\0\0\00\u{2}\0E\0\0\0\u{5}I\0\0\0\04\u{2}\0F\0\0\0\u{5}J\0\0\0\08\u{2}\0G\0\0\0\u{5}K\0\0\0\0<\u{2}\0H\0\0\0\u{5}L\0\0\0\0@\u{2}\0I\0\0\0\u{5}M\0\0\0\0D\u{2}\0J\0\0\0\u{5}N\0\0\0\0H\u{2}\0K\0\0\0\u{5}O\0\0\0\0L\u{2}\0L\0\0\0\u{5}P\0\0\0\0P\u{2}\0M\0\0\0\u{5}Q\0\0\0\0T\u{2}\0N\0\0\0\u{5}R\0\0\0\0X\u{2}\0O\0\0\0\u{5}S\0\0\0\0\\\u{2}\0P\0\0\0\u{5}U\0\0\0\0`\u{2}\0Q\0\0\0\u{5}V\0\0\0\0d\u{2}\0R\0\0\0\u{5}W\0\0\0\0h\u{2}\0S\0\0\0\u{5}X\0\0\0\0l\u{2}\0T\0\0\0\u{5}Y\0\0\0\0p\u{2}\0U\0\0\0\u{5}Z\0\0\0\0t\u{2}\0V\0\0\0\u{5}[\0\0\0\0x\u{2}\0W\0\0\0\u{5}\\\0\0\0\0|\u{2}\0X\0\0\0\u{5}]\0\0\0\0\0\u{3}\0Y\0\0\0\u{5}`\0\0\0\0\u{4}\u{3}\0Z\0\0\0\u{5}b\0\0\0\0\u{8}\u{3}\0[\0\0\0\u{5}c\0\0\0\0\u{c}\u{3}\0\\\0\0\0\u{5}d\0\0\0\0\u{10}\u{3}\0]\0\0\0\u{5}f\0\0\0\0\u{14}\u{3}\0^\0\0\0\u{5}g\0\0\0\0\u{18}\u{3}\0_\0\0\0\u{5}h\0\0\0\0\u{1c}\u{3}\0`\0\0\0\u{5}i\0\0\0\0 \u{3}\0a\0\0\0\u{5}j\0\0\0\0$\u{3}\0b\0\0\0\u{5}k\0\0\0\0(\u{3}\0c\0\0\0\u{5}l\0\0\0\0,\u{3}\0d\0\0\0\u{5}m\0\0\0\00\u{3}\0e\0\0\0\u{5}n\0\0\0\04\u{3}\0f\0\0\0\u{5}r\0\0\0\08\u{3}\0g\0\0\0\u{5}s\0\0\0\0<\u{3}\0h\0\0\0\u{5}t\0\0\0\0@\u{3}\0i\0\0\0\u{5}v\0\0\0\0D\u{3}\0j\0\0\0\u{5}w\0\0\0\0H\u{3}\0k\0\0\0\u{5}x\0\0\0\0L\u{3}\0l\0\0\0\u{5}y\0\0\0\0P\u{3}\0m\0\0\0\u{5}{\0\0\0\0T\u{3}\0n\0\0\0\u{5}}\0\0\0\0X\u{3}\0o\0\0\0\u{5}\u{7f}\0\0\0\0\\\u{3}\0p\0\0\0\u{5}\u{2}\u{1}\0\0\0`\u{3}\0q\0\0\0\u{5}\u{3}\u{1}\0\0\0d\u{3}\0r\0\0\0\u{5}\u{4}\u{1}\0\0\0h\u{3}\0s\0\0\0\u{5}\u{8}\u{1}\0\0\0l\u{3}\0t\0\0\0\u{5}\u{9}\u{1}\0\0\0p\u{3}\0u\0\0\0\u{5}\u{b}\u{1}\0\0\0t\u{3}\0v\0\0\0\u{5}\u{d}\u{1}\0\0\0x\u{3}\0w\0\0\0\u{5}\u{e}\u{1}\0\0\0|\u{3}\0x\0\0\0\u{5}\u{f}\u{1}\0\0\0\0\u{4}\0y\0\0\0\u{5}\u{10}\u{1}\0\0\0\u{4}\u{4}\0z\0\0\0\u{5}\u{11}\u{1}\0\0\0\u{8}\u{4}\0{\0\0\0\u{5}\u{12}\u{1}\0\0\0\u{c}\u{4}\0|\0\0\0\u{5}\u{13}\u{1}\0\0\0\u{10}\u{4}\0}\0\0\0\u{5}\u{14}\u{1}\0\0\0\u{14}\u{4}\0~\0\0\0\u{5}\u{16}\u{1}\0\0\0\u{18}\u{4}\0\u{7f}\0\0\0\u{5}\u{17}\u{1}\0\0\0\u{1c}\u{4}\0\0\u{1}\0\0\u{5}\u{19}\u{1}\0\0\0 \u{4}\0\u{1}\u{1}\0\0\u{5}\u{1b}\u{1}\0\0\0$\u{4}\0\u{2}\u{1}\0\0\u{5}\u{1c}\u{1}\0\0\0(\u{4}\0\u{3}\u{1}\0\0\u{5}\u{1e}\u{1}\0\0\0,\u{4}\0\u{4}\u{1}\0\0\u{5}\u{1f}\u{1}\0\0\00\u{4}\0\u{5}\u{1}\0\0\u{5} \u{1}\0\0\04\u{4}\0\u{6}\u{1}\0\0\u{5}\"\u{1}\0\0\08\u{4}\0\u{7}\u{1}\0\0\u{5}#\u{1}\0\0\0<\u{4}\0\u{8}\u{1}\0\0\u{5}&\u{1}\0\0\0@\u{4}\0\u{9}\u{1}\0\0\u{5}'\u{1}\0\0\0D\u{4}\0\u{a}\u{1}\0\0\u{5}(\u{1}\0\0\0H\u{4}\0\u{b}\u{1}\0\0\u{5},\u{1}\0\0\0L\u{4}\0\u{c}\u{1}\0\0\u{5}-\u{1}\0\0\0P\u{4}\0\u{d}\u{1}\0\0\u{5}.\u{1}\0\0\0T\u{4}\0\u{e}\u{1}\0\0\u{5}/\u{1}\0\0\0X\u{4}\0\u{f}\u{1}\0\0\u{5}0\u{1}\0\0\0\\\u{4}\0\u{10}\u{1}\0\0\u{5}1\u{1}\0\0\0`\u{4}\0\u{11}\u{1}\0\0\u{5}2\u{1}\0\0\0d\u{4}\0\u{12}\u{1}\0\0\u{5}3\u{1}\0\0\0h\u{4}\0\u{13}\u{1}\0\0\u{5}4\u{1}\0\0\0l\u{4}\0\u{14}\u{1}\0\0\u{5}5\u{1}\0\0\0p\u{4}\0\u{15}\u{1}\0\0\u{5}7\u{1}\0\0\0t\u{4}\0\u{16}\u{1}\0\0\u{5}8\u{1}\0\0\0x\u{4}\0\u{17}\u{1}\0\0\u{5}9\u{1}\0\0\0|\u{4}\0\u{18}\u{1}\0\0\u{5}:\u{1}\0\0\0\0\u{5}\0\u{19}\u{1}\0\0\u{5};\u{1}\0\0\0\u{4}\u{5}\0\u{1a}\u{1}\0\0\u{5}<\u{1}\0\0\0\u{8}\u{5}\0\u{1b}\u{1}\0\0\u{5}@\u{1}\0\0\0\u{c}\u{5}\0\u{1c}\u{1}\0\0\u{5}A\u{1}\0\0\0\u{10}\u{5}\0\u{1d}\u{1}\0\0\u{5}B\u{1}\0\0\0\u{14}\u{5}\0\u{1e}\u{1}\0\0\u{5}E\u{1}\0\0\0\u{18}\u{5}\0\u{1f}\u{1}\0\0\u{5}F\u{1}\0\0\0\u{1c}\u{5}\0 \u{1}\0\0\u{5}G\u{1}\0\0\0 \u{5}\0!\u{1}\0\0\u{5}H\u{1}\0\0\0$\u{5}\0\"\u{1}\0\0\u{5}I\u{1}\0\0\0(\u{5}\0#\u{1}\0\0\u{5}J\u{1}\0\0\0,\u{5}\0$\u{1}\0\0\u{5}K\u{1}\0\0\00\u{5}\0%\u{1}\0\0\u{5}L\u{1}\0\0\04\u{5}\0&\u{1}\0\0\u{5}M\u{1}\0\0\08\u{5}\0'\u{1}\0\0\u{5}N\u{1}\0\0\0<\u{5}\0(\u{1}\0\0\u{5}O\u{1}\0\0\0@\u{5}\0)\u{1}\0\0\u{5}P\u{1}\0\0\0D\u{5}\0*\u{1}\0\0\u{5}Q\u{1}\0\0\0H\u{5}\0+\u{1}\0\0\u{5}R\u{1}\0\0\0L\u{5}\0,\u{1}\0\0\u{5}S\u{1}\0\0\0P\u{5}\0-\u{1}\0\0\u{5}T\u{1}\0\0\0T\u{5}\0.\u{1}\0\0\u{5}U\u{1}\0\0\0X\u{5}\0/\u{1}\0\0\u{5}V\u{1}\0\0\0\\\u{5}\00\u{1}\0\0\u{5}W\u{1}\0\0\0`\u{5}\01\u{1}\0\0\u{5}X\u{1}\0\0\0d\u{5}\02\u{1}\0\0\u{5}Y\u{1}\0\0\0h\u{5}\03\u{1}\0\0\u{5}Z\u{1}\0\0\0l\u{5}\04\u{1}\0\0\u{5}[\u{1}\0\0\0p\u{5}\05\u{1}\0\0\u{5}\\\u{1}\0\0\0t\u{5}\06\u{1}\0\0\u{5}]\u{1}\0\0\0x\u{5}\07\u{1}\0\0\u{5}^\u{1}\0\0\0|\u{5}\08\u{1}\0\0\u{5}_\u{1}\0\0\0\0\u{6}\09\u{1}\0\0\u{5}`\u{1}\0\0\0\u{4}\u{6}\0:\u{1}\0\0\u{5}a\u{1}\0\0\0\u{8}\u{6}\0;\u{1}\0\0\u{5}b\u{1}\0\0\0\u{c}\u{6}\0<\u{1}\0\0\u{5}c\u{1}\0\0\0\u{10}\u{6}\0=\u{1}\0\0\u{5}d\u{1}\0\0\0\u{14}\u{6}\0>\u{1}\0\0\u{5}e\u{1}\0\0\0\u{18}\u{6}\0?\u{1}\0\0\u{5}f\u{1}\0\0\0\u{1c}\u{6}\0@\u{1}\0\0\u{5}g\u{1}\0\0\0 \u{6}\0A\u{1}\0\0\u{5}h\u{1}\0\0\0$\u{6}\0B\u{1}\0\0\u{5}i\u{1}\0\0\0(\u{6}\0C\u{1}\0\0\u{5}j\u{1}\0\0\0,\u{6}\0D\u{1}\0\0\u{5}k\u{1}\0\0\00\u{6}\0E\u{1}\0\0\u{5}l\u{1}\0\0\04\u{6}\0F\u{1}\0\0\u{5}m\u{1}\0\0\08\u{6}\0G\u{1}\0\0\u{5}n\u{1}\0\0\0<\u{6}\0H\u{1}\0\0\u{5}o\u{1}\0\0\0@\u{6}\0I\u{1}\0\0\u{5}p\u{1}\0\0\0D\u{6}\0J\u{1}\0\0\u{5}q\u{1}\0\0\0H\u{6}\0K\u{1}\0\0\u{5}r\u{1}\0\0\0L\u{6}\0L\u{1}\0\0\u{5}s\u{1}\0\0\0P\u{6}\0M\u{1}\0\0\u{5}t\u{1}\0\0\0T\u{6}\0N\u{1}\0\0\u{5}u\u{1}\0\0\0X\u{6}\0O\u{1}\0\0\u{5}v\u{1}\0\0\0\\\u{6}\0P\u{1}\0\0\u{5}w\u{1}\0\0\0`\u{6}\0Q\u{1}\0\0\u{5}z\u{1}\0\0\0d\u{6}\0R\u{1}\0\0\u{5}{\u{1}\0\0\0h\u{6}\0S\u{1}\0\0\u{5}|\u{1}\0\0\0l\u{6}\0T\u{1}\0\0\u{5}}\u{1}\0\0\0p\u{6}\0U\u{1}\0\0\u{5}~\u{1}\0\0\0t\u{6}\0V\u{1}\0\0\u{5}\u{7f}\u{1}\0\0\0x\u{6}\0W\u{1}\0\0\u{5}\0\u{2}\0\0\0|\u{6}\0X\u{1}\0\0\u{5}\u{1}\u{2}\0\0\0\0\u{7}\0Y\u{1}\0\0\u{5}\u{2}\u{2}\0\0\0\u{4}\u{7}\0Z\u{1}\0\0\u{5}\u{3}\u{2}\0\0\0\u{8}\u{7}\0[\u{1}\0\0\u{5}\u{4}\u{2}\0\0\0\u{c}\u{7}\0\\\u{1}\0\0\u{5}\u{5}\u{2}\0\0\0\u{10}\u{7}\0]\u{1}\0\0\u{5}$\0swift_proto_testing.names.FieldNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "t,\0\0 Hux\u{6}'j\"H1r?!\u{1d}\u{7f}?\u{e}`\t:Au\u{1a}M\u{14}tT*\u{1e}O\06~y\u{6}\u{1f}v\u{10}[b\u{12}\n{c}$\u{4} \u{1a}c\u{1d}\r\u{f}mGH\u{7}\nC\u{5}/:4qWX<>Ie$ e6\u{13}l1=S^5^-Y!-`mW\n/{&954'yh[MQc+]r\u{8}~|\u{1a}f\0I o6?\u{b}>HFlM~|h`7TNL4;Psj\n8s'\u{f}K\u{7}1^\\\\\u{7f}@\u{15}\n\u{c}\u{13}iD]\u{15}BY\u{13}~$Lv 3,\u{10};\u{3}/CA\u{1d}\u{15}\u{c}}YH\u{7f}2\u{13}\u{1b}\u{6}eOD\u{1f}(v)2\u{e}\u{14}lPo5`\u{12}\u{4}Myo\u{e}C#g)V\u{c}Cm\u{6}otlDw;\u{10}[\u{f}\r5g\r\u{4}P\u{6}\n{p|)\u{7}jYX_x}2\u{13}\u{1d}b^H\u{8}\u{17}r;o$[f;cU*\r\u{13}M\u{1c}.\u{1}\u{1b}?\u{8}\u{15}\u{15}\u{12}\u{7}\u{f}\u{6}cas(z_@\tv/,R\u{3}wF057I\u{5}[\0\u{17}(_A\u{1c}\0>:73\u{b}2,r>5=\u{1a}LD>\u{12}Bal6\\\u{1b}Q\u{14}B$!;\0}\u{17}\u{e}_\u{1b}Y\u{b}pU\u{12}}boa\u{c}N\u{3}ex3%Go=@\u{1b}[c_FE4\u{8}\u{17},\t\u{6}>M!}k\r4@\0G\u{10}.\u{1a}3T\u{4}b{c\0&R+o\n\u{3}\u{17};c$n0\u{1e}\u{7}d^\u{b},]Hgo\u{10}{w\u{10}\u{f}\u{1f};2ZP>[<~,'\u{b}u!*WAL\u{5}\u{16}\u{12}E\"w@F%8T.$jU\u{16}&\\~>&*$0IP\u{12}\u{8}.j\nG\u{17}/\u{1a}(n'\nt(\u{1}r\u{c})jSub\0\u{5}Iv\u{2}}\u{4}\u{3}sw~./\u{1e}5R!mIRzy/Ps`SWE:9\u{7f}Ol\u{e}\u{1b}6pfRW;J.V)x<NV#SX\u{7f}k=K\u{3}\u{e}4\u{1c}_O-c?F\u{7}_K57\u{1b}h\u{11}\u{4}\u{3}=<\"\u{1c}~o~\u{12},|Y\u{17}\nv\u{2}i.M)>\n+~\r_ \u{e}\u{1c}L\u{7f}qcy`ua\u{b}\u{6}<L4X5h1o\u{6}\u{12}%?\0\u{1d}y1\u{4})Ho;\u{1e}ps\u{5})q`b\u{1f}/f#G0\r*5US8\u{11}^\u{1d}mr3xLV07b\u{1}\u{12}u\u{1b}\nza;U7F\u{8}+nb6:;\u{c}!\u{1a}O\u{15}5\t{<{N]\u{5}XmgmF\u{1e}%<;3HPZ>\u{f}9\u{1c}\u{12}*{EI\u{18}0\u{1f}g\u{1c}\u{e}v:BYg E\u{18}l(u/K\u{f}\u{1d}\u{7}\u{12}\u{4}E#d+;x\"V*'.Y!z\u{14}2\u{7}H\u{11}$WaW\u{1a}Nt\u{10}m!0\u{7f}021\u{7f}W$2q\u{4}z\u{10}&\u{11}\u{1b}U\u{7}{]{%e@g_<vWd\u{18}\u{17}/\nw\u{19}\rO-\rh)5`F$S\0\u{1f}U !R)!|'\t^\u{1f}Ik\n59@@kOH/\u{10}L],W+\u{8}\u{11}ZK\u{5}Z(&+FC~'\u{14}sDr%\u{8}\u{16}}^yS\u{1a}\u{f},MOBPBa\u{1d}P]\n(xF})_z3d:CF;yq]`\u{14}\u{b}R COGMeIfpHm9\u{19}\u{15}\u{1a}n].\u{17}aS@\u{11}2'usl\u{1c}Q\u{1f}wC])<C*:~X1^eq8E\u{16}~\u{1f}*a\u{12}+Gk\u{8}l2\u{b}<Vs*^+_h\u{2}JSv\u{12}h$\u{11}MpD\u{19}\u{b}\u{19}x\u{13}\u{7f}\u{8}J:\u{c}\u{b}\rE\u{1c}Ry5&\u{f}z\u{6}<z\u{1a}\u{8}G|\u{c}\u{1d}gD)t{R,&\u{e}s\u{1c};{V9Y<*f/K\u{1d}\u{3}V\u{1e}\u{13}#a;\u{1}\u{7f}C?p0\u{1b}7Tb2[Q(C\u{c}mpvD$\u{8}\u{5}__gDk\u{1f}BV\u{11}L<U\u{e}W\u{1e}UO\0)q\u{1e}\u{4}\u{14}N\u{12}lQU1TgKb\u{1c}\u{5}\u{1e}\u{2}y\u{5}\u{18}mD`\u{11}x.(\u{1d}\u{13}6Do kU{ E^g\u{5}//X$\u{7}e\u{f}\u{19}s@\t>\u{1e}2V'\u{6}q VF\u{6}B'4x(@T\u{7}I^\u{1d}\u{10}\u{4}8\u{12}6C\"L\u{11}\u{e}\u{18}bDM1\u{1e}#p$\u{1a}iZ1g 7d3on\0{n=|dx A\n]\u{6}\u{1c}\u{17}\u{3},Dzf\u{16}n\u{1f}Cv\u{b}'88bp{Q?xHUubF!(\u{1e}V^{G^\u{16}]!BPi???j<%%\u{5}xu9\u{c}TLL\u{e}[\u{b}\u{15}q|\u{12}cmH\u{1b}.3@9\u{1e}\u{5}\u{b}gis\u{8}\u{17}HofT>\u{7}ezo\u{1}\"r$w\u{1f}hlm\u{4}O*\u{1a}d<|%\u{4}\u{1b}\u{15}6\u{10}y\u{e}\u{17}N\u{b}0I(\u{b}Kr\nJ)z9\u{7f}(YepWh\u{12}M:^\u{e}FKQ\u{19}/D\u{4}dTj,o\u{11}JshSN6'miIE\n4>\nZ;<\u{1b}.wMDN.[9-_6wF-:\u{c}\u{8}\u{6}MQg\u{18}xZ\u{10})@y\u{16}\n$5ZkQa(y\n>]\u{18}ay\u{1f}\n\u{15}KR(<^Rb\u{3}4I\\\t\u{b}f\u{7f}|Hr]$]}-8\u{7}\u{14}/,\u{1c}8|\u{1d}1.`33\u{4}#>\u{10}sx#$jx\u{7f}tW6I2M,J5\u{1f}\u{12}su*\0V\u{19}]\u{1e}UhvF:p\u{1b}={6IOeE6+B\rJSP\u{10}=LZ$M?gEE9\u{1}sJ\u{1d}nTNdVPB9CQAb\rlZk\"(\u{19}%\u{7f}\u{2}0aY\u{1d}\u{12}\":RN$$a\u{5}\u{10}B$d|\u{12}/\r&#g;\u{16}7?\u{1b}r\u{7}9%&?\u{e}\u{1c}W<G:L,\u{e}8c,6~:Qs6\u{14}\t-\tw.+V|ptP@k?yIe^{=\u{1c}XV\\\u{1c}\u{1b}mC+Uuclg\u{7f}yxq9k\u{2}6wM_\u{16}7u~+=Q;FC\"Sw\u{c}\nW+?QH\u{e}\"U5[\u{1}f\u{18}\u{8}C46}M1I1\u{1d}Sz\u{3}y\u{4}y3\u{10}_cJe}o,vbBwb\u{12}GC`\u{8}\u{1a},nID\u{12}]\u{2}k&\u{1f}\u{b}C\u{14}0c-Vq[9dWI%8?\u{1d}D|\u{15}!\u{4}&\u{1d}\u{13}57y#\u{5}a\u{15}r]\u{b}\u{1f}??\u{b}f=\u{11}D6B-e}\u{b}fKv\tZfI1X,!\0e\u{17}\u{3}=ISJX\u{17}W\"\u{1e}ti.E\u{1c}Yj\u{1d}/\rf^S[1\u{c}C\u{1c}&,\u{4}z\u{1e}\u{c}:P\t\u{11}l\0&\u{13}M/.:\u{18}_xFQG\u{18}r\u{5}X\u{7f}\u{1b}\u{1a}Xe\u{19}|f/[\u{2}\\\u{1}Dj\u{1d}cKo&+#\u{3}\u{6}\u{1d}C#\u{4}cwdmz>a\u{17}kh=YWV*7*\u{18}@]\"A\u{1a}1`>!U\u{7f}J1.Btk\u{18}/Xpv\u{e}\"eZ[{B-h\\~K\u{1a}*`8\u{16}\u{f}=C. bQi:kq:::;YDx<\neV`\n;=uUsq\u{b}\u{1}/\u{1}R;W:\u{8}v2\0\u{1e}D.y\u{8}\u{1}`\u{1b}:]]`\0IXpXwN0\u{6}|\u{12}+G H\u{f}nD|\u{1b}ZE7g/H]cm\\\"\u{7f}\u{8}DX[\u{8}WZn2\"<Fo,\u{3}OgAZ4\u{18}+bI4\u{6}K1AJ7\\JE`\u{1f}m\u{6}(\n}@8f\u{e}\u{17}\u{e}FP\u{19}Q\u{1a}{e!\u{14}<B\u{f}sF\u{f}\u{3}q\u{e}}$A\u{1f},uto!\t\u{6}6^\tv2f\u{12}{\u{1b}{bZ]+\u{11};\u{3}_8r|kJ\u{1}\u{1d}nRX\u{16}d4'PU4\0\u{6}BrQ\u{1f}\u{1}\u{b}\u{1c}rJn\tHx(oR$\u{1e}V\nP=.{\u{14}in_'_ R(MF\"uYP\u{16}#\u{1b}\ns\u{b}\"J\u{c}\\] -\u{7}\u{19}tAj|{$MOX\u{2}aD\u{e}2\u{1f},d\u{8}C5\0\u{e}\"AUR=}\u{12}/\u{f}\ro\u{4}:\u{13}C\u{1f}\u{e}Xt3J>R1\n7^\u{b}PPTn|:ph\u{8}\u{1c}{\u{1c}\t^|`\u{3}O/;\u{1c}/s3\"|M\n'k\u{c}1\u{1b}Kt?T\u{5}\u{18}\u{c}eX'\u{1f}v*Q7!G\u{1d}\u{1c}@,1x3Y\u{11}\u{14}+\u{7}oalh*g+Eb^_F\u{1f}*H)\u{18}^sm.@Turd\u{14}\u{11}\r.{z^+O79R:+3\rb\u{12};h\u{17}h\u{1c}!\u{3}72_S\0yQ.{T;\u{1d}T]2s/X\u{18}z\u{1c}OU*A`F?6Id}[ \u{17}c\u{18}\u{4};(\u{b}|\u{c}UPK*^*c\u{17}\09\u{2}\u{7}\u{1f}'>\u{17}FZ[g$\\\00\u{e}'-cvCH\t\u{1a}J^dQbO\u{c}2=d\u{c}\\!?X!\nV\u{c}Ji)\u{16}&\u{18}\0\u{5}\u{2}/\u{1e}.\u{10}aatl!\u{7}GUS\u{b}>\u{19}\u{1}\u{7}[\u{1f}\u{11}}(\u{e}'N>ft\u{1f}3OPQ\u{1b}\u{14}L\u{3}\u{13}aTA\u{1a}e'\u{f}Il|\u{1b}\"{M\u{3}\u{17}^3\u{16}\u{8}19Q4J\\Vg\u{2}2\u{13}?|1_\0:KIJD\u{14}^)\u{4}w!c\"\nqP4[\u{f}2\u{10}W|mT\u{b}|\u{f}\0 2\u{11}dtscp\u{6}=Kh\u{8} a\u{1a}H\u{10}AF$l\u{5}\u{1b}%\u{1e}ZKc>8\u{19}k\u{6}8DGI\u{6}OjoER7j;}/a\u{6}o\u{3}d'\u{13}j\u{8}\u{1a}XZZmW+1 @AtmBA5^\u{1d}:\t\u{1c}2|'c\u{4}\u{1c}\u{12}?vwGdb\u{7}\0\"Gp'$!S\u{13}~\u{c}\u{c}+at\0h\t\u{10}N\u{17}o'j\u{13}\u{f}JR\u{2}.MDhz8!a#v\rJI-+\u{7}\u{13}\u{14}B\u{3}[\u{1e}qF*fl/\u{1f}\u{6}v5UX^oq/\u{10}^f\u{1a}\u{12}-\u{4}\u{1d},\u{17}l$~}:\r>*$\u{1a}`\u{19}|I/L[^is\u{8}%S\n\u{e}\u{1d}\u{7}R{HD(k\njO.eL6\u{14}k#?JV>;A|J9\u{1d}s@r/XBhQ/[F\0s\0j\u{18}XfT\u{7}^\u{5}\u{5}V\u{17}g%a!k\u{7f}!\u{1}F\u{8}4Eu\u{11}z]\"u\u{c}:*%M8dK\u{7f}S\u{18}r\u{5}5nW%_6.`\u{16}aXVckG8}m;{EI#\u{3}@\u{1f}\u{1}#,36&PS\u{2}\0\u{e}Q\u{13}o0k7\u{7f}n\u{1f}c7\u{13}\u{3}0\u{12}v<YTpS{\u{1b}ENln\u{12}ih\u{6}y`\u{1b}nfIAj\u{7}\u{12}\u{7f}\u{18}5\u{b}<\tD\u{4}#1`Q\u{c}c/@Q\r)sb\u{16}\u{2}%@`\nnT9>cP\u{1b}\0R\u{1c}q=>\u{c}mgq>\u{18}\u{6}\u{1c}9t \u{18}D1\u{14}\u{c}0\\_]\u{12}\u{13}X\u{1a}4 GS\rVe\u{1c}olWo#L\n?1\u{e}\u{7f}!449\u{12}35\u{e}\u{18}bUy9a%}\u{4}X\u{13}l}\u{4}\u{19}96=~^sx2\u{14}5\u{2}8{\u{1c}%S,e\u{7}bF\u{1a}ly nP\u{1f}{%Q\u{b}\u{19}bZ@I\")2N[7j\u{19}13\u{8}\u{19}\u{14}QkvH59mvnT\u{1d}9+\"\rk\t7=N+$Sip^-\r\u{15}Z?[L\u{2}\u{5}*!N&x\u{2}\u{11}t*MswT\u{1b}sv5V)\npB|Ab\u{e}DS>&B\u{6}r+U!TDwWe\u{7f}5r=%\u{17}:x,t# \u{e}~Z\"M\u{4}\u{16}F@$\ry|*-VR\u{1d}N\u{1c}\u{11}E\u{1b};.%h\u{1e}o\rk5y\r9\\\\Yv7+*c>u\u{3}Tj~k\u{12}J\"Y>O.~p1r^?\u{4}Ey\u{3}T,N H\u{19}\u{17}*';@\u{6}Ga8h\u{1a}\\\u{7}7\u{2}SC\u{1c}c1xAO\t\u{e}\u{1d} \u{11}h!H?7p\u{1c}[\u{2}\u{12}0R:^]< DP\u{3}TiC.?,ZhNz\u{b}T\u{10}Hb\u{11}`.KN\u{1}I-XHi@]rBy*y~\u{c}T3\u{8}6u\ne}V\u{3}l\u{15}\u{7}\u{19}/\u{14}\u{2}nC\u{18}\u{1d}\\[*XE#\u{19}esDLAo\u{18}\u{19}No\u{1c}_|x\u{1}\0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12074,13 +12062,7 @@ extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0&\0swift_proto_testing.names.MessageNames"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0&\0swift_proto_testing.names.MessageNames"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0&\0swift_proto_testing.names.MessageNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12090,13 +12072,7 @@ extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.String"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.String"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.String"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc6w\u{18}-fx\u{1b}YLH\u{10}=\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12106,13 +12082,7 @@ extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Protocol"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Protocol"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpGn\u{15}\u{12}\u{2}\nx\u{1e}\u{10}\n\u{1f}\u{7f}\u{5}t7\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12122,13 +12092,7 @@ extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.Int"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.Int"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.Int"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{3}&}g?\tEj`\u{13}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12138,13 +12102,7 @@ extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Double"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Double"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Double"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW\u{1d}\"Zf,]\u{14}^\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12154,13 +12112,7 @@ extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Float"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Float"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Float"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpgU;9-OX)\u{1}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12170,13 +12122,7 @@ extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.UInt"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.UInt"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.UInt"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw\u{e}*\u{1f}\u{18}oYc\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12186,13 +12132,7 @@ extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.hashValue"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.hashValue"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.hashValue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{7}laH\u{13};w'=}3J:\u{4}\"\u{10}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12202,13 +12142,7 @@ extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.description"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.description"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.description"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_+.\u{18}tj*4\u{7f}9`\u{18}\u{7f}g-c@\u{6}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12218,13 +12152,7 @@ extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf
 }
 
 extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.debugDescription"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.debugDescription"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.debugDescription"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}nz\u{11}Uu+\r41`P\u{10}\"q5\u{7f}{SZ4\u{11},\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12234,13 +12162,7 @@ extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftPro
 }
 
 extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Swift"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Swift"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Swift"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpcv\u{8}nc'VS\u{2}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12250,13 +12172,7 @@ extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.UNRECOGNIZED"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.UNRECOGNIZED"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.UNRECOGNIZED"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpwv,quix\u{8}%Z\r\u{8}\n'9\u{12}e\"\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12266,13 +12182,7 @@ extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.class"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.class"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.class"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#l^l4Cq\rx\u{1d}i\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12282,13 +12192,7 @@ extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.deinit"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.deinit"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.deinit"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#>U*Pu&81lA?\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12298,13 +12202,7 @@ extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.enum"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.enum"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkCH$xL\u{6}\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12314,13 +12212,7 @@ extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.extension"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.extension"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkSmCsnrOF\u{7f}u(B\u{7}O\u{1c}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12330,13 +12222,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.func"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.func"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.func"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwC\u{1}^j0Yc\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12346,13 +12232,7 @@ extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.import"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.import"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.import"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}|-_;Tk&Y\u{14}]\0(\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12362,13 +12242,7 @@ extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.init"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.init"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.init"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}<~gd]\u{b}\u{3}\u{12}X\u{19}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12378,13 +12252,7 @@ extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.inout"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.inout"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.inout"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}D\u{1e}c2-\\x\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12394,13 +12262,7 @@ extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.internal"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.internal"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.internal"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{f}D\u{e}t1|!+\u{12}V(:\n`\u{7}K\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12410,13 +12272,7 @@ extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.let"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.let"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.let"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp+tY{j~dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12426,13 +12282,7 @@ extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.operator"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.operator"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.operator"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKD`\u{3}b\u{1d}Q[[\u{17}\u{1b}x`b)\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12442,13 +12292,7 @@ extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.private"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.private"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.private"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{c}'\u{5}F\u{19}<=\u{e}\0\u{12}\u{1b}9i\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12458,13 +12302,7 @@ extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.protocol"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.protocol"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{c}G:\u{3}\u{14}+\u{1f}\u{10}\n\u{1f}\u{7f}\u{5}t7\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12474,13 +12312,7 @@ extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.public"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.public"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.public"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpSL\u{8}a\u{1a}\u{7f}\u{e}^P,do\u{10}\u{18}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12490,13 +12322,7 @@ extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.static"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.static"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.static"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpoL8Esu\u{19}P:iW\u{11}>\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12506,13 +12332,7 @@ extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.struct"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.struct"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.struct"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\\x!~uhg3\t\u{7f}\u{4}\u{c}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12522,13 +12342,7 @@ extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.subscript"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.subscript"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.subscript"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpo\u{c}\tP\u{4}qh\u{11}Wb\u{18}m\u{11}\u{3}jg\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12538,13 +12352,7 @@ extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.typealias"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.typealias"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.typealias"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{5}q\u{e}gjU\u{12}m\u{11}\u{3}jg\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12554,13 +12362,7 @@ extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.var"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.var"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.var"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{7}}>%2\u{1e}{N\u{e}1\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12570,13 +12372,7 @@ extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.break"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.break"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.break"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOs\u{19}\u{15}oxGs\u{1e}]%//\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12586,13 +12382,7 @@ extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.case"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.case"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.case"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#&\u{10}X\u{1a}!\u{5}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12602,13 +12392,7 @@ extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.continue"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.continue"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.continue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{}EFv\u{10}Z\nY-_;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12618,13 +12402,7 @@ extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.default"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.default"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.default"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#\u{e}jUu\u{14}\"\u{4}\t\"\0\u{10}4\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12634,13 +12412,7 @@ extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.defer"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.defer"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.defer"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#.\nV|HH9:\u{b}$\u{15}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12650,13 +12422,7 @@ extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.do"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.do"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.do"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpc+s\u{10}|Pa\u{2}\n\u{7}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12666,13 +12432,7 @@ extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.else"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.else"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.else"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpk;w.j7-\u{2}\u{12}X\u{19}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12682,13 +12442,7 @@ extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.fallthrough"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.fallthrough"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.fallthrough"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpsc&F5\u{19}(JM\u{1d}T7Z`yM\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12698,13 +12452,7 @@ extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf
 }
 
 extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.for"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.for"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.for"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpsC\u{1e}Eu\u{13}{N\u{e}1\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12714,13 +12462,7 @@ extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.guard"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.guard"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.guard"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7f}{v1g-\u{15}\u{1d}\u{1}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12730,13 +12472,7 @@ extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.if"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.if"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.if"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}dI\u{2}bPq\u{10}\u{13}\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12746,13 +12482,7 @@ extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.in"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.in"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.in"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}4.\u{2}SPq\u{10}\u{13}\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12762,13 +12492,7 @@ extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.repeat"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.repeat"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.repeat"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|:\u{7}\u{5}|\u{b}z\"\u{19}]O\u{1e}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12778,13 +12502,7 @@ extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.return"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.return"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.return"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|\nZd\u{14}oO7\u{19}\u{11}A=\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12794,13 +12512,7 @@ extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.switch"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.switch"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.switch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\u{14}\u{1a}wJ\"\u{10}F]\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12810,13 +12522,7 @@ extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.where"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.where"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.where"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}}\u{7}K\u{1a}\u{1d}w7.\u{4}\u{8}\u{11}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12826,13 +12532,7 @@ extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.while"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.while"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.while"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}}G|U\u{12}c\u{1c}\u{1}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12842,13 +12542,7 @@ extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.as"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.as"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.as"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpGkT\u{1e} P_jk\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12858,13 +12552,7 @@ extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.catch"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.catch"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.catch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#Vs\u{1c}HO#\u{19}\u{1}k@,\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12874,13 +12562,7 @@ extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.dynamicType: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.dynamicType"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.dynamicType"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.dynamicType"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpcKH0L=6-PI_B\u{f}>\06m\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12890,13 +12572,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamicType: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.false"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.false"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.false"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpscV\u{6}j\\{s\u{3}.3T\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12906,13 +12582,7 @@ extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.is"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.is"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.is"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{13}|P\u{5}`Pq\u{10}\u{13}\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12922,13 +12592,7 @@ extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.nil"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.nil"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.nil"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?|fa\u{10}]dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12938,13 +12602,7 @@ extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.rethrows"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.rethrows"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.rethrows"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|*y8+-x\t\u{12}\u{18}+\u{7}B%[\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12954,13 +12612,7 @@ extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.super"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.super"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.super"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\u{1c}\tA'\r\"'\u{1}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12970,13 +12622,7 @@ extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.self"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.self"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.self"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo4\u{10}\u{1e}ZmYc\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -12986,13 +12632,7 @@ extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.throw"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.throw"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.throw"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwD\u{7}.\u{b}UX\u{1}\0~;T\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13002,13 +12642,7 @@ extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.throws"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.throws"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.throws"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwD\u{7}\u{e}Kl#h^\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13018,13 +12652,7 @@ extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.true"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.true"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.true"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw\\LbXq;\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13034,13 +12662,7 @@ extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.try"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.try"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.try"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpw\\L\u{10}\rJdH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13050,13 +12672,7 @@ extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.__COLUMN__"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.__COLUMN__"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.__COLUMN__"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_Xz}K1\u{16}iP\u{18}\u{3}d\u{14}\u{5}b:\u{13}\u{13}y6fSnBB\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13066,13 +12682,7 @@ extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.
 }
 
 extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__FILE__"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__FILE__"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__FILE__"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_XZz\u{5}k$\u{15}>X_iF<,2\u{8}n[kg\u{6}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13082,13 +12692,7 @@ extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.__FUNCTION__"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.__FUNCTION__"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.__FUNCTION__"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}\u{1f}\u{6}4S`0j'Tpv]>d\u{18}$M\u{5}ah\u{b}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13098,13 +12702,7 @@ extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobu
 }
 
 extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__LINE__"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__LINE__"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__LINE__"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_XZz\u{5}k$]\u{1e}}?\u{7f}\u{2}Sdou\u{18}5cUw\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13114,13 +12712,7 @@ extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0swift_proto_testing.names.MessageNames._"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0swift_proto_testing.names.MessageNames._"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0swift_proto_testing.names.MessageNames._"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?o\u{5}\u{19}[?s\u{7}5\u{1b}pXK\u{3}ws\"-m]>N{\u{15}t5\u{7}i'\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13130,13 +12722,7 @@ extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.__"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.__"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.__"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?o\u{5}\u{19}[?s\u{7}5\u{1b}pXK\u{3}ws\"mz$LU*CZ<_V8\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13146,13 +12732,7 @@ extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.associativity"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.associativity"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.associativity"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpG\u{3}U**\u{11}\u{2}\u{1c}\u{b}{\u{1d}-\u{7}\n|gd1\u{c}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13162,13 +12742,7 @@ extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.convenience"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.convenience"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.convenience"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{}eu{1\u{3}X/gmfsVl\u{3}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13178,13 +12752,7 @@ extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dynamic"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dynamic"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dynamic"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpcKH0L=,\u{1d}?\r\"\0\u{10}4\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13194,13 +12762,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.didSet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.didSet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.didSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc#P|\u{1f}Kf96\u{19}\u{11}A=\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13210,13 +12772,7 @@ extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.final"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.final"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.final"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps3Kl\u{18}3Ry\u{3}~;T\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13226,13 +12782,7 @@ extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.get"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.get"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.get"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp{3.cj~dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13242,13 +12792,7 @@ extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.infix"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.infix"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.infix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}4>[3d\u{12}\"\u{1d}Y\u{3}a\u{1a}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13258,13 +12802,7 @@ extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.indirect"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.indirect"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.indirect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{f}4.tv96Nt@u\u{16}e{s\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13274,13 +12812,7 @@ extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.lazy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.lazy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.lazy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+t\u{7}\u{16}\u{3}\u{1b}mb\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13290,13 +12822,7 @@ extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.left"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.left"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.left"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+l9\u{7}5OQ\u{5}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13306,13 +12832,7 @@ extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.mutating"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.mutating"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.mutating"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8\u{15}\u{14}\r\\\u{7}n\u{1b}(_;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13322,13 +12842,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.none"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.none"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.none"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?D:7q=w\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13338,13 +12852,7 @@ extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.nonmutating"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.nonmutating"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.nonmutating"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?D\u{1a}xX\u{1d}NL:\u{15}}L=\r6~\u{2}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13354,13 +12862,7 @@ extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.optional"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.optional"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.optional"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKLP_#\u{12}\"\u{2};p\u{1d}+\u{7}B%[\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13370,13 +12872,7 @@ extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.override"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.override"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.override"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKL#nE-+lx\u{1d}\u{1f}H!M6\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13386,13 +12882,7 @@ extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.postfix"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.postfix"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.postfix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{c}Es\u{5}\u{1c}4\u{4}L\u{f}\"\0\u{10}4\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13402,13 +12892,7 @@ extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.precedence"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.precedence"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.precedence"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{4}\u{7}V@{6\u{1}\r\u{1c}fDMt\u{13}\0\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13418,13 +12902,7 @@ extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.prefix"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.prefix"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.prefix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{4}\u{17}6c{\u{8}~\\\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13434,13 +12912,7 @@ extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.required"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.required"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.required"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{14}L\u{18}\u{8}\u{17}hcb)\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13450,13 +12922,7 @@ extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.right"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.right"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.right"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|,`6!ax\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13466,13 +12932,7 @@ extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.set"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.set"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.set"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpo<`}j~\u{1f}^[S\n\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13482,13 +12942,7 @@ extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Type"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Type"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpk>\u{7f}92;;\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13498,13 +12952,7 @@ extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.unowned"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.unowned"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.unowned"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}\r\u{10}\u{13}\u{17}\u{14}7u|\u{6}NN=\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13514,13 +12962,7 @@ extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.weak"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.weak"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.weak"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}5&\u{7}\u{19})S\u{5}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13530,13 +12972,7 @@ extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.willSet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.willSet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.willSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}E(n\u{18}s+CnMO\u{10}\u{7}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13546,13 +12982,7 @@ extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.id"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.id"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.id"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}\\8\u{14}PPq\u{10}\u{13}\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13562,13 +12992,7 @@ extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.GeneratedMessag
 }
 
 extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames._cmd"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames._cmd"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames._cmd"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@:k'\"MIJww:\u{16}+|8_XZsy_gxI\u{3}Ejzkdyz\u{18}\u{16}-\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13578,13 +13002,7 @@ extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.out"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.out"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.out"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{14}\u{13}\u{7f}\u{7}\t\u{1f}^[S\n\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13594,13 +13012,7 @@ extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bycopy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bycopy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bycopy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOC=@\u{1b}\u{5}hj7I|\u{4}\u{c}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13610,13 +13022,7 @@ extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.byref"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.byref"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.byref"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOK\u{1d}UtMFy\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13626,13 +13032,7 @@ extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.oneway"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.oneway"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.oneway"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG|n.`Z\t|^\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13642,13 +13042,7 @@ extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.and"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.and"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.and"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpG+2\u{10}%1dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13658,13 +13052,7 @@ extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.and_eq"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.and_eq"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.and_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?\u{1d}\u{11}\u{3}\u{19}Uh<e\u{e}O4Sgh\u{19}\u{3}\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13674,13 +13062,7 @@ extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignas"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignas"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignas"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG+1\u{14}U\u{f}+nq\u{12}D 3.\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13690,13 +13072,7 @@ extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignof"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignof"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignof"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG+1\u{14}U6vj4\t\"\0\u{10}4\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13706,13 +13082,7 @@ extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.asm"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.asm"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.asm"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpG{d\u{13}pR{N\u{e}1\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13722,13 +13092,7 @@ extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.auto"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.auto"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.auto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG\u{3}V;Ou<b/K\u{c}\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13738,13 +13102,7 @@ extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bitand"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bitand"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bitand"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO35NB0!DX\u{14}]\0(\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13754,13 +13112,7 @@ extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.bitor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.bitor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.bitor"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO3\u{15}/\u{8}k\u{6}|\u{3}~;T\u{8}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13770,13 +13122,7 @@ extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.bool"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.bool"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO;h\u{4}.J'\u{19}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13786,13 +13132,7 @@ extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.char"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.char"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.char"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#:\u{2}?z/\u{2}l\u{b}T\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13802,13 +13142,7 @@ extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char16_t"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char16_t"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char16_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_XZz\u{5}d\u{1c}X>\\\u{2}f\u{7f}##,B*\u{8}L]\u{3}u\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13818,13 +13152,7 @@ extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char32_t"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char32_t"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char32_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_XZz\u{5}d\u{1c}X><f#\u{1a}\u{14}X8\u{e}\u{6}oN0]hP\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13834,13 +13162,7 @@ extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.compl"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.compl"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.compl"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{\u{1d}B\n7gL\u{2}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13850,13 +13172,7 @@ extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.const"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.const"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.const"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{m\u{5}3Qvy\u{6}8(\u{8}?\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13866,13 +13182,7 @@ extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.constexpr"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.constexpr"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.constexpr"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{merG\u{3}\u{6}\u{c}o!~nsO{\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13882,13 +13192,7 @@ extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.const_cast"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.const_cast"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.const_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}K~z\u{6}dY.%-4_)>>F+Bo\"RQn\u{13}F4\n\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13898,13 +13202,7 @@ extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.decltype"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.decltype"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.decltype"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_\u{1b}~8\\1\r0\"blN;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13914,13 +13212,7 @@ extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.delete"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.delete"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.delete"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#^?\05z6\u{1c}L\u{13}I\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13930,13 +13222,7 @@ extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.dynamic_cast"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.dynamic_cast"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.dynamic_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}gi3%Uj ~@Y\u{4}:Uo\"&\u{19}N\u{3}\u{c}VE.\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13946,13 +13232,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.explicit"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.explicit"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.explicit"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkK}5}_w\u{14}31\u{1d}+\u{7}B%[\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13962,13 +13242,7 @@ extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.export"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.export"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.export"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkK\u{1d}vI0\u{1e}\u{19}\\\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13978,13 +13252,7 @@ extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.extern"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.extern"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.extern"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkSm\u{3}vp,);iW\u{11}>\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -13994,13 +13262,7 @@ extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.friend"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.friend"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.friend"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps{\u{f}7?<nE8\u{14}E=1Y"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14010,13 +13272,7 @@ extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.goto"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.goto"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.goto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7f}\u{3}\u{4}R\u{c}\u{1c}^\u{2}\u{12}X\u{19}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14026,13 +13282,7 @@ extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.inline"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.inline"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.inline"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}<.T\u{19}\u{3}\u{6}dt\"m\u{13}=\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14042,13 +13292,7 @@ extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.long"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.long"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.long"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+D\u{f}QUYqb\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14058,13 +13302,7 @@ extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.mutable"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.mutable"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.mutable"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8u\r[\u{c}E4\t\"\0\u{10}4\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14074,13 +13312,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.namespace"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.namespace"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.namespace"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?lr\u{c}k)A\u{7}\u{7f}\u{4}|C\u{6}u_z\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14090,13 +13322,7 @@ extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.new"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.new"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.new"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?|\u{4}P?_Ej`\u{13}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14106,13 +13332,7 @@ extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.noexcept"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.noexcept"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.noexcept"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?<\u{1a}\u{18}Ky@\u{15}<FfN;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14122,13 +13342,7 @@ extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.not"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.not"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.not"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?L*sm~{N\u{e}1\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14138,13 +13352,7 @@ extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.not_eq"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.not_eq"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.not_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?\u{1f}M\">;M\u{18}i\rR\\V{\\:\u{3}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14154,13 +13362,7 @@ extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.nullptr"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.nullptr"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.nullptr"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?Lm:&r\u{3}y]HO\u{10}\u{7}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14170,13 +13372,7 @@ extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.or"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.or"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.or"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK<a\u{1b}7P_jk\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14186,13 +13382,7 @@ extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.GeneratedMessag
 }
 
 extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.or_eq"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.or_eq"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.or_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@:k'\"MIJww:\u{16}+|8_X:u\\<\u{b}GL\\L-\t\u{15}\u{4}&#\u{1a}U\"\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14202,13 +13392,7 @@ extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.protected"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.protected"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.protected"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{c}G\u{1a}@(1..e\u{12}G O\u{15}\u{1c}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14218,13 +13402,7 @@ extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.register"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.register"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.register"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpctZ\u{7}\u{1f}&;\u{6}$}U=w5~\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14234,13 +13412,7 @@ extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.reinterpret_cast"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.reinterpret_cast"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.reinterpret_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLIJww:\u{16}+|8_h\u{1a}\u{8}\u{1d}~h\0et1KF\"\u{1b}\u{2}$iQJ\u{16}\u{14}\u{8}\u{1e}\u{8}\u{2}U;\u{6}xN\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14250,13 +13422,7 @@ extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.short"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.short"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.short"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo|Q~V0ax\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14266,13 +13432,7 @@ extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.signed"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.signed"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.signed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo<B%\u{1a}7#1_\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14282,13 +13442,7 @@ extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.sizeof"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.sizeof"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.sizeof"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpoLR\u{f}$\u{1c}8F]\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14298,13 +13452,7 @@ extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.static_assert"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.static_assert"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.static_assert"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\"XvU_t\u{18}7[\u{11}PT]j&\"'ov\u{12}\u{1c}\u{16}4?F\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14314,13 +13462,7 @@ extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.static_cast"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.static_cast"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.static_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\u{7}La!v8ir6\u{2}h|y\u{10}{gd_\r\\,\u{2}\u{3}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14330,13 +13472,7 @@ extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.template"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.template"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.template"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpw|\u{5}\u{7}/\u{18}49{7_X\u{1e}M6\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14346,13 +13482,7 @@ extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.this"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.this"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.this"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw<'.T\u{1b};b\u{f}W\u{4}\u{11}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14362,13 +13492,7 @@ extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.thread_local"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.thread_local"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.thread_local"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}y9c}&D7\u{1e}On\u{1d}$UKsN\0e)uAX:\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14378,13 +13502,7 @@ extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.typedef"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.typedef"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.typedef"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{6}K\u{6}r3\u{10}D 3.\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14394,13 +13512,7 @@ extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.typeid"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.typeid"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.typeid"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{8}\u{1b}v^\\\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14410,13 +13522,7 @@ extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.typename"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.typename"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.typename"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp{d BIF\u{1b}=2\"bN;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14426,13 +13532,7 @@ extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.union"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.union"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.union"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{5}`Yy\u{4}B\u{c}\u{e}D!\u{16}\u{16}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14442,13 +13542,7 @@ extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.unsigned"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.unsigned"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.unsigned"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{15}@ h\u{15}3^S}}]\rm5\n\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14458,13 +13552,7 @@ extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.using"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.using"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.using"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}M\u{12}=\u{15}n\u{17}I\u{2}\u{1e}N\01\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14474,13 +13562,7 @@ extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.virtual"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.virtual"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.virtual"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{b}\u{5}\u{13}\u{7f}\u{4}\u{10}OrbwO\u{b}\u{1a}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14490,13 +13572,7 @@ extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.void"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.void"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.void"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{b}\r\u{16}%zz\u{8}\0/K\u{c}\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14506,13 +13582,7 @@ extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.volatile"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.volatile"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.volatile"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{b}\rV\u{f}7wpqB\u{7}t\u{16}e{s\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14522,13 +13592,7 @@ extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.wchar_t"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.wchar_t"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.wchar_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_Xzx\"\u{3}W;d\u{10}rh\u{b}ClGS*U\"\u{18}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14538,13 +13602,7 @@ extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.xor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.xor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.xor"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{15}!20\u{1e}{N\u{e}1\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14554,13 +13612,7 @@ extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.GeneratedMessa
 }
 
 extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.xor_eq"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.xor_eq"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.xor_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?!-4pe[\u{c}J*C(0y\\:\u{3}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14570,13 +13622,7 @@ extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.restrict"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.restrict"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.restrict"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|:\u{16}0\0/KyX\u{13}hcb)\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14586,13 +13632,7 @@ extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Category"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Category"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Category"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKEu\u{e}lk[(>\"EE#U`?\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14602,13 +13642,7 @@ extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Ivar"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Ivar"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Ivar"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}\u{1e}1Z#f\u{5}\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14618,13 +13652,7 @@ extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Method"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Method"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Method"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp'V\u{1e}\\[\u{7}F8_\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14634,13 +13662,7 @@ extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.finalize"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.finalize"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.finalize"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wps3KL\u{18}5\u{1}\u{8}&\u{6}t\u{16}e{s\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14650,13 +13672,7 @@ extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.hash"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.hash"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.hash"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}la(__y\u{1}\u{1a}\u{17},\n\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14666,13 +13682,7 @@ extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dealloc"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dealloc"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dealloc"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_\u{1b}n\u{11}!\u{1e}$.\u{c}\u{13}D 3.\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14682,13 +13692,7 @@ extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.superclass"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.superclass"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.superclass"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpo\u{1c}\t\u{1}g|\u{e}lTF\u{1f}Qi9_\u{11}\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14698,13 +13702,7 @@ extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.retain"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.retain"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.retain"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|zXsrWw[\u{4}<\u{12}&\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14714,13 +13712,7 @@ extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.release"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.release"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.release"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpct\u{1a}9\u{14}\"O|2kW\u{11}>\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14730,13 +13722,7 @@ extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.autorelease"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.autorelease"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.autorelease"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpG\u{3}F;?=o}%j)\r_YP>\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14746,13 +13732,7 @@ extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.retainCount"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.retainCount"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.retainCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|zXssPE\u{11}Wf)}H\u{1a}hz\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14762,13 +13742,7 @@ extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.zone"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.zone"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.zone"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp/\u{15}Lj\u{1f}P;\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14778,13 +13752,7 @@ extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.isProxy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.isProxy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.isProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}$!&>\u{b}T\u{b}aA\u{1d}\u{10}!\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14794,13 +13762,7 @@ extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.GeneratedM
 }
 
 extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.copy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.copy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.copy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{m\u{10}(\u{e}P\u{5}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14810,13 +13772,7 @@ extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.mutableCopy"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.mutableCopy"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.mutableCopy"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8u\r[\u{12}G};\u{14}]\u{b}:eRO\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14826,13 +13782,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Genera
 }
 
 extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.classForCoder"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.classForCoder"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.classForCoder"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpW#l>l#Zc*(9\u{7f}/Fz`bD\u{2}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14842,13 +13792,7 @@ extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.clear"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.clear"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.clear"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW+Lo{\u{14}Gy\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14858,13 +13802,7 @@ extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.data"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.data"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.data"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14874,13 +13812,7 @@ extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.delimitedData"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.delimitedData"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.delimitedData"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp_#n?/ticD3\u{10}C$q(Q x\u{c}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14890,13 +13822,7 @@ extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.descriptor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.descriptor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.descriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_+.\u{18}tj*<Oh(Yx7Tl0\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14906,13 +13832,7 @@ extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}8\0swift_proto_testing.names.MessageNames.extensionRegistry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}8\0swift_proto_testing.names.MessageNames.extensionRegistry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}8\0swift_proto_testing.names.MessageNames.extensionRegistry"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}pn5P5<^\u{1b}&uCf\u{12}\u{12}\u{11}\u{13}\u{4}_HWi\u{10}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14922,13 +13842,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.
 }
 
 extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}=\0swift_proto_testing.names.MessageNames.extensionsCurrentlySet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}=\0swift_proto_testing.names.MessageNames.extensionsCurrentlySet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}=\0swift_proto_testing.names.MessageNames.extensionsCurrentlySet"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0qW6M]\u{7}pn5P5<^\u{1a}d3S\u{6};\u{1c}\u{12}\u{1}:\u{8}On[;z\u{2}j\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14938,13 +13852,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProt
 }
 
 extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.isInitialized"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.isInitialized"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.isInitialized"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{13}\u{1c}!-\u{15}`&'BC\u{f}\u{1}De3=\u{18}\u{b}\r\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14954,13 +13862,7 @@ extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtob
 }
 
 extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedSize"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedSize"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpo<@36\u{6}Vs[X\u{1c}9}\n?Ahl\u{6}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14970,13 +13872,7 @@ extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.names.MessageNames.sortedExtensionsInUse"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.names.MessageNames.sortedExtensionsInUse"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.names.MessageNames.sortedExtensionsInUse"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0qW6M]\u{7}\u{12}/H2#X6\u{3}y2\08^/v\u{19}\u{13}\u{17}}-%fjI\\\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -14986,13 +13882,7 @@ extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProto
 }
 
 extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.unknownFields"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.unknownFields"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.unknownFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{3}\rp@GHD-z;\u{1a}l\u{14}q\u{6}1v6\u{e}\u{1f}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15002,13 +13892,7 @@ extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtob
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fixed"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fixed"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$Kv\u{17}A\u{1e}]%//\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15018,13 +13902,7 @@ extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fract"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fract"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fract"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpgUnn\u{4}\u{b}`x\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15034,13 +13912,7 @@ extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Size"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Size"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Size"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpcnqjXG;\u{4}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15050,13 +13922,7 @@ extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.LogicalAddress"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.LogicalAddress"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.LogicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{1e}.\u{c}~-\"\u{19}5xbR%\u{1e}0R\u{15}{(\u{1a}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15066,13 +13932,7 @@ extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0swift_proto_testing.names.MessageNames.PhysicalAddress"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0swift_proto_testing.names.MessageNames.PhysicalAddress"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0swift_proto_testing.names.MessageNames.PhysicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpGf 2lGJ>.wb&\u{10}_2\u{c}\u{14}{(\u{1a}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15082,13 +13942,7 @@ extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ByteCount"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ByteCount"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ByteCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpC-<0W;Z\u{11}\u{8}{5P+8wQ\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15098,13 +13952,7 @@ extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ByteOffset"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ByteOffset"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ByteOffset"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpC-<\u{10}\u{1b}RA\u{11}k\u{13}TVbra.\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15114,13 +13962,7 @@ extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Duration"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Duration"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Duration"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW%E6\u{16}\u{15}*2%t\u{1e}F{\u{1f}\u{c}\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15130,13 +13972,7 @@ extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.AbsoluteTime"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.AbsoluteTime"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.AbsoluteTime"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp7\u{5}\u{1b}i,x+XD>r\u{18}[a\u{11}l,\u{c}\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15146,13 +13982,7 @@ extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.OptionBits"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.OptionBits"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.OptionBits"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp;.o\u{13}\u{1e}|We3Zk!1&j$\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15162,13 +13992,7 @@ extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ItemCount"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ItemCount"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ItemCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{7}\u{1e}\u{10}\u{1a}}\u{12}[q)\u{1d}uT.\u{15}D\u{14}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15178,13 +14002,7 @@ extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.PBVersion"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.PBVersion"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.PBVersion"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpG\u{1e}Kt\u{1c}\u{1a}I\u{4}?\u{7}w\u{19}cf\u{2}j\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15194,13 +14012,7 @@ extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ScriptCode"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ScriptCode"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ScriptCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_^\u{1e}DiuT8<ID700v<m\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15210,13 +14022,7 @@ extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.LangCode"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.LangCode"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.LangCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{e}GEznPK5gEE#U`?\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15226,13 +14032,7 @@ extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.RegionCode"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.RegionCode"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.RegionCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW\u{16}:&\u{1d}dM{D\u{e}\u{7}31&j$\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15242,13 +14042,7 @@ extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.OSType"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.OSType"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.OSType"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?~~H*l5=]\u{1c}v@\u{16}/\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15258,13 +14052,7 @@ extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}:\0swift_proto_testing.names.MessageNames.ProcessSerialNumber"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}:\0swift_proto_testing.names.MessageNames.ProcessSerialNumber"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}:\0swift_proto_testing.names.MessageNames.ProcessSerialNumber"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}H#i p2SS{g~0(5R:v'@r\u{13}\\C\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15274,13 +14062,7 @@ extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobu
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Point"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Point"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Point"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG&\u{14}G6&\u{11}y\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15290,13 +14072,7 @@ extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Rect"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Rect"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Rect"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW\u{e}\u{1a}u+o\u{1e}\u{5}3w|\u{b}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15306,13 +14082,7 @@ extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.GeneratedMess
 }
 
 extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.FixedPoint"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.FixedPoint"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.FixedPoint"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$KC\u{18}\u{1a}Kw\u{7}Ux,(m0\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15322,13 +14092,7 @@ extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.FixedRect"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.FixedRect"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.FixedRect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$\u{b}Gos\u{18}\u{7f};0kn^s\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15338,13 +14102,7 @@ extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Style"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Style"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Style"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc>Gu\u{14}V}\u{1d}\u{1}F5 \u{16}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15354,13 +14112,7 @@ extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.GeneratedMes
 }
 
 extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.StyleParameter"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.StyleParameter"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.StyleParameter"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc>GuT T\u{10}\0s!\nY3\u{12}X6;\t\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15370,13 +14122,7 @@ extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.StyleField"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.StyleField"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.StyleField"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc>GuT\u{b}Vl\u{b}\u{8}+,1&j$\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15386,13 +14132,7 @@ extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.TimeScale"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.TimeScale"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.TimeScale"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&GA\"sn(ye\u{18}m\u{11}\u{3}jg\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15402,13 +14142,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.TimeBase"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.TimeBase"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.TimeBase"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&G!\u{1d}\u{14}\u{15}\u{1e}s$bN;OM\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15418,13 +14152,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Generated
 }
 
 extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.TimeRecord"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.TimeRecord"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.TimeRecord"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&G!\"TDH\u{c}E\u{1f}Nx\u{6}\u{1b},\u{1}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15434,13 +14162,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedData"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedData"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedData"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpo<@36\u{6}VsWHf(mte'-\u{4}\u{16}\n\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15450,13 +14172,7 @@ extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Gen
 }
 
 extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.jsonUTF8Data"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.jsonUTF8Data"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.jsonUTF8Data"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{1b}LF\u{7}\u{12}\u{12}x-\u{b}d{\u{5}K\u{16}_\t1U\r\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15466,13 +14182,7 @@ extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Gener
 }
 
 extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.jsonString"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.jsonString"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.jsonString"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{1b}LF'Q\u{13}1wpo2^x,(m0\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15482,13 +14192,7 @@ extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.Extension"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.Extension"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.Extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_-|W(GG\u{8}\tE\u{1a}]QmI\u{6}\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15498,13 +14202,7 @@ extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Generate
 }
 
 extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.Extensions"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.Extensions"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.Extensions"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_-|W(GG\u{6})\u{f}l61&j$\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -15514,13 +14212,7 @@ extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.
 }
 
 extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0#\0swift_proto_testing.names.EnumNames"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0#\0swift_proto_testing.names.EnumNames"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0#\0swift_proto_testing.names.EnumNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16796,13 +15488,7 @@ extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum {
 }
 
 extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0swift_proto_testing.names.FieldNamingInitials"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0swift_proto_testing.names.FieldNamingInitials"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0-\0swift_proto_testing.names.FieldNamingInitials"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16812,13 +15498,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.GeneratedMe
 }
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{11}\0\0\0\0\0\u{11}\0\0\u{5}\0\0H\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{1f}\0\0\0\04\0\0\u{c}\0\0\0\u{5})\0\0\0\08\0\0\u{d}\0\0\0\u{5}*\0\0\0\0<\0\0\u{e}\0\0\0\u{5}+\0\0\0\0@\0\0\u{f}\0\0\0\u{5},\0\0\0\0D\0\0\u{10}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Lowers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{11}\0\0\0\0\0\u{11}\0\0\u{5}\0\0H\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{1f}\0\0\0\04\0\0\u{c}\0\0\0\u{5})\0\0\0\08\0\0\u{d}\0\0\0\u{5}*\0\0\0\0<\0\0\u{e}\0\0\0\u{5}+\0\0\0\0@\0\0\u{f}\0\0\0\u{5},\0\0\0\0D\0\0\u{10}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Lowers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{11}\0\0\0\0\0\u{11}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{1f}\0\0\0\04\0\0\u{c}\0\0\0\u{5})\0\0\0\08\0\0\u{d}\0\0\0\u{5}*\0\0\0\0<\0\0\u{e}\0\0\0\u{5}+\0\0\0\0@\0\0\u{f}\0\0\0\u{5},\0\0\0\0D\0\0\u{10}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Lowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{5}\0\0 \u{7f}}x,9iQ}^01{\u{4}H'eou\u{11}6\u{1c}Z\u{11}%\u{12}i^&\u{10}zE\u{14}Y%25~\u{18}Y~q>e\u{1d}\u{12})*?=\u{13}/%\u{8}&.\u{14}xtIOH\u{8}!\u{f}5$:d1k}\u{4})nV\u{7f}3\u{15}3w\u{1e}oB}D7\u{e}'\u{7f}*KQ\u{1e}.MZti,_\u{3}\u{17}4f}?%\u{7}g\u{10}f^'\u{19}b\u{3}P\u{1d},\u{12}\0[r.3G^o!\u{7f}`j \u{12}JjC\u{1}_\u{19}qVW@!Q\u{7f}+`\u{1e}e\u{5}ZY\u{e}LY\0YLt\0<kDO3$?1\u{1}\u{1b}%7\\\u{5}&}\u{1}\u{1b}_;kYyXZxLw_M  Sq^4Nq{(\u{14}(\u{1b}&)xSMY\u{15}jP\u{1a}z\u{10}r1(/\tKdJ\u{12};`\n`\u{1a}*um\0f-J(\u{8}_p\u{5}~8I*=x[\"}`4\u{7f}&\r<\u{b}\u{17}w=ZE+l(\r^GK-\r\u{2}\\kKy}nM\u{1f}z\u{7f}\u{8}\u{1a}+\u{7},{?3P#uV|%Vq\\Neg\u{7f}~GT-\u{1}(&\"w\u{18}J\u{17}@Iwr\u{c}~Z/y\u{3};\u{7f}iM\u{15}Y5N>m\u{15}\u{7}=]J\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16828,13 +15508,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0D\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Uppers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0D\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Uppers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Uppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{5}\0\0 ?^tL9i)+&\u{6}&MO(\u{7f}\u{7}z?+x\r2d\u{11}\u{13}9!j)\u{c}\u{6}ThX&>\u{10}3M\u{19}+_wM8=Jr|FIs\u{14}\u{11},Wjsd\u{1e}Q,\u{e}<XDu+}p{O>xp\"g\u{19}[4L{b\u{1d}U\u{17}Q\u{3},\u{e}O-\u{18}oK\u{11}\u{5}g]&-\rdo;_A\u{17}\tm%}\u{13}$#\u{b}HMK\u{10}9mBR$\u{12}\u{1}A|j\u{1b}uV\u{11}Wn\"YchA>\u{16}:ybs%\u{5}'5>0o\u{3}\u{6}o}c~LvJ~!V@\\o_Jr\u{16}l\u{8}~\u{5}Fz\u{1e}kXKX[\u{f}\u{6}pb\u{8}p|W\u{6}@E\u{5}\u{1b}<\u{1a}\t-%W`~!Q['#\u{e}DMldq?7E@?cx~FYT\u{17}&3l\u{19}[Y\u{8}rdb+*\u{13}Su9Ti]M6njj\u{1c}9\0\u{4}DxG+Q+xABa\tE{\u{6}-'8*94q\u{1c}\u{11}=T\u{e}\u{11}n3eN%\u{4}H{MTeJ\u{1e}\u{19}z73@\u{1d}\u{2}miD\u{7f}_t\u{18}M`b\u{6}DZZ\u{3}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16844,13 +15518,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Gene
 }
 
 extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0D\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}6\0swift_proto_testing.names.FieldNamingInitials.WordCase"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0D\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}6\0swift_proto_testing.names.FieldNamingInitials.WordCase"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}6\0swift_proto_testing.names.FieldNamingInitials.WordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{3}\0\0 ?*\u{16}\"95-[K:_i\n?aOO7&>6\tn'$_v#\u{7f}xw*\"Z 3YJ7QF]4ZqA\u{c}D\rj*\r<F\u{10}\u{c}k\u{14}\u{4}**x}7+dT30\u{17}:rDKWVu[ZtuAEwA_\u{14}a\u{17}-S\u{8}:'\u{14}hdR+V\u{1c}d\u{1e}wW\r4\0(*F\\|I%&\u{16}i|t.\0/ F\u{14}e\u{1}\u{1e}\u{18}\u{1a}\u{7f}\u{1f}\u{5}tQiIWj\u{14}\u{6}\u{b} \u{7}\rM\u{10}HGa<]\u{1}4*\u{b}svaJ4HC!o\u{14}\u{19}\u{1f}@Fu&t\u{17}QDAO}Uc\u{7f}/f\u{17}at\0<&KGUlv\u{3}P)wli\u{4}3k\u{14}(m\u{15}\u{11} \0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16860,13 +15528,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Ge
 }
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16876,13 +15538,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Generat
 }
 
 extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0swift_proto_testing.names.Lowers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0swift_proto_testing.names.Lowers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0swift_proto_testing.names.Lowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16892,13 +15548,7 @@ extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0swift_proto_testing.names.Uppers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0swift_proto_testing.names.Uppers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0swift_proto_testing.names.Uppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16908,13 +15558,7 @@ extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\"\0swift_proto_testing.names.WordCase"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\"\0swift_proto_testing.names.WordCase"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\"\0swift_proto_testing.names.WordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16924,13 +15568,7 @@ extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
 }
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16940,13 +15578,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16956,13 +15588,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.G
 }
 
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -16972,13 +15598,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf
 }
 
 extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0$\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0$\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1}\0\00\u{1f}x>M]7\u{19}-l\u{5}dS&\t\u{16}}COH{JZd\u{16}\u{1e}\u{e}r\u{10} \u{c}\u{11}~Wg\u{10}b\u{17}7\u{10}d\u{b}8L*~g\\Ag\nK~\u{5}X A4\\L;snFi%d3\u{1c}r\r\u{b}\u{11} \u{2}m]\u{1d}\u{18}\u{1c}U^7y\u{e}h\u{1b}V&8b\u{1}\u{1d}\u{7}\u{17}\u{10}\0cqc\u{c}C\u{13}E2Lp\u{4}S\u{8}\u{5}\u{7f}*P/:w/&(*`~<wD*rP@\t9\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -17001,13 +15621,7 @@ extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum {
 }
 
 extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpo\\x\0J(dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -17017,13 +15631,7 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}'\0swift_proto_testing.names.SpecialNames2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}'\0swift_proto_testing.names.SpecialNames2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}'\0swift_proto_testing.names.SpecialNames2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hH4\u{12}P\u{1a}}c\u{1}M(@lZMO\u{11}P\u{1e}v\u{7}\u{c}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -17033,13 +15641,7 @@ extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{c}\0\0{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R\u{4}$/\u{1b}9i\u{16}\u{18}2\t\u{b}Bf&\u{6}`s\u{19}]mmwY#\u{1d}\u{15}\\LWjY}yc'qM=tb7\u{1c}{g\u{15}\u{7f}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -17056,13 +15658,7 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames4"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames4"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames4"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}5\nh}!s>\u{14}E\u{11}\u{3}I*N&U\u{10}xo,5\ng\u{8}Qu'H$O+\u{1a}\"\u{6}+>M4.ya-\u{1}%]\u{3}h\u{10}<GROC\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

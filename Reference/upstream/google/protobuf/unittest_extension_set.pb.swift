@@ -55,13 +55,13 @@ struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var `extension`: Proto2Unittest_TestExtensionSet {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2Unittest_TestExtensionSet(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestExtensionSet(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if ``extension`` has been explicitly set.
   var hasExtension: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
-  mutating func clearExtension() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2Unittest_TestExtensionSet.self, hasBit: (0, 1)) }
+  mutating func clearExtension() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestExtensionSet.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -76,13 +76,7 @@ struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0proto2_unittest.TestExtensionSet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0 \0proto2_unittest.TestExtensionSet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0proto2_unittest.TestExtensionSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -92,13 +86,7 @@ extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestExtensionSetContainer: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b})\0proto2_unittest.TestExtensionSetContainer"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b})\0proto2_unittest.TestExtensionSetContainer"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b})\0proto2_unittest.TestExtensionSetContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkSmCsnrOF\u{7f}u(B\u{7}O\u{1c}\u{3}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

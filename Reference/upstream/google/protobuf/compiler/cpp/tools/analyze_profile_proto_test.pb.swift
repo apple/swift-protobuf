@@ -36,13 +36,13 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Swift.Sendable {
   mutating func clearChildID() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var child: Google_Protobuf_Compiler_Tools_AnalyzeChild {
-    get { _storage.value(at: 8, default: Google_Protobuf_Compiler_Tools_AnalyzeChild(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: Google_Protobuf_Compiler_Tools_AnalyzeChild(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
   var hasChild: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
-  mutating func clearChild() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_Compiler_Tools_AnalyzeChild.self, hasBit: (0, 2)) }
+  mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_Compiler_Tools_AnalyzeChild.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -69,41 +69,41 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
   mutating func clearID() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var optionalString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 24), type: String.self, hasBit: (0, 2)) }
+  mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var repeatedString: [String] {
-    get { _storage.value(at: 8, hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
   }
 
   var optionalChild: Google_Protobuf_Compiler_Tools_AnalyzeChild {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: Google_Protobuf_Compiler_Tools_AnalyzeChild(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, default: Google_Protobuf_Compiler_Tools_AnalyzeChild(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalChild` has been explicitly set.
   var hasOptionalChild: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalChild`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalChild() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: Google_Protobuf_Compiler_Tools_AnalyzeChild.self, hasBit: (0, 4)) }
+  mutating func clearOptionalChild() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_Compiler_Tools_AnalyzeChild.self, hasBit: (0, 4)) }
 
   var repeatedChild: [Google_Protobuf_Compiler_Tools_AnalyzeChild] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   var nested: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 20), default: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 20), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 1, default: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `nested` has been explicitly set.
   var hasNested: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
-  mutating func clearNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 20), type: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested.self, hasBit: (0, 8)) }
+  mutating func clearNested() { _uniqueStorage().clearValue(atIndex: 1, type: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested.self, hasBit: (0, 8)) }
 
   struct Nested: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -120,13 +120,13 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
     mutating func clearNextedID() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var optionalString: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 2)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+      get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `optionalString` has been explicitly set.
     var hasOptionalString: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-    mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
+    mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -151,13 +151,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}+\0google.protobuf.compiler.tools.AnalyzeChild"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}+\0google.protobuf.compiler.tools.AnalyzeChild"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}+\0google.protobuf.compiler.tools.AnalyzeChild"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MX$R\0*\u{10}u5\u{8}\u{3}o5Zr>\u{7f}p5\\B1\u{5}\u{18}\u{7f}'/ia\u{1}I\u{17}Ou<\t\u{1e}|O\u{4}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -174,13 +168,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.GeneratedMe
 }
 
 extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0@\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\00\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\u{8}\0\0\u{4}\0\0\0\u{9}\u{4}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{5}\0\0\0\u{2}\u{18}\0\0\u{5}\0\u{1}\0\u{b}\u{6}\0\0\0\0 \0\0\u{3}\0\u{2}\0\u{b}*\0google.protobuf.compiler.tools.AnalyzeThis"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\u{8}\0\0\u{4}\0\0\0\u{9}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}\u{5}\0\0\0\u{2}\u{10}\0\0\u{5}\0\u{1}\0\u{b}\u{6}\0\0\0\0\u{14}\0\0\u{3}\0\u{2}\0\u{b}*\0google.protobuf.compiler.tools.AnalyzeThis"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\0\0\u{10}\u{4}\0\0\0\u{9}\u{4}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}\u{5}\0\0\0\u{2}\u{1}\0\u{10}\u{5}\0\u{1}\0\u{b}\u{6}\0\0\0\0\u{1}\00\u{3}\0\u{2}\0\u{b}*\0google.protobuf.compiler.tools.AnalyzeThis"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{14}\u{2}\0\0\0_\u{18}$5ZOJX\u{1}R6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1}\u{f}C\u{3}90\0\u{5}\u{13}\tFxK,(cFB;*h\u{10}7>g/[My4.\u{8} TV\u{b}\u{4}\u{14} E\u{e}Ch|4D&']\u{14}}:zjF6|+6T\u{2}.<\u{1c}H7(V03!%7nhe\u{1}d@mIK==$\t~{\u{1a} SE\u{1c}>J*~\u{16}U#fKiyCE?YC@GBLdG_*,F e-V\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -198,13 +186,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.GeneratedMes
 }
 
 extension Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}1\0google.protobuf.compiler.tools.AnalyzeThis.Nested"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}1\0google.protobuf.compiler.tools.AnalyzeThis.Nested"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}1\0google.protobuf.compiler.tools.AnalyzeThis.Nested"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pg@z0p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}5\nh}=c\u{5}\u{1d}.Mj]y\u{2}}`g@F/c/Yl(%#,\u{b}d\u{c}i,-8\u{1c}\u{2}\u{11}Tp2=\"0R.J\t\u{7f}C:\u{6}r\u{8}\u{7}\u{c}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

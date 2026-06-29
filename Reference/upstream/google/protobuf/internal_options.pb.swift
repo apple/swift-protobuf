@@ -86,13 +86,13 @@ struct Pb_InternalFieldOptionsCpp: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var microString: Pb_InternalFieldOptionsCpp.MicroString {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Pb_InternalFieldOptionsCpp.MicroString(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Pb_InternalFieldOptionsCpp.MicroString(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `microString` has been explicitly set.
   var hasMicroString: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `microString`. Subsequent reads from it will return its default value.
-  mutating func clearMicroString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Pb_InternalFieldOptionsCpp.MicroString.self, hasBit: (0, 1)) }
+  mutating func clearMicroString() { _uniqueStorage().clearValue(atIndex: 0, type: Pb_InternalFieldOptionsCpp.MicroString.self, hasBit: (0, 1)) }
 
   struct MicroString: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -134,13 +134,13 @@ struct Pb_InternalFieldOptions: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var cpp: Pb_InternalFieldOptionsCpp {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Pb_InternalFieldOptionsCpp(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Pb_InternalFieldOptionsCpp(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `cpp` has been explicitly set.
   var hasCpp: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `cpp`. Subsequent reads from it will return its default value.
-  mutating func clearCpp() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Pb_InternalFieldOptionsCpp.self, hasBit: (0, 1)) }
+  mutating func clearCpp() { _uniqueStorage().clearValue(atIndex: 0, type: Pb_InternalFieldOptionsCpp.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -197,13 +197,7 @@ let Pb_Extensions_internal_field_options = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Pb_InternalOptionsForce: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{17}\0pb.InternalOptionsForce"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{17}\0pb.InternalOptionsForce"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{17}\0pb.InternalOptionsForce"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -219,13 +213,7 @@ extension Pb_InternalOptionsForce.Enum {
 }
 
 extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{1a}\0pb.InternalFieldOptionsCpp"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{1a}\0pb.InternalFieldOptionsCpp"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{1a}\0pb.InternalFieldOptionsCpp"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}qYc;[D\u{15}U6\u{11}$[D]pk*[6pA><\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -242,13 +230,7 @@ extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}&\0pb.InternalFieldOptionsCpp.MicroString"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}&\0pb.InternalFieldOptionsCpp.MicroString"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}&\0pb.InternalFieldOptionsCpp.MicroString"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpsC.%-^-x\u{6}`\u{c}\u{18}?\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -265,13 +247,7 @@ extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.GeneratedMessage
 }
 
 extension Pb_InternalFieldOptions: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{17}\0pb.InternalFieldOptions"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{17}\0pb.InternalFieldOptions"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{17}\0pb.InternalFieldOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpW;\u{e}S5#H\u{11}3\u{4}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

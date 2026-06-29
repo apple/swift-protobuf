@@ -190,13 +190,7 @@ let Pb_Extensions_go = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Pb_GoFeatures: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\u{3}\0\u{e}\u{d}\0pb.GoFeatures"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\u{3}\0\u{e}\u{d}\0pb.GoFeatures"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\u{3}\0\u{e}\u{d}\0pb.GoFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\u{1}\0\00\u{1f}4^Q[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COHzNsso\u{2}GFz\u{18}\u{1f}C(83h\u{1d}Y\u{1c}\u{1d}@n r4\u{1}#\u{8}a(H&wb\".fLQ.]:b2\u{f}4(Q\u{c}}A\u{17}w_\u{13}\u{12}:\u{14}\u{1a}p\u{15}V\u{10}$I/\u{19}\u{15}Ju'v\u{6}D}\t\u{13}l)K\u{3}Q6qaD)Y\rE6P\u{1d}9I\r\u{1b}(\"#/%\u{1e}iC9\u{14}z \\j_\u{3}\u{1e}HUJ,TNTVF\u{1b}X\u{4} \0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -227,13 +221,7 @@ extension Pb_GoFeatures.StripEnumPrefix {
 }
 
 extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0!\0pb.GoFeatures.OptimizeModeFeature"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0!\0pb.GoFeatures.OptimizeModeFeature"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0!\0pb.GoFeatures.OptimizeModeFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

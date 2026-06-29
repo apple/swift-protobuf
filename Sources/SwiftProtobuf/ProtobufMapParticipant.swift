@@ -91,7 +91,7 @@ extension ProtobufMapKey where Base: Comparable {
 /// The proxy type for `bytes` map values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapDataField: ProtobufMapParticipant {
     public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> Data {
-        storage.value(at: offset, hasBit: hasBit)
+        storage.value(at: offset, default: Data(), hasBit: hasBit)
     }
 
     public static func updateValue(
@@ -214,7 +214,7 @@ extension ProtobufMapKey where Base: Comparable {
 /// The proxy type for `string` map keys and values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapStringField: ProtobufMapKey {
     public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> String {
-        storage.value(at: offset, hasBit: hasBit)
+        storage.value(at: offset, default: "", hasBit: hasBit)
     }
 
     public static func updateValue(

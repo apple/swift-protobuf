@@ -27,22 +27,22 @@ public struct SomeProtoWithBytes: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   public var someBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: Data(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Data(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `someBytes` has been explicitly set.
   public var hasSomeBytes: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `someBytes`. Subsequent reads from it will return its default value.
-  public mutating func clearSomeBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: Data.self, hasBit: (0, 1)) }
+  public mutating func clearSomeBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (0, 1)) }
 
   public var extStr: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `extStr` has been explicitly set.
   public var hasExtStr: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `extStr`. Subsequent reads from it will return its default value.
-  public mutating func clearExtStr() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
+  public mutating func clearExtStr() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -57,13 +57,7 @@ public struct SomeProtoWithBytes: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SomeProtoWithBytes: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{10}\0\0\u{2}\0\0\0\0\u{10}\0\0\0\0\0\0\u{c}d\0\0\0\0 \0\0\u{1}\0\0\0\u{9}\u{12}\0SomeProtoWithBytes"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0\u{2}\0\0\0\0\u{c}\0\0\0\0\0\0\u{c}d\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}\u{12}\0SomeProtoWithBytes"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0P\0\0\0\0\u{c}d\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{12}\0SomeProtoWithBytes"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0PTZ-~LI\u{1a}\u{3}\u{14}MP\u{f}Z\u{10}gZ~yx&N9\u{16}=\u{8}W\u{5}\\<y\u{c}c16OM\u{8}~p@?f\u{c}\u{4}y\u{3}< -V\u{4}\u{e}g-T%\u{1a}\u{1}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

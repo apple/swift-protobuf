@@ -165,13 +165,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension UnittestDropUnknownFields_Foo: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e} \0unittest_drop_unknown_fields.Foo"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e} \0unittest_drop_unknown_fields.Foo"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e} \0unittest_drop_unknown_fields.Foo"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#`~\u{18}p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{3h.GC\u{19}Q6fQ\u{14}\u{10}\u{19} \u{7f}n\u{1e}\u{14}aQ\u{5}L1m~\t<K\u{1d}%@8+1\u{f}]t7\u{19}\u{17}i\"\u{7}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -194,13 +188,7 @@ extension UnittestDropUnknownFields_Foo.NestedEnum {
 }
 
 extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}/\0unittest_drop_unknown_fields.FooWithExtraFields"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}/\0unittest_drop_unknown_fields.FooWithExtraFields"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}/\0unittest_drop_unknown_fields.FooWithExtraFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{1}\0\0 ?)5\u{1d}Zs5&L\u{6}\u{10}al;tE#Cwg>w\u{f}~6\"6{\u{11}X+{\u{17}Fa\u{17}4XH,tw\u{7f}+\u{12},\u{16}\u{5}fP_i8GqeEAc'\u{1b}T@WBs}X,g\u{11}\u{1f}GM\u{18}%P2\u{19}[\u{1f}f\u{14}$B\u{16}@\u{f}*1r;H\u{2}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
