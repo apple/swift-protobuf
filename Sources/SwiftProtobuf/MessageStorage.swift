@@ -208,7 +208,6 @@ extension MessageStorage {
 
         // Copy-initialize the remaining non-trivial fields.
         for field in schema.fields {
-            let offset = schema.byteOffset(of: field)
             switch field.fieldMode.cardinality {
             case .map:
                 guard isPresent(field) else { continue }
