@@ -19,10 +19,10 @@ class DummyFieldGenerator: FieldGenerator {
     var rawFieldType: RawFieldType { .bool }
     var submessageOrEnumReference: SubmessageOrEnumReference? { nil }
     var fieldMode: FieldMode { .init(rawValue: 0) }
-    var storageKind: FieldStorageKind { .oneByteScalar }
+    var stableStride: Int { 0 }
     var oneofIndex: Int? { nil }
     var presence: FieldPresence = .hasBit(0)
-    var storageOffsets: TargetSpecificValues<Int> = .init(forAllTargets: 0)
+    var storageOffsetOrIndex: Int = 0
     var needsIsInitializedGeneration: Bool { false }
     func generateInterface(printer: inout CodePrinter) {}
 }

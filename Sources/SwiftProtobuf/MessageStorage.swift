@@ -195,26 +195,28 @@ extension MessageStorage {
     public func copy() -> MessageStorage {
         let destination = MessageStorage(schema: schema)
 
-        // Loops through the fields, copy-initializing any that are non-trivial types. We ignore
-        // the trivial ones here, instead tracking the byte offset of the first non-trivial field
-        // so that we can bitwise copy those as a block afterward.
-        var firstNontrivialStorageOffset = schema.storageSize
+        // Copy all of the trivial field values, has-bits, and any oneof tracking in bitwise
+        // fashion, and copy the unknowns and extensions as well.
+        destination.buffer.copyMemory(from: .init(rebasing: buffer[..<schema.firstNontrivialOffset]))
+        destination.unknownFields = unknownFields
+        destination.extensionStorage = extensionStorage.copy()
+
+        // If there are no non-trivial fields, we're done.
+        guard schema.firstNontrivialOffset != schema.storageSize else {
+            return destination
+        }
+
+        // Copy-initialize the remaining non-trivial fields.
         for field in schema.fields {
             let offset = schema.byteOffset(of: field)
             switch field.fieldMode.cardinality {
             case .map:
-                if offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = offset
-                }
                 guard isPresent(field) else { continue }
                 let source = rawPointer(for: field)
                 let destination = destination.rawPointer(for: field)
                 messageSchema(for: field).invokeWitness(.mapCopyInitialize(source: source, destination: destination))
 
             case .array:
-                if offset < firstNontrivialStorageOffset {
-                    firstNontrivialStorageOffset = offset
-                }
                 switch field.rawFieldType {
                 case .bool: copyField(field, to: destination, type: [Bool].self)
                 case .bytes: copyField(field, to: destination, type: [Data].self)
@@ -245,15 +247,9 @@ extension MessageStorage {
             case .scalar:
                 switch field.rawFieldType {
                 case .bytes:
-                    if offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = offset
-                    }
                     copyField(field, to: destination, type: Data.self)
 
                 case .group, .message:
-                    if offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = offset
-                    }
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
@@ -262,9 +258,6 @@ extension MessageStorage {
                     )
 
                 case .string:
-                    if offset < firstNontrivialStorageOffset {
-                        firstNontrivialStorageOffset = offset
-                    }
                     copyField(field, to: destination, type: String.self)
 
                 default:
@@ -276,13 +269,6 @@ extension MessageStorage {
                 preconditionFailure("Unreachable")
             }
         }
-
-        // Copy all of the trivial field values, has-bits, and any oneof tracking in bitwise
-        // fashion.
-        destination.buffer.copyMemory(from: .init(rebasing: buffer[..<firstNontrivialStorageOffset]))
-
-        destination.unknownFields = unknownFields
-        destination.extensionStorage = extensionStorage.copy()
 
         return destination
     }
@@ -423,38 +409,6 @@ extension MessageStorage {
         return typedPointer(at: offset, as: Double.self).pointee
     }
 
-    /// Returns the string value at the given offset in the storage, or the default value if the
-    /// value is not present.
-    @_alwaysEmitIntoClient @inline(__always)
-    public func value(at offset: Int, default defaultValue: String = "", hasBit: HasBit) -> String {
-        guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return typedPointer(at: offset, as: String.self).pointee
-    }
-
-    /// Returns the `Data` value at the given offset in the storage, or the default value if the
-    /// value is not present.
-    @_alwaysEmitIntoClient @inline(__always)
-    public func value(at offset: Int, default defaultValue: Data = Data(), hasBit: HasBit) -> Data {
-        guard isPresent(hasBit: hasBit) else { return defaultValue }
-        return typedPointer(at: offset, as: Data.self).pointee
-    }
-
-    /// Returns the `Array` value at the given offset in the storage, or the empty array if the
-    /// value is not present.
-    @_alwaysEmitIntoClient @inline(__always)
-    public func value<Element>(at offset: Int, hasBit: HasBit) -> [Element] {
-        guard isPresent(hasBit: hasBit) else { return [] }
-        return typedPointer(at: offset, as: [Element].self).pointee
-    }
-
-    /// Returns the `Dictionary` value at the given offset in the storage, or the empty array if
-    /// the value is not present.
-    @_alwaysEmitIntoClient @inline(__always)
-    public func value<Key, Value>(at offset: Int, hasBit: HasBit) -> [Key: Value] {
-        guard isPresent(hasBit: hasBit) else { return [:] }
-        return typedPointer(at: offset, as: [Key: Value].self).pointee
-    }
-
     /// Returns the protobuf enum value at the given offset in the storage, or the default value if
     /// the value is not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -465,6 +419,46 @@ extension MessageStorage {
         // should never cause presence to be set. For example, during decoding such a value would be
         // placed in unknown fields.
         return T(rawValue: Int(typedPointer(at: offset, as: Int32.self).pointee))!
+    }
+
+    /// Returns the `String` value at the given zero-based index in the string bucket,
+    /// or the default value if it is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(atIndex index: Int, default defaultValue: String = "", hasBit: HasBit) -> String {
+        let offset = schema.byteOffset(ofStringFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, hasBit: hasBit)
+    }
+
+    /// Returns the `Data` value at the given zero-based index in the bytes bucket,
+    /// or the default value if it is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(atIndex index: Int, default defaultValue: Data = Data(), hasBit: HasBit) -> Data {
+        let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, hasBit: hasBit)
+    }
+
+    /// Returns the `Array` value at the given zero-based index in the repeated bucket,
+    /// or the empty array if it is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Element>(atIndex index: Int, hasBit: HasBit) -> [Element] {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        return value(at: offset, default: [], hasBit: hasBit)
+    }
+
+    /// Returns the `Dictionary` value at the given zero-based index in the map bucket,
+    /// or the empty dictionary if it is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Key, Value>(atIndex index: Int, hasBit: HasBit) -> [Key: Value] {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        return value(at: offset, default: [:], hasBit: hasBit)
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket,
+    /// or the default value if it is not present.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T: Message>(atIndex index: Int, default defaultValue: T, hasBit: HasBit) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, hasBit: hasBit)
     }
 
     /// Returns the value at the given offset in the storage, or the default value if the value is
@@ -547,6 +541,42 @@ extension MessageStorage {
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
     }
 
+    /// Updates the `String` value at the given zero-based index in the string bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(atIndex index: Int, to newValue: String, willBeSet: Bool, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofStringFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the `Data` value at the given zero-based index in the bytes bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(atIndex index: Int, to newValue: Data, willBeSet: Bool, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the `Array` value at the given zero-based index in the repeated bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Element>(atIndex index: Int, to newValue: [Element], willBeSet: Bool, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the `Dictionary` value at the given zero-based index in the map bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Key, Value>(atIndex index: Int, to newValue: [Key: Value], willBeSet: Bool, hasBit: HasBit)
+    {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the submessage value at the given zero-based index in the message bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T: Message>(atIndex index: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
     /// Updates the value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
@@ -581,6 +611,41 @@ extension MessageStorage {
         let pointer = typedPointer(at: offset, as: Int32.self)
         _ = updatePresence(hasBit: hasBit, willBeSet: false)
         pointer.pointee = 0
+    }
+
+    /// Clears the `String` value at the given zero-based index in the string bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue(atIndex index: Int, type: String.Type, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofStringFieldAtIndex: index)
+        clearValue(at: offset, type: String.self, hasBit: hasBit)
+    }
+
+    /// Clears the `Data` value at the given zero-based index in the bytes bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue(atIndex index: Int, type: Data.Type, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
+        clearValue(at: offset, type: Data.self, hasBit: hasBit)
+    }
+
+    /// Clears the `Array` value at the given zero-based index in the repeated bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue<Element>(atIndex index: Int, type: [Element].Type, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        clearValue(at: offset, type: [Element].self, hasBit: hasBit)
+    }
+
+    /// Clears the `Dictionary` value at the given zero-based index in the map bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue<Key, Value>(atIndex index: Int, type: [Key: Value].Type, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        clearValue(at: offset, type: [Key: Value].self, hasBit: hasBit)
+    }
+
+    /// Clears the submessage value at the given zero-based index in the message bucket.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearValue<T: Message>(atIndex index: Int, type: T.Type, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        clearValue(at: offset, type: T.self, hasBit: hasBit)
     }
 }
 
@@ -681,9 +746,9 @@ extension MessageStorage {
         let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
-            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+            return value(at: offset, default: `default`, hasBit: (hasByteOffset, hasMask))
         case .oneOfMember(let oneofOffset):
-            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+            return value(at: offset, default: `default`, oneofPresence: (oneofOffset, field.fieldNumber))
         }
     }
 
@@ -693,9 +758,9 @@ extension MessageStorage {
         let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
-            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+            return value(at: offset, default: `default`, hasBit: (hasByteOffset, hasMask))
         case .oneOfMember(let oneofOffset):
-            return value(at: offset, oneofPresence: (oneofOffset, field.fieldNumber))
+            return value(at: offset, default: `default`, oneofPresence: (oneofOffset, field.fieldNumber))
         }
     }
 
@@ -717,7 +782,7 @@ extension MessageStorage {
         let offset = schema.byteOffset(of: field)
         switch field.presence {
         case .hasBit(let hasByteOffset, let hasMask):
-            return value(at: offset, hasBit: (hasByteOffset, hasMask))
+            return value(at: offset, default: `default`, hasBit: (hasByteOffset, hasMask))
         case .oneOfMember:
             preconditionFailure("Unreachable")
         }
@@ -1077,6 +1142,30 @@ extension MessageStorage {
         return typedPointer(at: offset, as: T.self).pointee
     }
 
+    /// Returns the `String` value at the given zero-based index in the string bucket if it is the
+    /// currently populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(atIndex index: Int, default defaultValue: String = "", oneofPresence: OneofPresence) -> String {
+        let offset = schema.byteOffset(ofStringFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, oneofPresence: oneofPresence)
+    }
+
+    /// Returns the `Data` value at the given zero-based index in the bytes bucket if it is the
+    /// currently populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value(atIndex index: Int, default defaultValue: Data = Data(), oneofPresence: OneofPresence) -> Data {
+        let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, oneofPresence: oneofPresence)
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket if it is the
+    /// currently populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<T: Message>(atIndex index: Int, default defaultValue: T, oneofPresence: OneofPresence) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        return value(at: offset, default: defaultValue, oneofPresence: oneofPresence)
+    }
+
     /// Updates the `Bool` value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(at offset: Int, to newValue: Bool, oneofPresence: OneofPresence) {
@@ -1174,6 +1263,27 @@ extension MessageStorage {
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
         typedPointer(at: offset, as: T.self).initialize(to: newValue)
+    }
+
+    /// Updates the `String` value at the given zero-based index in the string bucket, along with its oneof presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(atIndex index: Int, to newValue: String, oneofPresence: OneofPresence) {
+        let offset = schema.byteOffset(ofStringFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, oneofPresence: oneofPresence)
+    }
+
+    /// Updates the `Data` value at the given zero-based index in the bytes bucket, along with its oneof presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue(atIndex index: Int, to newValue: Data, oneofPresence: OneofPresence) {
+        let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, oneofPresence: oneofPresence)
+    }
+
+    /// Updates the submessage value at the given zero-based index in the message bucket, along with its oneof presence.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<T: Message>(atIndex index: Int, to newValue: T, oneofPresence: OneofPresence) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        updateValue(at: offset, to: newValue, oneofPresence: oneofPresence)
     }
 
     /// Clears the populated oneof member give the oneof offset into the storage buffer,
@@ -1316,22 +1426,4 @@ extension MessageStorage {
 /// this type as an argument. However, only the runtime may create instances of it.
 public struct MessageStorageToken {
     init() {}
-}
-
-/// A macro-like helper function used in generated code to simplify writing platform-specific
-/// offsets in field accessors.
-///
-/// By virtue of being declared transparent, the compiler will always be able to reduce this down
-/// to a single integer load depending on the target platform, so this function has no real
-/// overhead and we are able to keep the generated code more compact than if we had to express the
-/// `#if` blocks directly inside each accessor.
-@_transparent
-public func _fieldOffset(_ pointerWidth64: Int, _ pointerWidth32: Int) -> Int {
-    #if _pointerBitWidth(_64)
-    pointerWidth64
-    #elseif _pointerBitWidth(_32)
-    pointerWidth32
-    #else
-    #error("Unsupported platform")
-    #endif
 }

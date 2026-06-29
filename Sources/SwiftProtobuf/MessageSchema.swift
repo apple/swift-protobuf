@@ -43,17 +43,23 @@ public struct MessageSchema: @unchecked Sendable {
     /// The **message schema header** describes properties of the entire message:
     ///
     /// ```
-    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+-------------------------+
-    /// | Bytes 0 | Bytes 1-3    | Bytes 4-6   | Bytes 7-9      | Bytes 10-12             | Byte 13-15        | Bytes 16-18             |
-    /// | Version | Message size | Field count | Required count | Explicit presence count | Density threshold | First nontrivial offset |
-    /// +---------+--------------+-------------+----------------+-------------------------+-------------------+-------------------------+
+    /// +---------+---------------------+-------------+------------+-------------------+------------------->
+    /// | Byte 0  | Bytes 1-3           | Bytes 4-6   | Bytes 7-9  | Bytes 10-12       | Bytes 13-15       >
+    /// | Version | Nontrivial offset & | # fields    | # required | # fields with     | Density threshold >
+    /// |         | extensibility mode  |             | fields     | explicit presence |                   >
+    /// +---------+---------------------+-------------+------------+-------------------+------------------->
+    ///     <-------------------+--------------+-------------------+-----------------+----------------+
+    ///     < Bytes 16-18       | Bytes 19-21  | Bytes 22-24       | Bytes 25-27     | Bytes 28-30    |
+    ///     < # repeated fields | # map fields | # message fields  | # string fields | # bytes fields |
+    ///     <-------------------+--------------+-------------------+-----------------+----------------+
     /// ```
     /// *   Byte 0: A `UInt8` that describes the version of the schema. Currently, this is always 0.
     ///     This value allows for future enhancements to be made to the schema but preserving
     ///     backward compatibility.
-    /// *   Bytes 1-3: The size of the message in bytes, as a base-128 integer. 64KB is an upper
-    ///     bound on message size imposed in practice by µpb, since it uses a `uint16_t` to
-    ///     represent field offsets in their own mini-tables.
+    /// *   Bytes 1-3: The byte offset of the first non-trivial field in the message storage, as a
+    ///     base-128 integer. If the message contains only trivial fields, this value is equal to the
+    ///     total message size. The message's extensibility mode is also packed into bits 19 and 20
+    ///     of the base-128 integer.
     /// *   Bytes 4-6: The number of fields defined by the message, as a base-128 integer.
     ///     65536 is an upper bound imposed in practice by the core protobuf implementation
     ///     (https://github.com/protocolbuffers/protobuf/commit/90824aaa69000452bff5ad8db3240215a3b9a595)
@@ -66,27 +72,32 @@ public struct MessageSchema: @unchecked Sendable {
     ///     inhabited, as a base-128 integer. We only need three bytes to represent this because the
     ///     largest possible number is 65537; otherwise, it would imply that the message had more
     ///     than 65536 fields in violation of the bound above.
-    /// *   Bytes 16-18: The byte offset of the first non-trivial field in the message storage, as a
-    ///     base-128 integer. If the message contains only trivial fields, this value is equal to the
-    ///     total message size.
+    /// *   Bytes 16-18: The number of repeated fields in the message, as a base-128 integer.
+    /// *   Bytes 19-21: The number of map fields in the message, as a base-128 integer.
+    /// *   Bytes 22-24: The number of singular submessage fields in the message, as a base-128 integer.
+    /// *   Bytes 25-27: The number of singular string fields in the message, as a base-128 integer.
+    /// *   Bytes 28-30: The number of singular bytes fields in the message, as a base-128 integer.
     ///
     /// ## Field schemas
     ///
-    /// After the header above, starting at byte offset 16, is a sequence of encoded field schemas.
+    /// After the header above, starting at byte offset 31, is a sequence of encoded field schemas.
     /// Each field schema is 13 bytes long and they are written in field number order. Each entry
     /// encodes the following information:
     ///
     /// ```
-    /// +---------------------+-----------+-----------+------------------+------------+
-    /// | Bytes 0-4           | Bytes 5-7 | Bytes 8-9 | Bytes 10-11      | Byte 12    |
-    /// | Field number & mode | Offset    | Presence  | Submessage index | Field type |
-    /// +---------------------+-----------+-----------+------------------+------------+
+    /// +---------------------+-----------------+-----------+------------------+------------+
+    /// | Bytes 0-4           | Bytes 5-7       | Bytes 8-9 | Bytes 10-11      | Byte 12    |
+    /// | Field number & mode | Offset or index | Presence  | Submessage index | Field type |
+    /// +---------------------+-----------------+-----------+------------------+------------+
     /// ```
     ///
     /// *   Bytes 0-4: A packed value where the low 33-bits are a base-128 integer that encodes the
     ///     29-bit field number, and the remaining bits of byte 4 represent the field mode.
-    /// *   Bytes 5-7: The byte offset of the field in in-memory storage, as a base-128 integer. To
-    ///     match µpb's layout constraints, this value will never be larger than 2^16 - 1.
+    /// *   Bytes 5-7: The byte offset or index of the field in in-memory storage, as a base-128
+    ///     integer. For fields with sizes that are architecture-agnostic and ABI-stable, this is
+    ///     the byte offset into the storage buffer. For other fields that need their size computed
+    ///     at runtime on the target platform, this is an index into the bucket for that field type.
+    ///     To match µpb's layout constraints, this value will never be larger than 2^16 - 1.
     /// *   Bytes 8-9: Information about the field's presence. Specifically,
     ///     *   If this field is a member of a `oneof`, then the bitwise inverse of this value is
     ///         the byte offset into in-memory storage where the field number of the populated
@@ -125,6 +136,51 @@ public struct MessageSchema: @unchecked Sendable {
     let invokeWitness: InvokeWitnessFunction
 
     let submessageOrEnumResolver: SubmessageOrEnumResolver
+
+    /// The offset of the first non-trivial field in the storage buffer; in other words, the size of
+    /// the fixed/stable portion of the buffer (including has-bits and oneof field numbers).
+    ///
+    /// If the message contains only trivial fields, this value will be equal to `storageSize`.
+    @usableFromInline let firstNontrivialOffset: Int
+
+    /// The total dynamically computed storage size of the message.
+    @usableFromInline let storageSize: Int
+
+    /// The strides of the six storage buckets, packed into a single 64-bit integer.
+    ///
+    /// This can be static because the value will be the same for all schemas. The compiler will
+    /// optimize the code below to a single `UInt64` constant.
+    @_alwaysEmitIntoClient @inline(__always)
+    static var packedBucketStrides: UInt64 {
+        // While the use of runtime-computed bucket sizes has been done to avoid making assumptions
+        // about the sizes of certain types on different platforms and ABIs, we do still make the
+        // following assumptions:
+        //
+        // -   None of the data types we use to represent fields will be larger than 256 bytes (so
+        //     we can pack the strides as `UInt8`s).
+        // -   We assume that the size of arrays and dictionaries do not depend on the sizes of
+        //     their elements. This should always hold since arrays/dictionaries merely wrap heap
+        //     pointers to a storage object.
+        // -   The size of a generated message is always the same as the size of a pointer. We
+        //     guarantee this because we generate all messages so that they are merely a wrapper
+        //     around a heap-allocated `MessageStorage`.
+        let stableBucketStride: UInt64 = 1  // indexed by byte offset
+        let repeatedBucketStride = UInt64(MemoryLayout<RepeatedFieldForLayout>.stride) &<< 8
+        let mapBucketStride = UInt64(MemoryLayout<MapFieldForLayout>.stride) &<< 16
+        let messageBucketStride = UInt64(MemoryLayout<SingularMessageFieldForLayout>.stride) &<< 24
+        let stringBucketStride = UInt64(MemoryLayout<String>.stride) &<< 32
+        let bytesBucketStride = UInt64(MemoryLayout<Data>.stride) &<< 40
+        return stableBucketStride | repeatedBucketStride | mapBucketStride | messageBucketStride | stringBucketStride
+            | bytesBucketStride
+    }
+
+    /// The low 64-bits of the packed computed offsets of the six unstable storage buckets
+    /// (i.e., buckets 0-3).
+    @usableFromInline let packedBucketOffsetsLo: UInt64
+
+    /// The high 64-bits of the packed computed offsets of the six unstable storage buckets
+    /// (i.e., buckets 4 and 5).
+    @usableFromInline let packedBucketOffsetsHi: UInt64
 
     /// A key that can be used to uniquely identify a message schema in a hashed collection.
     var key: Key {
@@ -240,10 +296,96 @@ public struct MessageSchema: @unchecked Sendable {
             schema.hasPointerRepresentation,
             "The schema string should have a pointer-based representation; this is a generator bug"
         )
-        self.schema = schema.rawBufferPointer
+        let schemaBuffer = schema.rawBufferPointer
+        self.schema = schemaBuffer
         self.reflection = reflectionReference
         self.invokeWitness = invokeWitness
         self.submessageOrEnumResolver = submessageOrEnumResolver
+
+        let firstNontrivialOffset =
+            fixed3ByteBase128(in: schemaBuffer, atByteOffset: 1) & ~(Int(ExtensibilityMode.bitMask) << 14)
+        self.firstNontrivialOffset = firstNontrivialOffset
+
+        let repeatedCount = fixed3ByteBase128(in: schemaBuffer, atByteOffset: 16)
+        let mapCount = fixed3ByteBase128(in: schemaBuffer, atByteOffset: 19)
+        let messageCount = fixed3ByteBase128(in: schemaBuffer, atByteOffset: 22)
+        let stringCount = fixed3ByteBase128(in: schemaBuffer, atByteOffset: 25)
+        let bytesCount = fixed3ByteBase128(in: schemaBuffer, atByteOffset: 28)
+
+        // Dynamically compute the bucket offsets and the total storage size.
+        var computedSize = firstNontrivialOffset
+
+        // Why we pack these into two `UInt64`s:
+        //
+        // In an ideal world, we would store the offsets to each bucket as an inline array (e.g.,
+        // `[6 of UInt16]`), but we need to support versions of Apple OSes earlier than when
+        // `InlineArray` was introduced. We want the `byteOffset(of: Field)` method below to be
+        // efficient since it's called repeatedly during encode/decode loops, and I considered the
+        // following approaches:
+        //
+        // -   I immediately ruled out storing the offsets as a regular `Array`, since that would
+        //     incur an additional heap allocation per schema.
+        // -   Switching on the bucket index and choosing the appropriate offset/stride. Even when
+        //     the indices are contiguously in the range 0..<5, the compiler always represented this
+        //     with branches, even in `-O` builds.
+        // -   Using a tuple of 6 `UInt16` values and the `withUnsafePointer` trick to dynamically
+        //     index into it. Unfortunately, the `borrowing` version of `withUnsafePointer`
+        //     unconditionally creates a copy of its input and we can't use the mutable version,
+        //     so this incurred unnecessary work.
+        //
+        // By packing the values into two `UInt64`s, we can compute the desired field offset by
+        // using only bitwise and arithmetic operations. The compiler in `-O` mode produces fully
+        // branchless code on both x86_64 and arm64.
+
+        // Bucket 0 (the "stable fields" bucket) is treated as an offset of zero because the
+        // "offset or index" of the field is always the direct byte offset.
+        var packedBucketOffsetsLo: UInt64 = 0
+        var packedBucketOffsetsHi: UInt64 = 0
+
+        // Bucket 1: repeated fields
+        if repeatedCount > 0 {
+            let alignment = MemoryLayout<RepeatedFieldForLayout>.alignment
+            computedSize = (computedSize + alignment - 1) & ~(alignment - 1)
+            packedBucketOffsetsLo |= (UInt64(computedSize) &<< 16)
+            computedSize += repeatedCount * MemoryLayout<RepeatedFieldForLayout>.stride
+        }
+
+        // Bucket 2: map fields
+        if mapCount > 0 {
+            let alignment = MemoryLayout<MapFieldForLayout>.alignment
+            computedSize = (computedSize + alignment - 1) & ~(alignment - 1)
+            packedBucketOffsetsLo |= (UInt64(computedSize) &<< 32)
+            computedSize += mapCount * MemoryLayout<MapFieldForLayout>.stride
+        }
+
+        // Bucket 3: singular message fields
+        if messageCount > 0 {
+            let alignment = MemoryLayout<SingularMessageFieldForLayout>.alignment
+            computedSize = (computedSize + alignment - 1) & ~(alignment - 1)
+            packedBucketOffsetsLo |= (UInt64(computedSize) &<< 48)
+            computedSize += messageCount * MemoryLayout<SingularMessageFieldForLayout>.stride
+        }
+
+        // Bucket 4: string fields
+        if stringCount > 0 {
+            let alignment = MemoryLayout<String>.alignment
+            computedSize = (computedSize + alignment - 1) & ~(alignment - 1)
+            packedBucketOffsetsHi |= UInt64(computedSize)
+            computedSize += stringCount * MemoryLayout<String>.stride
+        }
+
+        // Bucket 5: bytes fields
+        if bytesCount > 0 {
+            let alignment = MemoryLayout<Data>.alignment
+            computedSize = (computedSize + alignment - 1) & ~(alignment - 1)
+            packedBucketOffsetsHi |= (UInt64(computedSize) &<< 16)
+            computedSize += bytesCount * MemoryLayout<Data>.stride
+        }
+
+        self.storageSize = computedSize
+        self.packedBucketOffsetsLo = packedBucketOffsetsLo
+        self.packedBucketOffsetsHi = packedBucketOffsetsHi
+
         precondition(version == 0, "This runtime only supports version 0 message schemas")
         precondition(
             self.schema.count >= messageSchemaHeaderSize + self.fieldCount * fieldSchemaSize,
@@ -295,11 +437,6 @@ extension MessageSchema {
         schema.load(fromByteOffset: 0, as: UInt8.self)
     }
 
-    /// The storage size of the message in bytes.
-    var storageSize: Int {
-        fixed3ByteBase128(in: schema, atByteOffset: 1) & ~(Int(ExtensibilityMode.bitMask) << 14)
-    }
-
     /// The extensibility mode of the message.
     var extensibilityMode: ExtensibilityMode {
         ExtensibilityMode(
@@ -337,13 +474,6 @@ extension MessageSchema {
         UInt32(fixed3ByteBase128(in: schema, atByteOffset: 13))
     }
 
-    /// The byte offset of the first non-trivial field in the message storage.
-    ///
-    /// If the message contains only trivial fields, this value is equal to the total message size.
-    var firstNontrivialOffset: Int {
-        fixed3ByteBase128(in: schema, atByteOffset: 16)
-    }
-
     /// The fully-qualified name of the message.
     package var messageName: UTF8Name {
         let lengthOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
@@ -358,10 +488,60 @@ extension MessageSchema {
         return 0 <= raw && raw < explicitPresenceCount
     }
 
+    /// Returns the byte offset of the repeated field at the given index in storage.
+    ///
+    /// This is used by the `MessageStorage` methods that are called by generated getters/setters,
+    /// since they already know statically what type and index they're operating on.
+    @_alwaysEmitIntoClient @inline(__always)
+    func byteOffset(ofRepeatedFieldAtIndex index: Int) -> Int {
+        Int((packedBucketOffsetsLo &>> 16) & 0xffff) + index * MemoryLayout<RepeatedFieldForLayout>.stride
+    }
+
+    /// Returns the byte offset of the map field at the given index in storage.
+    ///
+    /// This is used by the `MessageStorage` methods that are called by generated getters/setters,
+    /// since they already know statically what type and index they're operating on.
+    @_alwaysEmitIntoClient @inline(__always)
+    func byteOffset(ofMapFieldAtIndex index: Int) -> Int {
+        Int((packedBucketOffsetsLo &>> 32) & 0xffff) + index * MemoryLayout<MapFieldForLayout>.stride
+    }
+
+    /// Returns the byte offset of the singular message field at the given index in storage.
+    ///
+    /// This is used by the `MessageStorage` methods that are called by generated getters/setters,
+    /// since they already know statically what type and index they're operating on.
+    @_alwaysEmitIntoClient @inline(__always)
+    func byteOffset(ofMessageFieldAtIndex index: Int) -> Int {
+        Int((packedBucketOffsetsLo &>> 48) & 0xffff) + index * MemoryLayout<SingularMessageFieldForLayout>.stride
+    }
+
+    /// Returns the byte offset of the string field at the given index in storage.
+    ///
+    /// This is used by the `MessageStorage` methods that are called by generated getters/setters,
+    /// since they already know statically what type and index they're operating on.
+    @_alwaysEmitIntoClient @inline(__always)
+    func byteOffset(ofStringFieldAtIndex index: Int) -> Int {
+        Int(packedBucketOffsetsHi & 0xffff) + index * MemoryLayout<String>.stride
+    }
+
+    /// Returns the byte offset of the bytes field at the given index in storage.
+    ///
+    /// This is used by the `MessageStorage` methods that are called by generated getters/setters,
+    /// since they already know statically what type and index they're operating on.
+    @_alwaysEmitIntoClient @inline(__always)
+    func byteOffset(ofBytesFieldAtIndex index: Int) -> Int {
+        Int((packedBucketOffsetsHi &>> 16) & 0xffff) + index * MemoryLayout<Data>.stride
+    }
+
     /// Returns the byte offset of the given field in in-memory storage.
     @usableFromInline
     func byteOffset(of field: Field) -> Int {
-        field.offset
+        // See the comment in the initializer to understand why we pack these.
+        let bucket = UInt64(field.storageBucket.rawValue)
+        let packedOffsets = (bucket < 4) ? packedBucketOffsetsLo : packedBucketOffsetsHi
+        let bucketOffset = Int((packedOffsets &>> ((bucket & 3) &<< 4)) & 0xffff)
+        let stride = Int((Self.packedBucketStrides &>> (bucket &<< 3)) & 0xff)
+        return bucketOffset + field.offsetOrIndexValue * stride
     }
 }
 
@@ -414,7 +594,7 @@ extension MessageSchema {
 }
 
 /// The size, in bytes, of the header the describes the overall message schema.
-private var messageSchemaHeaderSize: Int { 19 }
+private var messageSchemaHeaderSize: Int { 31 }
 
 /// The size, in bytes, of an encoded field schema in the static string representation.
 var fieldSchemaSize: Int { 13 }
@@ -538,9 +718,19 @@ extension MessageSchema {
             )
         }
 
-        /// The offset, in bytes, where this field's value is stored in in-memory storage.
-        fileprivate var offset: Int {
+        /// The raw 21-bit payload of the offset/index field (Bytes 5-7).
+        private var rawOffsetOrIndex: Int {
             fixed3ByteBase128(in: buffer, atByteOffset: 5)
+        }
+
+        /// The storage bucket of the field.
+        package var storageBucket: StorageBucket {
+            StorageBucket(rawValue: UInt8(rawOffsetOrIndex >> 18))
+        }
+
+        /// The masked offset or zero-based index of the field.
+        package var offsetOrIndexValue: Int {
+            rawOffsetOrIndex & 0x3ffff
         }
 
         /// The raw presence value.
@@ -776,3 +966,9 @@ func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffse
     let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset + 2, as: UInt8.self)
     return Int((lowBits & 0x7f) | ((lowBits & 0x7f00) >> 1)) | (Int(highBits & 0x7f) << 14)
 }
+
+// Convenience typealiases that hide the fact that we're using an arbitrarily chosen type to
+// represent all fields of the same "shape" when computing bucket sizes.
+@usableFromInline typealias RepeatedFieldForLayout = [Any]
+@usableFromInline typealias MapFieldForLayout = [Int: Int]
+@usableFromInline typealias SingularMessageFieldForLayout = AnyObject
