@@ -53,19 +53,19 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift.Sendable {
   mutating func clearE() { _uniqueStorage().clearValue(at: 12, type: Proto2PreserveUnknownEnumUnittest_MyEnum.self, hasBit: (0, 1)) }
 
   var repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] {
-    get { _storage.value(at: 24, hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
   var repeatedPackedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 28), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 28), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 1, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   /// not packed
   var repeatedPackedUnexpectedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 32), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 32), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 2, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var o: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O? {
@@ -121,13 +121,7 @@ extension Proto2PreserveUnknownEnumUnittest_MyEnum {
 }
 
 extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a} \0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{2}(\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}/\0proto2_preserve_unknown_enum_unittest.MyMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\u{1c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{2} \0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}/\0proto2_preserve_unknown_enum_unittest.MyMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\u{1}\0\u{10}\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{2}\u{2}\0\u{10}\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}/\0proto2_preserve_unknown_enum_unittest.MyMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{2}\0\0\0\u{1f}0g\u{1d}ZOr::B6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1})K1\0?V\u{1c}Lt;4b!0\u{1c}U1l\u{4}`a\u{1d}P\0`1.\u{1f}<cYd>$0<l\n_.40b\u{4}4xw H\"c;$RM=\u{8}=9\u{19}\u{1}.Q\u{4}\u{7f}\u{7}sgo=U\u{15}\u{e}\\V0j?\u{1b}fN\u{18} F0H4FF\u{1e}\u{7f}lF5\0\0\u{b}ZYxp;0\u{8}+\u{1d}qQ\u{8}208y}2{$+\u{7f}I{RV\u{7}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

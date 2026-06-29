@@ -28,13 +28,13 @@ public struct UsesATransitively: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   public var a: ModuleA.A {
-    get { _storage.value(at: 8, default: ModuleA.A(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: ModuleA.A(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
   public var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  public mutating func clearA() { _uniqueStorage().clearValue(at: 8, type: ModuleA.A.self, hasBit: (0, 1)) }
+  public mutating func clearA() { _uniqueStorage().clearValue(atIndex: 0, type: ModuleA.A.self, hasBit: (0, 1)) }
 
   public var e: ModuleA.E {
     get { _storage.value(at: 4, default: .unset, hasBit: (0, 2)) }
@@ -58,13 +58,7 @@ public struct UsesATransitively: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension UsesATransitively: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{8}\0\0e\0\0\0\0\u{8}\0\0\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0e\0\0\0\0\0\00\0\0\u{2}\0\u{b}f\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{11}\0UsesATransitively"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl)_\u{1f}5dbp\u{1a}#C7\u{1c}P]?oT?\u{4}FKkK\u{2}\0"
 
   public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

@@ -55,13 +55,13 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: @unchecked Sw
   // methods supported on all messages.
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2WireformatUnittest_TestMessageSet(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2WireformatUnittest_TestMessageSet(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageSet` has been explicitly set.
   var hasMessageSet: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `messageSet`. Subsequent reads from it will return its default value.
-  mutating func clearMessageSet() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2WireformatUnittest_TestMessageSet.self, hasBit: (0, 1)) }
+  mutating func clearMessageSet() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2WireformatUnittest_TestMessageSet.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -76,13 +76,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: @unchecked Sw
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0)\0proto2_wireformat_unittest.TestMessageSet"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0)\0proto2_wireformat_unittest.TestMessageSet"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)\0proto2_wireformat_unittest.TestMessageSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -92,13 +86,7 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.GeneratedMessag
 }
 
 extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}<\0proto2_wireformat_unittest.TestMessageSetWireFormatContainer"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}<\0proto2_wireformat_unittest.TestMessageSetWireFormatContainer"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}<\0proto2_wireformat_unittest.TestMessageSetWireFormatContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\u{7}L[\tJ\u{7f}t\u{5}G\u{19}P<\r\u{1b}h\u{2}\n3d\u{13}B%\u{e}5\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

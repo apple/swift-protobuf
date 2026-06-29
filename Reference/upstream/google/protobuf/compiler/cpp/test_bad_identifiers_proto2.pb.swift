@@ -83,22 +83,22 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   mutating func clearOutput() { _uniqueStorage().clearValue(at: 16, type: Int32.self, hasBit: (0, 2)) }
 
   var length: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(272, 240), default: String(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(272, 240), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `length` has been explicitly set.
   var hasLength: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `length`. Subsequent reads from it will return its default value.
-  mutating func clearLength() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(272, 240), type: String.self, hasBit: (0, 4)) }
+  mutating func clearLength() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 4)) }
 
   var i: [Int32] {
-    get { _storage.value(at: 216, hasBit: (6, 32)) }
-    set { _uniqueStorage().updateValue(at: 216, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
+    get { _storage.value(atIndex: 0, hasBit: (6, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 32)) }
   }
 
   var newElement: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(224, 220), hasBit: (6, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(224, 220), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
+    get { _storage.value(atIndex: 1, hasBit: (6, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
   }
 
   var totalSize: Int32 {
@@ -165,8 +165,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   mutating func clearHandleUninterpreted() { _uniqueStorage().clearValue(at: 44, type: Int32.self, hasBit: (1, 2)) }
 
   var index: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(232, 224), hasBit: (6, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(232, 224), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
+    get { _storage.value(atIndex: 2, hasBit: (6, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 128)) }
   }
 
   var controller: Int32 {
@@ -369,13 +369,13 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   mutating func clearUintptrT() { _uniqueStorage().clearValue(at: 208, type: Int64.self, hasBit: (6, 16)) }
 
   var string: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(288, 252), default: String(), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(288, 252), to: newValue, willBeSet: true, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `string` has been explicitly set.
   var hasString: Swift.Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `string`. Subsequent reads from it will return its default value.
-  mutating func clearString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(288, 252), type: String.self, hasBit: (1, 64)) }
+  mutating func clearString() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (1, 64)) }
 
   var memset: Int32 {
     get { _storage.value(at: 60, default: 0, hasBit: (1, 128)) }
@@ -442,22 +442,22 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   mutating func clearReflection() { _uniqueStorage().clearValue(at: 88, type: UInt32.self, hasBit: (2, 128)) }
 
   var someCord: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(304, 264), default: String(), hasBit: (3, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(304, 264), to: newValue, willBeSet: true, hasBit: (3, 1)) }
+    get { _storage.value(atIndex: 2, default: String(), hasBit: (3, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `someCord` has been explicitly set.
   var hasSomeCord: Swift.Bool { _storage.isPresent(hasBit: (3, 1)) }
   /// Clears the value of `someCord`. Subsequent reads from it will return its default value.
-  mutating func clearSomeCord() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(304, 264), type: String.self, hasBit: (3, 1)) }
+  mutating func clearSomeCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (3, 1)) }
 
   var someStringPiece: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(320, 276), default: String(), hasBit: (3, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(320, 276), to: newValue, willBeSet: true, hasBit: (3, 2)) }
+    get { _storage.value(atIndex: 3, default: String(), hasBit: (3, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `someStringPiece` has been explicitly set.
   var hasSomeStringPiece: Swift.Bool { _storage.isPresent(hasBit: (3, 2)) }
   /// Clears the value of `someStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearSomeStringPiece() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(320, 276), type: String.self, hasBit: (3, 2)) }
+  mutating func clearSomeStringPiece() { _uniqueStorage().clearValue(atIndex: 3, type: String.self, hasBit: (3, 2)) }
 
   /// Some keywords.
   var int: UInt32 {
@@ -506,13 +506,13 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   mutating func clearAuto() { _uniqueStorage().clearValue(at: 112, type: UInt32.self, hasBit: (4, 16)) }
 
   var `do`: Proto2Unittest_TestConflictingSymbolNames.DO {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(240, 228), default: Proto2Unittest_TestConflictingSymbolNames.DO(), hasBit: (3, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(240, 228), to: newValue, willBeSet: true, hasBit: (3, 16)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestConflictingSymbolNames.DO(), hasBit: (3, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (3, 16)) }
   }
   /// Returns true if ``do`` has been explicitly set.
   var hasDo: Swift.Bool { _storage.isPresent(hasBit: (3, 16)) }
   /// Clears the value of ``do``. Subsequent reads from it will return its default value.
-  mutating func clearDo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(240, 228), type: Proto2Unittest_TestConflictingSymbolNames.DO.self, hasBit: (3, 16)) }
+  mutating func clearDo() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestConflictingSymbolNames.DO.self, hasBit: (3, 16)) }
 
   /// Some template parameter names for extensions.
   var fieldType: Int32 {
@@ -536,39 +536,39 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
   /// test conflicting release_$name$. "length" and "do" field in this message
   /// must remain string or message fields to make the test valid.
   var releaseLength: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(336, 288), default: String(), hasBit: (3, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(336, 288), to: newValue, willBeSet: true, hasBit: (3, 128)) }
+    get { _storage.value(atIndex: 4, default: String(), hasBit: (3, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (3, 128)) }
   }
   /// Returns true if `releaseLength` has been explicitly set.
   var hasReleaseLength: Swift.Bool { _storage.isPresent(hasBit: (3, 128)) }
   /// Clears the value of `releaseLength`. Subsequent reads from it will return its default value.
-  mutating func clearReleaseLength() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(336, 288), type: String.self, hasBit: (3, 128)) }
+  mutating func clearReleaseLength() { _uniqueStorage().clearValue(atIndex: 4, type: String.self, hasBit: (3, 128)) }
 
   /// A more extreme case, the field name "do" here is a keyword, which will be
   /// escaped to "do_" already. Test there is no conflict even with escaped field
   /// names.
   var releaseDo: Proto2Unittest_TestConflictingSymbolNames.DO {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(248, 232), default: Proto2Unittest_TestConflictingSymbolNames.DO(), hasBit: (4, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(248, 232), to: newValue, willBeSet: true, hasBit: (4, 1)) }
+    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestConflictingSymbolNames.DO(), hasBit: (4, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (4, 1)) }
   }
   /// Returns true if `releaseDo` has been explicitly set.
   var hasReleaseDo: Swift.Bool { _storage.isPresent(hasBit: (4, 1)) }
   /// Clears the value of `releaseDo`. Subsequent reads from it will return its default value.
-  mutating func clearReleaseDo() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(248, 232), type: Proto2Unittest_TestConflictingSymbolNames.DO.self, hasBit: (4, 1)) }
+  mutating func clearReleaseDo() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_TestConflictingSymbolNames.DO.self, hasBit: (4, 1)) }
 
   /// For clashing local variables in Serialize and ByteSize calculation.
   var target: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(352, 300), default: String(), hasBit: (4, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(352, 300), to: newValue, willBeSet: true, hasBit: (4, 4)) }
+    get { _storage.value(atIndex: 5, default: String(), hasBit: (4, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (4, 4)) }
   }
   /// Returns true if `target` has been explicitly set.
   var hasTarget: Swift.Bool { _storage.isPresent(hasBit: (4, 4)) }
   /// Clears the value of `target`. Subsequent reads from it will return its default value.
-  mutating func clearTarget() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(352, 300), type: String.self, hasBit: (4, 4)) }
+  mutating func clearTarget() { _uniqueStorage().clearValue(atIndex: 5, type: String.self, hasBit: (4, 4)) }
 
   var mapField: [Int32: String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(256, 236), hasBit: (7, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(256, 236), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (7, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
   }
 
   enum TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -632,8 +632,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [Int32] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -652,8 +652,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [Proto2Unittest_TestConflictingSymbolNames.TestEnum] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -672,8 +672,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [String] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -692,8 +692,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [Proto2Unittest_TestConflictingSymbolNames.Data4] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -712,8 +712,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [String] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -732,8 +732,8 @@ struct Proto2Unittest_TestConflictingSymbolNames: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var data: [String] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -1656,31 +1656,19 @@ extension Proto2Unittest_bool {
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0p\u{2} 9\0\0\0\0\05\0\0:\0\0X\u{1}\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{10}\u{2}\0\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}X\u{1}\05\0\0\0\u{5}\u{5}\0\0\0\u{2}`\u{1}\06\0\0\0\u{9}\u{6}\0\0\0\0\u{14}\0\0\u{3}\0\0\0\u{5}\u{7}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{5}\u{8}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{9}\0\0\0\0 \0\0\u{6}\0\0\0\u{5}\u{a}\0\0\0\0$\0\0\u{7}\0\0\0\u{5}\u{b}\0\0\0\0(\0\0\u{8}\0\0\0\u{5}\u{c}\0\0\0\0,\0\0\u{9}\0\0\0\u{5}\u{d}\0\0\0\u{2}h\u{1}\07\0\0\0\u{5}\u{e}\0\0\0\00\0\0\u{a}\0\0\0\u{5}\u{f}\0\0\0\04\0\0\u{b}\0\0\0\u{5}\u{10}\0\0\0\08\0\0\u{c}\0\0\0\u{d}\u{11}\0\0\0\0 \u{1}\0\u{d}\0\0\0\u{4}\u{12}\0\0\0\0 \u{2}\0\u{e}\0\0\0\u{9}\u{13}\0\0\0\0<\0\0\u{f}\0\0\0\u{5}\u{14}\0\0\0\0@\0\0\u{10}\0\0\0\u{5}\u{15}\0\0\0\0(\u{1}\0\u{11}\0\0\0\u{3}\u{16}\0\0\0\0D\0\0\u{12}\0\0\0\u{d}\u{17}\0\0\0\0H\0\0\u{13}\0\0\0\u{d}\u{18}\0\0\0\0L\0\0\u{14}\0\0\0\u{d}\u{19}\0\0\0\0P\0\0\u{15}\0\0\0\u{d}\u{1a}\0\0\0\0T\0\0\u{16}\0\0\0\u{d}\u{1b}\0\0\0\0X\0\0\u{17}\0\0\0\u{d}\u{1c}\0\0\0\00\u{2}\0\u{18}\0\0\0\u{9}\u{1d}\0\0\0\0@\u{2}\0\u{19}\0\0\0\u{9}\u{1e}\0\0\0\0\\\0\0\u{1a}\0\0\0\u{d}\u{1f}\0\0\0\0`\0\0\u{1b}\0\0\0\u{d} \0\0\0\0p\u{1}\0\u{1c}\0\u{1}\0\u{b}!\0\0\0\0d\0\0\u{1d}\0\0\0\u{5}\"\0\0\0\0\u{8}\0\0\u{1e}\0\0\0\u{8}#\0\0\0\0P\u{2}\0\u{1f}\0\0\0\u{9}$\0\0\0\0x\u{1}\0 \0\u{1}\0\u{b}%\0\0\0\0h\0\0!\0\0\0\u{d}&\0\0\0\0`\u{2}\0\"\0\0\0\u{9}'\0\0\0\0l\0\0#\0\0\0\u{d}(\0\0\0\0p\0\0$\0\0\0\u{d})\0\0\0\0t\0\0%\0\0\0\u{d}*\0\0\0\0x\0\0&\0\0\0\u{d}+\0\0\0\0|\0\0'\0\0\0\u{5},\0\0\0\00\u{1}\0(\0\0\0\u{3}-\0\0\0\08\u{1}\0)\0\0\0\u{3}.\0\0\0\0@\u{1}\0*\0\0\0\u{3}/\0\0\0\0\0\u{1}\0+\0\0\0\u{d}0\0\0\0\0\u{4}\u{1}\0,\0\0\0\u{d}1\0\0\0\0\u{8}\u{1}\0-\0\0\0\u{d}2\0\0\0\0\u{c}\u{1}\0.\0\0\0\u{d}3\0\0\0\0\u{10}\u{1}\0/\0\0\0\u{d}4\0\0\0\0\u{14}\u{1}\00\0\0\0\u{d}5\0\0\0\0\u{18}\u{1}\01\0\0\0\u{d}6\0\0\0\0\u{1c}\u{1}\02\0\0\0\u{d}7\0\0\0\0H\u{1}\03\0\0\0\u{3}8\0\0\0\0P\u{1}\04\0\0\0\u{3}9\0\0\0\u{4}\0\u{2}\08\0\u{2}\0\u{b}*\0proto2_unittest.TestConflictingSymbolNames"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\u{2} 9\0\0\0\0\05\0\0:\0\0X\u{1}\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0p\u{1}\0\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}X\u{1}\05\0\0\0\u{5}\u{5}\0\0\0\u{2}\\\u{1}\06\0\0\0\u{9}\u{6}\0\0\0\0\u{14}\0\0\u{3}\0\0\0\u{5}\u{7}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{5}\u{8}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{9}\0\0\0\0 \0\0\u{6}\0\0\0\u{5}\u{a}\0\0\0\0$\0\0\u{7}\0\0\0\u{5}\u{b}\0\0\0\0(\0\0\u{8}\0\0\0\u{5}\u{c}\0\0\0\0,\0\0\u{9}\0\0\0\u{5}\u{d}\0\0\0\u{2}`\u{1}\07\0\0\0\u{5}\u{e}\0\0\0\00\0\0\u{a}\0\0\0\u{5}\u{f}\0\0\0\04\0\0\u{b}\0\0\0\u{5}\u{10}\0\0\0\08\0\0\u{c}\0\0\0\u{d}\u{11}\0\0\0\0 \u{1}\0\u{d}\0\0\0\u{4}\u{12}\0\0\0\0|\u{1}\0\u{e}\0\0\0\u{9}\u{13}\0\0\0\0<\0\0\u{f}\0\0\0\u{5}\u{14}\0\0\0\0@\0\0\u{10}\0\0\0\u{5}\u{15}\0\0\0\0(\u{1}\0\u{11}\0\0\0\u{3}\u{16}\0\0\0\0D\0\0\u{12}\0\0\0\u{d}\u{17}\0\0\0\0H\0\0\u{13}\0\0\0\u{d}\u{18}\0\0\0\0L\0\0\u{14}\0\0\0\u{d}\u{19}\0\0\0\0P\0\0\u{15}\0\0\0\u{d}\u{1a}\0\0\0\0T\0\0\u{16}\0\0\0\u{d}\u{1b}\0\0\0\0X\0\0\u{17}\0\0\0\u{d}\u{1c}\0\0\0\0\u{8}\u{2}\0\u{18}\0\0\0\u{9}\u{1d}\0\0\0\0\u{14}\u{2}\0\u{19}\0\0\0\u{9}\u{1e}\0\0\0\0\\\0\0\u{1a}\0\0\0\u{d}\u{1f}\0\0\0\0`\0\0\u{1b}\0\0\0\u{d} \0\0\0\0d\u{1}\0\u{1c}\0\u{1}\0\u{b}!\0\0\0\0d\0\0\u{1d}\0\0\0\u{5}\"\0\0\0\0\u{8}\0\0\u{1e}\0\0\0\u{8}#\0\0\0\0 \u{2}\0\u{1f}\0\0\0\u{9}$\0\0\0\0h\u{1}\0 \0\u{1}\0\u{b}%\0\0\0\0h\0\0!\0\0\0\u{d}&\0\0\0\0,\u{2}\0\"\0\0\0\u{9}'\0\0\0\0l\0\0#\0\0\0\u{d}(\0\0\0\0p\0\0$\0\0\0\u{d})\0\0\0\0t\0\0%\0\0\0\u{d}*\0\0\0\0x\0\0&\0\0\0\u{d}+\0\0\0\0|\0\0'\0\0\0\u{5},\0\0\0\00\u{1}\0(\0\0\0\u{3}-\0\0\0\08\u{1}\0)\0\0\0\u{3}.\0\0\0\0@\u{1}\0*\0\0\0\u{3}/\0\0\0\0\0\u{1}\0+\0\0\0\u{d}0\0\0\0\0\u{4}\u{1}\0,\0\0\0\u{d}1\0\0\0\0\u{8}\u{1}\0-\0\0\0\u{d}2\0\0\0\0\u{c}\u{1}\0.\0\0\0\u{d}3\0\0\0\0\u{10}\u{1}\0/\0\0\0\u{d}4\0\0\0\0\u{14}\u{1}\00\0\0\0\u{d}5\0\0\0\0\u{18}\u{1}\01\0\0\0\u{d}6\0\0\0\0\u{1c}\u{1}\02\0\0\0\u{d}7\0\0\0\0H\u{1}\03\0\0\0\u{3}8\0\0\0\0P\u{1}\04\0\0\0\u{3}9\0\0\0\u{4}l\u{1}\08\0\u{2}\0\u{b}*\0proto2_unittest.TestConflictingSymbolNames"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0X\u{1} 9\0\0\0\0\05\0\0:\0\0\u{3}\0\0\u{1}\0\0\u{2}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\0\0@\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\0\0\u{10}5\0\0\0\u{5}\u{5}\0\0\0\u{2}\u{1}\0\u{10}6\0\0\0\u{9}\u{6}\0\0\0\0\u{14}\0\0\u{3}\0\0\0\u{5}\u{7}\0\0\0\0\u{18}\0\0\u{4}\0\0\0\u{5}\u{8}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{9}\0\0\0\0 \0\0\u{6}\0\0\0\u{5}\u{a}\0\0\0\0$\0\0\u{7}\0\0\0\u{5}\u{b}\0\0\0\0(\0\0\u{8}\0\0\0\u{5}\u{c}\0\0\0\0,\0\0\u{9}\0\0\0\u{5}\u{d}\0\0\0\u{2}\u{2}\0\u{10}7\0\0\0\u{5}\u{e}\0\0\0\00\0\0\u{a}\0\0\0\u{5}\u{f}\0\0\0\04\0\0\u{b}\0\0\0\u{5}\u{10}\0\0\0\08\0\0\u{c}\0\0\0\u{d}\u{11}\0\0\0\0 \u{1}\0\u{d}\0\0\0\u{4}\u{12}\0\0\0\0\u{1}\0@\u{e}\0\0\0\u{9}\u{13}\0\0\0\0<\0\0\u{f}\0\0\0\u{5}\u{14}\0\0\0\0@\0\0\u{10}\0\0\0\u{5}\u{15}\0\0\0\0(\u{1}\0\u{11}\0\0\0\u{3}\u{16}\0\0\0\0D\0\0\u{12}\0\0\0\u{d}\u{17}\0\0\0\0H\0\0\u{13}\0\0\0\u{d}\u{18}\0\0\0\0L\0\0\u{14}\0\0\0\u{d}\u{19}\0\0\0\0P\0\0\u{15}\0\0\0\u{d}\u{1a}\0\0\0\0T\0\0\u{16}\0\0\0\u{d}\u{1b}\0\0\0\0X\0\0\u{17}\0\0\0\u{d}\u{1c}\0\0\0\0\u{2}\0@\u{18}\0\0\0\u{9}\u{1d}\0\0\0\0\u{3}\0@\u{19}\0\0\0\u{9}\u{1e}\0\0\0\0\\\0\0\u{1a}\0\0\0\u{d}\u{1f}\0\0\0\0`\0\0\u{1b}\0\0\0\u{d} \0\0\0\0\0\00\u{1c}\0\u{2}\0\u{b}!\0\0\0\0d\0\0\u{1d}\0\0\0\u{5}\"\0\0\0\0\u{8}\0\0\u{1e}\0\0\0\u{8}#\0\0\0\0\u{4}\0@\u{1f}\0\0\0\u{9}$\0\0\0\0\u{1}\00 \0\u{2}\0\u{b}%\0\0\0\0h\0\0!\0\0\0\u{d}&\0\0\0\0\u{5}\0@\"\0\0\0\u{9}'\0\0\0\0l\0\0#\0\0\0\u{d}(\0\0\0\0p\0\0$\0\0\0\u{d})\0\0\0\0t\0\0%\0\0\0\u{d}*\0\0\0\0x\0\0&\0\0\0\u{d}+\0\0\0\0|\0\0'\0\0\0\u{5},\0\0\0\00\u{1}\0(\0\0\0\u{3}-\0\0\0\08\u{1}\0)\0\0\0\u{3}.\0\0\0\0@\u{1}\0*\0\0\0\u{3}/\0\0\0\0\0\u{1}\0+\0\0\0\u{d}0\0\0\0\0\u{4}\u{1}\0,\0\0\0\u{d}1\0\0\0\0\u{8}\u{1}\0-\0\0\0\u{d}2\0\0\0\0\u{c}\u{1}\0.\0\0\0\u{d}3\0\0\0\0\u{10}\u{1}\0/\0\0\0\u{d}4\0\0\0\0\u{14}\u{1}\00\0\0\0\u{d}5\0\0\0\0\u{18}\u{1}\01\0\0\0\u{d}6\0\0\0\0\u{1c}\u{1}\02\0\0\0\u{d}7\0\0\0\0H\u{1}\03\0\0\0\u{3}8\0\0\0\0P\u{1}\04\0\0\0\u{3}9\0\0\0\u{4}\0\0 8\0\u{1}\0\u{b}*\0proto2_unittest.TestConflictingSymbolNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{e}\0\0\0_\\\u{4}h\u{f}Jg)cazqY_\u{10}\u{6}{7~mRYv\u{c}_\u{b}B.\u{2}V,\u{e}N\u{1f})vz*^B\rd\u{11}Ts\u{18}\n\u{1a}diP5\u{12}J\u{e}*\n*%7\u{1b}w4\u{19}ej\u{18}]})2L2!\r\u{c}}tHi<xM\r!WzQu8'dZ(\u{18}/v\t~#\u{1a}a)\u{2}\u{1e}pH~dD0c\u{16}\u{4}_PVpo&lx}x M\u{1a}W\u{18}\u{8}zU\u{12}} \u{5}V\u{7}-&\u{11}>3L`w:\u{7f}c!L\u{7f}dc!\u{c}u\u{3}f\u{15})-2\u{f}a7Kr}*\u{19};|LP\u{f}R\u{16}~gy`&88`\u{8}IA s.\u{1e}G$+U^Zexs\u{6}\u{1},eX\u{1c}]xK1 k\u{12}tX\t\u{3}%lU\u{f}AR>LMm\u{6}t#\u{1e}d\r\u{16}kJ\u{15}X3ggSA3\u{18}/\to\u{e}\u{c}S\"[?-\u{e}V d}(\u{6}\u{18}0r\\}2Ln2VHZ@\u{6}f59%\u{10}zZu`\u{10}\u{3}\u{8}\u{1a}Ar\u{1e}Yt+8cU\u{1a}SSuOGj\u{1f}:N ~ \n\u{19}\u{f}\\~b\u{1b}JhY'P\u{14}:.\u{15}aC3\t(F\t<\u{12}$$A#nV_Q\u{19}\u{17}\u{19}\u{13}UY\r<{v\r=`@m\u{b}_\u{4}M\t[2/\u{8}\u{8}Gw\u{1d}%\u{1f}AX\u{6}_3\u{5}yb\n\u{1a}\u{12}\"\r]`\u{7f}f\nt{99~_K?e\u{f}6\u{3}}r\u{1b}Xb[P\u{b}[~V\t(\u{16}-\u{1}r;r9r\u{1d}\u{16}L{r*!\u{19}d\u{2}<1/G\u{7f}`IR\"\n\u{16}fNw\u{1f}\u{1c}~\u{8}Bc\\< \u{6}L\0Z3~7\\\r^i;Z\u{1a}^o|.\u{1a}\t\u{1f}I\u{19}49zNv1\u{4}\u{14}:o\u{2}\u{1f}&&[\u{7f};/n?s\u{14}\u{8}(B;[z7A44q9_f\u{19}V\u{11}e8^U$ki*\u{12}E\u{16}\u{6}KTT0M\\zQ\u{19}\t%\t\u{c}\u{1d}Z\\FuJs50\\\u{1e}7\\\u{19}\u{4}C\u{1e}{\u{6}^9EH\u{11}g9Vjc{~&_\u{13}n\u{12}e\u{3}y\u{17}3-Z_4%J\u{6}NoY4\u{4}\u{f}uz\u{17}\06ny>QR6Bh\u{3}YZo\u{c}$^\u{10}F\u{14}\u{1}?\u{6}~\u{18}8\u{11}\u{7f}\u{f}lNeF\u{1b}\u{10}p\r#-\u{10}\u{b}Yw\u{12}[hq\n%Km)u6S\u{b}.F\u{3}8Jwm\u{15} V6-.7pNgM\u{1f}M\u{10}NY}[~[4ZRYa&ft\u{11}Y%#Dg\u{13}\u{4}\u{14}Dd\u{11}dOEh4P\u{7f}\u{8}M\u{18}jHn\u{e}kSXD?\0V^K\u{7f}vZp\n3&\0Su<\u{10}In;\u{1d}71Q0A.Qg\u{5}glv\u{1d}Kt\\-8ekulFZ-QR}i\u{14}\tGU\u{b}z\u{8}\u{e}p`JPyU`^px\u{3}geS\u{1f}q8Ld6\n4sOcf.993YC\u{c} \u{1d}(*wZn\u{c}a?|\n5v_#|\u{17}\u{1b}]T)\tq\u{10}\u{6}*@j\u{4}\u{3}qVc\\b\u{7}Ay5]I2 :2\u{1a}#\u{11}\u{7f}4jP'\u{1c}:uIge1Al\u{1e}\u{16}S+\u{16}j>+.,\u{1c}\u{1b}\u{b}p(\u{e}%\u{8}vcy\u{3}f^$!sr('\u{c}uK\u{1}-\u{17}\u{13}m4CT\u{c}P\u{19}c<ss5|\u{15}\u{1e}0\u{8}T\"}12T\u{3}y^k\u{1b}DRm\n$E]\u{1e}N.Yy/{TFb=v\u{1f}\u{3}b\u{13}\u{1e}\u{1d}\0;K\u{c}v8Z)\u{1e}l\t[L9i5|$>yZ\u{1d}*dVN)u28<4\u{e}\u{18}Z\u{10}m@w\u{f}e\"&\u{f}4]r?J\u{3}l\u{16}5x\u{11}AI\u{12}<\u{12}<\rr>\rT\0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
   private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
     switch token.index {
-    case 1: return .message(Proto2Unittest_TestConflictingSymbolNames.DO.messageSchema)
-    case 2: return .message(_protobuf_mapEntrySchema_MapFieldEntry)
+    case 1: return .message(_protobuf_mapEntrySchema_MapFieldEntry)
+    case 2: return .message(Proto2Unittest_TestConflictingSymbolNames.DO.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}8\0proto2_unittest.TestConflictingSymbolNames.MapFieldEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}8\0proto2_unittest.TestConflictingSymbolNames.MapFieldEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFieldEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}8\0proto2_unittest.TestConflictingSymbolNames.MapFieldEntry"
   private static let _protobuf_mapEntrySchema_MapFieldEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFieldEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapStringField.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -1694,13 +1682,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.TestEnum {
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BuildDescriptors: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0;\0proto2_unittest.TestConflictingSymbolNames.BuildDescriptors"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0;\0proto2_unittest.TestConflictingSymbolNames.BuildDescriptors"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0;\0proto2_unittest.TestConflictingSymbolNames.BuildDescriptors"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1710,13 +1692,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BuildDescriptors: SwiftProto
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.TypeTraits: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\05\0proto2_unittest.TestConflictingSymbolNames.TypeTraits"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\05\0proto2_unittest.TestConflictingSymbolNames.TypeTraits"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\05\0proto2_unittest.TestConflictingSymbolNames.TypeTraits"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1726,13 +1702,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.TypeTraits: SwiftProtobuf.Ge
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.std: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0proto2_unittest.TestConflictingSymbolNames.std"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0proto2_unittest.TestConflictingSymbolNames.std"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0.\0proto2_unittest.TestConflictingSymbolNames.std"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1742,13 +1712,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.std: SwiftProtobuf.Generated
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data1: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{5}0\0proto2_unittest.TestConflictingSymbolNames.Data1"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{5}0\0proto2_unittest.TestConflictingSymbolNames.Data1"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{5}0\0proto2_unittest.TestConflictingSymbolNames.Data1"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1758,13 +1722,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data1: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{e}0\0proto2_unittest.TestConflictingSymbolNames.Data2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{e}0\0proto2_unittest.TestConflictingSymbolNames.Data2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{e}0\0proto2_unittest.TestConflictingSymbolNames.Data2"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -1781,13 +1739,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data2: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data3: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data3"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data3"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data3"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1797,13 +1749,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data3: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data4: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}0\0proto2_unittest.TestConflictingSymbolNames.Data4"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}0\0proto2_unittest.TestConflictingSymbolNames.Data4"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}0\0proto2_unittest.TestConflictingSymbolNames.Data4"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -1820,13 +1766,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data4: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data5: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data5"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data5"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data5"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1836,13 +1776,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data5: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Data6: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data6"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data6"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{9}0\0proto2_unittest.TestConflictingSymbolNames.Data6"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1852,13 +1786,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Data6: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.Cord: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0/\0proto2_unittest.TestConflictingSymbolNames.Cord"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0/\0proto2_unittest.TestConflictingSymbolNames.Cord"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0/\0proto2_unittest.TestConflictingSymbolNames.Cord"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1868,13 +1796,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.Cord: SwiftProtobuf.Generate
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.StringPiece: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\06\0proto2_unittest.TestConflictingSymbolNames.StringPiece"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\06\0proto2_unittest.TestConflictingSymbolNames.StringPiece"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\06\0proto2_unittest.TestConflictingSymbolNames.StringPiece"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1884,13 +1806,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.StringPiece: SwiftProtobuf.G
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesFields: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFields"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFields"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\u{1}\0\00\u{1f}4^Q[o\u{5}J\u{3} \u{17}+rZ\u{1f}+3\u{18}z\u{e}-[c\u{1}\u{1e}qJ\\af,\"8\u{12}]\"\u{c}$\u{12}Tv8\u{c}\u{3}y\u{18}]aT'E\u{3}T\u{4}\u{1f}_{\u{1e}R\u{11}?\n^,f\u{1b}<\u{7}\nF\u{13}Xk*\nU/0d_\u{1f}on\u{16}t\n:D\u{1a}_fZ\u{1b}\u{16}~\u{6}lQUX!%{)\u{6}j\u{7}^\u{b}8\\\u{1e}\u{6}v\u{15}\u{f}Z\u{1f}&/59dk\u{13}1 zw%\u{b}_ PR\u{e}\u{11}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1900,13 +1816,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesFields: SwiftPr
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{3}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}R\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{3}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}R\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}R\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesFieldsNoStandardDescriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\rM$\u{14}\u{8}\u{1d}f~/CWipq\u{7}*&)\"l\0vj\r\\\u{1c}\u{f}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1916,13 +1826,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesFieldsNoStandar
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0=\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0=\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0=\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1932,13 +1836,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes: SwiftPro
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetDescriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1948,13 +1846,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetDescri
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetReflection"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1964,13 +1856,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetReflec
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.Swap: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0B\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Swap"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0B\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Swap"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0B\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Swap"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1980,13 +1866,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.Swap: Swi
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0M\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0M\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0M\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeArenaSwap"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -1996,13 +1876,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.UnsafeAre
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.New: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0A\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.New"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0A\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.New"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0A\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.New"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2012,13 +1886,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.New: Swif
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0F\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0F\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0F\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2028,13 +1896,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.CopyFrom:
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0G\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0G\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0G\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2044,13 +1906,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.MergeFrom
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0I\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0I\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0I\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.GetMetadata"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2060,13 +1916,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.GetMetada
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.Clear: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0C\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Clear"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0C\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Clear"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0C\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.Clear"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2076,13 +1926,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.Clear: Sw
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0K\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesTypes.IsInitialized"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2092,13 +1936,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesTypes.IsInitial
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesValues: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesValues"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesValues"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0>\0proto2_unittest.TestConflictingSymbolNames.BadKnownNamesValues"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2108,13 +1946,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.BadKnownNamesValues: SwiftPr
 }
 
 extension Proto2Unittest_TestConflictingSymbolNames.DO: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0proto2_unittest.TestConflictingSymbolNames.DO"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0-\0proto2_unittest.TestConflictingSymbolNames.DO"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0-\0proto2_unittest.TestConflictingSymbolNames.DO"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2124,13 +1956,7 @@ extension Proto2Unittest_TestConflictingSymbolNames.DO: SwiftProtobuf.GeneratedM
 }
 
 extension Proto2Unittest_GetDescriptor: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.GetDescriptor"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.GetDescriptor"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1d}\0proto2_unittest.GetDescriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2140,13 +1966,7 @@ extension Proto2Unittest_GetDescriptor: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_GetReflection: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.GetReflection"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.GetReflection"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1d}\0proto2_unittest.GetReflection"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2156,13 +1976,7 @@ extension Proto2Unittest_GetReflection: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_Swap: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{14}\0proto2_unittest.Swap"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{14}\0proto2_unittest.Swap"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{14}\0proto2_unittest.Swap"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2172,13 +1986,7 @@ extension Proto2Unittest_Swap: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_UnsafeArenaSwap: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1f}\0proto2_unittest.UnsafeArenaSwap"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1f}\0proto2_unittest.UnsafeArenaSwap"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1f}\0proto2_unittest.UnsafeArenaSwap"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2188,13 +1996,7 @@ extension Proto2Unittest_UnsafeArenaSwap: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_New: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{13}\0proto2_unittest.New"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{13}\0proto2_unittest.New"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{13}\0proto2_unittest.New"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2204,13 +2006,7 @@ extension Proto2Unittest_New: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_CopyFrom: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{18}\0proto2_unittest.CopyFrom"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{18}\0proto2_unittest.CopyFrom"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{18}\0proto2_unittest.CopyFrom"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2220,13 +2016,7 @@ extension Proto2Unittest_CopyFrom: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_MergeFrom: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{19}\0proto2_unittest.MergeFrom"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{19}\0proto2_unittest.MergeFrom"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{19}\0proto2_unittest.MergeFrom"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2236,13 +2026,7 @@ extension Proto2Unittest_MergeFrom: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_GetMetadata: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1b}\0proto2_unittest.GetMetadata"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1b}\0proto2_unittest.GetMetadata"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1b}\0proto2_unittest.GetMetadata"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2252,13 +2036,7 @@ extension Proto2Unittest_GetMetadata: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_Clear: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0proto2_unittest.Clear"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0proto2_unittest.Clear"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{15}\0proto2_unittest.Clear"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2268,13 +2046,7 @@ extension Proto2Unittest_Clear: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_IsInitialized: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.IsInitialized"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1d}\0proto2_unittest.IsInitialized"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1d}\0proto2_unittest.IsInitialized"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2284,13 +2056,7 @@ extension Proto2Unittest_IsInitialized: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_int32: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0proto2_unittest.int32"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{15}\0proto2_unittest.int32"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{15}\0proto2_unittest.int32"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2300,13 +2066,7 @@ extension Proto2Unittest_int32: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_std: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{13}\0proto2_unittest.std"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{13}\0proto2_unittest.std"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{13}\0proto2_unittest.std"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2316,13 +2076,7 @@ extension Proto2Unittest_std: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TestConflictingSymbolNamesExtension: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\03\0proto2_unittest.TestConflictingSymbolNamesExtension"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\03\0proto2_unittest.TestConflictingSymbolNamesExtension"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\03\0proto2_unittest.TestConflictingSymbolNamesExtension"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2332,13 +2086,7 @@ extension Proto2Unittest_TestConflictingSymbolNamesExtension: SwiftProtobuf.Gene
 }
 
 extension Proto2Unittest_TestConflictingEnumNames: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}(\0proto2_unittest.TestConflictingEnumNames"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}(\0proto2_unittest.TestConflictingEnumNames"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}(\0proto2_unittest.TestConflictingEnumNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLIJww:\u{16}+|8_h\u{1a}\u{8}\u{1d}|$PqX\u{12}<\u{1c}RKS=|d2&PU\\\rz\u{15}E\0\u{6}@\u{3}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2361,13 +2109,7 @@ extension Proto2Unittest_TestConflictingEnumNames.whileEnum {
 }
 
 extension Proto2Unittest_DummyMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1c}\0proto2_unittest.DummyMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1c}\0proto2_unittest.DummyMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1c}\0proto2_unittest.DummyMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2377,13 +2119,7 @@ extension Proto2Unittest_DummyMessage: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_NULL: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{14}\0proto2_unittest.NULL"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{14}\0proto2_unittest.NULL"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{14}\0proto2_unittest.NULL"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}D~sD~dH)\"\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2393,13 +2129,7 @@ extension Proto2Unittest_NULL: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_Shutdown: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{18}\0proto2_unittest.Shutdown"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{18}\0proto2_unittest.Shutdown"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{18}\0proto2_unittest.Shutdown"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2409,13 +2139,7 @@ extension Proto2Unittest_Shutdown: SwiftProtobuf.GeneratedMessage {
 }
 
 extension Proto2Unittest_TableStruct: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1b}\0proto2_unittest.TableStruct"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1b}\0proto2_unittest.TableStruct"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1b}\0proto2_unittest.TableStruct"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

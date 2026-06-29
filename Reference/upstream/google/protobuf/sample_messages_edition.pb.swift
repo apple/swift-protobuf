@@ -199,40 +199,40 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
   mutating func clearOptionalBool() { _uniqueStorage().clearValue(at: 56, type: Bool.self, hasBit: (1, 16)) }
 
   var optionalString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(896, 612), default: String(), hasBit: (1, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(896, 612), to: newValue, willBeSet: true, hasBit: (1, 32)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (1, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Swift.Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(896, 612), type: String.self, hasBit: (1, 32)) }
+  mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (1, 32)) }
 
   var optionalBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(912, 624), default: Data(), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(912, 624), to: newValue, willBeSet: true, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 0, default: Data(), hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `optionalBytes` has been explicitly set.
   var hasOptionalBytes: Swift.Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(912, 624), type: Data.self, hasBit: (1, 64)) }
+  mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalNestedMessage: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage {
-    get { _storage.value(at: 312, default: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage(), hasBit: (1, 128)) }
-    set { _uniqueStorage().updateValue(at: 312, to: newValue, willBeSet: true, hasBit: (1, 128)) }
+    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage(), hasBit: (1, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 312, type: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage.self, hasBit: (1, 128)) }
+  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage.self, hasBit: (1, 128)) }
 
   var optionalForeignMessage: ProtobufTestMessages_Edition_ForeignMessageEdition {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(320, 316), default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (2, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(320, 316), to: newValue, willBeSet: true, hasBit: (2, 1)) }
+    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (2, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
   var hasOptionalForeignMessage: Swift.Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(320, 316), type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (2, 1)) }
+  mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 1, type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (2, 1)) }
 
   var optionalNestedEnum: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum {
     get { _storage.value(at: 84, default: .foo, hasBit: (2, 2)) }
@@ -253,374 +253,374 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
   mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 88, type: ProtobufTestMessages_Edition_ForeignEnumEdition.self, hasBit: (2, 4)) }
 
   var optionalStringPiece: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(928, 636), default: String(), hasBit: (2, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(928, 636), to: newValue, willBeSet: true, hasBit: (2, 8)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `optionalStringPiece` has been explicitly set.
   var hasOptionalStringPiece: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalStringPiece() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(928, 636), type: String.self, hasBit: (2, 8)) }
+  mutating func clearOptionalStringPiece() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (2, 8)) }
 
   var optionalCord: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(944, 648), default: String(), hasBit: (2, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(944, 648), to: newValue, willBeSet: true, hasBit: (2, 16)) }
+    get { _storage.value(atIndex: 2, default: String(), hasBit: (2, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `optionalCord` has been explicitly set.
   var hasOptionalCord: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalCord() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(944, 648), type: String.self, hasBit: (2, 16)) }
+  mutating func clearOptionalCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (2, 16)) }
 
   var recursiveMessage: ProtobufTestMessages_Edition_TestAllTypesEdition {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(328, 320), default: ProtobufTestMessages_Edition_TestAllTypesEdition(), hasBit: (2, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(328, 320), to: newValue, willBeSet: true, hasBit: (2, 32)) }
+    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Edition_TestAllTypesEdition(), hasBit: (2, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
   var hasRecursiveMessage: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `recursiveMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRecursiveMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(328, 320), type: ProtobufTestMessages_Edition_TestAllTypesEdition.self, hasBit: (2, 32)) }
+  mutating func clearRecursiveMessage() { _uniqueStorage().clearValue(atIndex: 2, type: ProtobufTestMessages_Edition_TestAllTypesEdition.self, hasBit: (2, 32)) }
 
   /// Repeated
   var repeatedInt32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(336, 324), hasBit: (7, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(336, 324), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (7, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 1)) }
   }
 
   var repeatedInt64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(344, 328), hasBit: (7, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(344, 328), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
+    get { _storage.value(atIndex: 1, hasBit: (7, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 2)) }
   }
 
   var repeatedUint32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(352, 332), hasBit: (7, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(352, 332), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
+    get { _storage.value(atIndex: 2, hasBit: (7, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 4)) }
   }
 
   var repeatedUint64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(360, 336), hasBit: (7, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(360, 336), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
+    get { _storage.value(atIndex: 3, hasBit: (7, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 8)) }
   }
 
   var repeatedSint32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(368, 340), hasBit: (7, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(368, 340), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
+    get { _storage.value(atIndex: 4, hasBit: (7, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 16)) }
   }
 
   var repeatedSint64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(376, 344), hasBit: (7, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(376, 344), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
+    get { _storage.value(atIndex: 5, hasBit: (7, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 32)) }
   }
 
   var repeatedFixed32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(384, 348), hasBit: (7, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(384, 348), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
+    get { _storage.value(atIndex: 6, hasBit: (7, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 64)) }
   }
 
   var repeatedFixed64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(392, 352), hasBit: (7, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(392, 352), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 128)) }
+    get { _storage.value(atIndex: 7, hasBit: (7, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (7, 128)) }
   }
 
   var repeatedSfixed32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(400, 356), hasBit: (8, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(400, 356), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 1)) }
+    get { _storage.value(atIndex: 8, hasBit: (8, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 1)) }
   }
 
   var repeatedSfixed64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(408, 360), hasBit: (8, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(408, 360), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 2)) }
+    get { _storage.value(atIndex: 9, hasBit: (8, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 2)) }
   }
 
   var repeatedFloat: [Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(416, 364), hasBit: (8, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(416, 364), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 4)) }
+    get { _storage.value(atIndex: 10, hasBit: (8, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 4)) }
   }
 
   var repeatedDouble: [Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(424, 368), hasBit: (8, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(424, 368), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 8)) }
+    get { _storage.value(atIndex: 11, hasBit: (8, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 8)) }
   }
 
   var repeatedBool: [Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(432, 372), hasBit: (8, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(432, 372), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 16)) }
+    get { _storage.value(atIndex: 12, hasBit: (8, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 16)) }
   }
 
   var repeatedString: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(440, 376), hasBit: (8, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(440, 376), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 32)) }
+    get { _storage.value(atIndex: 13, hasBit: (8, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 32)) }
   }
 
   var repeatedBytes: [Data] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(448, 380), hasBit: (8, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(448, 380), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 64)) }
+    get { _storage.value(atIndex: 14, hasBit: (8, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 64)) }
   }
 
   var repeatedNestedMessage: [ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(456, 384), hasBit: (8, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(456, 384), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 128)) }
+    get { _storage.value(atIndex: 15, hasBit: (8, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (8, 128)) }
   }
 
   var repeatedForeignMessage: [ProtobufTestMessages_Edition_ForeignMessageEdition] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(464, 388), hasBit: (9, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(464, 388), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 1)) }
+    get { _storage.value(atIndex: 16, hasBit: (9, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 1)) }
   }
 
   var repeatedNestedEnum: [ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(472, 392), hasBit: (9, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(472, 392), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 2)) }
+    get { _storage.value(atIndex: 17, hasBit: (9, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 2)) }
   }
 
   var repeatedForeignEnum: [ProtobufTestMessages_Edition_ForeignEnumEdition] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(480, 396), hasBit: (9, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(480, 396), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 4)) }
+    get { _storage.value(atIndex: 18, hasBit: (9, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 4)) }
   }
 
   var repeatedStringPiece: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(488, 400), hasBit: (9, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(488, 400), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 8)) }
+    get { _storage.value(atIndex: 19, hasBit: (9, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 8)) }
   }
 
   var repeatedCord: [String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(496, 404), hasBit: (9, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(496, 404), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 16)) }
+    get { _storage.value(atIndex: 20, hasBit: (9, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 16)) }
   }
 
   /// Packed
   var packedInt32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(656, 484), hasBit: (12, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(656, 484), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 1)) }
+    get { _storage.value(atIndex: 21, hasBit: (12, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 1)) }
   }
 
   var packedInt64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(664, 488), hasBit: (12, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(664, 488), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 2)) }
+    get { _storage.value(atIndex: 22, hasBit: (12, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 2)) }
   }
 
   var packedUint32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(672, 492), hasBit: (12, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(672, 492), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 4)) }
+    get { _storage.value(atIndex: 23, hasBit: (12, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 23, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 4)) }
   }
 
   var packedUint64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(680, 496), hasBit: (12, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(680, 496), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 8)) }
+    get { _storage.value(atIndex: 24, hasBit: (12, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 24, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 8)) }
   }
 
   var packedSint32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(688, 500), hasBit: (12, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(688, 500), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 16)) }
+    get { _storage.value(atIndex: 25, hasBit: (12, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 25, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 16)) }
   }
 
   var packedSint64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(696, 504), hasBit: (12, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(696, 504), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 32)) }
+    get { _storage.value(atIndex: 26, hasBit: (12, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 26, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 32)) }
   }
 
   var packedFixed32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(704, 508), hasBit: (12, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(704, 508), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 64)) }
+    get { _storage.value(atIndex: 27, hasBit: (12, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 27, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 64)) }
   }
 
   var packedFixed64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(712, 512), hasBit: (12, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(712, 512), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 128)) }
+    get { _storage.value(atIndex: 28, hasBit: (12, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 28, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (12, 128)) }
   }
 
   var packedSfixed32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(720, 516), hasBit: (13, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(720, 516), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 1)) }
+    get { _storage.value(atIndex: 29, hasBit: (13, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 29, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 1)) }
   }
 
   var packedSfixed64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(728, 520), hasBit: (13, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(728, 520), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 2)) }
+    get { _storage.value(atIndex: 30, hasBit: (13, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 30, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 2)) }
   }
 
   var packedFloat: [Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(736, 524), hasBit: (13, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(736, 524), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 4)) }
+    get { _storage.value(atIndex: 31, hasBit: (13, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 31, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 4)) }
   }
 
   var packedDouble: [Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(744, 528), hasBit: (13, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(744, 528), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 8)) }
+    get { _storage.value(atIndex: 32, hasBit: (13, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 32, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 8)) }
   }
 
   var packedBool: [Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(752, 532), hasBit: (13, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(752, 532), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 16)) }
+    get { _storage.value(atIndex: 33, hasBit: (13, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 33, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 16)) }
   }
 
   var packedNestedEnum: [ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(760, 536), hasBit: (13, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(760, 536), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 32)) }
+    get { _storage.value(atIndex: 34, hasBit: (13, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 34, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 32)) }
   }
 
   /// Unpacked
   var unpackedInt32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(768, 540), hasBit: (13, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(768, 540), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 64)) }
+    get { _storage.value(atIndex: 35, hasBit: (13, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 35, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 64)) }
   }
 
   var unpackedInt64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(776, 544), hasBit: (13, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(776, 544), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 128)) }
+    get { _storage.value(atIndex: 36, hasBit: (13, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 36, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (13, 128)) }
   }
 
   var unpackedUint32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(784, 548), hasBit: (14, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(784, 548), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 1)) }
+    get { _storage.value(atIndex: 37, hasBit: (14, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 37, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 1)) }
   }
 
   var unpackedUint64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(792, 552), hasBit: (14, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(792, 552), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 2)) }
+    get { _storage.value(atIndex: 38, hasBit: (14, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 38, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 2)) }
   }
 
   var unpackedSint32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(800, 556), hasBit: (14, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(800, 556), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 4)) }
+    get { _storage.value(atIndex: 39, hasBit: (14, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 39, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 4)) }
   }
 
   var unpackedSint64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(808, 560), hasBit: (14, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(808, 560), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 8)) }
+    get { _storage.value(atIndex: 40, hasBit: (14, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 40, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 8)) }
   }
 
   var unpackedFixed32: [UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(816, 564), hasBit: (14, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(816, 564), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 16)) }
+    get { _storage.value(atIndex: 41, hasBit: (14, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 41, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 16)) }
   }
 
   var unpackedFixed64: [UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(824, 568), hasBit: (14, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(824, 568), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 32)) }
+    get { _storage.value(atIndex: 42, hasBit: (14, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 42, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 32)) }
   }
 
   var unpackedSfixed32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(832, 572), hasBit: (14, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(832, 572), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 64)) }
+    get { _storage.value(atIndex: 43, hasBit: (14, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 43, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 64)) }
   }
 
   var unpackedSfixed64: [Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(840, 576), hasBit: (14, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(840, 576), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 128)) }
+    get { _storage.value(atIndex: 44, hasBit: (14, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 44, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (14, 128)) }
   }
 
   var unpackedFloat: [Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(848, 580), hasBit: (15, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(848, 580), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 1)) }
+    get { _storage.value(atIndex: 45, hasBit: (15, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 45, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 1)) }
   }
 
   var unpackedDouble: [Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(856, 584), hasBit: (15, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(856, 584), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 2)) }
+    get { _storage.value(atIndex: 46, hasBit: (15, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 46, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 2)) }
   }
 
   var unpackedBool: [Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(864, 588), hasBit: (15, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(864, 588), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 4)) }
+    get { _storage.value(atIndex: 47, hasBit: (15, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 47, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 4)) }
   }
 
   var unpackedNestedEnum: [ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(872, 592), hasBit: (15, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(872, 592), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 8)) }
+    get { _storage.value(atIndex: 48, hasBit: (15, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 48, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (15, 8)) }
   }
 
   /// Map
   var mapInt32Int32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(504, 408), hasBit: (9, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(504, 408), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 32)) }
+    get { _storage.value(atIndex: 0, hasBit: (9, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 32)) }
   }
 
   var mapInt64Int64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(512, 412), hasBit: (9, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(512, 412), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 64)) }
+    get { _storage.value(atIndex: 1, hasBit: (9, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 64)) }
   }
 
   var mapUint32Uint32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(520, 416), hasBit: (9, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(520, 416), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 128)) }
+    get { _storage.value(atIndex: 2, hasBit: (9, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (9, 128)) }
   }
 
   var mapUint64Uint64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(528, 420), hasBit: (10, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(528, 420), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 1)) }
+    get { _storage.value(atIndex: 3, hasBit: (10, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 1)) }
   }
 
   var mapSint32Sint32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(536, 424), hasBit: (10, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(536, 424), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 2)) }
+    get { _storage.value(atIndex: 4, hasBit: (10, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 2)) }
   }
 
   var mapSint64Sint64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(544, 428), hasBit: (10, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(544, 428), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 4)) }
+    get { _storage.value(atIndex: 5, hasBit: (10, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 4)) }
   }
 
   var mapFixed32Fixed32: [UInt32: UInt32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(552, 432), hasBit: (10, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(552, 432), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 8)) }
+    get { _storage.value(atIndex: 6, hasBit: (10, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 8)) }
   }
 
   var mapFixed64Fixed64: [UInt64: UInt64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(560, 436), hasBit: (10, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(560, 436), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 16)) }
+    get { _storage.value(atIndex: 7, hasBit: (10, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 16)) }
   }
 
   var mapSfixed32Sfixed32: [Int32: Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(568, 440), hasBit: (10, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(568, 440), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 32)) }
+    get { _storage.value(atIndex: 8, hasBit: (10, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 32)) }
   }
 
   var mapSfixed64Sfixed64: [Int64: Int64] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(576, 444), hasBit: (10, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(576, 444), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 64)) }
+    get { _storage.value(atIndex: 9, hasBit: (10, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 64)) }
   }
 
   var mapInt32Float: [Int32: Float] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(584, 448), hasBit: (10, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(584, 448), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 128)) }
+    get { _storage.value(atIndex: 10, hasBit: (10, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (10, 128)) }
   }
 
   var mapInt32Double: [Int32: Double] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(592, 452), hasBit: (11, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(592, 452), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 1)) }
+    get { _storage.value(atIndex: 11, hasBit: (11, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 1)) }
   }
 
   var mapBoolBool: [Bool: Bool] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(600, 456), hasBit: (11, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(600, 456), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 2)) }
+    get { _storage.value(atIndex: 12, hasBit: (11, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 2)) }
   }
 
   var mapStringString: [String: String] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(608, 460), hasBit: (11, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(608, 460), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 4)) }
+    get { _storage.value(atIndex: 13, hasBit: (11, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 4)) }
   }
 
   var mapStringBytes: [String: Data] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(616, 464), hasBit: (11, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(616, 464), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 8)) }
+    get { _storage.value(atIndex: 14, hasBit: (11, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 8)) }
   }
 
   var mapStringNestedMessage: [String: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(624, 468), hasBit: (11, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(624, 468), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 16)) }
+    get { _storage.value(atIndex: 15, hasBit: (11, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 16)) }
   }
 
   var mapStringForeignMessage: [String: ProtobufTestMessages_Edition_ForeignMessageEdition] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(632, 472), hasBit: (11, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(632, 472), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 32)) }
+    get { _storage.value(atIndex: 16, hasBit: (11, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 32)) }
   }
 
   var mapStringNestedEnum: [String: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(640, 476), hasBit: (11, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(640, 476), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 64)) }
+    get { _storage.value(atIndex: 17, hasBit: (11, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 64)) }
   }
 
   var mapStringForeignEnum: [String: ProtobufTestMessages_Edition_ForeignEnumEdition] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(648, 480), hasBit: (11, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(648, 480), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 128)) }
+    get { _storage.value(atIndex: 18, hasBit: (11, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 128)) }
   }
 
   var oneofField: ProtobufTestMessages_Edition_TestAllTypesEdition.OneOf_OneofField? {
@@ -662,18 +662,18 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(880, 596), default: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage(), oneofPresence: (20, 112)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(880, 596), to: newValue, oneofPresence: (20, 112)) }
+    get { return _storage.value(atIndex: 3, default: ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage(), oneofPresence: (20, 112)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (20, 112)) }
   }
 
   var oneofString: String {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(960, 660), oneofPresence: (20, 113)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(960, 660), to: newValue, oneofPresence: (20, 113)) }
+    get { return _storage.value(atIndex: 3, oneofPresence: (20, 113)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (20, 113)) }
   }
 
   var oneofBytes: Data {
-    get { return _storage.value(at: SwiftProtobuf._fieldOffset(976, 672), oneofPresence: (20, 114)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(976, 672), to: newValue, oneofPresence: (20, 114)) }
+    get { return _storage.value(atIndex: 1, oneofPresence: (20, 114)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (20, 114)) }
   }
 
   var oneofBool: Bool {
@@ -702,13 +702,13 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
   }
 
   var data: ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(888, 600), default: ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage(), hasBit: (2, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(888, 600), to: newValue, willBeSet: true, hasBit: (2, 64)) }
+    get { _storage.value(atIndex: 4, default: ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage(), hasBit: (2, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `data` has been explicitly set.
   var hasData: Swift.Bool { _storage.isPresent(hasBit: (2, 64)) }
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(888, 600), type: ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage.self, hasBit: (2, 64)) }
+  mutating func clearData() { _uniqueStorage().clearValue(atIndex: 4, type: ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage.self, hasBit: (2, 64)) }
 
   /// default values
   var defaultInt32: Int32 {
@@ -829,22 +829,22 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
   mutating func clearDefaultBool() { _uniqueStorage().clearValue(at: 58, type: Bool.self, hasBit: (4, 8)) }
 
   var defaultString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(992, 684), default: "Rosebud", hasBit: (4, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(992, 684), to: newValue, willBeSet: true, hasBit: (4, 16)) }
+    get { _storage.value(atIndex: 4, default: "Rosebud", hasBit: (4, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (4, 16)) }
   }
   /// Returns true if `defaultString` has been explicitly set.
   var hasDefaultString: Swift.Bool { _storage.isPresent(hasBit: (4, 16)) }
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(992, 684), type: String.self, hasBit: (4, 16)) }
+  mutating func clearDefaultString() { _uniqueStorage().clearValue(atIndex: 4, type: String.self, hasBit: (4, 16)) }
 
   var defaultBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(1008, 696), default: Data([106, 111, 115, 104, 117, 97]), hasBit: (4, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(1008, 696), to: newValue, willBeSet: true, hasBit: (4, 32)) }
+    get { _storage.value(atIndex: 2, default: Data([106, 111, 115, 104, 117, 97]), hasBit: (4, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (4, 32)) }
   }
   /// Returns true if `defaultBytes` has been explicitly set.
   var hasDefaultBytes: Swift.Bool { _storage.isPresent(hasBit: (4, 32)) }
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(1008, 696), type: Data.self, hasBit: (4, 32)) }
+  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(atIndex: 2, type: Data.self, hasBit: (4, 32)) }
 
   /// Test field-name-to-JSON-name convention.
   /// (protobuf says names can be any valid C/C++ identifier.)
@@ -1081,13 +1081,13 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var corecursive: ProtobufTestMessages_Edition_TestAllTypesEdition {
-      get { _storage.value(at: 8, default: ProtobufTestMessages_Edition_TestAllTypesEdition(), hasBit: (0, 2)) }
-      set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Edition_TestAllTypesEdition(), hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `corecursive` has been explicitly set.
     var hasCorecursive: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
-    mutating func clearCorecursive() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_Edition_TestAllTypesEdition.self, hasBit: (0, 2)) }
+    mutating func clearCorecursive() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Edition_TestAllTypesEdition.self, hasBit: (0, 2)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1155,13 +1155,13 @@ struct ProtobufTestMessages_Edition_TestAllTypesEdition: @unchecked Swift.Sendab
     // methods supported on all messages.
 
     var str: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `str` has been explicitly set.
     var hasStr: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `str`. Subsequent reads from it will return its default value.
-    mutating func clearStr() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+    mutating func clearStr() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1246,31 +1246,31 @@ struct ProtobufTestMessages_Edition_UnknownToTestAllTypes: @unchecked Swift.Send
   mutating func clearOptionalInt32() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var optionalString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 24), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 24), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 24), type: String.self, hasBit: (0, 2)) }
+  mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var nestedMessage: ProtobufTestMessages_Edition_ForeignMessageEdition {
-    get { _storage.value(at: 8, default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
   var hasNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearNestedMessage() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (0, 4)) }
+  mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (0, 4)) }
 
   var optionalGroup: ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
   var hasOptionalGroup: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup.self, hasBit: (0, 8)) }
+  mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 1, type: ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup.self, hasBit: (0, 8)) }
 
   var optionalBool: Bool {
     get { _storage.value(at: 1, default: false, hasBit: (0, 16)) }
@@ -1282,8 +1282,8 @@ struct ProtobufTestMessages_Edition_UnknownToTestAllTypes: @unchecked Swift.Send
   mutating func clearOptionalBool() { _uniqueStorage().clearValue(at: 1, type: Bool.self, hasBit: (0, 16)) }
 
   var repeatedInt32: [Int32] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 16), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 16), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
   }
 
   struct OptionalGroup: @unchecked Swift.Sendable {
@@ -1390,13 +1390,13 @@ struct ProtobufTestMessages_Edition_OneStringEdition: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   var data: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `data` has been explicitly set.
   var hasData: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+  mutating func clearData() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1423,17 +1423,17 @@ struct ProtobufTestMessages_Edition_ProtoWithKeywords: @unchecked Swift.Sendable
   mutating func clearInline() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var concept: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `concept` has been explicitly set.
   var hasConcept: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `concept`. Subsequent reads from it will return its default value.
-  mutating func clearConcept() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 2)) }
+  mutating func clearConcept() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var requires: [String] {
-    get { _storage.value(at: 8, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -1570,40 +1570,40 @@ struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: @unchecked Swif
   mutating func clearRequiredBool() { _uniqueStorage().clearValue(at: 5, type: Bool.self, hasBit: (1, 16)) }
 
   var requiredString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(208, 180), default: String(), hasBit: (1, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(208, 180), to: newValue, willBeSet: true, hasBit: (1, 32)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (1, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `requiredString` has been explicitly set.
   var hasRequiredString: Swift.Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `requiredString`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(208, 180), type: String.self, hasBit: (1, 32)) }
+  mutating func clearRequiredString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (1, 32)) }
 
   var requiredBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(224, 192), default: Data(), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(224, 192), to: newValue, willBeSet: true, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 0, default: Data(), hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `requiredBytes` has been explicitly set.
   var hasRequiredBytes: Swift.Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `requiredBytes`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(224, 192), type: Data.self, hasBit: (1, 64)) }
+  mutating func clearRequiredBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var requiredNestedMessage: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage {
-    get { _storage.value(at: 160, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage(), hasBit: (1, 128)) }
-    set { _uniqueStorage().updateValue(at: 160, to: newValue, willBeSet: true, hasBit: (1, 128)) }
+    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage(), hasBit: (1, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `requiredNestedMessage` has been explicitly set.
   var hasRequiredNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `requiredNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredNestedMessage() { _uniqueStorage().clearValue(at: 160, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage.self, hasBit: (1, 128)) }
+  mutating func clearRequiredNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage.self, hasBit: (1, 128)) }
 
   var requiredForeignMessage: ProtobufTestMessages_Edition_ForeignMessageEdition {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(168, 164), default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (2, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(168, 164), to: newValue, willBeSet: true, hasBit: (2, 1)) }
+    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Edition_ForeignMessageEdition(), hasBit: (2, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `requiredForeignMessage` has been explicitly set.
   var hasRequiredForeignMessage: Swift.Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `requiredForeignMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredForeignMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(168, 164), type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (2, 1)) }
+  mutating func clearRequiredForeignMessage() { _uniqueStorage().clearValue(atIndex: 1, type: ProtobufTestMessages_Edition_ForeignMessageEdition.self, hasBit: (2, 1)) }
 
   var requiredNestedEnum: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedEnum {
     get { _storage.value(at: 32, default: .foo, hasBit: (2, 2)) }
@@ -1624,49 +1624,49 @@ struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: @unchecked Swif
   mutating func clearRequiredForeignEnum() { _uniqueStorage().clearValue(at: 36, type: ProtobufTestMessages_Edition_ForeignEnumEdition.self, hasBit: (2, 4)) }
 
   var requiredStringPiece: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(240, 204), default: String(), hasBit: (2, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(240, 204), to: newValue, willBeSet: true, hasBit: (2, 8)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `requiredStringPiece` has been explicitly set.
   var hasRequiredStringPiece: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `requiredStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredStringPiece() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(240, 204), type: String.self, hasBit: (2, 8)) }
+  mutating func clearRequiredStringPiece() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (2, 8)) }
 
   var requiredCord: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(256, 216), default: String(), hasBit: (2, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(256, 216), to: newValue, willBeSet: true, hasBit: (2, 16)) }
+    get { _storage.value(atIndex: 2, default: String(), hasBit: (2, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `requiredCord` has been explicitly set.
   var hasRequiredCord: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `requiredCord`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredCord() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(256, 216), type: String.self, hasBit: (2, 16)) }
+  mutating func clearRequiredCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (2, 16)) }
 
   var recursiveMessage: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(176, 168), default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (4, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(176, 168), to: newValue, willBeSet: true, hasBit: (4, 16)) }
+    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (4, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (4, 16)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
   var hasRecursiveMessage: Swift.Bool { _storage.isPresent(hasBit: (4, 16)) }
   /// Clears the value of `recursiveMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRecursiveMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(176, 168), type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (4, 16)) }
+  mutating func clearRecursiveMessage() { _uniqueStorage().clearValue(atIndex: 2, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (4, 16)) }
 
   var optionalRecursiveMessage: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(184, 172), default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (4, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(184, 172), to: newValue, willBeSet: true, hasBit: (4, 32)) }
+    get { _storage.value(atIndex: 3, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (4, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (4, 32)) }
   }
   /// Returns true if `optionalRecursiveMessage` has been explicitly set.
   var hasOptionalRecursiveMessage: Swift.Bool { _storage.isPresent(hasBit: (4, 32)) }
   /// Clears the value of `optionalRecursiveMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalRecursiveMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(184, 172), type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (4, 32)) }
+  mutating func clearOptionalRecursiveMessage() { _uniqueStorage().clearValue(atIndex: 3, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (4, 32)) }
 
   var data: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(192, 176), default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage(), hasBit: (4, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(192, 176), to: newValue, willBeSet: true, hasBit: (4, 64)) }
+    get { _storage.value(atIndex: 4, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage(), hasBit: (4, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (4, 64)) }
   }
   /// Returns true if `data` has been explicitly set.
   var hasData: Swift.Bool { _storage.isPresent(hasBit: (4, 64)) }
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(192, 176), type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage.self, hasBit: (4, 64)) }
+  mutating func clearData() { _uniqueStorage().clearValue(atIndex: 4, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage.self, hasBit: (4, 64)) }
 
   /// default values
   var defaultInt32: Int32 {
@@ -1787,22 +1787,22 @@ struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: @unchecked Swif
   mutating func clearDefaultBool() { _uniqueStorage().clearValue(at: 6, type: Bool.self, hasBit: (4, 2)) }
 
   var defaultString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(272, 228), default: "Rosebud", hasBit: (4, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(272, 228), to: newValue, willBeSet: true, hasBit: (4, 4)) }
+    get { _storage.value(atIndex: 3, default: "Rosebud", hasBit: (4, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (4, 4)) }
   }
   /// Returns true if `defaultString` has been explicitly set.
   var hasDefaultString: Swift.Bool { _storage.isPresent(hasBit: (4, 4)) }
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(272, 228), type: String.self, hasBit: (4, 4)) }
+  mutating func clearDefaultString() { _uniqueStorage().clearValue(atIndex: 3, type: String.self, hasBit: (4, 4)) }
 
   var defaultBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(288, 240), default: Data([106, 111, 115, 104, 117, 97]), hasBit: (4, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(288, 240), to: newValue, willBeSet: true, hasBit: (4, 8)) }
+    get { _storage.value(atIndex: 1, default: Data([106, 111, 115, 104, 117, 97]), hasBit: (4, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (4, 8)) }
   }
   /// Returns true if `defaultBytes` has been explicitly set.
   var hasDefaultBytes: Swift.Bool { _storage.isPresent(hasBit: (4, 8)) }
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(288, 240), type: Data.self, hasBit: (4, 8)) }
+  mutating func clearDefaultBytes() { _uniqueStorage().clearValue(atIndex: 1, type: Data.self, hasBit: (4, 8)) }
 
   enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
@@ -1863,22 +1863,22 @@ struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: @unchecked Swif
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var corecursive: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition {
-      get { _storage.value(at: 8, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (0, 2)) }
-      set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `corecursive` has been explicitly set.
     var hasCorecursive: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
-    mutating func clearCorecursive() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (0, 2)) }
+    mutating func clearCorecursive() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (0, 2)) }
 
     var optionalCorecursive: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (0, 4)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+      get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition(), hasBit: (0, 4)) }
+      set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `optionalCorecursive` has been explicitly set.
     var hasOptionalCorecursive: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
     /// Clears the value of `optionalCorecursive`. Subsequent reads from it will return its default value.
-    mutating func clearOptionalCorecursive() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (0, 4)) }
+    mutating func clearOptionalCorecursive() { _uniqueStorage().clearValue(atIndex: 1, type: ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.self, hasBit: (0, 4)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1946,13 +1946,13 @@ struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: @unchecked Swif
     // methods supported on all messages.
 
     var str: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), default: String(), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `str` has been explicitly set.
     var hasStr: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `str`. Subsequent reads from it will return its default value.
-    mutating func clearStr() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 12), type: String.self, hasBit: (0, 1)) }
+    mutating func clearStr() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -2139,13 +2139,7 @@ extension ProtobufTestMessages_Edition_ForeignEnumEdition {
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{8} \u{5}\u{1}\0\0\0\08\0\0\u{10}\0\08\u{2}\0\u{1}\0\0\0\0<\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0H\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0@\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0P\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0D\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0X\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0H\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0`\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0L\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0h\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0P\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0p\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\08\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\u{7}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\u{10}\u{7}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\08\u{2}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0@\u{2}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0T\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0X\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0 \u{7}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\00\u{7}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0H\u{2}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}P\u{2}\08\0\0\0\u{5} \0\0\0\u{a}X\u{2}\09\0\0\0\u{3}!\0\0\0\u{a}`\u{2}\0:\0\0\0\u{d}\"\0\0\0\u{a}h\u{2}\0;\0\0\0\u{4}#\0\0\0\u{a}p\u{2}\0<\0\0\0\u{11}$\0\0\0\u{a}x\u{2}\0=\0\0\0\u{12}%\0\0\0\u{a}\0\u{3}\0>\0\0\0\u{7}&\0\0\0\u{a}\u{8}\u{3}\0?\0\0\0\u{6}'\0\0\0\u{a}\u{10}\u{3}\0@\0\0\0\u{f}(\0\0\0\u{a}\u{18}\u{3}\0A\0\0\0\u{10})\0\0\0\u{a} \u{3}\0B\0\0\0\u{2}*\0\0\0\u{a}(\u{3}\0C\0\0\0\u{1}+\0\0\0\u{a}0\u{3}\0D\0\0\0\u{8},\0\0\0\u{2}8\u{3}\0E\0\0\0\u{9}-\0\0\0\u{2}@\u{3}\0F\0\0\0\u{c}0\0\0\0\u{2}H\u{3}\0G\0\u{3}\0\u{b}1\0\0\0\u{2}P\u{3}\0H\0\u{4}\0\u{b}3\0\0\0\u{a}X\u{3}\0I\0\u{1}\0\u{e}4\0\0\0\u{a}`\u{3}\0J\0\u{2}\0\u{e}6\0\0\0\u{2}h\u{3}\0K\0\0\0\u{9}7\0\0\0\u{2}p\u{3}\0L\0\0\0\u{9}8\0\0\0\u{4}x\u{3}\0M\0\u{6}\0\u{b}9\0\0\0\u{4}\0\u{4}\0N\0\u{7}\0\u{b}:\0\0\0\u{4}\u{8}\u{4}\0O\0\u{8}\0\u{b};\0\0\0\u{4}\u{10}\u{4}\0P\0\u{9}\0\u{b}<\0\0\0\u{4}\u{18}\u{4}\0Q\0\u{a}\0\u{b}=\0\0\0\u{4} \u{4}\0R\0\u{b}\0\u{b}>\0\0\0\u{4}(\u{4}\0S\0\u{c}\0\u{b}?\0\0\0\u{4}0\u{4}\0T\0\u{d}\0\u{b}@\0\0\0\u{4}8\u{4}\0U\0\u{e}\0\u{b}A\0\0\0\u{4}@\u{4}\0V\0\u{f}\0\u{b}B\0\0\0\u{4}H\u{4}\0W\0\u{10}\0\u{b}C\0\0\0\u{4}P\u{4}\0X\0\u{11}\0\u{b}D\0\0\0\u{4}X\u{4}\0Y\0\u{12}\0\u{b}E\0\0\0\u{4}`\u{4}\0Z\0\u{13}\0\u{b}F\0\0\0\u{4}h\u{4}\0[\0\u{14}\0\u{b}G\0\0\0\u{4}p\u{4}\0\\\0\u{15}\0\u{b}H\0\0\0\u{4}x\u{4}\0]\0\u{16}\0\u{b}I\0\0\0\u{4}\0\u{5}\0^\0\u{17}\0\u{b}J\0\0\0\u{4}\u{8}\u{5}\0_\0\u{18}\0\u{b}K\0\0\0\u{a}\u{10}\u{5}\0`\0\0\0\u{5}L\0\0\0\u{a}\u{18}\u{5}\0a\0\0\0\u{3}M\0\0\0\u{a} \u{5}\0b\0\0\0\u{d}N\0\0\0\u{a}(\u{5}\0c\0\0\0\u{4}O\0\0\0\u{a}0\u{5}\0d\0\0\0\u{11}P\0\0\0\u{a}8\u{5}\0e\0\0\0\u{12}Q\0\0\0\u{a}@\u{5}\0f\0\0\0\u{7}R\0\0\0\u{a}H\u{5}\0g\0\0\0\u{6}S\0\0\0\u{a}P\u{5}\0h\0\0\0\u{f}T\0\0\0\u{a}X\u{5}\0i\0\0\0\u{10}U\0\0\0\u{a}`\u{5}\0j\0\0\0\u{2}V\0\0\0\u{a}h\u{5}\0k\0\0\0\u{1}W\0\0\0\u{a}p\u{5}\0l\0\0\0\u{8}X\0\0\0\u{a}x\u{5}\0m\0\u{1}\0\u{e}Y\0\0\0\u{2}\0\u{6}\0n\0\0\0\u{5}Z\0\0\0\u{2}\u{8}\u{6}\0o\0\0\0\u{3}[\0\0\0\u{2}\u{10}\u{6}\0p\0\0\0\u{d}\\\0\0\0\u{2}\u{18}\u{6}\0q\0\0\0\u{4}]\0\0\0\u{2} \u{6}\0r\0\0\0\u{11}^\0\0\0\u{2}(\u{6}\0s\0\0\0\u{12}_\0\0\0\u{2}0\u{6}\0t\0\0\0\u{7}`\0\0\0\u{2}8\u{6}\0u\0\0\0\u{6}a\0\0\0\u{2}@\u{6}\0v\0\0\0\u{f}b\0\0\0\u{2}H\u{6}\0w\0\0\0\u{10}c\0\0\0\u{2}P\u{6}\0x\0\0\0\u{2}d\0\0\0\u{2}X\u{6}\0y\0\0\0\u{1}e\0\0\0\u{2}`\u{6}\0z\0\0\0\u{8}f\0\0\0\u{2}h\u{6}\0{\0\u{1}\0\u{e}o\0\0\0\0\\\0\0k\u{7f}\0\0\u{d}p\0\0\0\0p\u{6}\0k\u{7f}\u{3}\0\u{b}q\0\0\0\0@\u{7}\0k\u{7f}\0\0\u{9}r\0\0\0\0P\u{7}\0k\u{7f}\0\0\u{c}s\0\0\0\09\0\0k\u{7f}\0\0\u{8}t\0\0\0\0x\u{1}\0k\u{7f}\0\0\u{4}u\0\0\0\0`\0\0k\u{7f}\0\0\u{2}v\0\0\0\0\0\u{2}\0k\u{7f}\0\0\u{1}w\0\0\0\0d\0\0k\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0x\u{6}\0\u{16}\0\u{19}\0\u{a}q\u{1}\0\0\0h\0\0\u{17}\0\0\0\u{5}r\u{1}\0\0\0\u{8}\u{2}\0\u{18}\0\0\0\u{3}s\u{1}\0\0\0l\0\0\u{19}\0\0\0\u{d}t\u{1}\0\0\0\u{10}\u{2}\0\u{1a}\0\0\0\u{4}u\u{1}\0\0\0p\0\0\u{1b}\0\0\0\u{11}v\u{1}\0\0\0\u{18}\u{2}\0\u{1c}\0\0\0\u{12}w\u{1}\0\0\0t\0\0\u{1d}\0\0\0\u{7}x\u{1}\0\0\0 \u{2}\0\u{1e}\0\0\0\u{6}y\u{1}\0\0\0x\0\0\u{1f}\0\0\0\u{f}z\u{1}\0\0\0(\u{2}\0 \0\0\0\u{10}{\u{1}\0\0\0|\0\0!\0\0\0\u{2}|\u{1}\0\0\00\u{2}\0\"\0\0\0\u{1}}\u{1}\0\0\0:\0\0#\0\0\0\u{8}~\u{1}\0\0\0`\u{7}\0$\0\0\0\u{9}\u{7f}\u{1}\0\0\0p\u{7}\0%\0\0\0\u{c}\u{11}\u{3}\0\0\0\0\u{1}\0&\0\0\0\u{5}\u{12}\u{3}\0\0\0\u{4}\u{1}\0'\0\0\0\u{5}\u{13}\u{3}\0\0\0\u{8}\u{1}\0(\0\0\0\u{5}\u{14}\u{3}\0\0\0\u{c}\u{1}\0)\0\0\0\u{5}\u{15}\u{3}\0\0\0\u{10}\u{1}\0*\0\0\0\u{5}\u{16}\u{3}\0\0\0\u{14}\u{1}\0+\0\0\0\u{5}\u{17}\u{3}\0\0\0\u{18}\u{1}\0,\0\0\0\u{5}\u{18}\u{3}\0\0\0\u{1c}\u{1}\0-\0\0\0\u{5}\u{19}\u{3}\0\0\0 \u{1}\0.\0\0\0\u{5}\u{1a}\u{3}\0\0\0$\u{1}\0/\0\0\0\u{5}\u{1b}\u{3}\0\0\0(\u{1}\00\0\0\0\u{5}\u{1c}\u{3}\0\0\0,\u{1}\01\0\0\0\u{5}\u{1d}\u{3}\0\0\00\u{1}\02\0\0\0\u{5}\u{1e}\u{3}\0\0\04\u{1}\03\0\0\0\u{5}\u{1f}\u{3}\0\0\08\u{1}\04\0\0\0\u{5} \u{3}\0\0\0<\u{1}\05\0\0\0\u{5}!\u{3}\0\0\0@\u{1}\06\0\0\0\u{5}\"\u{3}\0\0\0D\u{1}\07\0\0\0\u{5}2\0protobuf_test_messages.edition.TestAllTypesEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\u{5} \u{5}\u{1}\0\0\0\08\0\0\u{10}\0\08\u{2}\0\u{1}\0\0\0\0<\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0H\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0@\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0P\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0D\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0X\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0H\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0`\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0L\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0h\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0P\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0p\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\08\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0d\u{4}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0p\u{4}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\08\u{2}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0<\u{2}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0T\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0X\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0|\u{4}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\0\u{8}\u{5}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0@\u{2}\0\u{15}\0\u{5}\0\u{b}\u{1f}\0\0\0\u{a}D\u{2}\08\0\0\0\u{5} \0\0\0\u{a}H\u{2}\09\0\0\0\u{3}!\0\0\0\u{a}L\u{2}\0:\0\0\0\u{d}\"\0\0\0\u{a}P\u{2}\0;\0\0\0\u{4}#\0\0\0\u{a}T\u{2}\0<\0\0\0\u{11}$\0\0\0\u{a}X\u{2}\0=\0\0\0\u{12}%\0\0\0\u{a}\\\u{2}\0>\0\0\0\u{7}&\0\0\0\u{a}`\u{2}\0?\0\0\0\u{6}'\0\0\0\u{a}d\u{2}\0@\0\0\0\u{f}(\0\0\0\u{a}h\u{2}\0A\0\0\0\u{10})\0\0\0\u{a}l\u{2}\0B\0\0\0\u{2}*\0\0\0\u{a}p\u{2}\0C\0\0\0\u{1}+\0\0\0\u{a}t\u{2}\0D\0\0\0\u{8},\0\0\0\u{2}x\u{2}\0E\0\0\0\u{9}-\0\0\0\u{2}|\u{2}\0F\0\0\0\u{c}0\0\0\0\u{2}\0\u{3}\0G\0\u{3}\0\u{b}1\0\0\0\u{2}\u{4}\u{3}\0H\0\u{4}\0\u{b}3\0\0\0\u{a}\u{8}\u{3}\0I\0\u{1}\0\u{e}4\0\0\0\u{a}\u{c}\u{3}\0J\0\u{2}\0\u{e}6\0\0\0\u{2}\u{10}\u{3}\0K\0\0\0\u{9}7\0\0\0\u{2}\u{14}\u{3}\0L\0\0\0\u{9}8\0\0\0\u{4}\u{18}\u{3}\0M\0\u{6}\0\u{b}9\0\0\0\u{4}\u{1c}\u{3}\0N\0\u{7}\0\u{b}:\0\0\0\u{4} \u{3}\0O\0\u{8}\0\u{b};\0\0\0\u{4}$\u{3}\0P\0\u{9}\0\u{b}<\0\0\0\u{4}(\u{3}\0Q\0\u{a}\0\u{b}=\0\0\0\u{4},\u{3}\0R\0\u{b}\0\u{b}>\0\0\0\u{4}0\u{3}\0S\0\u{c}\0\u{b}?\0\0\0\u{4}4\u{3}\0T\0\u{d}\0\u{b}@\0\0\0\u{4}8\u{3}\0U\0\u{e}\0\u{b}A\0\0\0\u{4}<\u{3}\0V\0\u{f}\0\u{b}B\0\0\0\u{4}@\u{3}\0W\0\u{10}\0\u{b}C\0\0\0\u{4}D\u{3}\0X\0\u{11}\0\u{b}D\0\0\0\u{4}H\u{3}\0Y\0\u{12}\0\u{b}E\0\0\0\u{4}L\u{3}\0Z\0\u{13}\0\u{b}F\0\0\0\u{4}P\u{3}\0[\0\u{14}\0\u{b}G\0\0\0\u{4}T\u{3}\0\\\0\u{15}\0\u{b}H\0\0\0\u{4}X\u{3}\0]\0\u{16}\0\u{b}I\0\0\0\u{4}\\\u{3}\0^\0\u{17}\0\u{b}J\0\0\0\u{4}`\u{3}\0_\0\u{18}\0\u{b}K\0\0\0\u{a}d\u{3}\0`\0\0\0\u{5}L\0\0\0\u{a}h\u{3}\0a\0\0\0\u{3}M\0\0\0\u{a}l\u{3}\0b\0\0\0\u{d}N\0\0\0\u{a}p\u{3}\0c\0\0\0\u{4}O\0\0\0\u{a}t\u{3}\0d\0\0\0\u{11}P\0\0\0\u{a}x\u{3}\0e\0\0\0\u{12}Q\0\0\0\u{a}|\u{3}\0f\0\0\0\u{7}R\0\0\0\u{a}\0\u{4}\0g\0\0\0\u{6}S\0\0\0\u{a}\u{4}\u{4}\0h\0\0\0\u{f}T\0\0\0\u{a}\u{8}\u{4}\0i\0\0\0\u{10}U\0\0\0\u{a}\u{c}\u{4}\0j\0\0\0\u{2}V\0\0\0\u{a}\u{10}\u{4}\0k\0\0\0\u{1}W\0\0\0\u{a}\u{14}\u{4}\0l\0\0\0\u{8}X\0\0\0\u{a}\u{18}\u{4}\0m\0\u{1}\0\u{e}Y\0\0\0\u{2}\u{1c}\u{4}\0n\0\0\0\u{5}Z\0\0\0\u{2} \u{4}\0o\0\0\0\u{3}[\0\0\0\u{2}$\u{4}\0p\0\0\0\u{d}\\\0\0\0\u{2}(\u{4}\0q\0\0\0\u{4}]\0\0\0\u{2},\u{4}\0r\0\0\0\u{11}^\0\0\0\u{2}0\u{4}\0s\0\0\0\u{12}_\0\0\0\u{2}4\u{4}\0t\0\0\0\u{7}`\0\0\0\u{2}8\u{4}\0u\0\0\0\u{6}a\0\0\0\u{2}<\u{4}\0v\0\0\0\u{f}b\0\0\0\u{2}@\u{4}\0w\0\0\0\u{10}c\0\0\0\u{2}D\u{4}\0x\0\0\0\u{2}d\0\0\0\u{2}H\u{4}\0y\0\0\0\u{1}e\0\0\0\u{2}L\u{4}\0z\0\0\0\u{8}f\0\0\0\u{2}P\u{4}\0{\0\u{1}\0\u{e}o\0\0\0\0\\\0\0k\u{7f}\0\0\u{d}p\0\0\0\0T\u{4}\0k\u{7f}\u{3}\0\u{b}q\0\0\0\0\u{14}\u{5}\0k\u{7f}\0\0\u{9}r\0\0\0\0 \u{5}\0k\u{7f}\0\0\u{c}s\0\0\0\09\0\0k\u{7f}\0\0\u{8}t\0\0\0\0x\u{1}\0k\u{7f}\0\0\u{4}u\0\0\0\0`\0\0k\u{7f}\0\0\u{2}v\0\0\0\0\0\u{2}\0k\u{7f}\0\0\u{1}w\0\0\0\0d\0\0k\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0X\u{4}\0\u{16}\0\u{19}\0\u{a}q\u{1}\0\0\0h\0\0\u{17}\0\0\0\u{5}r\u{1}\0\0\0\u{8}\u{2}\0\u{18}\0\0\0\u{3}s\u{1}\0\0\0l\0\0\u{19}\0\0\0\u{d}t\u{1}\0\0\0\u{10}\u{2}\0\u{1a}\0\0\0\u{4}u\u{1}\0\0\0p\0\0\u{1b}\0\0\0\u{11}v\u{1}\0\0\0\u{18}\u{2}\0\u{1c}\0\0\0\u{12}w\u{1}\0\0\0t\0\0\u{1d}\0\0\0\u{7}x\u{1}\0\0\0 \u{2}\0\u{1e}\0\0\0\u{6}y\u{1}\0\0\0x\0\0\u{1f}\0\0\0\u{f}z\u{1}\0\0\0(\u{2}\0 \0\0\0\u{10}{\u{1}\0\0\0|\0\0!\0\0\0\u{2}|\u{1}\0\0\00\u{2}\0\"\0\0\0\u{1}}\u{1}\0\0\0:\0\0#\0\0\0\u{8}~\u{1}\0\0\0,\u{5}\0$\0\0\0\u{9}\u{7f}\u{1}\0\0\08\u{5}\0%\0\0\0\u{c}\u{11}\u{3}\0\0\0\0\u{1}\0&\0\0\0\u{5}\u{12}\u{3}\0\0\0\u{4}\u{1}\0'\0\0\0\u{5}\u{13}\u{3}\0\0\0\u{8}\u{1}\0(\0\0\0\u{5}\u{14}\u{3}\0\0\0\u{c}\u{1}\0)\0\0\0\u{5}\u{15}\u{3}\0\0\0\u{10}\u{1}\0*\0\0\0\u{5}\u{16}\u{3}\0\0\0\u{14}\u{1}\0+\0\0\0\u{5}\u{17}\u{3}\0\0\0\u{18}\u{1}\0,\0\0\0\u{5}\u{18}\u{3}\0\0\0\u{1c}\u{1}\0-\0\0\0\u{5}\u{19}\u{3}\0\0\0 \u{1}\0.\0\0\0\u{5}\u{1a}\u{3}\0\0\0$\u{1}\0/\0\0\0\u{5}\u{1b}\u{3}\0\0\0(\u{1}\00\0\0\0\u{5}\u{1c}\u{3}\0\0\0,\u{1}\01\0\0\0\u{5}\u{1d}\u{3}\0\0\00\u{1}\02\0\0\0\u{5}\u{1e}\u{3}\0\0\04\u{1}\03\0\0\0\u{5}\u{1f}\u{3}\0\0\08\u{1}\04\0\0\0\u{5} \u{3}\0\0\0<\u{1}\05\0\0\0\u{5}!\u{3}\0\0\0@\u{1}\06\0\0\0\u{5}\"\u{3}\0\0\0D\u{1}\07\0\0\0\u{5}2\0protobuf_test_messages.edition.TestAllTypesEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\u{2} \u{5}\u{1}\0\0\0\08\0\0\u{10}\0\01\0\0\u{13}\0\0\u{5}\0\0\u{5}\0\0\u{3}\0\0\u{1}\0\0\0\0<\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0H\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0@\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0P\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0D\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0X\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0H\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0`\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0L\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0h\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0P\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0p\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\08\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{12}\0\0\0\0\0\00\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0\u{1}\00\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0T\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0X\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0\u{1}\0@\u{13}\0\0\0\u{9}\u{19}\0\0\0\0\u{2}\0@\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0\u{2}\00\u{15}\0\u{18}\0\u{b}\u{1f}\0\0\0\u{a}\0\0\u{10}8\0\0\0\u{5} \0\0\0\u{a}\u{1}\0\u{10}9\0\0\0\u{3}!\0\0\0\u{a}\u{2}\0\u{10}:\0\0\0\u{d}\"\0\0\0\u{a}\u{3}\0\u{10};\0\0\0\u{4}#\0\0\0\u{a}\u{4}\0\u{10}<\0\0\0\u{11}$\0\0\0\u{a}\u{5}\0\u{10}=\0\0\0\u{12}%\0\0\0\u{a}\u{6}\0\u{10}>\0\0\0\u{7}&\0\0\0\u{a}\u{7}\0\u{10}?\0\0\0\u{6}'\0\0\0\u{a}\u{8}\0\u{10}@\0\0\0\u{f}(\0\0\0\u{a}\u{9}\0\u{10}A\0\0\0\u{10})\0\0\0\u{a}\u{a}\0\u{10}B\0\0\0\u{2}*\0\0\0\u{a}\u{b}\0\u{10}C\0\0\0\u{1}+\0\0\0\u{a}\u{c}\0\u{10}D\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}E\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}F\0\0\0\u{c}0\0\0\0\u{2}\u{f}\0\u{10}G\0\u{3}\0\u{b}1\0\0\0\u{2}\u{10}\0\u{10}H\0\u{4}\0\u{b}3\0\0\0\u{a}\u{11}\0\u{10}I\0\u{1}\0\u{e}4\0\0\0\u{a}\u{12}\0\u{10}J\0\u{2}\0\u{e}6\0\0\0\u{2}\u{13}\0\u{10}K\0\0\0\u{9}7\0\0\0\u{2}\u{14}\0\u{10}L\0\0\0\u{9}8\0\0\0\u{4}\0\0 M\0\u{5}\0\u{b}9\0\0\0\u{4}\u{1}\0 N\0\u{6}\0\u{b}:\0\0\0\u{4}\u{2}\0 O\0\u{7}\0\u{b};\0\0\0\u{4}\u{3}\0 P\0\u{8}\0\u{b}<\0\0\0\u{4}\u{4}\0 Q\0\u{9}\0\u{b}=\0\0\0\u{4}\u{5}\0 R\0\u{a}\0\u{b}>\0\0\0\u{4}\u{6}\0 S\0\u{b}\0\u{b}?\0\0\0\u{4}\u{7}\0 T\0\u{c}\0\u{b}@\0\0\0\u{4}\u{8}\0 U\0\u{d}\0\u{b}A\0\0\0\u{4}\u{9}\0 V\0\u{e}\0\u{b}B\0\0\0\u{4}\u{a}\0 W\0\u{f}\0\u{b}C\0\0\0\u{4}\u{b}\0 X\0\u{10}\0\u{b}D\0\0\0\u{4}\u{c}\0 Y\0\u{11}\0\u{b}E\0\0\0\u{4}\u{d}\0 Z\0\u{12}\0\u{b}F\0\0\0\u{4}\u{e}\0 [\0\u{13}\0\u{b}G\0\0\0\u{4}\u{f}\0 \\\0\u{14}\0\u{b}H\0\0\0\u{4}\u{10}\0 ]\0\u{15}\0\u{b}I\0\0\0\u{4}\u{11}\0 ^\0\u{16}\0\u{b}J\0\0\0\u{4}\u{12}\0 _\0\u{17}\0\u{b}K\0\0\0\u{a}\u{15}\0\u{10}`\0\0\0\u{5}L\0\0\0\u{a}\u{16}\0\u{10}a\0\0\0\u{3}M\0\0\0\u{a}\u{17}\0\u{10}b\0\0\0\u{d}N\0\0\0\u{a}\u{18}\0\u{10}c\0\0\0\u{4}O\0\0\0\u{a}\u{19}\0\u{10}d\0\0\0\u{11}P\0\0\0\u{a}\u{1a}\0\u{10}e\0\0\0\u{12}Q\0\0\0\u{a}\u{1b}\0\u{10}f\0\0\0\u{7}R\0\0\0\u{a}\u{1c}\0\u{10}g\0\0\0\u{6}S\0\0\0\u{a}\u{1d}\0\u{10}h\0\0\0\u{f}T\0\0\0\u{a}\u{1e}\0\u{10}i\0\0\0\u{10}U\0\0\0\u{a}\u{1f}\0\u{10}j\0\0\0\u{2}V\0\0\0\u{a} \0\u{10}k\0\0\0\u{1}W\0\0\0\u{a}!\0\u{10}l\0\0\0\u{8}X\0\0\0\u{a}\"\0\u{10}m\0\u{1}\0\u{e}Y\0\0\0\u{2}#\0\u{10}n\0\0\0\u{5}Z\0\0\0\u{2}$\0\u{10}o\0\0\0\u{3}[\0\0\0\u{2}%\0\u{10}p\0\0\0\u{d}\\\0\0\0\u{2}&\0\u{10}q\0\0\0\u{4}]\0\0\0\u{2}'\0\u{10}r\0\0\0\u{11}^\0\0\0\u{2}(\0\u{10}s\0\0\0\u{12}_\0\0\0\u{2})\0\u{10}t\0\0\0\u{7}`\0\0\0\u{2}*\0\u{10}u\0\0\0\u{6}a\0\0\0\u{2}+\0\u{10}v\0\0\0\u{f}b\0\0\0\u{2},\0\u{10}w\0\0\0\u{10}c\0\0\0\u{2}-\0\u{10}x\0\0\0\u{2}d\0\0\0\u{2}.\0\u{10}y\0\0\0\u{1}e\0\0\0\u{2}/\0\u{10}z\0\0\0\u{8}f\0\0\0\u{2}0\0\u{10}{\0\u{1}\0\u{e}o\0\0\0\0\\\0\0k\u{7f}\0\0\u{d}p\0\0\0\0\u{3}\00k\u{7f}\u{3}\0\u{b}q\0\0\0\0\u{3}\0@k\u{7f}\0\0\u{9}r\0\0\0\0\u{1}\0Pk\u{7f}\0\0\u{c}s\0\0\0\09\0\0k\u{7f}\0\0\u{8}t\0\0\0\0x\u{1}\0k\u{7f}\0\0\u{4}u\0\0\0\0`\0\0k\u{7f}\0\0\u{2}v\0\0\0\0\0\u{2}\0k\u{7f}\0\0\u{1}w\0\0\0\0d\0\0k\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0\u{4}\00\u{16}\0\u{19}\0\u{a}q\u{1}\0\0\0h\0\0\u{17}\0\0\0\u{5}r\u{1}\0\0\0\u{8}\u{2}\0\u{18}\0\0\0\u{3}s\u{1}\0\0\0l\0\0\u{19}\0\0\0\u{d}t\u{1}\0\0\0\u{10}\u{2}\0\u{1a}\0\0\0\u{4}u\u{1}\0\0\0p\0\0\u{1b}\0\0\0\u{11}v\u{1}\0\0\0\u{18}\u{2}\0\u{1c}\0\0\0\u{12}w\u{1}\0\0\0t\0\0\u{1d}\0\0\0\u{7}x\u{1}\0\0\0 \u{2}\0\u{1e}\0\0\0\u{6}y\u{1}\0\0\0x\0\0\u{1f}\0\0\0\u{f}z\u{1}\0\0\0(\u{2}\0 \0\0\0\u{10}{\u{1}\0\0\0|\0\0!\0\0\0\u{2}|\u{1}\0\0\00\u{2}\0\"\0\0\0\u{1}}\u{1}\0\0\0:\0\0#\0\0\0\u{8}~\u{1}\0\0\0\u{4}\0@$\0\0\0\u{9}\u{7f}\u{1}\0\0\0\u{2}\0P%\0\0\0\u{c}\u{11}\u{3}\0\0\0\0\u{1}\0&\0\0\0\u{5}\u{12}\u{3}\0\0\0\u{4}\u{1}\0'\0\0\0\u{5}\u{13}\u{3}\0\0\0\u{8}\u{1}\0(\0\0\0\u{5}\u{14}\u{3}\0\0\0\u{c}\u{1}\0)\0\0\0\u{5}\u{15}\u{3}\0\0\0\u{10}\u{1}\0*\0\0\0\u{5}\u{16}\u{3}\0\0\0\u{14}\u{1}\0+\0\0\0\u{5}\u{17}\u{3}\0\0\0\u{18}\u{1}\0,\0\0\0\u{5}\u{18}\u{3}\0\0\0\u{1c}\u{1}\0-\0\0\0\u{5}\u{19}\u{3}\0\0\0 \u{1}\0.\0\0\0\u{5}\u{1a}\u{3}\0\0\0$\u{1}\0/\0\0\0\u{5}\u{1b}\u{3}\0\0\0(\u{1}\00\0\0\0\u{5}\u{1c}\u{3}\0\0\0,\u{1}\01\0\0\0\u{5}\u{1d}\u{3}\0\0\00\u{1}\02\0\0\0\u{5}\u{1e}\u{3}\0\0\04\u{1}\03\0\0\0\u{5}\u{1f}\u{3}\0\0\08\u{1}\04\0\0\0\u{5} \u{3}\0\0\0<\u{1}\05\0\0\0\u{5}!\u{3}\0\0\0@\u{1}\06\0\0\0\u{5}\"\u{3}\0\0\0D\u{1}\07\0\0\0\u{5}2\0protobuf_test_messages.edition.TestAllTypesEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = "T8\0\0\u{10}O~_CTv-($2z\u{5}\u{1}+\u{1}g\u{19}N\u{15}Pql\u{11}_uc6^V:v1b\u{e}B\u{e}\u{18}}\u{1c}dY\u{8}\u{e}z\u{11}\u{19}\u{3}vC\u{10}]3xuXbfBYY@\r;`i\u{6}T\u{e}T4X!\u{1d}9kf*jW\u{1c}\u{5}e\nJ]oX\rT[xWITC/&.9\u{1d}5G-d\u{c}\u{2}R(U\u{e} n|\u{16}#\u{19}*\u{16}~\u{1a}4=b}`fhM\u{1a}d\u{4}N#^IQ9\\Kik6\u{10}JI?-:;\u{19}T\0\\=Pn\roD'Mf\u{11}DO;\u{5}-\u{8}an\u{c}b\u{18}\u{11}\u{15}.\u{c}n<\u{2}xB\u{8}\u{15}\u{1f}dk\u{17}`u!jo//:Movb+tR\u{16}\u{18}{e\u{1a}@UFf>B+]w+\u{5}8R\u{1}\u{1c}Nha\rUf}_nN\u{1d}wAFXS;\u{f}d&Tk|V2AsiO[\u{1c}82|a\"\"`\u{19}\ri{\u{14}YjYs/\u{1b}a2p\u{1a}'ZmWzUE\u{19}>\u{11}Oh;NMJM;x*YPZ\\\u{1e}0\u{10}GD\u{1f}2f/9\u{b}\u{11}+m\u{1f}KD\u{17}|%.\u{f}\u{11}\u{1b}r)2w})6|,\u{18}7C\u{1e}UQ\u{f}_\\|XT!jvZ7\t(B\u{f}h.\u{19}CFv\rVPF~Z\u{1a}\u{b}`O(\u{10}\u{1c}*\u{e}\u{14}p`pBLo\05\u{10}\u{1d}S0\tS_\u{18}U\u{13}_IH>{o_,\u{5}eIf\u{16}\u{11}s\r=\0Xw\u{16}\u{1d}\"*f\u{c}#Q*\u{19}\u{8}{X\u{6}G\u{12}G\u{3}&4^n\u{11}$_I\u{b}7=1e\u{16}^\n1G)q/G\u{5}&\\\u{15}\rLrj\tB\u{17}\u{15}\u{17}\n\u{1d}\u{f}l?\0r^-PA\u{17}Y\u{2}Q1K%\u{8}:x\u{1}\u{16}\u{11}\rh\u{17}\u{1c}:7zM%\u{3}0\u{15}dXt\u{7}Gp9h\u{15}\t<[A\u{b}(T~\n:8z\u{4}D*3MaZ*\u{11}WgJg2\u{16}_!FCHpp\u{c}f y2:Dp1\u{e}9/\u{10}Fs/CJUo\u{15}zZj [,PS%>9gUS+8 ^f0k|Q\u{1b}\u{1f}\nBd\u{19}\\\0\u{17}1ec8_lS\u{1a}C\u{1a}\u{13}\u{6}\u{12}\u{c}z\t]\n\u{16}3im;&T\"\\w\u{e}Q'8U4p\u{e}z`^\u{6}@\u{f}#4OI \u{12}=j\u{3}!\u{7f}Jd}ro?B@|\u{7f} \u{e}U~8/7\u{f}\u{13}q\u{1f}VIP%\u{3}p)8sJ.\u{c}Ttd(&\u{1d}c(\u{2}Ua;\u{7f}Dm\u{15}\u{1f}URPv\u{3}o7\u{1f}B`\u{2}Jf\u{8}Q@#kzqEp\u{4}\u{f}^_7@\u{3}i\u{2}DuEoQ\u{c}\r\u{1e}\u{e}\u{1b}kt\u{1}\u{2}a\u{8}tf\u{14}\u{6}\u{f}s(R$aRuIFi\u{12}T3\u{15}\0I\u{15}Q\u{14}%uq$ccN}#*N(B@tK3 c5;(\u{1d}w}\u{b}v\u{4}}/\u{17}oN`!BOF*&,u\"Eu>[mCpiVv\u{7f}=C\u{1c}QEu%\u{1a}(\u{10}X\u{f}t\u{5}]1*Hjdhul:sZ\u{e}57M\"#1wVX?DM`\n\u{7}GT?\rF[!\u{15}\"c{'}.i\u{1e}(\u{1e}p*\u{f}%ra\u{8}DH\u{13}/\u{f}au1e?|#[=t\u{1e}Dz2|c\u{c}NK\u{14}w\u{c}\u{11}\u{18}I6y?fDd\tRVy\u{1f}-\u{c}:\u{e}V\u{1d}\u{f}\u{1c}g\u{2}Fs0`$c\u{15}?WKA@H\u{16}!ItO\u{1b}br0,}l:ZJ\u{12}cL>Yfn\u{19}g7\u{17}\u{18}eII\0\u{11}hjt#hq\u{12}=(\u{13}\u{5}\u{1a}\u{7}W\u{7}]\u{8}w\u{14}\u{18}2~\u{18}l`\\,_\twMfX!oj)Rj\u{11}^#0RORM%\u{3}Eq#V{v r\u{1e}0;&*D\\{K\u{1a}\u{13}G\u{16}a\u{13}T;ndw;%f\u{1b}\r\u{1d}\u{18}Q$\u{1e}84\u{e}Ddy00<(|\t\u{15}i\u{3} s\u{1}\u{18}mc\u{1f}\u{7f}T\u{7f}'ARJR\u{19},Uq\u{6}^\u{b}'\t)R1\u{1a}/1\u{7f}\r\u{7f}u\u{1a}\u{b}who\u{11}Sz\u{7f}{a(\u{1e},I0E\u{16}sR\tP\u{1b}&&ui]IZ#h|oi\u{1f}_\u{5} w]\u{15}p\u{5}-ylI^O-cjnfZZH+Xe7:\u{3}yY\u{16}*g~Th\0O0OW\u{18}\u{19}\"0/yT2jZ;\u{14}XVNo\u{10}~[\u{e}HR\u{2}O:v\u{1f}H6\u{13}ehPfzp*4C/q\t\\Hl2-\u{18}\u{1e}Ub\u{7},%lV\u{1a}\u{12};s3s%m>[QQ\u{15}5!l)){a]\u{1b}\u{1d}A\u{13}.BRh^v\rY8v5]\u{16}u\u{3}Y'\u{15}p\raF; +Ec\u{2}u\n.g#\u{12}!$x\u{12}\u{e}l\u{16}m^\u{1f}[?Tebk\0\u{6}&`eV\u{b}/yI1\u{1e}\u{4}#\u{1d}U\u{7f}9\u{e}\u{1}2E\u{1b})oQ4*[Kcw+poL[y\u{1d}|A;xWzsLR@\"\r\u{15}:\u{7f}4\u{8}s\u{19}\u{2}V\n_Y\r1j\u{b}\u{11}0=\u{18}\u{c}\r\u{15}\u{15}JxqV_\u{15}^\u{12}sW5\u{1}=%[2k|R#]#\u{15}\u{17}\u{3}GQe\u{8}\u{19}\u{11}!#~\u{1d}\u{1d}{JiY\u{14}5\u{7}j7s\r<=EK~lLk\u{1}\u{1f}\u{19}Y\u{19}_|D_WBU2y\u{f}CF\u{13}[Ch\u{14}[tbc4T0\u{15}c@xc\u{10}\u{17}]\ndB}a\u{5}\0\u{19}p\u{4}k\u{18}Hd\u{11}\t'\u{18}V3\u{18}p\u{1b}-1qLX\0;Sa2D/[\u{6}.7?24\u{1c}\u{1b}]\u{7}G\u{2}Lmj%!`!\0\u{c}\u{1}8\"\u{14}esf~b\0\u{12}w0V\")I\u{16}f:LJ\u{7f}X\u{11} ;e\u{1e}\u{19}Nt\u{17}s&\u{17}s_K}[!\u{b}zN\u{11}\\x\n;\u{2}hG{E<uhv3q$\u{5}?\r\u{6}w\u{3}\u{15}\u{11}1\\i\u{c}1Fj^d7\u{1d}{=\u{14}\u{11}\u{1f}]gsC[d`#0./\u{1a}TR#$\u{12}\u{8}S\u{15}9I\\(\u{3}6v\u{7f}u=\u{12}^6@e\u{18}:5O<qg\u{2}EhGt\u{b}t\r#B4A4/\u{7f}M\u{12}8\u{19}k$\u{7f}Ok1\u{6}\u{18}C\u{f}Lk_$9Gx|cO$LVN,\u{1e}JYoP\u{5}KwJ\\$JO.\u{6}B8MwY~D\u{4}\u{1e}~qIVEne\u{13}\u{10}U&u`>\u{f}s\u{10}'?\u{10}\u{1d},'J\u{e}]0Y\u{15}\u{1e}h|Q-VN\u{13}\\\u{10}=Rt\"/\u{e}x\\\u{19}S,!UnbCJF6)\u{2}%h!bl[\u{10}.\u{3}K HeyKn\u{18}\u{7}2*-EFT:P\u{1b}?No\u{19}Y>\u{16}~\u{19}bt]nezU?|\u{1}(5ioJ|+A>\u{b}MF0!9!F*x.f\u{1a}?\u{12}kD #7\u{11}\u{13}'NjlB\u{6}+*on\u{1e}-l*+\rv>\u{2}\u{1f}\u{1e}Rgq^1Gd\u{8}N_\u{8}M\u{7f}mB!aZ\u{7}\u{b}2\u{8};\u{5}\u{1f}{\u{14})p0\u{c}\u{16}$6V5Vvo?_c<*U\n7\u{11}^>!P\u{4}\u{11}\u{7}<h4\u{e}mk\r\u{7}\u{7}S0\u{3}?\u{1d}\0i&z\u{c}\u{2}bd\r~*28\\R{F6\u{1a}\t 5R,L`\u{8}\u{14}O4\u{10}K ~\u{1e}O!ZQ\u{12}i~<hU,\u{8})dk0>\u{1b}L\u{1c}\0\u{2}\0'jkmkM\u{1b}FzktAG?I\u{10}>\n'W1Fa\u{10};@zb-2GEFx9Yxz\u{7}q~s\u{1f}\u{15}{9e\u{1d}\u{10}+\\\u{1f}\u{4}z{mj&\u{4}\"q\u{1a}\u{14}G\u{f}\n\u{8}D\u{16}\u{5}[\u{f}\u{19}x\u{e}?-\u{f}\u{6}B\u{2}E\t\n\u{7f}\u{8}D43\u{1b}:\u{e}\"b:M\u{c}\u{1e}+0)IO\u{1b}\u{16})N\u{14}o7\u{13}1\u{13}g#0JQ[a\u{4}q\ta{\"\u{1d}W(8_\u{17}AVg\nj \u{1a}\u{19}\u{c}R#\u{c}Jz:R9jim\u{19}\u{17}^U*\u{4}2\u{16}A,(N2\u{11}]U*4qSN*'\u{b}\u{16}zh'\u{13}G}S\u{e}\u{17}g\u{18}K\u{11}Z\u{1e}]\\\0EMB3\u{1a}hL0>\"53\u{16}fc@&P*3(DH6\u{6}qk\u{f}\u{17}Y1Q[NW\0\u{5}\u{e}\u{c}l\u{17}6@\u{6}WZzQ$+>+S@YykRx)$_\u{16}H\u{17}uVX\u{18}WKh[5/\u{1d}-\u{3}$\u{17}A\u{18}#E\u{3}\u{13}\u{4}l\t\n'g3#\u{e}\u{1c}B,7xH71\u{11}nmSq\u{4}GS?\u{4}\"5\u{1d}\u{1f}F?/Tn\u{1c}bs$wp,\u{10}#Nt},/1(A\u{1e}\u{b}p-U+\tCxtC|\u{11}\nzp[uX:uY\u{4}I\u{1f}Y]lKA(`&o!\u{1f}m\u{2}\u{19}QX\\K\r\u{3}\u{e}u\u{6}*f\u{6}x\u{e}\u{18}@.\u{16}!,v{\u{4}i.\u{14}\u{6}g\\\u{3}Q$PC+M\u{b}\u{3}p?k\u{6}l$\n)Ll@\u{1e}\u{16}\u{e}/\\\u{4}sQ+3)k=dbF\u{11}gzg^.4lY 7\u{10}5!.@,Qm\\tmdC'\njp^\u{10}=,k*G|pZw}^\u{19}ri664\\\"\u{8}O#B?2\u{14}.^J]~gI$~V.\u{18}\u{14}%\0Zxk\u{6}xH&0T'I\u{4}\u{17}2+\u{e}$\u{15}Cx%3\u{17}2l8\u{15}x\u{14}\u{1c}(2'\rgpK}It\u{6}wil\u{18}\t\u{15}^K3\u{7}\u{1c})z\\a\u{4}+ #\\C{\u{11}4b`~Fs\\\u{1}\u{1e}\u{11}\u{19}@\u{1f}A)\u{16}qinO\u{1}vor:\u{7}Atqbt{-98WD@bTg\u{c}\u{13}oUY]\u{4}HV\r$a\u{7}\u{f}9>@\u{7f}N\u{7}s8#:}Y[K\0.n~\u{14}\u{19}\u{8}%-)\0OO_\u{1d}\u{1e}L\u{5}\u{1f}MuHg[aK}TO\0\u{3}lk\u{c}F}97owN\u{12}\u{16}CL\u{1b}\u{17}B+r#^;i\u{19}_L\u{1d}]a+R\u{4}7(\u{b}\u{4}tVHs=\n?C\u{8}a.kj\u{1c}y`w-aOQ\u{1f}7\\fV_;QC_K\u{1}!\r\u{18}(\u{1d}@03\\\u{1f}Hi\u{1c}4\u{19}\u{f}\u{6}\u{1c}\u{1b};\u{7}\u{1f}fZs\u{3}dq6%E\u{7f}D;s\u{14}(\u{19}T\u{12}m\u{1b}X\u{3}?\u{7f}p+\u{1}\u{12}\u{7}\u{1f}W\u{1e}g\\\\:\u{1f}\u{12}0\u{1a}JjIw\\v\u{17}\r;};%\u{11}\u{6}wr>O;\u{1f}=:H:[%4Z\u{1f}\n!\u{18}AB\u{1b}\u{4}eM\u{1e}\u{15}%/I1n(9y\u{f}j?|&pHo0z\u{7}9Z\nJAz\u{15}2\u{c}CZm\u{1f}\u{e}!^i=.1\u{7f}\u{11}\u{7f}\u{14}\u{7}FE@`\u{1b}9s'\u{1f}N\u{2}]<Um\u{6}FE\u{10}\u{1a}7\u{12}e3E.olM/m/cgL\u{16}z\rH\u{1d}\u{c}!\u{1c}[T)w]I]\u{e}m\u{7}\u{b}m\0g\nF-\u{1f}t\u{6}:I8A\u{14}C?y=HP i\")BQ\u{c}g\u{2}v\u{7f}5\u{8}ejP\u{2}x\u{e}'gr\n{0AG<\u{f}M\t$u\u{b}\u{13}V\u{11}5vs }N\u{13}L\u{17}83h\u{18}WUALM\u{11}\u{6}\u{1a}|/U8s\u{6}P,\"U(\u{b}fZWz%\u{2}\u{1a}KJy\\\u{b}\n;e;knttONM\"gGyr\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2156,181 +2150,67 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition: SwiftProtobuf.Genera
     case 2: return .enum(ProtobufTestMessages_Edition_ForeignEnumEdition.enumSchema)
     case 3: return .message(ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage.messageSchema)
     case 4: return .message(ProtobufTestMessages_Edition_ForeignMessageEdition.messageSchema)
-    case 5: return .message(ProtobufTestMessages_Edition_TestAllTypesEdition.messageSchema)
-    case 6: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
-    case 7: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
-    case 8: return .message(_protobuf_mapEntrySchema_MapUint32Uint32Entry)
-    case 9: return .message(_protobuf_mapEntrySchema_MapUint64Uint64Entry)
-    case 10: return .message(_protobuf_mapEntrySchema_MapSint32Sint32Entry)
-    case 11: return .message(_protobuf_mapEntrySchema_MapSint64Sint64Entry)
-    case 12: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed32Entry)
-    case 13: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed64Entry)
-    case 14: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry)
-    case 15: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry)
-    case 16: return .message(_protobuf_mapEntrySchema_MapInt32FloatEntry)
-    case 17: return .message(_protobuf_mapEntrySchema_MapInt32DoubleEntry)
-    case 18: return .message(_protobuf_mapEntrySchema_MapBoolBoolEntry)
-    case 19: return .message(_protobuf_mapEntrySchema_MapStringStringEntry)
-    case 20: return .message(_protobuf_mapEntrySchema_MapStringBytesEntry)
-    case 21: return .message(_protobuf_mapEntrySchema_MapStringNestedMessageEntry)
-    case 22: return .message(_protobuf_mapEntrySchema_MapStringForeignMessageEntry)
-    case 23: return .message(_protobuf_mapEntrySchema_MapStringNestedEnumEntry)
-    case 24: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
+    case 5: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
+    case 6: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
+    case 7: return .message(_protobuf_mapEntrySchema_MapUint32Uint32Entry)
+    case 8: return .message(_protobuf_mapEntrySchema_MapUint64Uint64Entry)
+    case 9: return .message(_protobuf_mapEntrySchema_MapSint32Sint32Entry)
+    case 10: return .message(_protobuf_mapEntrySchema_MapSint64Sint64Entry)
+    case 11: return .message(_protobuf_mapEntrySchema_MapFixed32Fixed32Entry)
+    case 12: return .message(_protobuf_mapEntrySchema_MapFixed64Fixed64Entry)
+    case 13: return .message(_protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry)
+    case 14: return .message(_protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry)
+    case 15: return .message(_protobuf_mapEntrySchema_MapInt32FloatEntry)
+    case 16: return .message(_protobuf_mapEntrySchema_MapInt32DoubleEntry)
+    case 17: return .message(_protobuf_mapEntrySchema_MapBoolBoolEntry)
+    case 18: return .message(_protobuf_mapEntrySchema_MapStringStringEntry)
+    case 19: return .message(_protobuf_mapEntrySchema_MapStringBytesEntry)
+    case 20: return .message(_protobuf_mapEntrySchema_MapStringNestedMessageEntry)
+    case 21: return .message(_protobuf_mapEntrySchema_MapStringForeignMessageEntry)
+    case 22: return .message(_protobuf_mapEntrySchema_MapStringNestedEnumEntry)
+    case 23: return .message(_protobuf_mapEntrySchema_MapStringForeignEnumEntry)
+    case 24: return .message(ProtobufTestMessages_Edition_TestAllTypesEdition.messageSchema)
     case 25: return .message(ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32Int32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32Int32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32Int32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32Int32Entry"
   private static let _protobuf_mapEntrySchema_MapInt32Int32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32Int32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt64Int64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt64Int64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt64Int64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{3}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt64Int64Entry"
   private static let _protobuf_mapEntrySchema_MapInt64Int64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt64Int64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint32Uint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint32Uint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint32Uint32Entry"
   private static let _protobuf_mapEntrySchema_MapUint32Uint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint32Uint32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint64Uint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint64Uint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{4}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapUint64Uint64Entry"
   private static let _protobuf_mapEntrySchema_MapUint64Uint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapUint64Uint64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint32Sint32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint32Sint32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{11}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{11}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint32Sint32Entry"
   private static let _protobuf_mapEntrySchema_MapSint32Sint32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint32Sint32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint64Sint64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint64Sint64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{12}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{12}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapSint64Sint64Entry"
   private static let _protobuf_mapEntrySchema_MapSint64Sint64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSint64Sint64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed32Fixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed32Fixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{7}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed32Fixed32Entry"
   private static let _protobuf_mapEntrySchema_MapFixed32Fixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed32Fixed32Entry_string, forMapEntryWithKeyType: ProtobufMapUInt32Field.self, valueType: ProtobufMapUInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed64Fixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed64Fixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{6}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{6}I\0protobuf_test_messages.edition.TestAllTypesEdition.MapFixed64Fixed64Entry"
   private static let _protobuf_mapEntrySchema_MapFixed64Fixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapFixed64Fixed64Entry_string, forMapEntryWithKeyType: ProtobufMapUInt64Field.self, valueType: ProtobufMapUInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed32Sfixed32Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed32Sfixed32Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{f}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed32Sfixed32Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed32Sfixed32Entry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapInt32Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed64Sfixed64Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{18}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed64Sfixed64Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{10}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{10}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapSfixed64Sfixed64Entry"
   private static let _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapSfixed64Sfixed64Entry_string, forMapEntryWithKeyType: ProtobufMapInt64Field.self, valueType: ProtobufMapInt64Field.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32FloatEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32FloatEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32FloatEntry_string: Swift.StaticString = "\0\u{c}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{2}E\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32FloatEntry"
   private static let _protobuf_mapEntrySchema_MapInt32FloatEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32FloatEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapFloatField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32DoubleEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32DoubleEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry_string: Swift.StaticString = "\0\u{10}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{1}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapInt32DoubleEntry"
   private static let _protobuf_mapEntrySchema_MapInt32DoubleEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapInt32DoubleEntry_string, forMapEntryWithKeyType: ProtobufMapInt32Field.self, valueType: ProtobufMapDoubleField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}C\0protobuf_test_messages.edition.TestAllTypesEdition.MapBoolBoolEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}C\0protobuf_test_messages.edition.TestAllTypesEdition.MapBoolBoolEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapBoolBoolEntry_string: Swift.StaticString = "\0\u{3}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}C\0protobuf_test_messages.edition.TestAllTypesEdition.MapBoolBoolEntry"
   private static let _protobuf_mapEntrySchema_MapBoolBoolEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBoolBoolEntry_string, forMapEntryWithKeyType: ProtobufMapBoolField.self, valueType: ProtobufMapBoolField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{9}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringStringEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringStringEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringStringEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}G\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringStringEntry"
   private static let _protobuf_mapEntrySchema_MapStringStringEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringStringEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapStringField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\00\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{c}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringBytesEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0$\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{18}\0\0\u{1}\0\0\0\u{c}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringBytesEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringBytesEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}F\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringBytesEntry"
   private static let _protobuf_mapEntrySchema_MapStringBytesEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringBytesEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapDataField.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}N\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedMessageEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}N\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedMessageEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}N\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedMessageEntry"
   private static let _protobuf_mapEntrySchema_MapStringNestedMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringNestedMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}O\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignMessageEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{b}O\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignMessageEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}O\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignMessageEntry"
   private static let _protobuf_mapEntrySchema_MapStringForeignMessageEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignMessageEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ProtobufTestMessages_Edition_ForeignMessageEdition>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedEnumEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedEnumEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}K\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringNestedEnumEntry"
   private static let _protobuf_mapEntrySchema_MapStringNestedEnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringNestedEnumEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum>.self)
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0 \0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}L\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignEnumEntry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{18}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}L\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignEnumEntry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}L\0protobuf_test_messages.edition.TestAllTypesEdition.MapStringForeignEnumEntry"
   private static let _protobuf_mapEntrySchema_MapStringForeignEnumEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapStringForeignEnumEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapEnumField<ProtobufTestMessages_Edition_ForeignEnumEdition>.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
@@ -2344,13 +2224,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum {
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}@\0protobuf_test_messages.edition.TestAllTypesEdition.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}@\0protobuf_test_messages.edition.TestAllTypesEdition.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}@\0protobuf_test_messages.edition.TestAllTypesEdition.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}PJ\u{6}U u0U\n\u{17}2oq\u{18}U.=v..cL\u{b}b\r\u{15}V\t\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2367,13 +2241,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage: SwiftP
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}7\0protobuf_test_messages.edition.TestAllTypesEdition.Data"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}7\0protobuf_test_messages.edition.TestAllTypesEdition.Data"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}7\0protobuf_test_messages.edition.TestAllTypesEdition.Data"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$p\u{15}\u{15} ya\u{e}6P\u{1d}b\u{f}\u{e}\t^\u{12}LvgJ \u{1b}pv\u{16}\tq{]* \u{f}4No8L\nS\0\u{1}\u{10}ON>GTj\u{7f}5!=\u{7}-\u{2}\u{8}]]J\t\u{19}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2383,13 +2251,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.DataMessage: SwiftPro
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrect: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0D\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrect"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0D\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrect"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0D\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrect"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2399,13 +2261,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrect: Sw
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrectExtension1: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{19}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension1"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{c}\0\0\u{19}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension1"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{19}\0\0\0\0\0\0@\0\0\0\0\u{9}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension1"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$*a%d~/\u{3}ZI\u{1c}C{^k?9>"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2415,13 +2271,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrectExte
 }
 
 extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrectExtension2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}N\0protobuf_test_messages.edition.TestAllTypesEdition.MessageSetCorrectExtension2"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$\u{1a} ef~/C\u{18}H\u{5}]K!\u{1c}`\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2431,13 +2281,7 @@ extension ProtobufTestMessages_Edition_TestAllTypesEdition.MessageSetCorrectExte
 }
 
 extension ProtobufTestMessages_Edition_ForeignMessageEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0protobuf_test_messages.edition.ForeignMessageEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0protobuf_test_messages.edition.ForeignMessageEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0protobuf_test_messages.edition.ForeignMessageEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2447,13 +2291,7 @@ extension ProtobufTestMessages_Edition_ForeignMessageEdition: SwiftProtobuf.Gene
 }
 
 extension ProtobufTestMessages_Edition_UnknownToTestAllTypes: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{5}\0\0\u{1}\0\0\u{8}\0\0i\u{7}\0\0\0\u{4}\0\0\0\0\0\0\u{5}j\u{7}\0\0\0 \0\0\u{1}\0\0\0\u{9}k\u{7}\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{b}l\u{7}\0\0\0\u{10}\0\0\u{3}\0\u{2}\0\u{a}n\u{7}\0\0\0\u{1}\0\0\u{4}\0\0\0\u{8}s\u{7}\0\0\u{a}\u{18}\0\0\u{5}\0\0\0\u{5}4\0protobuf_test_messages.edition.UnknownToTestAllTypes"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{5}\0\0\u{1}\0\0\u{8}\0\0i\u{7}\0\0\0\u{4}\0\0\0\0\0\0\u{5}j\u{7}\0\0\0\u{18}\0\0\u{1}\0\0\0\u{9}k\u{7}\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{b}l\u{7}\0\0\0\u{c}\0\0\u{3}\0\u{2}\0\u{a}n\u{7}\0\0\0\u{1}\0\0\u{4}\0\0\0\u{8}s\u{7}\0\0\u{a}\u{10}\0\0\u{5}\0\0\0\u{5}4\0protobuf_test_messages.edition.UnknownToTestAllTypes"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{6}\0\0\0\0\0\u{5}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0i\u{7}\0\0\0\u{4}\0\0\0\0\0\0\u{5}j\u{7}\0\0\0\0\0@\u{1}\0\0\0\u{9}k\u{7}\0\0\0\0\00\u{2}\0\u{1}\0\u{b}l\u{7}\0\0\0\u{1}\00\u{3}\0\u{2}\0\u{a}n\u{7}\0\0\0\u{1}\0\0\u{4}\0\0\0\u{8}s\u{7}\0\0\u{a}\0\0\u{10}\u{5}\0\0\0\u{5}4\0protobuf_test_messages.edition.UnknownToTestAllTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\u{2}\0\0\u{10}s\u{1e}\rzSe%wC\u{11}g\u{6}xB\u{1a} LO\u{18}\u{3}bV\u{19}>\t\u{17}\u{f}+4\u{1e}r\09<\n\u{6}k\u{14}\u{7f}E\n'&0i.=e*z_O`P_\\T\u{1f}@QA[`_\u{1e}Hide0\u{4}tx3\rDsU Ocny\u{11}|<\u{7f}<\0:\u{14}aWkc)1N$o&[]UY\u{f}\u{4}\u{1e}_A\u{c}\u{18}\u{17}w0YV\u{1b}paP\u{3}\u{7f}\u{15}' S6 7-\u{12}Vp<\u{e}\u{6}bDZ\u{4}\"\u{5}~\u{6}V\u{5}l4\u{4}:*\u{1c}\u{12}\u{2}f`C\u{11}%\u{1}}\r\"+++\u{10}\0T\u{17}4K\u{19}4Ou<\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2471,13 +2309,7 @@ extension ProtobufTestMessages_Edition_UnknownToTestAllTypes: SwiftProtobuf.Gene
 }
 
 extension ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}B\0protobuf_test_messages.edition.UnknownToTestAllTypes.OptionalGroup"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}B\0protobuf_test_messages.edition.UnknownToTestAllTypes.OptionalGroup"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}B\0protobuf_test_messages.edition.UnknownToTestAllTypes.OptionalGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2487,13 +2319,7 @@ extension ProtobufTestMessages_Edition_UnknownToTestAllTypes.OptionalGroup: Swif
 }
 
 extension ProtobufTestMessages_Edition_NullHypothesisEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\04\0protobuf_test_messages.edition.NullHypothesisEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\04\0protobuf_test_messages.edition.NullHypothesisEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\04\0protobuf_test_messages.edition.NullHypothesisEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2503,13 +2329,7 @@ extension ProtobufTestMessages_Edition_NullHypothesisEdition: SwiftProtobuf.Gene
 }
 
 extension ProtobufTestMessages_Edition_EnumOnlyEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0protobuf_test_messages.edition.EnumOnlyEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0.\0protobuf_test_messages.edition.EnumOnlyEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0.\0protobuf_test_messages.edition.EnumOnlyEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2525,13 +2345,7 @@ extension ProtobufTestMessages_Edition_EnumOnlyEdition.BoolEnum {
 }
 
 extension ProtobufTestMessages_Edition_OneStringEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}/\0protobuf_test_messages.edition.OneStringEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}/\0protobuf_test_messages.edition.OneStringEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}/\0protobuf_test_messages.edition.OneStringEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2541,13 +2355,7 @@ extension ProtobufTestMessages_Edition_OneStringEdition: SwiftProtobuf.Generated
 }
 
 extension ProtobufTestMessages_Edition_ProtoWithKeywords: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\0\0\u{9}0\0protobuf_test_messages.edition.ProtoWithKeywords"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{c}\0\0\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\0\0\u{9}0\0protobuf_test_messages.edition.ProtoWithKeywords"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\0\0\u{9}0\0protobuf_test_messages.edition.ProtoWithKeywords"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJTZV{n GMwQys\u{7f}5;kYtf},-*i\u{e}dqe5#_e\rx$\u{c}`aR\u{1a}y=v/\"\u{7f}2#\u{1e}Ln\u{e}\u{1f}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2557,13 +2365,7 @@ extension ProtobufTestMessages_Edition_ProtoWithKeywords: SwiftProtobuf.Generate
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\u{2} '\0\0$\0\0'\0\0\u{10}\0\0 \u{1}\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0@\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0H\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0P\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0X\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{18}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0`\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0h\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{5}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0P\u{1}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0`\u{1}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0 \u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0(\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0 \0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0$\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0p\u{1}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\0\0\u{2}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\00\u{1}\0$\0\u{5}\0\u{b}\u{1c}\0\0\0\08\u{1}\0%\0\u{5}\0\u{b}I\u{1}\0\0\0@\u{1}\0&\0\u{6}\0\u{a}q\u{1}\0\0\0(\0\0\u{15}\0\0\0\u{5}r\u{1}\0\0\0p\0\0\u{16}\0\0\0\u{3}s\u{1}\0\0\0,\0\0\u{17}\0\0\0\u{d}t\u{1}\0\0\0x\0\0\u{18}\0\0\0\u{4}u\u{1}\0\0\00\0\0\u{19}\0\0\0\u{11}v\u{1}\0\0\0\0\u{1}\0\u{1a}\0\0\0\u{12}w\u{1}\0\0\04\0\0\u{1b}\0\0\0\u{7}x\u{1}\0\0\0\u{8}\u{1}\0\u{1c}\0\0\0\u{6}y\u{1}\0\0\08\0\0\u{1d}\0\0\0\u{f}z\u{1}\0\0\0\u{10}\u{1}\0\u{1e}\0\0\0\u{10}{\u{1}\0\0\0<\0\0\u{1f}\0\0\0\u{2}|\u{1}\0\0\0\u{18}\u{1}\0 \0\0\0\u{1}}\u{1}\0\0\0\u{6}\0\0!\0\0\0\u{8}~\u{1}\0\0\0\u{10}\u{2}\0\"\0\0\0\u{9}\u{7f}\u{1}\0\0\0 \u{2}\0#\0\0\0\u{c}:\0protobuf_test_messages.edition.TestAllRequiredTypesEdition"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0|\u{1} '\0\0$\0\0'\0\0\u{10}\0\0 \u{1}\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0@\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0H\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0P\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0X\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{18}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0`\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0h\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{5}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\04\u{1}\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0@\u{1}\0\u{e}\0\0\0\u{c}\u{12}\0\0\0\0 \u{1}\0\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0$\u{1}\0\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0 \0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0$\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0L\u{1}\0\u{13}\0\0\0\u{9}\u{19}\0\0\0\0X\u{1}\0\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0(\u{1}\0$\0\u{5}\0\u{b}\u{1c}\0\0\0\0,\u{1}\0%\0\u{5}\0\u{b}I\u{1}\0\0\00\u{1}\0&\0\u{6}\0\u{a}q\u{1}\0\0\0(\0\0\u{15}\0\0\0\u{5}r\u{1}\0\0\0p\0\0\u{16}\0\0\0\u{3}s\u{1}\0\0\0,\0\0\u{17}\0\0\0\u{d}t\u{1}\0\0\0x\0\0\u{18}\0\0\0\u{4}u\u{1}\0\0\00\0\0\u{19}\0\0\0\u{11}v\u{1}\0\0\0\0\u{1}\0\u{1a}\0\0\0\u{12}w\u{1}\0\0\04\0\0\u{1b}\0\0\0\u{7}x\u{1}\0\0\0\u{8}\u{1}\0\u{1c}\0\0\0\u{6}y\u{1}\0\0\08\0\0\u{1d}\0\0\0\u{f}z\u{1}\0\0\0\u{10}\u{1}\0\u{1e}\0\0\0\u{10}{\u{1}\0\0\0<\0\0\u{1f}\0\0\0\u{2}|\u{1}\0\0\0\u{18}\u{1}\0 \0\0\0\u{1}}\u{1}\0\0\0\u{6}\0\0!\0\0\0\u{8}~\u{1}\0\0\0d\u{1}\0\"\0\0\0\u{9}\u{7f}\u{1}\0\0\0p\u{1}\0#\0\0\0\u{c}:\0protobuf_test_messages.edition.TestAllRequiredTypesEdition"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1} '\0\0$\0\0'\0\0\u{10}\0\0\0\0\0\0\0\0\u{5}\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0@\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0H\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{10}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0P\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0X\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{18}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0`\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{1c}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0h\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{5}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{12}\0\0\0\0\0\00\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0\u{1}\00\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0 \0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0$\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0\u{1}\0@\u{13}\0\0\0\u{9}\u{19}\0\0\0\0\u{2}\0@\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0\u{2}\00$\0\u{5}\0\u{b}\u{1c}\0\0\0\0\u{3}\00%\0\u{5}\0\u{b}I\u{1}\0\0\0\u{4}\00&\0\u{6}\0\u{a}q\u{1}\0\0\0(\0\0\u{15}\0\0\0\u{5}r\u{1}\0\0\0p\0\0\u{16}\0\0\0\u{3}s\u{1}\0\0\0,\0\0\u{17}\0\0\0\u{d}t\u{1}\0\0\0x\0\0\u{18}\0\0\0\u{4}u\u{1}\0\0\00\0\0\u{19}\0\0\0\u{11}v\u{1}\0\0\0\0\u{1}\0\u{1a}\0\0\0\u{12}w\u{1}\0\0\04\0\0\u{1b}\0\0\0\u{7}x\u{1}\0\0\0\u{8}\u{1}\0\u{1c}\0\0\0\u{6}y\u{1}\0\0\08\0\0\u{1d}\0\0\0\u{f}z\u{1}\0\0\0\u{10}\u{1}\0\u{1e}\0\0\0\u{10}{\u{1}\0\0\0<\0\0\u{1f}\0\0\0\u{2}|\u{1}\0\0\0\u{18}\u{1}\0 \0\0\0\u{1}}\u{1}\0\0\0\u{6}\0\0!\0\0\0\u{8}~\u{1}\0\0\0\u{3}\0@\"\0\0\0\u{9}\u{7f}\u{1}\0\0\0\u{1}\0P#\0\0\0\u{c}:\0protobuf_test_messages.edition.TestAllRequiredTypesEdition"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{11}\0\0 _\u{16}4\no; [UxG\u{10}&hh+\u{1e}Blh\u{3}\u{7f}\u{17}%[\nO5\u{16}+h\u{1c}pI)\u{3}v44\u{2}~\u{1c}{M\u{7}n)\u{b}\u{6}QS\"g\u{e}p<)1cNv&|\u{7f}\u{f}\\{^B\u{4}\u{17}V4[Hp_3/u3\u{1a}tPYA\u{1c}\u{7f})R&68r\u{8}Md\u{c}d\r0k8t\u{b}\u{1b}F\u{12}Bb~xi*3c%jm7\\D\u{6}sGa`\u{7f}w`\u{8},\u{5}\u{15}J7(\rYm4O\u{1}\u{8}:\u{1b}r\u{f}O\u{14}J3xY\u{1a}0y\u{1d}%]>4vr\u{1b}oR\u{8}3\u{15}:2 dL8,NrZi](U\u{12}\u{4}|S\u{11}zZqK)K\u{19}\u{f}_smu*\rB&I4{\"y%t\u{18}\u{1e}al\u{2}$H\u{5}I34E\u{1f}gS\u{19}ZWHs-2a\u{e}\u{e}L3=(B\u{3}{1\u{1}a\tRj\u{14}<rdTja&*=^,\u{10}\txE@\u{2}\u{5}?2+:*@\u{13}po?\u{f}E>OO[\0$f\0$%z\u{e}\u{1e}%#5kvr\u{10}\u{15}\u{4}QD'q\u{4}\u{1e}U\u{1b}ZU7\u{3}s9\u{1f}W+\u{1b})_=\u{1e}\u{7f}\t>D'#PT82\"^=U[0\\\u{3}j8|\"Y:e\u{1a}\u{1c}kI$R#\u{3}\u{1b}xRxT\u{7}\u{e}7ee1\u{1e}_~ciITw_Y;mG*\t/\u{c}IN\u{7}\u{4}M\u{17}Z*Ad2]\u{b}\u{1f}x|7bcq\u{14}]\r!\u{f}?\u{6}\u{2}q_&0/\rb\u{16}]\u{1f}(\u{1d})R\u{6}\"\"\u{c}4K5}rzpOa\u{7}U#YxF/CN)\u{7f}4v\u{14}8\u{19},3VlK0\u{c}4G\u{1c}#g\u{14}'/GzGl\u{5}ZLY\u{4}wXMb\u{8}$*zkO^\u{1f}\u{1f}\u{12}Hv[q*\"]7\u{1b}n\u{7}?,]SLr\u{12}\u{1a}BY=d}n\"\"\u{3}*BX\u{2}\u{11}pSyo\u{7f}\u{1d};p;\u{7}\u{4}\u{17}\rel\u{18}LgZ<-Ag!+\u{11}I-Ab\r\u{8}WK&3Mx\u{b}.S+4}\u{1b}4c=u+ZFM\u{14}Z`\u{c}tCH\u{11},!!=DM1<L$d6S{:Z4\\nc-'prk\u{1c}&\u{14}KD0t\u{15}/\u{1f}5jG-\u{1a}C5i?uRj\u{12}\tM5\u{1d}\u{5}}\u{c}ra\u{c}uy=f&)\u{1e}N\u{7f}[_JL\u{7f}\u{12}Ai+h$<\u{2}1-U\u{11}i\\p:\rfY<Qv\nV\rfG\u{7f}\\\u{1c}v\u{7f}2Xn\"/o5\u{14}@b|}\u{10}c\u{15}\u{4}\u{19}h-\u{8}SR9ZU&X\u{7}=0*M'\u{2}\u{1e}=z\u{f}IsS\06i\u{1}\u{1c}\u{f}\u{7f}:HHz\u{4}X 1t^\u{17}-\u{1}'/~ [e6*\u{8}e\u{1b}\u{7f}1\"\u{f}H\u{14}Q\u{16}JahK&1i\u{17},^lH>\u{12}\u{7f}8j@$\u{12}DN\\%#\u{6}35\u{18}o\u{7f}H@b('@l\u{10}vq=p\u{12}1\u{12}\u{1e}LQ\u{13}BI\u{b}ieD4\u{8}+?og\u{c}^&G\r[A\u{19}Z5FL2.Y\nv\06/|sHGlU*RP^\u{17}7_\u{14}]\u{13}\u{7};^P>\u{c}\njS%q* \r:S\u{7f}\u{5};\u{2}?U`\u{1b}\u{6}\u{1c}KU(A+c\0'cZ%\u{14}@U\u{13}z\u{12}\u{13}Y\u{15}5\u{14}4\n\u{1}WdC#\u{14}KDV\t*b^BkxY9vV PwHkh5\u{1f}\u{e}\u{2}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2591,13 +2393,7 @@ extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedEnum {
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{3}\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{10}\0\0\u{2}\0\u{1}\0\u{b}H\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{b}H\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{1}\00\u{2}\0\u{1}\0\u{b}H\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZC#D\u{3} ri\u{1f}/\u{18}I9\u{2}Js\u{14}\u{e}_5\u{10}lKG\u{5}8q8|y\u{1}%\nM@3\u{12}@R\u{e}|XV\t\t\u{1f}-(\u{1f}>Q\u{3}__E<\u{11}s\u{11}\u{16}\r\u{1}T^p\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -2614,13 +2410,7 @@ extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}?\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\u{c}\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}?\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}?\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$p\u{15}\u{15} ya\u{e}6P\u{1d}b\u{f}\u{e}\t^\u{12}LvgJ \u{1b}pv\u{16}\tq{]* \u{f}4No8L\nS\0\u{1}\u{10}ON>GTj\u{7f}5!=\u{7}-\u{2}\u{8}]]J\t\u{19}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2630,13 +2420,7 @@ extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.DataMessage: 
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.MessageSetCorrect: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0L\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0L\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0L\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2646,13 +2430,7 @@ extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.MessageSetCor
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.MessageSetCorrectExtension1: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{10}\0\0\u{19}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{c}\0\0\u{19}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{19}\0\0\0\0\0\0@\0\0\0\0\u{9}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$*a%d~/\u{3}ZI\u{1c}C{^k?9>"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -2662,13 +2440,7 @@ extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.MessageSetCor
 }
 
 extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.MessageSetCorrectExtension2: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{8}\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{9}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}V\0protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$\u{1a} ef~/C\u{18}H\u{5}]K!\u{1c}`\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

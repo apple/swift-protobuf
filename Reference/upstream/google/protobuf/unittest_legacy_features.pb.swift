@@ -44,13 +44,13 @@ struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.Sendable {
   mutating func clearRequiredField() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var delimitedField: LegacyFeaturesUnittest_TestEditionsMessage {
-    get { _storage.value(at: 8, default: LegacyFeaturesUnittest_TestEditionsMessage(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: LegacyFeaturesUnittest_TestEditionsMessage(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.
   var hasDelimitedField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `delimitedField`. Subsequent reads from it will return its default value.
-  mutating func clearDelimitedField() { _uniqueStorage().clearValue(at: 8, type: LegacyFeaturesUnittest_TestEditionsMessage.self, hasBit: (0, 2)) }
+  mutating func clearDelimitedField() { _uniqueStorage().clearValue(atIndex: 0, type: LegacyFeaturesUnittest_TestEditionsMessage.self, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -65,13 +65,7 @@ struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{a},\0legacy_features_unittest.TestEditionsMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{a},\0legacy_features_unittest.TestEditionsMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{a},\0legacy_features_unittest.TestEditionsMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avHp\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\rtw\u{8}p>\u{14}E\u{11}\u{3}I~V)L\u{11}\u{6}t}Za*7?wEV\t\u{15}ZT|Q\u{1a}o\u{2}j\u{15}\\PhwR\u{3}\u{1a}/VN\u{c}oa\n\u{7}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

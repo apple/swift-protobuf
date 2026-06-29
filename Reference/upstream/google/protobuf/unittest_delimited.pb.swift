@@ -126,63 +126,63 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Non-delimited field that otherwise looks group-like.
   var lengthprefixed: EditionsUnittest_TestDelimited.LengthPrefixed {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: EditionsUnittest_TestDelimited.LengthPrefixed(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: EditionsUnittest_TestDelimited.LengthPrefixed(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lengthprefixed` has been explicitly set.
   var hasLengthprefixed: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `lengthprefixed`. Subsequent reads from it will return its default value.
-  mutating func clearLengthprefixed() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: EditionsUnittest_TestDelimited.LengthPrefixed.self, hasBit: (0, 1)) }
+  mutating func clearLengthprefixed() { _uniqueStorage().clearValue(atIndex: 0, type: EditionsUnittest_TestDelimited.LengthPrefixed.self, hasBit: (0, 1)) }
 
   /// Nested field for nested tests.
   var nested: EditionsUnittest_TestDelimited {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: EditionsUnittest_TestDelimited(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: EditionsUnittest_TestDelimited(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nested` has been explicitly set.
   var hasNested: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
-  mutating func clearNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: EditionsUnittest_TestDelimited.self, hasBit: (0, 2)) }
+  mutating func clearNested() { _uniqueStorage().clearValue(atIndex: 1, type: EditionsUnittest_TestDelimited.self, hasBit: (0, 2)) }
 
   /// Truly group-like field.
   var groupLike: EditionsUnittest_TestDelimited.GroupLike {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(24, 12), default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(24, 12), to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 2, default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `groupLike` has been explicitly set.
   var hasGroupLike: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `groupLike`. Subsequent reads from it will return its default value.
-  mutating func clearGroupLike() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(24, 12), type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 4)) }
+  mutating func clearGroupLike() { _uniqueStorage().clearValue(atIndex: 2, type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 4)) }
 
   /// Delimited field that isn't group-like solely because of its name.
   var notgrouplike: EditionsUnittest_TestDelimited.GroupLike {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 16), default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 16), to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 3, default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `notgrouplike` has been explicitly set.
   var hasNotgrouplike: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `notgrouplike`. Subsequent reads from it will return its default value.
-  mutating func clearNotgrouplike() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(32, 16), type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 8)) }
+  mutating func clearNotgrouplike() { _uniqueStorage().clearValue(atIndex: 3, type: EditionsUnittest_TestDelimited.GroupLike.self, hasBit: (0, 8)) }
 
   /// Delimited field that isn't group-like because of the scope of its type.
   var notgrouplikescope: EditionsUnittest_NotGroupLikeScope {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(40, 20), default: EditionsUnittest_NotGroupLikeScope(), hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(40, 20), to: newValue, willBeSet: true, hasBit: (0, 16)) }
+    get { _storage.value(atIndex: 4, default: EditionsUnittest_NotGroupLikeScope(), hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `notgrouplikescope` has been explicitly set.
   var hasNotgrouplikescope: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `notgrouplikescope`. Subsequent reads from it will return its default value.
-  mutating func clearNotgrouplikescope() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(40, 20), type: EditionsUnittest_NotGroupLikeScope.self, hasBit: (0, 16)) }
+  mutating func clearNotgrouplikescope() { _uniqueStorage().clearValue(atIndex: 4, type: EditionsUnittest_NotGroupLikeScope.self, hasBit: (0, 16)) }
 
   /// Delimited field that's grouplike except that it's an imported type.
   var messageimport: EditionsUnittest_MessageImport {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(48, 24), default: EditionsUnittest_MessageImport(), hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(48, 24), to: newValue, willBeSet: true, hasBit: (0, 32)) }
+    get { _storage.value(atIndex: 5, default: EditionsUnittest_MessageImport(), hasBit: (0, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `messageimport` has been explicitly set.
   var hasMessageimport: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
-  mutating func clearMessageimport() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(48, 24), type: EditionsUnittest_MessageImport.self, hasBit: (0, 32)) }
+  mutating func clearMessageimport() { _uniqueStorage().clearValue(atIndex: 5, type: EditionsUnittest_MessageImport.self, hasBit: (0, 32)) }
 
   struct LengthPrefixed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -383,13 +383,7 @@ let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -399,13 +393,7 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -415,13 +403,7 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -431,13 +413,7 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\08\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0 \0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0(\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\00\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\0\0\0\0\0\0\u{6}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{3}\00\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{4}\00\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{5}\00\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\u{1}\0\00_Pyu[\u{7}c\0\u{4}\t\\J\u{1c}\u{18}5vDC\u{3}\u{e} \u{1}*Ccol(\u{1c}Z\u{1d}\u{14}%B(k\"W\u{18}u\u{b}*a_-)\u{2}UM>VIT*Du\\0X\rl\0p5cD\u{12},IoJYk?YY\\)b;|\u{1}K\u{1c}d\u{12}]j46{\u{1f}Z\u{2}wS2Q/7m81Vi2\"9N*znM&\u{1d} SPh\u{5}\rk\u{6}BGu}\u{c}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -458,13 +434,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
 }
 
 extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -474,13 +444,7 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Generated
 }
 
 extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

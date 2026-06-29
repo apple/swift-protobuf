@@ -178,13 +178,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Swift.
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0/\0swift_descriptor_test.MsgExtensionRangeOrdering"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0/\0swift_descriptor_test.MsgExtensionRangeOrdering"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0/\0swift_descriptor_test.MsgExtensionRangeOrdering"
   private static let _protobuf_reflectionData: Swift.StaticString = " \0\0\0\0_Si=A\u{2}:`P\u{19}Mm,,Qy7\u{1e}/\u{4}#!\u{10}lK."
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -194,13 +188,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Generated
 }
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\u{14}\0\0\u{6}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}|\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}9\0swift_descriptor_test.MsgExtensionRangeOrderingWithFields"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\u{14}\0\0\u{6}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}|\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}9\0swift_descriptor_test.MsgExtensionRangeOrderingWithFields"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{6}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}|\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}9\0swift_descriptor_test.MsgExtensionRangeOrderingWithFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0pG\u{4}~3K\u{4}#Q,E\n\u{2}=\r_]Dvf1\u{1a}[\u{16}z&\u{12}_s[B\u{19}Cf\u{4}\ra#\\,0\u{12}Cm4|\u{12}BV\u{1b}\u{1d}#2dX/Pz%)k\u{17}:GQyC6JZiaO]g%yBOE\u{2}"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -210,13 +198,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
 }
 
 extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{3}\0\0\u{1c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{f}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{15}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}8\0swift_descriptor_test.MsgExtensionRangeOrderingNoMerging"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{3}\0\0\u{1c}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{f}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{15}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}8\0swift_descriptor_test.MsgExtensionRangeOrderingNoMerging"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{f}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{15}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}8\0swift_descriptor_test.MsgExtensionRangeOrderingNoMerging"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{1}\0\0 ?a{-\u{6}*\0_ \u{f}\u{11}|xa\u{15}X\",`!Xs/rZG+\u{4}o\\t+\u{f}9F+y\u{7}\u{1d}VBcoe3?\0\u{13}]I3\u{7}\u{12}{_ym\u{11}\u{7}[\\^']K\u{15}\u{13}h4(<U@gOs\\p@\u{6}j$q\u{6}\u{10}\u{2}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

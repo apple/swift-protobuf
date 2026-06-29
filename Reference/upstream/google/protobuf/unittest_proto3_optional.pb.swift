@@ -152,49 +152,49 @@ struct Proto2Unittest_TestProto3Optional: @unchecked Swift.Sendable {
   mutating func clearOptionalBool() { _uniqueStorage().clearValue(at: 3, type: Bool.self, hasBit: (1, 16)) }
 
   var optionalString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(112, 108), default: String(), hasBit: (1, 32)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(112, 108), to: newValue, willBeSet: true, hasBit: (1, 32)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (1, 32)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Swift.Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(112, 108), type: String.self, hasBit: (1, 32)) }
+  mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (1, 32)) }
 
   var optionalBytes: Data {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(128, 120), default: Data(), hasBit: (1, 64)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(128, 120), to: newValue, willBeSet: true, hasBit: (1, 64)) }
+    get { _storage.value(atIndex: 0, default: Data(), hasBit: (1, 64)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `optionalBytes` has been explicitly set.
   var hasOptionalBytes: Swift.Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBytes() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(128, 120), type: Data.self, hasBit: (1, 64)) }
+  mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalCord: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(144, 132), default: String(), hasBit: (1, 128)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(144, 132), to: newValue, willBeSet: true, hasBit: (1, 128)) }
+    get { _storage.value(atIndex: 1, default: String(), hasBit: (1, 128)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalCord` has been explicitly set.
   var hasOptionalCord: Swift.Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalCord() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(144, 132), type: String.self, hasBit: (1, 128)) }
+  mutating func clearOptionalCord() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
-    get { _storage.value(at: 96, default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 1)) }
-    set { _uniqueStorage().updateValue(at: 96, to: newValue, willBeSet: true, hasBit: (2, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: 96, type: Proto2Unittest_TestProto3Optional.NestedMessage.self, hasBit: (2, 1)) }
+  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestProto3Optional.NestedMessage.self, hasBit: (2, 1)) }
 
   var lazyNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(104, 100), default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(104, 100), to: newValue, willBeSet: true, hasBit: (2, 2)) }
+    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `lazyNestedMessage` has been explicitly set.
   var hasLazyNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `lazyNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearLazyNestedMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(104, 100), type: Proto2Unittest_TestProto3Optional.NestedMessage.self, hasBit: (2, 2)) }
+  mutating func clearLazyNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_TestProto3Optional.NestedMessage.self, hasBit: (2, 2)) }
 
   var optionalNestedEnum: Proto2Unittest_TestProto3Optional.NestedEnum {
     get { _storage.value(at: 28, default: .unspecified, hasBit: (2, 4)) }
@@ -307,22 +307,22 @@ struct Proto2Unittest_TestProto3OptionalMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var nestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
   var hasNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearNestedMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto2Unittest_TestProto3OptionalMessage.NestedMessage.self, hasBit: (0, 1)) }
+  mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestProto3OptionalMessage.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalNestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(16, 8), type: Proto2Unittest_TestProto3OptionalMessage.NestedMessage.self, hasBit: (0, 2)) }
+  mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_TestProto3OptionalMessage.NestedMessage.self, hasBit: (0, 2)) }
 
   struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -330,8 +330,8 @@ struct Proto2Unittest_TestProto3OptionalMessage: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var s: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -435,13 +435,7 @@ extension Proto2Unittest_Proto3OptionalExtensions {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \u{1}\0\u{15}\0\0\0\0\0\u{13}\0\0\u{11}\0\0`\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{10}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{18}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{3}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0p\0\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\u{1}\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{10}\u{1}\0\u{f}\0\0\0\u{9}\u{12}\0\0\0\0`\0\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0h\0\0\u{11}\0\u{2}\0\u{b}\u{15}\0\0\0\0\u{1c}\0\0\u{12}\0\u{1}\0\u{e}\u{16}\0\0\0\0 \0\0\u{13}\0\0\0\u{5}\u{17}\0\0\0\0X\0\0\u{14}\0\0\0\u{3}\"\0proto2_unittest.TestProto3Optional"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\u{1}\0\u{15}\0\0\0\0\0\u{13}\0\0\u{11}\0\0`\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{10}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{18}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{3}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0l\0\0\u{d}\0\0\0\u{9}\u{f}\0\0\0\0x\0\0\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{4}\u{1}\0\u{f}\0\0\0\u{9}\u{12}\0\0\0\0`\0\0\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0d\0\0\u{11}\0\u{2}\0\u{b}\u{15}\0\0\0\0\u{1c}\0\0\u{12}\0\u{1}\0\u{e}\u{16}\0\0\0\0 \0\0\u{13}\0\0\0\u{5}\u{17}\0\0\0\0X\0\0\u{14}\0\0\0\u{3}\"\0proto2_unittest.TestProto3Optional"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0`\0\0\u{15}\0\0\0\0\0\u{13}\0\0\u{11}\0\0\0\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0\u{10}\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\0\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\u{14}\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\0\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{18}\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\0\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0\u{3}\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{1}\0@\u{f}\0\0\0\u{9}\u{12}\0\0\0\0\0\00\u{10}\0\u{2}\0\u{b}\u{13}\0\0\0\0\u{1}\00\u{11}\0\u{2}\0\u{b}\u{15}\0\0\0\0\u{1c}\0\0\u{12}\0\u{1}\0\u{e}\u{16}\0\0\0\0 \0\0\u{13}\0\0\0\u{5}\u{17}\0\0\0\0X\0\0\u{14}\0\0\0\u{3}\"\0proto2_unittest.TestProto3Optional"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\t\0\0 \u{1f}nvyup1\0u\u{c}FHQN\u{7}ER!N\tJP#\u{13}>tDe' V#\u{7}\u{18}=C$\u{c}V3$,R.R\u{14}2\u{14}\u{6}T'>Wv>olv\u{7f}EMP`\u{19}zP\u{10}J^\u{13}GE2m!'^.OH\u{18}}Q#\\4\u{10}e$\u{17}\u{c}T*'^`{\u{14}1qN\u{e}\u{f}y:|0IP~BP\u{1f}o5\u{15}4]\u{19}6$&vN0l \u{1b}]\u{17}Xdp%'\u{7f}\u{10}\u{11}\u{10}x\u{7f}%\u{b}8\rNLO6{X\u{16}yG*b\u{1f}\u{10}C$SJ+X\u{f}(^j\t!\u{12}ry.lBKw\u{7f}\u{7f}*%Gh7T\u{7f}]b\u{2}\u{14}S=Y2\u{7f}p\\nB7u\u{15}`w,fc5zzD\"y\\\0wYb4*CcZ\u{14}\u{8}N%v0A\u{10}PL89\u{3}- \u{7}q\u{19}8J%BF(\\%-aH7[r\\mQPB\"Dl,xG\u{e}NIP3Z3{h[py~6Q> ,s)D\u{1d}JS\u{1b}\u{c}E{qv\u{1c}\u{2}  6Q>\u{14}\"eN|/\t[ZAD\\E1XB+\u{8}3a\u{10}4zw[\u{18}\0xY\u{17}?\u{12}t\u{19}*s\u{1c}\u{16},_.6c\u{18}m\u{b}U\u{10}.$SMX.W`MiJRQob/s\u{4}40z\u{16}M|VRFD/aq%+h\0]rY\u{b}\u{b}YqS=nNXG\u{12}ob\t+V\u{8}$;:\u{7}\u{b}_\u{f}g\u{1d}$W\u{f}i\u{16}.s.\u{18}y\u{b}l\u{e}\u{19}JywI@j~\u{4}\u{17}qJ*\\2\u{c}\u{16}(a0\u{4}ce\u{1e}\u{1e}n4\u{17}8\u{7f}<g\u{12}SS\u{16}\u{1a}<j0 5U\u{5}\u{7f}Y$;jesuV_\u{19}\t2N\u{1c}\u{5}\u{1}.\u{7f}8Vly.J+.\u{1d} V,>6xwvX]H`NZ,5\u{b}z^\u{7}\u{f}~Q\u{1}\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -465,13 +459,7 @@ extension Proto2Unittest_TestProto3Optional.NestedEnum {
 }
 
 extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0proto2_unittest.TestProto3Optional.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0proto2_unittest.TestProto3Optional.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0proto2_unittest.TestProto3Optional.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpO\u{13}1$\u{1}!C\t0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -481,13 +469,7 @@ extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Generat
 }
 
 extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestProto3OptionalMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestProto3OptionalMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{1}\0\u{b})\0proto2_unittest.TestProto3OptionalMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}M\u{11}9Z[,%L\u{6}\u{10}al;tecq+\n3FtDPI&\u{14}\tej>\u{3}qu*8\u{13}A?P\u{1f})\u{1c}2H\u{1a}%\u{4}X@3,$\u{1d}>\u{18}\u{1}qt\u{7}JL_\u{f}M\nSr) C\0T=\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -504,13 +486,7 @@ extension Proto2Unittest_TestProto3OptionalMessage: SwiftProtobuf.GeneratedMessa
 }
 
 extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}7\0proto2_unittest.TestProto3OptionalMessage.NestedMessage"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{c}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}7\0proto2_unittest.TestProto3OptionalMessage.NestedMessage"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}7\0proto2_unittest.TestProto3OptionalMessage.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpw$P\u{15}N%6c'\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
@@ -520,13 +496,7 @@ extension Proto2Unittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobuf.
 }
 
 extension Proto2Unittest_Proto3OptionalExtensions: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0proto2_unittest.Proto3OptionalExtensions"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0(\0proto2_unittest.Proto3OptionalExtensions"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0(\0proto2_unittest.Proto3OptionalExtensions"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

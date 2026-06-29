@@ -41,22 +41,22 @@ struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
   }
 
   var noPresenceNested: Proto3Unittest_TestNoPresenceField {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), default: Proto3Unittest_TestNoPresenceField(), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: true, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, default: Proto3Unittest_TestNoPresenceField(), hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `noPresenceNested` has been explicitly set.
   var hasNoPresenceNested: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `noPresenceNested`. Subsequent reads from it will return its default value.
-  mutating func clearNoPresenceNested() { _uniqueStorage().clearValue(at: SwiftProtobuf._fieldOffset(8, 4), type: Proto3Unittest_TestNoPresenceField.self, hasBit: (0, 1)) }
+  mutating func clearNoPresenceNested() { _uniqueStorage().clearValue(atIndex: 0, type: Proto3Unittest_TestNoPresenceField.self, hasBit: (0, 1)) }
 
   var noPresenceRepeatedNested: [Proto3Unittest_TestNoPresenceField] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 8), hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 8), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
   var noPresenceString: String {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(32, 12), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(32, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
   var noPresenceBool2: Bool {
@@ -82,13 +82,7 @@ struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}\u{2}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{10}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0 \0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{5}\0\0\0\u{8}#\0proto3_unittest.TestNoPresenceField"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\u{8}\0\0\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{5}\0\0\0\u{8}#\0proto3_unittest.TestNoPresenceField"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{4}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{5}\0\0\0\u{8}#\0proto3_unittest.TestNoPresenceField"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{3}\0\0 \u{7f}F1E[O2\r&@LKM\u{19}r\t_we=qxdI\u{11}\u{1f}\u{1c}Uj)&gXUv\u{14}4?\u{e}\u{c}(^8\u{16}})\u{1a}{\u{10}~Z6l#Mg\u{19}G\u{16}N\u{14}(=u#2^k<qdaj<;x\u{6}m\u{1b}c2\u{14}?97?sfWDq\u{8};Ny8\u{1}? X\u{1}\u{c}u&j\u{8}\u{7f}ER\u{1}@Z\u{11}9wc\u{e})\u{5}\u{7}\u{17}k\0^ku\u{4}\u{6}D~}\u{19}YH7\u{12}Mj\u{6}\u{2}mgq:14q@W4\u{1a}}`\0\n\re\u{1d}\u{11}UDfg\u{7}z>`\u{1a}\u{1d}O\t\0\0\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)

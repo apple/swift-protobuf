@@ -39,8 +39,8 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 
   /// The mappings.
   var mapping: [SwiftProtobuf_GenSwift_ModuleMappings.Entry] {
-    get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+    get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
   /// Individual listing of the module name and the files that will go
@@ -53,8 +53,8 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
     /// The Swift module name that will be imported and used to scope all
     /// the types from the given proto files.
     var moduleName: String {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(16, 12), hasBit: (0, 1)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(16, 12), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
     }
 
     /// The proto files that should be considered it this module.  The values
@@ -62,8 +62,8 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
     /// are used in import states to be used from other files, so `my_file.proto`
     /// or `path/to/file.proto`.
     var protoFilePath: [String] {
-      get { _storage.value(at: SwiftProtobuf._fieldOffset(8, 4), hasBit: (0, 2)) }
-      set { _uniqueStorage().updateValue(at: SwiftProtobuf._fieldOffset(8, 4), to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+      get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
     }
 
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -89,13 +89,7 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{8}\0\0\u{1}\0\0\0\u{2}\u{8}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\u{2}\u{4}\0\0\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp3,mV>R1\u{11}s4\u{13}|9c\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
@@ -112,13 +106,7 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage 
 }
 
 extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
-  #if _pointerBitWidth(_64)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{8}\0\0\u{1}\0\0\0\0\u{10}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{8}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
-  #elseif _pointerBitWidth(_32)
-    private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{4}\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\u{4}\0\0\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
-  #else
-    #error("Unsupported platform")
-  #endif
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`\tqx<p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{OXEOs2\u{19}Gy\0NY1+&a-zwKG0yS\u{15}X\0V$\nTjVdx m0#$(94Tkr\u{1d}h\u{7f}\u{13}gC\u{17}P\06\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)

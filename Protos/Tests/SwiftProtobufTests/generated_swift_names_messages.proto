@@ -198,6 +198,7 @@ message GeneratedSwiftReservedMessages {
   message Collection { int32 Collection = 1; }
   message complete { int32 complete = 1; }
   message compressed { int32 compressed = 1; }
+  message computedSize { int32 computedSize = 1; }
   message consume { int32 consume = 1; }
   message consumeAnyTypeURLOrExtensionName { int32 consumeAnyTypeURLOrExtensionName = 1; }
   message consumeArray { int32 consumeArray = 1; }
@@ -355,7 +356,6 @@ message GeneratedSwiftReservedMessages {
   message fieldName { int32 fieldName = 1; }
   message fieldNameCount { int32 fieldNameCount = 1; }
   message fieldNumber { int32 fieldNumber = 1; }
-  message fieldOffset { int32 fieldOffset = 1; }
   message FieldOrExtensionSchema { int32 FieldOrExtensionSchema = 1; }
   message fieldPresence { int32 fieldPresence = 1; }
   message fields { int32 fields = 1; }
@@ -367,7 +367,6 @@ message GeneratedSwiftReservedMessages {
   message final { int32 final = 1; }
   message firstItem { int32 firstItem = 1; }
   message firstNontrivialOffset { int32 firstNontrivialOffset = 1; }
-  message firstNontrivialStorageOffset { int32 firstNontrivialStorageOffset = 1; }
   message fixed2ByteBase128 { int32 fixed2ByteBase128 = 1; }
   message fixed32 { int32 fixed32 = 1; }
   message fixed3ByteBase128 { int32 fixed3ByteBase128 = 1; }
@@ -776,8 +775,14 @@ message GeneratedSwiftReservedMessages {
   message numberValue { int32 numberValue = 1; }
   message objcClassPrefix { int32 objcClassPrefix = 1; }
   message of { int32 of = 1; }
+  message ofBytesFieldAtIndex { int32 ofBytesFieldAtIndex = 1; }
   message offset { int32 offset = 1; }
   message offsetModel { int32 offsetModel = 1; }
+  message offsetOrIndexValue { int32 offsetOrIndexValue = 1; }
+  message ofMapFieldAtIndex { int32 ofMapFieldAtIndex = 1; }
+  message ofMessageFieldAtIndex { int32 ofMessageFieldAtIndex = 1; }
+  message ofRepeatedFieldAtIndex { int32 ofRepeatedFieldAtIndex = 1; }
+  message ofStringFieldAtIndex { int32 ofStringFieldAtIndex = 1; }
   message ofTagWithFieldNumber { int32 ofTagWithFieldNumber = 1; }
   message OneOf_Kind { int32 OneOf_Kind = 1; }
   message oneofDecl { int32 oneofDecl = 1; }
@@ -802,6 +807,9 @@ message GeneratedSwiftReservedMessages {
   message p { int32 p = 1; }
   message package { int32 package = 1; }
   message packed { int32 packed = 1; }
+  message packedBucketOffsetsHi { int32 packedBucketOffsetsHi = 1; }
+  message packedBucketOffsetsLo { int32 packedBucketOffsetsLo = 1; }
+  message packedBucketStrides { int32 packedBucketStrides = 1; }
   message padding { int32 padding = 1; }
   message parse { int32 parse = 1; }
   message parseDuration { int32 parseDuration = 1; }
@@ -816,8 +824,6 @@ message GeneratedSwiftReservedMessages {
   message phpMetadataNamespace { int32 phpMetadataNamespace = 1; }
   message phpNamespace { int32 phpNamespace = 1; }
   message pointer { int32 pointer = 1; }
-  message pointerWidth32 { int32 pointerWidth32 = 1; }
-  message pointerWidth64 { int32 pointerWidth64 = 1; }
   message populatedOneofMember { int32 populatedOneofMember = 1; }
   message pos { int32 pos = 1; }
   message positiveIntValue { int32 positiveIntValue = 1; }
@@ -983,7 +989,7 @@ message GeneratedSwiftReservedMessages {
   message static { int32 static = 1; }
   message StaticString { int32 StaticString = 1; }
   message storage { int32 storage = 1; }
-  message storageSize { int32 storageSize = 1; }
+  message storageBucket { int32 storageBucket = 1; }
   message String { int32 String = 1; }
   message stringLiteral { int32 stringLiteral = 1; }
   message StringLiteralType { int32 StringLiteralType = 1; }
