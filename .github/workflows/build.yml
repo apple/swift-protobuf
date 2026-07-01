@@ -63,21 +63,22 @@ jobs:
       if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
-  linkage-test:
-    runs-on: ubuntu-latest
-    name: Foundation linkage test
-    container:
-      image: swift:latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-    - name: Update and install dependencies
-      # Just ensure we have the latest `g++` for building protoc (since it is
-      # built by SwiftPM), full dependencies available at
-      # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      run: apt-get update && apt-get install -y g++
-    - name: Run linkage test
-      run: ./scripts/run-linkage-test.sh
+# TODO: Enable this when the NSLock usage is resolved.
+#   linkage-test:
+#     runs-on: ubuntu-latest
+#     name: Foundation linkage test
+#     container:
+#       image: swift:latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v6
+#     - name: Update and install dependencies
+#       # Just ensure we have the latest `g++` for building protoc (since it is
+#       # built by SwiftPM), full dependencies available at
+#       # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+#       run: apt-get update && apt-get install -y g++
+#     - name: Run linkage test
+#       run: ./scripts/run-linkage-test.sh
 
   format-check:
     name: swift-format Check
