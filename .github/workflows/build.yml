@@ -25,7 +25,18 @@ jobs:
         # TODO: Bring back 6.1, currently has a building error.
         #swift: ["6.3", "6.2", "6.1"]
         swift: ["6.3", "6.2"]
-    name: Swift ${{ matrix.swift }}
+        traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
+
+        include:
+          - traits: "default"
+            flags: ""
+          - traits: "disable-default-traits"
+            flags: "--disable-default-traits"
+          - traits: "BinaryDelimitedStreams"
+            flags: "--traits BinaryDelimitedStreams"
+          - traits: "FieldMaskUtilities"
+            flags: "--traits FieldMaskUtilities"
+    name: Swift ${{ matrix.swift }} | Traits - ${{ matrix.traits }}
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -39,17 +50,20 @@ jobs:
       # `make` is needed for using our own `Makefile`.
       run: apt-get update && apt-get install -y make g++
     - name: Build
-      run: make build SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
+      run: make build SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors ${{ matrix.flags }}"
     - name: Test runtime
-      run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors"
+      run: make test-runtime SWIFT_BUILD_TEST_HOOK="-Xswiftc -warnings-as-errors ${{ matrix.flags }}"
     - name: Test plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-plugin
     - name: Test SPM plugin
+      if: ${{ matrix.traits == 'default' }}
       run: make test-spm-plugin
     - name: Compilation Tests
+      if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
-# TODO: Check Foundation/FoundationEssentials usage.
+# TODO: Enable this when the NSLock usage is resolved.
 #   linkage-test:
 #     runs-on: ubuntu-latest
 #     name: Foundation linkage test

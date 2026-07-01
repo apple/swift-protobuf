@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 private let asciiSpace = UInt8(ascii: " ")
 private let asciiColon = UInt8(ascii: ":")

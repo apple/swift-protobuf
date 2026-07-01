@@ -419,6 +419,8 @@ extension Array where Element == PackageDescription.SwiftSetting {
         [
             .enableExperimentalFeature("StrictConcurrency=complete"),
             .enableUpcomingFeature("ExistentialAny"),
+            .define("BinaryDelimitedStreams"),
+            .define("FieldMaskUtilities"),
         ]
     }
 }

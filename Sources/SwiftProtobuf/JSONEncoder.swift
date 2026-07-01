@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 private let asciiZero = UInt8(ascii: "0")
 private let asciiOne = UInt8(ascii: "1")

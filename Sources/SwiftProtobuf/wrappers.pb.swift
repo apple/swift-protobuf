@@ -55,7 +55,11 @@
 // These wrappers have no meaningful use within a map or a oneof since
 // individual entries of a map or fields of a oneof can already detect presence.
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 // 'import SwiftProtobuf' suppressed, this proto file is meant to be bundled in the runtime.
 
 // If the compiler emits an error on this type, it is because this file

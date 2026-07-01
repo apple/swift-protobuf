@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Converts a stream of UTF-8 code units into tokens that can be parsed by a TextFormat or JSON
 /// parser.
