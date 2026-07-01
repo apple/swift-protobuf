@@ -12,7 +12,25 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(Glibc)
+import Glibc
+#elseif canImport(Musl)
+import Musl
+#elseif canImport(Android)
+import Android
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(Darwin)
+import Darwin
+#elseif os(Windows)
+import CRT
+#endif
+
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension MessageStorage {
     /// Tests this message storage for equality with the other storage.

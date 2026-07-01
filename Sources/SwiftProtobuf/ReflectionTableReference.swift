@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// A reference to a reflection table, which may be inlined (embedded in the generated code) or
 /// stored as a compressed buffer.

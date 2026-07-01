@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:6.1
 
 // Package.swift
 //
@@ -10,6 +10,14 @@
 //
 
 import PackageDescription
+
+#if canImport(Darwin)
+let resources: [Resource] = [
+    .copy("PrivacyInfo.xcprivacy")
+]
+#else
+let resources = [Resource]()
+#endif
 
 let package = Package(
     name: "SwiftProtobuf",
@@ -35,18 +43,27 @@ let package = Package(
             targets: ["SwiftProtobufPlugin"]
         ),
     ],
+    traits: [
+        .trait(
+            name: "BinaryDelimitedStreams",
+            description:
+                "This trait enables the APIs to serializing binary delimited messages with Foundation Input/Output streams."
+        ),
+        .trait(name: "FieldMaskUtilities", description: "This trait enables APIs for improved FieldMask support."),
+        .default(enabledTraits: ["BinaryDelimitedStreams", "FieldMaskUtilities"]),
+    ],
     targets: [
         .target(
             name: "SwiftProtobuf",
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
             name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"],
             exclude: ["CMakeLists.txt"],
-            resources: [.copy("PrivacyInfo.xcprivacy")],
+            resources: resources,
             swiftSettings: .packageSettings
         ),
         .target(
@@ -57,6 +74,9 @@ let package = Package(
         .executableTarget(
             name: "protoc",
             path: "Sources/protobuf",
+            exclude: [
+                "abseil/PrivacyInfo.xcprivacy"
+            ],
             sources: [
                 // protoc main
                 "protobuf/src/google/protobuf/compiler/main_no_generators.cc",
@@ -408,7 +428,7 @@ let package = Package(
             swiftSettings: .packageSettings
         ),
     ],
-    swiftLanguageVersions: [.v5],
+    swiftLanguageModes: [.v6],
     cxxLanguageStandard: .gnucxx17
 )
 
@@ -417,10 +437,7 @@ let package = Package(
 extension Array where Element == PackageDescription.SwiftSetting {
     static var packageSettings: Self {
         [
-            .enableExperimentalFeature("StrictConcurrency=complete"),
-            .enableUpcomingFeature("ExistentialAny"),
-            .define("BinaryDelimitedStreams"),
-            .define("FieldMaskUtilities"),
+            .enableUpcomingFeature("ExistentialAny")
         ]
     }
 }

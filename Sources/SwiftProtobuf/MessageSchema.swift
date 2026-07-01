@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// Describes the layout of a message with enough detail that the runtime library can serialize and
 /// parse the message in all the required formats and manage its internal storage.

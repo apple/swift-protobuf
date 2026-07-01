@@ -12,7 +12,25 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(Glibc)
+import Glibc
+#elseif canImport(Musl)
+import Musl
+#elseif canImport(Android)
+import Android
+#elseif canImport(WASILibc)
+import WASILibc
+#elseif canImport(Darwin)
+import Darwin
+#elseif os(Windows)
+import CRT
+#endif
+
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// This type is a high-level wrapper around a `Tokenizer` that knows how to
 /// parse JSON input.

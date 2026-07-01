@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if FieldMaskUtilities
+
 extension MessageSchema {
     /// Checks if a dot-separated path is valid for this message schema.
     func isPathValid(_ path: String) -> Bool {
@@ -47,3 +49,5 @@ extension MessageSchema {
         return false
     }
 }
+
+#endif

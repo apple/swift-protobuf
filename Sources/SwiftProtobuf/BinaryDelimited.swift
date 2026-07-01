@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if !os(WASI)
+#if !os(WASI) && BinaryDelimitedStreams
 import Foundation
 #endif
 
@@ -31,7 +31,7 @@ public enum BinaryDelimited {
         case truncated
     }
 
-    #if !os(WASI)
+    #if !os(WASI) && BinaryDelimitedStreams
     /// Serialize a single size-delimited message to the given stream. Delimited
     /// format allows a single file or stream to contain multiple messages,
     /// whereas normally writing multiple non-delimited messages to the same
@@ -303,10 +303,10 @@ public enum BinaryDelimited {
             options: options
         )
     }
-    #endif  // !os(WASI)
+    #endif  //  !os(WASI) && BinaryDelimitedStreams
 }
 
-#if !os(WASI)
+#if !os(WASI) && BinaryDelimitedStreams
 // TODO: This should go away when encoding/decoding are more stream based
 // as that should provide a more direct way to do this. This is basically
 // a rewrite of BinaryDecoder.decodeVarint().
@@ -351,4 +351,4 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
         }
     }
 }
-#endif  // !os(WASI)
+#endif  //  !os(WASI) && BinaryDelimitedStreams
