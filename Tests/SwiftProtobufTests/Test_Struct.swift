@@ -62,6 +62,17 @@ final class Test_Struct: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"1\"")
     }
 
+    func test_JSON_duplicateKeyRejected() {
+        // A Struct is a map<string, Value>, so a repeated key is rejected
+        // rather than silently overwritten, matching the reference parser
+        // (json/internal/parser.cc ParseStructValue routes through ParseMap).
+        assertJSONDecodeFails("{\"a\":1,\"a\":2}")
+        assertJSONDecodeFails("{\"a\":1,\"b\":2,\"a\":3}")
+        assertJSONDecodeSucceeds("{\"a\":1,\"b\":2}") {
+            $0.fields == ["a": Google_Protobuf_Value(numberValue: 1), "b": Google_Protobuf_Value(numberValue: 2)]
+        }
+    }
+
     func test_JSON_field() throws {
         // "null" as a field value indicates the field is missing
         // (Except for Value, where "null" indicates NullValue)

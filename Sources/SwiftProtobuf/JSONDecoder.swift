@@ -636,6 +636,7 @@ internal struct JSONDecoder: Decoder {
         if scanner.skipOptionalObjectEnd() {
             return
         }
+        var keysSeen = Set<KeyType.BaseType>()
         while true {
             // Next character must be double quote, because
             // map keys must always be quoted strings.
@@ -651,6 +652,9 @@ internal struct JSONDecoder: Decoder {
             var valueField: ValueType.BaseType?
             try ValueType.decodeSingular(value: &valueField, from: &self)
             if let keyField = keyField, let valueField = valueField {
+                if !keysSeen.insert(keyField).inserted {
+                    throw JSONDecodingError.malformedMap
+                }
                 value[keyField] = valueField
             } else {
                 throw JSONDecodingError.malformedMap
@@ -673,6 +677,7 @@ internal struct JSONDecoder: Decoder {
         if scanner.skipOptionalObjectEnd() {
             return
         }
+        var keysSeen = Set<KeyType.BaseType>()
         while true {
             // Next character must be double quote, because
             // map keys must always be quoted strings.
@@ -684,6 +689,9 @@ internal struct JSONDecoder: Decoder {
             var keyFieldOpt: KeyType.BaseType?
             try KeyType.decodeSingular(value: &keyFieldOpt, from: &self)
             guard let keyField = keyFieldOpt else {
+                throw JSONDecodingError.malformedMap
+            }
+            if !keysSeen.insert(keyField).inserted {
                 throw JSONDecodingError.malformedMap
             }
             isMapKey = false
@@ -715,6 +723,7 @@ internal struct JSONDecoder: Decoder {
         if scanner.skipOptionalObjectEnd() {
             return
         }
+        var keysSeen = Set<KeyType.BaseType>()
         while true {
             // Next character must be double quote, because
             // map keys must always be quoted strings.
@@ -730,6 +739,9 @@ internal struct JSONDecoder: Decoder {
             var valueField: ValueType?
             try decodeSingularMessageField(value: &valueField)
             if let keyField = keyField, let valueField = valueField {
+                if !keysSeen.insert(keyField).inserted {
+                    throw JSONDecodingError.malformedMap
+                }
                 value[keyField] = valueField
             } else {
                 throw JSONDecodingError.malformedMap
