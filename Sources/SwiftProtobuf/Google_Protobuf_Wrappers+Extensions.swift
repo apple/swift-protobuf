@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension Google_Protobuf_DoubleValue: ExpressibleByFloatLiteral {
     public init(_ value: Double) {

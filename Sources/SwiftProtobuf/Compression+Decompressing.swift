@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension Compression {
     /// Decompresses a stream of 7-bit encoded bytes that were compressed using

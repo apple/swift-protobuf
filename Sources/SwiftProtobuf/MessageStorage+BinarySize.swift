@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension MessageStorage {
     /// Computes and returns the size in bytes required to serialize this message.

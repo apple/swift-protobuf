@@ -12,7 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension ExtensionStorage {
     /// Decodes the next extension field from the binary reader, assuming that its tag has already

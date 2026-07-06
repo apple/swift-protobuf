@@ -13,6 +13,12 @@
 ///
 // -----------------------------------------------------------------------------
 
+// TODO: Use this when not always using NSLock
+//#if canImport(FoundationEssentials)
+//import FoundationEssentials
+//#else
+//import Foundation
+//#endif
 import Foundation
 
 /// A reference to a reflection table, which may be inlined (embedded in the generated code) or

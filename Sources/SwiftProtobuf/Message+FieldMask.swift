@@ -14,14 +14,8 @@
 
 // TODO: Re-implement these using a reflection API.
 
-extension GeneratedMessage {
-    /// Checks whether the given path is valid for this message type.
-    public static func isPathValid(_ path: String) -> Bool {
-        messageSchema.isPathValid(path)
-    }
-}
-
 extension Google_Protobuf_FieldMask {
+
     /// Defines available options for merging two messages.
     public struct MergeOptions {
         /// The default merging behavior will append entries from the source
@@ -36,6 +30,24 @@ extension Google_Protobuf_FieldMask {
     }
 }
 
+#if FieldMaskUtilities
+
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
+import Foundation
+#endif
+#endif
+
+extension GeneratedMessage {
+    /// Checks whether the given path is valid for this message type.
+    public static func isPathValid(_ path: String) -> Bool {
+        messageSchema.isPathValid(path)
+    }
+}
 extension Message {
     /// Merges fields specified in a FieldMask into another message.
     ///
@@ -64,3 +76,5 @@ extension Message {
         return storageForRuntime.trim(keeping: fieldMask)
     }
 }
+
+#endif

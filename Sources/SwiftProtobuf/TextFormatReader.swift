@@ -13,7 +13,11 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 /// This type is a high-level wrapper around a `Tokenizer` that knows how to
 /// parse TextFormat input.

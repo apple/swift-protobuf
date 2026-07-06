@@ -12,7 +12,13 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if FieldMaskUtilities
+
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
 import Foundation
+#endif
 
 extension MessageStorage {
     /// Merges fields specified in a field mask from another message storage into this one.
@@ -368,3 +374,5 @@ private func removingPrefix(
     }
     return .with { $0.paths = subPaths }
 }
+
+#endif

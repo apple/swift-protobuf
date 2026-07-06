@@ -115,7 +115,16 @@ class FileGenerator {
 
         var hasImports = false
         if fileDescriptor.needsFoundationImport {
-            p.print("\(generatorOptions.importDirective.snippet) Foundation")
+            let importSnippet = generatorOptions.importDirective.snippet
+            p.print(
+                """
+                #if canImport(FoundationEssentials)
+                \(importSnippet) FoundationEssentials
+                #else
+                \(importSnippet) Foundation
+                #endif
+                """
+            )
             hasImports = true
         }
 

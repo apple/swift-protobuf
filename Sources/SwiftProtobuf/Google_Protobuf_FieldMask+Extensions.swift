@@ -101,6 +101,7 @@ private func parseJSONFieldNames(names: String) -> [String]? {
     return split
 }
 
+#if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
     /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
     ///
@@ -322,3 +323,4 @@ public enum FieldMaskError: Error {
     /// Describes a fieldNumber is invalid for a Message type.
     case invalidFieldNumber
 }
+#endif
