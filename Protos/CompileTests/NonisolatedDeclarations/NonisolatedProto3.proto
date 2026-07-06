@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package nonisolated_compile_test;
+
+message Proto3Message {
+  string name = 1;
+  Proto3Enum kind = 2;
+  optional int32 maybe_count = 3;
+  repeated string tags = 4;
+  map<string, int32> counts = 5;
+
+  message Nested {
+    int64 value = 1;
+  }
+
+  Nested nested = 6;
+
+  oneof payload {
+    string text_payload = 10;
+    int32 number_payload = 11;
+  }
+}
+
+enum Proto3Enum {
+  PROTO3_ENUM_UNSPECIFIED = 0;
+  PROTO3_ENUM_FIRST = 1;
+  PROTO3_ENUM_SECOND = 2;
+}

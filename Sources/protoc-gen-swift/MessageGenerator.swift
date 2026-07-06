@@ -156,7 +156,7 @@ class MessageGenerator {
 
         p.print(
             "",
-            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
+            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
         )
         p.withIndentation { p in
             p.print(
@@ -215,7 +215,7 @@ class MessageGenerator {
     func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
         p.print(
             "",
-            "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
+            "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
         )
         p.withIndentation { p in
             generateMessageSchema(printer: &p)

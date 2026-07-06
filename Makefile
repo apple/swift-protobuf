@@ -95,6 +95,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	compile-tests \
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
+	compile-tests-nonisolateddeclarations \
 	default \
 	docs \
 	install \
@@ -103,6 +104,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	regenerate \
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
+	copy-compiletests-nonisolateddeclarations-protos \
 	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	regenerate-fuzz-protos \
@@ -245,7 +247,8 @@ test-spm-plugin:
 
 compile-tests: \
 	compile-tests-multimodule \
-	compile-tests-internalimportsbydefault
+	compile-tests-internalimportsbydefault \
+	compile-tests-nonisolateddeclarations
 
 # Test that ensures generating public into multiple modules with `import public`
 # yields buildable code.
@@ -262,6 +265,11 @@ compile-tests-internalimportsbydefault:
 	else \
 		${SWIFT} build --package-path CompileTests/InternalImportsByDefault; \
 	fi
+
+# Test that generated code with the `NonisolatedDeclarations` option compiles in a
+# target that has `.defaultIsolation(MainActor.self)`.
+compile-tests-nonisolateddeclarations:
+	${SWIFT} build --package-path CompileTests/NonisolatedDeclarations
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
@@ -579,7 +587,8 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 # Rebuild just the protos used by the CompileTests.
 regenerate-compiletests-protos: \
 	regenerate-compiletests-multimodule-protos \
-	copy-compiletests-internalimportsbydefault-protos
+	copy-compiletests-internalimportsbydefault-protos \
+	copy-compiletests-nonisolateddeclarations-protos
 
 # Update the CompileTests/MultiModule files.
 # NOTE: Any changes here must also be done on the "test-plugin" target so it
@@ -598,6 +607,12 @@ regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 # this simply copies those files to the InternalImportsByDefault package in case they change.
 copy-compiletests-internalimportsbydefault-protos:
 	@cp Protos/CompileTests/InternalImportsByDefault/* CompileTests/InternalImportsByDefault/Sources/InternalImportsByDefault/Protos
+
+# We use the plugin for the NonisolatedDeclarations test, so we don't actually need to regenerate
+# anything. However, to keep the protos centralised in a single place (the Protos directory), this
+# simply copies those files to the NonisolatedDeclarations package in case they change.
+copy-compiletests-nonisolateddeclarations-protos:
+	@cp Protos/CompileTests/NonisolatedDeclarations/* CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:

@@ -198,7 +198,7 @@ class OneofGenerator {
         // to this enum we generated.
         p.print(
             "",
-            "\(comments)\(visibility)enum \(swiftRelativeName): Swift.Equatable, Swift.Sendable {"
+            "\(comments)\(visibility)nonisolated enum \(swiftRelativeName): Swift.Equatable, Swift.Sendable {"
         )
         p.withIndentation { p in
             // Oneof case for each ivar
