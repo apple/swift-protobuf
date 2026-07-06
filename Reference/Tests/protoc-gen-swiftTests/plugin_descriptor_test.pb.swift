@@ -31,13 +31,13 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// To check handling of extension ranges that are out of order.
-struct SwiftDescriptorTest_MsgExtensionRangeOrdering: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrdering: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -54,7 +54,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrdering: @unchecked Swift.Sendable 
 
 /// To check handling of extension ranges that are out of order, have fields or
 /// reserved things mix through them.
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -106,7 +106,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: @unchecked Swift
 }
 
 /// Intermixed ranges and fields so help ensure no merge issues
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -177,7 +177,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Swift.
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0/\0swift_descriptor_test.MsgExtensionRangeOrdering"
   private static let _protobuf_reflectionData: Swift.StaticString = " \0\0\0\0_Si=A\u{2}:`P\u{19}Mm,,Qy7\u{1e}/\u{4}#!\u{10}lK."
 
@@ -187,7 +187,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.Generated
 
 }
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{4}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{6}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}|\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}H\u{1}\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}9\0swift_descriptor_test.MsgExtensionRangeOrderingWithFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0pG\u{4}~3K\u{4}#Q,E\n\u{2}=\r_]Dvf1\u{1a}[\u{16}z&\u{12}_s[B\u{19}Cf\u{4}\ra#\\,0\u{12}Cm4|\u{12}BV\u{1b}\u{1d}#2dX/Pz%)k\u{17}:GQyC6JZiaO]g%yBOE\u{2}"
 
@@ -197,7 +197,7 @@ extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf
 
 }
 
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1c}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{6}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{f}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{15}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}8\0swift_descriptor_test.MsgExtensionRangeOrderingNoMerging"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{1}\0\0 ?a{-\u{6}*\0_ \u{f}\u{11}|xa\u{15}X\",`!Xs/rZG+\u{4}o\\t+\u{f}9F+y\u{7}\u{1d}VBcoe3?\0\u{13}]I3\u{7}\u{12}{_ym\u{11}\u{7}[\\^']K\u{15}\u{13}h4(<U@gOs\\p@\u{6}j$q\u{6}\u{10}\u{2}\0"
 

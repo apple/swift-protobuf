@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_Proto2MapEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_Proto2MapEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foo = 0
   case bar = 1
   case baz = 2
@@ -43,7 +43,7 @@ enum Proto2Unittest_Proto2MapEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIter
 
 }
 
-enum Proto2Unittest_Proto2MapEnumPlusExtra: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_Proto2MapEnumPlusExtra: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case eProto2MapEnumFoo = 0
   case eProto2MapEnumBar = 1
   case eProto2MapEnumBaz = 2
@@ -55,7 +55,7 @@ enum Proto2Unittest_Proto2MapEnumPlusExtra: Swift.Int, SwiftProtobuf.Enum, Swift
 
 }
 
-struct Proto2Unittest_TestEnumMap: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestEnumMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -141,7 +141,7 @@ struct Proto2Unittest_TestEnumMap: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestEnumMapPlusExtra: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestEnumMapPlusExtra: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -227,7 +227,7 @@ struct Proto2Unittest_TestEnumMapPlusExtra: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestImportEnumMap: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestImportEnumMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -247,7 +247,7 @@ struct Proto2Unittest_TestImportEnumMap: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestIntIntMap: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestIntIntMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -268,7 +268,7 @@ struct Proto2Unittest_TestIntIntMap: @unchecked Swift.Sendable {
 }
 
 /// Test all key types: string, plus the non-floating-point scalars.
-struct Proto2Unittest_TestMaps: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMaps: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -344,7 +344,7 @@ struct Proto2Unittest_TestMaps: @unchecked Swift.Sendable {
 }
 
 /// Test maps in submessages.
-struct Proto2Unittest_TestSubmessageMaps: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestSubmessageMaps: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -368,7 +368,7 @@ struct Proto2Unittest_TestSubmessageMaps: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestProto2BytesMap: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestProto2BytesMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -395,19 +395,19 @@ struct Proto2Unittest_TestProto2BytesMap: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_Proto2MapEnum {
+nonisolated extension Proto2Unittest_Proto2MapEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1d}\0proto2_unittest.Proto2MapEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK\u{14}\u{1a}:m&\u{1}q+\u{7f}l{\u{15}7B\\HF\0\t\u{1e}sZ>s4EEMVp!3`A=m3=j\u{10}M\tj,/\u{f}\u{1f}cD.`V<.\u{1e}}Z}\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2Unittest_Proto2MapEnumPlusExtra {
+nonisolated extension Proto2Unittest_Proto2MapEnumPlusExtra {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0&\0proto2_unittest.Proto2MapEnumPlusExtra"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{1}\0\0 ?-\u{1d}!\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>\u{4}bt7!c\u{f}8R)\u{13}*fBR\u{12}\u{6}\u{4}\r\u{11}S \u{2}rjE%<-ji\u{12}\",r\u{7}Sc9\n[>ylB9V7>1J\u{10}51/!y{Vc~\u{1a}*j\u{12} m\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2Unittest_TestEnumMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestEnumMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{e}\0\0\0\0\0\0\0\0\0\0\0e\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}\u{1b}\0proto2_unittest.TestEnumMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\u{7}\0\00_\u{19}\u{1c}.\u{17}'$`\u{b}B}\u{c}\",b{+MSj\\\\\u{8}S\u{7}Q\u{2}\"R7$2(\u{e}\u{1c}F\u{11}<`d2L-~O3#kES\u{1f}zFU5\t;9\u{b}<N\u{13}xP\u{14}e?\0|Lt':yPVK\t`HP{^\u{5}HyH0m\u{6}]d\u{10}nY\\9\u{11}\u{1e}2<*I!V\u{1f}\\1\u{11})w=\u{1f}[p\u{17}\u{c}t>Wx<\u{7f}(2oA<tg3,HqHK\u{7}f\u{13},,\u{7}\u{2}\u{5}}H%1-\u{7f}^\u{1}jmjf\rT9\u{19}~\u{2}\u{f}6w\u{c}!%\u{1}j9S\u{e}e)?Q\u{1c}\u{1b}\u{7}\u{8}\u{18}\u{17}8\u{8}L\u{c};W/wT4,Z\u{14}S)E\u{6}!E\u{1a}xX5P780\\Ea.\u{1}\"\u{1b}\u{19}^jE\u{f}\u{12}2Kt\"cYaX\u{1e}sXtAt\u{16}YmNt\nZ\u{1f}\u{15}'to\u{1}`htwU%^\u{10}v7F\u{13}2Z\n\u{1f}l\u{5}#fYU:H+i<%l\u{14};U)~#SSo96nP4\u{1e}BH\0+\r1wY5\0\u{7f}\u{14}e.mF>u'ptXT\u{f}b\u{1}\u{1}:Tvpq0)I,\u{16}z|Y2T\u{14}#\"\0\0\0"
 
@@ -465,7 +465,7 @@ extension Proto2Unittest_TestEnumMap: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{e}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{e}\0\0\0\0\0\0\0\0\0\0\0e\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}f\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}H\u{1}\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}I\u{1}\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}J\u{1}\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}K\u{1}\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}L\u{1}\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}M\u{1}\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}N\u{1}\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}O\u{1}\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}P\u{1}\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}Q\u{1}\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}R\u{1}\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}S\u{1}\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}$\0proto2_unittest.TestEnumMapPlusExtra"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\u{7}\0\00_\u{19}\u{1c}.\u{17}'$`\u{b}B}\u{c}\",b{+MSj\\\\\u{8}S\u{7}Q\u{2}\"R7$2(\u{e}\u{1c}F\u{11}<`d2L-~O3#kES\u{1f}zFU5\t;9\u{b}<N\u{13}xP\u{14}e?\0|Lt':yPVK\t`HP{^\u{5}HyH0m\u{6}]d\u{10}nY\\9\u{11}\u{1e}2<*I!V\u{1f}\\1\u{11})w=\u{1f}[p\u{17}\u{c}t>Wx<\u{7f}(2oA<tg3,HqHK\u{7}f\u{13},,\u{7}\u{2}\u{5}}H%1-\u{7f}^\u{1}jmjf\rT9\u{19}~\u{2}\u{f}6w\u{c}!%\u{1}j9S\u{e}e)?Q\u{1c}\u{1b}\u{7}\u{8}\u{18}\u{17}8\u{8}L\u{c};W/wT4,Z\u{14}S)E\u{6}!E\u{1a}xX5P780\\Ea.\u{1}\"\u{1b}\u{19}^jE\u{f}\u{12}2Kt\"cYaX\u{1e}sXtAt\u{16}YmNt\nZ\u{1f}\u{15}'to\u{1}`htwU%^\u{10}v7F\u{13}2Z\n\u{1f}l\u{5}#fYU:H+i<%l\u{14};U)~#SSo96nP4\u{1e}BH\0+\r1wY5\0\u{7f}\u{14}e.mF>u'ptXT\u{f}b\u{1}\u{1}:Tvpq0)I,\u{16}z|Y2T\u{14}#\"\0\0\0"
 
@@ -523,7 +523,7 @@ extension Proto2Unittest_TestEnumMapPlusExtra: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}!\0proto2_unittest.TestImportEnumMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`nI3ZLIJww:\u{16}+|8_h:\u{6}:\u{19}[?_w]j~\r*R0q'h\u{8}6?q1#$\u{13}\u{4}<,\ta\t\0"
 
@@ -542,7 +542,7 @@ extension Proto2Unittest_TestImportEnumMap: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{1d}\0proto2_unittest.TestIntIntMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp;\u{1c}?8\r\t!YY\u{4}\0"
 
@@ -561,7 +561,7 @@ extension Proto2Unittest_TestIntIntMap: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestMaps: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMaps: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{c}\0\0\0\0\0\0\0\0\u{d}\0\0\0\0\0\u{c}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}\u{18}\0proto2_unittest.TestMaps"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{4}\0\0@\u{7f}\0a\u{19}`1\u{6})cQ-m\u{1b}\tA\u{c}\u{1b}$\"g1C\u{f}||U@\u{1d}Ly>_\u{12}8\u{4}:\u{1b}I|r&V\u{5},\r\u{2}O0\t\u{15}\u{4}bg\u{b}u;Ri8'o74\u{16}V\u{1c}J>\u{1}u#9M\u{1a}jLvu\u{3}z-\u{1a}{\u{13},7k'i\u{11}H9k$;o%j\u{1e}\u{c}^)VM|bZ%\u{1b}&ky/\u{4}Do1<\u{17}xG`\0 Az\u{10}\nBJ\u{4}\u{7f}uZd\u{2}@=$[d\u{14}9z?\u{7}!\u{18}~ijy+\u{18}\u{3}TG'\nf]9P]4<ue\u{7f}f_\u{12}\u{1f}S\u{1b}\u{19}\u{19}%K$s2G:SyU\u{c}$|d*}|\u{c})F=6\u{8}2s)1+A30m8eYI74x[vW=$\u{8}\\\u{1}v\u{6}VTVEW\u{b}gG!QS\u{2}\u{10}$CZ\0[@L!A3[\u{1a}\0\0\0"
 
@@ -613,7 +613,7 @@ extension Proto2Unittest_TestMaps: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\"\0proto2_unittest.TestSubmessageMaps"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp;\u{1c}?8\r\t!YY\u{4}\0"
 
@@ -630,7 +630,7 @@ extension Proto2Unittest_TestSubmessageMaps: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestProto2BytesMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestProto2BytesMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\"\0proto2_unittest.TestProto2BytesMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p!p\0\u{c}\u{14}1x\u{1e}\u{2}\u{1b}L?xY#`K\u{5}\u{1}gt\u{19}0M^uWd\u{1e}\u{11}*LRI;kfno\u{7}0Sx$\u{e}%*I\u{16};k\u{1}v5\\ui\u{16},,;y\u{1e}\u{e}\u{11}\0\0"
 

@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_GoFeatures: @unchecked Swift.Sendable {
+nonisolated struct Pb_GoFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,7 +71,7 @@ struct Pb_GoFeatures: @unchecked Swift.Sendable {
   /// Clears the value of `optimizeMode`. Subsequent reads from it will return its default value.
   mutating func clearOptimizeMode() { _uniqueStorage().clearValue(at: 12, type: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode.self, hasBit: (0, 8)) }
 
-  enum APILevel: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum APILevel: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
     /// API_LEVEL_UNSPECIFIED results in selecting the OPEN API,
     /// but needs to be a separate value to distinguish between
@@ -87,7 +87,7 @@ struct Pb_GoFeatures: @unchecked Swift.Sendable {
 
   }
 
-  enum StripEnumPrefix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StripEnumPrefix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
     case keep = 1
     case generateBoth = 2
@@ -101,13 +101,13 @@ struct Pb_GoFeatures: @unchecked Swift.Sendable {
 
   /// Wrap the OptimizeMode enum in a message for scoping:
   /// This way, users can type shorter names (SPEED, CODE_SIZE).
-  struct OptimizeModeFeature: @unchecked Swift.Sendable {
+  nonisolated struct OptimizeModeFeature: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     /// The name of this enum matches OptimizeMode in descriptor.proto.
-    enum OptimizeMode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum OptimizeMode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
       /// OPTIMIZE_MODE_UNSPECIFIED results in falling back to the default
       /// (optimize for code size), but needs to be a separate value to distinguish
@@ -154,7 +154,7 @@ struct Pb_GoFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_go: Pb_GoFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_Extensions_go, default: Pb_GoFeatures()) }
@@ -174,7 +174,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_GoFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_GoFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_Extensions_go
 ]
 
@@ -182,14 +182,14 @@ let Pb_GoFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_go = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_go = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{5}\0pb.go",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_GoFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_GoFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_GoFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{2}\0\u{e}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\u{3}\0\u{e}\u{d}\0pb.GoFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\u{1}\0\00\u{1f}4^Q[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COHzNsso\u{2}GFz\u{18}\u{1f}C(83h\u{1d}Y\u{1c}\u{1d}@n r4\u{1}#\u{8}a(H&wb\".fLQ.]:b2\u{f}4(Q\u{c}}A\u{17}w_\u{13}\u{12}:\u{14}\u{1a}p\u{15}V\u{10}$I/\u{19}\u{15}Ju'v\u{6}D}\t\u{13}l)K\u{3}Q6qaD)Y\rE6P\u{1d}9I\r\u{1b}(\"#/%\u{1e}iC9\u{14}z \\j_\u{3}\u{1e}HUJ,TNTVF\u{1b}X\u{4} \0\0\0\0"
 
@@ -208,19 +208,19 @@ extension Pb_GoFeatures: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Pb_GoFeatures.APILevel {
+nonisolated extension Pb_GoFeatures.APILevel {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{16}\0pb.GoFeatures.APILevel"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{1}\0\0 \u{7f}I8E\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>\u{4}bt7!cw\u{17}\u{1a}rV*~\"6,\u{7f}^gD6q\u{f}CTM#\u{11}(\u{16}\u{5}b|mg3\u{1a}\u{14}-P0EB\u{11}\u{8}\u{c}\u{15}\u{1a}Ob\u{1d}&gD\u{19}p\u{b}\u{13}\u{1b}^5j\u{f}\u{13}\u{1a}TR%&Z\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Pb_GoFeatures.StripEnumPrefix {
+nonisolated extension Pb_GoFeatures.StripEnumPrefix {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{1d}\0pb.GoFeatures.StripEnumPrefix"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{1}\0\00\u{7f}@\u{7f}\r\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nDc|'!cW%Wu=%\u{8}g \u{1c}kD\u{e}wh#l%\u{1f},nsV\"G%\u{1c}ja\u{4}\u{1c}Ju\u{1e}:\"O)+Uqj,\u{6}K}\u{1d}D]j\u{8}o\u{3}\nDo\u{e}\u{5}Q\u{b}\u{14}\u{7}\u{19};-sxns\u{13}1<p1\u{2}\u{19}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0!\0pb.GoFeatures.OptimizeModeFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -230,7 +230,7 @@ extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
+nonisolated extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0.\0pb.GoFeatures.OptimizeModeFeature.OptimizeMode"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}K\\\"w\u{15}\u{8}1cz@\\J>a@sR\u{7f}z.+Jnuz c\u{1}\u{6}r={,=d\u{c}1\u{c}\u{7f}~HdVs\u{16}7N`h\n3=\u{6}o\u{1e}PJ%ut\u{17}\u{b}W\u{1}\u{f}\n\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

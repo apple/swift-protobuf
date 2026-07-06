@@ -44,12 +44,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,7 +91,7 @@ struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -177,7 +177,7 @@ struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleFoo"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/}\u{18}Vt<M_m\u{19}pvsN%tk\u{1e}W-7X\u{3}f1;]:\u{13}\r2W\0SA\u{1c}\u{5}\u{1a}sTi-xR! z\u{1e}ch\u{1}\0\0"
 
@@ -196,7 +196,7 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBar"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/\u{5}%_W\r\u{15}\u{7f}\u{6}\u{1e}vtXffi,\u{1f}\nq#:3C\u{10}n\0 _\u{6}\0-\u{12}-\u{15}u|$A*!et/4iNSZ1,\0\0"
 
@@ -215,7 +215,7 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{1c}\0swift_proto_testing.CycleBaz"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avH\u{16}\u{2}&\u{b}\u{13}\\\u{13}\u{10}\u{1b}\u{16}9fzVGqdZv\u{14} \u{1}\u{10}/sh&r0lR\u{1b}\u{f}\u{7}gCaox&\u{4}\u{1f}NYQ/3o.6\u{8}=\u{16}J\u{f}$K\u{5}\u{6}9snie\u{5}\u{18}>\u{4}\u{c}h'/I\u{7f}\u{6}"
 

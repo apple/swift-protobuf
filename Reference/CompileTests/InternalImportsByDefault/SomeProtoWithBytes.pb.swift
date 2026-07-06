@@ -20,12 +20,12 @@ public import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct SomeProtoWithBytes: @unchecked Swift.Sendable {
+public nonisolated struct SomeProtoWithBytes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -60,7 +60,7 @@ public struct SomeProtoWithBytes: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SomeProtoWithBytes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SomeProtoWithBytes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0P\0\0\0\0\u{c}d\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{12}\0SomeProtoWithBytes"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0PTZ-~LI\u{1a}\u{3}\u{14}MP\u{f}Z\u{10}gZ~yx&N9\u{16}=\u{8}W\u{5}\\<y\u{c}c16OM\u{8}~p@?f\u{c}\u{4}y\u{3}< -V\u{4}\u{e}g-T%\u{1a}\u{1}\0"
 

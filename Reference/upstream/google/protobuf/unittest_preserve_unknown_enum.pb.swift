@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foo // = 0
   case bar // = 1
@@ -65,7 +65,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, Swift.CaseIte
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case eFoo // = 0
   case eBar // = 1
@@ -107,7 +107,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swif
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift.Sendable {
+nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -162,7 +162,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 20, to: newValue, oneofPresence: (4, 6)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
   }
@@ -177,7 +177,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Swift.Sendable {
+nonisolated struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -231,7 +231,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Swift.Se
     set { _uniqueStorage().updateValue(at: 20, to: newValue, oneofPresence: (4, 6)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
   }
@@ -248,19 +248,19 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Swift.Se
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnum {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0,\0proto3_preserve_unknown_enum_unittest.MyEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\05\0proto3_preserve_unknown_enum_unittest.MyEnumPlusExtra"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KHc>\u{10}\u{8}1cz@T:!\u{4}\u{1a}'J\u{3}\u{11}&\u{11}zm\u{19} \\#$Mv\u{1b}\u{f}s,/{jb\"pey\u{19}SH0f\u{1f}jr?%\u{16}p\u{e}'B\0\u{f}Z\u{b}\r\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\0\0\u{10}\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\u{1}\0\u{10}\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{a}\u{2}\0\u{10}\u{3}\0\u{2}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}/\0proto3_preserve_unknown_enum_unittest.MyMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{2}\0\0\0\u{1f}0g\u{1d}ZOr::B6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1})K1\0?V\u{1c}Lt;4b!0\u{1c}U1l\u{4}`a\u{1d}P\0`1.\u{1f}<cYd>$0<l\n_.40b\u{4}4xw H\"c;$RM=\u{8}=9\u{19}\u{1}.Q\u{4}\u{7f}\u{7}sgo=U\u{15}\u{e}\\V0j?\u{1b}fN\u{18} F0H4FF\u{1e}\u{7f}lF5\0\0\u{b}ZYxp;0\u{8}+\u{1d}qQ\u{8}208y}2{$+\u{7f}I{RV\u{7}\0\0"
 
@@ -278,7 +278,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.GeneratedMe
 
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\0\0\u{10}\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\u{a}\u{1}\0\u{10}\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{a}\u{2}\0\u{10}\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{10}\0\0{\u{7f}\u{1}\0\u{e}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\u{1}\0\u{e}8\0proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{2}\0\0\0\u{1f}0g\u{1d}ZOr::B6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1})K1\0?V\u{1c}Lt;4b!0\u{1c}U1l\u{4}`a\u{1d}P\0`1.\u{1f}<cYd>$0<l\n_.40b\u{4}4xw H\"c;$RM=\u{8}=9\u{19}\u{1}.Q\u{4}\u{7f}\u{7}sgo=U\u{15}\u{e}\\V0j?\u{1b}fN\u{18} F0H4FF\u{1e}\u{7f}lF5\0\0\u{b}ZYxp;0\u{8}+\u{1d}qQ\u{8}208y}2{$+\u{7f}I{RV\u{7}\0\0"
 

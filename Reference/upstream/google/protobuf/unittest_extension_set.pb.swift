@@ -28,13 +28,13 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// A message with message_set_wire_format.
-struct Proto2Unittest_TestExtensionSet: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestExtensionSet: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -49,7 +49,7 @@ struct Proto2Unittest_TestExtensionSet: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -75,7 +75,7 @@ struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0proto2_unittest.TestExtensionSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -85,7 +85,7 @@ extension Proto2Unittest_TestExtensionSet: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestExtensionSetContainer: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestExtensionSetContainer: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b})\0proto2_unittest.TestExtensionSetContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkSmCsnrOF\u{7f}u(B\u{7}O\u{1c}\u{3}\0"
 

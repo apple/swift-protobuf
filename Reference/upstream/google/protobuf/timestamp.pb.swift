@@ -45,7 +45,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -139,7 +139,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// the Joda Time's [`ISODateTimeFormat.dateTime()`](
 /// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
 /// ) to obtain a formatter capable of generating timestamps in this format.
-struct Google_Protobuf_Timestamp: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Timestamp: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -174,7 +174,7 @@ struct Google_Protobuf_Timestamp: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_Timestamp: GeneratedMessage {
+nonisolated extension Google_Protobuf_Timestamp: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{19}\0google.protobuf.Timestamp"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HqLj\u{1d}N\"Q(x$Py,Fqy1b<\u{14}'X\u{7}NW`\u{4}\0\0"
 

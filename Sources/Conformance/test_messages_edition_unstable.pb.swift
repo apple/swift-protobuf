@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -70,7 +70,7 @@ enum ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: SwiftProto
 
 }
 
-struct ProtobufTestMessages_EditionUnstable_ComplexMessage: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_ComplexMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct ProtobufTestMessages_EditionUnstable_ComplexMessage: @unchecked Swift.Sen
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -208,7 +208,7 @@ struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: @unchec
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -241,7 +241,7 @@ struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: @unch
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
+nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
 
   var ProtobufTestMessages_EditionUnstable_extensionInt32: Int32 {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_EditionUnstable_Extensions_extension_int32, default: 0) }
@@ -261,7 +261,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.ExtensionMap = [
   ProtobufTestMessages_EditionUnstable_Extensions_extension_int32
 ]
 
@@ -269,20 +269,20 @@ let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions:
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}7\0protobuf_test_messages.edition_unstable.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0B\0protobuf_test_messages.edition_unstable.ForeignEnumEditionUnstable"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}6\0protobuf_test_messages.edition_unstable.ComplexMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpgSM,M\te\u{4}[\u{4}\0"
 
@@ -292,7 +292,7 @@ extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Gen
 
 }
 
-extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0 \u{f}\0\0\0\0\0\u{5}\0\0\u{10}\0\0\u{4}\0\0\u{6}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}\u{2}\0\0\0\0\0\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{1}\00\u{3}\0\u{9}\0\u{b}\u{5}\0\0\0\u{a}\0\0\u{10}\u{5}\0\0\0\u{f}\u{6}\0\0\0\u{2}\u{1}\0\u{10}\u{6}\0\u{2}\0\u{b}\u{7}\0\0\0\u{a}\u{2}\0\u{10}\u{7}\0\u{1}\0\u{e}\u{8}\0\0\0\u{4}\0\0 \u{8}\0\u{3}\0\u{b}\u{9}\0\0\0\u{4}\u{1}\0 \u{9}\0\u{4}\0\u{b}\u{a}\0\0\0\u{4}\u{2}\0 \u{a}\0\u{5}\0\u{b}\u{b}\0\0\0\u{4}\u{3}\0 \u{b}\0\u{6}\0\u{b}\u{c}\0\0\0\u{4}\u{4}\0 \u{c}\0\u{7}\0\u{b}\u{d}\0\0\0\0\0\0P\u{4}\0\0\0\u{c}\u{e}\0\0\0\u{2}\u{3}\0\u{10}\u{d}\0\0\0\u{c}\u{f}\0\0\0\u{4}\u{5}\0 \u{e}\0\u{8}\0\u{b}C\0protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{7}\0\0 ?\"Uf\u{17}'\u{14}\u{2}P\r]5\u{7f}<\u{b}56{D;?\u{5}J\u{1e}^7< |MRGK\u{8}\u{14}| VoR\u{14}^\nw(0\\1tK\u{17}VB;IdLx}U]>'LBvqkr&7\u{3}\u{6}$DJ\u{2}\u{1}&U\u{c}\u{b}\u{6}\u{10}\u{19}u\u{17}[\u{7}c6\u{7}M\u{15}[Rt\u{11}(\u{12}U\u{c}N\u{1}\u{c};\u{b}\u{1a}szl/3\u{b}\u{17}VU\u{14}3-l\u{2} F~}\u{6}$ \u{19})Rz \u{8}C,Ybu\u{1a}G|sO\u{1e}\u{10}\u{e}t{\u{e}u\u{1f}@=\u{18}-jF1s-`6\u{17}ZJ\u{5}\u{3}i\u{14}m7i^HHOvm9ID(#@#kAtXZOF~dDOhy~70\"zl7PE\u{3}\\Z6\u{1c}\u{5}J\u{3}{g@2\u{11}\u{e}+}N\u{1f}Nd\u{19}\u{c}(B!t;K[z~\u{11}\\\u{18}\\>\t}K'i\u{1b}%\u{11}\u{e}v\u{c}P\u{17}6\u{1f}Y]9\0>\u{b}(f\u{11}5M\u{1d}\u{6}k\u{f}<'(Ny`\u{e}P\u{13}L\u{1b}\nwh\u{8}v\u{5}B$iGO\u{1}\u{5}{%O\u{e}c\\TPi* {\u{1f}#kdciY|0tk\u{15}h\u{19}\u{11}Y\u{b}*5qBnC\u{e}i#=O\u{16}S\u{1a}\u{1d}\u{12}b\u{f}1\u{12}$LP0A~\u{1b}[G\"RZ\u{1a}2-Gb'\u{c}\u{e}\u{4}=/4|\\~#\0'C\u{14}Cf~\u{7f}\u{13} Wfh\rAX9\u{f}ihp\u{1d}3fr\u{5}vnVD*V,e\u{7f}\u{1a}`\u{1f}\0\u{8}-\u{6}\0"
 
@@ -329,7 +329,7 @@ extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable: Swif
 
 }
 
-extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{f}E\0protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 

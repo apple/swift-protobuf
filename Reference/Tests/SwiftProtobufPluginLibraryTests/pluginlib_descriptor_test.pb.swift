@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SDTTopLevelEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SDTTopLevelEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case valueZero = 0
   case valueOne = 1
   case valueTwo = 2
@@ -47,7 +47,7 @@ enum SDTTopLevelEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct SDTTopLevelMessage: @unchecked Swift.Sendable {
+nonisolated struct SDTTopLevelMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -113,14 +113,14 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 6)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case field3(SDTTopLevelEnum)
     case field4(SDTTopLevelMessage.SubEnum)
     case field5(SDTTopLevelMessage.SubMessage)
     case field6(SDTTopLevelMessage2)
   }
 
-  enum SubEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SubEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case subValue0 = 0
     case subValue1 = 1
     case subValue2 = 2
@@ -131,7 +131,7 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
 
   }
 
-  struct SubMessage: @unchecked Swift.Sendable {
+  nonisolated struct SubMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -183,7 +183,7 @@ struct SDTTopLevelMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
+nonisolated struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -216,7 +216,7 @@ struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SDTExternalRefs: @unchecked Swift.Sendable {
+nonisolated struct SDTExternalRefs: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -249,7 +249,7 @@ struct SDTExternalRefs: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SDTScoperForExt: @unchecked Swift.Sendable {
+nonisolated struct SDTScoperForExt: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -264,7 +264,7 @@ struct SDTScoperForExt: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
+nonisolated struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -404,7 +404,7 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 34)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SDTTopLevelEnum)
@@ -430,7 +430,7 @@ struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftDescriptorTest_Import_ExtendableOne {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne {
 
   var SDTextStr: String {
     get { _protobuf_extensionStorage().value(of: SDTExtensions_ext_str, default: String()) }
@@ -444,7 +444,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne {
   mutating func clearSDTextStr() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTExtensions_ext_str, type: String.self) }
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
     get { _protobuf_extensionStorage().value(of: SDTScoperForExt.Extensions.ext_enum, default: .valueZero) }
@@ -475,7 +475,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.ExtensionMap = [
   SDTExtensions_ext_str,
   SDTScoperForExt.Extensions.ext_enum,
   SDTScoperForExt.Extensions.ext_msg
@@ -485,12 +485,12 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SDTExtensions_ext_str = SwiftProtobuf.ExtensionSchema(
+nonisolated let SDTExtensions_ext_str = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}?\u{5}\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_descriptor_test.ext_str",
   extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.messageSchema }
   )
 
-extension SDTScoperForExt {
+nonisolated extension SDTScoperForExt {
   enum Extensions {
     static let ext_enum = SwiftProtobuf.ExtensionSchema(
       schema: "\09\u{5}\u{6}\0\u{10}\0\0\0\0\0\u{1}\0\u{e}+\0swift_descriptor_test.ScoperForExt.ext_enum",
@@ -506,13 +506,13 @@ extension SDTScoperForExt {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SDTTopLevelEnum {
+nonisolated extension SDTTopLevelEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\"\0swift_descriptor_test.TopLevelEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}~\u{3}XIM!cg7VO+&\t\nWb(Kp\tEv=yjj-r$&\u{1}h$/\u{15}\u{2}\rj}\u{11}\u{15}\u{1}@\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{7}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\u{2}\0\u{e}\u{5}\0\0\0\0\0\00{\u{7f}\u{3}\0\u{b}\u{6}\0\0\0\0\u{1}\00{\u{7f}\u{4}\0\u{b}%\0swift_descriptor_test.TopLevelMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{1}\0\0 _\u{1d}\u{1b}1\u{6}*\0_ \u{f}\u{11}|xa\u{15}X\",`\u{2}jlI\u{1f}I\u{11}E\u{12}\u{11}+2>$al,C\u{8}.DF\u{10}}?\u{e}t#%\u{1d}-dDe_\u{2},\0If\t\u{e}4s\u{1e}tMN}!Ulc?\"q}\u{15},OZI\"Bp\u{1}\0"
 
@@ -532,13 +532,13 @@ extension SDTTopLevelMessage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SDTTopLevelMessage.SubEnum {
+nonisolated extension SDTTopLevelMessage.SubEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0-\0swift_descriptor_test.TopLevelMessage.SubEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cog\n%\u{f}^IPsy\u{e} 1\u{17}Pn\u{3}^oc0h\u{10}d_p\u{15}=mG\u{11} \u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}0\0swift_descriptor_test.TopLevelMessage.SubMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJTZV{n GMwQys\u{7f}5;k\u{1d}@*vm[\u{5}&\u{16}\u{3}y3XUyCm%ufxN9F\u{6}Y8\u{c}6\0"
 
@@ -555,7 +555,7 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}&\0swift_descriptor_test.TopLevelMessage2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}\u{14}}\u{14}JBU\u{13}i^3\u{16}6`f\u{1}\u{18}iE\u{b}G\u{1e}\u{1c}\u{2}&\u{3}\u{6}\0"
 
@@ -573,7 +573,7 @@ extension SDTTopLevelMessage2: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\"\0swift_descriptor_test.ExternalRefs"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}p$mF?+V'$h3\u{16}p$\"L\r\u{1f}VX'\0"
 
@@ -591,7 +591,7 @@ extension SDTExternalRefs: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\"\0swift_descriptor_test.ScoperForExt"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -601,7 +601,7 @@ extension SDTScoperForExt: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SDTProto2MessageForPresence: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0,\0\0\u{10}\0\0\u{4}\0\0\u{8}\0\0\u{5}\0\0\u{4}\0\0\0\0\0\u{3}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\0\00\u{3}\0\u{2}\0\u{b}\u{b}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{6}\0\u{1}\0\u{e}\u{e}\0\0\0\0\u{1}\00\u{7}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}\0\0\u{10}\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{2}\u{1}\0\u{10}\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{2}\u{2}\0\u{10}\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}\u{3}\0\u{10}\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0\u{2}\00{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto2MessageForPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{7}\0\0 _\u{12}Sv\u{17}'DTH']5\u{7f}<\u{b}56{D;?\u{5}\"\u{b}L(<.VXlMk\u{b}\u{7f}@Ww\u{7f}?n+\u{7}\u{17}w-\t[\u{17}\u{1b}a9.hF,\u{7}\u{1a})6|\u{5}j,=^\u{8}p{\n\u{18}TezU%}L<p&KW.|}n}?{\u{10}:&\u{1a}+N{\\0\u{1e}+\u{e}$\u{1}$N3l\u{2}1r77q\r0hDl\u{1d}\u{1}.MEU\t\nn\u{e}%a1 =\\\r)\u{17}K^\u{5}m9\u{11}d~dz} )j\u{c}?$u\u{16}/U?\u{4}|\u{1f}c!TD\u{c}]\u{11}5\r+_~>emp\u{10}h[Iv\u{12}@ \u{1b}\u{3}B\u{10}I@WFR?|4\u{c}S\u{1}Z\\fK._\u{14}MJJIM\u{7}U/8=s!x\u{16}|\u{17}.g||\u{10}#^f\u{12}FhKhQ\u{15}A29`),<mT}o\u{6}cv\u{17}\0\u{e}\";?V&P`Qh9\u{10}w>/;^]\u{4}>*k~CO88'HO\"(P\u{1c}-\u{1e}\u{b}a\u{6}@c\u{14}^4wF%(7\0Ps'5<U\\aV\u{7}F\u{b}~zkk* \u{1e}N>g\u{16}\u{8}P\u{17}+^=\u{4}L7e~K\"NBxh^4&t\u{1c}nb g\u{7f}}KY\u{11}Qa{.\u{1e}WMv3:\u{13}lr\u{1c}\u{e}Qj\u{2}S\0\0\0"
 

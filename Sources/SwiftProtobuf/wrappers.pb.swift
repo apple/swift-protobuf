@@ -67,7 +67,7 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -78,7 +78,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_DoubleValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_DoubleValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -105,7 +105,7 @@ public struct Google_Protobuf_DoubleValue: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_FloatValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FloatValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -132,7 +132,7 @@ public struct Google_Protobuf_FloatValue: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_Int64Value: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_Int64Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -159,7 +159,7 @@ public struct Google_Protobuf_Int64Value: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_UInt64Value: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_UInt64Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -186,7 +186,7 @@ public struct Google_Protobuf_UInt64Value: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_Int32Value: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_Int32Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -213,7 +213,7 @@ public struct Google_Protobuf_Int32Value: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_UInt32Value: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_UInt32Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -240,7 +240,7 @@ public struct Google_Protobuf_UInt32Value: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_BoolValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_BoolValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -267,7 +267,7 @@ public struct Google_Protobuf_BoolValue: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_StringValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_StringValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -294,7 +294,7 @@ public struct Google_Protobuf_StringValue: @unchecked Swift.Sendable {
 ///
 /// Not recommended for use in new APIs, but still useful for legacy APIs and
 /// has no plan to be removed.
-public struct Google_Protobuf_BytesValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_BytesValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -317,7 +317,7 @@ public struct Google_Protobuf_BytesValue: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_DoubleValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_DoubleValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{1}\u{1b}\0google.protobuf.DoubleValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -327,7 +327,7 @@ extension Google_Protobuf_DoubleValue: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FloatValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_FloatValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{2}\u{1a}\0google.protobuf.FloatValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -337,7 +337,7 @@ extension Google_Protobuf_FloatValue: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_Int64Value: GeneratedMessage {
+nonisolated extension Google_Protobuf_Int64Value: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1a}\0google.protobuf.Int64Value"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -347,7 +347,7 @@ extension Google_Protobuf_Int64Value: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_UInt64Value: GeneratedMessage {
+nonisolated extension Google_Protobuf_UInt64Value: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\0\0\u{4}\u{1b}\0google.protobuf.UInt64Value"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -357,7 +357,7 @@ extension Google_Protobuf_UInt64Value: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_Int32Value: GeneratedMessage {
+nonisolated extension Google_Protobuf_Int32Value: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{1a}\0google.protobuf.Int32Value"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -367,7 +367,7 @@ extension Google_Protobuf_Int32Value: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_UInt32Value: GeneratedMessage {
+nonisolated extension Google_Protobuf_UInt32Value: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{d}\u{1b}\0google.protobuf.UInt32Value"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -377,7 +377,7 @@ extension Google_Protobuf_UInt32Value: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_BoolValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_BoolValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{19}\0google.protobuf.BoolValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -387,7 +387,7 @@ extension Google_Protobuf_BoolValue: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_StringValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_StringValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{1b}\0google.protobuf.StringValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 
@@ -397,7 +397,7 @@ extension Google_Protobuf_StringValue: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_BytesValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_BytesValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0P\0\0\0\0\u{c}\u{1a}\0google.protobuf.BytesValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 

@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_RepeatedFieldProxyTestImportEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_RepeatedFieldProxyTestImportEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case unknown // = 0
   case repeatedFieldProxyTestImportFoo // = 1
@@ -62,7 +62,7 @@ enum Proto2Unittest_RepeatedFieldProxyTestImportEnum: SwiftProtobuf.Enum, Swift.
 
 }
 
-struct Proto2Unittest_RepeatedFieldProxyTestImportMessage: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_RepeatedFieldProxyTestImportMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -88,13 +88,13 @@ struct Proto2Unittest_RepeatedFieldProxyTestImportMessage: @unchecked Swift.Send
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_RepeatedFieldProxyTestImportEnum {
+nonisolated extension Proto2Unittest_RepeatedFieldProxyTestImportEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\00\0proto2_unittest.RepeatedFieldProxyTestImportEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\u{1}\0\00?0\u{5}]1\t\u{e}S\u{1b}*>\u{18}<yP\u{13}/L$7\u{e}SAn!bIxtf]\u{5}j\u{c}@Wd%~O\u{7f}970,eD357+^\0\u{e}<DS\u{14}\u{6}tWKm1\u{19}g x&\u{7}TV\0:\u{7}\ndbq\u{1}-$o\n ZZF7\u{13}\u{1f}\u{15}[ \0])3NO\t71\u{3}I\u{1f}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2Unittest_RepeatedFieldProxyTestImportMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_RepeatedFieldProxyTestImportMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0proto2_unittest.RepeatedFieldProxyTestImportMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 

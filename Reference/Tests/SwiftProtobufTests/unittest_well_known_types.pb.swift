@@ -45,7 +45,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -53,7 +53,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Test that we can include all well-known types.
 /// Each wrapper type is included separately, as languages
 /// map handle different wrappers in different ways.
-struct SwiftProtoTesting_TestWellKnownTypes: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_TestWellKnownTypes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -241,7 +241,7 @@ struct SwiftProtoTesting_TestWellKnownTypes: @unchecked Swift.Sendable {
 }
 
 /// A repeated field for each well-known type.
-struct SwiftProtoTesting_RepeatedWellKnownTypes: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_RepeatedWellKnownTypes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -347,7 +347,7 @@ struct SwiftProtoTesting_RepeatedWellKnownTypes: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -493,7 +493,7 @@ struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, oneofPresence: (4, 18)) }
   }
 
-  enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case anyField(SwiftProtobuf.Google_Protobuf_Any)
     case apiField(SwiftProtobuf.Google_Protobuf_Api)
     case durationField(SwiftProtobuf.Google_Protobuf_Duration)
@@ -527,7 +527,7 @@ struct SwiftProtoTesting_OneofWellKnownTypes: @unchecked Swift.Sendable {
 /// A map field for each well-known type. We only
 /// need to worry about the value part of the map being the
 /// well-known types, as messages can't be map keys.
-struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -634,7 +634,7 @@ struct SwiftProtoTesting_MapWellKnownTypes: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{13}\0\0\0\0\0\u{13}\0\0\u{14}\0\0\0\0\0\0\0\0\u{13}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{3}\00\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\00\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\0\u{5}\00\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\0\u{6}\00\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\0\u{7}\00\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\0\u{8}\00\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\0\u{9}\00\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\0\u{a}\00\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\0\u{b}\00\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\0\u{c}\00\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\0\u{d}\00\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\0\u{e}\00\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\0\u{f}\00\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\0\u{10}\00\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\0\u{11}\00\u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\0\u{12}\00\u{12}\0\u{13}\0\u{b}&\0swift_proto_testing.TestWellKnownTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\u{7}\0\0 \u{1f}v7R\u{17}'\u{c},GsG\u{10}&hh+\u{1e}Blhu\u{1f}l8lxeHpmL@Hb\u{15}FS\\eK\u{6}\tZ\u{e}\u{5}\t&KRhrQtw\t#b^\0:lu\u{1}_Iz>mzG\u{e}lS3]5g\u{17}Knv\u{1c}\r\u{5}\u{1c}H`}S{d\u{8}j/P\u{7f}-c\0j\u{15}t\t\u{4}\0:\u{1d}\u{b}\u{19}v`\\w4JNzLJ0x\u{e}@M&\u{e}\u{10}^Sn9%\u{5}\u{1f}`u_\u{14}\u{3}u \u{15}X\u{5}i\u{19}%\u{19}kY@\u{1}\u{3}\0Lbj!\rpg\u{17}G_\u{13}p@.6\u{1}G3#ID>=\r1l\")+}\u{18}Y\u{6}q5PY\u{1f}!m,\u{8}=a\u{19}l<\u{1b}AyD\u{e}c\tt=\\!:\\6jq&UFfVW\u{b}rv2\u{12}@?O\"UK?S/D \u{1f}bjXmXxE.\u{1}*W`,$\u{1d}}\u{14}\nDaO.`\u{13}D\u{11}\u{12}j#\"U\u{8}A\\&bX~\u{1a}\r{H@.>sWj\u{15}\u{c}!\u{15}S\u{12}`s\u{1}H`\u{13} 7\u{f}f5WXJh9D\u{e}\r3f\u{1d}v\u{1}$D\u{1b}\u{13}(eu;c:}k\u{5}GV\u{7f}*S -T9o\u{19}\rI\u{1}\u{12}Ft\"2-\rl'0\n'\u{1}/^$7,\u{14}\u{14}W'\u{7f}A!/\u{1f}S8~*{9\u{10},> b\u{7f}*g\0\te@\\\u{7}9\u{7}!#sXK&>H_ eWTV\u{7f}T6`V\u{c}poQ[xL\rK6\u{12}zQN|W0:\u{2}/mr2}\\cqA#\u{c}\u{1e}\u{16}8*\u{8}l{K\u{18},&Z\u{7f}\u{11}`:ESO\u{e}\\Fhb<G/NZ_\u{5}\0"
 
@@ -669,7 +669,7 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\u{12}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{1}\0\u{10}\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{2}\0\u{10}\u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2}\u{3}\0\u{10}\u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}\u{4}\0\u{10}\u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}\u{5}\0\u{10}\u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{2}\u{6}\0\u{10}\u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{2}\u{7}\0\u{10}\u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{2}\u{8}\0\u{10}\u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{2}\u{9}\0\u{10}\u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{2}\u{a}\0\u{10}\u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{2}\u{b}\0\u{10}\u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{2}\u{c}\0\u{10}\u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{2}\u{d}\0\u{10}\u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{2}\u{e}\0\u{10}\u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{2}\u{f}\0\u{10}\u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{2}\u{10}\0\u{10}\u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{2}\u{11}\0\u{10}\u{11}\0\u{12}\0\u{b}*\0swift_proto_testing.RepeatedWellKnownTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{7}\0\0 \u{7f}\u{6}2\u{2}\u{16}'\\Y.CG\u{10}&hh+~B\u{3}8\n\"\u{3}W#~V3\t\u{1d}_C\u{14}\0=h\u{14}j\0\u{c}\u{16}a\u{1e}\u{4}NnVx- ($\u{e}\n\u{16}I'~C\u{1b}\u{1}^T\u{7f}G\u{b}\u{15}u:9C9)\u{11},\u{1c}\u{c}v2\u{4}$o\u{17}*LKm~U\u{12},lp\\F\u{8}.fX.,\u{c}\u{12}du\u{1a}^a]\u{4}o\u{15}2ic\u{1a}c'S^-2Sn~r:kG\u{19}p\u{6}lnr\0#M\tko\n\u{16}#q47\u{17}k)?\u{3}\n& fpe\u{e}\"iN#\u{2}UdQ\u{14}zw4@.6\u{12}\u{1}A|_==DK_/3nz?~UY\u{17}3\tl\u{6}ac\\\u{b}\u{12}!_Q\u{1b}d.\\Z'\"\u{5}\u{3}\u{11}Yf^T\u{7}0\u{6}\u{c}O@7LD\u{18}\u{17}vx\u{7f}r*jzJ|^\u{8}\u{1d}\u{11}\u{6}csaT^cmoxb;kuq&3\u{1a}\u{1f}\u{19}.>;7 ;N,5\u{1f}iEfrO\u{6})MF\u{17}n:?s9 ac+ \u{c}4zw\u{6}}W\u{6}-3\u{1}62fQ;:53bC|^:}s`\u{18}\u{10}s41\u{7}\u{10}\t'(;2'1Xq8X\0\u{15}\u{16}.6Rr\0~\u{7}a!\r\u{b}dC.|}b\rX\"fe@(\u{18}<6t\u{b}Z)=bS~{\u{c}9ND*K\u{13}k\\\u{8}C<,\u{14}\u{e}\u{b}lW{,{[^6\u{7}\u{1f}iR\rR\u{2}*;Od&;\u{12}2\u{1d}x/@2Hxo-A\u{4}$\u{18}I-\u{13}R\"o\u{1f}%\n\0\u{13}V\u{1}4M\u{1}fH]o6\u{19}\0\0\0"
 
@@ -703,7 +703,7 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0L\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\0\0\0\0\0\0\u{12}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00{\u{7f}\u{3}\0\u{b}\u{4}\0\0\0\0\u{3}\00{\u{7f}\u{4}\0\u{b}\u{5}\0\0\0\0\u{4}\00{\u{7f}\u{5}\0\u{b}\u{6}\0\0\0\0\u{5}\00{\u{7f}\u{6}\0\u{b}\u{7}\0\0\0\0\u{6}\00{\u{7f}\u{7}\0\u{b}\u{8}\0\0\0\0\u{7}\00{\u{7f}\u{8}\0\u{b}\u{9}\0\0\0\0\u{8}\00{\u{7f}\u{9}\0\u{b}\u{a}\0\0\0\0\u{9}\00{\u{7f}\u{a}\0\u{b}\u{b}\0\0\0\0\u{a}\00{\u{7f}\u{b}\0\u{b}\u{c}\0\0\0\0\u{b}\00{\u{7f}\u{c}\0\u{b}\u{d}\0\0\0\0\u{c}\00{\u{7f}\u{d}\0\u{b}\u{e}\0\0\0\0\u{d}\00{\u{7f}\u{e}\0\u{b}\u{f}\0\0\0\0\u{e}\00{\u{7f}\u{f}\0\u{b}\u{10}\0\0\0\0\u{f}\00{\u{7f}\u{10}\0\u{b}\u{11}\0\0\0\0\u{10}\00{\u{7f}\u{11}\0\u{b}\u{12}\0\0\0\0\u{11}\00{\u{7f}\u{12}\0\u{b}'\0swift_proto_testing.OneofWellKnownTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{7}\0\0 \u{7f}\u{6}2\u{2}\u{16}'\\Y.CG\u{10}&hh+~B\u{3}8\n\"\u{3}W#~V3\t\u{1d}_C\u{14}\0=h\u{14}j\0\u{c}\u{16}a\u{1e}\u{4}NnVx- ($\u{e}\n\u{16}I'~C\u{1b}\u{1}^T\u{7f}G\u{b}\u{15}u:9C9)\u{11},\u{1c}\u{c}v2\u{4}$o\u{17}*LKm~U\u{12},lp\\F\u{8}.fX.,\u{c}\u{12}du\u{1a}^a]\u{4}o\u{15}2ic\u{1a}c'S^-2Sn~r:kG\u{19}p\u{6}lnr\0#M\tko\n\u{16}#q47\u{17}k)?\u{3}\n& fpe\u{e}\"iN#\u{2}UdQ\u{14}zw4@.6\u{12}\u{1}A|_==DK_/3nz?~UY\u{17}3\tl\u{6}ac\\\u{b}\u{12}!_Q\u{1b}d.\\Z'\"\u{5}\u{3}\u{11}Yf^T\u{7}0\u{6}\u{c}O@7LD\u{18}\u{17}vx\u{7f}r*jzJ|^\u{8}\u{1d}\u{11}\u{6}csaT^cmoxb;kuq&3\u{1a}\u{1f}\u{19}.>;7 ;N,5\u{1f}iEfrO\u{6})MF\u{17}n:?s9 ac+ \u{c}4zw\u{6}}W\u{6}-3\u{1}62fQ;:53bC|^:}s`\u{18}\u{10}s41\u{7}\u{10}\t'(;2'1Xq8X\0\u{15}\u{16}.6Rr\0~\u{7}a!\r\u{b}dC.|}b\rX\"fe@(\u{18}<6t\u{b}Z)=bS~{\u{c}9ND*K\u{13}k\\\u{8}C<,\u{14}\u{e}\u{b}lW{,{[^6\u{7}\u{1f}iR\rR\u{2}*;Od&;\u{12}2\u{1d}x/@2Hxo-A\u{4}$\u{18}I-\u{13}R\"o\u{1f}%\n\0\u{13}V\u{1}4M\u{1}fH]o6\u{19}\0\0\0"
 
@@ -737,7 +737,7 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{12}\0\0\0\0\0\0\0\0\u{13}\0\0\0\0\0\u{12}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}\u{e}\0 \u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\u{f}\0 \u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{10}\0 \u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{11}\0 \u{11}\0\u{12}\0\u{b}%\0swift_proto_testing.MapWellKnownTypes"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{7}\0\0 \u{7f}\u{6}2\u{2}\u{16}'\\Y.CG\u{10}&hh+~B\u{3}8\n\"\u{3}W#~V3\t\u{1d}_C\u{14}\0=h\u{14}j\0\u{c}\u{16}a\u{1e}\u{4}NnVx- ($\u{e}\n\u{16}I'~C\u{1b}\u{1}^T\u{7f}G\u{b}\u{15}u:9C9)\u{11},\u{1c}\u{c}v2\u{4}$o\u{17}*LKm~U\u{12},lp\\F\u{8}.fX.,\u{c}\u{12}du\u{1a}^a]\u{4}o\u{15}2ic\u{1a}c'S^-2Sn~r:kG\u{19}p\u{6}lnr\0#M\tko\n\u{16}#q47\u{17}k)?\u{3}\n& fpe\u{e}\"iN#\u{2}UdQ\u{14}zw4@.6\u{12}\u{1}A|_==DK_/3nz?~UY\u{17}3\tl\u{6}ac\\\u{b}\u{12}!_Q\u{1b}d.\\Z'\"\u{5}\u{3}\u{11}Yf^T\u{7}0\u{6}\u{c}O@7LD\u{18}\u{17}vx\u{7f}r*jzJ|^\u{8}\u{1d}\u{11}\u{6}csaT^cmoxb;kuq&3\u{1a}\u{1f}\u{19}.>;7 ;N,5\u{1f}iEfrO\u{6})MF\u{17}n:?s9 ac+ \u{c}4zw\u{6}}W\u{6}-3\u{1}62fQ;:53bC|^:}s`\u{18}\u{10}s41\u{7}\u{10}\t'(;2'1Xq8X\0\u{15}\u{16}.6Rr\0~\u{7}a!\r\u{b}dC.|}b\rX\"fe@(\u{18}<6t\u{b}Z)=bS~{\u{c}9ND*K\u{13}k\\\u{8}C<,\u{14}\u{e}\u{b}lW{,{[^6\u{7}\u{1f}iR\rR\u{2}*;Od&;\u{12}2\u{1d}x/@2Hxo-A\u{4}$\u{18}I-\u{13}R\"o\u{1f}%\n\0\u{13}V\u{1}4M\u{1}fH]o6\u{19}\0\0\0"
 

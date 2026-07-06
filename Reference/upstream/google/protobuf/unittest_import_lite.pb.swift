@@ -26,12 +26,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2UnittestImport_ImportEnumLite: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2UnittestImport_ImportEnumLite: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case importLiteFoo = 7
   case importLiteBar = 8
   case importLiteBaz = 9
@@ -42,7 +42,7 @@ enum Proto2UnittestImport_ImportEnumLite: Swift.Int, SwiftProtobuf.Enum, Swift.C
 
 }
 
-struct Proto2UnittestImport_ImportMessageLite: @unchecked Swift.Sendable {
+nonisolated struct Proto2UnittestImport_ImportMessageLite: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -68,13 +68,13 @@ struct Proto2UnittestImport_ImportMessageLite: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2UnittestImport_ImportEnumLite {
+nonisolated extension Proto2UnittestImport_ImportEnumLite {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0proto2_unittest_import.ImportEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\jV\u{1c}e\u{7f}6@Kq.\u{1a}<P\u{6}{Bi2?\u{10}^-_\rD;\u{1f}\u{12}\u{17}\u{13}@%)k\u{6}c\u{1b}\u{13}0<h?Q\u{6}'zy~.M\nGDX\u{f}\u{13}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0proto2_unittest_import.ImportMessageLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpgSM,M\te\u{4}[\u{4}\0"
 

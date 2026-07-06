@@ -27,12 +27,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
+nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -82,7 +82,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Clears the value of `feature5`. Subsequent reads from it will return its default value.
   mutating func clearFeature5() { _uniqueStorage().clearValue(at: 20, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 16)) }
 
-  enum EnumFeature: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumFeature: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case value1 = 1
     case value2 = 2
@@ -116,7 +116,7 @@ struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var SwiftFeatureTest_test: SwiftFeatureTest_TestFeatures {
     get { _protobuf_extensionStorage().value(of: SwiftFeatureTest_Extensions_test, default: SwiftFeatureTest_TestFeatures()) }
@@ -136,7 +136,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftFeatureTest_Extensions_test
 ]
 
@@ -144,14 +144,14 @@ let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{17}\0swift_feature_test.test",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(SwiftFeatureTest_TestFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{1f}\0swift_feature_test.TestFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _Qy=\u{6}*HKI\u{13}\u{11}|xa\u{15}X\"llA\u{f}s\u{11}stf\u{14}\u{7}+K\u{6}\u{f}\u{5}Pc2c\\\u{f}z\u{19}V$w\u{2}i1Z. i;\u{1f}_'?G\n\u{18}s\u{7f}\u{2}\u{c}~G;^@%\u{8}|\u{e}7 \u{b}|\0\0"
 
@@ -168,7 +168,7 @@ extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftFeatureTest_TestFeatures.EnumFeature {
+nonisolated extension SwiftFeatureTest_TestFeatures.EnumFeature {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{2}\0\0\0_TC:85-\u{b}ijxDl?=5\u{7f}U\u{1b}\u{19}\u{7f}lfQ@#D%y|x\u{11}\u{b}U|euo^\u{14}@\u{e}9\u{1}ovT<D\u{11}[|(_\u{10}x\u{1f}|Vp^DONFz0jb.\u{1f}{0\u{14}M\u{e}J\t0^U\u{c}G@wh1\u{7}M\u{1f}\u{5}0\u{1}\u{18}9\u{4}Uf\\J\u{12}\u{f}\u{f}rgQ\u{6}!lO\u{f}\u{1a}:\u{3}\u{8}#3\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

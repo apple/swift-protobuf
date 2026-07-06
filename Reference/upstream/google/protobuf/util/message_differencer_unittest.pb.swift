@@ -29,12 +29,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestField: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestField: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -95,7 +95,7 @@ struct Proto2Unittest_TestField: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -159,7 +159,7 @@ struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
   }
 
-  struct Item: @unchecked Swift.Sendable {
+  nonisolated struct Item: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -247,7 +247,7 @@ struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestDiffMessage {
+nonisolated extension Proto2Unittest_TestDiffMessage {
 
   var Proto2Unittest_TestField_tf: Proto2Unittest_TestField {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestField.Extensions.tf, default: Proto2Unittest_TestField()) }
@@ -267,7 +267,7 @@ extension Proto2Unittest_TestDiffMessage {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_TestField.Extensions.tf
 ]
 
@@ -275,7 +275,7 @@ let Proto2Unittest_MessageDifferencerUnittest_Extensions: SwiftProtobuf.Extensio
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_TestField {
+nonisolated extension Proto2Unittest_TestField {
   enum Extensions {
     static let tf = SwiftProtobuf.ExtensionSchema(
       schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{1c}\0proto2_unittest.TestField.tf",
@@ -286,7 +286,7 @@ extension Proto2Unittest_TestField {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestField: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestField: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{2}\0\0\u{10}\u{4}\0\0\0\u{5}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{5}\0\0\0\0\0\00\u{3}\0\u{1}\0\u{b}\u{6}\0\0\0\u{2}\u{1}\0\u{10}\u{5}\0\u{1}\0\u{b}\u{19}\0proto2_unittest.TestField"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*\0_ \u{f}\u{11}|xa\u{15}xB=\u{5}CO\u{18}\u{f}! 3_B\u{3}mV}AxkA\u{10}+Z8\u{19}U}5\u{3}\u{1a}qJ}rR\u{b}I\n\u{7}emPkU(C\u{10}p\u{18}M1\u{19}+\u{1}Vl\u{1d}\0"
 
@@ -303,7 +303,7 @@ extension Proto2Unittest_TestField: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{8}\0\0\0\0\0\u{3}\0\0\u{2}\0\0\u{5}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\u{3}\0\u{1}\0\u{a}\u{a}\0\0\0\u{2}\u{1}\0\u{10}\u{4}\0\0\0\u{9}\u{b}\0\0\0\u{2}\u{2}\0\u{10}\u{5}\0\0\0\u{5}\u{c}\0\0\0\u{2}\u{3}\0\u{10}\u{6}\0\u{2}\0\u{b}\u{d}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{e}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{f}\0\0\0\0\0\00\u{2}\0\u{2}\0\u{b}\u{10}\0\0\0\u{2}\u{4}\0\u{10}\u{7}\0\u{3}\0\u{b}\u{1f}\0proto2_unittest.TestDiffMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\u{1}\0\0 \u{1f}97\rZC#D\u{3}!EGo\u{12}v'\u{5}D/%:\0I\u{1d}\u{1a}Li\u{3}$\"\u{13}\u{1b}ltG5$\u{19}QL*W\u{7f}m\u{c}\u{13}\u{7f}P\u{8}b&e\u{3}JMrKe+s!{ 1kzN=I\u{e}mlrA:]\u{7}\u{1d}I\u{b}0\r$P\u{e}ye\\|*\u{1d}L=O\u{8}\u{12}\u{b}1>AEF\u{15}\nsj6\u{3} \u{1}\0"
 
@@ -322,7 +322,7 @@ extension Proto2Unittest_TestDiffMessage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestDiffMessage.Item: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestDiffMessage.Item: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{7}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\u{2}\0\0\u{10}\u{3}\0\0\0\u{5}\u{4}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{5}\0\0\0\u{2}\u{1}\0\u{10}\u{4}\0\0\0\u{9}\u{6}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}\u{7}\0\0\0\u{2}\u{2}\0\u{10}\u{5}\0\u{1}\0\u{b}\u{8}\0\0\0\u{4}\0\0 \u{6}\0\u{2}\0\u{b}$\0proto2_unittest.TestDiffMessage.Item"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{14}\u{1}\0\0 _\u{15}Z9\u{6}.0b\u{17}\u{8}N8lqW5MO\u{10}x]\u{1b}\",(f-Oj\u{10}\">\t\n\u{1}#my\u{4}PZ:OcMfx\u{17}v\u{7}.Yb\n =R 5\u{1}/\u{7f}<\u{14}Fc\u{2}&/*i>\t[\u{3}[r\u{10}vfA\u{e}m\u{1c}\u{1}\0"
 

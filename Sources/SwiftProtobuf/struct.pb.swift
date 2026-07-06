@@ -45,7 +45,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -59,7 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// invalid. Most ProtoJSON serializers will emit a `Value` with a `null_value`
 /// set as a JSON `null` regardless of the integer value, and so will round trip
 /// to a `0` value.
-public enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
+public nonisolated enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
   public typealias RawValue = Swift.Int
 
   /// Null value.
@@ -104,7 +104,7 @@ public enum Google_Protobuf_NullValue: Enum, Swift.CaseIterable {
 ///
 /// If you do not intend to parse arbitrary JSON into your message, a custom
 /// typed message should be preferred instead of using this type.
-public struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -131,7 +131,7 @@ public struct Google_Protobuf_Struct: @unchecked Swift.Sendable {
 /// null, a number, a string, a boolean, a recursive struct value, or a
 /// list of values. A producer of value is expected to set one of these
 /// variants. Absence of any variant is an invalid state.
-public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_Value: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -204,7 +204,7 @@ public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
   }
 
   /// The kind of value.
-  public enum OneOf_Kind: Swift.Equatable, Swift.Sendable {
+  public nonisolated enum OneOf_Kind: Swift.Equatable, Swift.Sendable {
     /// Represents a JSON `null`.
     case nullValue(Google_Protobuf_NullValue)
     /// Represents a JSON number. Must not be `NaN`, `Infinity` or
@@ -233,7 +233,7 @@ public struct Google_Protobuf_Value: @unchecked Swift.Sendable {
 }
 
 /// Represents a JSON array.
-public struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -256,13 +256,13 @@ public struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_NullValue {
+nonisolated extension Google_Protobuf_NullValue {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{19}\0google.protobuf.NullValue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m\u{7f})\u{18}v\u{1e}ip\"-q\u{19}\u{1}\u{5}1:\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_Struct: GeneratedMessage {
+nonisolated extension Google_Protobuf_Struct: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{16}\0google.protobuf.Struct"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps+\u{b}&2I\\PX\u{14}]\0(\0\0\0"
 
@@ -281,7 +281,7 @@ extension Google_Protobuf_Struct: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_Value: GeneratedMessage {
+nonisolated extension Google_Protobuf_Value: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0\0\u{6}\0\0\0\0\0\0\0\0\u{7}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0 \0\0{\u{7f}\u{1}\0\u{e}\u{2}\0\0\0\0(\0\0{\u{7f}\0\0\u{1}\u{3}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{4}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{8}\u{5}\0\0\0\0\0\00{\u{7f}\u{2}\0\u{b}\u{6}\0\0\0\0\u{1}\00{\u{7f}\u{3}\0\u{b}\u{15}\0google.protobuf.Value"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{2}\0\0\0\u{1f}0g\u{1d}ZO2\r&@LKM\u{19}r)?@\u{1b}=m\u{5}>)\u{e}n=g@\u{17}Jfh)+S>a\u{1}F\u{3}3\u{19}\u{2}^\tNp.[=0\u{10}\u{17}N#*=J\u{15}[0h\u{10}\u{7f}~X~-\u{11}VL]\u{1f}BlY\u{19}hL\u{e}A\u{b}\u{2}\u{11}'xcc}#>\u{1a}2\u{c}w5\u{13}C/{.-=H\0]A_9p5\u{7}wM\u{1f}\u{7f}\u{3}S=a\u{15}?\u{1b}Pb\"\u{7}cb\u{6}\"7p[xw\u{15}i.TnI$0x:_:Y\u{5}\0\0"
 
@@ -300,7 +300,7 @@ extension Google_Protobuf_Value: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_ListValue: GeneratedMessage {
+nonisolated extension Google_Protobuf_ListValue: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{19}\0google.protobuf.ListValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0"
 

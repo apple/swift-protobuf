@@ -45,12 +45,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -75,7 +75,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
-  enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest1: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case firstValue // = 0
     case secondValue // = 2
@@ -109,7 +109,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
 
   }
 
-  enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTest2: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case firstValue // = 0
     case secondValue // = 2
@@ -143,7 +143,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
 
   }
 
-  enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestNoStem: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case enumTestNoStem1 // = 0
     case enumTestNoStem2 // = 2
@@ -177,7 +177,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
 
   }
 
-  enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumTestReservedWord: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case `var` // = 0
     case notReserved // = 2
@@ -221,7 +221,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -231,7 +231,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum EnumWithAlias: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case foo1 // = 0
     static let foo2 = foo1
@@ -285,7 +285,7 @@ struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Swift.Sendable
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{4}\0\0\0\0\0\0\0\0\u{5}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}\u{2}\0\0\0\u{a}\u{1}\0\u{10}\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\u{a}\u{2}\0\u{10}\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\u{a}\u{3}\0\u{10}\u{3}\0\u{4}\0\u{e}'\0swift_proto_testing.enum3.SwiftEnumTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'KH+\u{1e}\u{17}d GMwQ\tT\0\u{1}9)rw*h!_I>^\\5XP\u{6}\u{7f}V a9#`\u{c}\u{7f}Gn*\u{7f}\u{c}\u{1f}`\u{17}d{22\u{b}i\u{1d}[\u{1c}\u{2}\0"
 
@@ -305,31 +305,31 @@ extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1 {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\01\0swift_proto_testing.enum3.SwiftEnumTest.EnumTest1"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*(a\u{5}\u{7f}\n9Neb\u{1d}bp\u{6}G0xG<^#HJOOJQ3!c'v<LST\rt^m_D6U.`\u{e}#\u{1c}y\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2 {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\01\0swift_proto_testing.enum3.SwiftEnumTest.EnumTest2"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJdQ_:YxC\u{1}Ra29\u{1}^[,D3g@4`iRQe84\u{7f}Q\u{1}2g{T\u{2}+.\u{12}~\u{1f}.2`iU\u{10}\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\06\0swift_proto_testing.enum3.SwiftEnumTest.EnumTestNoStem"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJdQ_:Yx@\u{17}\u{11}e29\u{1}^[,D3g@t_/\u{1d}L\u{2}f{}Aj\u{1a}\u{7}\u{c}\\b_:\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0<\0swift_proto_testing.enum3.SwiftEnumTest.EnumTestReservedWord"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K(Y\u{2}5.*\u{16}\u{8}YM\np\u{8}E_\u{11}!M$Bk`'\u{f}qT\u{7f}\tLi\u{10}dtQ_\"bP\u{8}1Wq6ywlm|\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\u{1}\0\u{e}0\0swift_proto_testing.enum3.SwiftEnumWithAliasTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}f\u{8}zZ^\u{1c}v@\u{16}/\0\0"
 
@@ -346,7 +346,7 @@ extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias {
+nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0>\0swift_proto_testing.enum3.SwiftEnumWithAliasTest.EnumWithAlias"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}K8$v\n\u{8}1d.cVJ-L|k\u{19}=Q\u{12}y\u{8}\u{1c}m\u{7}f!\u{18}\u{e}\u{11}\u{8}1}#;V5\u{7}/iXgp\u{19}\u{1b}x\u{1e}F\u{14},X\u{19}%v@U\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

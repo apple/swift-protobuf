@@ -31,7 +31,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -40,7 +40,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// Top level extensions declarations are qualified with `Extensions_`, so there is nothing special
 /// is needed in generation handling.
-struct BaseMessage: @unchecked Swift.Sendable {
+nonisolated struct BaseMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,7 +64,7 @@ struct BaseMessage: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension BaseMessage {
+nonisolated extension BaseMessage {
 
   var newValue: Int32 {
     get { _protobuf_extensionStorage().value(of: Extensions_new_value, default: 0) }
@@ -78,7 +78,7 @@ extension BaseMessage {
   mutating func clearNewValue() { _protobuf_uniqueExtensionStorage().clearValue(of: Extensions_new_value, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
 
   var http: Int32 {
     get { _protobuf_extensionStorage().value(of: Extensions_http, default: 0) }
@@ -268,7 +268,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   mutating func clearRequestID() { _protobuf_uniqueExtensionStorage().clearValue(of: Extensions_request_id, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
 
   var http: Int32 {
     get { _protobuf_extensionStorage().value(of: Extensions_HTTP, default: 0) }
@@ -447,7 +447,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   mutating func clearRequestID() { _protobuf_uniqueExtensionStorage().clearValue(of: Extensions_request_ID, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
 
   var http: Int32 {
     get { _protobuf_extensionStorage().value(of: Extensions_Http, default: 0) }
@@ -632,7 +632,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.ExtensionMap = [
   Extensions_http,
   Extensions_http_request,
   Extensions_the_http_request,
@@ -689,259 +689,259 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Extensions_http = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_http = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{4}\0http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_http_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_http_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{c}\0http_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_http_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_http_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{10}\0the_http_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_http = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_http = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{8}\0the_http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_https = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_https = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{5}\0https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_https_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_https_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0https_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_https_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_https_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{11}\0the_https_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_https = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_https = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0the_https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_url = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_url = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{3}\0url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_url_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_url_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0z\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0url_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_url_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_url_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0{\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0the_url_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_url = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_url = SwiftProtobuf.ExtensionSchema(
   schema: "\0|\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{7}\0the_url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_a_b_c = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_a_b_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{5}\0a_b_c",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_id = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_id = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{2}\0id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_id_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_id_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0id_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_the_id_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_id_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0the_id_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_request_id = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_request_id = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{a}\0request_id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let Extensions_HTTP = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HTTP = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{4}\0HTTP",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_HTTP_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HTTP_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{c}\0HTTP_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_HTTP_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_HTTP_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{10}\0the_HTTP_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_HTTP = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_HTTP = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{8}\0the_HTTP",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_HTTPS = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HTTPS = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{5}\0HTTPS",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_HTTPS_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HTTPS_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0HTTPS_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_HTTPS_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_HTTPS_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{11}\0the_HTTPS_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_HTTPS = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_HTTPS = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0the_HTTPS",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_URL = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_URL = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{3}\0URL",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_URL_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_URL_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0z\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0URL_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_URL_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_URL_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0{\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0the_URL_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_URL = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_URL = SwiftProtobuf.ExtensionSchema(
   schema: "\0|\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{7}\0the_URL",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_ID = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_ID = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{2}\0ID",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_ID_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_ID_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0ID_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_the_ID_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_the_ID_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{d}\0the_ID_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_request_ID = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_request_ID = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{a}\0request_ID",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let Extensions_Http = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_Http = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{4}\0Http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_HttpRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HttpRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{b}\0HttpRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheHttpRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheHttpRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{e}\0TheHttpRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheHttp = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheHttp = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{7}\0TheHttp",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_Https = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_Https = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{5}\0Https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_HttpsRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_HttpsRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{c}\0HttpsRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheHttpsRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheHttpsRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{f}\0TheHttpsRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheHttps = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheHttps = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{8}\0TheHttps",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_Url = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_Url = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{3}\0Url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_UrlValue = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_UrlValue = SwiftProtobuf.ExtensionSchema(
   schema: "\0z\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{8}\0UrlValue",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheUrlValue = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheUrlValue = SwiftProtobuf.ExtensionSchema(
   schema: "\0{\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{b}\0TheUrlValue",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheUrl = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheUrl = SwiftProtobuf.ExtensionSchema(
   schema: "\0|\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{6}\0TheUrl",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_Id = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_Id = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{2}\0Id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_IdNumber = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_IdNumber = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{8}\0IdNumber",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_TheIdNumber = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_TheIdNumber = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{b}\0TheIdNumber",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_RequestId = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_RequestId = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0RequestId",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let Extensions_new_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_new_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{9}\0new_value",
   extendedMessageResolver: { BaseMessage.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension BaseMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension BaseMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{b}\0BaseMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 

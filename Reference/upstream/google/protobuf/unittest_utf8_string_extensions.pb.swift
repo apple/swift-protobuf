@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestUtf8ValidationOfExtensions: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestUtf8ValidationOfExtensions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -44,7 +44,7 @@ struct Proto2Unittest_TestUtf8ValidationOfExtensions: @unchecked Swift.Sendable 
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestUtf8ValidationOfExtensions {
+nonisolated extension Proto2Unittest_TestUtf8ValidationOfExtensions {
 
   var Proto2Unittest_optionalUtf8StringExtension: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_utf8_string_extension, default: String()) }
@@ -69,7 +69,7 @@ extension Proto2Unittest_TestUtf8ValidationOfExtensions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_Extensions_optional_utf8_string_extension,
   Proto2Unittest_Extensions_repeated_utf8_string_extension
 ]
@@ -78,19 +78,19 @@ let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftProtobuf.Extens
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.optional_utf8_string_extension",
   extendedMessageResolver: { Proto2Unittest_TestUtf8ValidationOfExtensions.messageSchema }
   )
 
-let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.repeated_utf8_string_extension",
   extendedMessageResolver: { Proto2Unittest_TestUtf8ValidationOfExtensions.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestUtf8ValidationOfExtensions: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0.\0proto2_unittest.TestUtf8ValidationOfExtensions"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 

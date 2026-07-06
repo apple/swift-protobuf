@@ -242,7 +242,7 @@ class FileGenerator {
             // incompatible with the version of SwiftProtobuf to which you are linking.
             // Please ensure that you are building against the same version of the API
             // that was used to generate this file.
-            fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModulePrefix)ProtobufAPIVersionCheck {
+            fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModulePrefix)ProtobufAPIVersionCheck {
             """
         )
         p.printIndented(

@@ -45,14 +45,14 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,7 +76,7 @@ public struct Google_Protobuf_SourceContext: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_SourceContext: GeneratedMessage {
+nonisolated extension Google_Protobuf_SourceContext: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{1d}\0google.protobuf.SourceContext"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hGliX\u{18}j9Rre(lk/\t\u{3}\u{1b}^\u{1}u\u{f}\0"
 

@@ -35,13 +35,13 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// The full set of known editions.
-public enum Google_Protobuf_Edition: Swift.Int, Enum, Swift.CaseIterable {
+public nonisolated enum Google_Protobuf_Edition: Swift.Int, Enum, Swift.CaseIterable {
 
   /// A placeholder for an unknown edition value.
   case unknown = 0
@@ -91,7 +91,7 @@ public enum Google_Protobuf_Edition: Swift.Int, Enum, Swift.CaseIterable {
 /// it (ex: local symbols cannot be imported).  Visibility modifiers can only set
 /// on `message` and `enum` as they are the only types available to be referenced
 /// from other files.
-public enum Google_Protobuf_SymbolVisibility: Swift.Int, Enum, Swift.CaseIterable {
+public nonisolated enum Google_Protobuf_SymbolVisibility: Swift.Int, Enum, Swift.CaseIterable {
   case visibilityUnset = 0
   case visibilityLocal = 1
   case visibilityExport = 2
@@ -104,7 +104,7 @@ public enum Google_Protobuf_SymbolVisibility: Swift.Int, Enum, Swift.CaseIterabl
 
 /// The protocol compiler can output a FileDescriptorSet containing the .proto
 /// files it parses.
-public struct Google_Protobuf_FileDescriptorSet: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FileDescriptorSet: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -125,7 +125,7 @@ public struct Google_Protobuf_FileDescriptorSet: @unchecked Swift.Sendable {
 }
 
 /// Describes a complete .proto file.
-public struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -259,7 +259,7 @@ public struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.Sendable {
 }
 
 /// Describes a message type.
-public struct Google_Protobuf_DescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_DescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -334,7 +334,7 @@ public struct Google_Protobuf_DescriptorProto: @unchecked Swift.Sendable {
   /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
   public mutating func clearVisibility() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_SymbolVisibility.self, hasBit: (0, 4)) }
 
-  public struct ExtensionRange: @unchecked Swift.Sendable {
+  public nonisolated struct ExtensionRange: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -381,7 +381,7 @@ public struct Google_Protobuf_DescriptorProto: @unchecked Swift.Sendable {
   /// Range of reserved tag numbers. Reserved tag numbers may not be used by
   /// fields or extension ranges in the same message. Reserved ranges may
   /// not overlap.
-  public struct ReservedRange: @unchecked Swift.Sendable {
+  public nonisolated struct ReservedRange: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -426,7 +426,7 @@ public struct Google_Protobuf_DescriptorProto: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -468,7 +468,7 @@ public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swift.Sendable {
   public mutating func clearVerification() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_ExtensionRangeOptions.VerificationState.self, hasBit: (0, 1)) }
 
   /// The verification state of the extension range.
-  public enum VerificationState: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum VerificationState: Swift.Int, Enum, Swift.CaseIterable {
 
     /// All the extensions of the range must be declared.
     case declaration = 0
@@ -480,7 +480,7 @@ public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swift.Sendable {
 
   }
 
-  public struct Declaration: @unchecked Swift.Sendable {
+  public nonisolated struct Declaration: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -562,7 +562,7 @@ public struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swift.Sendable {
 }
 
 /// Describes a field within a message.
-public struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -706,7 +706,7 @@ public struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift.Sendable {
   /// Clears the value of `proto3Optional`. Subsequent reads from it will return its default value.
   public mutating func clearProto3Optional() { _uniqueStorage().clearValue(at: 2, type: Bool.self, hasBit: (1, 4)) }
 
-  public enum TypeEnum: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum TypeEnum: Swift.Int, Enum, Swift.CaseIterable {
 
     /// 0 is reserved for errors.
     /// Order is weird for historical reasons.
@@ -755,7 +755,7 @@ public struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift.Sendable {
 
   }
 
-  public enum Label: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum Label: Swift.Int, Enum, Swift.CaseIterable {
 
     /// 0 is reserved for errors
     case `optional` = 1
@@ -783,7 +783,7 @@ public struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift.Sendable {
 }
 
 /// Describes a oneof.
-public struct Google_Protobuf_OneofDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_OneofDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -817,7 +817,7 @@ public struct Google_Protobuf_OneofDescriptorProto: @unchecked Swift.Sendable {
 }
 
 /// Describes an enum type.
-public struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -876,7 +876,7 @@ public struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.Sendable {
   /// Note that this is distinct from DescriptorProto.ReservedRange in that it
   /// is inclusive such that it can appropriately represent the entire int32
   /// domain.
-  public struct EnumReservedRange: @unchecked Swift.Sendable {
+  public nonisolated struct EnumReservedRange: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -922,7 +922,7 @@ public struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.Sendable {
 }
 
 /// Describes a value within an enum.
-public struct Google_Protobuf_EnumValueDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_EnumValueDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -965,7 +965,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: @unchecked Swift.Sendabl
 }
 
 /// Describes a service.
-public struct Google_Protobuf_ServiceDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_ServiceDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1004,7 +1004,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: @unchecked Swift.Sendable 
 }
 
 /// Describes a method of a service.
-public struct Google_Protobuf_MethodDescriptorProto: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_MethodDescriptorProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1077,7 +1077,7 @@ public struct Google_Protobuf_MethodDescriptorProto: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1341,7 +1341,7 @@ public struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable {
   }
 
   /// Generated classes can be optimized for speed or code size.
-  public enum OptimizeMode: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum OptimizeMode: Swift.Int, Enum, Swift.CaseIterable {
 
     /// Generate complete code for parsing, serialization,
     case speed = 1
@@ -1368,7 +1368,7 @@ public struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_MessageOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_MessageOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1505,7 +1505,7 @@ public struct Google_Protobuf_MessageOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1689,7 +1689,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 32)) }
   }
 
-  public enum CType: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum CType: Swift.Int, Enum, Swift.CaseIterable {
 
     /// Default mode.
     case string = 0
@@ -1709,7 +1709,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
 
   }
 
-  public enum JSType: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum JSType: Swift.Int, Enum, Swift.CaseIterable {
 
     /// Use the default type.
     case jsNormal = 0
@@ -1727,7 +1727,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
   }
 
   /// If set to RETENTION_SOURCE, the option will be omitted from the binary.
-  public enum OptionRetention: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum OptionRetention: Swift.Int, Enum, Swift.CaseIterable {
     case retentionUnknown = 0
     case retentionRuntime = 1
     case retentionSource = 2
@@ -1741,7 +1741,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
   /// This indicates the types of entities that the field may apply to when used
   /// as an option. If it is unset, then the field may be freely used as an
   /// option on any kind of entity.
-  public enum OptionTargetType: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum OptionTargetType: Swift.Int, Enum, Swift.CaseIterable {
     case targetTypeUnknown = 0
     case targetTypeFile = 1
     case targetTypeExtensionRange = 2
@@ -1759,7 +1759,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
 
   }
 
-  public struct EditionDefault: @unchecked Swift.Sendable {
+  public nonisolated struct EditionDefault: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1794,7 +1794,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
   }
 
   /// Information about the support window of a feature.
-  public struct FeatureSupport: @unchecked Swift.Sendable {
+  public nonisolated struct FeatureSupport: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1876,7 +1876,7 @@ public struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_OneofOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_OneofOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1910,7 +1910,7 @@ public struct Google_Protobuf_OneofOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_EnumOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_EnumOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1985,7 +1985,7 @@ public struct Google_Protobuf_EnumOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_EnumValueOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_EnumValueOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2054,7 +2054,7 @@ public struct Google_Protobuf_EnumValueOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_ServiceOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_ServiceOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2101,7 +2101,7 @@ public struct Google_Protobuf_ServiceOptions: @unchecked Swift.Sendable {
   public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-public struct Google_Protobuf_MethodOptions: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_MethodOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2150,7 +2150,7 @@ public struct Google_Protobuf_MethodOptions: @unchecked Swift.Sendable {
   /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   /// or neither? HTTP based RPC implementation may choose GET verb for safe
   /// methods, and PUT verb for idempotent methods instead of the default POST.
-  public enum IdempotencyLevel: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum IdempotencyLevel: Swift.Int, Enum, Swift.CaseIterable {
     case idempotencyUnknown = 0
 
     /// implies idempotent
@@ -2181,7 +2181,7 @@ public struct Google_Protobuf_MethodOptions: @unchecked Swift.Sendable {
 /// options protos in descriptor objects (e.g. returned by Descriptor::options(),
 /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 /// in them.
-public struct Google_Protobuf_UninterpretedOption: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_UninterpretedOption: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2252,7 +2252,7 @@ public struct Google_Protobuf_UninterpretedOption: @unchecked Swift.Sendable {
   /// extension (denoted with parentheses in options specs in .proto files).
   /// E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
   /// "foo.(bar.baz).moo".
-  public struct NamePart: @unchecked Swift.Sendable {
+  public nonisolated struct NamePart: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2301,7 +2301,7 @@ public struct Google_Protobuf_UninterpretedOption: @unchecked Swift.Sendable {
 /// readability, but leave us very open to this scenario.  A future feature will
 /// be designed and implemented to handle this, hopefully before we ever hit a
 /// conflict here.
-public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2387,7 +2387,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
   /// Clears the value of `enforceProtoLimits`. Subsequent reads from it will return its default value.
   public mutating func clearEnforceProtoLimits() { _uniqueStorage().clearValue(at: 36, type: Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits.self, hasBit: (1, 1)) }
 
-  public enum FieldPresence: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum FieldPresence: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case explicit = 1
     case implicit = 2
@@ -2399,7 +2399,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum EnumType: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum EnumType: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case `open` = 1
     case closed = 2
@@ -2410,7 +2410,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum RepeatedFieldEncoding: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum RepeatedFieldEncoding: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case packed = 1
     case expanded = 2
@@ -2421,7 +2421,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum Utf8Validation: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum Utf8Validation: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case verify = 2
     case none = 3
@@ -2432,7 +2432,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum MessageEncoding: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum MessageEncoding: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case lengthPrefixed = 1
     case delimited = 2
@@ -2443,7 +2443,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum JsonFormat: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum JsonFormat: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case allow = 1
     case legacyBestEffort = 2
@@ -2454,7 +2454,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public enum EnforceNamingStyle: Swift.Int, Enum, Swift.CaseIterable {
+  public nonisolated enum EnforceNamingStyle: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case style2024 = 1
     case styleLegacy = 2
@@ -2466,12 +2466,12 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
   }
 
-  public struct VisibilityFeature: @unchecked Swift.Sendable {
+  public nonisolated struct VisibilityFeature: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public enum DefaultSymbolVisibility: Swift.Int, Enum, Swift.CaseIterable {
+    public nonisolated enum DefaultSymbolVisibility: Swift.Int, Enum, Swift.CaseIterable {
       case unknown = 0
 
       /// Default pre-EDITION_2024, all UNSET visibility are export.
@@ -2504,12 +2504,12 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
     public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  public struct ProtoLimitsFeature: @unchecked Swift.Sendable {
+  public nonisolated struct ProtoLimitsFeature: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public enum EnforceProtoLimits: Swift.Int, Enum, Swift.CaseIterable {
+    public nonisolated enum EnforceProtoLimits: Swift.Int, Enum, Swift.CaseIterable {
       case protoLimitsUnknown = 0
 
       /// Default pre-EDITION_2026: there are no limit enforcement at the protoc
@@ -2552,7 +2552,7 @@ public struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 /// messages are generated from FeatureSet extensions and can be used to seed
 /// feature resolution. The resolution with this object becomes a simple search
 /// for the closest matching edition, followed by proto merges.
-public struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2588,7 +2588,7 @@ public struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.Sendable {
   /// defaults. Not all editions may be contained here.  For a given edition,
   /// the defaults at the closest matching edition ordered at or before it should
   /// be used.  This field must be in strict ascending order by edition.
-  public struct FeatureSetEditionDefault: @unchecked Swift.Sendable {
+  public nonisolated struct FeatureSetEditionDefault: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2644,7 +2644,7 @@ public struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.Sendable {
 
 /// Encapsulates information about the original source file from which a
 /// FileDescriptorProto was generated.
-public struct Google_Protobuf_SourceCodeInfo: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_SourceCodeInfo: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2697,7 +2697,7 @@ public struct Google_Protobuf_SourceCodeInfo: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  public struct Location: @unchecked Swift.Sendable {
+  public nonisolated struct Location: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2833,7 +2833,7 @@ public struct Google_Protobuf_SourceCodeInfo: @unchecked Swift.Sendable {
 /// Describes the relationship between generated code and its original source
 /// file. A GeneratedCodeInfo message is associated with only one generated
 /// source file, but may contain references to different source .proto files.
-public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
+public nonisolated struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2845,7 +2845,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  public struct Annotation: @unchecked Swift.Sendable {
+  public nonisolated struct Annotation: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2901,7 +2901,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
 
     /// Represents the identified object's effect on the element in the original
     /// .proto file.
-    public enum Semantic: Swift.Int, Enum, Swift.CaseIterable {
+    public nonisolated enum Semantic: Swift.Int, Enum, Swift.CaseIterable {
 
       /// There is no effect or the effect is indescribable.
       case none = 0
@@ -2940,19 +2940,19 @@ public struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_Edition {
+nonisolated extension Google_Protobuf_Edition {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{e}\0\0\0\0\u{17}\0google.protobuf.Edition"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\u{3}\0\00?e=f85-\u{1b}KL:Dr?|eUs\u{12}$%mX\u{12}2JI\u{1d}\u{5}\u{10}\u{1f}e:\u{16}mQZ]\u{e}=x\u{14}\u{1a}\u{c}\t\u{1d}jx\u{18}M&\u{11}f\u{5}yIRFR\u{4} R\u{15}[~/jO9C0\u{b}iU\u{2}N/OFYP2kE@f\u{6}\u{1b}\u{5}2Fkq\\F\"h\u{1f}\u{19}x\n\u{13}6T4j\u{11}?\t=\tfv(|WmY_\u{c}qdt:G2n\u{11}\u{3}^\u{8}2SX\tbcg\u{12}o5?\u{18}\"t\u{18}\u{12}h}rbn0\\c\u{18}n\u{1e};d\u{7}i\u{7}\u{11}\u{3}e|g\u{15}\u{10}c(Mka.R\u{e}s'eAX-WI=cL\u{16}'9\u{b}\u{1e}2+\t\u{1}m\u{16}E>C%Jmuz&\u{b}+f\u{f}\u{17}*TC\0G H5.b}L>^\u{3})&(6Zo\u{c}KmR\u{b}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_SymbolVisibility {
+nonisolated extension Google_Protobuf_SymbolVisibility {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0 \0google.protobuf.SymbolVisibility"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}\u{1a}:m&\u{1}q+\u{7f}lkL\u{1c}\u{1}\\HFHU0M\u{1}\u{10}ath*^E\\kitwT=gwI!\u{8}i\u{1b}jH\u{17}:<+c$p-I\u{17}Aai\n\u{4}$\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FileDescriptorSet: GeneratedMessage {
+nonisolated extension Google_Protobuf_FileDescriptorSet: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}!\0google.protobuf.FileDescriptorSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps3[e\u{12}P\u{b}b\u{f}W\u{4}\u{11}\0\0"
 
@@ -2969,7 +2969,7 @@ extension Google_Protobuf_FileDescriptorSet: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FileDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_FileDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{e}\0\0\0\0\0\u{6}\0\0\u{d}\0\0\u{8}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\0\0\u{10}\u{6}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{1}\0\u{10}\u{7}\0\u{2}\0\u{b}\u{5}\0\0\0\u{2}\u{2}\0\u{10}\u{8}\0\u{3}\0\u{b}\u{6}\0\0\0\u{2}\u{3}\0\u{10}\u{9}\0\u{4}\0\u{b}\u{7}\0\0\0\u{2}\u{4}\0\u{10}\u{a}\0\u{5}\0\u{b}\u{8}\0\0\0\0\0\00\u{2}\0\u{6}\0\u{b}\u{9}\0\0\0\0\u{1}\00\u{3}\0\u{7}\0\u{b}\u{a}\0\0\0\u{2}\u{5}\0\u{10}\u{b}\0\0\0\u{5}\u{b}\0\0\0\u{2}\u{6}\0\u{10}\u{c}\0\0\0\u{5}\u{c}\0\0\0\0\u{2}\0@\u{4}\0\0\0\u{9}\u{e}\0\0\0\0\u{4}\0\0\u{5}\0\u{1}\0\u{e}\u{f}\0\0\0\u{2}\u{7}\0\u{10}\u{d}\0\0\0\u{9}#\0google.protobuf.FileDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{14}\u{4}\0\0\0_\u{18}$T85+MKB\u{10},JsD 1w>\u{12}U\u{2}?K\u{11}w b\u{4}\u{17}ENi\u{10}d|\u{2}i//4\u{12}g\u{18}oyv\u{2}AC\u{1b}\u{1a}\u{1c}\u{17}NML\u{17}K\u{7}CP?I!3\u{1f}v~\u{1e}\0\u{1b},\u{1e}`b\u{1d}%\u{1d}k(/e$\u{1f}Ok \u{b}k\u{1c}1SZ\u{e}b\u{5}%\u{7}fN7\u{f}H9.\u{6}\u{1b}\u{1d}H\u{7}kR\0R\u{5}\n4\u{5}-\u{e}On#\0\u{18}^5\u{1d}}?8{a\u{12}\nuV\u{1a}2|*\u{5}\0;3\u{16}:e\u{f}EwzK\u{c}P.j\u{b}Z;\u{11}Cu}'-@Oaz\u{16}9\np%C}\u{7}Eo\nE$g,\0\u{7f}\u{14}[\u{1f}\u{c}]\u{f}pi%oMS^WzT5_\u{7}\u{6}\t'9JM\u{1f}\u{e}\u{1d}R0\u{19}\u{3}P\u{5})`7\u{7}rKBb\u{6}}\u{18} \0+|p\u{1a}\u{16}\u{13}F\u{8}Y\u{1}\u{3}\u{12}\u{1a}m/<\u{1}|\u{12}#P%\u{1e}QU7P`F7CjJE.Hd2}i=s\u{6}ENv~2%b|r\u{b};\u{1d}\u{15}\0\0\0"
 
@@ -2992,7 +2992,7 @@ extension Google_Protobuf_FileDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_DescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_DescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{b}\0\0\0\0\0\u{3}\0\0\u{c}\0\0\u{8}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{3}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{1}\0\u{10}\u{4}\0\u{3}\0\u{b}\u{4}\0\0\0\u{2}\u{2}\0\u{10}\u{5}\0\u{4}\0\u{b}\u{5}\0\0\0\u{2}\u{3}\0\u{10}\u{6}\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}\u{4}\0\u{10}\u{7}\0\u{2}\0\u{b}\u{7}\0\0\0\0\0\00\u{1}\0\u{8}\0\u{b}\u{8}\0\0\0\u{2}\u{5}\0\u{10}\u{8}\0\u{6}\0\u{b}\u{9}\0\0\0\u{2}\u{6}\0\u{10}\u{9}\0\u{7}\0\u{b}\u{a}\0\0\0\u{2}\u{7}\0\u{10}\u{a}\0\0\0\u{9}\u{b}\0\0\0\0\u{4}\0\0\u{2}\0\u{1}\0\u{e}\u{1f}\0google.protobuf.DescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{3}\0\0 \u{1f}2W\u{19}[O\"\rSrnx\" \u{2}\u{1}\u{14}G(\u{1}\u{f}K\u{3}\u{18}}L{Ut\u{1f}po!\t\u{2}_v \0(/\u{5},<\u{13}\t\u{5}\u{16}t\u{10}@\"gv\"\u{1c})\nXG\u{1d}\u{e}(\u{1a}\u{19}XK^E@AoG^Z!&6I)\u{17}O\u{18}_\u{c}iwj\u{1}s\u{b}7`ot`\u{17}+*Ls3=\u{15}\u{18}W\t|\t< {\u{16}tG:MDnRzMx@\"\u{f},\u{1d}~yQT-U\u{e}DW\u{18}YC'mG\u{1e}e%Sh\u{12}\n).\u{1}5\u{1}7[\u{8}Z@wLC)\\\u{1a}%\u{6}e4[tE\r\u{2}\u{8}\u{1d}\u{18}DUsv6\u{3}Y\r\u{5}\u{1c}SE:\u{1c}LN{YQ\u{4}\u{6}]LwVu2cwS$)ogh&@dSJ]scyt\t<pK!\u{2}K\"XP|\r\0\0"
 
@@ -3016,7 +3016,7 @@ extension Google_Protobuf_DescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_DescriptorProto.ExtensionRange: GeneratedMessage {
+nonisolated extension Google_Protobuf_DescriptorProto.ExtensionRange: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}.\0google.protobuf.DescriptorProto.ExtensionRange"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\011S*Hs0\u{14}}Gpe\u{1d}#\u{f}\rF>q\u{18}j]l<%#P\u{e}j\u{1}?8Kdl,#t*\u{12}U\u{1e}\u{8}[Y\u{2}\u{1}\u{3}\0"
 
@@ -3033,7 +3033,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_DescriptorProto.ReservedRange: GeneratedMessage {
+nonisolated extension Google_Protobuf_DescriptorProto.ReservedRange: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}-\0google.protobuf.DescriptorProto.ReservedRange"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}4\u{15}lg%y'8Z\u{c}h*9]_B!}\u{11}a4!G9\u{3}\0"
 
@@ -3043,7 +3043,7 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_ExtensionRangeOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_ExtensionRangeOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{4}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}2\0\0\0\0\0\00\u{1}\0\u{4}\0\u{b}g\u{7}\0\0\u{2}\u{1}\0\u{10}\u{3}\0\u{3}\0\u{b}%\0google.protobuf.ExtensionRangeOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\u{1}\0\0 ?eT!ZC#D#`Oz$7[\u{3})\u{18}jBPM{x>vEYadWhCb\u{e}xU\u{1d}x2s+&/&\u{19}ZHG\u{2}glJc@J|\t<\u{14}V_g\u{16}3wv4|'\u{14}{\u{f}\049~)FT)hL\u{1b}qSrS<yah;[6*g\u{16}EV&\u{f}IIHm^\0\0"
 
@@ -3063,13 +3063,13 @@ extension Google_Protobuf_ExtensionRangeOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_ExtensionRangeOptions.VerificationState {
+nonisolated extension Google_Protobuf_ExtensionRangeOptions.VerificationState {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\07\0google.protobuf.ExtensionRangeOptions.VerificationState"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KdQ_z\u{12}1cz@Tj3Eg>$\u{17},q\u{1}lU\u{7f}\u{5}ns@\"\u{1f}+$'\u{2}$dZ\t\u{1}\u{8} 7g\u{7}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_ExtensionRangeOptions.Declaration: GeneratedMessage {
+nonisolated extension Google_Protobuf_ExtensionRangeOptions.Declaration: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{1}\0@\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1}\0\0\u{3}\0\0\0\u{8}\u{6}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}1\0google.protobuf.ExtensionRangeOptions.Declaration"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\u{1}\0\0 _]\u{13})ZC#DC -un\u{16}VS\ttwGQ2u>,'E\u{6}IKv\u{17}YmG\u{1e}(|\u{6}YE\u{c}H>\u{19}\".qV\u{16}A\u{3}\\L\u{e}(iz%\u{10}\u{c}K\0a\u{7f}3:+6\n\u{4}\u{1e}5w\u{c}^iJr\u{7f}\u{8}W\u{1e}e\u{f}1xuYSyy\u{3}\u{4}\u{14}\u{2}2c\u{10}dp\u{4}\u{15}ff\u{16}\0"
 
@@ -3079,7 +3079,7 @@ extension Google_Protobuf_ExtensionRangeOptions.Declaration: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FieldDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_FieldDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0\0\u{b}\0\0\0\0\0\u{b}\0\0\u{b}\0\0\0\0\0\0\0\0\u{1}\0\0\u{5}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{4}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{c}\0\0\u{4}\0\u{2}\0\u{e}\u{6}\0\0\0\0\u{2}\0@\u{5}\0\0\0\u{9}\u{7}\0\0\0\0\u{3}\0@\u{6}\0\0\0\u{9}\u{8}\0\0\0\0\0\00\u{7}\0\u{3}\0\u{b}\u{9}\0\0\0\0\u{10}\0\0\u{8}\0\0\0\u{5}\u{a}\0\0\0\0\u{4}\0@\u{9}\0\0\0\u{9}\u{11}\0\0\0\0\u{2}\0\0\u{a}\0\0\0\u{8}$\0google.protobuf.FieldDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{3}\0\0 \u{7f}\n\u{12}A[Or::Bnx\" \u{2}\u{1}\u{14}G(\u{1}\u{11}O\u{19}aaT>F\u{1e}aVDo9\u{14}T\u{13}\u{12}\u{10}@Pb2:p\u{16}Xh\u{19}b\u{13}XC$P\u{3}x\u{4}m\tb\u{1d}\u{c}fS\u{2})\u{1e}fvX\\2(0\u{16}UB2e-\r[\nAc\u{1c}%3 \0J'Q;\u{1e}n\u{f}_B\u{15}\u{12}Y\u{8}sl\tT\u{12}\u{1c}&\u{11}W-\u{18}4/;\u{1f}{4yZ\u{1f}//IMJU\u{f}\u{7}%R\u{1c}\u{6}34\t\\S''VuxHg\"@ehte%\\\05!\u{1c}GmY\u{7f}e\u{1}X2)\u{2}\u{19}M\u{1b}\u{10}--}hNeh\u{1}Je&e#W_2Rdk\u{b}x;~Nh\u{10}f!\"3^\u{7}j{NWmBE\u{17}Y))\u{8}\u{11}.fQ\t\u{8}y\\#rJ\u{2}\0\0"
 
@@ -3098,19 +3098,19 @@ extension Google_Protobuf_FieldDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FieldDescriptorProto.TypeEnum {
+nonisolated extension Google_Protobuf_FieldDescriptorProto.TypeEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{12}\0\0\0\0)\0google.protobuf.FieldDescriptorProto.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{4}\0\0\0\u{7f}L\u{2}`\u{16}\u{1f}&My?iI0\t-1\u{4}+-\t7\u{1c}u\u{17}:sW.C<\u{1b}MCm$|\u{12}A?\u{f}\u{1b}R\t\u{b}\u{b}R|J\u{15}SUf\04m\u{13}X\u{15}4\u{16};?2e)+mf'Of\u{1c}4C\u{5}Frm*W\u{15}>R5\u{c}\u{15}\u{1c}h\rR=Ap~s(9j{in_'b7\u{14}rK<\t\u{1e}\u{1e}!bZ1\u{f}\u{1d}bf\"5Q\u{e})\u{1f}CXZCP! O\n`!^\r\u{7f}jM\u{13}{:,~+5\"[~\u{16}+\":\u{16}sc\u{12}!'J&RhMc}\u{12}R\u{1d}AV(wv;>w\u{19}41\u{1d}B\u{4}\u{15}l\u{1b}5GRVyLm\u{1f}^{\u{f}ij\r\u{b}Ojylp&v-\t+O\u{17}b\u{4}#;rt'\u{1e}@iU)\n\u{b}Uk\"\u{f}P\u{1d}#0 =HCK,P\u{10}&\u{e}8\u{12}\u{2}.\u{15}m;\u{19}0HIpT!A.s\u{e}\0\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FieldDescriptorProto.Label {
+nonisolated extension Google_Protobuf_FieldDescriptorProto.Label {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0*\0google.protobuf.FieldDescriptorProto.Label"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\jV\u{1c}d GMwQ\t\u{14}E+3|\u{1}0\"zOc!jK\"\u{e}Ug#C09^2\u{1c}g*y\re|\u{c}s\u{f}KBZ*p'\u{8}0O5Pxypf\u{2}|\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_OneofDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_OneofDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}$\0google.protobuf.OneofDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HIF{QYMeubl|,\r|Zv?3?\"8w\u{1c}mJ\n\u{17}\0"
 
@@ -3127,7 +3127,7 @@ extension Google_Protobuf_OneofDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_EnumDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_EnumDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{6}\0\0\0\0\0\u{3}\0\0\u{7}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{3}\0\u{2}\0\u{b}\u{3}\0\0\0\0\0\00\u{1}\0\u{4}\0\u{b}\u{4}\0\0\0\u{2}\u{1}\0\u{10}\u{4}\0\u{3}\0\u{b}\u{5}\0\0\0\u{2}\u{2}\0\u{10}\u{5}\0\0\0\u{9}\u{6}\0\0\0\0\u{4}\0\0\u{2}\0\u{1}\0\u{e}#\0google.protobuf.EnumDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\u{1}\0\00_X:m[W|H\u{3} tpa'sb7j'/ygZZ K\u{e};n1KeBEfV{\u{2},O7d1Pp\\4\u{1b}gYM\u{4}Y\u{12}d>Z5B/\u{c}qj+f7oO\u{1a}\0\u{12}\u{e}\u{1f}\u{11}}JWl9=\u{2})H@JL\u{16}>\u{7f}\u{12}7M\u{11}\u{7f}<5\t?_Bn7L\u{11}XsWl?3 g0JDRrf\u{7}kgR<>*g\u{7}\u{2}\0"
 
@@ -3147,7 +3147,7 @@ extension Google_Protobuf_EnumDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: GeneratedMessage {
+nonisolated extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}5\0google.protobuf.EnumDescriptorProto.EnumReservedRange"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}4\u{15}lg%y'8Z\u{c}h*9]_B!}\u{11}a4!G9\u{3}\0"
 
@@ -3157,7 +3157,7 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: GeneratedMessag
 
 }
 
-extension Google_Protobuf_EnumValueDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_EnumValueDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}(\0google.protobuf.EnumValueDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\011S*Hs0\u{14}}G\u{10}%OF\u{10}\r\u{17}kiu,gc,\u{1}u\u{1a}D\u{1b}9\u{f}1j{\u{1c}#(6\u{1f}\u{8}\0HPm\u{10}lf*\u{3}\0"
 
@@ -3174,7 +3174,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_ServiceDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_ServiceDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{3}\0\0\0\0\0\00\u{1}\0\u{2}\0\u{b}&\0google.protobuf.ServiceDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0\u{10}?&TihI\u{b} vX2Z\u{12}W_`y\u{7}H/\u{16}\u{17};\u{16}f\u{8}LN_?8?\u{1f}b\"SYw\u{6}?\u{11}3>\u{1e}O0S\u{10}\u{19}uZO\"V\u{1b} [Ri\u{3}\u{1f}f _:B0\\vS\u{4}\0"
 
@@ -3192,7 +3192,7 @@ extension Google_Protobuf_ServiceDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_MethodDescriptorProto: GeneratedMessage {
+nonisolated extension Google_Protobuf_MethodDescriptorProto: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\0\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{2}\0@\u{2}\0\0\0\u{9}\u{4}\0\0\0\0\0\00\u{3}\0\u{1}\0\u{b}\u{5}\0\0\0\0\u{1}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{2}\0\0\u{5}\0\0\0\u{8}%\0google.protobuf.MethodDescriptorProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{2}\0\0\0_\u{10}c=ZOJX\u{1}R6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1}\u{f}Kc8C?e=?<F[&B$l\u{8}VT4\u{1d}b+pQq\u{17}g9W\u{e}ko\u{1f}>\u{f}ci9(\u{16}x\u{e}T\u{14}Kd8\u{1c}UvxwS\u{c}\u{7f}nDA\0t^\n\0 uO~9\u{16}] DF.D\u{14}0\u{8}2\u{15}5U@1!\u{1}t,7>\u{10}Xl\u{1d}\n\"\ryc$SKmd\u{8}f\u{5}\u{1e}\u{2}\u{1d}i$cp\u{7}/b\u{7f}(j~r\u{11}\\\u{b}\0\0\0"
 
@@ -3209,7 +3209,7 @@ extension Google_Protobuf_MethodDescriptorProto: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FileOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_FileOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0 \u{15}\0\0\0\0\0\u{14}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{a}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{8}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{9}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{a}\0\0\0\0\u{3}\0\0\u{3}\0\0\0\u{8}\u{b}\0\0\0\0\u{2}\0@\u{4}\0\0\0\u{9}\u{10}\0\0\0\0\u{4}\0\0\u{5}\0\0\0\u{8}\u{11}\0\0\0\0\u{5}\0\0\u{6}\0\0\0\u{8}\u{12}\0\0\0\0\u{6}\0\0\u{7}\0\0\0\u{8}\u{14}\0\0\0\0\u{7}\0\0\u{8}\0\0\0\u{8}\u{17}\0\0\0\0\u{8}\0\0\u{9}\0\0\0\u{8}\u{1b}\0\0\0\0\u{9}\0\0\u{a}\0\0\0\u{8}\u{1f}\0\0\0\0\u{a}\0\0\u{b}\0\0\0\u{8}$\0\0\0\0\u{3}\0@\u{c}\0\0\0\u{9}%\0\0\0\0\u{4}\0@\u{d}\0\0\0\u{9}'\0\0\0\0\u{5}\0@\u{e}\0\0\0\u{9}(\0\0\0\0\u{6}\0@\u{f}\0\0\0\u{9})\0\0\0\0\u{7}\0@\u{10}\0\0\0\u{9},\0\0\0\0\u{8}\0@\u{11}\0\0\0\u{9}-\0\0\0\0\u{9}\0@\u{12}\0\0\0\u{9}2\0\0\0\0\0\00\u{13}\0\u{3}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{14}\0\u{2}\0\u{b}\u{1b}\0google.protobuf.FileOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\t\0\0 \u{7f}}xiulY[ 6\u{13}o\t1`t\u{6},!nPkkk\u{6}7M\u{1f}f-\u{17}\u{7f}\u{3}l=^/cphc\u{1a}b0\u{12}$[2Jb\u{5}\u{16}|q\t~;yT0\0\u{12}*;\u{c}gm\u{2},\\=v\u{b}\u{16}\u{1f}\u{1}F \u{7f}~\u{16}UQct-8]jc':GCDh\u{1a}\n?7]P\u{12}U#\u{6}n\u{16}<u\u{f}WL\"`I\u{14}\u{2}L=c\u{1b}H\u{c}YD+\nMx\u{e}m\u{19}M1-l?xC_7\u{3}Ds.: Omb\u{14}\u{8}Kz]Kx@g8\njQ!]\u{3}V`pC#\u{c}afr%e\u{5}Bz18\u{1e}\u{7f}9\u{3}Rka\"\u{5}L\u{f}]Yyk2SI8G6U\u{4}\u{7}mshH\u{1b}^\u{1}A\u{7f}\u{1d}%\u{1d}\u{e}zfX\"\u{2}dhBU-jXFi\u{6}c\u{11}\u{11}MK\u{f}9^ix@Lj\u{13}\u{1e}\"\u{1c}TKc=iCls\n(A=<N&%NO\u{1c}\u{14}`;l@\u{1f}y\u{e}P3:\u{2}D\u{e}A,\u{4}\r!@\n?V\t:%\u{19}b\u{18}q&RMMU-&\u{2}n\u{1e}:XPVeWjk\u{7f}Y\0S:\u{1a}[\u{3},\u{1b}y9_A\t8'\u{7f}\u{1c}6N<\u{18}!Fzd\0(:V\u{8}1\u{6}\u{6}n\u{1e}v\u{19}v\u{11}TIrz,%\u{7f}\u{3}{o%z}`,w[T\u{11}N\u{12}%Tq^Mn>\u{17}?2Sr2m\tnTMYO\u{7}j\u{4}robB00&\u{1d}L^!\u{17}b[wU[Vk\u{2}>&\u{e}NXq\u{14}D0\u{e}|&Z|l\u{c}Fh\\-\u{3}\u{14}J\t\u{19}v,8u\t1!R\u{13}\u{1d}^':+0c8\u{1c}PR]0\u{5}\u{f}d:F 7\u{16}zvZjo##\u{2}$\u{6}Bp]=B8\0<\rO\u{1a}W\u{b}vjx\u{1a}xFmc1<V;dNx \u{7f}k\u{3}J\u{1e}f\u{16}\0V#\u{b}(7\u{1a}=KKk\u{14}`V\u{14}9*\u{1b}n\u{3}Gl\u{6}7\u{f}-\u{b}N,V@\tt`y\t\u{e}H\u{4}\u{17}P\u{10}w?=\u{17}@RuS0@ \u{1a}\u{1d}\u{17}\u{e}4l9>8\")e(.}.},\n\u{1}\u{8}\u{1c}O[\u{15}\nR>x\u{10}C\u{10}\r_\tzl6\u{16}\u{8}21\u{e}D NX\u{f}px\u{13}\u{4}58d:i\u{b}6f:\\nd-[j]j\0zAT#\\\u{1}r[vv\u{1a}Clb3 |$=7J\u{14}ZGJoTkCr>\u{14}\u{12}"
 
@@ -3228,13 +3228,13 @@ extension Google_Protobuf_FileOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FileOptions.OptimizeMode {
+nonisolated extension Google_Protobuf_FileOptions.OptimizeMode {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0(\0google.protobuf.FileOptions.OptimizeMode"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"lYBH\u{18}(v/KC#c\u{1c}\u{4}m&|d@V*[Q\u{1}Co\u{18}{{=\u{13}\u{1e}wK\u{7f}\u{1}O\\4Y?$\u{7}V_X\u{b}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_MessageOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_MessageOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{6}\0 \u{7}\0\0\0\0\0\u{6}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}\u{3}\0\0\0\0\u{3}\0\0\u{2}\0\0\0\u{8}\u{7}\0\0\0\0\u{4}\0\0\u{3}\0\0\0\u{8}\u{b}\0\0\0\0\u{5}\0\0\u{4}\0\0\0\u{8}\u{c}\0\0\0\0\0\00\u{5}\0\u{2}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{6}\0\u{1}\0\u{b}\u{1e}\0google.protobuf.MessageOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\u{3}\0\0 \u{1f}nv\u{1d}[ga*9\u{1e}A|\n\\\\\n/+VI\u{1d}5+\u{1b}\u{11}\u{8}bS\u{e}s7Uo5q\\\u{8}\u{18}8x]#Zk\u{1e}]q9\u{12}@hqEN=s8Rx\u{14}9\u{14}\u{4}\u{4}Pa\u{18}\u{17}ruK~\u{7}\u{15}>)k^w\u{1b}\u{18}tLA\tiS>zZh_(\0Ti^*}qWfH30\u{14}\n\"J\u{4}N-U>\u{12}k\u{4}\u{7}\u{12}#F7\"Gh)m~\u{1d}\u{10}3z\u{13}\u{7f}\u{7}.\\i1C\u{6}\u{19}b*\u{15}\r \u{7}\u{1d}{#\nh@\u{1}-B~0O\u{e}=BpX=\u{7}}\u{1d}B\u{1a}\u{1b}\u{14}$\u{14}?6\u{5}a\u{13}>ZH\u{13}\u{1d}c\u{2}yH\\\u{12}RULsI*hSldN\u{1b}}KIRDYL8\0vQzX\u{10}\u{2}8.\u{12}F$\u{1}rk\u{16},\u{e}\u{4}MiTjAf\u{1d}I\u{5}c{qz+X.19LO#A\u{16}/:]KkuH7b\u{14}b{\u{17}*=\u{8}\0\0"
 
@@ -3252,7 +3252,7 @@ extension Google_Protobuf_MessageOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FieldOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_FieldOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{e}\0\0\0\0\0\u{b}\0\0\u{4}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{8}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}\u{3}\0\0\0\0\u{3}\0\0\u{2}\0\0\0\u{8}\u{5}\0\0\0\0\u{4}\0\0\u{3}\0\0\0\u{8}\u{6}\0\0\0\0\u{c}\0\0\u{4}\0\u{2}\0\u{e}\u{a}\0\0\0\0\u{5}\0\0\u{5}\0\0\0\u{8}\u{f}\0\0\0\0\u{6}\0\0\u{6}\0\0\0\u{8}\u{10}\0\0\0\0\u{7}\0\0\u{7}\0\0\0\u{8}\u{11}\0\0\0\0\u{10}\0\0\u{8}\0\u{3}\0\u{e}\u{13}\0\0\0\u{2}\0\0\u{10}\u{b}\0\u{4}\0\u{e}\u{14}\0\0\0\u{2}\u{1}\0\u{10}\u{c}\0\u{5}\0\u{b}\u{15}\0\0\0\0\0\00\u{9}\0\u{7}\0\u{b}\u{16}\0\0\0\0\u{1}\00\u{a}\0\u{8}\0\u{b}g\u{7}\0\0\u{2}\u{2}\0\u{10}\u{d}\0\u{6}\0\u{b}\u{1c}\0google.protobuf.FieldOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{4}\0\0@\u{7f}\0a\u{19}`-6xDx\u{6}5wmwe(\r<`\u{10}x\nR8hh\u{7f}\u{1a}74T:^\u{f}N\u{1}VcZc`\u{16}GX\u{2}Z\u{7}0\u{1a}7)RIi*\u{1e}\u{18}:I\u{13}\nrd~l('\u{13}\u{12}L\u{1d}\u{16}j,H\u{16}\u{4}[\u{10}/\\sx\u{19}<JA^!$22\u{1b}\u{c}\u{15})\nKp7y%p#1Q\u{14}9,K\u{4}i6dMC\u{4})sK\rEE\u{1b}n\u{4}Ip-*NbZ>-J@3\u{4}\u{e};MC\u{7f}9iL5 Z5K'OD`-t7&\u{10}\u{15}\u{f}A\u{8}\u{1e}\u{1b}W\u{1b}&H\to2S0\u{b}]rVG6\u{18}\u{14}.7\u{1e}\u{1f}8?S\u{2}\u{19}\u{8}|7U$l\u{1e}JM+#F\u{3}-\nQ\u{1}\u{12}\u{14}peQ@1R![\u{1f}S@\u{e}WHM\u{15}f/1Yb6\u{13}\u{13}tT\u{4}\u{19}\u{1a}\"QAq!67\u{1c}\u{3})@ZPL6\u{14}\";GU\u{3}:\u{7f}c\u{4}+rHw\u{1b}`\u{b}:\07<6\u{18}so\"0\u{4}\u{6}m)\n*4,\u{6}L\u{6}x\u{1a}Q\u{14}NJ[{a\u{f}"
 
@@ -3276,31 +3276,31 @@ extension Google_Protobuf_FieldOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FieldOptions.CType {
+nonisolated extension Google_Protobuf_FieldOptions.CType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\"\0google.protobuf.FieldOptions.CType"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@x~-\u{19}JT\u{12}wt\u{12}1cz@T:Db-sR\u{7f}2C|W\\.\u{1d}f5X*\u{f}C\u{e}a\u{15}}4\\#\u{18}\rj&8{\u{15}!\u{2}]Ae^p\u{17}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FieldOptions.JSType {
+nonisolated extension Google_Protobuf_FieldOptions.JSType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0#\0google.protobuf.FieldOptions.JSType"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}nc\u{7f}h\u{15}o5!Q|b7P\u{1e}4Cn\u{7f}KeJK\u{b}1gE\nN\u{8}w\u{13}#i\r\u{7f}\u{7f}PFrk\u{19}\u{13}X\u{10}h^\u{c}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FieldOptions.OptionRetention {
+nonisolated extension Google_Protobuf_FieldOptions.OptionRetention {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0,\0google.protobuf.FieldOptions.OptionRetention"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{14}\u{1a}:m&\u{1}q+\u{7f}lkO:l\\<\u{17}\0\u{14}\u{1}`Z>s4EE\r]:\u{1c}*\u{1}\u{c}\u{15}\\S23L\u{12}5&\u{1}r\\\u{7}\u{16}=Oe|,z\u{7f}N\u{e}]\u{17}kW/X\u{1}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FieldOptions.OptionTargetType {
+nonisolated extension Google_Protobuf_FieldOptions.OptionTargetType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{a}\0\0\0\0-\0google.protobuf.FieldOptions.OptionTargetType"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{2}\0\0 J%V|\u{11}YA ))xKD\u{1c}c\u{1c}Ld\u{6}Qi5l\\xsN+m\u{1a}  )\u{3}-\u{8}M\u{6}J\u{12}\u{7f}=<Be.MG\u{19}rSW\u{1d}\"I&d\u{7f}o4{\u{f}2l(\u{c}tp\\F\u{c}\u{f}\u{2}\tw\u{1b}x\u{10}]tvJ(&5_ ).H7.Cd c\u{1c}!o\u{1b}\u{13}O 8M$~.\u{6}\u{1d}\u{e}9*RT~\u{c} \u{4}F2L[\u{1d}\u{7}\u{11}\nut\u{11}S\u{14}q%\u{1b}gv!\u{15}#sKh\u{8}=\u{1d}\u{13}\u{4}\\<MQ\u{3}\u{1c}2zG\u{4}j )IJ6'\u{15}K<Pn|9\0\u{8}\u{10}\u{16}\u{12}\0\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FieldOptions.EditionDefault: GeneratedMessage {
+nonisolated extension Google_Protobuf_FieldOptions.EditionDefault: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{3}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}+\0google.protobuf.FieldOptions.EditionDefault"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(!\u{4}\u{19}PNbVUT\u{12}%t6\0\u{3}^$$\u{8}\u{10}E,r&\n:P,`\u{8}\u{5}X\u{18}~0\0"
 
@@ -3317,7 +3317,7 @@ extension Google_Protobuf_FieldOptions.EditionDefault: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FieldOptions.FeatureSupport: GeneratedMessage {
+nonisolated extension Google_Protobuf_FieldOptions.FeatureSupport: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\0\0@\u{2}\0\0\0\u{9}\u{4}\0\0\0\0\u{c}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}+\0google.protobuf.FieldOptions.FeatureSupport"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\u{2}\0\0\0{_\u{5}*R9m@>#\u{1a}\u{c}X|D6\rZq\u{11};Do#V\u{17}(\u{1d}EMzUP\u{1a}\u{18}W\u{17}/~VR]<w\t1\rJE\u{1c}eJ}td5 H\u{6}B2`<\u{7}<`/Y:6%5mbT\u{5}\u{6}+1'!0\u{19}\u{f}\t\u{15}\u{1e}x'H\u{10}$j#g\u{15}Q\u{7}3)K\u{11}>AL8\u{1d}\u{7f},/':\u{13}\u{12}zV_Y\u{11}+g\r{!C,e<EMzO^&\u{1d}\u{12}N_\t5EDvDQp\u{8}VQU,#\r\0\0"
 
@@ -3334,7 +3334,7 @@ extension Google_Protobuf_FieldOptions.FeatureSupport: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_OneofOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_OneofOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{2}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{2}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{1}\0\u{1}\0\u{b}\u{1c}\0google.protobuf.OneofOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#`~\u{18}J%l\u{2}5<1\u{17}dJ\u{8}&QHyS8N1\th\u{19}7[sc~C,\u{c}P/\u{6}\t^>l;uMaSQ-\u{1b},j'D\u{19}\t);$#e\u{16}J(w$1vi\u{10}\u{3}\0\0"
 
@@ -3352,7 +3352,7 @@ extension Google_Protobuf_OneofOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_EnumOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_EnumOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{4}\0 \u{5}\0\0\0\0\0\u{4}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{3}\0\0\0\0\u{2}\0\0\u{1}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{2}\0\0\0\u{8}\u{7}\0\0\0\0\0\00\u{3}\0\u{2}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{4}\0\u{1}\0\u{b}\u{1b}\0google.protobuf.EnumOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{2}\0\0\0_\\\u{4}1ZO\u{1a}vh!+\u{16}]{T?\u{e}C\u{5}x<+\u{3}\u{8}.sr~?\u{4}Qd\u{11}\u{b} +USU2\u{10}Yk\u{1c}q\u{1a}|\u{1a}()yr)\"YC=\u{e}^K|~\u{15}\u{19}W\r75Hi-dJ\u{1d}\u{e}\"\t$X|\0$pcJ\u{1d}P]3\u{1c} TG|?\u{16}wi,\u{19}\u{7}[--\u{1b}Gg<UF\u{3}5exo>5PnK\u{1c}?\u{18}fin\u{1c}\u{7}V\u{6}1\u{18}D#\u{17}\u{b}\u{11}\u{5}\u{7}&~cJ\u{7f}to\u{19}ioEoX\u{12}Om\u{18}\u{11}\u{e}\u{5}R\u{c}EO5){eH?\u{16}V\0\0\0"
 
@@ -3370,7 +3370,7 @@ extension Google_Protobuf_EnumOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_EnumValueOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_EnumValueOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0 \u{5}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\0\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{1}\00\u{3}\0\u{3}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{4}\0\u{1}\0\u{b} \0google.protobuf.EnumValueOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\u{1}\0\00\u{1f}p}U[7e\u{2}dH~S\u{2};\u{1e}a\t^C[jj_>@5]L*h2\u{12}T0.\u{1}}VC\u{3}~\u{18}|\u{17}~\u{3}5K\u{6}N;Fvt\\'/QUe^\u{15}\u{18}qtJWe\u{1f}A:\u{18}e\u{1b}4:\u{7f}\u{15}7D2\u{17}0H\u{3}g+\u{1c}S16o)iAo7t\n%]v\0h\u{1f}Td\u{11}\u{1c}\u{3}8H-DD\u{1c}k\u{b}\"\u{6}EEn\u{b}=\u{17}j\u{b}eo]=x\u{10}\u{7f}h\u{1d}<v\u{19}\u{4}\0\0"
 
@@ -3389,7 +3389,7 @@ extension Google_Protobuf_EnumValueOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_ServiceOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_ServiceOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0 \u{3}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0!\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\"\0\0\0\0\0\00\u{1}\0\u{2}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{1e}\0google.protobuf.ServiceOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{1}\0\0 \u{7f}\t1=ZC#D\u{3} r4[\u{7}Wc7j\u{17}y+A\u{1b}\u{1e}?h}\u{1a}\u{1e}X\\x;[\u{1c}?='/dQ1s:[w\u{1}3w N%ICb|_h'9\u{6}8o*\u{17}:}< /eJ4`3,\u{5}l\tY/\u{1f}\u{18}9\u{17}/\u{7f}D$ \u{2}\0\0"
 
@@ -3407,7 +3407,7 @@ extension Google_Protobuf_ServiceOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_MethodOptions: GeneratedMessage {
+nonisolated extension Google_Protobuf_MethodOptions: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{4}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0!\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\"\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}#\0\0\0\0\0\00\u{2}\0\u{3}\0\u{b}g\u{7}\0\0\u{2}\0\0\u{10}\u{3}\0\u{2}\0\u{b}\u{1d}\0google.protobuf.MethodOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{1}\0\00\u{7f}\0x\u{5}Z[,E#`Oz,\u{3}}\09\u{18}l)\u{6}J\u{b}jqj184$=$W}B`>\u{16}fX\u{7f}[1R\ri6y6[n(\u{2}\u{3}e\n\u{19}\u{1c}ft\u{e}f&\u{e}ts\\E;$C\u{e}X\u{f}!'\u{19}`xZ\u{5}U/4\u{13}95\u{7}\u{10}w\u{14}*.\u{14}w\u{4}\u{11}Z\u{13}og$SFt\thFI!!\u{e}v2@ZQNFcD&\0"
 
@@ -3426,13 +3426,13 @@ extension Google_Protobuf_MethodOptions: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_MethodOptions.IdempotencyLevel {
+nonisolated extension Google_Protobuf_MethodOptions.IdempotencyLevel {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0.\0google.protobuf.MethodOptions.IdempotencyLevel"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@\\\u{1a}lk:sR\u{3}#QL1\u{f}L\u{b},!FhMO\u{1a}\u{5}|;{>A\u{1e}mzEW2Dyr<\u{16}\t0v\u{13}'@Yd\ttl\u{6}\u{2}\u{6}\u{10}/h\u{4}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_UninterpretedOption: GeneratedMessage {
+nonisolated extension Google_Protobuf_UninterpretedOption: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\u{6}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\0\u{2}\0\0\u{10}\u{6}\0\u{1}\0\u{b}\u{3}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{4}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{4}\u{5}\0\0\0\0\u{10}\0\0\u{2}\0\0\0\u{3}\u{6}\0\0\0\0\u{18}\0\0\u{3}\0\0\0\u{1}\u{7}\0\0\0\0\0\0P\u{4}\0\0\0\u{c}\u{8}\0\0\0\0\u{1}\0@\u{5}\0\0\0\u{9}#\0google.protobuf.UninterpretedOption"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\u{2}\0\00\u{6}\u{5}Z,Si-3\u{13}\u{1}S&\n)\u{4}se\rI\ry\u{13}\r' ,\r)\u{2}\u{10}g;\u{17}fX\u{b}\t\u{7f}@0t35!BU@\0/\u{5}%z 0DG!\u{7}\u{19}-(g~*-/`\\\u{5}5\u{1a}xR~IL<$\u{12}45%^r\tX\u{b}\u{16})qv%!\u{5} 8\u{19}]F%\u{f}\u{8}\u{4}\u{7f}hTg\u{1d}Ud\u{3}7.h\u{10}?e\u{6}ic\u{16}+\u{15},'aRj\u{e}3Zg2c10xnk,{\u{5}Lt\t0`\0`<%]1e#\t$l^Y~8W?!\u{14}d\u{e}\u{18}u>1X\u{1d}j`\u{7f}:K&rcZ\u{3}D>\0\0\0"
 
@@ -3449,7 +3449,7 @@ extension Google_Protobuf_UninterpretedOption: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMessage {
+nonisolated extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8},\0google.protobuf.UninterpretedOption.NamePart"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#`~\u{18}p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}5\nh}!s>\u{14}E\u{11}\u{3}I\u{1a}~(K\u{10}xo*9\u{18}q\u{1c}i\u{7f}B\n,R\"\u{1e}+\u{1}\u{1}(\t\u{b}\rt\u{7})P\u{1d}[,F2wJd\u{1}\0\0"
 
@@ -3459,7 +3459,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FeatureSet: GeneratedMessage {
+nonisolated extension Google_Protobuf_FeatureSet: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0 \u{9}\0\0\0\0\0\u{9}\0\0\u{a}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{5}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{6}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{7}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{8}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{9}\0\u{e}\u{1a}\0google.protobuf.FeatureSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{4}\0\0\0?dEH89CDHgj\u{16}.j}\u{1a});I\u{4}pb\"Q:\u{1}\u{15}ux\u{1a}!(5m\u{15}\"qH>:P#>g=;lobS\nQ\u{3}ZUCu\u{16}\tt\u{11}3w9&|y,GIt\u{16}a9D|\u{5}le(I\"\n[k?`|01_h\u{12}.8(\\9ou`.\u{5}u|\u{8}>R:S\tO@R\u{8}8\u{7}.\u{f}04\u{19}L\u{1}bU+dVuX`\u{e}tV^\u{1c}6\u{1b}=PX\u{7f}\u{15}3\u{14},\u{1}<N\rD7\u{1e}\\3?.n\r(iM655\u{1}\t\u{6}Fg7m!tRf\u{17}09\u{10}j=*\u{1a}6<\0\n~\u{11}p\0cKtB;}lk\u{7f}g\u{1b}NScZ\u{1}\0zM_#TX:\u{c}Sj3o1G:\u{e}\u{1}>R\u{1e}V\nh#,\nT3gq\u{16}6P}+H\u{2}\u{11}w6(\u{1f}d >|!9h^fkt+Gj\u{e}\u{8}q(]\u{7f}g06+\u{7}\u{e};\u{7}O7SMa4\u{8}\u{4}\u{12}\u{19}i<T\u{1a}1@\u{c}.!#\rPUZE?,\0\0"
 
@@ -3484,49 +3484,49 @@ extension Google_Protobuf_FeatureSet: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FeatureSet.FieldPresence {
+nonisolated extension Google_Protobuf_FeatureSet.FieldPresence {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0(\0google.protobuf.FeatureSet.FieldPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>$zU5!c\u{7f}\u{7}\u{1}EE9r\u{12}Ef{\u{12}{2~)f\u{16}zQlZy~#\u{6}\u{17}\u{4}SL=V5c~'x,w\u{7f}y/\n\u{16}kYSHi~l$B<f\u{12}V:w&Q=d\u{1c}\u{1b}!\u{2} \u{16}SWI\u{3}"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.EnumType {
+nonisolated extension Google_Protobuf_FeatureSet.EnumType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0#\0google.protobuf.FeatureSet.EnumType"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}.$Ap\t\tc]1\u{2}m}\t(E&nk]un\u{1f}\u{4}\u{16}m9;(\u{6}\u{1d}.\u{16}YO$.\u{19}\u{1e};+\u{1d}\u{17}Vn6k!NRY\"\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding {
+nonisolated extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\00\0google.protobuf.FeatureSet.RepeatedFieldEncoding"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@dzpVFsR\u{3}{r=gn1\u{7}DmY.qm\":.h^\u{12}k\u{19}b{0\t&hoQ\u{15}RHx=||Kt].\tzD7^%NcW\u{1d}i=Q/\u{1}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.Utf8Validation {
+nonisolated extension Google_Protobuf_FeatureSet.Utf8Validation {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0)\0google.protobuf.FeatureSet.Utf8Validation"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{15}\u{3}\u{1c}CdRJb\u{1e}\u{c}\u{1f}-}k&q@3\u{f}\u{2}7NI>:\rb^`N\u{e}/g\u{10}\u{11}\u{15}Jw\u{12};\u{e}G%-5}\u{18}%%W\\\u{1}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.MessageEncoding {
+nonisolated extension Google_Protobuf_FeatureSet.MessageEncoding {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0*\0google.protobuf.FeatureSet.MessageEncoding"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}\u{1a}:m&\u{1}q+\u{7f}t+\u{5}\u{e}Y\\<\u{17}p\u{16}C~\u{3}<\"Jw\"5@\u{3}\u{8}\0@@\u{18}X\u{2}\u{1f}c*`=X\u{1}=\u{1}\u{1f}\u{7}tK7z{%fI\u{3}\u{e}}Y\r\u{19}$\u{e}y*I\u{12}0\",:\u{4}72\u{1b}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.JsonFormat {
+nonisolated extension Google_Protobuf_FeatureSet.JsonFormat {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0google.protobuf.FeatureSet.JsonFormat"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@\\\u{1a}lk:sR\u{7f}B{aQ\\.\u{1d}f5X*A_{\u{1b}'Y\u{15}y?P_\u{1b}-ug B1WAb<f9\n}\u{1b}En\u{10}FDh@S\"&GI\u{6}\rPy\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.EnforceNamingStyle {
+nonisolated extension Google_Protobuf_FeatureSet.EnforceNamingStyle {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0-\0google.protobuf.FeatureSet.EnforceNamingStyle"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _Qy=\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nDK\u{1b}s\u{8}cu\u{1}O\u{1a}N<{!u\u{1b}'^r\u{7f}\u{c}\u{12}\u{1b}`2&\u{14}\u{4}\u{12}Ci%\u{1e}\tXfj\u{8}P4\u{17}di\u{1d}\u{3}\u{b}l\u{12}\u{13}Q*<\u{1}1J\r\u{1c};@\u{11}7\u{11}V?\nq z!o\r7\u{5}<Y\u{14}\u{1}"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.VisibilityFeature: GeneratedMessage {
+nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0,\0google.protobuf.FeatureSet.VisibilityFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\0\0\0\0_Si=A~a\u{12}5U\u{3}\u{19})0\u{1}$z^C\0\0"
 
@@ -3536,13 +3536,13 @@ extension Google_Protobuf_FeatureSet.VisibilityFeature: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
+nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0D\0google.protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{1}\0\0 \u{1f}q}\u{1d}\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}\u{e}ED\0i \"1$b\u{1c}2\r[\u{19}\u{b}J\u{16}HO3 \t\u{1b}]'C|vLY*\u{1a}\u{17}jw\n\u{4}S\u{7f}\u{7}\u{7}&EP\u{5}|y\02\u{c}Z#\u{15}\u{14}JcY6\u{f}e\t6Za\u{7}\u{16}5;7\u{19}-]~xT!\u{7}O`0:Oo/_{U$/Ae%_nh\u{4}zqI}0\u{1}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: GeneratedMessage {
+nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0-\0google.protobuf.FeatureSet.ProtoLimitsFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -3552,13 +3552,13 @@ extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
+nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0@\0google.protobuf.FeatureSet.ProtoLimitsFeature.EnforceProtoLimits"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{4}J\u{13}\u{3}\tc\u{5}2E\u{e}\u{1e}&~\u{1}\u{1d}\\P\r:xz.\u{17};d7R(\u{10}i\u{18}_F\u{1d}0u\u{11}8y\u{3}5q\n#\u{1b}A\u{17}SFrD{Re~@\u{7}^\u{1e}\u{4}+]oG\u{c}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Google_Protobuf_FeatureSetDefaults: GeneratedMessage {
+nonisolated extension Google_Protobuf_FeatureSetDefaults: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{2}\0\u{b}\u{4}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\"\0google.protobuf.FeatureSetDefaults"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,E\u{3} r4S/sd7*\u{16}P~rXJZ4=)z\u{8}b=B\n-\u{2}\u{1f}0^-^y\u{1f}^5%\u{19}\u{1e}Hb3xM\u{c}:ST$GAr\u{18}\u{1c}$,K2\u{4}8Gj0K\u{18}A\0\u{17}\u{16}>\u{e}j_b\u{16}c<\u{1b};bg6\0\0"
 
@@ -3576,7 +3576,7 @@ extension Google_Protobuf_FeatureSetDefaults: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: GeneratedMessage {
+nonisolated extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{4}\0\0\0\0\0\00\u{1}\0\u{2}\0\u{b}\u{5}\0\0\0\0\u{1}\00\u{2}\0\u{2}\0\u{b};\0google.protobuf.FeatureSetDefaults.FeatureSetEditionDefault"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}1v\u{15}ZKKMR4\0m_0l@\u{6}B4V R\u{17}L+}hr{P`PL\u{15}:\u{1d}k\u{1e}=)Hx\u{10}{0\u{16}Vnk\u{8}\u{1d}g\u{1d}-BVRB\u{11}]\u{f}k0\u{1}M1~K_&\u{1}`%\u{f}\u{e}\r\\a\u{1d}S5M\u{c}\u{4}mVE\u{4}\u{18}s'\u{5}j-}z(\u{1f}jOKB'tu+is\0\0"
 
@@ -3594,7 +3594,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Generated
 
 }
 
-extension Google_Protobuf_SourceCodeInfo: GeneratedMessage {
+nonisolated extension Google_Protobuf_SourceCodeInfo: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{1e}\0google.protobuf.SourceCodeInfo"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp+<\u{f}&b{\n9z\0yJ;OM\0\0\0"
 
@@ -3611,7 +3611,7 @@ extension Google_Protobuf_SourceCodeInfo: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_SourceCodeInfo.Location: GeneratedMessage {
+nonisolated extension Google_Protobuf_SourceCodeInfo.Location: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{5}\0\0\u{3}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\u{2}\0\0\0\u{5}\u{2}\0\0\0\u{a}\u{1}\0\u{10}\u{3}\0\0\0\u{5}\u{3}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{4}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{6}\0\0\0\u{2}\u{2}\0\u{10}\u{4}\0\0\0\u{9}'\0google.protobuf.SourceCodeInfo.Location"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1}\0\00\u{1f}x>M[o\u{5}J\u{3} \u{17}+rZ\u{1f}+\u{13}\u{19}*rO(OPxDey\0:q\u{13}:\\}\u{1e}\nQ=\tiev\0;-\\|\u{4}}M{f'/\u{7}c\u{19}\u{16}%(r\u{17}*Vc\u{1c}{W\u{10}\u{12}B*?'%1Ns@\u{1}\u{11}Ivp\t$!aM23K5!#\u{1d}8\u{5}o'wH<T[$K\u{5}w!\\^Gv\u{4}wR>V+sfn\0'\u{7}\0\0"
 
@@ -3621,7 +3621,7 @@ extension Google_Protobuf_SourceCodeInfo.Location: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_GeneratedCodeInfo: GeneratedMessage {
+nonisolated extension Google_Protobuf_GeneratedCodeInfo: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}!\0google.protobuf.GeneratedCodeInfo"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpG3Ru=Rb&\u{6}l6O\u{f}tg\0\u{3}\0"
 
@@ -3638,7 +3638,7 @@ extension Google_Protobuf_GeneratedCodeInfo: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_GeneratedCodeInfo.Annotation: GeneratedMessage {
+nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{5}\0\0\0\0\0\u{4}\0\0\u{6}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\u{4}\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{3}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{4}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{5}\0\0\0\0\u{c}\0\0\u{3}\0\u{1}\0\u{e},\0google.protobuf.GeneratedCodeInfo.Annotation"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-ZC#DC -un\u{16}VSIw|\u{3}kh]a\u{8}\u{1c}7]6MD:\u{f}\u{1b}^&-2?JR7?U]C\u{1b}jEb^2\u{11}]94u'%5\u{3}4\u{6}*\u{1d}7R51\u{1e}:\u{4}\u{1c}-Vy\u{1e}HipT\u{14}?\u{7f}\0n{P\u{1b}\u{1c}8f=>|k\u{1}\0"
 
@@ -3655,7 +3655,7 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic {
+nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\05\0google.protobuf.GeneratedCodeInfo.Annotation.Semantic"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@L*\u{1e}f+sR\u{7f}ZQ$}q\u{7}\n9\r(\"Q@\u{1b}\u{2}qno\u{1e}\u{10}l_,{}6F3\u{16}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

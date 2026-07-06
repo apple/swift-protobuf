@@ -32,12 +32,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foo // = 0
   case bar // = 1
@@ -78,7 +78,7 @@ enum SwiftProtoTesting_EnumClobbering_Foo: SwiftProtobuf.Enum, Swift.CaseIterabl
 /// The message layout algorithm will place the int64 after the enum (because the latter is stored
 /// as its raw value, an int32, so it's smaller). This lets us verify that the setter and clearer
 /// use the raw value correctly and don't clobber memory afterward.
-struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -113,13 +113,13 @@ struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_EnumClobbering_Foo {
+nonisolated extension SwiftProtoTesting_EnumClobbering_Foo {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0'\0swift_proto_testing.enum_clobbering.Foo"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_EnumClobbering_EnumHolder: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}.\0swift_proto_testing.enum_clobbering.EnumHolder"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}\u{1d}*7pE\\ok\u{11}r|}B[7m\u{c}\u{13}}Cn\u{17}u{m\u{18}\0\0"
 

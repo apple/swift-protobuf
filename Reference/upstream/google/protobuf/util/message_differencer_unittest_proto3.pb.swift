@@ -25,12 +25,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
+nonisolated struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -81,7 +81,7 @@ struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{4}\0\0\u{6}\0\0\0\0\0\u{1}\0\0\u{7}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\u{1}\0\0\0\u{8}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\0\u{3}\0\0\u{5}\0\0\0\u{8}#\0proto3_unittest.TestNoPresenceField"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{3}\0\0 \u{7f}F1E[O2\r&@LKM\u{19}r\t_we=qxdI\u{11}\u{1f}\u{1c}Uj)&gXUv\u{14}4?\u{e}\u{c}(^8\u{16}})\u{1a}{\u{10}~Z6l#Mg\u{19}G\u{16}N\u{14}(=u#2^k<qdaj<;x\u{6}m\u{1b}c2\u{14}?97?sfWDq\u{8};Ny8\u{1}? X\u{1}\u{c}u&j\u{8}\u{7f}ER\u{1}@Z\u{11}9wc\u{e})\u{5}\u{7}\u{17}k\0^ku\u{4}\u{6}D~}\u{19}YH7\u{12}Mj\u{6}\u{2}mgq:14q@W4\u{1a}}`\0\n\re\u{1d}\u{11}UDfg\u{7}z>`\u{1a}\u{1d}O\t\0\0\0\0"
 

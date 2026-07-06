@@ -31,17 +31,17 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -66,7 +66,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.self, hasBit: (0, 2)) }
 
-    enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
       init() {
@@ -85,7 +85,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct NestedMessage2: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage2: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -99,7 +99,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
     mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, hasBit: (0, 1)) }
 
-    enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
 
       init() {
@@ -130,7 +130,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0.\0swift_proto_testing.extend.EnumOptionalDefault"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -140,7 +140,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{2}\0\u{b}\u{11}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}<\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R|cu[n=>@.bAPbi&-)\te$\u{14}+\u{11}\u{b}\r\u{16}l\u{c} l\0:^`\u{4}=\u{14}\u{1d}\u{4}{4uNf\u{1a}>g\u{16}T\u{13}\u{1}\0"
 
@@ -158,13 +158,13 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
 
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0A\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}=\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#$LIC\nE;t\u{15}i\u{14}8\\VK=Bx\u{1}zlUQPx}}Uq\u{15}So'y\u{4}\u{1c}\nd\u{1a}\u{2}\0"
 
@@ -181,7 +181,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
 
 }
 
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum {
+nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0B\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

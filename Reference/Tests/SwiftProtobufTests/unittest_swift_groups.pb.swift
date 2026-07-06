@@ -45,13 +45,13 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Same field number appears inside and outside of the group.
-struct SwiftProtoTesting_GroupExtensions: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_GroupExtensions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -75,7 +75,7 @@ struct SwiftProtoTesting_GroupExtensions: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_ExtensionGroup: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_ExtensionGroup: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -99,7 +99,7 @@ struct SwiftProtoTesting_ExtensionGroup: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_RepeatedExtensionGroup: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_RepeatedExtensionGroup: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -123,7 +123,7 @@ struct SwiftProtoTesting_RepeatedExtensionGroup: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_GroupUnextended: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_GroupUnextended: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -147,7 +147,7 @@ struct SwiftProtoTesting_GroupUnextended: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -175,7 +175,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
   }
 
-  struct SubGroup1: @unchecked Swift.Sendable {
+  nonisolated struct SubGroup1: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -198,7 +198,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
     /// Clears the value of `subGroup2`. Subsequent reads from it will return its default value.
     mutating func clearSubGroup2() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2.self, hasBit: (0, 2)) }
 
-    struct SubGroup2: @unchecked Swift.Sendable {
+    nonisolated struct SubGroup2: @unchecked Swift.Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -232,7 +232,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct SubGroup3: @unchecked Swift.Sendable {
+  nonisolated struct SubGroup3: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -251,7 +251,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
     }
 
-    struct SubGroup4: @unchecked Swift.Sendable {
+    nonisolated struct SubGroup4: @unchecked Swift.Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -304,7 +304,7 @@ struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_GroupExtensions {
+nonisolated extension SwiftProtoTesting_GroupExtensions {
 
   var SwiftProtoTesting_extensionGroup: SwiftProtoTesting_ExtensionGroup {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_ExtensionGroup, default: SwiftProtoTesting_ExtensionGroup()) }
@@ -329,7 +329,7 @@ extension SwiftProtoTesting_GroupExtensions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Extensions_ExtensionGroup,
   SwiftProtoTesting_Extensions_RepeatedExtensionGroup
 ]
@@ -338,19 +338,19 @@ let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.ExtensionMap
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\"\0swift_proto_testing.extensiongroup",
   extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_ExtensionGroup.messageSchema) }
   )
 
-let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.repeatedextensiongroup",
   extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_RepeatedExtensionGroup.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}#\0swift_proto_testing.GroupExtensions"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 
@@ -360,7 +360,7 @@ extension SwiftProtoTesting_GroupExtensions: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.ExtensionGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 
@@ -370,7 +370,7 @@ extension SwiftProtoTesting_ExtensionGroup: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.RepeatedExtensionGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 
@@ -380,7 +380,7 @@ extension SwiftProtoTesting_RepeatedExtensionGroup: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}#\0swift_proto_testing.GroupUnextended"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 
@@ -390,7 +390,7 @@ extension SwiftProtoTesting_GroupUnextended: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{a}(\0swift_proto_testing.NestingGroupsMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _\u{11}r5Zs5&L\u{6}\u{10}al;tE#Cwg2\u{3}\r/wxZ\u{15}'\u{1f}D\u{7f}EV>\u{1f}vs\u{1b}'};R%\u{11}\tCBCg}t6\u{7}KQ\u{5}*L\u{11}\u{10}XKY\u{19}U(m\u{7}d\u{17}/\u{13}8t!m[&\"^`-x=\u{17}\u{4}\0\0"
 
@@ -408,7 +408,7 @@ extension SwiftProtoTesting_NestingGroupsMessage: SwiftProtobuf.GeneratedMessage
 
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{a}2\0swift_proto_testing.NestingGroupsMessage.SubGroup1"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?fLaZ[,%L\u{6}\u{10}al;tEH:\u{19})oVJB1\u{1d}ru\u{4}\u{12}pg\u{1c}\u{12}\n>S\rpXDa_x[_zy;\u{15}V@\u{18}hW\u{17}\u{16}\tG7J7L\u{7}\u{3}\0"
 
@@ -425,7 +425,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.NestingGroupsMessage.SubGroup1.SubGroup2"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w? C}*&7\u{f}8v\u{1b}\u{1f}Oh\u{3}'u\0\0"
 
@@ -435,7 +435,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2: SwiftProto
 
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\u{1}\0\u{a}2\0swift_proto_testing.NestingGroupsMessage.SubGroup3"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?fLaZ[,%L\u{6}\u{10}al;tEH:\u{19})oVJB1\u{1d}ru\u{4}\u{12}pg\u{1c}\u{12}\n>S\rp(\rj~w1f\u{7f}gH2,wZb\u{c}\u{14}]\u{1d}4BS\nK+\u{10}\0"
 
@@ -452,7 +452,7 @@ extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_NestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.NestingGroupsMessage.SubGroup3.SubGroup4"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w? C}\u{1a}'\"Cpd\u{19}n\r`R\u{1e}\u{1c}\0\0"
 

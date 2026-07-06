@@ -107,7 +107,7 @@ class EnumGenerator {
     func generateRuntimeSupport(printer p: inout CodePrinter) {
         p.print(
             "",
-            "extension \(swiftFullName) {"
+            "nonisolated extension \(swiftFullName) {"
         )
         p.withIndentation { p in
             p.print(
@@ -167,7 +167,7 @@ private final class OpenEnumGenerator: EnumGenerator {
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             p.print("\(visibility)typealias RawValue = Swift.Int")
@@ -318,7 +318,7 @@ private final class ClosedEnumGenerator: EnumGenerator {
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             // Cases/aliases

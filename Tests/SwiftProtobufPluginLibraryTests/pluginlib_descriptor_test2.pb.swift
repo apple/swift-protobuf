@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -164,14 +164,14 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 34)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SwiftDescriptorTest_Proto3MessageForPresence.SubEnum)
     case oneofMessageField(SwiftDescriptorTest_OtherMessage)
   }
 
-  enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SubEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case subValue0 // = 0
     case subValue1 // = 1
@@ -219,7 +219,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftDescriptorTest_OtherMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_OtherMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -241,7 +241,7 @@ struct SwiftDescriptorTest_OtherMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0,\0\0\u{10}\0\0\0\0\0\u{5}\0\0\u{5}\0\0\u{4}\0\0\0\0\0\u{3}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{5}\0\0\0\u{9}\u{2}\0\0\0\0\u{14}\0\0\u{6}\0\0\0\u{5}\u{3}\0\0\0\0\u{18}\0\0\u{7}\0\u{1}\0\u{e}\u{4}\0\0\0\0\0\00\0\0\u{2}\0\u{b}\u{b}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{c}\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{5}\u{d}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}\u{e}\0\0\0\0\u{1}\00\u{4}\0\u{2}\0\u{b}\u{15}\0\0\0\u{2}\0\0\u{10}\u{8}\0\0\0\u{9}\u{16}\0\0\0\u{a}\u{1}\0\u{10}\u{9}\0\0\0\u{5}\u{17}\0\0\0\u{a}\u{2}\0\u{10}\u{a}\0\u{1}\0\u{e}\u{18}\0\0\0\u{2}\u{3}\0\u{10}\u{b}\0\u{2}\0\u{b}\u{1f}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9} \0\0\0\0$\0\0{\u{7f}\0\0\u{5}!\0\0\0\0(\0\0{\u{7f}\u{1}\0\u{e}\"\0\0\0\0\u{2}\00{\u{7f}\u{2}\0\u{b}.\0swift_descriptor_test.Proto3MessageForPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\u{6}\0\0 (ugEhgY)\tA%1\u{6}\u{19}9Hhp\u{2}\t$\u{f}N7\u{12}YA:\u{f}+I%\u{3})P_!\u{18}lnq]C6\u{1b}\u{13}aw]\u{1a}3B+yC\u{1b}\u{8}yQ\u{6}C\u{17}L<\u{13}\u{1b}zca%6JYfV26a\n2~k~\u{1a}-$\u{3}:f\u{13}gyFOLa\u{18}6~}>\u{7}\u{7}\"\u{1d}SA[26yCKA@l0~d\u{5}\u{f}\u{17}\u{5}\u{7f}b\nq!u\u{1}O(%%i/Vt5\u{7f}rR\u{1f}1rw\n68KTO6\u{14}\u{7}M<j?1\u{1c}\u{2}V\u{3}OyBV4`\u{1a}\u{16}zj.T/p\u{16}geZ_56kc\u{1}{t$e\"e\u{c}M\u{6} `^/bI?Ay&PrO<,z\u{13}m\u{1d}j!:\u{1c}a>Ix^-v\u{5}x@Oj7Sw\\p:\u{7}:p\n7\u{15}\u{13}D1L\u{7f}l\u{c}\u{1e}v:m~R6_\u{f}X\u{12}\0$\u{1c}f>;\u{1b}\u{19}Op\u{12}L\u{11}2<S1\u{1}sJzU\u{b}zE\u{1f}p\u{10}D;\u{3}S\u{11}{UY\u{18}OGt\u{1}\u{1d}>CAuW\u{5}1\u{17}\u{15}WxYJ\u{e}\u{3}Z\u{f}zi\nn\nPCF\0\r=\"\u{1c}K.\u{11}w:n:G4+W7GZ\u{16}K\u{1b}\u{1c}\u{b}H\u{1}^^\u{5}zNj[Xt\u{1e}dCRy@ E ` w\u{18}3\u{1f}[\0\0\0"
 
@@ -259,13 +259,13 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
+nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0swift_descriptor_test.Proto3MessageForPresence.SubEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cog\n%\u{f}^IPsy\u{e} 1\u{17}Pn\u{3}^oc0h\u{10}d_p\u{15}=mG\u{11} \u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\"\0swift_descriptor_test.OtherMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps+\u{b}Fr-\u{11}y\u{6}`\u{c}\u{18}?\0"
 

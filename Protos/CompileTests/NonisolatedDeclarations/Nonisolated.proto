@@ -1,0 +1,31 @@
+syntax = "proto2";
+
+package nonisolated_compile_test;
+
+message OuterMessage {
+  optional string name = 1;
+  optional NestedEnum kind = 2;
+
+  enum NestedEnum {
+    UNKNOWN = 0;
+    FIRST = 1;
+    SECOND = 2;
+  }
+
+  oneof payload {
+    string text_payload = 10;
+    int32 number_payload = 11;
+    InnerMessage message_payload = 12;
+  }
+
+  message InnerMessage {
+    optional int64 value = 1;
+  }
+
+  extensions 100 to 199;
+}
+
+extend OuterMessage {
+  optional string ext_string = 100;
+  optional int32 ext_int = 101;
+}

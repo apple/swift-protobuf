@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct One_Two_AThree_And_Four: @unchecked Swift.Sendable {
+nonisolated struct One_Two_AThree_And_Four: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -49,7 +49,7 @@ struct One_Two_AThree_And_Four: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension One_Two_AThree_And_Four: SwiftProtobuf.GeneratedMessage {
+nonisolated extension One_Two_AThree_And_Four: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{18}\0one.two.a_three.and.Four"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`nI3ZLIJww:\u{16}+|8_hZ\u{4}W5\u{1}kd\u{8}:\0E\u{7}k\u{15}xOn\u{6}\u{1c}Yb6]\nJxUA\0\0"
 

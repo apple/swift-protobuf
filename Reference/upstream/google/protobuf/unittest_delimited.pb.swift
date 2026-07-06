@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct EditionsUnittest_LengthPrefixed: @unchecked Swift.Sendable {
+nonisolated struct EditionsUnittest_LengthPrefixed: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -53,7 +53,7 @@ struct EditionsUnittest_LengthPrefixed: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
+nonisolated struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -86,7 +86,7 @@ struct EditionsUnittest_NotGroupLikeScope: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
+nonisolated struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -119,7 +119,7 @@ struct EditionsUnittest_GroupLikeFileScope: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
+nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -184,7 +184,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
   /// Clears the value of `messageimport`. Subsequent reads from it will return its default value.
   mutating func clearMessageimport() { _uniqueStorage().clearValue(atIndex: 5, type: EditionsUnittest_MessageImport.self, hasBit: (0, 32)) }
 
-  struct LengthPrefixed: @unchecked Swift.Sendable {
+  nonisolated struct LengthPrefixed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -217,7 +217,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct GroupLike: @unchecked Swift.Sendable {
+  nonisolated struct GroupLike: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -269,7 +269,7 @@ struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension EditionsUnittest_TestDelimited {
+nonisolated extension EditionsUnittest_TestDelimited {
 
   /// Non-delimited field that otherwise looks group-like.
   var EditionsUnittest_lengthprefixed: EditionsUnittest_LengthPrefixed {
@@ -338,7 +338,7 @@ extension EditionsUnittest_TestDelimited {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = [
   EditionsUnittest_Extensions_lengthprefixed,
   EditionsUnittest_Extensions_GroupLikeFileScope,
   EditionsUnittest_Extensions_not_group_like_scope,
@@ -351,38 +351,38 @@ let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = 
 // accessors for the extension fields on the messages directly.
 
 /// Non-delimited field that otherwise looks group-like.
-let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.ExtensionSchema(
   schema: "\0l\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b} \0editions_unittest.lengthprefixed",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_LengthPrefixed.messageSchema) }
   )
 
 /// Truly group-like extension.
-let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}$\0editions_unittest.grouplikefilescope",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_GroupLikeFileScope.messageSchema) }
   )
 
 /// Delimited extension that isn't group-like because of its name.
-let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}&\0editions_unittest.not_group_like_scope",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_NotGroupLikeScope.messageSchema) }
   )
 
 /// Delimited extension that isn't group-like because of the scope of its type.
-let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1b}\0editions_unittest.grouplike",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_TestDelimited.GroupLike.messageSchema) }
   )
 
 /// Delimited extension that's grouplike except that it's an imported type.
-let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
   schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1f}\0editions_unittest.messageimport",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },submessageOrEnumResolver: { .message(EditionsUnittest_MessageImport.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5} \0editions_unittest.LengthPrefixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
@@ -392,7 +392,7 @@ extension EditionsUnittest_LengthPrefixed: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}#\0editions_unittest.NotGroupLikeScope"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
@@ -402,7 +402,7 @@ extension EditionsUnittest_NotGroupLikeScope: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}$\0editions_unittest.GroupLikeFileScope"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
@@ -412,7 +412,7 @@ extension EditionsUnittest_GroupLikeFileScope: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{6}\0\0\0\0\0\u{6}\0\0\u{7}\0\0\0\0\0\0\0\0\u{6}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{a}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{3}\0\u{a}\u{4}\0\0\0\0\u{3}\00\u{3}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{4}\00\u{4}\0\u{4}\0\u{a}\u{6}\0\0\0\0\u{5}\00\u{5}\0\u{5}\0\u{a}\u{1f}\0editions_unittest.TestDelimited"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\u{1}\0\00_Pyu[\u{7}c\0\u{4}\t\\J\u{1c}\u{18}5vDC\u{3}\u{e} \u{1}*Ccol(\u{1c}Z\u{1d}\u{14}%B(k\"W\u{18}u\u{b}*a_-)\u{2}UM>VIT*Du\\0X\rl\0p5cD\u{12},IoJYk?YY\\)b;|\u{1}K\u{1c}d\u{12}]j46{\u{1f}Z\u{2}wS2Q/7m81Vi2\"9N*znM&\u{1d} SPh\u{5}\rk\u{6}BGu}\u{c}\0"
 
@@ -433,7 +433,7 @@ extension EditionsUnittest_TestDelimited: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}.\0editions_unittest.TestDelimited.LengthPrefixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 
@@ -443,7 +443,7 @@ extension EditionsUnittest_TestDelimited.LengthPrefixed: SwiftProtobuf.Generated
 
 }
 
-extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.GeneratedMessage {
+nonisolated extension EditionsUnittest_TestDelimited.GroupLike: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5})\0editions_unittest.TestDelimited.GroupLike"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}!$42nH_\u{13}D'(YP\u{1c}v%\u{11}\0\0\0"
 

@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case unspecified // = 0
   case protobuf // = 1
@@ -80,7 +80,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case unspecifiedTest // = 0
 
@@ -149,7 +149,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum, Swift.CaseIterable {
 /// Meant to encapsulate all types of tests: successes, skips, failures, etc.
 /// Therefore, this may or may not have a failure message. Failure messages
 /// may be truncated for our failure lists.
-struct Conformance_TestStatus: @unchecked Swift.Sendable {
+nonisolated struct Conformance_TestStatus: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -184,7 +184,7 @@ struct Conformance_TestStatus: @unchecked Swift.Sendable {
 /// The conformance runner will request a list of failures as the first request.
 /// This will be known by message_type == "conformance.FailureSet", a conformance
 /// test should return a serialized FailureSet in protobuf_payload.
-struct Conformance_FailureSet: @unchecked Swift.Sendable {
+nonisolated struct Conformance_FailureSet: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -209,7 +209,7 @@ struct Conformance_FailureSet: @unchecked Swift.Sendable {
 ///   1. parse this proto (which should always succeed)
 ///   2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///   3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
+nonisolated struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -307,7 +307,7 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  enum OneOf_Payload: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_Payload: Swift.Equatable, Swift.Sendable {
     case protobufPayload(Data)
     case jsonPayload(String)
     /// Only used inside Google.  Opensource testees just skip it.
@@ -326,7 +326,7 @@ struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
 }
 
 /// Represents a single test case's output.
-struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
+nonisolated struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -434,7 +434,7 @@ struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, oneofPresence: (4, 8)) }
   }
 
-  enum OneOf_Result: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_Result: Swift.Equatable, Swift.Sendable {
     /// This string should be set to indicate parsing failed.  The string can
     /// provide more information about the parse error if it is available.
     ///
@@ -482,7 +482,7 @@ struct Conformance_ConformanceResponse: @unchecked Swift.Sendable {
 }
 
 /// Encoding options for jspb format.
-struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
+nonisolated struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -505,19 +505,19 @@ struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Conformance_WireFormat {
+nonisolated extension Conformance_WireFormat {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{16}\0conformance.WireFormat"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}~#p*K!cg'vsE*~f\\2j_j;@\u{1}ADpqQ\u{7}_\t\t)p<]l,io*c\u{1e}\u{f}@f1=N_\u{7f}\\\u{10}a\u{1d}?}\u{e}>F\u{7}\u{12}gS*y:\u{e}HG#p\u{c}d'J\t|\u{19}\u{6}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Conformance_TestCategory {
+nonisolated extension Conformance_TestCategory {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{6}\0\0\0\0\u{18}\0conformance.TestCategory"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\u{1}\0\00_Tay\u{7}*p\u{1d}Ju0u{0?\u{5}1phe#Ug\u{8}<D(pb*& a\u{1}H\u{2}\u{10}\u{2}_C`FV\u{7f}\u{f}J\u{1c}`f\tg_j>| \u{10},w\u{1d}b{~!u~*I\u{11}\u{e}\u{e}K\u{1e}\twq\0\u{5} Y\u{18}YO\u{17}\u{19}gnm];3i^>WOZ$lA\u{2}qbA0kfx3\u{1e}IB\u{10}.W+g3^\u{11}=\u{18}\\_\u{15}l\u{13}\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{2}\0@\u{2}\0\0\0\u{9}\u{16}\0conformance.TestStatus"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _\u{11}r5Z[,E\u{3} r4S/sd7j'/y\u{7}sv([8|a\"?\u{15}\u{13}bcE4+R\u{19}3DaE}&e\u{3}\u{2}xQ\u{12}\u{1f}Vx\u{7f}v\u{7f}I\u{f}\u{3}[[bG<36@@RQ\t]\0cDa@j0A~[H)+=\u{5}%"
 
@@ -527,7 +527,7 @@ extension Conformance_TestStatus: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{16}\0conformance.FailureSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0?k,%\u{7}&p\rM$\u{13}\u{4}\u{11}f~/#\u{1a}\nX\u{3}\u{2}p\u{11}#V\u{14}M\u{3}\"\u{7}"
 
@@ -544,7 +544,7 @@ extension Conformance_FailureSet: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{9}\0\0\0\0\0\u{1}\0\0\u{a}\0\0\0\0\0\0\0\0\u{1}\0\0\u{4}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0P{\u{7f}\0\0\u{c}\u{2}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\u{18}\0\0\u{1}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{1}\0@\u{2}\0\0\0\u{9}\u{5}\0\0\0\0\u{1c}\0\0\u{3}\0\u{2}\0\u{e}\u{6}\0\0\0\0\0\00\0\0\u{3}\0\u{b}\u{7}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{3}\0@{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{8}\u{1e}\0conformance.ConformanceRequest"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{4}\0\0\0\u{7f}L\u{2}`89s&\u{1}Zj\u{16}.j}\u{1a});I\u{4}p\u{6}T\u{1d}I\0\u{f}\na\u{12}\u{1a}\u{e}\u{11}xIrLttVOI^\u{1a}\rW[sw\u{1d}\u{e}X\nQZU\u{18}\u{17}s\u{16}YU|\u{19}'\u{10}ha~o\u{e}`yn`\u{1a},R\u{4}\u{4}Z(\u{1a}F>.nf=CK/e\u{1c}\u{b}3-;|~\tb\u{16}RYkI\u{16}\u{10}l1+\u{1b}._X\u{f}7*4'w\u{18}\n`[.\u{8}\u{12}W`D9&\u{1d};<\u{6}vm\u{1a}\u{15}DTiF\\)Vr>htk>QN,\u{6}\u{f}gAgWV-9\\\u{e}\u{11}E\u{1e}9g!5|hoMtM\u{4}\u{1c}2\u{1f}K\u{11}~<:V\u{1d}\u{1d}8F\"*`\u{6}5\n\u{7}^,<\u{5}xT2a[F0y8$_7ISpLbf\0U>}}Aj\u{14}aV4\0=.v\\Qm\u{c}k\u{7f}_x\u{13}\u{1}\u{7f}9^_\u{19}s[r_-IJqo??v3kqE\u{2}O0CmBx\u{e}W4\0t\u{15}9g\u{6}\0\0"
 
@@ -563,7 +563,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0\0\u{9}\0\0\0\0\0\0\0\0\u{a}\0\0\0\0\0\0\0\0\0\0\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@{\u{7f}\0\0\u{9}\u{3}\0\0\0\0\0\0P{\u{7f}\0\0\u{c}\u{4}\0\0\0\0\u{2}\0@{\u{7f}\0\0\u{9}\u{5}\0\0\0\0\u{3}\0@{\u{7f}\0\0\u{9}\u{6}\0\0\0\0\u{4}\0@{\u{7f}\0\0\u{9}\u{7}\0\0\0\0\u{5}\0@{\u{7f}\0\0\u{9}\u{8}\0\0\0\0\u{6}\0@{\u{7f}\0\0\u{9}\u{9}\0\0\0\0\u{7}\0@{\u{7f}\0\0\u{9}\u{1f}\0conformance.ConformanceResponse"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{3}\0\00\u{7f}\u{1}Y\t[S\u{2}B\u{4}\u{13}X\u{2}7!\u{2}\u{1}t\u{2}^\u{4}\u{5}{{P>\u{b}w4\u{16}W\u{1c}\"'42~VyLibpw\u{1a}&O1h\u{1e}UK\u{1c}\tk\u{1e}Ae\n+\u{1c}D\0r,j%N\u{16}iMm\u{4}\u{e}\\/{8##z\u{17}\\_\u{1b}8&S[sY?y\u{17}\u{1}\u{1c}\u{13}\u{10}b\u{8}do\u{2};\u{2}TDUB[\u{14}$U\u{1d}<\u{12}\u{5}LJ\u{11}fO\u{1}\u{c}0(\u{b}u2w\u{18}>x+,]:\u{15}\u{7}B\u{5}P7\u{19}Q_CJ\u{5}\n;SBIP,Si*\u{18}\u{e}#<*\u{6}$\u{3}NL#}p\0Rxp\u{f}p\u{11}L]#a!\u{16}<'<Rs\u{14}&%=M\u{2}*3\u{11}}3%\u{2}MHV\u{5}d>m! G'.VF\u{18}\u{b}:YH!T\n\u{1b}p<\0\0\0"
 
@@ -573,7 +573,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Conformance_JspbEncodingConfig: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Conformance_JspbEncodingConfig: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{1e}\0conformance.JspbEncodingConfig"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PvJ+\nMIJww:\u{16}+|8_h:W\u{17}yR\u{1e},0CR\u{c}PE\u{1f}\u{12}\u{f}\\C=fP<\u{1d}-ei\u{6}(\u{18}mJ\u{12}>B\u{16})P7\"w!Rg\0\0\0"
 

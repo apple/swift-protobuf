@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -70,7 +70,7 @@ enum ProtobufTestMessages_Editions_ForeignEnumEdition2023: SwiftProtobuf.Enum, S
 
 }
 
-struct ProtobufTestMessages_Editions_ComplexMessage: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Editions_ComplexMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct ProtobufTestMessages_Editions_ComplexMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -744,7 +744,7 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
     set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (11, 16)) }
   }
 
-  enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage)
     case oneofString(String)
@@ -756,7 +756,7 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
     case oneofEnum(ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum)
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case foo // = 0
     case bar // = 1
@@ -800,7 +800,7 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
 
   }
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -834,7 +834,7 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
   }
 
   /// groups
-  struct GroupLikeType: @unchecked Swift.Sendable {
+  nonisolated struct GroupLikeType: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -877,7 +877,7 @@ struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unchecked Swift.S
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -901,7 +901,7 @@ struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: @unchecked Swift
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Editions_GroupLikeType: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Editions_GroupLikeType: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -934,7 +934,7 @@ struct ProtobufTestMessages_Editions_GroupLikeType: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
+nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
 
   var ProtobufTestMessages_Editions_extensionInt32: Int32 {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Editions_Extensions_extension_int32, default: 0) }
@@ -998,7 +998,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProtobuf.ExtensionMap = [
   ProtobufTestMessages_Editions_Extensions_extension_int32,
   ProtobufTestMessages_Editions_Extensions_extension_string,
   ProtobufTestMessages_Editions_Extensions_extension_bytes,
@@ -1010,40 +1010,40 @@ let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProto
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufTestMessages_Editions_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}/\0protobuf_test_messages.editions.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
   )
 
-let ProtobufTestMessages_Editions_Extensions_extension_string = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_string = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}0\0protobuf_test_messages.editions.extension_string",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
   )
 
-let ProtobufTestMessages_Editions_Extensions_extension_bytes = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_bytes = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{6}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{c}/\0protobuf_test_messages.editions.extension_bytes",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
   )
 
-let ProtobufTestMessages_Editions_Extensions_GroupLikeType = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_GroupLikeType = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}-\0protobuf_test_messages.editions.groupliketype",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Editions_GroupLikeType.messageSchema) }
   )
 
-let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0z\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}-\0protobuf_test_messages.editions.delimited_ext",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Editions_GroupLikeType.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
+nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2023"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0protobuf_test_messages.editions.ComplexMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpgSM,M\te\u{4}[\u{4}\0"
 
@@ -1053,7 +1053,7 @@ extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.GeneratedM
 
 }
 
-extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\u{1} f\0\0\0\0\0\u{18}\0\0\u{10}\0\01\0\0\u{14}\0\0\u{6}\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\08\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0@\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0x\0\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0D\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0\0\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0H\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0\u{8}\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0L\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0\u{10}\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\04\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{12}\0\0\0\0\0\00\u{f}\0\u{3}\0\u{b}\u{13}\0\0\0\0\u{1}\00\u{10}\0\u{4}\0\u{b}\u{15}\0\0\0\0P\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0T\0\0\u{12}\0\u{2}\0\u{e}\u{18}\0\0\0\0\u{1}\0@\u{13}\0\0\0\u{9}\u{19}\0\0\0\0\u{2}\0@\u{14}\0\0\0\u{9}\u{1b}\0\0\0\0\u{2}\00\u{15}\0\u{19}\0\u{b}\u{1f}\0\0\0\u{a}\0\0\u{10}\u{18}\0\0\0\u{5} \0\0\0\u{a}\u{1}\0\u{10}\u{19}\0\0\0\u{3}!\0\0\0\u{a}\u{2}\0\u{10}\u{1a}\0\0\0\u{d}\"\0\0\0\u{a}\u{3}\0\u{10}\u{1b}\0\0\0\u{4}#\0\0\0\u{a}\u{4}\0\u{10}\u{1c}\0\0\0\u{11}$\0\0\0\u{a}\u{5}\0\u{10}\u{1d}\0\0\0\u{12}%\0\0\0\u{a}\u{6}\0\u{10}\u{1e}\0\0\0\u{7}&\0\0\0\u{a}\u{7}\0\u{10}\u{1f}\0\0\0\u{6}'\0\0\0\u{a}\u{8}\0\u{10} \0\0\0\u{f}(\0\0\0\u{a}\u{9}\0\u{10}!\0\0\0\u{10})\0\0\0\u{a}\u{a}\0\u{10}\"\0\0\0\u{2}*\0\0\0\u{a}\u{b}\0\u{10}#\0\0\0\u{1}+\0\0\0\u{a}\u{c}\0\u{10}$\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}%\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}&\0\0\0\u{c}0\0\0\0\u{2}\u{f}\0\u{10}'\0\u{3}\0\u{b}1\0\0\0\u{2}\u{10}\0\u{10}(\0\u{4}\0\u{b}3\0\0\0\u{a}\u{11}\0\u{10})\0\u{1}\0\u{e}4\0\0\0\u{a}\u{12}\0\u{10}*\0\u{2}\0\u{e}6\0\0\0\u{2}\u{13}\0\u{10}+\0\0\0\u{9}7\0\0\0\u{2}\u{14}\0\u{10},\0\0\0\u{9}8\0\0\0\u{4}\0\0 -\0\u{5}\0\u{b}9\0\0\0\u{4}\u{1}\0 .\0\u{6}\0\u{b}:\0\0\0\u{4}\u{2}\0 /\0\u{7}\0\u{b};\0\0\0\u{4}\u{3}\0 0\0\u{8}\0\u{b}<\0\0\0\u{4}\u{4}\0 1\0\u{9}\0\u{b}=\0\0\0\u{4}\u{5}\0 2\0\u{a}\0\u{b}>\0\0\0\u{4}\u{6}\0 3\0\u{b}\0\u{b}?\0\0\0\u{4}\u{7}\0 4\0\u{c}\0\u{b}@\0\0\0\u{4}\u{8}\0 5\0\u{d}\0\u{b}A\0\0\0\u{4}\u{9}\0 6\0\u{e}\0\u{b}B\0\0\0\u{4}\u{a}\0 7\0\u{f}\0\u{b}C\0\0\0\u{4}\u{b}\0 8\0\u{10}\0\u{b}D\0\0\0\u{4}\u{c}\0 9\0\u{11}\0\u{b}E\0\0\0\u{4}\u{d}\0 :\0\u{12}\0\u{b}F\0\0\0\u{4}\u{e}\0 ;\0\u{13}\0\u{b}G\0\0\0\u{4}\u{f}\0 <\0\u{14}\0\u{b}H\0\0\0\u{4}\u{10}\0 =\0\u{15}\0\u{b}I\0\0\0\u{4}\u{11}\0 >\0\u{16}\0\u{b}J\0\0\0\u{4}\u{12}\0 ?\0\u{17}\0\u{b}K\0\0\0\u{a}\u{15}\0\u{10}@\0\0\0\u{5}L\0\0\0\u{a}\u{16}\0\u{10}A\0\0\0\u{3}M\0\0\0\u{a}\u{17}\0\u{10}B\0\0\0\u{d}N\0\0\0\u{a}\u{18}\0\u{10}C\0\0\0\u{4}O\0\0\0\u{a}\u{19}\0\u{10}D\0\0\0\u{11}P\0\0\0\u{a}\u{1a}\0\u{10}E\0\0\0\u{12}Q\0\0\0\u{a}\u{1b}\0\u{10}F\0\0\0\u{7}R\0\0\0\u{a}\u{1c}\0\u{10}G\0\0\0\u{6}S\0\0\0\u{a}\u{1d}\0\u{10}H\0\0\0\u{f}T\0\0\0\u{a}\u{1e}\0\u{10}I\0\0\0\u{10}U\0\0\0\u{a}\u{1f}\0\u{10}J\0\0\0\u{2}V\0\0\0\u{a} \0\u{10}K\0\0\0\u{1}W\0\0\0\u{a}!\0\u{10}L\0\0\0\u{8}X\0\0\0\u{a}\"\0\u{10}M\0\u{1}\0\u{e}Y\0\0\0\u{2}#\0\u{10}N\0\0\0\u{5}Z\0\0\0\u{2}$\0\u{10}O\0\0\0\u{3}[\0\0\0\u{2}%\0\u{10}P\0\0\0\u{d}\\\0\0\0\u{2}&\0\u{10}Q\0\0\0\u{4}]\0\0\0\u{2}'\0\u{10}R\0\0\0\u{11}^\0\0\0\u{2}(\0\u{10}S\0\0\0\u{12}_\0\0\0\u{2})\0\u{10}T\0\0\0\u{7}`\0\0\0\u{2}*\0\u{10}U\0\0\0\u{6}a\0\0\0\u{2}+\0\u{10}V\0\0\0\u{f}b\0\0\0\u{2},\0\u{10}W\0\0\0\u{10}c\0\0\0\u{2}-\0\u{10}X\0\0\0\u{2}d\0\0\0\u{2}.\0\u{10}Y\0\0\0\u{1}e\0\0\0\u{2}/\0\u{10}Z\0\0\0\u{8}f\0\0\0\u{2}0\0\u{10}[\0\u{1}\0\u{e}o\0\0\0\0X\0\0o\u{7f}\0\0\u{d}p\0\0\0\0\u{3}\00o\u{7f}\u{3}\0\u{b}q\0\0\0\0\u{3}\0@o\u{7f}\0\0\u{9}r\0\0\0\0\u{1}\0Po\u{7f}\0\0\u{c}s\0\0\0\05\0\0o\u{7f}\0\0\u{8}t\0\0\0\0\u{18}\u{1}\0o\u{7f}\0\0\u{4}u\0\0\0\0\\\0\0o\u{7f}\0\0\u{2}v\0\0\0\0 \u{1}\0o\u{7f}\0\0\u{1}w\0\0\0\0`\0\0o\u{7f}\u{1}\0\u{e}I\u{1}\0\0\0\u{4}\00\u{16}\0\u{1a}\0\u{a}J\u{1}\0\0\0\u{5}\00\u{17}\0\u{1a}\0\u{a}-\u{2}\0\0\u{4}\u{13}\0 \\\0\u{18}\0\u{b}7\0protobuf_test_messages.editions.TestAllTypesEdition2023"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}-\0\0 \u{7f}J\u{13}A\u{e}\u{8}e`\u{1b}4>\u{1f}f.b{+edhk\u{1}5]v\r\u{1a}yA<\u{7f};\u{1a}\u{12}\u{1c}=H$Q!J\u{14}\u{10}{\u{b}K\u{14}H0\u{5}\u{b}2Cu/\u{12}pKw*Z2V&^F\u{4}\u{1c}A[]\u{2}i\u{15}eHa&\u{15}\u{1}\u{1}T>WTVG\"W\u{4}V,t)\u{1c}\u{c}\u{12}0\u{1f}\u{c}\u{18}D*J!6Krg/g\u{e}B%5\u{8}:u2Q \u{1f}\"vr\u{7f}\u{4}V$8nm$\u{1f}uEU\r\u{11}#W\u{e}[\u{1b}*\u{1c}{\u{f}:uWvv\u{1f}\u{f}~\u{16}z3R[&{*\u{3}\u{7}y qT'\u{12}`@:W\u{1}\u{5}\u{1e}:\u{11}Eu<kR_\u{18}7y#/k(~8^\u{c}\u{1f}cI%\u{1c}gA\u{b}\u{18} &*uw9o\u{14}io@\u{5}?}59\u{19}\u{1a}/\u{c}d]?\u{4}qO\u{7}Fak\u{3}\u{8}\u{12}\u{1b}\u{1a}zg1p\u{4}Eq8*f\u{8}\u{1}'Y]\u{7}\u{1f}yaueu\u{c}h\u{e}\u{1c}\u{15}Bt@xe9zK%\u{1e}Ja\u{c}JOMee|)4o:\u{e}\u{7}\u{1a}L-\n[2u??J\u{1f}H\u{10}\u{c}l)iGK\u{12}\u{1b})Y\ra)%6L|)}GIh7S,AE$\u{2}\u{15}6\u{16}\u{c};\u{10}\u{3}3{,pi\r\u{f}\u{1d}(+\u{2}R3Y\0mT\"I\u{1e}\u{14}\t\u{4}\u{12}ehxR$cG=dT]\0:bz\u{16}?6V8x|*\u{1e}$@gUj\u{1c}1F1\u{1f}\u{3}\u{13}E\u{10}oiRst\u{4}J&LiLdl\nH\u{8}3\u{1a}\u{17}|\\4o7\u{16}\u{17}gl\rM\t\u{1e}u\u{4}\u{1a}3N\u{f}bJi\u{1e}rP9,;\u{7}t\u{c}aq7#Mrr&owz\u{10}>S,/\u{1d}:#yJ/ME\u{6}6u[@6w:waxgBr\rO\u{2}CR4XV\u{6}'K\u{2}@Yq\u{1e}eY|}\u{8}>bgbL4-\u{18}3w\"Wu\u{4}nQ]\u{16}\u{12}Iy?KT-D>n\u{1a}@\u{c}X\0\\c\u{12}\u{1d}~7s \u{6}%>\u{7}\u{7}\u{17}u7u\u{e}\u{c}U,20?s\u{16}N5\u{2}rs\"s\u{19}X]|\u{18}\t\u{1f}\09C\0MkWU~ki\u{18}\u{1a}`O^6*\u{e}A\u{16}\u{f}X\u{15}\u{19}ZhYy4/\nh9\u{b}6\u{12}@\u{1e}v1y,\u{1a}\u{6}\u{1a}H&c\u{7f}\u{12}t{pd\u{12}\"\u{17}8\u{15}9\u{1a}D\u{1e}zc\u{1d}/8[^\u{12}\u{1f}\u{12}L)<jK0\u{18}vX,$ZV\u{e}'9\u{17}\u{10} \u{17}QWs+\u{1d}\u{e}8OUp(Es?-Z}/ \u{1a}\u{17}\\h\u{17}zy\u{5}_b\u{1d}\u{7}<?(\u{c}U\0T=<9N:*ZY%o\rQ\u{13}z.\nu\u{14}8U\u{3}\u{c}^>yn\u{4}\"\0~!z(X<o\u{2}BS\r]9\u{1b}\u{6}\u{1c}\u{1c}v\u{4}0r KiID&Dr\u{1c}\u{3}*P\n:@7\u{8}\u{12}u\u{1e}D\u{8}Nu0Y\u{15}D\u{16}>M].\"Z\0=m\u{1e}o%n\u{19}>=\u{15}\u{6}#o\n`%\"NP/KIg\u{15}u.\u{2}\u{12}  >XGr\u{5}\u{2}`5\u{1f}pi\u{1f}\u{15}P\rm5*ww\0%RC\u{17}\u{4}>qs\u{12}H\u{1a}g\u{b}\u{4}=\u{2}Lu'\u{13}a\u{1d}eWR#7\u{f};j\\J\u{6}3DN\u{13}O\u{11}[#]\u{7}>5n\u{15}-:$b\u{3}ko_jQ\u{19}I\u{15}\u{7}L\u{19}o}\\l\u{7f}\u{f}\u{6}\u{7f}Axw-kXz50\u{18}\u{16}\"BZ\u{10}rt\t>cGp!+\u{13}x5\u{15}Fx\u{2}s\tf?WQ\u{e}M2\u{15}^^C\u{7f}z\u{4}\u{b}Y;vA`A)Vnuk\u{18}fX|+\u{14}OcOqd,g[s<+\u{1d}sP7}\u{7f}LWn\u{1b}k\u{12}o\u{3} I9;M/\u{1}Z\n\u{7}9k\u{1c}c\rf\u{16}e,Y\u{2}\u{1b}!2\u{c}\u{2}L-<S\u{16}C_\u{3}%:%<=dF &m\u{6}J\n\u{5}\0J\0\u{1b}~dG\u{16}4\0\u{1d}l\u{11}@`\u{11}\u{8}oX\u{1e}B^\u{13}3T8.\u{1f}\u{e}K|\u{10}JtV?7W\u{17}2v3%.\u{10}\u{c}\u{10}e4|\u{17}5\u{10}_\u{1a}d\u{17}(rX2\u{14}3\u{17}w`J6WA\u{1b}\u{14}>kN@Y6v``e\u{14}K\u{5}1h\u{c}\u{4}\u{4}K0\0\u{1e}#MOqsK\u{4}$lK-m\n\u{b}gDPSQk\0i\u{18}0,:\u{1e}u>~7\u{3}+L\u{16}!\u{f}N=\u{7}fKt>2l,\u{4}M\u{16}S}5\u{1e}\u{7};0C\u{2}:\u{18}`G[S\u{3}\u{1f}7*!R\u{11}k/Y5\\\u{b}J24D/0J\u{1}F`\u{10}\u{5}\u{11}qyv&>01\u{4}\u{16}\u{4}}\"(d'G\u{1b}ymie&E\0w(\rUJlw|f(\u{4}C\\,Iq\u{1e}=3op\u{1b})GyQ3A\u{c} \u{15}:\u{c}\u{6}kAvJ\u{14}/J:n\u{e}l0c\0oGcbVu|$\u{7f} \"\u{8}{\u{2}0ok@k\u{5}\nI\u{7f}w+\u{b}\u{8}\0[.M^p2Bt\u{15})\r):8vQ[\u{14}\u{13}\u{c}?,y5Vmj>)\u{7}9\u{15}KC%1+V\u{12}\u{c}p9doeh`[.8'YZF\u{6}O6F2{8P\\x\\\u{2}BX}l\u{c}k\u{5}\u{5}{{#w&\0a*`X\u{1d}p2gT)zK\u{17}:St\u{11}OS\u{1c}\u{11}Qp,|N\u{e}U!]9|,\u{6}\u{19}u\u{5}~Y)*7&<kar{nM\u{16}8'<\u{1d}Fc6\n)3)3w{\rggg9c\u{5}L|}+9B3\u{11}%]\u{11}`P\u{5}&R\u{4}\u{2}\u{11},p;\u{e}_\u{18}=)W8cfWn}tfUf\u{15}\u{13}\u{18}\u{8}jL`8\u{1c}t|.F\u{15}eq.a\u{12}#^+\t\u{18}\u{f}\u{10}[7\u{12}\u{1f};_\u{18}<d\\D/\u{c}Vj`Dp\u{14}178M\u{1b}\u{1b}/hE\u{1b}PB\u{16}GD07>_B\u{10}-$\"\u{7}qZ+,dS#lT\\\u{e};X`gV_\\MnFhi\u{7f}Q>\0^\u{1}|:\u{18}_RRp#h#,V}M#\\0=/[BU/f3>|G\0n\u{15}j\u{f}v'x\u{4}VHO\\NUGvA]Ua|uaG\u{18}cBhL\u{1a}\u{7}\n\"\u{15}\u{7}6Zi|x',\u{18}/v\u{6}Wz\u{13}`Vr\u{15}\u{3}\u{1c}~z\u{e}\u{1c}|z\t:h@h \u{7f}I(f]K#c~vS\u{1}RY^\u{c}%d=\u{13}\u{c}7y\"\u{18}\u{e}\u{18}\u{e}2\u{b}6mZl\u{7f}\u{7f}\u{4}a\u{7f}@-\u{7}i^b.[3w+teFS aI\u{16}w$*i\u{1f}\u{1a}p \u{1b}\u{1d}Q+2Hi d\u{4}\u{7f}\n\u{1}\u{6}Z\u{18}(\u{15}\u{5}Mk[\u{14}r\u{1a}otj\u{8}\u{1f}+\u{11}\u{1}\t.  I/],+Z{\u{15}QWW48;+s<;v\u{11}oK\u{1f}uEU\u{1d}s(\u{15}h8b\u{14}Q\u{13}\u{e}4,GOBP\u{1b}T8l.LF\u{16}5-!\u{2}K}E\u{4}\u{1e}_\u{1}rN>FvH\u{1b}\u{1f}(JK-#tq\u{16}x*\u{16}\u{1e}yipZLp'+]+_M\u{5}PV}oH-E~6hH\u{6}\u{6}9MoK\"Uz&\u{5}| }\u{13}4\u{1}]}TIR+?FwvXN\u{11}\u{17}G\nm+]\u{6}\u{f}0g6Q#I*u\\j\u{11}\r;t'I4\u{7f}f\u{4}|a t\u{14}-gu=Q<\u{2}\u{10}fj,T\u{6}|45q.\u{2}\u{e}nBx\u{5}\0r,t|\u{4}[\u{15}oI\\SbH\u{2};f;,s]#';7\u{17}E?xbnVH;blZ\u{8}B\u{1c}x h\u{10}>\u{6}N2f4\"%%P\u{19}O{.y72l|\u{2}|M\u{1b}9f\u{18},~B\u{15}\tM\u{10}\u{17}Uf\u{12}\u{10}\u{2}'d\u{12}k5d\u{1f}b2K2IE=O\u{5}-\n6(T*\u{6}\u{17}d!gih\u{13}\u{c}W\u{1}`;h\u{5}I\u{1d}bH\u{15}HzH|5Z\u{3}b_Ksg\u{1d}F?AiWkZc\u{2}\u{7}\"%\u{b}\u{1}{pj\0>K\u{7}\u{18}}C|z[z\u{1}agn;.\"oW\u{16}3%&u\u{7f}}<,%EfK\u{7}hG\r\\\\A_($#\u{c}\n0;jnS\u{13}=>l5w <\u{4}wQJ+ZNrM}\u{8}f\0R\u{19}d|\tB\u{8}\u{19}tZh,5y\u{4}P\u{1d}\u{1a}-t?\u{f}qjW\u{13}\u{2}$\t5WQ\u{3}\n#_\u{16};\u{3}!\u{f})A<m'rALn@3O\n\u{1c}3\u{7}\u{5}v\u{17}S\\J\r$[n\r\u{19};X]\u{4}f2^E3\u{1f}fbF\u{18}%=?xx\u{11}Y80\u{17}QF\n+$\u{1f}R\u{18}H5\u{3}6\u{1}Q\u{1}tFik~# Hb/|\u{1d}2>g-6hIc$Rbwu[rl\u{b}\"*\u{5}))\u{e}krE\u{1b}e\u{1f}\u{11}J\u{4}\u{8}\u{f}2\0u\u{b}?9P$.\u{15}K.y{YhQ|LNWz9r\u{12}\u{14}`\u{e}C#]Pa\u{6}+Q\u{10}\u{e}t70@\u{1}EGN\u{1d}\u{14}\u{1}\0\0"
 
@@ -1135,13 +1135,13 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftProtobuf.G
 
 }
 
-extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
+nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0B\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9$\u{14}jJ\u{8}%;$f6\u{3}\u{1b}\u{1d}\u{10}{FN<*\u{7}{0~\u{1d}T+<;1ZiH\u{1a}P\u{12}\u{19}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}PJ\u{6}U u0U\n\u{17}2oq\u{18}U.=v..cL\u{b}b\r\u{15}V\t\0"
 
@@ -1158,7 +1158,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: S
 
 }
 
-extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0J\u{1}\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{d}E\0protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$p\u{15}\u{15} ya\u{e}6P\u{1d}b\u{f}\u{e}\t^\u{12}LvgJ \u{1b}pv\u{16}\tq{]* \u{f}4No8L\nS\0\u{1}\u{10}ON>GTj\u{7f}5!=\u{7}-\u{2}\u{8}]]J\t\u{19}\0"
 
@@ -1168,7 +1168,7 @@ extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType: S
 
 }
 
-extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}9\0protobuf_test_messages.editions.ForeignMessageEdition2023"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
@@ -1178,7 +1178,7 @@ extension ProtobufTestMessages_Editions_ForeignMessageEdition2023: SwiftProtobuf
 
 }
 
-extension ProtobufTestMessages_Editions_GroupLikeType: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Editions_GroupLikeType: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.editions.GroupLikeType"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 

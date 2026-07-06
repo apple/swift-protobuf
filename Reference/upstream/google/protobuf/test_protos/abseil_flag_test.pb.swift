@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_OpenEnumForFlagTest: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_OpenEnumForFlagTest: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case `default` // = 0
   case UNRECOGNIZED(Swift.Int)
@@ -50,7 +50,7 @@ enum Proto2Unittest_OpenEnumForFlagTest: SwiftProtobuf.Enum, Swift.CaseIterable 
 
 }
 
-struct Proto2Unittest_AbseilFlagTestProto: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_AbseilFlagTestProto: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -83,7 +83,7 @@ struct Proto2Unittest_AbseilFlagTestProto: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_MessageWithConflictingFlagPrefixes: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_MessageWithConflictingFlagPrefixes: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -134,7 +134,7 @@ struct Proto2Unittest_MessageWithConflictingFlagPrefixes: @unchecked Swift.Senda
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_AbseilFlagTestProto {
+nonisolated extension Proto2Unittest_AbseilFlagTestProto {
 
   var Proto2Unittest_AbseilFlagTestProto_ext: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_AbseilFlagTestProto.Extensions.ext, default: 0) }
@@ -154,7 +154,7 @@ extension Proto2Unittest_AbseilFlagTestProto {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_AbseilFlagTest_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_AbseilFlagTest_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_AbseilFlagTestProto.Extensions.ext
 ]
 
@@ -162,7 +162,7 @@ let Proto2Unittest_AbseilFlagTest_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_AbseilFlagTestProto {
+nonisolated extension Proto2Unittest_AbseilFlagTestProto {
   enum Extensions {
     static let ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0proto2_unittest.AbseilFlagTestProto.ext",
@@ -173,13 +173,13 @@ extension Proto2Unittest_AbseilFlagTestProto {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_OpenEnumForFlagTest {
+nonisolated extension Proto2Unittest_OpenEnumForFlagTest {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0#\0proto2_unittest.OpenEnumForFlagTest"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}&pm\u{e}\u{6}8ny'B\u{3}D\0sHJ3F.7\u{1d}\u{5}7QO\u{5}W\u{7}W\u{6}S\u{7f}7)\u{1b}<?\u{7f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2Unittest_AbseilFlagTestProto: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_AbseilFlagTestProto: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0 \u{2}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}d\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}#\0proto2_unittest.AbseilFlagTestProto"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}\u{2}d\u{b}\u{1d}X\05w;\u{17}02PxKv|5u\u{19}a\u{1e}L\u{5}\0"
 
@@ -196,7 +196,7 @@ extension Proto2Unittest_AbseilFlagTestProto: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_MessageWithConflictingFlagPrefixes: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_MessageWithConflictingFlagPrefixes: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}2\0proto2_unittest.MessageWithConflictingFlagPrefixes"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\",Sb6\tx;\u{15}\u{17}\u{5}a0;>%\u{1c}3D .y.T\t!%i$qp\u{7}Q\u{5}FI\u{1c}mpF)N'T\0\0"
 
