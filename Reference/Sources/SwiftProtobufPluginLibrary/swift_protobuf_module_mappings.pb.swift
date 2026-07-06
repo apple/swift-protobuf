@@ -25,14 +25,14 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Configuration used to define the mappings for generated proto files
 /// to the Swift module they will be included in.
-struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -45,7 +45,7 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 
   /// Individual listing of the module name and the files that will go
   /// into it.
-  struct Entry: @unchecked Swift.Sendable {
+  nonisolated struct Entry: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -88,7 +88,7 @@ struct SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}'\0swift_protobuf.gen_swift.ModuleMappings"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp3,mV>R1\u{11}s4\u{13}|9c\0\0"
 
@@ -105,7 +105,7 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\0\0\u{9}-\0swift_protobuf.gen_swift.ModuleMappings.Entry"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`\tqx<p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{OXEOs2\u{19}Gy\0NY1+&a-zwKG0yS\u{15}X\0V$\nTjVdx m0#$(94Tkr\u{1d}h\u{7f}\u{13}gC\u{17}P\06\0"
 

@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum E: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum E: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case unset = 0
   case a = 1
   case b = 2
@@ -31,7 +31,7 @@ public enum E: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct A: @unchecked Swift.Sendable {
+public nonisolated struct A: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,7 +64,7 @@ public struct A: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension A {
+nonisolated extension A {
 
   public var extStr: String {
     get { _protobuf_extensionStorage().value(of: Extensions_ext_str, default: String()) }
@@ -84,7 +84,7 @@ extension A {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-public let A_Extensions: SwiftProtobuf.ExtensionMap = [
+public nonisolated let A_Extensions: SwiftProtobuf.ExtensionMap = [
   Extensions_ext_str
 ]
 
@@ -92,20 +92,20 @@ public let A_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-public let Extensions_ext_str = SwiftProtobuf.ExtensionSchema(
+public nonisolated let Extensions_ext_str = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{7}\0ext_str",
   extendedMessageResolver: { A.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension E {
+nonisolated extension E {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1}\0E"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@TJg@.sR\u{7f}2C|W\\0;Z'\"(\u{6}Q\u{1e})\\]`QPL\u{18}gwI|\u{11}\u{14}\0"
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension A: SwiftProtobuf.GeneratedMessage {
+nonisolated extension A: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{1}\0A"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wps\u{13}3\u{11}N%6c'\0\0"
 

@@ -28,7 +28,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -42,7 +42,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FieldOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var Proto2UnittestUnlinked_fieldOpt1: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2UnittestUnlinked_Extensions_field_opt1, default: 0) }
@@ -56,7 +56,7 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   mutating func clearProto2UnittestUnlinked_fieldOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_field_opt1, type: UInt64.self) }
 }
 
-extension SwiftProtobuf.Google_Protobuf_FileOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
   var Proto2UnittestUnlinked_fileOpt1: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2UnittestUnlinked_Extensions_file_opt1, default: 0) }
@@ -70,7 +70,7 @@ extension SwiftProtobuf.Google_Protobuf_FileOptions {
   mutating func clearProto2UnittestUnlinked_fileOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_file_opt1, type: UInt64.self) }
 }
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2UnittestUnlinked_messageOpt1: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2UnittestUnlinked_Extensions_message_opt1, default: 0) }
@@ -90,7 +90,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2UnittestUnlinked_Extensions_file_opt1,
   Proto2UnittestUnlinked_Extensions_message_opt1,
   Proto2UnittestUnlinked_Extensions_field_opt1
@@ -100,17 +100,17 @@ let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtob
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{1d}X\u{3}\u{10}\0\0\0\0\0\0\0\u{4}\"\0proto2_unittest_unlinked.file_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
   )
 
-let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1d}-X\u{3}\u{10}\0\0\0\0\0\0\0\u{5}%\0proto2_unittest_unlinked.message_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
   )
 
-let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{9}<X\u{3}\u{10}\0\0\0\0\0\0\0\u{6}#\0proto2_unittest_unlinked.field_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema }
   )

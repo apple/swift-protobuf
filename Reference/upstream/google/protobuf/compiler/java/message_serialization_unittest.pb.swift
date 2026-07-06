@@ -22,14 +22,14 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Each batch of extension ranges not separated by a non-extension field should
 /// be serialized using a single ExtensionWriter#writeUntil call.
-struct Proto2Unittest_TestMessageWithManyExtensionRanges: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMessageWithManyExtensionRanges: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct Proto2Unittest_TestMessageWithManyExtensionRanges: @unchecked Swift.Senda
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestMessageWithManyExtensionRanges: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMessageWithManyExtensionRanges: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0 \u{3}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{17}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}2\0proto2_unittest.TestMessageWithManyExtensionRanges"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKTbVj\u{17}1k\0i\u{7}\\\u{16}C\u{15}Ns8!Pq\u{13}q^-g]\u{1b}\u{14}ArN$(2|sKJ-bO\u{4}\0"
 

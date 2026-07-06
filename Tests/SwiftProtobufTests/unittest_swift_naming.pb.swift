@@ -33,12 +33,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_Names_EnumFieldNames: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case a = 0
   case string = 1
   case int = 2
@@ -256,7 +256,7 @@ enum SwiftProtoTesting_Names_EnumFieldNames: Swift.Int, SwiftProtobuf.Enum, Swif
 
 }
 
-enum SwiftProtoTesting_Names_EnumFieldNames2: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_Names_EnumFieldNames2: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case aa = 0
 
   /// protoc no longer allows enum naming that would differ only in underscores.
@@ -274,7 +274,7 @@ enum SwiftProtoTesting_Names_EnumFieldNames2: Swift.Int, SwiftProtobuf.Enum, Swi
 
 }
 
-struct SwiftProtoTesting_Names_Foo: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_Foo: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -289,7 +289,7 @@ struct SwiftProtoTesting_Names_Foo: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_FieldNames: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_FieldNames: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2302,12 +2302,12 @@ struct SwiftProtoTesting_Names_FieldNames: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  struct StringMessage: @unchecked Swift.Sendable {
+  nonisolated struct StringMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2331,7 +2331,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ProtocolMessage: @unchecked Swift.Sendable {
+  nonisolated struct ProtocolMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2355,7 +2355,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct IntMessage: @unchecked Swift.Sendable {
+  nonisolated struct IntMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2379,7 +2379,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct DoubleMessage: @unchecked Swift.Sendable {
+  nonisolated struct DoubleMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2403,7 +2403,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct FloatMessage: @unchecked Swift.Sendable {
+  nonisolated struct FloatMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2427,7 +2427,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct UIntMessage: @unchecked Swift.Sendable {
+  nonisolated struct UIntMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2451,7 +2451,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct hashValueMessage: @unchecked Swift.Sendable {
+  nonisolated struct hashValueMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2475,7 +2475,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct descriptionMessage: @unchecked Swift.Sendable {
+  nonisolated struct descriptionMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2499,7 +2499,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct debugDescriptionMessage: @unchecked Swift.Sendable {
+  nonisolated struct debugDescriptionMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2523,7 +2523,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct SwiftMessage: @unchecked Swift.Sendable {
+  nonisolated struct SwiftMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2547,7 +2547,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct UNRECOGNIZED: @unchecked Swift.Sendable {
+  nonisolated struct UNRECOGNIZED: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2571,7 +2571,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct classMessage: @unchecked Swift.Sendable {
+  nonisolated struct classMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2595,7 +2595,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct deinitMessage: @unchecked Swift.Sendable {
+  nonisolated struct deinitMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2619,7 +2619,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct enumMessage: @unchecked Swift.Sendable {
+  nonisolated struct enumMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2643,7 +2643,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct extensionMessage: @unchecked Swift.Sendable {
+  nonisolated struct extensionMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2667,7 +2667,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct funcMessage: @unchecked Swift.Sendable {
+  nonisolated struct funcMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2691,7 +2691,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct importMessage: @unchecked Swift.Sendable {
+  nonisolated struct importMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2715,7 +2715,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct initMessage: @unchecked Swift.Sendable {
+  nonisolated struct initMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2739,7 +2739,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct inoutMessage: @unchecked Swift.Sendable {
+  nonisolated struct inoutMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2763,7 +2763,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct internalMessage: @unchecked Swift.Sendable {
+  nonisolated struct internalMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2787,7 +2787,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct letMessage: @unchecked Swift.Sendable {
+  nonisolated struct letMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2811,7 +2811,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct operatorMessage: @unchecked Swift.Sendable {
+  nonisolated struct operatorMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2835,7 +2835,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct privateMessage: @unchecked Swift.Sendable {
+  nonisolated struct privateMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2859,7 +2859,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct protocolMessage: @unchecked Swift.Sendable {
+  nonisolated struct protocolMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2883,7 +2883,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct publicMessage: @unchecked Swift.Sendable {
+  nonisolated struct publicMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2907,7 +2907,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct staticMessage: @unchecked Swift.Sendable {
+  nonisolated struct staticMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2931,7 +2931,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct structMessage: @unchecked Swift.Sendable {
+  nonisolated struct structMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2955,7 +2955,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct subscriptMessage: @unchecked Swift.Sendable {
+  nonisolated struct subscriptMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2979,7 +2979,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct typealiasMessage: @unchecked Swift.Sendable {
+  nonisolated struct typealiasMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3003,7 +3003,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct varMessage: @unchecked Swift.Sendable {
+  nonisolated struct varMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3027,7 +3027,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct breakMessage: @unchecked Swift.Sendable {
+  nonisolated struct breakMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3051,7 +3051,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct caseMessage: @unchecked Swift.Sendable {
+  nonisolated struct caseMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3075,7 +3075,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct continueMessage: @unchecked Swift.Sendable {
+  nonisolated struct continueMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3099,7 +3099,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct defaultMessage: @unchecked Swift.Sendable {
+  nonisolated struct defaultMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3123,7 +3123,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct deferMessage: @unchecked Swift.Sendable {
+  nonisolated struct deferMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3147,7 +3147,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct doMessage: @unchecked Swift.Sendable {
+  nonisolated struct doMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3171,7 +3171,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct elseMessage: @unchecked Swift.Sendable {
+  nonisolated struct elseMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3195,7 +3195,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct fallthroughMessage: @unchecked Swift.Sendable {
+  nonisolated struct fallthroughMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3219,7 +3219,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct forMessage: @unchecked Swift.Sendable {
+  nonisolated struct forMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3243,7 +3243,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct guardMessage: @unchecked Swift.Sendable {
+  nonisolated struct guardMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3267,7 +3267,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ifMessage: @unchecked Swift.Sendable {
+  nonisolated struct ifMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3291,7 +3291,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct inMessage: @unchecked Swift.Sendable {
+  nonisolated struct inMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3315,7 +3315,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct repeatMessage: @unchecked Swift.Sendable {
+  nonisolated struct repeatMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3339,7 +3339,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct returnMessage: @unchecked Swift.Sendable {
+  nonisolated struct returnMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3363,7 +3363,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct switchMessage: @unchecked Swift.Sendable {
+  nonisolated struct switchMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3387,7 +3387,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct whereMessage: @unchecked Swift.Sendable {
+  nonisolated struct whereMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3411,7 +3411,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct whileMessage: @unchecked Swift.Sendable {
+  nonisolated struct whileMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3435,7 +3435,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct asMessage: @unchecked Swift.Sendable {
+  nonisolated struct asMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3459,7 +3459,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct catchMessage: @unchecked Swift.Sendable {
+  nonisolated struct catchMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3483,7 +3483,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct dynamicType: @unchecked Swift.Sendable {
+  nonisolated struct dynamicType: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3507,7 +3507,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct falseMessage: @unchecked Swift.Sendable {
+  nonisolated struct falseMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3531,7 +3531,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct isMessage: @unchecked Swift.Sendable {
+  nonisolated struct isMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3555,7 +3555,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct nilMessage: @unchecked Swift.Sendable {
+  nonisolated struct nilMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3579,7 +3579,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct rethrowsMessage: @unchecked Swift.Sendable {
+  nonisolated struct rethrowsMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3603,7 +3603,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct superMessage: @unchecked Swift.Sendable {
+  nonisolated struct superMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3627,7 +3627,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct selfMessage: @unchecked Swift.Sendable {
+  nonisolated struct selfMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3651,7 +3651,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct throwMessage: @unchecked Swift.Sendable {
+  nonisolated struct throwMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3675,7 +3675,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct throwsMessage: @unchecked Swift.Sendable {
+  nonisolated struct throwsMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3699,7 +3699,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct trueMessage: @unchecked Swift.Sendable {
+  nonisolated struct trueMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3723,7 +3723,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct tryMessage: @unchecked Swift.Sendable {
+  nonisolated struct tryMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3747,7 +3747,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct __COLUMN__Message: @unchecked Swift.Sendable {
+  nonisolated struct __COLUMN__Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3771,7 +3771,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct __FILE__Message: @unchecked Swift.Sendable {
+  nonisolated struct __FILE__Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3795,7 +3795,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct __FUNCTION__Message: @unchecked Swift.Sendable {
+  nonisolated struct __FUNCTION__Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3819,7 +3819,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct __LINE__Message: @unchecked Swift.Sendable {
+  nonisolated struct __LINE__Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3843,7 +3843,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct _Message: @unchecked Swift.Sendable {
+  nonisolated struct _Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3867,7 +3867,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct __Message: @unchecked Swift.Sendable {
+  nonisolated struct __Message: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3891,7 +3891,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct associativity: @unchecked Swift.Sendable {
+  nonisolated struct associativity: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3915,7 +3915,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct convenience: @unchecked Swift.Sendable {
+  nonisolated struct convenience: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3939,7 +3939,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct dynamic: @unchecked Swift.Sendable {
+  nonisolated struct dynamic: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3963,7 +3963,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct didSet: @unchecked Swift.Sendable {
+  nonisolated struct didSet: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3987,7 +3987,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct final: @unchecked Swift.Sendable {
+  nonisolated struct final: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4011,7 +4011,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct get: @unchecked Swift.Sendable {
+  nonisolated struct get: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4035,7 +4035,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct infix: @unchecked Swift.Sendable {
+  nonisolated struct infix: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4059,7 +4059,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct indirect: @unchecked Swift.Sendable {
+  nonisolated struct indirect: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4083,7 +4083,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct lazy: @unchecked Swift.Sendable {
+  nonisolated struct lazy: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4107,7 +4107,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct left: @unchecked Swift.Sendable {
+  nonisolated struct left: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4131,7 +4131,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct mutating: @unchecked Swift.Sendable {
+  nonisolated struct mutating: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4155,7 +4155,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct none: @unchecked Swift.Sendable {
+  nonisolated struct none: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4179,7 +4179,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct nonmutating: @unchecked Swift.Sendable {
+  nonisolated struct nonmutating: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4203,7 +4203,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct optional: @unchecked Swift.Sendable {
+  nonisolated struct optional: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4227,7 +4227,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct override: @unchecked Swift.Sendable {
+  nonisolated struct override: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4251,7 +4251,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct postfix: @unchecked Swift.Sendable {
+  nonisolated struct postfix: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4275,7 +4275,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct precedence: @unchecked Swift.Sendable {
+  nonisolated struct precedence: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4299,7 +4299,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct prefix: @unchecked Swift.Sendable {
+  nonisolated struct prefix: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4323,7 +4323,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct required: @unchecked Swift.Sendable {
+  nonisolated struct required: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4347,7 +4347,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct right: @unchecked Swift.Sendable {
+  nonisolated struct right: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4371,7 +4371,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct set: @unchecked Swift.Sendable {
+  nonisolated struct set: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4395,7 +4395,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct TypeMessage: @unchecked Swift.Sendable {
+  nonisolated struct TypeMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4419,7 +4419,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct unowned: @unchecked Swift.Sendable {
+  nonisolated struct unowned: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4443,7 +4443,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct weak: @unchecked Swift.Sendable {
+  nonisolated struct weak: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4467,7 +4467,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct willSet: @unchecked Swift.Sendable {
+  nonisolated struct willSet: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4491,7 +4491,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct id: @unchecked Swift.Sendable {
+  nonisolated struct id: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4515,7 +4515,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct _cmd: @unchecked Swift.Sendable {
+  nonisolated struct _cmd: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4539,7 +4539,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct out: @unchecked Swift.Sendable {
+  nonisolated struct out: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4563,7 +4563,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct bycopy: @unchecked Swift.Sendable {
+  nonisolated struct bycopy: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4587,7 +4587,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct byref: @unchecked Swift.Sendable {
+  nonisolated struct byref: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4611,7 +4611,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct oneway: @unchecked Swift.Sendable {
+  nonisolated struct oneway: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4635,7 +4635,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct and: @unchecked Swift.Sendable {
+  nonisolated struct and: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4659,7 +4659,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct and_eq: @unchecked Swift.Sendable {
+  nonisolated struct and_eq: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4683,7 +4683,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct alignas: @unchecked Swift.Sendable {
+  nonisolated struct alignas: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4707,7 +4707,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct alignof: @unchecked Swift.Sendable {
+  nonisolated struct alignof: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4731,7 +4731,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct asm: @unchecked Swift.Sendable {
+  nonisolated struct asm: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4755,7 +4755,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct auto: @unchecked Swift.Sendable {
+  nonisolated struct auto: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4779,7 +4779,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct bitand: @unchecked Swift.Sendable {
+  nonisolated struct bitand: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4803,7 +4803,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct bitor: @unchecked Swift.Sendable {
+  nonisolated struct bitor: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4827,7 +4827,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct bool: @unchecked Swift.Sendable {
+  nonisolated struct bool: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4851,7 +4851,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct char: @unchecked Swift.Sendable {
+  nonisolated struct char: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4875,7 +4875,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct char16_t: @unchecked Swift.Sendable {
+  nonisolated struct char16_t: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4899,7 +4899,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct char32_t: @unchecked Swift.Sendable {
+  nonisolated struct char32_t: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4923,7 +4923,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct compl: @unchecked Swift.Sendable {
+  nonisolated struct compl: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4947,7 +4947,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct const: @unchecked Swift.Sendable {
+  nonisolated struct const: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4971,7 +4971,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct constexpr: @unchecked Swift.Sendable {
+  nonisolated struct constexpr: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4995,7 +4995,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct const_cast: @unchecked Swift.Sendable {
+  nonisolated struct const_cast: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5019,7 +5019,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct decltype: @unchecked Swift.Sendable {
+  nonisolated struct decltype: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5043,7 +5043,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct delete: @unchecked Swift.Sendable {
+  nonisolated struct delete: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5067,7 +5067,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct dynamic_cast: @unchecked Swift.Sendable {
+  nonisolated struct dynamic_cast: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5091,7 +5091,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct explicit: @unchecked Swift.Sendable {
+  nonisolated struct explicit: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5115,7 +5115,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct export: @unchecked Swift.Sendable {
+  nonisolated struct export: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5139,7 +5139,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct extern: @unchecked Swift.Sendable {
+  nonisolated struct extern: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5163,7 +5163,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct friend: @unchecked Swift.Sendable {
+  nonisolated struct friend: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5187,7 +5187,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct goto: @unchecked Swift.Sendable {
+  nonisolated struct goto: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5211,7 +5211,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct inline: @unchecked Swift.Sendable {
+  nonisolated struct inline: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5235,7 +5235,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct long: @unchecked Swift.Sendable {
+  nonisolated struct long: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5259,7 +5259,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct mutable: @unchecked Swift.Sendable {
+  nonisolated struct mutable: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5283,7 +5283,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct namespace: @unchecked Swift.Sendable {
+  nonisolated struct namespace: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5307,7 +5307,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct new: @unchecked Swift.Sendable {
+  nonisolated struct new: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5331,7 +5331,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct noexcept: @unchecked Swift.Sendable {
+  nonisolated struct noexcept: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5355,7 +5355,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct not: @unchecked Swift.Sendable {
+  nonisolated struct not: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5379,7 +5379,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct not_eq: @unchecked Swift.Sendable {
+  nonisolated struct not_eq: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5403,7 +5403,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct nullptr: @unchecked Swift.Sendable {
+  nonisolated struct nullptr: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5427,7 +5427,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct or: @unchecked Swift.Sendable {
+  nonisolated struct or: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5451,7 +5451,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct or_eq: @unchecked Swift.Sendable {
+  nonisolated struct or_eq: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5475,7 +5475,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct protected: @unchecked Swift.Sendable {
+  nonisolated struct protected: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5499,7 +5499,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct register: @unchecked Swift.Sendable {
+  nonisolated struct register: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5523,7 +5523,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct reinterpret_cast: @unchecked Swift.Sendable {
+  nonisolated struct reinterpret_cast: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5547,7 +5547,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct short: @unchecked Swift.Sendable {
+  nonisolated struct short: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5571,7 +5571,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct signed: @unchecked Swift.Sendable {
+  nonisolated struct signed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5595,7 +5595,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct sizeof: @unchecked Swift.Sendable {
+  nonisolated struct sizeof: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5619,7 +5619,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct static_assert: @unchecked Swift.Sendable {
+  nonisolated struct static_assert: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5643,7 +5643,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct static_cast: @unchecked Swift.Sendable {
+  nonisolated struct static_cast: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5667,7 +5667,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct template: @unchecked Swift.Sendable {
+  nonisolated struct template: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5691,7 +5691,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct this: @unchecked Swift.Sendable {
+  nonisolated struct this: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5715,7 +5715,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct thread_local: @unchecked Swift.Sendable {
+  nonisolated struct thread_local: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5739,7 +5739,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct typedef: @unchecked Swift.Sendable {
+  nonisolated struct typedef: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5763,7 +5763,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct typeid: @unchecked Swift.Sendable {
+  nonisolated struct typeid: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5787,7 +5787,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct typename: @unchecked Swift.Sendable {
+  nonisolated struct typename: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5811,7 +5811,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct union: @unchecked Swift.Sendable {
+  nonisolated struct union: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5835,7 +5835,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct unsigned: @unchecked Swift.Sendable {
+  nonisolated struct unsigned: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5859,7 +5859,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct using: @unchecked Swift.Sendable {
+  nonisolated struct using: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5883,7 +5883,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct virtual: @unchecked Swift.Sendable {
+  nonisolated struct virtual: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5907,7 +5907,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct void: @unchecked Swift.Sendable {
+  nonisolated struct void: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5931,7 +5931,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct volatile: @unchecked Swift.Sendable {
+  nonisolated struct volatile: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5955,7 +5955,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct wchar_t: @unchecked Swift.Sendable {
+  nonisolated struct wchar_t: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5979,7 +5979,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct xor: @unchecked Swift.Sendable {
+  nonisolated struct xor: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6003,7 +6003,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct xor_eq: @unchecked Swift.Sendable {
+  nonisolated struct xor_eq: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6027,7 +6027,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct restrict: @unchecked Swift.Sendable {
+  nonisolated struct restrict: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6051,7 +6051,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Category: @unchecked Swift.Sendable {
+  nonisolated struct Category: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6075,7 +6075,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Ivar: @unchecked Swift.Sendable {
+  nonisolated struct Ivar: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6099,7 +6099,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Method: @unchecked Swift.Sendable {
+  nonisolated struct Method: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6123,7 +6123,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct finalize: @unchecked Swift.Sendable {
+  nonisolated struct finalize: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6147,7 +6147,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct hash: @unchecked Swift.Sendable {
+  nonisolated struct hash: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6171,7 +6171,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct dealloc: @unchecked Swift.Sendable {
+  nonisolated struct dealloc: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6195,7 +6195,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct superclass: @unchecked Swift.Sendable {
+  nonisolated struct superclass: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6219,7 +6219,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct retain: @unchecked Swift.Sendable {
+  nonisolated struct retain: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6243,7 +6243,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct release: @unchecked Swift.Sendable {
+  nonisolated struct release: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6267,7 +6267,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct autorelease: @unchecked Swift.Sendable {
+  nonisolated struct autorelease: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6291,7 +6291,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct retainCount: @unchecked Swift.Sendable {
+  nonisolated struct retainCount: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6315,7 +6315,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct zone: @unchecked Swift.Sendable {
+  nonisolated struct zone: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6339,7 +6339,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct isProxy: @unchecked Swift.Sendable {
+  nonisolated struct isProxy: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6363,7 +6363,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct copy: @unchecked Swift.Sendable {
+  nonisolated struct copy: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6387,7 +6387,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct mutableCopy: @unchecked Swift.Sendable {
+  nonisolated struct mutableCopy: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6411,7 +6411,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct classForCoder: @unchecked Swift.Sendable {
+  nonisolated struct classForCoder: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6435,7 +6435,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct clear: @unchecked Swift.Sendable {
+  nonisolated struct clear: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6459,7 +6459,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct data: @unchecked Swift.Sendable {
+  nonisolated struct data: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6483,7 +6483,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct delimitedData: @unchecked Swift.Sendable {
+  nonisolated struct delimitedData: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6507,7 +6507,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct descriptor: @unchecked Swift.Sendable {
+  nonisolated struct descriptor: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6531,7 +6531,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct extensionRegistry: @unchecked Swift.Sendable {
+  nonisolated struct extensionRegistry: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6555,7 +6555,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct extensionsCurrentlySet: @unchecked Swift.Sendable {
+  nonisolated struct extensionsCurrentlySet: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6579,7 +6579,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct isInitializedMessage: @unchecked Swift.Sendable {
+  nonisolated struct isInitializedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6603,7 +6603,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct serializedSize: @unchecked Swift.Sendable {
+  nonisolated struct serializedSize: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6627,7 +6627,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct sortedExtensionsInUse: @unchecked Swift.Sendable {
+  nonisolated struct sortedExtensionsInUse: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6651,7 +6651,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct unknownFieldsMessage: @unchecked Swift.Sendable {
+  nonisolated struct unknownFieldsMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6675,7 +6675,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Fixed: @unchecked Swift.Sendable {
+  nonisolated struct Fixed: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6699,7 +6699,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Fract: @unchecked Swift.Sendable {
+  nonisolated struct Fract: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6723,7 +6723,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Size: @unchecked Swift.Sendable {
+  nonisolated struct Size: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6747,7 +6747,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct LogicalAddress: @unchecked Swift.Sendable {
+  nonisolated struct LogicalAddress: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6771,7 +6771,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct PhysicalAddress: @unchecked Swift.Sendable {
+  nonisolated struct PhysicalAddress: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6795,7 +6795,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ByteCount: @unchecked Swift.Sendable {
+  nonisolated struct ByteCount: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6819,7 +6819,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ByteOffset: @unchecked Swift.Sendable {
+  nonisolated struct ByteOffset: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6843,7 +6843,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Duration: @unchecked Swift.Sendable {
+  nonisolated struct Duration: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6867,7 +6867,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct AbsoluteTime: @unchecked Swift.Sendable {
+  nonisolated struct AbsoluteTime: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6891,7 +6891,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct OptionBits: @unchecked Swift.Sendable {
+  nonisolated struct OptionBits: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6915,7 +6915,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ItemCount: @unchecked Swift.Sendable {
+  nonisolated struct ItemCount: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6939,7 +6939,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct PBVersion: @unchecked Swift.Sendable {
+  nonisolated struct PBVersion: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6963,7 +6963,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ScriptCode: @unchecked Swift.Sendable {
+  nonisolated struct ScriptCode: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6987,7 +6987,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct LangCode: @unchecked Swift.Sendable {
+  nonisolated struct LangCode: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7011,7 +7011,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct RegionCode: @unchecked Swift.Sendable {
+  nonisolated struct RegionCode: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7035,7 +7035,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct OSType: @unchecked Swift.Sendable {
+  nonisolated struct OSType: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7059,7 +7059,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ProcessSerialNumber: @unchecked Swift.Sendable {
+  nonisolated struct ProcessSerialNumber: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7083,7 +7083,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Point: @unchecked Swift.Sendable {
+  nonisolated struct Point: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7107,7 +7107,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Rect: @unchecked Swift.Sendable {
+  nonisolated struct Rect: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7131,7 +7131,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct FixedPoint: @unchecked Swift.Sendable {
+  nonisolated struct FixedPoint: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7155,7 +7155,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct FixedRect: @unchecked Swift.Sendable {
+  nonisolated struct FixedRect: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7179,7 +7179,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Style: @unchecked Swift.Sendable {
+  nonisolated struct Style: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7203,7 +7203,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct StyleParameter: @unchecked Swift.Sendable {
+  nonisolated struct StyleParameter: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7227,7 +7227,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct StyleField: @unchecked Swift.Sendable {
+  nonisolated struct StyleField: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7251,7 +7251,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct TimeScale: @unchecked Swift.Sendable {
+  nonisolated struct TimeScale: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7275,7 +7275,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct TimeBase: @unchecked Swift.Sendable {
+  nonisolated struct TimeBase: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7299,7 +7299,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct TimeRecord: @unchecked Swift.Sendable {
+  nonisolated struct TimeRecord: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7323,7 +7323,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct serializedData: @unchecked Swift.Sendable {
+  nonisolated struct serializedData: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7347,7 +7347,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct jsonUTF8Data: @unchecked Swift.Sendable {
+  nonisolated struct jsonUTF8Data: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7371,7 +7371,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct jsonString: @unchecked Swift.Sendable {
+  nonisolated struct jsonString: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7395,7 +7395,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Extension: @unchecked Swift.Sendable {
+  nonisolated struct Extension: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7419,7 +7419,7 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct ExtensionsMessage: @unchecked Swift.Sendable {
+  nonisolated struct ExtensionsMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7453,12 +7453,12 @@ struct SwiftProtoTesting_Names_MessageNames: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  enum StringEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StringEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aString = 0
 
     init() {
@@ -7467,7 +7467,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ProtocolEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ProtocolEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aProtocol = 0
 
     init() {
@@ -7476,7 +7476,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum IntEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum IntEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aInt = 0
 
     init() {
@@ -7485,7 +7485,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum DoubleEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum DoubleEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aDouble = 0
 
     init() {
@@ -7494,7 +7494,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum FloatEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum FloatEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aFloat = 0
 
     init() {
@@ -7503,7 +7503,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum UIntEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum UIntEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aUint = 0
 
     init() {
@@ -7512,7 +7512,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum hashValueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum hashValueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ahashValue = 0
 
     init() {
@@ -7521,7 +7521,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum descriptionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum descriptionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adescription = 0
 
     init() {
@@ -7530,7 +7530,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum debugDescriptionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum debugDescriptionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adebugDescription = 0
 
     init() {
@@ -7539,7 +7539,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum SwiftEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum SwiftEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aSwift = 0
 
     init() {
@@ -7548,7 +7548,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum UNRECOGNIZED: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum UNRECOGNIZED: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aUnrecognized = 0
 
     init() {
@@ -7557,7 +7557,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum classEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum classEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aclass = 0
 
     init() {
@@ -7566,7 +7566,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum deinitEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum deinitEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adeinit = 0
 
     init() {
@@ -7575,7 +7575,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum enumEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum enumEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aenum = 0
 
     init() {
@@ -7584,7 +7584,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum extensionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum extensionEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aextension = 0
 
     init() {
@@ -7593,7 +7593,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum funcEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum funcEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afunc = 0
 
     init() {
@@ -7602,7 +7602,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum importEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum importEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aimport = 0
 
     init() {
@@ -7611,7 +7611,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum initEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum initEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ainit = 0
 
     init() {
@@ -7620,7 +7620,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum inoutEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum inoutEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ainout = 0
 
     init() {
@@ -7629,7 +7629,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum internalEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum internalEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ainternal = 0
 
     init() {
@@ -7638,7 +7638,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum letEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum letEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case alet = 0
 
     init() {
@@ -7647,7 +7647,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum operatorEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum operatorEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aoperator = 0
 
     init() {
@@ -7656,7 +7656,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum privateEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum privateEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aprivate = 0
 
     init() {
@@ -7665,7 +7665,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum protocolEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum protocolEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aprotocol = 0
 
     init() {
@@ -7674,7 +7674,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum publicEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum publicEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case apublic = 0
 
     init() {
@@ -7683,7 +7683,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum staticEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum staticEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case astatic = 0
 
     init() {
@@ -7692,7 +7692,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum structEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum structEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case astruct = 0
 
     init() {
@@ -7701,7 +7701,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum subscriptEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum subscriptEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asubscript = 0
 
     init() {
@@ -7710,7 +7710,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum typealiasEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum typealiasEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atypealias = 0
 
     init() {
@@ -7719,7 +7719,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum varEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum varEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case avar = 0
 
     init() {
@@ -7728,7 +7728,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum breakEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum breakEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abreak = 0
 
     init() {
@@ -7737,7 +7737,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum caseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum caseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case acase = 0
 
     init() {
@@ -7746,7 +7746,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum continueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum continueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case acontinue = 0
 
     init() {
@@ -7755,7 +7755,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum defaultEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum defaultEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adefault = 0
 
     init() {
@@ -7764,7 +7764,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum deferEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum deferEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adefer = 0
 
     init() {
@@ -7773,7 +7773,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum doEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum doEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ado = 0
 
     init() {
@@ -7782,7 +7782,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum elseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum elseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aelse = 0
 
     init() {
@@ -7791,7 +7791,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum fallthroughEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum fallthroughEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afallthrough = 0
 
     init() {
@@ -7800,7 +7800,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum forEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum forEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afor = 0
 
     init() {
@@ -7809,7 +7809,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum guardEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum guardEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aguard = 0
 
     init() {
@@ -7818,7 +7818,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ifEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ifEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aif = 0
 
     init() {
@@ -7827,7 +7827,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum inEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum inEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ain = 0
 
     init() {
@@ -7836,7 +7836,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum repeatEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum repeatEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case arepeat = 0
 
     init() {
@@ -7845,7 +7845,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum returnEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum returnEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case areturn = 0
 
     init() {
@@ -7854,7 +7854,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum switchEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum switchEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aswitch = 0
 
     init() {
@@ -7863,7 +7863,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum whereEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum whereEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case awhere = 0
 
     init() {
@@ -7872,7 +7872,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum whileEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum whileEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case awhile = 0
 
     init() {
@@ -7881,7 +7881,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum asEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum asEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aas = 0
 
     init() {
@@ -7890,7 +7890,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum catchEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum catchEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case acatch = 0
 
     init() {
@@ -7899,7 +7899,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum dynamicType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum dynamicType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adynamicType = 0
 
     init() {
@@ -7908,7 +7908,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum falseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum falseEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afalse = 0
 
     init() {
@@ -7917,7 +7917,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum isEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum isEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ais = 0
 
     init() {
@@ -7926,7 +7926,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum nilEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum nilEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anil = 0
 
     init() {
@@ -7935,7 +7935,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum rethrowsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum rethrowsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case arethrows = 0
 
     init() {
@@ -7944,7 +7944,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum superEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum superEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asuper = 0
 
     init() {
@@ -7953,7 +7953,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum selfEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum selfEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aself = 0
 
     init() {
@@ -7962,7 +7962,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum throwEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum throwEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case athrow = 0
 
     init() {
@@ -7971,7 +7971,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum throwsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum throwsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case athrows = 0
 
     init() {
@@ -7980,7 +7980,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum trueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum trueEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atrue = 0
 
     init() {
@@ -7989,7 +7989,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum tryEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum tryEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atry = 0
 
     init() {
@@ -7998,7 +7998,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum __COLUMN__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum __COLUMN__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a_Column__ = 0
 
     init() {
@@ -8007,7 +8007,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum __FILE__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum __FILE__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a_File__ = 0
 
     init() {
@@ -8016,7 +8016,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum __FUNCTION__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum __FUNCTION__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a_Function__ = 0
 
     init() {
@@ -8025,7 +8025,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum __LINE__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum __LINE__Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a_Line__ = 0
 
     init() {
@@ -8034,7 +8034,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum _Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum _Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a_ = 0
 
     init() {
@@ -8043,7 +8043,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum __Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum __Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case a__ = 0
 
     init() {
@@ -8052,7 +8052,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum associativity: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum associativity: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aassociativity = 0
 
     init() {
@@ -8061,7 +8061,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum convenience: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum convenience: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aconvenience = 0
 
     init() {
@@ -8070,7 +8070,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum dynamic: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum dynamic: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adynamic = 0
 
     init() {
@@ -8079,7 +8079,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum didSet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum didSet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adidSet = 0
 
     init() {
@@ -8088,7 +8088,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum final: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum final: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afinal = 0
 
     init() {
@@ -8097,7 +8097,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum get: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum get: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aget = 0
 
     init() {
@@ -8106,7 +8106,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum infix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum infix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ainfix = 0
 
     init() {
@@ -8115,7 +8115,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum indirect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum indirect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aindirect = 0
 
     init() {
@@ -8124,7 +8124,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum lazy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum lazy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case alazy = 0
 
     init() {
@@ -8133,7 +8133,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum left: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum left: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aleft = 0
 
     init() {
@@ -8142,7 +8142,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum mutating: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum mutating: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case amutating = 0
 
     init() {
@@ -8151,7 +8151,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum none: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum none: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anone = 0
 
     init() {
@@ -8160,7 +8160,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum nonmutating: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum nonmutating: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anonmutating = 0
 
     init() {
@@ -8169,7 +8169,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum optional: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum optional: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aoptional = 0
 
     init() {
@@ -8178,7 +8178,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum override: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum override: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aoverride = 0
 
     init() {
@@ -8187,7 +8187,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum postfix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum postfix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case apostfix = 0
 
     init() {
@@ -8196,7 +8196,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum precedence: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum precedence: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aprecedence = 0
 
     init() {
@@ -8205,7 +8205,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum prefix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum prefix: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aprefix = 0
 
     init() {
@@ -8214,7 +8214,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum required: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum required: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case arequired = 0
 
     init() {
@@ -8223,7 +8223,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum right: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum right: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aright = 0
 
     init() {
@@ -8232,7 +8232,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum set: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum set: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aset = 0
 
     init() {
@@ -8241,7 +8241,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum TypeEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TypeEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aType = 0
 
     init() {
@@ -8250,7 +8250,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum unowned: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum unowned: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aunowned = 0
 
     init() {
@@ -8259,7 +8259,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum weak: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum weak: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aweak = 0
 
     init() {
@@ -8268,7 +8268,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum willSet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum willSet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case awillSet = 0
 
     init() {
@@ -8277,7 +8277,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum id: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum id: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aid = 0
 
     init() {
@@ -8286,7 +8286,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum _cmd: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum _cmd: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aCmd = 0
 
     init() {
@@ -8295,7 +8295,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum out: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum out: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aout = 0
 
     init() {
@@ -8304,7 +8304,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum bycopy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum bycopy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abycopy = 0
 
     init() {
@@ -8313,7 +8313,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum byref: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum byref: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abyref = 0
 
     init() {
@@ -8322,7 +8322,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum oneway: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum oneway: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aoneway = 0
 
     init() {
@@ -8331,7 +8331,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum and: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum and: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aand = 0
 
     init() {
@@ -8340,7 +8340,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum and_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum and_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aandEq = 0
 
     init() {
@@ -8349,7 +8349,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum alignas: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum alignas: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aalignas = 0
 
     init() {
@@ -8358,7 +8358,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum alignof: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum alignof: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aalignof = 0
 
     init() {
@@ -8367,7 +8367,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum asm: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum asm: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aasm = 0
 
     init() {
@@ -8376,7 +8376,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum auto: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum auto: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aauto = 0
 
     init() {
@@ -8385,7 +8385,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum bitand: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum bitand: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abitand = 0
 
     init() {
@@ -8394,7 +8394,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum bitor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum bitor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abitor = 0
 
     init() {
@@ -8403,7 +8403,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum bool: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum bool: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case abool = 0
 
     init() {
@@ -8412,7 +8412,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum char: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum char: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case achar = 0
 
     init() {
@@ -8421,7 +8421,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum char16_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum char16_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case achar16T = 0
 
     init() {
@@ -8430,7 +8430,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum char32_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum char32_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case achar32T = 0
 
     init() {
@@ -8439,7 +8439,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum compl: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum compl: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case acompl = 0
 
     init() {
@@ -8448,7 +8448,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum const: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum const: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aconst = 0
 
     init() {
@@ -8457,7 +8457,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum constexpr: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum constexpr: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aconstexpr = 0
 
     init() {
@@ -8466,7 +8466,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum const_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum const_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aconstCast = 0
 
     init() {
@@ -8475,7 +8475,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum decltype: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum decltype: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adecltype = 0
 
     init() {
@@ -8484,7 +8484,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum delete: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum delete: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adelete = 0
 
     init() {
@@ -8493,7 +8493,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum dynamic_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum dynamic_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adynamicCast = 0
 
     init() {
@@ -8502,7 +8502,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum explicit: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum explicit: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aexplicit = 0
 
     init() {
@@ -8511,7 +8511,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum export: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum export: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aexport = 0
 
     init() {
@@ -8520,7 +8520,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum extern: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum extern: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aextern = 0
 
     init() {
@@ -8529,7 +8529,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum friend: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum friend: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afriend = 0
 
     init() {
@@ -8538,7 +8538,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum goto: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum goto: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case agoto = 0
 
     init() {
@@ -8547,7 +8547,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum inline: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum inline: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ainline = 0
 
     init() {
@@ -8556,7 +8556,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum long: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum long: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case along = 0
 
     init() {
@@ -8565,7 +8565,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum mutable: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum mutable: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case amutable = 0
 
     init() {
@@ -8574,7 +8574,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum namespace: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum namespace: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anamespace = 0
 
     init() {
@@ -8583,7 +8583,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum new: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum new: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anew = 0
 
     init() {
@@ -8592,7 +8592,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum noexcept: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum noexcept: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anoexcept = 0
 
     init() {
@@ -8601,7 +8601,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum not: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum not: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anot = 0
 
     init() {
@@ -8610,7 +8610,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum not_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum not_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anotEq = 0
 
     init() {
@@ -8619,7 +8619,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum nullptr: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum nullptr: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case anullptr = 0
 
     init() {
@@ -8628,7 +8628,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum or: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum or: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aor = 0
 
     init() {
@@ -8637,7 +8637,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum or_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum or_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aorEq = 0
 
     init() {
@@ -8646,7 +8646,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum protected: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum protected: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aprotected = 0
 
     init() {
@@ -8655,7 +8655,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum register: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum register: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aregister = 0
 
     init() {
@@ -8664,7 +8664,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum reinterpret_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum reinterpret_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case areinterpretCast = 0
 
     init() {
@@ -8673,7 +8673,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum short: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum short: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ashort = 0
 
     init() {
@@ -8682,7 +8682,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum signed: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum signed: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asigned = 0
 
     init() {
@@ -8691,7 +8691,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum sizeof: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum sizeof: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asizeof = 0
 
     init() {
@@ -8700,7 +8700,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum static_assert: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum static_assert: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case astaticAssert = 0
 
     init() {
@@ -8709,7 +8709,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum static_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum static_cast: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case astaticCast = 0
 
     init() {
@@ -8718,7 +8718,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum template: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum template: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atemplate = 0
 
     init() {
@@ -8727,7 +8727,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum this: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum this: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case athis = 0
 
     init() {
@@ -8736,7 +8736,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum thread_local: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum thread_local: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case athreadLocal = 0
 
     init() {
@@ -8745,7 +8745,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum typedef: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum typedef: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atypedef = 0
 
     init() {
@@ -8754,7 +8754,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum typeid: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum typeid: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atypeid = 0
 
     init() {
@@ -8763,7 +8763,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum typename: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum typename: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case atypename = 0
 
     init() {
@@ -8772,7 +8772,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum union: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum union: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aunion = 0
 
     init() {
@@ -8781,7 +8781,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum unsigned: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum unsigned: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aunsigned = 0
 
     init() {
@@ -8790,7 +8790,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum using: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum using: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ausing = 0
 
     init() {
@@ -8799,7 +8799,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum virtual: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum virtual: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case avirtual = 0
 
     init() {
@@ -8808,7 +8808,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum void: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum void: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case avoid = 0
 
     init() {
@@ -8817,7 +8817,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum volatile: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum volatile: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case avolatile = 0
 
     init() {
@@ -8826,7 +8826,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum wchar_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum wchar_t: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case awcharT = 0
 
     init() {
@@ -8835,7 +8835,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum xor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum xor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case axor = 0
 
     init() {
@@ -8844,7 +8844,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum xor_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum xor_eq: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case axorEq = 0
 
     init() {
@@ -8853,7 +8853,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum restrict: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum restrict: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case arestrict = 0
 
     init() {
@@ -8862,7 +8862,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Category: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Category: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aCategory = 0
 
     init() {
@@ -8871,7 +8871,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Ivar: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Ivar: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aIvar = 0
 
     init() {
@@ -8880,7 +8880,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Method: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Method: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aMethod = 0
 
     init() {
@@ -8889,7 +8889,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum finalize: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum finalize: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case afinalize = 0
 
     init() {
@@ -8898,7 +8898,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum hash: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum hash: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case ahash = 0
 
     init() {
@@ -8907,7 +8907,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum dealloc: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum dealloc: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adealloc = 0
 
     init() {
@@ -8916,7 +8916,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum superclass: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum superclass: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asuperclass = 0
 
     init() {
@@ -8925,7 +8925,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum retain: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum retain: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aretain = 0
 
     init() {
@@ -8934,7 +8934,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum release: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum release: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case arelease = 0
 
     init() {
@@ -8943,7 +8943,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum autorelease: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum autorelease: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aautorelease = 0
 
     init() {
@@ -8952,7 +8952,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum retainCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum retainCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aretainCount = 0
 
     init() {
@@ -8961,7 +8961,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum zone: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum zone: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case azone = 0
 
     init() {
@@ -8970,7 +8970,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum isProxy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum isProxy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aisProxy = 0
 
     init() {
@@ -8979,7 +8979,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum copy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum copy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case acopy = 0
 
     init() {
@@ -8988,7 +8988,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum mutableCopy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum mutableCopy: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case amutableCopy = 0
 
     init() {
@@ -8997,7 +8997,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum classForCoder: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum classForCoder: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aclassForCoder = 0
 
     init() {
@@ -9006,7 +9006,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum clear: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum clear: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aclear = 0
 
     init() {
@@ -9015,7 +9015,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum data: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum data: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adata = 0
 
     init() {
@@ -9024,7 +9024,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum delimitedData: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum delimitedData: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adelimitedData = 0
 
     init() {
@@ -9033,7 +9033,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum descriptor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum descriptor: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case adescriptor = 0
 
     init() {
@@ -9042,7 +9042,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum extensionRegistry: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum extensionRegistry: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aextensionRegistry = 0
 
     init() {
@@ -9051,7 +9051,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum extensionsCurrentlySet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum extensionsCurrentlySet: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aextensionsCurrentlySet = 0
 
     init() {
@@ -9060,7 +9060,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum isInitializedEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum isInitializedEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aisInitialized = 0
 
     init() {
@@ -9069,7 +9069,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum serializedSize: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum serializedSize: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aserializedSize = 0
 
     init() {
@@ -9078,7 +9078,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum sortedExtensionsInUse: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum sortedExtensionsInUse: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case asortedExtensionsInUse = 0
 
     init() {
@@ -9087,7 +9087,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum unknownFieldsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum unknownFieldsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aunknownFields = 0
 
     init() {
@@ -9096,7 +9096,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Fixed: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Fixed: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aFixed = 0
 
     init() {
@@ -9105,7 +9105,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Fract: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Fract: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aFract = 0
 
     init() {
@@ -9114,7 +9114,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Size: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Size: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aSize = 0
 
     init() {
@@ -9123,7 +9123,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum LogicalAddress: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum LogicalAddress: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aLogicalAddress = 0
 
     init() {
@@ -9132,7 +9132,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum PhysicalAddress: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum PhysicalAddress: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aPhysicalAddress = 0
 
     init() {
@@ -9141,7 +9141,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ByteCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ByteCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aByteCount = 0
 
     init() {
@@ -9150,7 +9150,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ByteOffset: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ByteOffset: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aByteOffset = 0
 
     init() {
@@ -9159,7 +9159,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Duration: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Duration: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aDuration = 0
 
     init() {
@@ -9168,7 +9168,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum AbsoluteTime: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum AbsoluteTime: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aAbsoluteTime = 0
 
     init() {
@@ -9177,7 +9177,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum OptionBits: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum OptionBits: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aOptionBits = 0
 
     init() {
@@ -9186,7 +9186,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ItemCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ItemCount: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aItemCount = 0
 
     init() {
@@ -9195,7 +9195,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum PBVersion: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum PBVersion: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aPbversion = 0
 
     init() {
@@ -9204,7 +9204,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ScriptCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ScriptCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aScriptCode = 0
 
     init() {
@@ -9213,7 +9213,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum LangCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum LangCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aLangCode = 0
 
     init() {
@@ -9222,7 +9222,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum RegionCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum RegionCode: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aRegionCode = 0
 
     init() {
@@ -9231,7 +9231,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum OSType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum OSType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aOstype = 0
 
     init() {
@@ -9240,7 +9240,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ProcessSerialNumber: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ProcessSerialNumber: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aProcessSerialNumber = 0
 
     init() {
@@ -9249,7 +9249,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Point: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Point: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aPoint = 0
 
     init() {
@@ -9258,7 +9258,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Rect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Rect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aRect = 0
 
     init() {
@@ -9267,7 +9267,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum FixedPoint: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum FixedPoint: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aFixedPoint = 0
 
     init() {
@@ -9276,7 +9276,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum FixedRect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum FixedRect: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aFixedRect = 0
 
     init() {
@@ -9285,7 +9285,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Style: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Style: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aStyle = 0
 
     init() {
@@ -9294,7 +9294,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum StyleParameter: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StyleParameter: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aStyleParameter = 0
 
     init() {
@@ -9303,7 +9303,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum StyleField: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StyleField: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aStyleField = 0
 
     init() {
@@ -9312,7 +9312,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum TimeScale: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TimeScale: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aTimeScale = 0
 
     init() {
@@ -9321,7 +9321,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum TimeBase: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TimeBase: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aTimeBase = 0
 
     init() {
@@ -9330,7 +9330,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum TimeRecord: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TimeRecord: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aTimeRecord = 0
 
     init() {
@@ -9339,7 +9339,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum Extension: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Extension: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aExtension = 0
 
     init() {
@@ -9348,7 +9348,7 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
 
   }
 
-  enum ExtensionsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum ExtensionsEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case aExtensions = 0
 
     init() {
@@ -9367,12 +9367,12 @@ struct SwiftProtoTesting_Names_EnumNames: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  struct Lowers: @unchecked Swift.Sendable {
+  nonisolated struct Lowers: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9540,7 +9540,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct Uppers: @unchecked Swift.Sendable {
+  nonisolated struct Uppers: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9699,7 +9699,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct WordCase: @unchecked Swift.Sendable {
+  nonisolated struct WordCase: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9868,7 +9868,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitials: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_ExtensionNamingInitials: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9883,7 +9883,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitials: @unchecked Swift.Sendabl
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_Lowers: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_Lowers: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9898,7 +9898,7 @@ struct SwiftProtoTesting_Names_Lowers: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_Uppers: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_Uppers: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9913,7 +9913,7 @@ struct SwiftProtoTesting_Names_Uppers: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_WordCase: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_WordCase: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9928,7 +9928,7 @@ struct SwiftProtoTesting_Names_WordCase: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9943,7 +9943,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Swift.S
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9958,7 +9958,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Swift.S
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -9973,7 +9973,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Swift
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10043,12 +10043,12 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Sendable {
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
   mutating func clearEnumField() { _uniqueStorage().clearValue(at: 32, type: SwiftProtoTesting_Names_ValidIdentifiers.TestEnum.self, hasBit: (0, 8)) }
 
-  enum OneOf__2Of: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf__2Of: Swift.Equatable, Swift.Sendable {
     case _4(Int32)
     case _5Field(Int32)
   }
 
-  enum TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
     /// Won't prefix strip
     case testEnum0 = 0
@@ -10081,7 +10081,7 @@ struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Sendable {
 /// For issue #1084 - If the generated code compiles, things are good.
 ///
 /// This gets special handling because of the generated setter.
-struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10108,7 +10108,7 @@ struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
-  enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
     case str(String)
   }
 
@@ -10123,7 +10123,7 @@ struct SwiftProtoTesting_Names_SpecialNames1: @unchecked Swift.Sendable {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames2: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_SpecialNames2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10148,7 +10148,7 @@ struct SwiftProtoTesting_Names_SpecialNames2: @unchecked Swift.Sendable {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10184,7 +10184,7 @@ struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Sendable {
   /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
   mutating func clearForcesStorage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Names_SpecialNames3.self, hasBit: (0, 1)) }
 
-  enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_NewValue: Swift.Equatable, Swift.Sendable {
     case str(String)
   }
 
@@ -10199,7 +10199,7 @@ struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Sendable {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -10241,7 +10241,7 @@ struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitials {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
 
   var SwiftProtoTesting_Names_Lowers_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.http, default: 0) }
@@ -10783,7 +10783,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   mutating func clearSwiftProtoTesting_Names_WordCase_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.RequestId, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
 
   var SwiftProtoTesting_Names_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_http, default: 0) }
@@ -10973,7 +10973,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_id, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
 
   var SwiftProtoTesting_Names_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HTTP, default: 0) }
@@ -11152,7 +11152,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_ID, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
 
   var SwiftProtoTesting_Names_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_Http, default: 0) }
@@ -11331,7 +11331,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_RequestId, type: Int32.self) }
 }
 
-extension SwiftProtoTesting_Names_Foo {
+nonisolated extension SwiftProtoTesting_Names_Foo {
 
   var SwiftProtoTesting_Names_FieldNames_foo1: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_FieldNames.Extensions.foo1, default: 0) }
@@ -11384,7 +11384,7 @@ extension SwiftProtoTesting_Names_Foo {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftProtoTesting_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Names_Extensions_http,
   SwiftProtoTesting_Names_Extensions_http_request,
   SwiftProtoTesting_Names_Extensions_the_http_request,
@@ -11493,252 +11493,252 @@ let SwiftProtoTesting_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.Extens
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Names_Extensions_http = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_http = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1e}\0swift_proto_testing.names.http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_http_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_http_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}&\0swift_proto_testing.names.http_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_http_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_http_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.the_http_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_http = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_http = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.names.the_http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_https = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_https = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1f}\0swift_proto_testing.names.https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_https_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_https_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.https_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_https_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_https_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.the_https_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_https = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_https = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.the_https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_url = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_url = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1d}\0swift_proto_testing.names.url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_url_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_url_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.url_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_url_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_url_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.the_url_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_url = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_url = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{18}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}!\0swift_proto_testing.names.the_url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_a_b_c = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_a_b_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1f}\0swift_proto_testing.names.a_b_c",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_id = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_id = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1c}\0swift_proto_testing.names.id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_id_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_id_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.id_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_id_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_id_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.the_id_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_request_id = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_request_id = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}$\0swift_proto_testing.names.request_id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HTTP = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HTTP = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1e}\0swift_proto_testing.names.HTTP",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HTTP_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HTTP_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}&\0swift_proto_testing.names.HTTP_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_HTTP_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_HTTP_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.the_HTTP_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_HTTP = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_HTTP = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.names.the_HTTP",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HTTPS = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HTTPS = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1f}\0swift_proto_testing.names.HTTPS",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HTTPS_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HTTPS_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.HTTPS_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_HTTPS_request = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_HTTPS_request = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.the_HTTPS_request",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_HTTPS = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_HTTPS = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.the_HTTPS",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_URL = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_URL = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1d}\0swift_proto_testing.names.URL",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_URL_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_URL_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.URL_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_URL_value = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_URL_value = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.the_URL_value",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_URL = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_URL = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{18}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}!\0swift_proto_testing.names.the_URL",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_ID = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_ID = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1c}\0swift_proto_testing.names.ID",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_ID_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_ID_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.ID_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_the_ID_number = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_the_ID_number = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.the_ID_number",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_request_ID = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_request_ID = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}$\0swift_proto_testing.names.request_ID",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_Http = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_Http = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1e}\0swift_proto_testing.names.Http",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HttpRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HttpRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}%\0swift_proto_testing.names.HttpRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheHttpRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheHttpRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}(\0swift_proto_testing.names.TheHttpRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheHttp = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheHttp = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}!\0swift_proto_testing.names.TheHttp",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_Https = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_Https = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1f}\0swift_proto_testing.names.Https",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_HttpsRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_HttpsRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}&\0swift_proto_testing.names.HttpsRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheHttpsRequest = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheHttpsRequest = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.TheHttpsRequest",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheHttps = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheHttps = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.names.TheHttps",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_Url = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_Url = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1d}\0swift_proto_testing.names.Url",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_UrlValue = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_UrlValue = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.names.UrlValue",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheUrlValue = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheUrlValue = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}%\0swift_proto_testing.names.TheUrlValue",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheUrl = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheUrl = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{18}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5} \0swift_proto_testing.names.TheUrl",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_Id = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_Id = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1c}\0swift_proto_testing.names.Id",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_IdNumber = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_IdNumber = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\"\0swift_proto_testing.names.IdNumber",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_TheIdNumber = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_TheIdNumber = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}%\0swift_proto_testing.names.TheIdNumber",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-let SwiftProtoTesting_Names_Extensions_RequestId = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Names_Extensions_RequestId = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}#\0swift_proto_testing.names.RequestId",
   extendedMessageResolver: { SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.messageSchema }
   )
 
-extension SwiftProtoTesting_Names_FieldNames {
+nonisolated extension SwiftProtoTesting_Names_FieldNames {
   enum Extensions {
     static let foo1 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.FieldNames.foo1",
@@ -11747,7 +11747,7 @@ extension SwiftProtoTesting_Names_FieldNames {
   }
 }
 
-extension SwiftProtoTesting_Names_MessageNames {
+nonisolated extension SwiftProtoTesting_Names_MessageNames {
   enum Extensions {
     static let foo2 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.foo2",
@@ -11761,7 +11761,7 @@ extension SwiftProtoTesting_Names_MessageNames {
   }
 }
 
-extension SwiftProtoTesting_Names_MessageNames.StringMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.StringMessage {
   enum Extensions {
     static let foo3 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.String.foo3",
@@ -11770,7 +11770,7 @@ extension SwiftProtoTesting_Names_MessageNames.StringMessage {
   }
 }
 
-extension SwiftProtoTesting_Names_Lowers {
+nonisolated extension SwiftProtoTesting_Names_Lowers {
   enum Extensions {
     static let http = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}%\0swift_proto_testing.names.Lowers.http",
@@ -11859,7 +11859,7 @@ extension SwiftProtoTesting_Names_Lowers {
   }
 }
 
-extension SwiftProtoTesting_Names_Uppers {
+nonisolated extension SwiftProtoTesting_Names_Uppers {
   enum Extensions {
     static let HTTP = SwiftProtobuf.ExtensionSchema(
       schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}%\0swift_proto_testing.names.Uppers.HTTP",
@@ -11943,7 +11943,7 @@ extension SwiftProtoTesting_Names_Uppers {
   }
 }
 
-extension SwiftProtoTesting_Names_WordCase {
+nonisolated extension SwiftProtoTesting_Names_WordCase {
   enum Extensions {
     static let Http = SwiftProtobuf.ExtensionSchema(
       schema: "\0I\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0swift_proto_testing.names.WordCase.Http",
@@ -12029,19 +12029,19 @@ extension SwiftProtoTesting_Names_WordCase {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Names_EnumFieldNames {
+nonisolated extension SwiftProtoTesting_Names_EnumFieldNames {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0P\u{1}\0\0\0(\0swift_proto_testing.names.EnumFieldNames"
   private static let _protobuf_reflectionData: Swift.StaticString = " '\0\0 ?\"VNY\u{4}<[\u{4}cDDpK7}M\u{2}\u{8}l\n;:Z}]N\0o5zW(\u{17}\u{17}@\u{6}.6Z7\u{13}_`\u{6}`\0Mx\u{14}\u{11} h,\u{6}t\\\u{14}?\u{1d}\n\r\"a2_AwXZ\u{c}\u{19}\r\u{7}\u{18}b!\\\u{7}nM\u{1b}*\u{12}}U?Ql,*aQ\u{12}e\u{1}$\u{e}DXgg\u{18}\u{19}])h?1\u{11}R\u{19}f\"yTH\u{5}S\0<\u{11}X',$r\u{1b}5G&wEJysrlq{\u{13}\u{4}<\u{c}\u{19}lb\u{7f}KBjyWUMx2qt43:\tpw\u{6}}h-\u{6}\u{f}u@ON\u{18}hm1\u{2}\u{12}mTop8[nR!8|\u{b}>{?l\u{3}jS\u{f}4ia0\u{2}\u{1e}F\u{1c}n6\u{7}u3jY\u{1f}&j?G\u{16}u\u{19}E\u{c}bjFQSNW'Z@\u{1}\u{14}= ?\u{6}f5RJkY1j:)I?JCx8!C!\u{7}\u{10}TF/\u{1b}3|K\04x\u{8}jf<6EP=vq-A6m)\u{15}$2\rX\u{16}M(+3\u{14}\tOY\u{6}\u{f}2ox{w\u{1f}g_\u{18}\u{c}\u{1c}01^e\u{4}.2u\\\u{6}\u{4}@x\u{f}\u{1c}FKldren\u{8}G\u{1}m\"sAxhZN=zIK?X\tGFW\"-+2v\u{f}\u{2}\u{6}q?\u{1b}{v9wA=\u{16}\u{1}E[Qt|\u{18}W$(SFTdz\tO0h&\u{1a}f|`'\u{f}\u{2}\u{f}jYq\u{4}zB$\\Ik'n\u{12}Fj\u{c}\r/c@lc\u{1d}*w9\u{17}RC&\u{3}\n\u{7f}\u{13}D_<c\t\n2M5uwm\u{10}ul I\u{7}\u{2}cd#!\u{1}\u{1c}\u{1d}42Y)#G1\u{14}\u{10}G\u{7}\u{16}I\u{8}c+\u{15}'eW8_\u{3}Y7 \u{3}V\u{17}lF{ \u{13}\u{7f}\u{1}d:\u{6}.\nx\u{7f}\u{7f}\u{10}E~&B'%8+X1\tLC\u{1}6\u{7}\u{5}`x\u{17}ck\u{1b}`Xy P&\u{e}!^a\u{1}\u{7}\u{19}{F(\u{7f}Z W{\u{13}lw0/E\u{1b}g?^\u{2}wt\u{10}!Q\u{3}-Q\u{16}V4ql1uJg!7\u{16}|Z=\u{b}Qq:2e!C=GVI]`\u{2}\u{1b}1|^^p\u{6}Jk\u{7}Dy#R9^;7`\u{3}%Hzl\u{17}79\n0q\0t\u{15}@\u{3}e'Y5'h8rDGJ\u{1}W*<\u{1e}\rHh\u{18}\u{1d}7\u{15}I\u{e}>\u{1e}\u{7f}\u{7}\u{f}\u{1e}Eqz\u{1c}v\u{1a}.!}O\u{c}8\u{1f}\u{4}|&q[HXqMBO!?O'qG(>|r\u{3}\u{16}qEH)O{/*3\u{11}c\u{4}\u{7f}qC\u{1d}GP9\"+>\nfN\r#]qWPz$QcW\u{5}(/c\u{1d}_VD.nRx13\u{17}BLalmR4\u{8}-\r\u{14}+{I\"YRBamw\u{17}s0KxXfboOeZ\u{e}ZKyA\rws+9_\u{19}\u{12}\nGr\u{7};\u{11}u\u{b}W\u{19}\u{c}\\\u{1a}\u{18}%I\"eu\u{19}S\u{1b}\u{16}V\u{17}OK\u{16}6fX/GJ(2@05\u{16}0S\u{10}\u{1a}\u{6}6\u{1}W\u{14}\u{16}%/\u{c}wzC\r#\0 n-\u{7}paq58jmX\\\u{10}\t+X:\tl/=\u{7f}|\u{b}L\0 g\u{1b}F\u{7}FUko\np\u{2}{\u{7f}\u{c}\u{4}Ogu\u{b}M[K[~p\u{1b}\u{1b}&7q\u{5}\"w\u{5}bjxX_z k1m1Dz,86u4$C50\u{13}\u{15}@cvf\"\u{b}x$\u{14}s6x\n\u{1e}r;9^g%d%IUR77iF5)W\u{1}\u{14}p\u{7f}U9eZ \u{6}Q\n/w[km\0n\u{19}wC\"\u{15}:1+xIC7+\u{1}fM[K\u{13}+[\u{5}v\u{1b}s\u{1f}&\u{4}|$$o\u{c}G\r\"|7\u{e}\u{13}s\u{c}\u{1}W\ru\u{1c}q4u\u{15}>Q :)+\u{1c}\u{b}\u{17}~\"p\u{16}v9}\u{f}},\u{14}m;fDxDHaa,\u{11}P\u{e}c#\u{b}m\u{1}xVLF'?T)qojT<7SDG\u{1a}\u{17}>J\u{7};`m\0`\u{3}K8$S\u{1}`B)t\u{5}mV<7m\u{b}yvv\u{1c}K<i>\u{10}\u{18}7$\u{1f}r\u{2}\u{2}}9U'd_aI/\u{8}kW@[\u{11} [4(Bu\u{11}CW\u{15}R'}\u{1d}r\u{10}L<\u{12})\u{18}B\u{15}~<$`a\u{2}\u{17}wCw5B4\u{14}-I;Zi\n\u{6}!*]yRop#gX9Bt)9\u{12}DLaFbL)\u{12}\0\u{13}[v-F\0~E\u{19}=fv^]\\\0[KX;O\u{1d}b`Cg>Z\u{11}],$h\u{13}B~\r\u{13}dk\ryn\u{5}FD-,o/F\u{1c}>FcEB\u{1d}B\r\u{1f}sKKI\u{13}^J\u{1d}\u{18}\u{5}\u{15}7\u{1}\u{f}4dO8z!:5}\u{7f}\u{17}.3\u{12}7^D\u{14}{~\u{1}28\u{17}}H5lbxu-\u{1f}\u{10}+%N\u{17}d`\u{3}s<~\u{15}1b2]\u{4}W\u{19}\u{2}tuO`\u{1}f07T,\u{14}\u{3}jdNN\u{19}p\u{14}\"Cgv=k\u{1e}A)\u{18} )v\u{1d}OZ[h\0o\u{b}qnx\u{f}c#D\\Rm\u{1c}b8>\u{e}%R 0Y\u{1a}r*[u\u{12}iyU\u{12}H@c\u{1e}M\u{6}PC]-\t]\nTt\u{f}\\j\u{11}N>=Xa_M\u{1f}>Lew\u{1f}0215&B\u{c}_b>jK3-}65P\u{19})\u{14}[\u{4}J\n\u{18}5\u{11}`-Y\\\u{1a}b\u{1f}\u{15};aC5\u{8}+m_,oD\u{1}u&DdNs][|kl6OJ\u{1a}6e`lHm/d\u{5}'*1\u{f}[\u{1d}BDR\u{f}l\u{3}\u{1}wory[U5r%Ey\u{2}MJq{il\u{13}W6!oPp.\u{19};\u{b}F\u{2}v\u{1c}|Z^\u{e}\u{10}\u{1b}\u{16}\u{10}\u{7f}&\u{1};\u{2}xoN3m\u{2}\u{6}\u{1b}2#^\u{b}e\u{7}{{\u{16}7^~\u{17}\u{1a}Z\u{1}*E'9a<\u{12}EbN<v~\u{8}|eBkn5G+Oz;4\u{2}vJA\u{1d}z \u{7f}j3y0\u{7f}4\u{7}fC*h\u{1d}jy2\u{b}?'-yYo\")&Q)9L\u{1d}y;>\u{1f}tbEX\u{18}\u{1a}O(l,maDWo/KP\u{b}Um$\u{14}\u{14}$\u{4}^v[ \u{f}SI&*\nQK}M{\u{c}F\u{b}\t\u{12}jaA\u{e}_o\u{15}J\u{e}oW\u{13}>1\0%\u{e}\u{12}\rW\u{19}xYG0/E-O\u{1b}K*Y'6X\u{3}\u{f}Lkw\u{7}\u{6}\r\u{19}4!\u{1},S&,hV\np\"1u\nB\u{16}H\u{6}\u{15}{B3!&A\t\0\u{1b}\u{e}8SfEe)\u{f}c]]b])_\u{12};u{^IZ~s\u{12}\u{1e}\u{18}\u{1a}4\"g0!)s\u{17}S!u\u{7f}\t%kdM\"lU#v.:|IW<\u{16}`Mc.\"i75r'o\u{15}q \u{1b}\u{5}:\u{8}1T\u{3}\t gF\u{7f}\u{1c}P\u{13}s)\u{b}d!<\u{2}\u{16}g\u{1a}\u{12}\u{1a}Ngr6\u{11}G!mM4!9q\nT&xw\u{1a})3y1SU,%:\r\u{4}\0U\u{1a}\u{12}\u{7f}}o%\u{11}I{x\u{1a}\u{f}W\\*5H\u{11}AE_@\u{1e}\u{c}\u{19}$Xgfa0:$nJ,\\\nTl\u{1d}k]6j\u{c}\u{19}j'\u{10}\u{1d}\u{1a}\u{15}JrN\u{1a}\u{2}H6PCH;\u{1f}r\u{4}\u{16}@u\r,\u{17}\\fmh\u{12}\u{16}\u{6}{\u{1d}c3a_R\u{1d}m{\u{16}.\u{10}\u{1c}\u{7}~FTt5kq]Ne5\u{1d}8\u{1f}#)d\u{17}\u{1f}1\u{3}C-?=}\u{1}\u{13}6m\r\u{7f}v{\u{b}U\u{2}DIf\u{b}+\u{13}83P\u{4}Bkrb\"\u{14}\u{15}_z\u{b}r\u{16}\u{5}#&\u{f}\u{10}jPMa4\u{11}\"2\u{8}ThbFi}r\u{14}_:aFI\u{c}\u{13}*#\u{1}%{p&;\u{18}CN\re-\\L;\u{2},HnzWv4X@\"\u{11}\u{8}9C\u{6}C\u{f}O\u{1e}l}r?\u{1b}\u{17}{ah}OktzGV$%A\u{12}\u{c}\t\u{1d}\u{12}A9z\0<b(4jeO}WT\u{3}U\u{17}C\u{1b}}(\u{1f}?F[2w\u{11}A\u{1d}!\u{14}Pap\u{8}J>e3\u{7f}\u{15}\u{15}JQ3|0k\u{17}Ym\u{18}wsG\u{10}^Wua9\u{14}=\t6f/pDA%\u{19}x3\r\u{18}MJa`#\u{e}!cz@=\u{1}FrNTcl5F{?A;o\tE\"sQXeB\u{1d}\u{1a}\u{c}x\u{3} \u{e}CL1@3hjurb\ne!#\u{16}u8Q=\0\u{1c}W\u{c}A.6\r\u{1d}\u{19}\u{14})M\u{1f}X\"r/\u{1f}\0Ke2bl*!]\u{c}V,\u{19}+`,q}QWjH2aCKdii4y_h\u{7}G H\"`OU\u{11}\u{10}e\u{1f}\u{7}0_Vmo\u{17}P,\u{1}V(E`}2U|\u{b}!_\u{1a}eK\u{2}M'E\u{1e}<ir\u{7f}$\u{17}\u{7f}]n?#>z\u{7f}Qs\u{17}\u{5}\u{17}pkB\u{1d}'89|-plN\u{1}\\He;+;'@\u{1}\nf\u{2}\u{f}UgT7~\u{1c}@K\u{8}8E\u{7f}q?a&+\u{18}\u{1c}o\nh\u{11}F1\u{7f}!xa<7l\u{1d}xiO\u{1c}\u{13}+\u{1e}oz>0\nde}\u{3}\u{14}oN'RM\u{3}O0mu\u{2}AE#\u{15}[rYAd3FF\u{2}\u{1e}\u{12}b\0Z3z'_v2o\0A}\0\u{11}<r9\u{3}3KOny\u{6}\u{8}6\"r3\u{2}Hh*Sf!?-fMJd\u{5}y;\0v_W\u{c}Z5bx\u{1e}\u{5}\u{15}G]\u{15}P5wBE&\u{13}33Hhi@\u{4}\u{8}A{\\iW]\u{f}~+\u{2}6H\u{1a} a|4v\u{f}60\u{7}m\u{1c};Xr\u{c}|c\u{1c}\n<m\r\u{19}H/N\u{f}d5\u{c}l3/)4Em\u{12}\u{4}'/\r`d\u{1e}Wz\u{1c}^\"'\u{1b}*\u{11}\nQl\t\u{1f}Mcp\u{3}\u{4}\u{12}3O\u{1b}\u{f}\u{14}^E\u{12};kxxmt<f|\0u+)pO!\u{19}B\u{1c}or\u{b}P=4dm?p;\u{3}'Poo?9U\\\u{c}r\u{4}\u{6}\u{1c}\u{14}tD`%F(1P\u{15}\u{1e}'lV6H\u{1d}\u{1e}3'\u{13}li:r:\r^V\u{2}&a>f_@kjH\u{7}O9d\\\u{18}f~03\u{7f}m\u{19}Y,*=pxWzV\u{7}7E\u{15}V\u{c})K^pZr%.Eufh}?\rS\u{c}\u{18}0\u{4}\u{3}\u{7f}S\nzB@H\u{1f}?u F\r5\u{13}*\u{1b})Q9\u{11}\u{c}M\u{b}%nJ7?S\u{6}#,TP\u{1a}gJ\u{14}\u{4}&:!?w\0mb\u{b}\u{6}l\rH\r\u{1a}_\u{6}?&Ll!=^!\u{11}Wr\u{1b} \u{b}\u{16}\u{2}}}}VK)'\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumFieldNames2 {
+nonisolated extension SwiftProtoTesting_Names_EnumFieldNames2 {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0)\0swift_proto_testing.names.EnumFieldNames2"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jla?\u{1b}\u{8}1$CS[\u{5}+\u{11}_LJ\u{1}DC\u{10}rW)Q\u{1d}80Ns#\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1d}\0swift_proto_testing.names.Foo"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -12051,7 +12051,7 @@ extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\u{7}\0^\u{1}\0\0\0\0^\u{1}\0\u{e}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0 \0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0$\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0(\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0,\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\00\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\04\0\0\u{6}\0\0\0\u{5}\u{8}\0\0\0\08\0\0\u{7}\0\0\0\u{5}\u{9}\0\0\0\0<\0\0\u{8}\0\0\0\u{5}\u{a}\0\0\0\0@\0\0\u{9}\0\0\0\u{5}\u{b}\0\0\0\0D\0\0\u{a}\0\0\0\u{5}\u{c}\0\0\0\0H\0\0\u{b}\0\0\0\u{5}\u{d}\0\0\0\0L\0\0\u{c}\0\0\0\u{5}\u{f}\0\0\0\0P\0\0\u{d}\0\0\0\u{5}\u{10}\0\0\0\0T\0\0\u{e}\0\0\0\u{5}\u{11}\0\0\0\0X\0\0\u{f}\0\0\0\u{5}\u{12}\0\0\0\0\\\0\0\u{10}\0\0\0\u{5}\u{13}\0\0\0\0`\0\0\u{11}\0\0\0\u{5}\u{14}\0\0\0\0d\0\0\u{12}\0\0\0\u{5}\u{15}\0\0\0\0h\0\0\u{13}\0\0\0\u{5}\u{16}\0\0\0\0l\0\0\u{14}\0\0\0\u{5}\u{17}\0\0\0\0p\0\0\u{15}\0\0\0\u{5}\u{18}\0\0\0\0t\0\0\u{16}\0\0\0\u{5}\u{19}\0\0\0\0x\0\0\u{17}\0\0\0\u{5}\u{1a}\0\0\0\0|\0\0\u{18}\0\0\0\u{5}\u{1b}\0\0\0\0\0\u{1}\0\u{19}\0\0\0\u{5}\u{1c}\0\0\0\0\u{4}\u{1}\0\u{1a}\0\0\0\u{5}\u{1d}\0\0\0\0\u{8}\u{1}\0\u{1b}\0\0\0\u{5}\u{1e}\0\0\0\0\u{c}\u{1}\0\u{1c}\0\0\0\u{5}\u{1f}\0\0\0\0\u{10}\u{1}\0\u{1d}\0\0\0\u{5} \0\0\0\0\u{14}\u{1}\0\u{1e}\0\0\0\u{5}!\0\0\0\0\u{18}\u{1}\0\u{1f}\0\0\0\u{5}\"\0\0\0\0\u{1c}\u{1}\0 \0\0\0\u{5}#\0\0\0\0 \u{1}\0!\0\0\0\u{5}$\0\0\0\0$\u{1}\0\"\0\0\0\u{5}%\0\0\0\0(\u{1}\0#\0\0\0\u{5}&\0\0\0\0,\u{1}\0$\0\0\0\u{5}'\0\0\0\00\u{1}\0%\0\0\0\u{5}(\0\0\0\04\u{1}\0&\0\0\0\u{5})\0\0\0\08\u{1}\0'\0\0\0\u{5}*\0\0\0\0<\u{1}\0(\0\0\0\u{5}+\0\0\0\0@\u{1}\0)\0\0\0\u{5},\0\0\0\0D\u{1}\0*\0\0\0\u{5}-\0\0\0\0H\u{1}\0+\0\0\0\u{5}.\0\0\0\0L\u{1}\0,\0\0\0\u{5}/\0\0\0\0P\u{1}\0-\0\0\0\u{5}0\0\0\0\0T\u{1}\0.\0\0\0\u{5}1\0\0\0\0X\u{1}\0/\0\0\0\u{5}2\0\0\0\0\\\u{1}\00\0\0\0\u{5}3\0\0\0\0`\u{1}\01\0\0\0\u{5}4\0\0\0\0d\u{1}\02\0\0\0\u{5}5\0\0\0\0h\u{1}\03\0\0\0\u{5}6\0\0\0\0l\u{1}\04\0\0\0\u{5}7\0\0\0\0p\u{1}\05\0\0\0\u{5}9\0\0\0\0t\u{1}\06\0\0\0\u{5}:\0\0\0\0x\u{1}\07\0\0\0\u{5};\0\0\0\0|\u{1}\08\0\0\0\u{5}<\0\0\0\0\0\u{2}\09\0\0\0\u{5}=\0\0\0\0\u{4}\u{2}\0:\0\0\0\u{5}>\0\0\0\0\u{8}\u{2}\0;\0\0\0\u{5}?\0\0\0\0\u{c}\u{2}\0<\0\0\0\u{5}@\0\0\0\0\u{10}\u{2}\0=\0\0\0\u{5}A\0\0\0\0\u{14}\u{2}\0>\0\0\0\u{5}B\0\0\0\0\u{18}\u{2}\0?\0\0\0\u{5}C\0\0\0\0\u{1c}\u{2}\0@\0\0\0\u{5}D\0\0\0\0 \u{2}\0A\0\0\0\u{5}E\0\0\0\0$\u{2}\0B\0\0\0\u{5}F\0\0\0\0(\u{2}\0C\0\0\0\u{5}G\0\0\0\0,\u{2}\0D\0\0\0\u{5}H\0\0\0\00\u{2}\0E\0\0\0\u{5}I\0\0\0\04\u{2}\0F\0\0\0\u{5}J\0\0\0\08\u{2}\0G\0\0\0\u{5}K\0\0\0\0<\u{2}\0H\0\0\0\u{5}L\0\0\0\0@\u{2}\0I\0\0\0\u{5}M\0\0\0\0D\u{2}\0J\0\0\0\u{5}N\0\0\0\0H\u{2}\0K\0\0\0\u{5}O\0\0\0\0L\u{2}\0L\0\0\0\u{5}P\0\0\0\0P\u{2}\0M\0\0\0\u{5}Q\0\0\0\0T\u{2}\0N\0\0\0\u{5}R\0\0\0\0X\u{2}\0O\0\0\0\u{5}S\0\0\0\0\\\u{2}\0P\0\0\0\u{5}U\0\0\0\0`\u{2}\0Q\0\0\0\u{5}V\0\0\0\0d\u{2}\0R\0\0\0\u{5}W\0\0\0\0h\u{2}\0S\0\0\0\u{5}X\0\0\0\0l\u{2}\0T\0\0\0\u{5}Y\0\0\0\0p\u{2}\0U\0\0\0\u{5}Z\0\0\0\0t\u{2}\0V\0\0\0\u{5}[\0\0\0\0x\u{2}\0W\0\0\0\u{5}\\\0\0\0\0|\u{2}\0X\0\0\0\u{5}]\0\0\0\0\0\u{3}\0Y\0\0\0\u{5}`\0\0\0\0\u{4}\u{3}\0Z\0\0\0\u{5}b\0\0\0\0\u{8}\u{3}\0[\0\0\0\u{5}c\0\0\0\0\u{c}\u{3}\0\\\0\0\0\u{5}d\0\0\0\0\u{10}\u{3}\0]\0\0\0\u{5}f\0\0\0\0\u{14}\u{3}\0^\0\0\0\u{5}g\0\0\0\0\u{18}\u{3}\0_\0\0\0\u{5}h\0\0\0\0\u{1c}\u{3}\0`\0\0\0\u{5}i\0\0\0\0 \u{3}\0a\0\0\0\u{5}j\0\0\0\0$\u{3}\0b\0\0\0\u{5}k\0\0\0\0(\u{3}\0c\0\0\0\u{5}l\0\0\0\0,\u{3}\0d\0\0\0\u{5}m\0\0\0\00\u{3}\0e\0\0\0\u{5}n\0\0\0\04\u{3}\0f\0\0\0\u{5}r\0\0\0\08\u{3}\0g\0\0\0\u{5}s\0\0\0\0<\u{3}\0h\0\0\0\u{5}t\0\0\0\0@\u{3}\0i\0\0\0\u{5}v\0\0\0\0D\u{3}\0j\0\0\0\u{5}w\0\0\0\0H\u{3}\0k\0\0\0\u{5}x\0\0\0\0L\u{3}\0l\0\0\0\u{5}y\0\0\0\0P\u{3}\0m\0\0\0\u{5}{\0\0\0\0T\u{3}\0n\0\0\0\u{5}}\0\0\0\0X\u{3}\0o\0\0\0\u{5}\u{7f}\0\0\0\0\\\u{3}\0p\0\0\0\u{5}\u{2}\u{1}\0\0\0`\u{3}\0q\0\0\0\u{5}\u{3}\u{1}\0\0\0d\u{3}\0r\0\0\0\u{5}\u{4}\u{1}\0\0\0h\u{3}\0s\0\0\0\u{5}\u{8}\u{1}\0\0\0l\u{3}\0t\0\0\0\u{5}\u{9}\u{1}\0\0\0p\u{3}\0u\0\0\0\u{5}\u{b}\u{1}\0\0\0t\u{3}\0v\0\0\0\u{5}\u{d}\u{1}\0\0\0x\u{3}\0w\0\0\0\u{5}\u{e}\u{1}\0\0\0|\u{3}\0x\0\0\0\u{5}\u{f}\u{1}\0\0\0\0\u{4}\0y\0\0\0\u{5}\u{10}\u{1}\0\0\0\u{4}\u{4}\0z\0\0\0\u{5}\u{11}\u{1}\0\0\0\u{8}\u{4}\0{\0\0\0\u{5}\u{12}\u{1}\0\0\0\u{c}\u{4}\0|\0\0\0\u{5}\u{13}\u{1}\0\0\0\u{10}\u{4}\0}\0\0\0\u{5}\u{14}\u{1}\0\0\0\u{14}\u{4}\0~\0\0\0\u{5}\u{16}\u{1}\0\0\0\u{18}\u{4}\0\u{7f}\0\0\0\u{5}\u{17}\u{1}\0\0\0\u{1c}\u{4}\0\0\u{1}\0\0\u{5}\u{19}\u{1}\0\0\0 \u{4}\0\u{1}\u{1}\0\0\u{5}\u{1b}\u{1}\0\0\0$\u{4}\0\u{2}\u{1}\0\0\u{5}\u{1c}\u{1}\0\0\0(\u{4}\0\u{3}\u{1}\0\0\u{5}\u{1e}\u{1}\0\0\0,\u{4}\0\u{4}\u{1}\0\0\u{5}\u{1f}\u{1}\0\0\00\u{4}\0\u{5}\u{1}\0\0\u{5} \u{1}\0\0\04\u{4}\0\u{6}\u{1}\0\0\u{5}\"\u{1}\0\0\08\u{4}\0\u{7}\u{1}\0\0\u{5}#\u{1}\0\0\0<\u{4}\0\u{8}\u{1}\0\0\u{5}&\u{1}\0\0\0@\u{4}\0\u{9}\u{1}\0\0\u{5}'\u{1}\0\0\0D\u{4}\0\u{a}\u{1}\0\0\u{5}(\u{1}\0\0\0H\u{4}\0\u{b}\u{1}\0\0\u{5},\u{1}\0\0\0L\u{4}\0\u{c}\u{1}\0\0\u{5}-\u{1}\0\0\0P\u{4}\0\u{d}\u{1}\0\0\u{5}.\u{1}\0\0\0T\u{4}\0\u{e}\u{1}\0\0\u{5}/\u{1}\0\0\0X\u{4}\0\u{f}\u{1}\0\0\u{5}0\u{1}\0\0\0\\\u{4}\0\u{10}\u{1}\0\0\u{5}1\u{1}\0\0\0`\u{4}\0\u{11}\u{1}\0\0\u{5}2\u{1}\0\0\0d\u{4}\0\u{12}\u{1}\0\0\u{5}3\u{1}\0\0\0h\u{4}\0\u{13}\u{1}\0\0\u{5}4\u{1}\0\0\0l\u{4}\0\u{14}\u{1}\0\0\u{5}5\u{1}\0\0\0p\u{4}\0\u{15}\u{1}\0\0\u{5}7\u{1}\0\0\0t\u{4}\0\u{16}\u{1}\0\0\u{5}8\u{1}\0\0\0x\u{4}\0\u{17}\u{1}\0\0\u{5}9\u{1}\0\0\0|\u{4}\0\u{18}\u{1}\0\0\u{5}:\u{1}\0\0\0\0\u{5}\0\u{19}\u{1}\0\0\u{5};\u{1}\0\0\0\u{4}\u{5}\0\u{1a}\u{1}\0\0\u{5}<\u{1}\0\0\0\u{8}\u{5}\0\u{1b}\u{1}\0\0\u{5}@\u{1}\0\0\0\u{c}\u{5}\0\u{1c}\u{1}\0\0\u{5}A\u{1}\0\0\0\u{10}\u{5}\0\u{1d}\u{1}\0\0\u{5}B\u{1}\0\0\0\u{14}\u{5}\0\u{1e}\u{1}\0\0\u{5}E\u{1}\0\0\0\u{18}\u{5}\0\u{1f}\u{1}\0\0\u{5}F\u{1}\0\0\0\u{1c}\u{5}\0 \u{1}\0\0\u{5}G\u{1}\0\0\0 \u{5}\0!\u{1}\0\0\u{5}H\u{1}\0\0\0$\u{5}\0\"\u{1}\0\0\u{5}I\u{1}\0\0\0(\u{5}\0#\u{1}\0\0\u{5}J\u{1}\0\0\0,\u{5}\0$\u{1}\0\0\u{5}K\u{1}\0\0\00\u{5}\0%\u{1}\0\0\u{5}L\u{1}\0\0\04\u{5}\0&\u{1}\0\0\u{5}M\u{1}\0\0\08\u{5}\0'\u{1}\0\0\u{5}N\u{1}\0\0\0<\u{5}\0(\u{1}\0\0\u{5}O\u{1}\0\0\0@\u{5}\0)\u{1}\0\0\u{5}P\u{1}\0\0\0D\u{5}\0*\u{1}\0\0\u{5}Q\u{1}\0\0\0H\u{5}\0+\u{1}\0\0\u{5}R\u{1}\0\0\0L\u{5}\0,\u{1}\0\0\u{5}S\u{1}\0\0\0P\u{5}\0-\u{1}\0\0\u{5}T\u{1}\0\0\0T\u{5}\0.\u{1}\0\0\u{5}U\u{1}\0\0\0X\u{5}\0/\u{1}\0\0\u{5}V\u{1}\0\0\0\\\u{5}\00\u{1}\0\0\u{5}W\u{1}\0\0\0`\u{5}\01\u{1}\0\0\u{5}X\u{1}\0\0\0d\u{5}\02\u{1}\0\0\u{5}Y\u{1}\0\0\0h\u{5}\03\u{1}\0\0\u{5}Z\u{1}\0\0\0l\u{5}\04\u{1}\0\0\u{5}[\u{1}\0\0\0p\u{5}\05\u{1}\0\0\u{5}\\\u{1}\0\0\0t\u{5}\06\u{1}\0\0\u{5}]\u{1}\0\0\0x\u{5}\07\u{1}\0\0\u{5}^\u{1}\0\0\0|\u{5}\08\u{1}\0\0\u{5}_\u{1}\0\0\0\0\u{6}\09\u{1}\0\0\u{5}`\u{1}\0\0\0\u{4}\u{6}\0:\u{1}\0\0\u{5}a\u{1}\0\0\0\u{8}\u{6}\0;\u{1}\0\0\u{5}b\u{1}\0\0\0\u{c}\u{6}\0<\u{1}\0\0\u{5}c\u{1}\0\0\0\u{10}\u{6}\0=\u{1}\0\0\u{5}d\u{1}\0\0\0\u{14}\u{6}\0>\u{1}\0\0\u{5}e\u{1}\0\0\0\u{18}\u{6}\0?\u{1}\0\0\u{5}f\u{1}\0\0\0\u{1c}\u{6}\0@\u{1}\0\0\u{5}g\u{1}\0\0\0 \u{6}\0A\u{1}\0\0\u{5}h\u{1}\0\0\0$\u{6}\0B\u{1}\0\0\u{5}i\u{1}\0\0\0(\u{6}\0C\u{1}\0\0\u{5}j\u{1}\0\0\0,\u{6}\0D\u{1}\0\0\u{5}k\u{1}\0\0\00\u{6}\0E\u{1}\0\0\u{5}l\u{1}\0\0\04\u{6}\0F\u{1}\0\0\u{5}m\u{1}\0\0\08\u{6}\0G\u{1}\0\0\u{5}n\u{1}\0\0\0<\u{6}\0H\u{1}\0\0\u{5}o\u{1}\0\0\0@\u{6}\0I\u{1}\0\0\u{5}p\u{1}\0\0\0D\u{6}\0J\u{1}\0\0\u{5}q\u{1}\0\0\0H\u{6}\0K\u{1}\0\0\u{5}r\u{1}\0\0\0L\u{6}\0L\u{1}\0\0\u{5}s\u{1}\0\0\0P\u{6}\0M\u{1}\0\0\u{5}t\u{1}\0\0\0T\u{6}\0N\u{1}\0\0\u{5}u\u{1}\0\0\0X\u{6}\0O\u{1}\0\0\u{5}v\u{1}\0\0\0\\\u{6}\0P\u{1}\0\0\u{5}w\u{1}\0\0\0`\u{6}\0Q\u{1}\0\0\u{5}z\u{1}\0\0\0d\u{6}\0R\u{1}\0\0\u{5}{\u{1}\0\0\0h\u{6}\0S\u{1}\0\0\u{5}|\u{1}\0\0\0l\u{6}\0T\u{1}\0\0\u{5}}\u{1}\0\0\0p\u{6}\0U\u{1}\0\0\u{5}~\u{1}\0\0\0t\u{6}\0V\u{1}\0\0\u{5}\u{7f}\u{1}\0\0\0x\u{6}\0W\u{1}\0\0\u{5}\0\u{2}\0\0\0|\u{6}\0X\u{1}\0\0\u{5}\u{1}\u{2}\0\0\0\0\u{7}\0Y\u{1}\0\0\u{5}\u{2}\u{2}\0\0\0\u{4}\u{7}\0Z\u{1}\0\0\u{5}\u{3}\u{2}\0\0\0\u{8}\u{7}\0[\u{1}\0\0\u{5}\u{4}\u{2}\0\0\0\u{c}\u{7}\0\\\u{1}\0\0\u{5}\u{5}\u{2}\0\0\0\u{10}\u{7}\0]\u{1}\0\0\u{5}$\0swift_proto_testing.names.FieldNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "t,\0\0 Hux\u{6}'j\"H1r?!\u{1d}\u{7f}?\u{e}`\t:Au\u{1a}M\u{14}tT*\u{1e}O\06~y\u{6}\u{1f}v\u{10}[b\u{12}\n{c}$\u{4} \u{1a}c\u{1d}\r\u{f}mGH\u{7}\nC\u{5}/:4qWX<>Ie$ e6\u{13}l1=S^5^-Y!-`mW\n/{&954'yh[MQc+]r\u{8}~|\u{1a}f\0I o6?\u{b}>HFlM~|h`7TNL4;Psj\n8s'\u{f}K\u{7}1^\\\\\u{7f}@\u{15}\n\u{c}\u{13}iD]\u{15}BY\u{13}~$Lv 3,\u{10};\u{3}/CA\u{1d}\u{15}\u{c}}YH\u{7f}2\u{13}\u{1b}\u{6}eOD\u{1f}(v)2\u{e}\u{14}lPo5`\u{12}\u{4}Myo\u{e}C#g)V\u{c}Cm\u{6}otlDw;\u{10}[\u{f}\r5g\r\u{4}P\u{6}\n{p|)\u{7}jYX_x}2\u{13}\u{1d}b^H\u{8}\u{17}r;o$[f;cU*\r\u{13}M\u{1c}.\u{1}\u{1b}?\u{8}\u{15}\u{15}\u{12}\u{7}\u{f}\u{6}cas(z_@\tv/,R\u{3}wF057I\u{5}[\0\u{17}(_A\u{1c}\0>:73\u{b}2,r>5=\u{1a}LD>\u{12}Bal6\\\u{1b}Q\u{14}B$!;\0}\u{17}\u{e}_\u{1b}Y\u{b}pU\u{12}}boa\u{c}N\u{3}ex3%Go=@\u{1b}[c_FE4\u{8}\u{17},\t\u{6}>M!}k\r4@\0G\u{10}.\u{1a}3T\u{4}b{c\0&R+o\n\u{3}\u{17};c$n0\u{1e}\u{7}d^\u{b},]Hgo\u{10}{w\u{10}\u{f}\u{1f};2ZP>[<~,'\u{b}u!*WAL\u{5}\u{16}\u{12}E\"w@F%8T.$jU\u{16}&\\~>&*$0IP\u{12}\u{8}.j\nG\u{17}/\u{1a}(n'\nt(\u{1}r\u{c})jSub\0\u{5}Iv\u{2}}\u{4}\u{3}sw~./\u{1e}5R!mIRzy/Ps`SWE:9\u{7f}Ol\u{e}\u{1b}6pfRW;J.V)x<NV#SX\u{7f}k=K\u{3}\u{e}4\u{1c}_O-c?F\u{7}_K57\u{1b}h\u{11}\u{4}\u{3}=<\"\u{1c}~o~\u{12},|Y\u{17}\nv\u{2}i.M)>\n+~\r_ \u{e}\u{1c}L\u{7f}qcy`ua\u{b}\u{6}<L4X5h1o\u{6}\u{12}%?\0\u{1d}y1\u{4})Ho;\u{1e}ps\u{5})q`b\u{1f}/f#G0\r*5US8\u{11}^\u{1d}mr3xLV07b\u{1}\u{12}u\u{1b}\nza;U7F\u{8}+nb6:;\u{c}!\u{1a}O\u{15}5\t{<{N]\u{5}XmgmF\u{1e}%<;3HPZ>\u{f}9\u{1c}\u{12}*{EI\u{18}0\u{1f}g\u{1c}\u{e}v:BYg E\u{18}l(u/K\u{f}\u{1d}\u{7}\u{12}\u{4}E#d+;x\"V*'.Y!z\u{14}2\u{7}H\u{11}$WaW\u{1a}Nt\u{10}m!0\u{7f}021\u{7f}W$2q\u{4}z\u{10}&\u{11}\u{1b}U\u{7}{]{%e@g_<vWd\u{18}\u{17}/\nw\u{19}\rO-\rh)5`F$S\0\u{1f}U !R)!|'\t^\u{1f}Ik\n59@@kOH/\u{10}L],W+\u{8}\u{11}ZK\u{5}Z(&+FC~'\u{14}sDr%\u{8}\u{16}}^yS\u{1a}\u{f},MOBPBa\u{1d}P]\n(xF})_z3d:CF;yq]`\u{14}\u{b}R COGMeIfpHm9\u{19}\u{15}\u{1a}n].\u{17}aS@\u{11}2'usl\u{1c}Q\u{1f}wC])<C*:~X1^eq8E\u{16}~\u{1f}*a\u{12}+Gk\u{8}l2\u{b}<Vs*^+_h\u{2}JSv\u{12}h$\u{11}MpD\u{19}\u{b}\u{19}x\u{13}\u{7f}\u{8}J:\u{c}\u{b}\rE\u{1c}Ry5&\u{f}z\u{6}<z\u{1a}\u{8}G|\u{c}\u{1d}gD)t{R,&\u{e}s\u{1c};{V9Y<*f/K\u{1d}\u{3}V\u{1e}\u{13}#a;\u{1}\u{7f}C?p0\u{1b}7Tb2[Q(C\u{c}mpvD$\u{8}\u{5}__gDk\u{1f}BV\u{11}L<U\u{e}W\u{1e}UO\0)q\u{1e}\u{4}\u{14}N\u{12}lQU1TgKb\u{1c}\u{5}\u{1e}\u{2}y\u{5}\u{18}mD`\u{11}x.(\u{1d}\u{13}6Do kU{ E^g\u{5}//X$\u{7}e\u{f}\u{19}s@\t>\u{1e}2V'\u{6}q VF\u{6}B'4x(@T\u{7}I^\u{1d}\u{10}\u{4}8\u{12}6C\"L\u{11}\u{e}\u{18}bDM1\u{1e}#p$\u{1a}iZ1g 7d3on\0{n=|dx A\n]\u{6}\u{1c}\u{17}\u{3},Dzf\u{16}n\u{1f}Cv\u{b}'88bp{Q?xHUubF!(\u{1e}V^{G^\u{16}]!BPi???j<%%\u{5}xu9\u{c}TLL\u{e}[\u{b}\u{15}q|\u{12}cmH\u{1b}.3@9\u{1e}\u{5}\u{b}gis\u{8}\u{17}HofT>\u{7}ezo\u{1}\"r$w\u{1f}hlm\u{4}O*\u{1a}d<|%\u{4}\u{1b}\u{15}6\u{10}y\u{e}\u{17}N\u{b}0I(\u{b}Kr\nJ)z9\u{7f}(YepWh\u{12}M:^\u{e}FKQ\u{19}/D\u{4}dTj,o\u{11}JshSN6'miIE\n4>\nZ;<\u{1b}.wMDN.[9-_6wF-:\u{c}\u{8}\u{6}MQg\u{18}xZ\u{10})@y\u{16}\n$5ZkQa(y\n>]\u{18}ay\u{1f}\n\u{15}KR(<^Rb\u{3}4I\\\t\u{b}f\u{7f}|Hr]$]}-8\u{7}\u{14}/,\u{1c}8|\u{1d}1.`33\u{4}#>\u{10}sx#$jx\u{7f}tW6I2M,J5\u{1f}\u{12}su*\0V\u{19}]\u{1e}UhvF:p\u{1b}={6IOeE6+B\rJSP\u{10}=LZ$M?gEE9\u{1}sJ\u{1d}nTNdVPB9CQAb\rlZk\"(\u{19}%\u{7f}\u{2}0aY\u{1d}\u{12}\":RN$$a\u{5}\u{10}B$d|\u{12}/\r&#g;\u{16}7?\u{1b}r\u{7}9%&?\u{e}\u{1c}W<G:L,\u{e}8c,6~:Qs6\u{14}\t-\tw.+V|ptP@k?yIe^{=\u{1c}XV\\\u{1c}\u{1b}mC+Uuclg\u{7f}yxq9k\u{2}6wM_\u{16}7u~+=Q;FC\"Sw\u{c}\nW+?QH\u{e}\"U5[\u{1}f\u{18}\u{8}C46}M1I1\u{1d}Sz\u{3}y\u{4}y3\u{10}_cJe}o,vbBwb\u{12}GC`\u{8}\u{1a},nID\u{12}]\u{2}k&\u{1f}\u{b}C\u{14}0c-Vq[9dWI%8?\u{1d}D|\u{15}!\u{4}&\u{1d}\u{13}57y#\u{5}a\u{15}r]\u{b}\u{1f}??\u{b}f=\u{11}D6B-e}\u{b}fKv\tZfI1X,!\0e\u{17}\u{3}=ISJX\u{17}W\"\u{1e}ti.E\u{1c}Yj\u{1d}/\rf^S[1\u{c}C\u{1c}&,\u{4}z\u{1e}\u{c}:P\t\u{11}l\0&\u{13}M/.:\u{18}_xFQG\u{18}r\u{5}X\u{7f}\u{1b}\u{1a}Xe\u{19}|f/[\u{2}\\\u{1}Dj\u{1d}cKo&+#\u{3}\u{6}\u{1d}C#\u{4}cwdmz>a\u{17}kh=YWV*7*\u{18}@]\"A\u{1a}1`>!U\u{7f}J1.Btk\u{18}/Xpv\u{e}\"eZ[{B-h\\~K\u{1a}*`8\u{16}\u{f}=C. bQi:kq:::;YDx<\neV`\n;=uUsq\u{b}\u{1}/\u{1}R;W:\u{8}v2\0\u{1e}D.y\u{8}\u{1}`\u{1b}:]]`\0IXpXwN0\u{6}|\u{12}+G H\u{f}nD|\u{1b}ZE7g/H]cm\\\"\u{7f}\u{8}DX[\u{8}WZn2\"<Fo,\u{3}OgAZ4\u{18}+bI4\u{6}K1AJ7\\JE`\u{1f}m\u{6}(\n}@8f\u{e}\u{17}\u{e}FP\u{19}Q\u{1a}{e!\u{14}<B\u{f}sF\u{f}\u{3}q\u{e}}$A\u{1f},uto!\t\u{6}6^\tv2f\u{12}{\u{1b}{bZ]+\u{11};\u{3}_8r|kJ\u{1}\u{1d}nRX\u{16}d4'PU4\0\u{6}BrQ\u{1f}\u{1}\u{b}\u{1c}rJn\tHx(oR$\u{1e}V\nP=.{\u{14}in_'_ R(MF\"uYP\u{16}#\u{1b}\ns\u{b}\"J\u{c}\\] -\u{7}\u{19}tAj|{$MOX\u{2}aD\u{e}2\u{1f},d\u{8}C5\0\u{e}\"AUR=}\u{12}/\u{f}\ro\u{4}:\u{13}C\u{1f}\u{e}Xt3J>R1\n7^\u{b}PPTn|:ph\u{8}\u{1c}{\u{1c}\t^|`\u{3}O/;\u{1c}/s3\"|M\n'k\u{c}1\u{1b}Kt?T\u{5}\u{18}\u{c}eX'\u{1f}v*Q7!G\u{1d}\u{1c}@,1x3Y\u{11}\u{14}+\u{7}oalh*g+Eb^_F\u{1f}*H)\u{18}^sm.@Turd\u{14}\u{11}\r.{z^+O79R:+3\rb\u{12};h\u{17}h\u{1c}!\u{3}72_S\0yQ.{T;\u{1d}T]2s/X\u{18}z\u{1c}OU*A`F?6Id}[ \u{17}c\u{18}\u{4};(\u{b}|\u{c}UPK*^*c\u{17}\09\u{2}\u{7}\u{1f}'>\u{17}FZ[g$\\\00\u{e}'-cvCH\t\u{1a}J^dQbO\u{c}2=d\u{c}\\!?X!\nV\u{c}Ji)\u{16}&\u{18}\0\u{5}\u{2}/\u{1e}.\u{10}aatl!\u{7}GUS\u{b}>\u{19}\u{1}\u{7}[\u{1f}\u{11}}(\u{e}'N>ft\u{1f}3OPQ\u{1b}\u{14}L\u{3}\u{13}aTA\u{1a}e'\u{f}Il|\u{1b}\"{M\u{3}\u{17}^3\u{16}\u{8}19Q4J\\Vg\u{2}2\u{13}?|1_\0:KIJD\u{14}^)\u{4}w!c\"\nqP4[\u{f}2\u{10}W|mT\u{b}|\u{f}\0 2\u{11}dtscp\u{6}=Kh\u{8} a\u{1a}H\u{10}AF$l\u{5}\u{1b}%\u{1e}ZKc>8\u{19}k\u{6}8DGI\u{6}OjoER7j;}/a\u{6}o\u{3}d'\u{13}j\u{8}\u{1a}XZZmW+1 @AtmBA5^\u{1d}:\t\u{1c}2|'c\u{4}\u{1c}\u{12}?vwGdb\u{7}\0\"Gp'$!S\u{13}~\u{c}\u{c}+at\0h\t\u{10}N\u{17}o'j\u{13}\u{f}JR\u{2}.MDhz8!a#v\rJI-+\u{7}\u{13}\u{14}B\u{3}[\u{1e}qF*fl/\u{1f}\u{6}v5UX^oq/\u{10}^f\u{1a}\u{12}-\u{4}\u{1d},\u{17}l$~}:\r>*$\u{1a}`\u{19}|I/L[^is\u{8}%S\n\u{e}\u{1d}\u{7}R{HD(k\njO.eL6\u{14}k#?JV>;A|J9\u{1d}s@r/XBhQ/[F\0s\0j\u{18}XfT\u{7}^\u{5}\u{5}V\u{17}g%a!k\u{7f}!\u{1}F\u{8}4Eu\u{11}z]\"u\u{c}:*%M8dK\u{7f}S\u{18}r\u{5}5nW%_6.`\u{16}aXVckG8}m;{EI#\u{3}@\u{1f}\u{1}#,36&PS\u{2}\0\u{e}Q\u{13}o0k7\u{7f}n\u{1f}c7\u{13}\u{3}0\u{12}v<YTpS{\u{1b}ENln\u{12}ih\u{6}y`\u{1b}nfIAj\u{7}\u{12}\u{7f}\u{18}5\u{b}<\tD\u{4}#1`Q\u{c}c/@Q\r)sb\u{16}\u{2}%@`\nnT9>cP\u{1b}\0R\u{1c}q=>\u{c}mgq>\u{18}\u{6}\u{1c}9t \u{18}D1\u{14}\u{c}0\\_]\u{12}\u{13}X\u{1a}4 GS\rVe\u{1c}olWo#L\n?1\u{e}\u{7f}!449\u{12}35\u{e}\u{18}bUy9a%}\u{4}X\u{13}l}\u{4}\u{19}96=~^sx2\u{14}5\u{2}8{\u{1c}%S,e\u{7}bF\u{1a}ly nP\u{1f}{%Q\u{b}\u{19}bZ@I\")2N[7j\u{19}13\u{8}\u{19}\u{14}QkvH59mvnT\u{1d}9+\"\rk\t7=N+$Sip^-\r\u{15}Z?[L\u{2}\u{5}*!N&x\u{2}\u{11}t*MswT\u{1b}sv5V)\npB|Ab\u{e}DS>&B\u{6}r+U!TDwWe\u{7f}5r=%\u{17}:x,t# \u{e}~Z\"M\u{4}\u{16}F@$\ry|*-VR\u{1d}N\u{1c}\u{11}E\u{1b};.%h\u{1e}o\rk5y\r9\\\\Yv7+*c>u\u{3}Tj~k\u{12}J\"Y>O.~p1r^?\u{4}Ey\u{3}T,N H\u{19}\u{17}*';@\u{6}Ga8h\u{1a}\\\u{7}7\u{2}SC\u{1c}c1xAO\t\u{e}\u{1d} \u{11}h!H?7p\u{1c}[\u{2}\u{12}0R:^]< DP\u{3}TiC.?,ZhNz\u{b}T\u{10}Hb\u{11}`.KN\u{1}I-XHi@]rBy*y~\u{c}T3\u{8}6u\ne}V\u{3}l\u{15}\u{7}\u{19}/\u{14}\u{2}nC\u{18}\u{1d}\\[*XE#\u{19}esDLAo\u{18}\u{19}No\u{1c}_|x\u{1}\0\0\0\0"
 
@@ -12061,7 +12061,7 @@ extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0&\0swift_proto_testing.names.MessageNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -12071,7 +12071,7 @@ extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.String"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc6w\u{18}-fx\u{1b}YLH\u{10}=\0\0\0"
 
@@ -12081,7 +12081,7 @@ extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpGn\u{15}\u{12}\u{2}\nx\u{1e}\u{10}\n\u{1f}\u{7f}\u{5}t7\0\0"
 
@@ -12091,7 +12091,7 @@ extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.Int"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{3}&}g?\tEj`\u{13}\u{2}\0"
 
@@ -12101,7 +12101,7 @@ extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Double"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW\u{1d}\"Zf,]\u{14}^\u{1c}v@\u{16}/\0\0"
 
@@ -12111,7 +12111,7 @@ extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Float"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpgU;9-OX)\u{1}\u{1e}N\01\0\0\0"
 
@@ -12121,7 +12121,7 @@ extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.UInt"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw\u{e}*\u{1f}\u{18}oYc\u{f}W\u{4}\u{11}\0\0"
 
@@ -12131,7 +12131,7 @@ extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.hashValue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{7}laH\u{13};w'=}3J:\u{4}\"\u{10}\u{3}\0"
 
@@ -12141,7 +12141,7 @@ extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.description"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_+.\u{18}tj*4\u{7f}9`\u{18}\u{7f}g-c@\u{6}\0"
 
@@ -12151,7 +12151,7 @@ extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.debugDescription"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}nz\u{11}Uu+\r41`P\u{10}\"q5\u{7f}{SZ4\u{11},\0"
 
@@ -12161,7 +12161,7 @@ extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftPro
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Swift"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpcv\u{8}nc'VS\u{2}\u{1e}N\01\0\0\0"
 
@@ -12171,7 +12171,7 @@ extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.UNRECOGNIZED"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpwv,quix\u{8}%Z\r\u{8}\n'9\u{12}e\"\u{b}\0"
 
@@ -12181,7 +12181,7 @@ extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.class"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#l^l4Cq\rx\u{1d}i\u{b}\0"
 
@@ -12191,7 +12191,7 @@ extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.deinit"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#>U*Pu&81lA?\0\0\0"
 
@@ -12201,7 +12201,7 @@ extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkCH$xL\u{6}\u{4}3w|\u{b}\0"
 
@@ -12211,7 +12211,7 @@ extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkSmCsnrOF\u{7f}u(B\u{7}O\u{1c}\u{3}\0"
 
@@ -12221,7 +12221,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.func"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwC\u{1}^j0Yc\u{f}W\u{4}\u{11}\0\0"
 
@@ -12231,7 +12231,7 @@ extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.import"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}|-_;Tk&Y\u{14}]\0(\0\0\0"
 
@@ -12241,7 +12241,7 @@ extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.init"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}<~gd]\u{b}\u{3}\u{12}X\u{19}\u{3}\0"
 
@@ -12251,7 +12251,7 @@ extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.inout"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}D\u{1e}c2-\\x\u{6}`\u{c}\u{18}?\0"
 
@@ -12261,7 +12261,7 @@ extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.internal"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{f}D\u{e}t1|!+\u{12}V(:\n`\u{7}K\0\0"
 
@@ -12271,7 +12271,7 @@ extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.let"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp+tY{j~dH)\"\u{7}\0"
 
@@ -12281,7 +12281,7 @@ extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.operator"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKD`\u{3}b\u{1d}Q[[\u{17}\u{1b}x`b)\0\0"
 
@@ -12291,7 +12291,7 @@ extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.private"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{c}'\u{5}F\u{19}<=\u{e}\0\u{12}\u{1b}9i\0\0"
 
@@ -12301,7 +12301,7 @@ extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{c}G:\u{3}\u{14}+\u{1f}\u{10}\n\u{1f}\u{7f}\u{5}t7\0\0"
 
@@ -12311,7 +12311,7 @@ extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.public"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpSL\u{8}a\u{1a}\u{7f}\u{e}^P,do\u{10}\u{18}\0\0"
 
@@ -12321,7 +12321,7 @@ extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.static"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpoL8Esu\u{19}P:iW\u{11}>\0\0\0"
 
@@ -12331,7 +12331,7 @@ extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.struct"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\\x!~uhg3\t\u{7f}\u{4}\u{c}\0\0\0"
 
@@ -12341,7 +12341,7 @@ extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.subscript"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpo\u{c}\tP\u{4}qh\u{11}Wb\u{18}m\u{11}\u{3}jg\u{2}\0"
 
@@ -12351,7 +12351,7 @@ extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.typealias"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{5}q\u{e}gjU\u{12}m\u{11}\u{3}jg\u{2}\0"
 
@@ -12361,7 +12361,7 @@ extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.var"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{7}}>%2\u{1e}{N\u{e}1\t\0"
 
@@ -12371,7 +12371,7 @@ extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.break"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOs\u{19}\u{15}oxGs\u{1e}]%//\0"
 
@@ -12381,7 +12381,7 @@ extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.case"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#&\u{10}X\u{1a}!\u{5}3w|\u{b}\0"
 
@@ -12391,7 +12391,7 @@ extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.continue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{}EFv\u{10}Z\nY-_;OM\0\0\0"
 
@@ -12401,7 +12401,7 @@ extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.default"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#\u{e}jUu\u{14}\"\u{4}\t\"\0\u{10}4\0\0"
 
@@ -12411,7 +12411,7 @@ extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.defer"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#.\nV|HH9:\u{b}$\u{15}\0"
 
@@ -12421,7 +12421,7 @@ extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.do"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpc+s\u{10}|Pa\u{2}\n\u{7}\0\0"
 
@@ -12431,7 +12431,7 @@ extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.else"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpk;w.j7-\u{2}\u{12}X\u{19}\u{3}\0"
 
@@ -12441,7 +12441,7 @@ extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.fallthrough"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpsc&F5\u{19}(JM\u{1d}T7Z`yM\u{2}\0"
 
@@ -12451,7 +12451,7 @@ extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.for"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpsC\u{1e}Eu\u{13}{N\u{e}1\t\0"
 
@@ -12461,7 +12461,7 @@ extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.guard"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7f}{v1g-\u{15}\u{1d}\u{1}\u{1e}N\01\0\0\0"
 
@@ -12471,7 +12471,7 @@ extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.if"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}dI\u{2}bPq\u{10}\u{13}\u{4}\0\0"
 
@@ -12481,7 +12481,7 @@ extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.in"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}4.\u{2}SPq\u{10}\u{13}\u{4}\0\0"
 
@@ -12491,7 +12491,7 @@ extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.repeat"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|:\u{7}\u{5}|\u{b}z\"\u{19}]O\u{1e}\0\0\0"
 
@@ -12501,7 +12501,7 @@ extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.return"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|\nZd\u{14}oO7\u{19}\u{11}A=\0\0\0"
 
@@ -12511,7 +12511,7 @@ extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.switch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\u{14}\u{1a}wJ\"\u{10}F]\u{1c}v@\u{16}/\0\0"
 
@@ -12521,7 +12521,7 @@ extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.where"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}}\u{7}K\u{1a}\u{1d}w7.\u{4}\u{8}\u{11}?\0"
 
@@ -12531,7 +12531,7 @@ extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.while"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}}G|U\u{12}c\u{1c}\u{1}\u{1e}N\01\0\0\0"
 
@@ -12541,7 +12541,7 @@ extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.as"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpGkT\u{1e} P_jk\u{1}\0"
 
@@ -12551,7 +12551,7 @@ extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.catch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#Vs\u{1c}HO#\u{19}\u{1}k@,\0"
 
@@ -12561,7 +12561,7 @@ extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.dynamicType: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.dynamicType: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.dynamicType"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpcKH0L=6-PI_B\u{f}>\06m\u{2}\0"
 
@@ -12571,7 +12571,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamicType: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.false"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpscV\u{6}j\\{s\u{3}.3T\u{8}\0"
 
@@ -12581,7 +12581,7 @@ extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.is"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{13}|P\u{5}`Pq\u{10}\u{13}\u{4}\0\0"
 
@@ -12591,7 +12591,7 @@ extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.nil"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?|fa\u{10}]dH)\"\u{7}\0"
 
@@ -12601,7 +12601,7 @@ extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.rethrows"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|*y8+-x\t\u{12}\u{18}+\u{7}B%[\u{1}\0"
 
@@ -12611,7 +12611,7 @@ extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.super"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\u{1c}\tA'\r\"'\u{1}\u{1e}N\01\0\0\0"
 
@@ -12621,7 +12621,7 @@ extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.self"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo4\u{10}\u{1e}ZmYc\u{f}W\u{4}\u{11}\0\0"
 
@@ -12631,7 +12631,7 @@ extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.throw"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwD\u{7}.\u{b}UX\u{1}\0~;T\u{8}\0"
 
@@ -12641,7 +12641,7 @@ extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.throws"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpwD\u{7}\u{e}Kl#h^\u{1c}v@\u{16}/\0\0"
 
@@ -12651,7 +12651,7 @@ extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.true"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw\\LbXq;\u{4}3w|\u{b}\0"
 
@@ -12661,7 +12661,7 @@ extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.try"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpw\\L\u{10}\rJdH)\"\u{7}\0"
 
@@ -12671,7 +12671,7 @@ extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.__COLUMN__"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_Xz}K1\u{16}iP\u{18}\u{3}d\u{14}\u{5}b:\u{13}\u{13}y6fSnBB\t\0"
 
@@ -12681,7 +12681,7 @@ extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__FILE__"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_XZz\u{5}k$\u{15}>X_iF<,2\u{8}n[kg\u{6}\0\0"
 
@@ -12691,7 +12691,7 @@ extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.__FUNCTION__"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}\u{1f}\u{6}4S`0j'Tpv]>d\u{18}$M\u{5}ah\u{b}\u{3}\0"
 
@@ -12701,7 +12701,7 @@ extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobu
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.__LINE__"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_XZz\u{5}k$]\u{1e}}?\u{7f}\u{2}Sdou\u{18}5cUw\u{1}\0"
 
@@ -12711,7 +12711,7 @@ extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0swift_proto_testing.names.MessageNames._"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?o\u{5}\u{19}[?s\u{7}5\u{1b}pXK\u{3}ws\"-m]>N{\u{15}t5\u{7}i'\u{3}\0"
 
@@ -12721,7 +12721,7 @@ extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.__"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?o\u{5}\u{19}[?s\u{7}5\u{1b}pXK\u{3}ws\"mz$LU*CZ<_V8\u{3}\0"
 
@@ -12731,7 +12731,7 @@ extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.associativity"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpG\u{3}U**\u{11}\u{2}\u{1c}\u{b}{\u{1d}-\u{7}\n|gd1\u{c}\0"
 
@@ -12741,7 +12741,7 @@ extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.convenience"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{}eu{1\u{3}X/gmfsVl\u{3}\0\0"
 
@@ -12751,7 +12751,7 @@ extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dynamic"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpcKH0L=,\u{1d}?\r\"\0\u{10}4\0\0"
 
@@ -12761,7 +12761,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.didSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc#P|\u{1f}Kf96\u{19}\u{11}A=\0\0\0"
 
@@ -12771,7 +12771,7 @@ extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.final"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps3Kl\u{18}3Ry\u{3}~;T\u{8}\0"
 
@@ -12781,7 +12781,7 @@ extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.get"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp{3.cj~dH)\"\u{7}\0"
 
@@ -12791,7 +12791,7 @@ extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.infix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}4>[3d\u{12}\"\u{1d}Y\u{3}a\u{1a}\0"
 
@@ -12801,7 +12801,7 @@ extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.indirect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{f}4.tv96Nt@u\u{16}e{s\u{1}\0"
 
@@ -12811,7 +12811,7 @@ extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.lazy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+t\u{7}\u{16}\u{3}\u{1b}mb\u{f}W\u{4}\u{11}\0\0"
 
@@ -12821,7 +12821,7 @@ extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.left"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+l9\u{7}5OQ\u{5}3w|\u{b}\0"
 
@@ -12831,7 +12831,7 @@ extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.mutating"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8\u{15}\u{14}\r\\\u{7}n\u{1b}(_;OM\0\0\0"
 
@@ -12841,7 +12841,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.none"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?D:7q=w\u{18}gfi\u{17}\0"
 
@@ -12851,7 +12851,7 @@ extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.nonmutating"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?D\u{1a}xX\u{1d}NL:\u{15}}L=\r6~\u{2}\0\0"
 
@@ -12861,7 +12861,7 @@ extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.optional"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKLP_#\u{12}\"\u{2};p\u{1d}+\u{7}B%[\u{1}\0"
 
@@ -12871,7 +12871,7 @@ extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.override"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKL#nE-+lx\u{1d}\u{1f}H!M6\u{1}\0\0"
 
@@ -12881,7 +12881,7 @@ extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.postfix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{c}Es\u{5}\u{1c}4\u{4}L\u{f}\"\0\u{10}4\0\0"
 
@@ -12891,7 +12891,7 @@ extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.precedence"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{4}\u{7}V@{6\u{1}\r\u{1c}fDMt\u{13}\0\u{3}\0"
 
@@ -12901,7 +12901,7 @@ extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.prefix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpS\u{4}\u{17}6c{\u{8}~\\\u{1c}v@\u{16}/\0\0"
 
@@ -12911,7 +12911,7 @@ extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.required"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{14}L\u{18}\u{8}\u{17}hcb)\0\0"
 
@@ -12921,7 +12921,7 @@ extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.right"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|,`6!ax\u{6}`\u{c}\u{18}?\0"
 
@@ -12931,7 +12931,7 @@ extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.set"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpo<`}j~\u{1f}^[S\n\0"
 
@@ -12941,7 +12941,7 @@ extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpk>\u{7f}92;;\u{4}3w|\u{b}\0"
 
@@ -12951,7 +12951,7 @@ extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.unowned"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}\r\u{10}\u{13}\u{17}\u{14}7u|\u{6}NN=\0\0\0"
 
@@ -12961,7 +12961,7 @@ extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.weak"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}5&\u{7}\u{19})S\u{5}3w|\u{b}\0"
 
@@ -12971,7 +12971,7 @@ extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.willSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}E(n\u{18}s+CnMO\u{10}\u{7}\0\0\0"
 
@@ -12981,7 +12981,7 @@ extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.id"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{f}\\8\u{14}PPq\u{10}\u{13}\u{4}\0\0"
 
@@ -12991,7 +12991,7 @@ extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.GeneratedMessag
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames._cmd"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@:k'\"MIJww:\u{16}+|8_XZsy_gxI\u{3}Ejzkdyz\u{18}\u{16}-\0"
 
@@ -13001,7 +13001,7 @@ extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.out"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{14}\u{13}\u{7f}\u{7}\t\u{1f}^[S\n\0"
 
@@ -13011,7 +13011,7 @@ extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bycopy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOC=@\u{1b}\u{5}hj7I|\u{4}\u{c}\0\0\0"
 
@@ -13021,7 +13021,7 @@ extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.byref"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpOK\u{1d}UtMFy\u{6}`\u{c}\u{18}?\0"
 
@@ -13031,7 +13031,7 @@ extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.oneway"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG|n.`Z\t|^\u{1c}v@\u{16}/\0\0"
 
@@ -13041,7 +13041,7 @@ extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.and"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpG+2\u{10}%1dH)\"\u{7}\0"
 
@@ -13051,7 +13051,7 @@ extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.and_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?\u{1d}\u{11}\u{3}\u{19}Uh<e\u{e}O4Sgh\u{19}\u{3}\u{4}\0\0"
 
@@ -13061,7 +13061,7 @@ extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignas"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG+1\u{14}U\u{f}+nq\u{12}D 3.\0\0"
 
@@ -13071,7 +13071,7 @@ extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.alignof"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG+1\u{14}U6vj4\t\"\0\u{10}4\0\0"
 
@@ -13081,7 +13081,7 @@ extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.asm"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpG{d\u{13}pR{N\u{e}1\t\0"
 
@@ -13091,7 +13091,7 @@ extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.auto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG\u{3}V;Ou<b/K\u{c}\u{17}\0"
 
@@ -13101,7 +13101,7 @@ extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.bitand"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO35NB0!DX\u{14}]\0(\0\0\0"
 
@@ -13111,7 +13111,7 @@ extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.bitor"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO3\u{15}/\u{8}k\u{6}|\u{3}~;T\u{8}\0"
 
@@ -13121,7 +13121,7 @@ extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpO;h\u{4}.J'\u{19}gfi\u{17}\0"
 
@@ -13131,7 +13131,7 @@ extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.char"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW#:\u{2}?z/\u{2}l\u{b}T\0\0\0"
 
@@ -13141,7 +13141,7 @@ extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char16_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_XZz\u{5}d\u{1c}X>\\\u{2}f\u{7f}##,B*\u{8}L]\u{3}u\u{1}\0\0"
 
@@ -13151,7 +13151,7 @@ extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.char32_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_XZz\u{5}d\u{1c}X><f#\u{1a}\u{14}X8\u{e}\u{6}oN0]hP\u{1}\0"
 
@@ -13161,7 +13161,7 @@ extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.compl"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{\u{1d}B\n7gL\u{2}\u{1e}N\01\0\0\0"
 
@@ -13171,7 +13171,7 @@ extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.const"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{m\u{5}3Qvy\u{6}8(\u{8}?\0\0\0"
 
@@ -13181,7 +13181,7 @@ extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.constexpr"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW{merG\u{3}\u{6}\u{c}o!~nsO{\0\0"
 
@@ -13191,7 +13191,7 @@ extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.const_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}K~z\u{6}dY.%-4_)>>F+Bo\"RQn\u{13}F4\n\0"
 
@@ -13201,7 +13201,7 @@ extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.decltype"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_\u{1b}~8\\1\r0\"blN;OM\0\0\0"
 
@@ -13211,7 +13211,7 @@ extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.delete"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_#^?\05z6\u{1c}L\u{13}I\u{4}\0"
 
@@ -13221,7 +13221,7 @@ extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.dynamic_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}gi3%Uj ~@Y\u{4}:Uo\"&\u{19}N\u{3}\u{c}VE.\0\0"
 
@@ -13231,7 +13231,7 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.explicit"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpkK}5}_w\u{14}31\u{1d}+\u{7}B%[\u{1}\0"
 
@@ -13241,7 +13241,7 @@ extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.export"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkK\u{1d}vI0\u{1e}\u{19}\\\u{1c}v@\u{16}/\0\0"
 
@@ -13251,7 +13251,7 @@ extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.extern"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpkSm\u{3}vp,);iW\u{11}>\0\0\0"
 
@@ -13261,7 +13261,7 @@ extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.friend"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wps{\u{f}7?<nE8\u{14}E=1Y"
 
@@ -13271,7 +13271,7 @@ extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.goto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7f}\u{3}\u{4}R\u{c}\u{1c}^\u{2}\u{12}X\u{19}\u{3}\0"
 
@@ -13281,7 +13281,7 @@ extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.inline"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{f}<.T\u{19}\u{3}\u{6}dt\"m\u{13}=\0"
 
@@ -13291,7 +13291,7 @@ extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.long"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp+D\u{f}QUYqb\u{f}W\u{4}\u{11}\0\0"
 
@@ -13301,7 +13301,7 @@ extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.mutable"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8u\r[\u{c}E4\t\"\0\u{10}4\0\0"
 
@@ -13311,7 +13311,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.namespace"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?lr\u{c}k)A\u{7}\u{7f}\u{4}|C\u{6}u_z\u{1}\0"
 
@@ -13321,7 +13321,7 @@ extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.new"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?|\u{4}P?_Ej`\u{13}\u{2}\0"
 
@@ -13331,7 +13331,7 @@ extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.noexcept"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?<\u{1a}\u{18}Ky@\u{15}<FfN;OM\0\0\0"
 
@@ -13341,7 +13341,7 @@ extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.not"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp?L*sm~{N\u{e}1\t\0"
 
@@ -13351,7 +13351,7 @@ extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.not_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?\u{1f}M\">;M\u{18}i\rR\\V{\\:\u{3}\0\0\0"
 
@@ -13361,7 +13361,7 @@ extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.nullptr"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?Lm:&r\u{3}y]HO\u{10}\u{7}\0\0\0"
 
@@ -13371,7 +13371,7 @@ extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5})\0swift_proto_testing.names.MessageNames.or"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK<a\u{1b}7P_jk\u{1}\0"
 
@@ -13381,7 +13381,7 @@ extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.GeneratedMessag
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.or_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@:k'\"MIJww:\u{16}+|8_X:u\\<\u{b}GL\\L-\t\u{15}\u{4}&#\u{1a}U\"\0\0\0"
 
@@ -13391,7 +13391,7 @@ extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.protected"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpS\u{c}G\u{1a}@(1..e\u{12}G O\u{15}\u{1c}\u{3}\0"
 
@@ -13401,7 +13401,7 @@ extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.register"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpctZ\u{7}\u{1f}&;\u{6}$}U=w5~\0\0\0"
 
@@ -13411,7 +13411,7 @@ extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}7\0swift_proto_testing.names.MessageNames.reinterpret_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLIJww:\u{16}+|8_h\u{1a}\u{8}\u{1d}~h\0et1KF\"\u{1b}\u{2}$iQJ\u{16}\u{14}\u{8}\u{1e}\u{8}\u{2}U;\u{6}xN\u{2}\0"
 
@@ -13421,7 +13421,7 @@ extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.short"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo|Q~V0ax\u{6}`\u{c}\u{18}?\0"
 
@@ -13431,7 +13431,7 @@ extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.signed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo<B%\u{1a}7#1_\u{1c}v@\u{16}/\0\0"
 
@@ -13441,7 +13441,7 @@ extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.sizeof"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpoLR\u{f}$\u{1c}8F]\u{1c}v@\u{16}/\0\0"
 
@@ -13451,7 +13451,7 @@ extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.static_assert"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\"XvU_t\u{18}7[\u{11}PT]j&\"'ov\u{12}\u{1c}\u{16}4?F\0\0"
 
@@ -13461,7 +13461,7 @@ extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.static_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\u{7}La!v8ir6\u{2}h|y\u{10}{gd_\r\\,\u{2}\u{3}\0\0"
 
@@ -13471,7 +13471,7 @@ extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.template"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpw|\u{5}\u{7}/\u{18}49{7_X\u{1e}M6\u{1}\0\0"
 
@@ -13481,7 +13481,7 @@ extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.this"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpw<'.T\u{1b};b\u{f}W\u{4}\u{11}\0\0"
 
@@ -13491,7 +13491,7 @@ extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.thread_local"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}y9c}&D7\u{1e}On\u{1d}$UKsN\0e)uAX:\0\0"
 
@@ -13501,7 +13501,7 @@ extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.typedef"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{6}K\u{6}r3\u{10}D 3.\0\0"
 
@@ -13511,7 +13511,7 @@ extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.typeid"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp{d \u{2}\u{8}\u{1b}v^\\\u{1c}v@\u{16}/\0\0"
 
@@ -13521,7 +13521,7 @@ extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.typename"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp{d BIF\u{1b}=2\"bN;OM\0\0\0"
 
@@ -13531,7 +13531,7 @@ extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.union"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{5}`Yy\u{4}B\u{c}\u{e}D!\u{16}\u{16}\0"
 
@@ -13541,7 +13541,7 @@ extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.unsigned"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{15}@ h\u{15}3^S}}]\rm5\n\0\0"
 
@@ -13551,7 +13551,7 @@ extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.using"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{3}M\u{12}=\u{15}n\u{17}I\u{2}\u{1e}N\01\0\0\0"
 
@@ -13561,7 +13561,7 @@ extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.virtual"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{b}\u{5}\u{13}\u{7f}\u{4}\u{10}OrbwO\u{b}\u{1a}\0\0\0"
 
@@ -13571,7 +13571,7 @@ extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.void"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{b}\r\u{16}%zz\u{8}\0/K\u{c}\u{17}\0"
 
@@ -13581,7 +13581,7 @@ extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.volatile"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{b}\rV\u{f}7wpqB\u{7}t\u{16}e{s\u{1}\0"
 
@@ -13591,7 +13591,7 @@ extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.wchar_t"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_Xzx\"\u{3}W;d\u{10}rh\u{b}ClGS*U\"\u{18}\0\0\0"
 
@@ -13601,7 +13601,7 @@ extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.names.MessageNames.xor"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{15}!20\u{1e}{N\u{e}1\t\0"
 
@@ -13611,7 +13611,7 @@ extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.xor_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_X\u{1a}w?!-4pe[\u{c}J*C(0y\\:\u{3}\0\0\0"
 
@@ -13621,7 +13621,7 @@ extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.restrict"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|:\u{16}0\0/KyX\u{13}hcb)\0\0"
 
@@ -13631,7 +13631,7 @@ extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Category"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpKEu\u{e}lk[(>\"EE#U`?\u{1}\0"
 
@@ -13641,7 +13641,7 @@ extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Ivar"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}\u{1e}1Z#f\u{5}\u{4}3w|\u{b}\0"
 
@@ -13651,7 +13651,7 @@ extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.Method"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp'V\u{1e}\\[\u{7}F8_\u{1c}v@\u{16}/\0\0"
 
@@ -13661,7 +13661,7 @@ extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.finalize"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wps3KL\u{18}5\u{1}\u{8}&\u{6}t\u{16}e{s\u{1}\0"
 
@@ -13671,7 +13671,7 @@ extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.hash"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}la(__y\u{1}\u{1a}\u{17},\n\0"
 
@@ -13681,7 +13681,7 @@ extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.dealloc"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_\u{1b}n\u{11}!\u{1e}$.\u{c}\u{13}D 3.\0\0"
 
@@ -13691,7 +13691,7 @@ extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.superclass"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpo\u{1c}\t\u{1}g|\u{e}lTF\u{1f}Qi9_\u{11}\u{1}\0\0"
 
@@ -13701,7 +13701,7 @@ extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.retain"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc|zXsrWw[\u{4}<\u{12}&\0\0\0"
 
@@ -13711,7 +13711,7 @@ extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.release"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpct\u{1a}9\u{14}\"O|2kW\u{11}>\0\0\0"
 
@@ -13721,7 +13721,7 @@ extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.autorelease"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpG\u{3}F;?=o}%j)\r_YP>\u{1}\0\0"
 
@@ -13731,7 +13731,7 @@ extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.retainCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc|zXssPE\u{11}Wf)}H\u{1a}hz\u{2}\0"
 
@@ -13741,7 +13741,7 @@ extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.zone"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp/\u{15}Lj\u{1f}P;\u{4}3w|\u{b}\0"
 
@@ -13751,7 +13751,7 @@ extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.names.MessageNames.isProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{13}$!&>\u{b}T\u{b}aA\u{1d}\u{10}!\0\0\0"
 
@@ -13761,7 +13761,7 @@ extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.copy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW{m\u{10}(\u{e}P\u{5}3w|\u{b}\0"
 
@@ -13771,7 +13771,7 @@ extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}2\0swift_proto_testing.names.MessageNames.mutableCopy"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp7\u{14}8u\r[\u{12}G};\u{14}]\u{b}:eRO\u{4}\0"
 
@@ -13781,7 +13781,7 @@ extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Genera
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.classForCoder"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpW#l>l#Zc*(9\u{7f}/Fz`bD\u{2}\0\0"
 
@@ -13791,7 +13791,7 @@ extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.clear"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW+Lo{\u{14}Gy\u{6}`\u{c}\u{18}?\0"
 
@@ -13801,7 +13801,7 @@ extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.data"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp_c;Xy\u{4}y\u{18}gfi\u{17}\0"
 
@@ -13811,7 +13811,7 @@ extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.delimitedData"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp_#n?/ticD3\u{10}C$q(Q x\u{c}\0\0"
 
@@ -13821,7 +13821,7 @@ extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.descriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_+.\u{18}tj*<Oh(Yx7Tl0\u{7}\0"
 
@@ -13831,7 +13831,7 @@ extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}8\0swift_proto_testing.names.MessageNames.extensionRegistry"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}pn5P5<^\u{1b}&uCf\u{12}\u{12}\u{11}\u{13}\u{4}_HWi\u{10}\0\0\0"
 
@@ -13841,7 +13841,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}=\0swift_proto_testing.names.MessageNames.extensionsCurrentlySet"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0qW6M]\u{7}pn5P5<^\u{1a}d3S\u{6};\u{1c}\u{12}\u{1}:\u{8}On[;z\u{2}j\0\0\0"
 
@@ -13851,7 +13851,7 @@ extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProt
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.isInitialized"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{13}\u{1c}!-\u{15}`&'BC\u{f}\u{1}De3=\u{18}\u{b}\r\0\0"
 
@@ -13861,7 +13861,7 @@ extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtob
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpo<@36\u{6}Vs[X\u{1c}9}\n?Ahl\u{6}\0\0"
 
@@ -13871,7 +13871,7 @@ extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}<\0swift_proto_testing.names.MessageNames.sortedExtensionsInUse"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0qW6M]\u{7}\u{12}/H2#X6\u{3}y2\08^/v\u{19}\u{13}\u{17}}-%fjI\\\u{3}\0"
 
@@ -13881,7 +13881,7 @@ extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProto
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0swift_proto_testing.names.MessageNames.unknownFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{3}\rp@GHD-z;\u{1a}l\u{14}q\u{6}1v6\u{e}\u{1f}"
 
@@ -13891,7 +13891,7 @@ extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtob
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$Kv\u{17}A\u{1e}]%//\0"
 
@@ -13901,7 +13901,7 @@ extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Fract"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpgUnn\u{4}\u{b}`x\u{6}`\u{c}\u{18}?\0"
 
@@ -13911,7 +13911,7 @@ extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Size"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpcnqjXG;\u{4}3w|\u{b}\0"
 
@@ -13921,7 +13921,7 @@ extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.LogicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{1e}.\u{c}~-\"\u{19}5xbR%\u{1e}0R\u{15}{(\u{1a}\0"
 
@@ -13931,7 +13931,7 @@ extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}6\0swift_proto_testing.names.MessageNames.PhysicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}WpGf 2lGJ>.wb&\u{10}_2\u{c}\u{14}{(\u{1a}\0"
 
@@ -13941,7 +13941,7 @@ extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ByteCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpC-<0W;Z\u{11}\u{8}{5P+8wQ\u{2}\0"
 
@@ -13951,7 +13951,7 @@ extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ByteOffset"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpC-<\u{10}\u{1b}RA\u{11}k\u{13}TVbra.\u{1}\0\0"
 
@@ -13961,7 +13961,7 @@ extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.Duration"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW%E6\u{16}\u{15}*2%t\u{1e}F{\u{1f}\u{c}\u{1}\0\0"
 
@@ -13971,7 +13971,7 @@ extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.AbsoluteTime"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp7\u{5}\u{1b}i,x+XD>r\u{18}[a\u{11}l,\u{c}\u{1}\0"
 
@@ -13981,7 +13981,7 @@ extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.OptionBits"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp;.o\u{13}\u{1e}|We3Zk!1&j$\0\0\0"
 
@@ -13991,7 +13991,7 @@ extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.ItemCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{7}\u{1e}\u{10}\u{1a}}\u{12}[q)\u{1d}uT.\u{15}D\u{14}\u{2}\0"
 
@@ -14001,7 +14001,7 @@ extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.PBVersion"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpG\u{1e}Kt\u{1c}\u{1a}I\u{4}?\u{7}w\u{19}cf\u{2}j\0\0\0"
 
@@ -14011,7 +14011,7 @@ extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.ScriptCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_^\u{1e}DiuT8<ID700v<m\u{2}\0"
 
@@ -14021,7 +14021,7 @@ extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.LangCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{1f}\u{e}GEznPK5gEE#U`?\u{1}\0"
 
@@ -14031,7 +14031,7 @@ extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.RegionCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}WpW\u{16}:&\u{1d}dM{D\u{e}\u{7}31&j$\0\0\0"
 
@@ -14041,7 +14041,7 @@ extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}-\0swift_proto_testing.names.MessageNames.OSType"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp?~~H*l5=]\u{1c}v@\u{16}/\0\0"
 
@@ -14051,7 +14051,7 @@ extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}:\0swift_proto_testing.names.MessageNames.ProcessSerialNumber"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}H#i p2SS{g~0(5R:v'@r\u{13}\\C\0\0"
 
@@ -14061,7 +14061,7 @@ extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobu
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Point"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpG&\u{14}G6&\u{11}y\u{6}`\u{c}\u{18}?\0"
 
@@ -14071,7 +14071,7 @@ extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.names.MessageNames.Rect"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpW\u{e}\u{1a}u+o\u{1e}\u{5}3w|\u{b}\0"
 
@@ -14081,7 +14081,7 @@ extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.FixedPoint"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$KC\u{18}\u{1a}Kw\u{7}Ux,(m0\u{7}\0"
 
@@ -14091,7 +14091,7 @@ extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.FixedRect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpg\u{1d}:$\u{b}Gos\u{18}\u{7f};0kn^s\0\0"
 
@@ -14101,7 +14101,7 @@ extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0swift_proto_testing.names.MessageNames.Style"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpc>Gu\u{14}V}\u{1d}\u{1}F5 \u{16}\0\0\0"
 
@@ -14111,7 +14111,7 @@ extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.StyleParameter"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc>GuT T\u{10}\0s!\nY3\u{12}X6;\t\0\0"
 
@@ -14121,7 +14121,7 @@ extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.StyleField"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpc>GuT\u{b}Vl\u{b}\u{8}+,1&j$\0\0\0"
 
@@ -14131,7 +14131,7 @@ extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.TimeScale"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&GA\"sn(ye\u{18}m\u{11}\u{3}jg\u{2}\0"
 
@@ -14141,7 +14141,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}/\0swift_proto_testing.names.MessageNames.TimeBase"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&G!\u{1d}\u{14}\u{15}\u{1e}s$bN;OM\0\0\0"
 
@@ -14151,7 +14151,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Generated
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.TimeRecord"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpk&G!\"TDH\u{c}E\u{1f}Nx\u{6}\u{1b},\u{1}\0\0"
 
@@ -14161,7 +14161,7 @@ extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.names.MessageNames.serializedData"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpo<@36\u{6}VsWHf(mte'-\u{4}\u{16}\n\0"
 
@@ -14171,7 +14171,7 @@ extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}3\0swift_proto_testing.names.MessageNames.jsonUTF8Data"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{1b}LF\u{7}\u{12}\u{12}x-\u{b}d{\u{5}K\u{16}_\t1U\r\0"
 
@@ -14181,7 +14181,7 @@ extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Gener
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.jsonString"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{1b}LF'Q\u{13}1wpo2^x,(m0\u{7}\0"
 
@@ -14191,7 +14191,7 @@ extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}0\0swift_proto_testing.names.MessageNames.Extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_-|W(GG\u{8}\tE\u{1a}]QmI\u{6}\u{1}\0"
 
@@ -14201,7 +14201,7 @@ extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Generate
 
 }
 
-extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}1\0swift_proto_testing.names.MessageNames.Extensions"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp_-|W(GG\u{6})\u{f}l61&j$\0\0\0"
 
@@ -14211,7 +14211,7 @@ extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.
 
 }
 
-extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0#\0swift_proto_testing.names.EnumNames"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -14221,1273 +14221,1273 @@ extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_EnumNames.StringEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.StringEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.String"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.cOZIS*\u{7f}PBZ~\n\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.Protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.AKXxx!\u{1a}g&\u{7f}\u{5}ew\u{5}*\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.IntEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.IntEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.Int"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.o\u{2}7\u{f}Cj@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.DoubleEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.DoubleEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.Double"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.7^31\u{3}\u{1}@>\r#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.FloatEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.FloatEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Float"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.M~\u{4}1X7v\u{17}*w5\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.UIntEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.UIntEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.UInt"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.{\u{f}7\\@\0i\u{1d}\u{6}rY\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.hashValueEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.hashValueEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.hashValue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.9P\u{7}t\n\u{16}*<j\rZ\u{1}1\u{b}\u{2}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.descriptionEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.descriptionEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.description"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\rh\u{14}\u{c}s]Br4\u{1b}AW7^E(/\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\04\0swift_proto_testing.names.EnumNames.debugDescription"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}\u{1f}qi|90'Y\u{14}\u{12}D(u)$#+q<*q[\u{1c}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.SwiftEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.SwiftEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Swift"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.c7l\u{11}|2\t\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\00\0swift_proto_testing.names.EnumNames.UNRECOGNIZED"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.}C\"10\n\u{12}b'm$O\u{7f}\u{14}+Yq*\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.classEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.classEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.class"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}8K\u{5}\u{18},i/h\u{1f}A\t\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.deinitEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.deinitEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.deinit"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r`d!B)X)\u{1a}f\u{1a}M\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.enumEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.enumEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1b}\u{4}8o]mA\u{b}MwM\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.extensionEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{1b}$VCcIS:u{\u{e}\u{b}\u{8}!$~\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.funcEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.funcEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.func"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.'xivx\u{15}leU\u{15}=\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.importEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.importEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.import"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.G\\\u{5}lY7w\u{14}\r#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.initEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.initEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.init"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.G$ffk/1\u{13}@\t+\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.inoutEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.inoutEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.inout"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.G,n\u{17}[\u{4}\u{5}\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.internalEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.internalEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.internal"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.G0.\u{c}\u{1f}\t@\u{16}lJ\u{11}e;u\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.letEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.letEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.let"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.it\0HZP@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.operatorEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.operatorEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.operator"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\r\u{1}q\r50#{\u{7f}@p<\u{1a}Hl\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.privateEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.privateEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.private"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{17}q/K\u{8}\u{f}\u{1b}VPIh5{,\u{11}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.protocolEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.protocolEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{17}y\u{17}ukLs\u{16}i\0'p?Ql\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.publicEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.publicEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.public"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{19}YI{\u{11}\u{19}~\u{1a}w6um\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.staticEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.staticEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.static"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.;i9\u{1a}\u{e}&eX^ca\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.structEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.structEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.struct"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.;}y\u{16}`$\u{12}\u{1f}o\u{19}l.\u{1d}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.subscriptEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.subscriptEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.subscript"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.;=*A`-\u{4}\u{8}MUM}\u{1c}\u{1b}[\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.typealiasEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.typealiasEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.typealias"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.GU\"x7>x/gMZxK-\u{f}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.varEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.varEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.var"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.YiUg\ns+L;L\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.breakEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.breakEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.break"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-ySqMFQJ\n\u{1c}\u{7}5\t\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.caseEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.caseEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.case"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1}XCUY#!\u{13}J\u{2}/\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.continueEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.continueEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.continue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{3}8%\u{4}G\u{13}\u{1b}_b9Z;)>.N\u{1}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.defaultEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.defaultEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.default"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\r\\l\u{13}p@if\u{3}uJhW]\u{14}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.deferEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.deferEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.defer"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r\\\u{14}D~mz\u{18}&\u{1a}G\u{c}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.doEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.doEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.do"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.\u{f}pR]_\u{18}/i}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.elseEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.elseEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.else"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{19}dv6\u{1c}PO\u{13}J\u{2}/\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.fallthrough"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.#(\u{14}/ltY\u{c}=x5`B\u{2}Zsl\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.forEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.forEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.for"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.% n!LvE7)^\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.guardEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.guardEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.guard"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.14_4Am!\u{15}\"Zu\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ifEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ifEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.if"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.GH@\u{1e}\\\u{18}/i}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.inEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.inEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.in"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.G\u{18}\u{16}|H\u{18}/i}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.repeatEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.repeatEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.repeat"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.-1*I?uO9yL\u{1}\u{7}\n\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.returnEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.returnEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.return"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.-9\n\u{10}\u{b}:kd} 5\r\u{1d}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.switchEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.switchEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.switch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.;a\u{13}Ociw;B*GO\u{19}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.whereEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.whereEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.where"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.g\r`C\u{c}LJ\u{18}L}E\n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.whileEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.whileEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.while"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.g\u{11}\0I0\u{16}\u{12}\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.asEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.asEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.as"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8-egl,un\u{3}C\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.catchEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.catchEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.catch"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1}Xc\u{1d}\rd*1,,Q\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.dynamicType {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamicType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.dynamicType"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{11} Y\\\u{c})(?.h2\"Rc\u{7f}{n\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.falseEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.falseEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.false"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.#,\u{4}p!\u{4}:p_@O\u{5}\u{10}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.isEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.isEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.is"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.I(aZZ\u{18}/i}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.nilEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.nilEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.nil"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{7f}@~XOz@k=^\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.rethrows"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.-5\u{1a}\u{1f}q.bO~\u{1d}PV$=\u{e}\\\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.superEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.superEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.super"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.;IzLd/y\u{b}Ez*\0\u{6}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.selfEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.selfEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.self"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.7y_Tb\u{2}\u{6}9\u{1a}\u{b}*\r\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.throwEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.throwEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.throw"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.C9_jy;\r\u{b}U{&\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.throwsEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.throwsEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.throws"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.C9_zYy-^\r#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.trueEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.trueEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.true"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.E]]Hz\u{1}5eU\u{15}=\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.tryEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.tryEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.try"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.EaU-WN@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.__COLUMN__"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8/C ,N+.;\u{12}y;\u{7f}=A9\r\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.__FILE__"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8/C(L7c]Kjpmd[S_j\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\00\0swift_proto_testing.names.EnumNames.__FUNCTION__"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8/C(|\u{8}\u{8}/\u{1a}\\\u{10}\0\u{b}|KjM)\u{1}\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.__LINE__"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8/C4$;|D/jpmd[S_j\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames._Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames._Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0%\0swift_proto_testing.names.EnumNames._"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8/;8Y3R};P\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.__Enum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.__Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.__"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8/C`\u{b}Mon\u{3}C\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.associativity {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.associativity {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.associativity"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8-e\u{13}-\u{f}\u{17}[C<r_o4+\u{1c}<0p\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.convenience {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.convenience {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.convenience"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{3}854@s\u{14}j~z\u{1b}\u{6}oj\u{19}\u{17}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.dynamic {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamic {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.dynamic"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{11} Y\\\u{c}i0h\u{16}\u{13}\u{11}Y]\u{16}]\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.didSet {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.didSet {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.didSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r\u{18}\u{f}\u{7}WUmS>2FK\u{f}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.final {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.final {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.final"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.%8\u{1a}ndKN\u{17}\u{1a}rq\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.get {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.get {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.get"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8./|lIZP@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.infix {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.infix {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.infix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.G FG=j\u{13}\u{18}^\u{2}\"\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.indirect {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.indirect {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.indirect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.G\u{1c}vNPt*2ZcNF\u{1b}\u{1a}2\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.lazy {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.lazy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.lazy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.g\u{c}&$0%U\u{13}J\u{2}/\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.left {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.left {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.left"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.idP4b<Fd5:B\u{4}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.mutating {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.mutating {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.mutating"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.w\u{c}Q70f3P\u{12}\u{6}0 i4s\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.none {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.none {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.none"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1}q\u{1a}Xq7\u{f}\u{13}@\t+\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.nonmutating {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.nonmutating {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.nonmutating"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{1}q\ni\u{6}S$Q\u{4}\"\u{12}j\u{1b}ML\u{1a}A\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.optional {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.optional {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.optional"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\r\u{15}YV\0\n%~\u{5}0<\u{1e}\r$#\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.override {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.override {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.override"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\ra$\\g.\u{3}<k\u{12}6Y\0B?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.postfix {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.postfix {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.postfix"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{17}A\u{15}p'\u{7}m{-WOln!\"\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.precedence {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.precedence {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.precedence"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{17}mg(Q\r2f\u{19}l#Y\u{19};\u{1a}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.prefix {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.prefix {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.prefix"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{17}m\u{7})\tPNp\u{1a}ed\u{f}\u{11}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.required {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.required {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.required"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.-1b~v\t 8\u{1f}G\u{15}e;u\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.right {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.right {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.right"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.-e,Mn+!\u{b}Ez*\0\u{6}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.set {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.set {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.set"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.9\u{1}\u{8}_8\\~\u{1}\u{15}]\n\u{c}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.TypeEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.TypeEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.o'{+|7Tt`\u{1a}1\t\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.unowned {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.unowned {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.unowned"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.Qa\u{10}i7B[:l\u{13}\u{11}!\u{15}UO\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.weak {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.weak {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.weak"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.e\u{15}F_T@GYB_}\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.willSet {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.willSet {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.willSet"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.geX%;-r{\u{16}tF0i\u{8}n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.id {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.id {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.id"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.E(\u{f}_N\u{18}/i}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames._cmd {
+nonisolated extension SwiftProtoTesting_Names_EnumNames._cmd {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames._cmd"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8/;T$0?j-J\u{12}/.\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.out {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.out {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.out"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r%<\u{4}Yj@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.bycopy {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.bycopy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.bycopy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-y\u{3}\u{6}\u{4}0\0|C_cs\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.byref {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.byref {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.byref"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-y\u{13}\u{1e}D!\u{14}\u{7}\u{5}_.\u{6}\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.oneway {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.oneway {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.oneway"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{b}\u{11}\u{7}/D}c;\u{e}n\u{17}M\u{10}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.and {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.and {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.and"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-cW>$\rK+L;L\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.and_eq {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.and_eq {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.and_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-cW~\u{2}\u{5}M*Tn\u{19}l.\u{1d}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.alignas {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.alignas {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.alignas"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8-c\u{1f}\\iL\u{1}l:\tKcSJU\"\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.alignof {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.alignof {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.alignof"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8-c\u{1f}\\y\u{c}d\u{17}Z<\u{17}\u{7f}=i\u{8}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.asm {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.asm {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.asm"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-e\u{7}E?<A\u{1}\u{17}7N\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.auto {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.auto {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.auto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-eW\u{7f}DBg%\u{b}\u{15}}L\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.bitand {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.bitand {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.bitand"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-w\u{17}l\u{15}\u{7}+\tAod\u{7}o\n"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.bitor {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.bitor {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.bitor"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-w\u{17}dVv\u{16}[\u{5}_.\u{6}\u{b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.bool {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.bool {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8-wo_Kr,Oasd<\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.char {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.char {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.char"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}xPF\u{7}\"\u{1f}\u{13}J\u{2}/\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.char16_t {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.char16_t {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.char16_t"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{3}xH6\u{7f}}\"\u{11}XcP\u{4}w7w\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.char32_t {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.char32_t {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.char32_t"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{3}xPv`~2F&&W}MTs\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.compl {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.compl {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.compl"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}4]\u{7f}M\u{15}\u{13}\u{b}Ez*\0\u{6}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.const {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.const {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.const"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}8\u{1d}t.\u{3}'\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.constexpr {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.constexpr {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.constexpr"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{3}8\u{1d}tn\u{18}7Cl\u{8}F<^-)\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.const_cast {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.const_cast {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.const_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{3}8\u{1d}\u{14}\u{f}^Lg\u{1b}X<@,\u{13}B\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.decltype {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.decltype {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.decltype"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\rT\u{c}_*\u{19}fes0GsMTs\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.delete {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.delete {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.delete"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r`\u{c}>9TVO\u{1b}rq\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.dynamic_cast {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamic_cast {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\00\0swift_proto_testing.names.EnumNames.dynamic_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{11} Y\\\u{c}i*t\u{15}^\u{14}\u{11}\u{1e}\u{4}[{>\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.explicit {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.explicit {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.explicit"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{1b} f\u{12}\u{15}Q\u{1e}\u{1d}T)X$\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.export {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.export {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.export"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1b} ~\u{2}2J~\u{2}v6um\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.extern {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.extern {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.extern"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1b}$VCf\u{1f};\u{1b}n\u{19}l.\u{1d}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.friend {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.friend {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.friend"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.'\u{4}\u{10}\u{2}e|u\"\u{1a}ed\u{f}\u{11}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.goto {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.goto {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.goto"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.1l{#I\u{1f}!\u{13}J\u{2}/\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.inline {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.inline {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.inline"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.G(^\u{5}u*=dod\u{5}\u{7}\u{1f}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.long {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.long {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.long"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.i\\/\u{13}e\u{2}\u{6}9\u{1a}\u{b}*\r\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.mutable {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.mutable {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.mutable"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.w\u{c}QG\u{1}|st\u{3}uJhW]\u{14}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.namespace {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.namespace {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.namespace"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{7f}\u{4}Q1?  3D*YAz-\u{2}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.new {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.new {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.new"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{7f}\u{c}t\u{1d}GB@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.noexcept {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.noexcept {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.noexcept"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{1}i\n\"\u{10}\u{6}[V/8y&\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.not {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.not {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.not"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1}yzmTP@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.not_eq {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.not_eq {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.not_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1}y\u{1a}}O\0]:\r#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.nullptr {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.nullptr {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.nullptr"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{1}Mv-\nV\u{13}6V\r\\r<$L\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.or {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.or {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0swift_proto_testing.names.EnumNames.or"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8.\r\u{1d}ZucN$8.\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.or_eq {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.or_eq {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.or_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\rYBTCtc\u{c}))1\t\u{13}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.protected {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.protected {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.protected"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{17}y\u{17}uG<l.,A\u{4};~=3\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.register {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.register {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.register"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.-)jBrNiF)\u{12}6Y\0B?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\04\0swift_proto_testing.names.EnumNames.reinterpret_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@H\u{1f}\u{19}l,jC12+o\tK,d\\\u{7f}M_\0\u{1c}/\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.short {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.short {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.short"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.9mI\u{1}\"-^\u{c}))1\t\u{13}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.signed {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.signed {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.signed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.91\u{12}ZUo\u{14}\u{1a}w6um\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.sizeof {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.sizeof {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.sizeof"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.9I\"\u{4}.<CP\u{c}#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.static_assert {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.static_assert {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.static_assert"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.;i9\u{1a}\u{e}n\u{10}0\u{1a}\rNd\u{19}6\u{1f}Cl\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.static_cast {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.static_cast {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.static_cast"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.;i9\u{1a}\u{e}n\u{14},[wL*\u{5}L\u{17}-\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.template {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.template {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.template"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.CE\u{5}FV\u{18}\u{1}vD]\u{1a}V?5b"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.this {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.this {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.this"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.C1\u{17}$x2}e)]&\n\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.thread_local {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.thread_local {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\00\0swift_proto_testing.names.EnumNames.thread_local"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.C9\u{f}\n\u{b}Eqi\u{19}\\(wT\u{7f}{TG\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.typedef {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.typedef {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.typedef"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.GU\"89[ \u{19}q\u{11}\u{11}!\u{15}UO\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.typeid {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.typeid {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.typeid"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.GU\"X[=Z\u{1a}]vum\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.typename {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.typename {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.typename"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.GU\"X}\u{15}q\u{7}'\u{13}6Y\0B?\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.union {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.union {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.union"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.QY0\u{1a}1-K\u{18}L}E\n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.unsigned {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.unsigned {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.unsigned"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.Qe89PXk\tM\u{b}_$\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.using {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.using {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.using"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.Qi{hD{P5T{&\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.virtual {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.virtual {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.virtual"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.[![3 aZwu\u{f}Q?i\u{8}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.void {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.void {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.void"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.[unu}ootj\u{1f}=\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.volatile {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.volatile {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.volatile"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.[yN\u{2},\u{1e}@R\\\u{7},0w\u{15}s\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.wchar_t {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.wchar_t {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.wchar_t"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.e\u{1}%5m\tz\u{e}\u{17}tF0i\u{8}n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.xor {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.xor {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0'\0swift_proto_testing.names.EnumNames.xor"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.s\u{15}R=Q^@K\u{1d}]\u{7}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.xor_eq {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.xor_eq {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.xor_eq"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.s\u{15}rL\u{c}\u{c}4(\u{c}#\u{1c}l\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.restrict {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.restrict {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.restrict"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.-5ZKiA5L\\52\u{17}\\+x\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Category {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Category {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.Category"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.)z\\(/.[e/4}.\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Ivar {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Ivar {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.Ivar"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.qns \u{19}gG\u{b}\u{15}}L\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Method {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Method {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.Method"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{1b}c\u{f}pIp1f!$gd\u{14}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.finalize {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.finalize {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.finalize"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.%8\u{1a}~\u{4}SL\u{b}|H\u{14}^\u{12}\u{12})\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.hash {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.hash {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.hash"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.9P\u{f}\u{14}gyP^4wS\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.dealloc {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.dealloc {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.dealloc"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\rT\u{c}s6\u{e} H>enlR$\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.superclass {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.superclass {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.superclass"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.;IzL\u{4}}ym?S\u{1d}\n%v3\u{4}\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.retain {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.retain {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.retain"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.-5Z.\t\\\"\u{12}^\u{14}\u{8}o\u{14}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.release {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.release {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.release"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.--\nh.T\u{12}Vzi\0X{=\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.autorelease {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.autorelease {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.autorelease"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8-eWoT[\u{4}m\u{16}\u{6}UjFV!6Gm\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.retainCount {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.retainCount {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.retainCount"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.-5Z.)\u{1e}S\u{12}|UTc\u{1f}\u{c}\t\u{2}A\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.zone {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.zone {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.zone"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\t&%=0j-S\u{12}/.\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.isProxy {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.isProxy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0swift_proto_testing.names.EnumNames.isProxy"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.IXq\u{1a}\u{8}0QEjc,QtZj\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.copy {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.copy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.copy"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}<E1^\u{e}5N\u{1e}0z\u{8}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.mutableCopy {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.mutableCopy {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0/\0swift_proto_testing.names.EnumNames.mutableCopy"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.w\u{c}QG\u{1}<d\u{16}47/\u{f}TUEy2\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.classForCoder {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.classForCoder {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.classForCoder"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{3}8KuX\0}Vz@j{/\"x\u{8}u\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.clear {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.clear {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.clear"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\u{3}<s<dm\u{1a}\u{17}\u{1a}rq\u{f}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.data {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.data {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.data"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.\r$\u{1}*ut\u{1f}3v$ \u{c}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.delimitedData {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.delimitedData {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.delimitedData"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\r`4\u{e}@e.G6Wm}5CL%]\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.descriptor {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.descriptor {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.descriptor"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\rh\u{14}\u{c}s]B|J|(3B\u{3}_v\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.extensionRegistry {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionRegistry {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\05\0swift_proto_testing.names.EnumNames.extensionRegistry"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@\u{8}\u{1f}t#SDs\u{1e}UpDv(Q\u{19}({j\u{7}\\~IH\u{c}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0:\0swift_proto_testing.names.EnumNames.extensionsCurrentlySet"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@\u{8}\u{1f}t#SDs\u{1e}\u{15}pXPi-^\0nq\u{13}6\u{e}\u{1b}\u{16} .Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.isInitialized"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.IP1\u{1c}r7 O\u{8}wI\u{15}e-jjh\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.serializedSize {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.serializedSize {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\02\0swift_proto_testing.names.EnumNames.serializedSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.7}/^\u{16}\u{8}`\u{5}&li\u{17}a\u{6}o\u{2}n\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\09\0swift_proto_testing.names.EnumNames.sortedExtensionsInUse"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@H\u{1f}\u{1c}p-\0eS\u{15}\u{1}|s%y#%#9j!df\u{5}\u{10}\u{16}Z\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0swift_proto_testing.names.EnumNames.unknownFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.Q]xbGs\u{10}P0S)}O1]\u{1a}\u{3}\u{1a}\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Fixed {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Fixed {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Fixed"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.M\u{16}{8\u{1c}\\\u{1e}\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Fract {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Fract {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Fract"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.OJpj$\u{2}\u{14}\u{18}L}E\n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Size {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Size {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.Size"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.ak+C~\u{19}Ttj\u{1f}=\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.LogicalAddress {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.LogicalAddress {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\02\0swift_proto_testing.names.EnumNames.LogicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{13}'@4,%\u{10}e\u{1f},$q;p\u{14}\u{c}\r\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\03\0swift_proto_testing.names.EnumNames.PhysicalAddress"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@H\u{1f}]v_e7obx\u{18}\u{8}G[Q%ppD\u{8}]\u{1e}\u{6}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ByteCount {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ByteCount {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.ByteCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.!b.m>\u{e}!\u{b}@RL\u{1d}g\u{16}g \0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ByteOffset {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ByteOffset {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.ByteOffset"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.!b6=\u{3}\u{7}\u{c}v.m\0\u{2}s=Y\u{12}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Duration {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Duration {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.Duration"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.767~L4J:}>QV$=\u{e}\\\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\00\0swift_proto_testing.names.EnumNames.AbsoluteTime"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.\u{13}jZ'\u{10}Jj|[vk0#E-(\u{f}\u{19}\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.OptionBits {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.OptionBits {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.OptionBits"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.5g\u{1}F\u{5}yhz\u{12}\u{19}1#N*Qh\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ItemCount {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ItemCount {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.ItemCount"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.qR:\u{5}\u{17}\u{7f}[l\u{1e}C(U\u{10}zQ\u{c}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.PBVersion {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.PBVersion {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.PBVersion"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.A\u{f}'L{p6GDX%t\u{17}F\u{14}>\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ScriptCode {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ScriptCode {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.ScriptCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.a\u{3}P\u{12}R+B\u{18}U\u{1c}\u{1e}x\u{e}O\"L\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.LangCode {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.LangCode {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.LangCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.\u{f}\u{13}\u{f}5\u{4}Eel,\t_$\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.RegionCode {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.RegionCode {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.RegionCode"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.UK\u{1b}FP\u{19}m\u{e}!`0 N*Qh\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.OSType {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.OSType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0swift_proto_testing.names.EnumNames.OSType"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.9cD#9\u{7f}_,\\vum\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\07\0swift_proto_testing.names.EnumNames.ProcessSerialNumber"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0)x@H\u{1f}^<}\u{b}90\u{1f}\u{1a}\n?-RR:e\u{1a}dC}E<\u{6}\u{5}S\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Point {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Point {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Point"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.?S\u{1e}\u{f}P#7\u{b}Ez*\0\u{6}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Rect {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Rect {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0(\0swift_proto_testing.names.EnumNames.Rect"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.UG#\u{11}\u{14}b-S\u{12}/.\u{b}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.FixedPoint {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.FixedPoint {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.FixedPoint"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.M\u{16}{X|\u{1a}~R L\u{1c}^\t\u{1}yB\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.FixedRect {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.FixedRect {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.FixedRect"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.M\u{16}{X|_\u{4}2=MI-:\u{1d}c\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Style {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Style {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0)\0swift_proto_testing.names.EnumNames.Style"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}\u{6}8.cW:\\):I\u{c}g|\n\u{b}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.StyleParameter {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.StyleParameter {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\02\0swift_proto_testing.names.EnumNames.StyleParameter"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8.cW:|\t6UcU>\u{19}\u{10})\u{11}jjh\u{2}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.StyleField {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.StyleField {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.StyleField"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.cW:|I\\YhX\05)\u{13}\u{e}kF\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.TimeScale {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeScale {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.TimeScale"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.m'I'\u{1f}n\u{1d}%*l#\u{1f}\u{1e}\u{1e}.\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.TimeBase {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeBase {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0,\0swift_proto_testing.names.EnumNames.TimeBase"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.m'IWx50\u{18}IR7\u{19}@z\u{1b}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.TimeRecord {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeRecord {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.TimeRecord"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.m'Iw~,\u{e}nU:{V\t\u{1}yB\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Extension {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.Extension {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0-\0swift_proto_testing.names.EnumNames.Extension"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.Cv~\u{2}!c_W\nX\r\u{1}\u{1f}\u{3}[\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum {
+nonisolated extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.names.EnumNames.Extensions"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8.Cv~\u{2}!c_WN3\0.N*Qh\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0-\0swift_proto_testing.names.FieldNamingInitials"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15497,7 +15497,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.GeneratedMe
 
 }
 
-extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0\0\u{11}\0\0\0\0\0\u{11}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5}\u{1f}\0\0\0\04\0\0\u{c}\0\0\0\u{5})\0\0\0\08\0\0\u{d}\0\0\0\u{5}*\0\0\0\0<\0\0\u{e}\0\0\0\u{5}+\0\0\0\0@\0\0\u{f}\0\0\0\u{5},\0\0\0\0D\0\0\u{10}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Lowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{5}\0\0 \u{7f}}x,9iQ}^01{\u{4}H'eou\u{11}6\u{1c}Z\u{11}%\u{12}i^&\u{10}zE\u{14}Y%25~\u{18}Y~q>e\u{1d}\u{12})*?=\u{13}/%\u{8}&.\u{14}xtIOH\u{8}!\u{f}5$:d1k}\u{4})nV\u{7f}3\u{15}3w\u{1e}oB}D7\u{e}'\u{7f}*KQ\u{1e}.MZti,_\u{3}\u{17}4f}?%\u{7}g\u{10}f^'\u{19}b\u{3}P\u{1d},\u{12}\0[r.3G^o!\u{7f}`j \u{12}JjC\u{1}_\u{19}qVW@!Q\u{7f}+`\u{1e}e\u{5}ZY\u{e}LY\0YLt\0<kDO3$?1\u{1}\u{1b}%7\\\u{5}&}\u{1}\u{1b}_;kYyXZxLw_M  Sq^4Nq{(\u{14}(\u{1b}&)xSMY\u{15}jP\u{1a}z\u{10}r1(/\tKdJ\u{12};`\n`\u{1a}*um\0f-J(\u{8}_p\u{5}~8I*=x[\"}`4\u{7f}&\r<\u{b}\u{17}w=ZE+l(\r^GK-\r\u{2}\\kKy}nM\u{1f}z\u{7f}\u{8}\u{1a}+\u{7},{?3P#uV|%Vq\\Neg\u{7f}~GT-\u{1}(&\"w\u{18}J\u{17}@Iwr\u{c}~Z/y\u{3};\u{7f}iM\u{15}Y5N>m\u{15}\u{7}=]J\u{4}\0"
 
@@ -15507,7 +15507,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}4\0swift_proto_testing.names.FieldNamingInitials.Uppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{5}\0\0 ?^tL9i)+&\u{6}&MO(\u{7f}\u{7}z?+x\r2d\u{11}\u{13}9!j)\u{c}\u{6}ThX&>\u{10}3M\u{19}+_wM8=Jr|FIs\u{14}\u{11},Wjsd\u{1e}Q,\u{e}<XDu+}p{O>xp\"g\u{19}[4L{b\u{1d}U\u{17}Q\u{3},\u{e}O-\u{18}oK\u{11}\u{5}g]&-\rdo;_A\u{17}\tm%}\u{13}$#\u{b}HMK\u{10}9mBR$\u{12}\u{1}A|j\u{1b}uV\u{11}Wn\"YchA>\u{16}:ybs%\u{5}'5>0o\u{3}\u{6}o}c~LvJ~!V@\\o_Jr\u{16}l\u{8}~\u{5}Fz\u{1e}kXKX[\u{f}\u{6}pb\u{8}p|W\u{6}@E\u{5}\u{1b}<\u{1a}\t-%W`~!Q['#\u{e}DMldq?7E@?cx~FYT\u{17}&3l\u{19}[Y\u{8}rdb+*\u{13}Su9Ti]M6njj\u{1c}9\0\u{4}DxG+Q+xABa\tE{\u{6}-'8*94q\u{1c}\u{11}=T\u{e}\u{11}n3eN%\u{4}H{MTeJ\u{1e}\u{19}z73@\u{1d}\u{2}miD\u{7f}_t\u{18}M`b\u{6}DZZ\u{3}\0\0"
 
@@ -15517,7 +15517,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Gene
 
 }
 
-extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0D\0\0\u{10}\0\0\0\0\0\u{10}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{b}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{c}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{d}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{e}\0\0\0\0 \0\0\u{7}\0\0\0\u{5}\u{15}\0\0\0\0$\0\0\u{8}\0\0\0\u{5}\u{16}\0\0\0\0(\0\0\u{9}\0\0\0\u{5}\u{17}\0\0\0\0,\0\0\u{a}\0\0\0\u{5}\u{18}\0\0\0\00\0\0\u{b}\0\0\0\u{5})\0\0\0\04\0\0\u{c}\0\0\0\u{5}*\0\0\0\08\0\0\u{d}\0\0\0\u{5}+\0\0\0\0<\0\0\u{e}\0\0\0\u{5},\0\0\0\0@\0\0\u{f}\0\0\0\u{5}6\0swift_proto_testing.names.FieldNamingInitials.WordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{3}\0\0 ?*\u{16}\"95-[K:_i\n?aOO7&>6\tn'$_v#\u{7f}xw*\"Z 3YJ7QF]4ZqA\u{c}D\rj*\r<F\u{10}\u{c}k\u{14}\u{4}**x}7+dT30\u{17}:rDKWVu[ZtuAEwA_\u{14}a\u{17}-S\u{8}:'\u{14}hdR+V\u{1c}d\u{1e}wW\r4\0(*F\\|I%&\u{16}i|t.\0/ F\u{14}e\u{1}\u{1e}\u{18}\u{1a}\u{7f}\u{1f}\u{5}tQiIWj\u{14}\u{6}\u{b} \u{7}\rM\u{10}HGa<]\u{1}4*\u{b}svaJ4HC!o\u{14}\u{19}\u{1f}@Fu&t\u{17}QDAO}Uc\u{7f}/f\u{17}at\0<&KGUlv\u{3}P)wli\u{4}3k\u{14}(m\u{15}\u{11} \0\0\0"
 
@@ -15527,7 +15527,7 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Ge
 
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\01\0swift_proto_testing.names.ExtensionNamingInitials"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15537,7 +15537,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Generat
 
 }
 
-extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0swift_proto_testing.names.Lowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15547,7 +15547,7 @@ extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0 \0swift_proto_testing.names.Uppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15557,7 +15557,7 @@ extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\"\0swift_proto_testing.names.WordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15567,7 +15567,7 @@ extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsLowers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15577,7 +15577,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\07\0swift_proto_testing.names.ExtensionNamingInitialsUppers"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15587,7 +15587,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.G
 
 }
 
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\09\0swift_proto_testing.names.ExtensionNamingInitialsWordCase"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -15597,7 +15597,7 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf
 
 }
 
-extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{5}\0\0\0\0\u{1c}\0\0{\u{7f}\0\0\u{5}\u{6}\0\0\0\0 \0\0\u{3}\0\u{1}\0\u{e}*\0swift_proto_testing.names.ValidIdentifiers"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1}\0\00\u{1f}x>M]7\u{19}-l\u{5}dS&\t\u{16}}COH{JZd\u{16}\u{1e}\u{e}r\u{10} \u{c}\u{11}~Wg\u{10}b\u{17}7\u{10}d\u{b}8L*~g\\Ag\nK~\u{5}X A4\\L;snFi%d3\u{1c}r\r\u{b}\u{11} \u{2}m]\u{1d}\u{18}\u{1c}U^7y\u{e}h\u{1b}V&8b\u{1}\u{1d}\u{7}\u{17}\u{10}\0cqc\u{c}C\u{13}E2Lp\u{4}S\u{8}\u{5}\u{7f}*P/:w/&(*`~<wD*rP@\t9\0\0\0"
 
@@ -15614,13 +15614,13 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum {
+nonisolated extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\03\0swift_proto_testing.names.ValidIdentifiers.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{4}[aE'b@\u{f}$OI\u{1f}X3\u{2}O\u{1}\u{12}V]Ada\u{1b}Td]I\u{1a}Bnp`\u{3}4Z\u{7} \u{b}\u{5}>>dm,\u{18}\u{e}\u{1e}W,\u{8}\u{19}Daj\ru6l*R\u{1}viA\u{14}vG9\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}'\0swift_proto_testing.names.SpecialNames1"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpo\\x\0J(dH)\"\u{7}\0"
 
@@ -15630,7 +15630,7 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}'\0swift_proto_testing.names.SpecialNames2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hH4\u{12}P\u{1a}}c\u{1}M(@lZMO\u{11}P\u{1e}v\u{7}\u{c}\0"
 
@@ -15640,7 +15640,7 @@ extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames3"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@\u{18}{)\u{16}MI\u{1a}\u{3}\u{14}MX$R\u{4}$/\u{1b}9i\u{16}\u{18}2\t\u{b}Bf&\u{6}`s\u{19}]mmwY#\u{1d}\u{15}\\LWjY}yc'qM=tb7\u{1c}{g\u{15}\u{7f}\0\0"
 
@@ -15657,7 +15657,7 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}'\0swift_proto_testing.names.SpecialNames4"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}5\nh}!s>\u{14}E\u{11}\u{3}I*N&U\u{10}xo,5\ng\u{8}Qu'H$O+\u{1a}\"\u{6}+>M4.ya-\u{1}%]\u{3}h\u{10}<GROC\0\0"
 

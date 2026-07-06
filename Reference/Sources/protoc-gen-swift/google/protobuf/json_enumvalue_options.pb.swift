@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable {
+nonisolated struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -68,7 +68,7 @@ struct Pb_Enumvalue_JsonEnumValueOptions: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 
   var Pb_Enumvalue_json: Pb_Enumvalue_JsonEnumValueOptions {
     get { _protobuf_extensionStorage().value(of: Pb_Enumvalue_Extensions_json, default: Pb_Enumvalue_JsonEnumValueOptions()) }
@@ -88,7 +88,7 @@ extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_Enumvalue_Extensions_json
 ]
 
@@ -96,14 +96,14 @@ let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Enumvalue_Extensions_json = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{11}\0pb.enumvalue.json",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_Enumvalue_JsonEnumValueOptions.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_Enumvalue_JsonEnumValueOptions: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_Enumvalue_JsonEnumValueOptions: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}!\0pb.enumvalue.JsonEnumValueOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wpo\\(\u{1}Vf\u{3}\u{1a}\\\u{1c}v@\u{16}/\0\0"
 

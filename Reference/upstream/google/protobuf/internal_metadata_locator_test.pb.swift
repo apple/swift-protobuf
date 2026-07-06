@@ -15,13 +15,13 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// The test that uses this message requires that the message has only one field.
-struct Proto2Unittest_TestOneRepeatedField: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestOneRepeatedField: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -43,7 +43,7 @@ struct Proto2Unittest_TestOneRepeatedField: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestOneRepeatedField: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestOneRepeatedField: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{a}\0\0\u{10}\0\0\0\0\u{5}$\0proto2_unittest.TestOneRepeatedField"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`nI3ZLIJww:\u{16}+|8_hZ\u{4}W8[D\u{18}f/9!r\u{15}|CF(m\"\u{14}\u{4}l)6\u{15}c\u{4}z\u{1}\0"
 

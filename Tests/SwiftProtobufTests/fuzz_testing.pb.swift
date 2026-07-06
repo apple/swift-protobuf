@@ -34,12 +34,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_Fuzz_AnEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_Fuzz_AnEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case zero = 0
   case one = 1
   case two = 2
@@ -51,7 +51,7 @@ enum SwiftProtoTesting_Fuzz_AnEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIte
 
 }
 
-struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1638,7 +1638,7 @@ struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   }
 
   /// oneof
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -1659,7 +1659,7 @@ struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
     case oneofMessage(SwiftProtoTesting_Fuzz_Message)
   }
 
-  struct SingularGroup: @unchecked Swift.Sendable {
+  nonisolated struct SingularGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1683,7 +1683,7 @@ struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct RepeatedGroup: @unchecked Swift.Sendable {
+  nonisolated struct RepeatedGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1707,7 +1707,7 @@ struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct OneofGroup: @unchecked Swift.Sendable {
+  nonisolated struct OneofGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1742,7 +1742,7 @@ struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
 }
 
 /// A message with message_set_wire_format.
-struct SwiftProtoTesting_Fuzz_AMessageSetMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1758,7 +1758,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessage: @unchecked Swift.Sendable {
 }
 
 /// Two extensions to go with the message_set_wire_format testing.
-struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1782,7 +1782,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: @unchecked Swift.Sen
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1806,7 +1806,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: @unchecked Swift.Sen
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Fuzz_SingularGroup_ext: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_SingularGroup_ext: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1830,7 +1830,7 @@ struct SwiftProtoTesting_Fuzz_SingularGroup_ext: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1863,7 +1863,7 @@ struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
 
   var SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension, default: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1()) }
@@ -1888,7 +1888,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
   mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension, type: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.self) }
 }
 
-extension SwiftProtoTesting_Fuzz_Message {
+nonisolated extension SwiftProtoTesting_Fuzz_Message {
 
   /// Singular
   var SwiftProtoTesting_Fuzz_singularInt32Ext: Int32 {
@@ -2258,7 +2258,7 @@ extension SwiftProtoTesting_Fuzz_Message {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext,
@@ -2318,259 +2318,259 @@ let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.ExtensionMap = 
 // accessors for the extension fields on the messages directly.
 
 /// Singular
-let SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.singular_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{3}+\0swift_proto_testing.fuzz.singular_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{d},\0swift_proto_testing.fuzz.singular_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0l\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{4},\0swift_proto_testing.fuzz.singular_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0m\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{11},\0swift_proto_testing.fuzz.singular_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0n\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{12},\0swift_proto_testing.fuzz.singular_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{7}-\0swift_proto_testing.fuzz.singular_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{6}-\0swift_proto_testing.fuzz.singular_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{f}.\0swift_proto_testing.fuzz.singular_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{10}.\0swift_proto_testing.fuzz.singular_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_float_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0s\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{2}+\0swift_proto_testing.fuzz.singular_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_double_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0t\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{1},\0swift_proto_testing.fuzz.singular_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0u\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}*\0swift_proto_testing.fuzz.singular_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_string_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_string_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0v\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9},\0swift_proto_testing.fuzz.singular_string_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0w\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{c}+\0swift_proto_testing.fuzz.singular_bytes_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}*\0swift_proto_testing.fuzz.singular_enum_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.fuzz.singulargroup_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_SingularGroup_ext.messageSchema) }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_singular_message_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_message_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0{\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}-\0swift_proto_testing.fuzz.singular_message_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
   )
 
 /// Repeated
-let SwiftProtoTesting_Fuzz_Extensions_repeated_int32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{7}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.repeated_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_int64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{8}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{3}+\0swift_proto_testing.fuzz.repeated_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_uint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{9}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{d},\0swift_proto_testing.fuzz.repeated_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_uint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{a}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{4},\0swift_proto_testing.fuzz.repeated_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{11},\0swift_proto_testing.fuzz.repeated_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{12},\0swift_proto_testing.fuzz.repeated_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{7}-\0swift_proto_testing.fuzz.repeated_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{6}-\0swift_proto_testing.fuzz.repeated_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{f}.\0swift_proto_testing.fuzz.repeated_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{10}.\0swift_proto_testing.fuzz.repeated_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_float_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{11}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{2}+\0swift_proto_testing.fuzz.repeated_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_double_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{12}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{1},\0swift_proto_testing.fuzz.repeated_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_bool_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{13}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{8}*\0swift_proto_testing.fuzz.repeated_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_string_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_string_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{14}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{9},\0swift_proto_testing.fuzz.repeated_string_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_bytes_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bytes_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{c}+\0swift_proto_testing.fuzz.repeated_bytes_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_enum_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}*\0swift_proto_testing.fuzz.repeated_enum_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_RepeatedGroup_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_RepeatedGroup_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.fuzz.repeatedgroup_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_RepeatedGroup_ext.messageSchema) }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_message_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_message_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{19}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}-\0swift_proto_testing.fuzz.repeated_message_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
   )
 
 /// Repeated Packed
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0%\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{5}2\0swift_proto_testing.fuzz.repeated_packed_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0&\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{3}2\0swift_proto_testing.fuzz.repeated_packed_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0'\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{d}3\0swift_proto_testing.fuzz.repeated_packed_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0(\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{4}3\0swift_proto_testing.fuzz.repeated_packed_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{11}3\0swift_proto_testing.fuzz.repeated_packed_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{12}3\0swift_proto_testing.fuzz.repeated_packed_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{7}4\0swift_proto_testing.fuzz.repeated_packed_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{6}4\0swift_proto_testing.fuzz.repeated_packed_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0-\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{f}5\0swift_proto_testing.fuzz.repeated_packed_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0.\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{10}5\0swift_proto_testing.fuzz.repeated_packed_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0/\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{2}2\0swift_proto_testing.fuzz.repeated_packed_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\00\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{1}3\0swift_proto_testing.fuzz.repeated_packed_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\01\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{8}1\0swift_proto_testing.fuzz.repeated_packed_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
   )
 
-let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\02\u{8}\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}1\0swift_proto_testing.fuzz.repeated_packed_enum_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
   )
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension1",
@@ -2579,7 +2579,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
   }
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{10}3|\u{1}\u{10}\0\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension2",
@@ -2590,13 +2590,13 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Fuzz_AnEnum {
+nonisolated extension SwiftProtoTesting_Fuzz_AnEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{1f}\0swift_proto_testing.fuzz.AnEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}^\u{3}G\u{3}#\tcE1C\u{1f}\u{1f}9x\u{e}JmUAp|S\u{6}-@K?im\u{6}EuM%fl5\u{1d}*[w\u{1e}\u{3}I_\u{14}d#W\u{1e}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\u{2} \u{13}\u{2}\0\0\0\0%\0\0\u{12}\0\0!\0\0;\u{1}\0\u{17}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0p\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0(\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0t\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\00\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0x\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\08\u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0|\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0@\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0\0\u{1}\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\0H\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0\u{4}\u{1}\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\0P\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0l\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\u{8}\u{1}\0\u{f}\0\u{1}\0\u{e}\u{11}\0\0\0\0\0\00\u{10}\0@\u{1}\u{a}\u{13}\0\0\0\0\u{1}\00\u{11}\0\u{3}\0\u{b}\u{1f}\0\0\0\u{2}\0\0\u{10}%\0\0\0\u{5} \0\0\0\u{2}\u{1}\0\u{10}&\0\0\0\u{3}!\0\0\0\u{2}\u{2}\0\u{10}'\0\0\0\u{d}\"\0\0\0\u{2}\u{3}\0\u{10}(\0\0\0\u{4}#\0\0\0\u{2}\u{4}\0\u{10})\0\0\0\u{11}$\0\0\0\u{2}\u{5}\0\u{10}*\0\0\0\u{12}%\0\0\0\u{2}\u{6}\0\u{10}+\0\0\0\u{7}&\0\0\0\u{2}\u{7}\0\u{10},\0\0\0\u{6}'\0\0\0\u{2}\u{8}\0\u{10}-\0\0\0\u{f}(\0\0\0\u{2}\u{9}\0\u{10}.\0\0\0\u{10})\0\0\0\u{2}\u{a}\0\u{10}/\0\0\0\u{2}*\0\0\0\u{2}\u{b}\0\u{10}0\0\0\0\u{1}+\0\0\0\u{2}\u{c}\0\u{10}1\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}2\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}3\0\0\0\u{c}.\0\0\0\u{2}\u{f}\0\u{10}4\0\u{1}\0\u{e}/\0\0\0\u{2}\u{10}\0\u{10}5\0\u{2}\0\u{a}1\0\0\0\u{2}\u{11}\0\u{10}6\0\u{3}\0\u{b}=\0\0\0\0\u{c}\u{1}\0[\u{7f}\0\0\u{5}>\0\0\0\0X\u{1}\0[\u{7f}\0\0\u{3}?\0\0\0\0\u{10}\u{1}\0[\u{7f}\0\0\u{d}@\0\0\0\0`\u{1}\0[\u{7f}\0\0\u{4}A\0\0\0\0\u{14}\u{1}\0[\u{7f}\0\0\u{11}B\0\0\0\0h\u{1}\0[\u{7f}\0\0\u{12}C\0\0\0\0\u{18}\u{1}\0[\u{7f}\0\0\u{7}D\0\0\0\0p\u{1}\0[\u{7f}\0\0\u{6}E\0\0\0\0\u{1c}\u{1}\0[\u{7f}\0\0\u{f}F\0\0\0\0x\u{1}\0[\u{7f}\0\0\u{10}G\0\0\0\0 \u{1}\0[\u{7f}\0\0\u{2}H\0\0\0\0\0\u{2}\0[\u{7f}\0\0\u{1}I\0\0\0\0m\0\0[\u{7f}\0\0\u{8}J\0\0\0\0\u{1}\0@[\u{7f}\0\0\u{9}K\0\0\0\0\u{1}\0P[\u{7f}\0\0\u{c}L\0\0\0\0$\u{1}\0[\u{7f}\u{1}\0\u{e}M\0\0\0\0\u{2}\00[\u{7f}A\u{1}\u{a}O\0\0\0\0\u{3}\00[\u{7f}\u{3}\0\u{b}Q\0\0\0\u{a}\u{12}\0\u{10}7\0\0\0\u{5}R\0\0\0\u{a}\u{13}\0\u{10}8\0\0\0\u{3}S\0\0\0\u{a}\u{14}\0\u{10}9\0\0\0\u{d}T\0\0\0\u{a}\u{15}\0\u{10}:\0\0\0\u{4}U\0\0\0\u{a}\u{16}\0\u{10};\0\0\0\u{11}V\0\0\0\u{a}\u{17}\0\u{10}<\0\0\0\u{12}W\0\0\0\u{a}\u{18}\0\u{10}=\0\0\0\u{7}X\0\0\0\u{a}\u{19}\0\u{10}>\0\0\0\u{6}Y\0\0\0\u{a}\u{1a}\0\u{10}?\0\0\0\u{f}Z\0\0\0\u{a}\u{1b}\0\u{10}@\0\0\0\u{10}[\0\0\0\u{a}\u{1c}\0\u{10}A\0\0\0\u{2}\\\0\0\0\u{a}\u{1d}\0\u{10}B\0\0\0\u{1}]\0\0\0\u{a}\u{1e}\0\u{10}C\0\0\0\u{8}^\0\0\0\u{a}\u{1f}\0\u{10}D\0\u{1}\0\u{e}d\0\0\0\u{4}\0\0 E\0\u{5}\0\u{b}e\0\0\0\u{4}\u{1}\0 F\0\u{6}\0\u{b}f\0\0\0\u{4}\u{2}\0 G\0\u{7}\0\u{b}g\0\0\0\u{4}\u{3}\0 H\0\u{8}\0\u{b}h\0\0\0\u{4}\u{4}\0 I\0\u{9}\0\u{b}i\0\0\0\u{4}\u{5}\0 J\0\u{a}\0\u{b}j\0\0\0\u{4}\u{6}\0 K\0\u{b}\0\u{b}k\0\0\0\u{4}\u{7}\0 L\0\u{c}\0\u{b}l\0\0\0\u{4}\u{8}\0 M\0\u{d}\0\u{b}m\0\0\0\u{4}\u{9}\0 N\0\u{e}\0\u{b}n\0\0\0\u{4}\u{a}\0 O\0\u{f}\0\u{b}o\0\0\0\u{4}\u{b}\0 P\0\u{10}\0\u{b}p\0\0\0\u{4}\u{c}\0 Q\0\u{11}\0\u{b}q\0\0\0\u{4}\u{d}\0 R\0\u{12}\0\u{b}r\0\0\0\u{4}\u{e}\0 S\0\u{13}\0\u{b}s\0\0\0\u{4}\u{f}\0 T\0\u{14}\0\u{b}t\0\0\0\u{4}\u{10}\0 U\0\u{15}\0\u{b}u\0\0\0\u{4}\u{11}\0 V\0\u{16}\0\u{b}v\0\0\0\u{4}\u{12}\0 W\0\u{17}\0\u{b}w\0\0\0\u{4}\u{13}\0 X\0\u{18}\0\u{b}x\0\0\0\u{4}\u{14}\0 Y\0\u{19}\0\u{b}y\0\0\0\u{4}\u{15}\0 Z\0\u{1a}\0\u{b}z\0\0\0\u{4}\u{16}\0 [\0\u{1b}\0\u{b}{\0\0\0\u{4}\u{17}\0 \\\0\u{1c}\0\u{b}|\0\0\0\u{4}\u{18}\0 ]\0\u{1d}\0\u{b}}\0\0\0\u{4}\u{19}\0 ^\0\u{1e}\0\u{b}~\0\0\0\u{4}\u{1a}\0 _\0\u{1f}\0\u{b}\u{7f}\0\0\0\u{4}\u{1b}\0 `\0 \0\u{b}\0\u{1}\0\0\u{4}\u{1c}\0 a\0!\0\u{b}\u{1}\u{1}\0\0\u{4}\u{1d}\0 b\0\"\0\u{b}\u{2}\u{1}\0\0\u{4}\u{1e}\0 c\0#\0\u{b}\u{3}\u{1}\0\0\u{4}\u{1f}\0 d\0$\0\u{b}\u{4}\u{1}\0\0\u{4} \0 e\0%\0\u{b}\u{5}\u{1}\0\0\u{4}!\0 f\0&\0\u{b}\u{6}\u{1}\0\0\u{4}\"\0 g\0'\0\u{b}\u{7}\u{1}\0\0\u{4}#\0 h\0(\0\u{b}\u{8}\u{1}\0\0\u{4}$\0 i\0)\0\u{b}\u{9}\u{1}\0\0\u{4}%\0 j\0*\0\u{b}\u{a}\u{1}\0\0\u{4}&\0 k\0+\0\u{b}\u{b}\u{1}\0\0\u{4}'\0 l\0,\0\u{b}\u{c}\u{1}\0\0\u{4}(\0 m\0-\0\u{b}\u{d}\u{1}\0\0\u{4})\0 n\0.\0\u{b}\u{e}\u{1}\0\0\u{4}*\0 o\0/\0\u{b}\u{f}\u{1}\0\0\u{4}+\0 p\00\0\u{b}\u{10}\u{1}\0\0\u{4},\0 q\01\0\u{b}\u{11}\u{1}\0\0\u{4}-\0 r\02\0\u{b}\u{12}\u{1}\0\0\u{4}.\0 s\03\0\u{b}\u{13}\u{1}\0\0\u{4}/\0 t\04\0\u{b}\u{14}\u{1}\0\0\u{4}0\0 u\05\0\u{b}\u{15}\u{1}\0\0\u{4}1\0 v\06\0\u{b}\u{16}\u{1}\0\0\u{4}2\0 w\07\0\u{b}\u{17}\u{1}\0\0\u{4}3\0 x\08\0\u{b}\u{18}\u{1}\0\0\u{4}4\0 y\09\0\u{b}\u{19}\u{1}\0\0\u{4}5\0 z\0:\0\u{b}\u{1a}\u{1}\0\0\u{4}6\0 {\0;\0\u{b}\u{1b}\u{1}\0\0\u{4}7\0 |\0<\0\u{b}\u{1c}\u{1}\0\0\u{4}8\0 }\0=\0\u{b}\u{1d}\u{1}\0\0\u{4}9\0 ~\0>\0\u{b}\u{1e}\u{1}\0\0\u{4}:\0 \u{7f}\0?\0\u{b}\u{1f}\u{1}\0\0\u{4};\0 \0\u{1}@\0\u{b} \u{1}\0\0\u{4}<\0 \u{1}\u{1}A\0\u{b}!\u{1}\0\0\u{4}=\0 \u{2}\u{1}B\0\u{b}\"\u{1}\0\0\u{4}>\0 \u{3}\u{1}C\0\u{b}#\u{1}\0\0\u{4}?\0 \u{4}\u{1}D\0\u{b}$\u{1}\0\0\u{4}@\0 \u{5}\u{1}E\0\u{b}%\u{1}\0\0\u{4}A\0 \u{6}\u{1}F\0\u{b}&\u{1}\0\0\u{4}B\0 \u{7}\u{1}G\0\u{b}'\u{1}\0\0\u{4}C\0 \u{8}\u{1}H\0\u{b}(\u{1}\0\0\u{4}D\0 \u{9}\u{1}I\0\u{b})\u{1}\0\0\u{4}E\0 \u{a}\u{1}J\0\u{b}*\u{1}\0\0\u{4}F\0 \u{b}\u{1}K\0\u{b}+\u{1}\0\0\u{4}G\0 \u{c}\u{1}L\0\u{b},\u{1}\0\0\u{4}H\0 \u{d}\u{1}M\0\u{b}-\u{1}\0\0\u{4}I\0 \u{e}\u{1}N\0\u{b}.\u{1}\0\0\u{4}J\0 \u{f}\u{1}O\0\u{b}/\u{1}\0\0\u{4}K\0 \u{10}\u{1}P\0\u{b}0\u{1}\0\0\u{4}L\0 \u{11}\u{1}Q\0\u{b}1\u{1}\0\0\u{4}M\0 \u{12}\u{1}R\0\u{b}2\u{1}\0\0\u{4}N\0 \u{13}\u{1}S\0\u{b}3\u{1}\0\0\u{4}O\0 \u{14}\u{1}T\0\u{b}4\u{1}\0\0\u{4}P\0 \u{15}\u{1}U\0\u{b}5\u{1}\0\0\u{4}Q\0 \u{16}\u{1}V\0\u{b}6\u{1}\0\0\u{4}R\0 \u{17}\u{1}W\0\u{b}7\u{1}\0\0\u{4}S\0 \u{18}\u{1}X\0\u{b}8\u{1}\0\0\u{4}T\0 \u{19}\u{1}Y\0\u{b}9\u{1}\0\0\u{4}U\0 \u{1a}\u{1}Z\0\u{b}:\u{1}\0\0\u{4}V\0 \u{1b}\u{1}[\0\u{b};\u{1}\0\0\u{4}W\0 \u{1c}\u{1}\\\0\u{b}<\u{1}\0\0\u{4}X\0 \u{1d}\u{1}]\0\u{b}=\u{1}\0\0\u{4}Y\0 \u{1e}\u{1}^\0\u{b}>\u{1}\0\0\u{4}Z\0 \u{1f}\u{1}_\0\u{b}?\u{1}\0\0\u{4}[\0  \u{1}`\0\u{b}@\u{1}\0\0\u{4}\\\0 !\u{1}a\0\u{b}A\u{1}\0\0\u{4}]\0 \"\u{1}b\0\u{b}B\u{1}\0\0\u{4}^\0 #\u{1}c\0\u{b}C\u{1}\0\0\u{4}_\0 $\u{1}d\0\u{b}D\u{1}\0\0\u{4}`\0 %\u{1}e\0\u{b}E\u{1}\0\0\u{4}a\0 &\u{1}f\0\u{b}F\u{1}\0\0\u{4}b\0 '\u{1}g\0\u{b}G\u{1}\0\0\u{4}c\0 (\u{1}h\0\u{b}H\u{1}\0\0\u{4}d\0 )\u{1}i\0\u{b}I\u{1}\0\0\u{4}e\0 *\u{1}j\0\u{b}J\u{1}\0\0\u{4}f\0 +\u{1}k\0\u{b}K\u{1}\0\0\u{4}g\0 ,\u{1}l\0\u{b}L\u{1}\0\0\u{4}h\0 -\u{1}m\0\u{b}M\u{1}\0\0\u{4}i\0 .\u{1}n\0\u{b}N\u{1}\0\0\u{4}j\0 /\u{1}o\0\u{b}O\u{1}\0\0\u{4}k\0 0\u{1}p\0\u{b}P\u{1}\0\0\u{4}l\0 1\u{1}q\0\u{b}Q\u{1}\0\0\u{4}m\0 2\u{1}r\0\u{b}R\u{1}\0\0\u{4}n\0 3\u{1}s\0\u{b}S\u{1}\0\0\u{4}o\0 4\u{1}t\0\u{b}T\u{1}\0\0\u{4}p\0 5\u{1}u\0\u{b}U\u{1}\0\0\u{4}q\0 6\u{1}v\0\u{b}V\u{1}\0\0\u{4}r\0 7\u{1}w\0\u{b}W\u{1}\0\0\u{4}s\0 8\u{1}x\0\u{b}X\u{1}\0\0\u{4}t\0 9\u{1}y\0\u{b}Y\u{1}\0\0\u{4}u\0 :\u{1}z\0\u{b}Z\u{1}\0\0\u{4}v\0 ;\u{1}{\0\u{b}[\u{1}\0\0\u{4}w\0 <\u{1}|\0\u{b}\\\u{1}\0\0\u{4}x\0 =\u{1}}\0\u{b}]\u{1}\0\0\u{4}y\0 >\u{1}~\0\u{b}^\u{1}\0\0\u{4}z\0 ?\u{1}\u{7f}\0\u{b}_\u{1}\0\0\u{4}{\0 @\u{1}\0\u{1}\u{b}`\u{1}\0\0\u{4}|\0 A\u{1}\u{1}\u{1}\u{b}a\u{1}\0\0\u{4}}\0 B\u{1}\u{2}\u{1}\u{b}b\u{1}\0\0\u{4}~\0 C\u{1}\u{3}\u{1}\u{b}c\u{1}\0\0\u{4}\u{7f}\0 D\u{1}\u{4}\u{1}\u{b}d\u{1}\0\0\u{4}\0\u{1} E\u{1}\u{5}\u{1}\u{b}e\u{1}\0\0\u{4}\u{1}\u{1} F\u{1}\u{6}\u{1}\u{b}f\u{1}\0\0\u{4}\u{2}\u{1} G\u{1}\u{7}\u{1}\u{b}g\u{1}\0\0\u{4}\u{3}\u{1} H\u{1}\u{8}\u{1}\u{b}h\u{1}\0\0\u{4}\u{4}\u{1} I\u{1}\u{9}\u{1}\u{b}i\u{1}\0\0\u{4}\u{5}\u{1} J\u{1}\u{a}\u{1}\u{b}j\u{1}\0\0\u{4}\u{6}\u{1} K\u{1}\u{b}\u{1}\u{b}k\u{1}\0\0\u{4}\u{7}\u{1} L\u{1}\u{c}\u{1}\u{b}l\u{1}\0\0\u{4}\u{8}\u{1} M\u{1}\u{d}\u{1}\u{b}m\u{1}\0\0\u{4}\u{9}\u{1} N\u{1}\u{e}\u{1}\u{b}n\u{1}\0\0\u{4}\u{a}\u{1} O\u{1}\u{f}\u{1}\u{b}o\u{1}\0\0\u{4}\u{b}\u{1} P\u{1}\u{10}\u{1}\u{b}p\u{1}\0\0\u{4}\u{c}\u{1} Q\u{1}\u{11}\u{1}\u{b}q\u{1}\0\0\u{4}\u{d}\u{1} R\u{1}\u{12}\u{1}\u{b}r\u{1}\0\0\u{4}\u{e}\u{1} S\u{1}\u{13}\u{1}\u{b}s\u{1}\0\0\u{4}\u{f}\u{1} T\u{1}\u{14}\u{1}\u{b}t\u{1}\0\0\u{4}\u{10}\u{1} U\u{1}\u{15}\u{1}\u{b}u\u{1}\0\0\u{4}\u{11}\u{1} V\u{1}\u{16}\u{1}\u{b}v\u{1}\0\0\u{4}\u{12}\u{1} W\u{1}\u{17}\u{1}\u{b}w\u{1}\0\0\u{4}\u{13}\u{1} X\u{1}\u{18}\u{1}\u{b}x\u{1}\0\0\u{4}\u{14}\u{1} Y\u{1}\u{19}\u{1}\u{b}y\u{1}\0\0\u{4}\u{15}\u{1} Z\u{1}\u{1a}\u{1}\u{b}z\u{1}\0\0\u{4}\u{16}\u{1} [\u{1}\u{1b}\u{1}\u{b}{\u{1}\0\0\u{4}\u{17}\u{1} \\\u{1}\u{1c}\u{1}\u{b}|\u{1}\0\0\u{4}\u{18}\u{1} ]\u{1}\u{1d}\u{1}\u{b}}\u{1}\0\0\u{4}\u{19}\u{1} ^\u{1}\u{1e}\u{1}\u{b}~\u{1}\0\0\u{4}\u{1a}\u{1} _\u{1}\u{1f}\u{1}\u{b}\u{7f}\u{1}\0\0\u{4}\u{1b}\u{1} `\u{1} \u{1}\u{b}\0\u{2}\0\0\u{4}\u{1c}\u{1} a\u{1}!\u{1}\u{b}\u{1}\u{2}\0\0\u{4}\u{1d}\u{1} b\u{1}\"\u{1}\u{b}\u{2}\u{2}\0\0\u{4}\u{1e}\u{1} c\u{1}#\u{1}\u{b}\u{3}\u{2}\0\0\u{4}\u{1f}\u{1} d\u{1}$\u{1}\u{b}\u{4}\u{2}\0\0\u{4} \u{1} e\u{1}%\u{1}\u{b}\u{5}\u{2}\0\0\u{4}!\u{1} f\u{1}&\u{1}\u{b}\u{6}\u{2}\0\0\u{4}\"\u{1} g\u{1}'\u{1}\u{b}\u{7}\u{2}\0\0\u{4}#\u{1} h\u{1}(\u{1}\u{b}\u{8}\u{2}\0\0\u{4}$\u{1} i\u{1})\u{1}\u{b}\u{9}\u{2}\0\0\u{4}%\u{1} j\u{1}*\u{1}\u{b}\u{a}\u{2}\0\0\u{4}&\u{1} k\u{1}+\u{1}\u{b}\u{b}\u{2}\0\0\u{4}'\u{1} l\u{1},\u{1}\u{b}\u{c}\u{2}\0\0\u{4}(\u{1} m\u{1}-\u{1}\u{b}\u{d}\u{2}\0\0\u{4})\u{1} n\u{1}.\u{1}\u{b}\u{e}\u{2}\0\0\u{4}*\u{1} o\u{1}/\u{1}\u{b}\u{f}\u{2}\0\0\u{4}+\u{1} p\u{1}0\u{1}\u{b}\u{10}\u{2}\0\0\u{4},\u{1} q\u{1}1\u{1}\u{b}\u{11}\u{2}\0\0\u{4}-\u{1} r\u{1}2\u{1}\u{b}\u{12}\u{2}\0\0\u{4}.\u{1} s\u{1}3\u{1}\u{b}\u{13}\u{2}\0\0\u{4}/\u{1} t\u{1}4\u{1}\u{b}\u{14}\u{2}\0\0\u{4}0\u{1} u\u{1}5\u{1}\u{b}\u{15}\u{2}\0\0\u{4}1\u{1} v\u{1}6\u{1}\u{b}\u{16}\u{2}\0\0\u{4}2\u{1} w\u{1}7\u{1}\u{b}\u{17}\u{2}\0\0\u{4}3\u{1} x\u{1}8\u{1}\u{b}\u{18}\u{2}\0\0\u{4}4\u{1} y\u{1}9\u{1}\u{b}\u{19}\u{2}\0\0\u{4}5\u{1} z\u{1}:\u{1}\u{b}\u{1a}\u{2}\0\0\u{4}6\u{1} {\u{1};\u{1}\u{b}\u{1b}\u{2}\0\0\u{4}7\u{1} |\u{1}<\u{1}\u{b}\u{1c}\u{2}\0\0\u{4}8\u{1} }\u{1}=\u{1}\u{b}\u{1d}\u{2}\0\0\u{4}9\u{1} ~\u{1}>\u{1}\u{b}\u{1e}\u{2}\0\0\u{4}:\u{1} \u{7f}\u{1}?\u{1}\u{b}t\u{3}\0\0\0\u{4}\00\u{12}\0B\u{1}\u{b}u\u{3}\0\0\0\u{5}\00\u{13}\0C\u{1}\u{b}v\u{3}\0\0\0\u{6}\00\u{14}\0D\u{1}\u{b}w\u{3}\0\0\0\u{7}\00\u{15}\0E\u{1}\u{b}x\u{3}\0\0\0\u{8}\00\u{16}\0F\u{1}\u{b}y\u{3}\0\0\0\u{9}\00\u{17}\0G\u{1}\u{b}z\u{3}\0\0\0\u{a}\00\u{18}\0H\u{1}\u{b}{\u{3}\0\0\0\u{b}\00\u{19}\0I\u{1}\u{b}|\u{3}\0\0\0\u{c}\00\u{1a}\0J\u{1}\u{b}}\u{3}\0\0\0\u{d}\00\u{1b}\0K\u{1}\u{b}~\u{3}\0\0\0\u{e}\00\u{1c}\0L\u{1}\u{b}\u{7f}\u{3}\0\0\0\u{f}\00\u{1d}\0M\u{1}\u{b}\0\u{4}\0\0\0\u{10}\00\u{1e}\0N\u{1}\u{b}\u{1}\u{4}\0\0\0\u{11}\00\u{1f}\0O\u{1}\u{b}\u{2}\u{4}\0\0\0\u{12}\00 \0P\u{1}\u{b}\u{3}\u{4}\0\0\0\u{13}\00!\0Q\u{1}\u{b}\u{4}\u{4}\0\0\0\u{14}\00\"\0R\u{1}\u{b}\u{5}\u{4}\0\0\0\u{15}\00#\0S\u{1}\u{b}X\u{4}\0\0\0\u{16}\00$\0\u{4}\0\u{b}Y\u{4}\0\0\u{2} \0\u{10}\0\u{2}\u{4}\0\u{b} \0swift_proto_testing.fuzz.Message"
   private static let _protobuf_reflectionData: Swift.StaticString = ",{\0\0 \u{1f}.z?coQ\u{1b}\u{1d}0\u{10}=I|R$j\u{7f}\u{1e}%<I\u{1}G},9fj^\u{1a},\u{1e}@'\u{19}% A$N\u{3}nh4q=\u{15}\u{1e}\u{1c}$e<~W\u{7}\u{1a}\u{2}D3[;\u{1a}4n,%!\u{1d}\u{15}[_V\u{10}l`dNg^\u{15}\u{17}z\u{14}\u{6}\u{8}\u{1a}Qt#QpN*Z+umP\u{f}\0d_kE(\u{17}Z5s\u{16}qVy8%gt\u{e}9\u{14}p~t];m'y9\u{17}z\u{f}XLg@\u{15}BN({m4<\t}6l\u{1d}qR\u{17}Zw\u{1e}\n\u{1f}g\u{7f}^(+\u{8}0f-fdNK\u{1c}'.IjS*.ss9<\u{3}X\u{15}`2sZ\u{11}0\u{12}p9\0t`\u{11}}\u{6}cb5(O\0wP Zg\t|?\u{1a}vG_>n2\u{17}\0\u{12}P~\u{1}1_\n\u{c})|F+\u{2}Q([\u{17}&q^\u{15}\u{13}\u{18}B(!y\u{e}\"g\";\u{7f}7\u{c}\u{19}\rL\r~FF\u{1a}s=.'U^\u{11}\u{6}\u{6}a|&AE\0&aw\u{17}~@-EV\u{16}l\u{1e}n4ug\"4Wb=\u{1c}I2+\u{1c}\u{13}4\u{8}&\u{1}F\u{7}`r\u{5}<\u{1d}m*o\u{13}:\u{1f}GX47pE5\"w:y=A0G6y\u{15}XI\u{15}1\u{8}[\u{11}cKPD\u{11}U-$Z;\rYl\u{1b}ze\u{1a}h$Y\"\u{b}M,+8L2\0O V5$/-s\u{1f}N7[Z\u{1}\u{c}vE\u{e}73.\u{7}}x\u{19}\u{1c}Wq \u{f}yOS+;z(eE%?1i\u{b}PR\u{3}L\n\u{13}SA!FXB\u{13}\n\u{5}^\u{17}Q\u{5}izs-.vZ(\u{2}O_\u{12}J^v\u{5}\u{10}elxR\t7|\u{c}TM*\n\u{1d}~Ub'go\\xDI\u{12}a\0spX\u{2}~\u{1c}O! M{T%G{'i\u{c}\u{1f}T}hP8F\u{1}%-\u{b}\rx\u{e}{/fj'\u{12}CA<x2\u{b}O&Hs\\\u{13}Dh7\u{1a}%(kq\u{e}\u{16}\u{5}IFL\u{4}HW\n^ep!`\u{1c}a&O?E\u{16}-NF\u{4}!{y\u{7f}h-\u{1}r@\u{14}V\u{1e}\u{14}@f\u{1e}\u{1e}z<0ti\u{f}P\nXf_\u{1a}>Z]a2m\\V]F7\u{13}\0!c\u{c}jO^WBGigKb\u{4}\u{e}M%\u{15}+T\u{c}%u\u{1c}\rLp)\u{12}\u{1c}D:\nLJ&x%]GN0O\u{4}pm\u{10}eJ\u{1b}\t{H\u{13})-9z9'\u{14};\u{7}*1!\u{1f}$$\u{14}\u{15}L\u{10}8\n\u{17}Fi\06\u{15}H\u{5}:p]hw*y\u{4}_5C9|Kf|*QnVhbnmHG{\\h\u{1}B6j\u{17}\u{7}xPpL$\u{c}5[rb=4\u{e}6\u{11}Uv6U\u{4}\u{1b}\u{1e}-*\u{1}M\u{e}&\u{12}N{y7\u{4}e\u{2}\0JNWg[5ix<MX\u{1c}/YFr\u{17}(L7g}\u{2}\0dg\u{10}(\u{1}b\u{1c}PY\u{8}Hc\u{1c}6P(wF)z\u{b}\u{1d}tu\u{7}4z\u{8}\\|\u{c} a\u{17}sh\u{f}d_0SH7d=M[L\u{1b}8]l=:>IVt'zU^\u{4}zjI~1.Jj0yT[HF3Cx\u{1c}?\u{16}JnCN**{>\u{1d}\n9s)\n\u{f}Yu7CI*U/#\u{16}+sGYyxn\u{7}3=\u{17}[_\u{12}\u{b}_h\rg2\u{3}FxN]^zt2i\u{1}fl\u{5}M\u{12}Yp-=*o :>C\u{1d}o\roj\u{17}I!\u{1b}{;S|\u{1d}Jl\u{4}\u{1d})\u{1f}5c){{M{\u{e}T:r7\u{13}vxU\r\u{18}\u{c}\"HjA@NJ[|^0\u{7f}sECl|SfK[MjQ\u{5}4D|\"@@szo[z'gG0B\u{15}O+\u{1}@vi7I#Hmtl5xZs\u{8}TcP\u{7f}K5ZA$$\ng@\u{2}\u{1e}\u{12}t\u{12}e'Ft\u{1d}$`;Oed\u{10}2,\u{b}zM\u{1e}HVp,\u{4}\u{5}A0Z*\u{18}\u{10}ZiU*O\u{1f}\u{10}\u{b}^>bj1\u{13}g\"xz%27Rbh\u{1}H\u{c}&\u{18}\u{7}V~g\u{15}T,>\"6-1-2\u{15}4&xWm'GU\u{11}\n\u{c}C$\u{16}4E?-a4 \u{5}\u{4}Rf|If@\u{1f})\nu>\u{19},N]\u{1c}\u{17}4uQn1)D4-\u{1f}{hv0s'E9\u{4}{4R\u{17}A:{*\u{1e}\u{f}\"j6\u{7},Yz\u{19}\u{3}\u{5},\nCo\u{e}abx(\u{19}\u{15}gV1S&_fe\u{16}Wx3K|6\n\\SBVFV\u{15}\n'j7Ah\u{17}.3TE-ND\nvv\u{11}%\u{13}~zNQ>9`fo[$J+@>F\u{15}\u{4}-\"31\u{7f}?Vl\u{12}\u{1f}yDKZ\u{1d}\u{7f}k$\u{1}\u{17}JM0d2Ka&-Y*\u{11})r|;:\u{1b}|2y\u{5}1g\u{e}Z\u{1}\u{1}3S\u{4}\u{18}6OUm'DiqeubM:\\ }D\u{1f}lDn5G\rr\u{c}w]^Y_#\u{f}_A\rdDXU\u{19}\u{2}_\u{1}\tpi\u{17}]\u{b}hA6=Bv\u{17}H3\u{10}\u{3}#o\u{1a}\"\u{b}\u{8}G7Rx2hS\t1\u{1a}7'(\"\"(\u{13}.A5'a\u{6}~r\u{17}\u{12}2\u{e}X%\u{7f}\u{7f}\u{1f}\0z\u{16}eO\u{f}bH]h4\r\u{5}}\u{f}\\*$of\u{1f}^\u{1}n\u{19}\u{c}H\n}\u{1b}r{7\u{1d}^'\u{15}\\\u{3}sd\u{1}\u{1d}c0E 8\u{14}{c\u{7}2rf'ae\0]\u{18}\u{1c}n4t\u{4}?\n\u{1c}\u{13}5/7\u{11}.;\u{1c}whc\u{1b}Q\u{1}Y\u{11}\u{4}kSb=*Ub}pnG\u{e}8bs\u{b}3\u{1}R\u{7}rhc\u{b}v++)\u{1a}\u{b}\u{2},Y\u{11}H\u{1b}2E\u{17}\u{e}\u{1a}0+)gs(hA1\u{2}s0g*PJs\u{5}\u{1b}\u{3}\u{7f}2\u{13}U=3k\t'@UJjuh0phMm\u{1f}\u{15}\u{7f}*apx=\u{7}(\u{e}\u{3}NgBom\u{7f}U\u{1c}V9\u{1b}v?n4K\r6r5\n\u{2}B\u{e}@G4m\u{15} \0f\u{10}5\u{1f}g[h1\u{18}!MxT0v\u{7}c6!uR1oRtjMLw\u{1}J8#L1(-w\0!KVMZ8fNN0_>\u{16}d/hlHO^q,smEb\u{b}{[\u{6}WW=P@cO+~{[St%\u{6}\r\u{7f}\u{1}\u{f}<N`\u{7f} EHk+{1a<!H?Wui\u{7f}\u{2}%+[S5Jui\\\rX}2a/)8=Y\u{19}red\r\u{4}\u{b}g>\u{1d}e][&:e\u{18}~)B\u{19}\u{15}3m\u{6}\u{18}%r\r\u{12}@\u{e}Z;WUGjM\u{1c}\u{17}/eD\"TD`^ims\"G\u{1a}m^v\u{1b}e3*lSq\\l]6%ro\u{7f}'kbk4\u{5}ZPN)~Mt9LU<+'_?\u{17};Cu3iW\r^(\u{10}#@~Y\u{1d}vJE=\u{10}\u{5}]2nkidZb<\u{8}T\u{c}\u{11}+E%+M=S\n\u{1c}F7R\u{1d}ql#\u{18}\u{8}\u{7f}b\nNS\u{2}\"M:Az7vP\u{1}=X*~\u{1}@mJb\u{1d}*W\u{17}\u{5}]\u{13}#O5;Q\rRKF=-\nI1\u{10}7{!)4\u{6}v\tDSsW.\u{14}\u{15}\u{1b}\u{e}OFqP=}h2[\u{1f}\u{1}\"]KA\u{17}2)pw\tc\u{3}M1 ow,Ym}59wzEo\u{13}c*lN3Io\\8\u{c}(T<?Jh3jDV\u{1f} `_[EN\u{13}\\\u{1c}|\u{8}[R@sh5[A(w\u{18}J+\n{l\u{13}\np@99p\u{e}t\u{2}%{.X5JoZZdeys%Lz8\rYk\u{17}s\u{1}\0\u{12}.)HNOCZ\u{13}<p\u{1a}sp\u{1b}L1\u{b}\u{8}E'A\"\u{16}a\"1y\"S\u{f}\u{10}-T@?/\u{16}\u{b}&}\u{2}1QD\u{14}\u{1e}7CY8.&S`vb\u{7}Rs{/:2O\u{16}Ye, \u{7f}-]=\u{12}L@\u{17}\\]\u{13} \u{2}\u{15}\u{e}~\u{7f}w\u{7f}Ua`%\u{18}7E}Xhr-9IMRrmz7\"?m\u{6}k\u{11}\r\\(\"w\u{14}Z=*>\u{18}#Z(j`G\u{1c}*G(\u{7}L\u{13}Ce0jGAZL\u{8}WAi^X\u{1}\u{4}\u{7},dq*l_b%\u{f}$\u{13}Z~VS[\u{1b}\u{1e}g\u{b}E7&]\u{15}nfm2\u{1a}< /X=6\u{7f}~~\u{1b}|\u{1c}S\u{3}#gAo\n\u{1d}90;-kT\u{2}P5XhCp\u{1e}}l\u{8}~@\u{10}>&\u{1}[\u{3}\u{7}s\u{15}IU}9=\u{1e}\u{17}1}[\r%{e\u{12}!\u{12}_\u{6}G&Q@){p\u{10}e[W? b/m5{/}*u\u{2}uz\u{7}[l~!M(R/\u{16},DW\\s\u{3}\"jz!`_`<OL\u{4}\u{11}#S]\u{19}gWY\u{6}N7x\u{1d}\u{3}\r(Y=C6\u{1c}N\u{10}Y\nO2'I?d?EMu%>?s:u\u{e}{\0<\t#OQ\"pO&ER4^\u{5}\u{5}t\u{1}P:~{NroI)KKtEhl\u{19}|0*\u{1e}\u{1c}3d\u{3}!Y'\u{1c}2W\t#\u{f}|=k\u{c}FF'?07-Q\u{e}b'Q2\u{13}>\u{1}\u{5}\u{10}\u{1c}\u{8} \0r+\u{1b}xN/Z{jJv&w{\u{7}\tg?oU;Wk\u{18}yI*e6 \u{4}\u{17}MO\u{1f}0\u{1a}J\u{1c}TJ\u{11}`G9#jy~{\u{1b}}rn\0\u{7f}J\t+z;\u{11}-_6<BQ\0MG&l\u{1b}\u{5}\u{8}$30aEq-Tr|k\u{e}-7\u{5}\u{11}yJg>i]Y\u{1e}\u{7f}K7!\u{f}\u{14}_k$pbBb}87t0&\u{7}\u{1e}K\u{5}}F%gD/s\\q\u{1c}<n Ma/'4~{oxH$q\u{18}\u{18}\u{14}\u{1d}_#$>0tm&\u{1f}[0p\u{14}\u{1d},qs\u{1}\u{7}ELKd\u{17}\u{12};E\u{16}\u{1c}^m\u{18}H]dl_\u{7f}\u{2}\u{1f}\t\u{1d}$oVX#VM87K`tJ\u{7}/~)8R\u{11}\u{12}z?+Ju}8fj{\u{1e}\u{3}nq{fy\n]R\u{f}\t38p\u{c}\u{16}5A\u{7}&b\u{5}7Lq\u{5}\u{19}/\u{1}\u{11}A\u{e}\u{1}'\"@w\u{1d}\u{1d}ov\"-\u{1d}WH\u{3}\u{f}\u{12}<`0j#SgP\n(|\u{1e}a\u{1e}8j,fx\t(\u{16}94m\u{19}xNJMQ\u{14}\u{16}+P4\u{1e}-\rj]pb7\u{18}\u{e}4!\0<AWm,N&,F?@W\08|\t;EYI}L\u{1c}W>\u{5}U+\u{1d}2\u{5}Q)ky\u{2}X9\u{11}\u{16}.\u{1b}l[i/\u{f}.g\u{1f}$f\u{13}Q\u{12}z?W4QP#E}\u{1f})Bplre\u{19}P,Lq\u{e}B\u{3}S)\u{17}B\"\u{1d}4\u{11}\u{1e}zqmv\u{18}s^6\u{1}\u{1e}\u{16}/- \u{b}LQH\u{e}I9DW2W\u{1b}&N\u{1}R\u{1c}T\u{17}e!\u{15}t5Qd[MBB%tZ-\u{8}g\u{1f}T*wi\u{e}^B\u{10}\u{7f}~3\\\u{14}\u{16}\u{19}h'^x\u{4}S\u{11}*}wN\\dcOu\u{2}$\u{b}q,dO\u{1b}$\0\u{2}q{?.z\u{13}p|!u4\u{3}=4k\u{19}yP\u{15}\u{5}\u{1c}\u{c}\u{18}\u{10}_\u{16}\u{c}DX\u{1a}\u{1c}{ub{\u{2}>Gu+9RFXvX!GU|\u{b}Ozg4K:`ue(bbPp2-l\u{1f})f+|D-B\r7Q\u{4}yi^FT`^*\u{4}\u{1c}h\u{12}xh\u{16}v\u{1b}_h?:%\t\u{7f}H}5?T{aWn)uH?B!\u{1}^\u{8}o/ \u{2}T%\u{e}e`*I\u{b}5{!\u{10}1iN\u{5}\n[\u{17}QmoO\u{19}#-AK]U\u{2}\\G\u{13}'rqzN>5\u{15}&v^\u{7f}1\u{10}MhE-@eV7\u{c}k\u{1}\u{12}\u{1c}=7pRfXM?{{@**\tFIx\u{1a}\u{1f}og+{\u{19}ly\u{7}922\u{13}\u{17}!1\nWF<6|\u{11}I63T.=sSl=.mv\u{e}+\u{b}\u{b}ss\u{13}\u{c}:\u{1f}H\u{1e}\u{19}X\u{7}>\u{1b}>!3j8[Rir\u{6}\u{16}\u{3}3F\u{15}Wh\u{15}\u{1e}cv)\u{15}H/Ou'hNt\u{c}rKd[6@=`q>M\u{5}>x&\u{1c}d'f8R\\E>buP,\u{e}OS\u{11}\u{1f}->\u{17}m\\)wn49T5FQ\u{1e}:FwC:,\u{1f}6;o At\u{4}\t:s\u{c}RmO^{xjBUmq\u{1a}S\u{3}r\u{4}mX\u{1d}\u{19}/qf)\u{19}bg?0_{B}\u{1b}.\u{c}h\u{1}(J\u{10}c\u{c}\u{1b}cU@\u{1c}B\u{c}ft\u{19};\u{13}\n02w\\2tAs!+y7?\u{b}sg>(b\u{1b}sL\no\u{16}dR%5RAqoZ\u{1}>~~t 6\u{6}\u{15}1BJd~MY\r\u{8}wM2\\rnu\"z#_aIS?#E2<7|'\u{18}]\u{1a}3`\u{e}\u{15}\u{8}g#\u{1f}D3\0\u{19}V~XxyU\u{8}\n\u{18}'v\u{18}vzC~e\u{14}zu\u{b}oFjl=##}g\u{6}).K/\u{19}s^BQdK\u{18}Ld\u{1d}\u{8}0\u{11}\u{12}),.LU1\u{12}-yH6T-Qa\u{8}Z\u{1}nRSAvU[\u{e}SC.jYJEI9[H,y\u{6}H\u{b}\u{e}\u{16}&\u{7}{B\u{c}CA\u{8}\u{15}\u{19}zY\u{8}-=p\u{3}\u{3}\u{1c}\u{4}3z~PNXs\u{18}!\u{16}m2tFm/\\\u{12}w$Y\u{19}gm@b%\u{8}\u{1e}\\Z\u{6}Z 6\u{16}\u{19}\u{7}/v7|\u{1e}&\u{10}\u{f}!\u{4}S\u{1e}\u{1a}b2\"=\u{3}Tj\r$:)l\u{17}s\u{4}p4r-\u{e}\u{1e}3|}\u{3}}tBCika\ny3z\u{14}@\u{11}Ixr#`\u{10}\u{f}i\u{1c}\u{1e}]24xyK\"r#K80)pWcW&,:E\rb/\n\r)'upp\u{17}(\nP&q>6$p_[T\u{2}x=\u{1}\u{3}\u{6}@|RNwBr\u{1e}DKX/\u{19}j`WTz\u{12}\"\u{4}\u{b}Qj\u{19}E\u{1a}\u{1b}8n\u{11}\u{1d}|~of%gYaRo#^i+\u{7f}\u{12}[k)\nq<\u{15}g/3Y\u{4}\u{5}\u{4}:)P~\u{14}!@r\u{c}a@A`JZe(IOO\u{8}.S\tk(!E^WU4!U8$$Rt.\u{10}\u{16}o}\u{1f}Ql\u{6}gU?X\u{2}N2yK\u{f}\u{7f}\0\u{19}\u{2}X[ln\u{14}'\u{6}:\u{4}\u{1}\u{19}\u{7f}=e1f\r\u{2}\u{b}!w\u{12}%oO9l\rf\u{7}}\u{b}G=y\u{16}\u{7}6zVTubV%*[szDQ\u{f}\u{2})\\\u{7f}\u{6}m\u{1a}}JUR\u{3}\u{19},\"P{V4?-b?\u{1d}\u{13}\u{c}B\u{7f}^\u{1c}yNE`p|uO\n*VqYt*\u{1a}B[)clDf~'6)$?e6[_tS/H$?\t\u{1c}`ZtY\u{14}Cp/sS_\u{4}Di\u{3}6\u{c}\u{7}\u{1b}\u{1c}\u{19}jSErgSq\u{1a}b\u{5}VAlSZ-FtvUb:X}p04*}Ic?$q\u{b}w@Yz\u{16}5\\\u{1a}\u{2}\u{19}uqO\u{12}!e\u{f}b_\u{6}pRZ'8\u{15}tbH@\u{19}\u{8}}L\u{7f}AZ^\t\nxV+Fw{\u{19}\u{1b}+J9\u{e}\\\u{1b}\u{1a}&BIk\u{c}\u{f}\u{e}&\u{1b}k\u{3}\u{7}L9\u{2}\u{8}\u{11}\u{f}V\u{8}g\0qUOe\u{1d}\tmh5'\u{1f}4\t6;\0_#706KO%xi\u{12}\u{1}f'9\u{1b}\u{11}AsaIH\n\u{1f}|9\u{4}M\u{4}\u{6}\\`y#N\u{b}Pki\u{3}D\u{5}\u{13}[$&p\u{10}\u{b}\u{1d}\u{18}/@`@TC\u{13}Z%&\0J\u{1d}I2X7A!\u{13}/c,F!xW\u{15}xbK7@\u{5}5\u{c}&1ji\nT=<?/k]\r\0@\u{6}b/\u{2}\u{3}S1o2j\u{b}5^i_*~}\u{2}\u{1d}\u{18}Q`E\u{3}\u{16}V\u{11}s\n\u{8},\u{f}D\u{15}N&r;=MKg\u{10}nW\u{1f}=+q\u{14}\u{1e}oxT\u{1d}mh\u{c}mS%?.\u{1a}R.sF;?ry\u{e}y)}whb\0\n\n>Qo\u{2}+uK_r\u{15}X\u{1f}M3H#)\u{11}\u{2}@;0&#\u{b}\u{1a}ZjlL}07k\u{f}Cs\u{10}godw<\u{1b}Y\u{3}FhW6D>p.tQS\u{11}!Qc\u{14}twd\u{5}978CUf+5|}F\u{13}s_U\u{14}/,\u{b}Z0'Fyso\u{5}3=5HlSw+Vgd%#\u{15}I\"O.*;H@|OMa\u{1e}\u{6}8+qccpgP\u{10}\u{2}M>\\\"\u{1b}=\u{e}($m}QSag\u{1b}\u{17}!W\u{c}YQ\u{1e}U\u{6}iJ~\u{6}ghf.z*hi\u{10}K\u{b}i?nYiEb8Yh9\u{14}J{{,\u{1}OZ\u{13}CB.\u{4}\u{11}@\u{13}U\u{4}\0k7/!d@\u{6}O7x\u{14}y`9hk\nn[gb\u{1d}'aX!|e\02`1\u{1b}\u{4}*M/P*{tE\u{1d}Z\u{4}D{x\u{e}BR\u{16}\u{15}\u{7}a@fr?k\u{14}rZN<\u{1d}2m\u{18}0:\t\u{6}\nD3YRV` 6\"wuB&\u{1b}{Q\u{1a}m\u{1b}_&}\u{6}j+E\tE\u{c}9}\u{17}d/&O,\u{c}\u{1c}\u{15}RE[g\u{19};pFm[.\u{1c}Q1&)^F\0xd?7AX$T)-]nLd\u{7}Lwq{Y\u{e}h#=8>cw0Fl#l6\u{15}\u{7}Y?\u{17}oh\u{12}\u{1a}>/\u{4}8v;\u{1a}}\u{7}B\tuW\u{1b}|QVv\u{19}reO\u{b}\nP\u{c}c\u{10}\u{10}\u{b}D#Ot\u{19}B\r4}_X\t\0jDi6dbo\u{7}{Y)&N\u{1b}2C'-,lA#j,nDNn\u{10}r)Oh`W\u{5}\u{5}DPGu<\u{2}l\u{1a}>\u{1c}\u{1}`e:x\u{7}u\u{f}&Vc\nWHA\u{16}!A`:j|\u{1f}\u{15}B\u{4}\u{1c}?}&;]8qf}&gg(w\u{2}\u{1d}*_\u{14}q\u{e}x'\"6B\u{12}u\u{1a}7K\u{1b}\u{c}\u{1a}\u{6}\u{e}bX\u{1c}]LNB\u{e}qw.\u{8}J\u{12}S!|\u{1d}[3+}&Sw\u{7f}\"`R(/Qb\u{11}X-z{\u{14}#!^\u{17}*r\u{15}\u{3}YB\u{1b}\u{7}/\u{8}\u{17}j$\u{13})\u{4}D\u{c}\u{2}c8\u{8}ry\u{17}\u{1e}bWv\u{7}El\\.\n\nc<8 V$\u{7f}\u{1f}+_F\u{1f}=d{'< !9@F~0}Ote3\tO!\u{14}[v4]g8\rU\0k<FX=<}a1}6CS.r]^}\u{8}^r'{E4\u{1f}@\u{10}xBk\u{7}\u{12}\0f\u{14};cp\u{4}9|W\u{4}JZ7I-\u{3}gj)4[2;K7.\u{1}j?\u{15}<\u{17}\u{6}c\u{19}'\u{1a}\\\n3Av4e]2\u{1b}A\u{12}HMUe\u{1d}$1/\u{13}\u{1c}2T\u{5};r_2 T-|-yjp\\\u{1d}D5W\0\u{15}>PuU-l+\t'<\u{1c}\u{8}U4B\u{14}1r\u{7f}!@%\u{19}#+T0\u{18}Y\u{b}\u{1a}@j{c\u{12}T+8F@\u{17}nR:\u{f}\u{18}!\u{1a}s?KT,\u{1e}#|PSV[Kp2\u{b}i9qYLdo7\u{8}E\u{c}h\u{5}\u{1}&DJ[|P\u{15}\u{6}ZYq\u{1f}\u{3}cmX^\u{1a}!`~HU\t}*:Z{%?qZDUE]n\u{1}PG\u{15}1\"b9)\tj&@\u{1}T\u{16}LNZd3y\u{1e}Oz;;P=1Mhs/b\u{13}\u{c}Fr\u{1a}y\u{1a}\u{3}\u{19}H\0j}M|<\u{3}*;8\u{16}I$9AHX\u{17}u\u{10}^CEsmT\u{13}\u{15}\u{15}C.\u{13}%j9~hU\u{4};q~2\u{7},\u{c}Sb\u{1f}M\r\u{1e}oW\u{11}\nV0>OH\u{e}DV](ap\u{5}'#Q?!\u{19} \u{1b}LvY62xVB\u{1c}UEmX>9<\tKD@GL}lz\u{14}'Q\u{15}\0$\tt^x\u{14}Y \nqG\u{2}d\r/~JlLi\u{f}\u{7}z\u{3}E[\u{17}5|\u{b}N\u{4}\u{f}G\n^\u{11}%V\u{1}:.\n\u{b}C\u{13}P\u{15}\u{1c}\u{11}\nt\u{11}~\u{7}\u{f}j \u{19}!RR\u{f}8v(a\u{1f}Y9}L\u{19}l}'\u{1e}\u{14}G?cN;\u{11}[PliR1\u{13}\0%\u{4}'p6O\u{14}tY\u{c}5$,%J&UI^\u{19}w}+w1OdsJ,r\u{10}\u{1a}\u{1a}4EV\u{1a}oLBt\u{8}FIu\u{b}\u{8}E&oG2oz~I6 \u{1c}\\\u{4}8xTuq\u{13}\u{10}tjAmp<X\u{10}@\u{4}\u{1d}t:!\u{1c}hz\tpE;YnZ>p]\\\u{17}\u{12}\u{1b}_e\n\u{17}\u{1a}TipT\u{13}yj ]c\u{1f}\0b\rhZ\u{10}\u{7f}\u{8}Tk\u{b}OC\u{7f}psri\u{7f}*:Tt\u{1f}\u{15}_(<7\u{15}|\u{1a}\u{1a}\u{1c};{P\nVD\u{1e}$?py'\u{e}\0\u{1b}\t\u{b}\u{11}h\u{8}\u{16}\u{17}8\u{1a}\u{1d}\0}\u{1a}wHB\u{11}TQs\nio/?3g6\u{2}f\u{1f}Rz|A\u{e}UE::5jav\u{8}\r;{\u{1d}\\dEUWV\t}5I\u{1f}zb\u{13}O.\\'Kt\u{14}kv\u{19}\u{14}q\u{7f}tao\u{7}\u{5}8FH~\u{1a}/\u{e}\u{12}e^)9B\u{13}\u{13}q~!au\u{1a}\u{1a}{s.&\u{14}\\XAr7Qu,@1F\u{1f}\u{7f}x\u{15}t:\u{18}:$\0\u{14}LO,p\u{b}\u{1c}_u\u{c};b|\u{c}!izZ(|'d @n(*\u{13}QE\u{5}\\6\tATUm|7d7u%\u{1e}8Enka9\u{1f}e\u{e}c\u{8},\u{3}\u{1c}l%\u{1b}\u{1a}r`\u{4} |^muL]L}0B{\u{1a}W'O\u{1e}8oMs1$@ofPWu_#$i\u{c}%ar-P#n\u{15}-N\u{10};f}Q>Jas9-{KIK\u{1e}\u{1c}~'[\03)>UB,l2\u{8}\05\u{7f}w?\u{17}EI$uKRwIz\rWrnp\u{b}s\u{19}C/\u{1e}\u{3}.\u{7}L\0\u{8}^\u{1b}qu\u{4}D\u{b}q\u{3}$.}u<5pQ]+;jo$.[-t\u{14}D>Da@l\u{1b}\u{f}5{@\u{14}Mo4:\u{1}NA\u{11}/Y4f.Y[hK\u{1b} ]\u{1}Hr-Yw\u{1e}r=A*2\u{4}\u{c};|*;U\u{c}\u{4}dDl\u{17}^$av+ d\u{19}D\to?A\u{13}\\-0\u{e}!\u{4}{$aT)(3VQ\u{1c}RhyqYocQ=xrE\u{2}\u{1f}\u{1d}\u{3}C%aJ\u{12}a\u{6}h\u{16}\u{b}2%W;];\u{19},=l\u{8}y\u{1b}vy\u{11}rs&JJ\u{b}E:\u{1e}F\u{7f}\u{5}x\u{1c}v\u{e}7e\u{10}1R\rZ}7$i8G\u{8}K\u{1f}*fm\u{17}s\u{3}f0C\0\0\0"
 
@@ -3197,7 +3197,7 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{12}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.fuzz.Message.SingularGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$l\t!Q\u{1c}8t\u{15}i\u{14}8\\VoL<o<\u{12}/c#x\t\u{f}~D<:\u{14}+e'.}\u{1b}O\u{3}\0\0"
 
@@ -3207,7 +3207,7 @@ extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\00\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}.\0swift_proto_testing.fuzz.Message.RepeatedGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4},H\u{3}Iolr@XEm7+5u|tO$\u{7}jHhDa\\2\u{5}MVL\u{5}grVDv\0\0"
 
@@ -3217,7 +3217,7 @@ extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.GeneratedM
 
 }
 
-extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0N\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.Message.OneofGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#DKlMYua[\0a'wEn\u{12}i:\u{6}x\u{14}ay\u{13}\u{16}D?\u{11}/tA\u{8}\u{b}/ML\u{14}|-\u{2}\0"
 
@@ -3227,7 +3227,7 @@ extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0`\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0+\0swift_proto_testing.fuzz.AMessageSetMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -3237,7 +3237,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.GeneratedMess
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{a}\0\0\0\0\0\0@\0\0\0\0\u{9}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension1"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MI25\u{12}\0\u{c}& \u{11}XP\u{1c}dHZ\u{5}9b\u{14},`\r:v\u{15}a-\u{1e}v?n\u{f}U/g?=m"
 
@@ -3247,7 +3247,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{14}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension2"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MI2Ur\\G)K}R\u{1}=\u{17}T!\u{10}GD\u{16}Wlkr=Bp4[E&*#27&RVX\0\0"
 
@@ -3257,7 +3257,7 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0z\u{7}\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.fuzz.SingularGroup_ext"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$,4\u{1b}ax\u{16}=\rFc?G:\r\u{10}4K\"&L)j\u{6}\"24xm7g)i\u{1c}`\u{10}\u{1c}\u{1e}l\0\0\0"
 
@@ -3267,7 +3267,7 @@ extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{18}\u{8}\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.fuzz.RepeatedGroup_ext"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#$l\nL2uS9\u{1d}F\u{3}z\u{1}\u{c}\u{15}K\u{1c}u&s\u{7}1\u{b}X%O(`#$}%\0+\u{6}3av?\u{2}\0"
 

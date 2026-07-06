@@ -50,12 +50,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_MapEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_MapEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foo // = 0
   case bar // = 1
@@ -94,7 +94,7 @@ enum SwiftProtoTesting_MapEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
 }
 
 /// Tests maps.
-struct SwiftProtoTesting_TestMap: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_TestMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -205,7 +205,7 @@ struct SwiftProtoTesting_TestMap: @unchecked Swift.Sendable {
 }
 
 /// Test embedded message with required fields
-struct SwiftProtoTesting_TestRequiredMessageMap: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_TestRequiredMessageMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -225,7 +225,7 @@ struct SwiftProtoTesting_TestRequiredMessageMap: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -247,13 +247,13 @@ struct SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_MapEnum {
+nonisolated extension SwiftProtoTesting_MapEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1b}\0swift_proto_testing.MapEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\\"w\u{15}\u{8}1cz@Tj\u{16}X3sR\u{7f}B{aQ\\0;Z'\"HdQY\u{1d}\u{8},8n]{\u{13}mB\u{e}\u{5}\n5.#Skmv\u{3}6\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_TestMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_TestMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{13}\0\0\0\0\0\0\0\0\u{14}\0\0\0\0\0\u{13}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\u{4}\u{2}\0 \u{2}\0\u{3}\0\u{b}\u{4}\0\0\0\u{4}\u{3}\0 \u{3}\0\u{4}\0\u{b}\u{5}\0\0\0\u{4}\u{4}\0 \u{4}\0\u{5}\0\u{b}\u{6}\0\0\0\u{4}\u{5}\0 \u{5}\0\u{6}\0\u{b}\u{7}\0\0\0\u{4}\u{6}\0 \u{6}\0\u{7}\0\u{b}\u{8}\0\0\0\u{4}\u{7}\0 \u{7}\0\u{8}\0\u{b}\u{9}\0\0\0\u{4}\u{8}\0 \u{8}\0\u{9}\0\u{b}\u{a}\0\0\0\u{4}\u{9}\0 \u{9}\0\u{a}\0\u{b}\u{b}\0\0\0\u{4}\u{a}\0 \u{a}\0\u{b}\0\u{b}\u{c}\0\0\0\u{4}\u{b}\0 \u{b}\0\u{c}\0\u{b}\u{d}\0\0\0\u{4}\u{c}\0 \u{c}\0\u{d}\0\u{b}\u{e}\0\0\0\u{4}\u{d}\0 \u{d}\0\u{e}\0\u{b}\u{f}\0\0\0\u{4}\u{e}\0 \u{e}\0\u{f}\0\u{b}\u{10}\0\0\0\u{4}\u{f}\0 \u{f}\0\u{10}\0\u{b}\u{11}\0\0\0\u{4}\u{10}\0 \u{10}\0\u{11}\0\u{b}\u{12}\0\0\0\u{4}\u{11}\0 \u{11}\0\u{12}\0\u{b}\u{13}\0\0\0\u{4}\u{12}\0 \u{12}\0\u{13}\0\u{b}\u{1b}\0swift_proto_testing.TestMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\u{8}\0\0 l\u{15}k$s~\"+D2:`\u{11}/Z;QE\t<\u{1f}K\u{7f}pk\r\u{1a}yO\u{4}\u{7f}N\u{6}u\n\u{19}wb\u{1a}\u{11}pD\tVkVsB#\u{8}zaGd)4sE?0\u{2}\\\u{16})DHWKCDR{tSG}H\u{17}33\u{1a}.Coy\\^I8y\u{12}zl'@\u{c}C2_srW-&S&\u{1}WI>7vU8!?\u{8}\u{7f}W:vZ\u{1a}\u{7f}\u{17}~\u{1}se\u{13}z\u{7}/:<l\u{19}%';B\u{8}|#\u{2},r^5j\u{17}Yo\tp\u{e}\u{5}<\0e\u{10}\u{1}3\u{c}R\u{19}*\u{1a}P177<~4r\u{16}\u{e}4|]Z6Aw.\u{17}=\u{1e}\u{1}\u{13}\u{10}v^\u{6}\u{18}\u{11})<w\r\n5j\u{7f}\u{2}u*8\nST\u{7}3L^x|Ht)$ &Q_.\u{1e}\u{7f}{wv\u{1c}mJ#'X3//y\u{19} W&*lQ\u{1}%]'B'UwDQ<\u{15}:qf\u{16}.Dz,Q<G{v75r\u{17}\n\u{3}7rt\u{7f}9Z\u{8}H\u{15}\u{c}C>cpX\u{f}n\u{6}w\u{b}kXR\u{3}2-1mUtae\u{14}j(I\u{1c}\u{18}%fDqY\n\u{1f}>\u{c}#QD?XaX(DJ\u{1a}sN6O\u{18}`\u{10}ObdP\u{16}\u{2}7\0{\u{12}[BeT{\u{1b}S\nod1QKwPq~[+8z\u{8}\u{1b}_A\u{16} !\0)z+w,\u{f}Z\u{7f}\u{1b}C>\u{c}{ZE[z\r#\u{8}aYMG.VZr\u{e}\u{6}\r\u{17}DJ\u{c}a@\u{c}8yUBly{\u{f}7\rSp\u{1d}7yOW1,\raM\u{1f}Rd\u{14}k]\u{2}\u{7}c\u{5}7|*D\u{1d}\u{1f}\u{f}\0\u{16}Q\u{12}F\u{16}2\"h6(\u{8}{\0G,@TN`>s\u{17}\u{1d}A\"%nmtC%PT$\u{f}i\u{12}\01`S\u{1f}\u{3}\u{1}\u{6}\u{16}C\u{18} \u{b}%\u{1f}\u{6}\0'Q\u{18}\":\u{f}HZ\u{19}\u{6}|\0+X\u{15}\r|O:H]\u{1}TU\"90b\u{c}\0\0"
 
@@ -326,7 +326,7 @@ extension SwiftProtoTesting_TestMap: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}*\0swift_proto_testing.TestRequiredMessageMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hHfA\nK\\W\u{1e}Yy\\)qz(uJH%o\u{f}\0"
 
@@ -345,7 +345,7 @@ extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}+\0swift_proto_testing.TestRecursiveMapMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 

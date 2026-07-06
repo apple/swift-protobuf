@@ -20,13 +20,13 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// NEXT_TAG = 6;
-struct Proto2Unittest_TestStringView: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestStringView: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -74,7 +74,7 @@ struct Proto2Unittest_TestStringView: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestStringViewExtension: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestStringViewExtension: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -98,7 +98,7 @@ struct Proto2Unittest_TestStringViewExtension: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestStringViewExtension {
+nonisolated extension Proto2Unittest_TestStringViewExtension {
 
   var Proto2Unittest_singularStringViewExtension: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_singular_string_view_extension, default: String()) }
@@ -139,7 +139,7 @@ extension Proto2Unittest_TestStringViewExtension {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_Extensions_singular_string_view_extension,
   Proto2Unittest_Extensions_singular_bytes_view_extension,
   Proto2Unittest_Extensions_repeated_string_view_extension,
@@ -150,29 +150,29 @@ let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.singular_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
   )
 
-let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.singular_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
   )
 
-let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.repeated_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
   )
 
-let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.repeated_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{5}\0\0\0\0\0\u{2}\0\0\u{6}\0\0\u{2}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\0\0\u{9}\u{4}\0\0\0\u{2}\u{1}\0\u{10}\u{3}\0\0\0\u{c}\u{5}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{1e}\0proto2_unittest.TestStringView"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\u{2}\0\0\0?(&%ZO\u{2}+\rPLN1,V2\u{7f}7+3qQH\u{7f}\u{14}t(E~0nn{'~\t\u{16} :S*NS\u{1f}y\u{14}-K~?-\t{uB&X.%\u{2}w#\u{1f}n7h^n$W|zy#b8*mY\u{17}e%\u{b}I\\uhzZQ4_y\u{12}\u{1a} v>e)\u{1f}S{ au\u{6}\u{1d}{fKP\tfs\u{1c};'\u{e}s#NybT]h:/8;'\u{1b}!+(\u{16}D\u{10}\u{7}A1:xiH\u{1a}%\0\0\0"
 
@@ -182,7 +182,7 @@ extension Proto2Unittest_TestStringView: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestStringViewExtension: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'\0proto2_unittest.TestStringViewExtension"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 

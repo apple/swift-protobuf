@@ -28,12 +28,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -85,7 +85,7 @@ struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
-  enum OneOf_Foo: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_Foo: Swift.Equatable, Swift.Sendable {
     case integerField(Int32)
     case stringField(String)
   }
@@ -100,7 +100,7 @@ struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestRequiredOptimizedForSize: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestRequiredOptimizedForSize: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -124,7 +124,7 @@ struct Proto2Unittest_TestRequiredOptimizedForSize: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestOptionalOptimizedForSize: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestOptionalOptimizedForSize: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -157,7 +157,7 @@ struct Proto2Unittest_TestOptionalOptimizedForSize: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_TestOptimizedForSize {
+nonisolated extension Proto2Unittest_TestOptimizedForSize {
 
   var Proto2Unittest_TestOptimizedForSize_testExtension: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension, default: 0) }
@@ -188,7 +188,7 @@ extension Proto2Unittest_TestOptimizedForSize {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension,
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2
 ]
@@ -197,7 +197,7 @@ let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionMap = 
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_TestOptimizedForSize {
+nonisolated extension Proto2Unittest_TestOptimizedForSize {
   enum Extensions {
     static let test_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0R\u{9}\0\0\u{10}\0\0\0\0\0\0\0\u{5}3\0proto2_unittest.TestOptimizedForSize.test_extension",
@@ -213,7 +213,7 @@ extension Proto2Unittest_TestOptimizedForSize {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{14}\0 \u{4}\0\0\0\0\0\u{2}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{c}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\0\0{\u{7f}\0\0\u{5}\u{3}\0\0\0\0\0\0@{\u{7f}\0\0\u{9}\u{13}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}$\0proto2_unittest.TestOptimizedForSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{1}\0\0 _]\u{13})Z[,E#`Oz$+q\0 X{a[\u{18}D\u{3}\u{14}9\u{5}0e&\u{e}\u{2}^9 `t[YUP\u{10}[&W(.D\u{7}\\g\u{5}{#\\Qmp{wp{\r[\u{13}\u{13}\n\r:\u{e}488`\u{10}A\u{1c}/n[\u{13}\t8X$\u{1f}{YTwX0\u{4}\u{1}\0"
 
@@ -230,7 +230,7 @@ extension Proto2Unittest_TestOptimizedForSize: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0proto2_unittest.TestRequiredOptimizedForSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp#m\u{b}\u{e}N%6c'\0\0"
 
@@ -240,7 +240,7 @@ extension Proto2Unittest_TestRequiredOptimizedForSize: SwiftProtobuf.GeneratedMe
 
 }
 
-extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestOptionalOptimizedForSize: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b},\0proto2_unittest.TestOptionalOptimizedForSize"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpO$\u{1a}\u{2}N%6c'\0\0"
 

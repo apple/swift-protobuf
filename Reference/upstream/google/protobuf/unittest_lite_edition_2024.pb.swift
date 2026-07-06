@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case `default` // = 0
   case anotherValue // = 1
@@ -56,7 +56,7 @@ enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_EnumNameStringView {
+nonisolated extension Proto2Unittest_EnumNameStringView {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\"\0proto2_unittest.EnumNameStringView"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K(Y\u{2}U'b@\u{f}$_Iv8Qfvk>3\u{17}=\u{1c},\u{5}i\0s\u{4}^P\u{18}Td=\u{4}1[\u{8}jb2\u{8}\u{e}>aI\t$-\u{1f}Xg\u{c}3%mVj|!#\u{4}<\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

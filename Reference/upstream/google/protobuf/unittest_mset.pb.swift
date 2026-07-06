@@ -34,12 +34,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_TestMessageSetContainer: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMessageSetContainer: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -63,7 +63,7 @@ struct Proto2Unittest_TestMessageSetContainer: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -105,7 +105,7 @@ struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_NestedTestInt: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_NestedTestInt: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -147,7 +147,7 @@ struct Proto2Unittest_NestedTestInt: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestMessageSetExtension1: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMessageSetExtension1: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -189,7 +189,7 @@ struct Proto2Unittest_TestMessageSetExtension1: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestMessageSetExtension2: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMessageSetExtension2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -213,7 +213,7 @@ struct Proto2Unittest_TestMessageSetExtension2: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_TestMessageSetExtension3: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_TestMessageSetExtension3: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -247,7 +247,7 @@ struct Proto2Unittest_TestMessageSetExtension3: @unchecked Swift.Sendable {
 }
 
 /// MessageSet wire format is equivalent to this.
-struct Proto2Unittest_RawMessageSet: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_RawMessageSet: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -257,7 +257,7 @@ struct Proto2Unittest_RawMessageSet: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 1)) }
   }
 
-  struct Item: @unchecked Swift.Sendable {
+  nonisolated struct Item: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -309,7 +309,7 @@ struct Proto2Unittest_RawMessageSet: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2WireformatUnittest_TestMessageSet {
+nonisolated extension Proto2WireformatUnittest_TestMessageSet {
 
   var Proto2Unittest_TestMessageSetExtension1_messageSetExtension: Proto2Unittest_TestMessageSetExtension1 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension, default: Proto2Unittest_TestMessageSetExtension1()) }
@@ -351,7 +351,7 @@ extension Proto2WireformatUnittest_TestMessageSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension,
   Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension,
   Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension
@@ -361,7 +361,7 @@ let Proto2Unittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_TestMessageSetExtension1 {
+nonisolated extension Proto2Unittest_TestMessageSetExtension1 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\00&^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}(\0proto2_unittest.TestMessageSetExtension1",
@@ -370,7 +370,7 @@ extension Proto2Unittest_TestMessageSetExtension1 {
   }
 }
 
-extension Proto2Unittest_TestMessageSetExtension2 {
+nonisolated extension Proto2Unittest_TestMessageSetExtension2 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}(\0proto2_unittest.TestMessageSetExtension2",
@@ -379,7 +379,7 @@ extension Proto2Unittest_TestMessageSetExtension2 {
   }
 }
 
-extension Proto2Unittest_TestMessageSetExtension3 {
+nonisolated extension Proto2Unittest_TestMessageSetExtension3 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0)C\u{e}]\u{10}\0\0\0\0\0\u{1}\0\u{b}(\0proto2_unittest.TestMessageSetExtension3",
@@ -390,7 +390,7 @@ extension Proto2Unittest_TestMessageSetExtension3 {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}'\0proto2_unittest.TestMessageSetContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}\u{2}h\u{5}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\u{7}L[\tJ\u{7f}t\u{5}G\u{19}P<\r\u{1b}h\u{2}\n3d\u{13}B%\u{e}5\0"
 
@@ -407,7 +407,7 @@ extension Proto2Unittest_TestMessageSetContainer: SwiftProtobuf.GeneratedMessage
 
 }
 
-extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00\u{1}\0\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00\u{2}\0\u{2}\0\u{b}-\0proto2_unittest.NestedTestMessageSetContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$J%l\u{12}\u{15}L\u{10} R|3#I\u{e}?\u{7}$0;TQk#u {x\u{19}\u{1a}3$&jgm&JUmzy#qo#QA'a\"HV\nRU.vKSBoJD{0\t\u{7}\0"
 
@@ -425,7 +425,7 @@ extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobuf.GeneratedM
 
 }
 
-extension Proto2Unittest_NestedTestInt: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_NestedTestInt: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{7}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{3}\0\0\0\0\u{8}\0\0\u{2}\0\0\0\u{5}\u{1d}\0proto2_unittest.NestedTestInt"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKTZV{n GMwYY&|F],t\u{e}3\u{11}9:\u{1b}4\u{1e}4$\u{1f}I\u{1c}\u{15}V\u{f}H_9}L(\0"
 
@@ -442,7 +442,7 @@ extension Proto2Unittest_NestedTestInt: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{f}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{10}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{11}\0\0\0\0\0\0@\u{2}\0\0\0\u{9}(\0proto2_unittest.TestMessageSetExtension1"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pEP|$J%l\u{12}\u{15}L\u{7}^x|!K{}\u{19}~\tm\u{5}XAS}:Et\u{1b}\u{15}&\u{1c}u;GDmgJ\r\u{14}PV\\7Y.\u{3}<\u{1f}4\u{3}I\u{18}\\FK:j(r4zwzz5p`r\u{17}qr\u{1a}\u{f}\u{1}\0"
 
@@ -459,7 +459,7 @@ extension Proto2Unittest_TestMessageSetExtension1: SwiftProtobuf.GeneratedMessag
 
 }
 
-extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{19}\0\0\0\0\0\0@\0\0\0\0\u{9}(\0proto2_unittest.TestMessageSetExtension2"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$*a%d~/\u{3}ZI\u{1c}C{^k?9>"
 
@@ -469,7 +469,7 @@ extension Proto2Unittest_TestMessageSetExtension2: SwiftProtobuf.GeneratedMessag
 
 }
 
-extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0#\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}$\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}(\0proto2_unittest.TestMessageSetExtension3"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PvJ+\nMI\u{1a}\u{3}\u{14}MObL+\u{1}A{o\u{e}\tB+H\u{c}\n\u{13}@\u{15}!r_!V)p7pl`3Fm\u{1b}\u{7f} J9;T}\u{1b}8&|HdVUB.\u{1b}\u{1}\u{6}"
 
@@ -486,7 +486,7 @@ extension Proto2Unittest_TestMessageSetExtension3: SwiftProtobuf.GeneratedMessag
 
 }
 
-extension Proto2Unittest_RawMessageSet: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_RawMessageSet: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{a}\u{1d}\0proto2_unittest.RawMessageSet"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@:k'\"MIJww:\u{16}+|8_XZsy\\K~q\r5 \nu\u{4}O\u{16}D\u{3}\0\0"
 
@@ -503,7 +503,7 @@ extension Proto2Unittest_RawMessageSet: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto2Unittest_RawMessageSet.Item: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_RawMessageSet.Item: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{3}\0\0\0\0\0\0P\u{1}\0\0\0\u{c}\"\0proto2_unittest.RawMessageSet.Item"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MP\u{f}Z\u{18}^ ru%\u{1f}Q.-<86\t\nW|\u{16}ujnf{.#r=@\u{f}}[&OrKrlY0jt\"\u{e}\0"
 

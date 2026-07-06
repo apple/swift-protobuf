@@ -49,12 +49,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -548,7 +548,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (6, 64)) }
   }
 
-  enum OneOf_O: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_O: Swift.Equatable, Swift.Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -569,7 +569,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
     case oneofEnum(SwiftProtoTesting_Message2.Enum)
   }
 
-  enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo = 0
     case bar = 1
     case baz = 2
@@ -581,7 +581,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
 
   }
 
-  struct OptionalGroup: @unchecked Swift.Sendable {
+  nonisolated struct OptionalGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -605,7 +605,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct RepeatedGroup: @unchecked Swift.Sendable {
+  nonisolated struct RepeatedGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -629,7 +629,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
-  struct OneofGroup: @unchecked Swift.Sendable {
+  nonisolated struct OneofGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -672,7 +672,7 @@ struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Msg2NoStorage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Msg2NoStorage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -687,7 +687,7 @@ struct SwiftProtoTesting_Msg2NoStorage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -713,7 +713,7 @@ struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Swift.Sendable {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg2NamesNoStorage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Msg2NamesNoStorage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -756,7 +756,7 @@ struct SwiftProtoTesting_Msg2NamesNoStorage: @unchecked Swift.Sendable {
 }
 
 /// Names that match protocols - Storage
-struct SwiftProtoTesting_Msg2NamesUsesStorage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Msg2NamesUsesStorage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -801,7 +801,7 @@ struct SwiftProtoTesting_Msg2NamesUsesStorage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Message2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Message2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0p\u{1}\0I\0\0\0\0\0\u{12}\0\0\u{11}\0\0\u{12}\0\0\u{13}\0\0\u{4}\0\0\u{2}\0\0\u{2}\0\0\u{1}\0\0\0\0X\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{10}\u{1}\0\u{1}\0\0\0\u{3}\u{3}\0\0\0\0\\\0\0\u{2}\0\0\0\u{d}\u{4}\0\0\0\0\u{18}\u{1}\0\u{3}\0\0\0\u{4}\u{5}\0\0\0\0`\0\0\u{4}\0\0\0\u{11}\u{6}\0\0\0\0 \u{1}\0\u{5}\0\0\0\u{12}\u{7}\0\0\0\0d\0\0\u{6}\0\0\0\u{7}\u{8}\0\0\0\0(\u{1}\0\u{7}\0\0\0\u{6}\u{9}\0\0\0\0h\0\0\u{8}\0\0\0\u{f}\u{a}\0\0\0\00\u{1}\0\u{9}\0\0\0\u{10}\u{b}\0\0\0\0l\0\0\u{a}\0\0\0\u{2}\u{c}\0\0\0\08\u{1}\0\u{b}\0\0\0\u{1}\u{d}\0\0\0\0T\0\0\u{c}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@\u{d}\0\0\0\u{9}\u{f}\0\0\0\0\0\0P\u{e}\0\0\0\u{c}\u{10}\0\0\0\0\0\00\u{f}\0\u{17}\0\u{a}\u{12}\0\0\0\0\u{1}\00\u{10}\0\u{3}\0\u{b}\u{13}\0\0\0\0p\0\0\u{11}\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}\0\0\u{10}\u{12}\0\0\0\u{5} \0\0\0\u{2}\u{1}\0\u{10}\u{13}\0\0\0\u{3}!\0\0\0\u{2}\u{2}\0\u{10}\u{14}\0\0\0\u{d}\"\0\0\0\u{2}\u{3}\0\u{10}\u{15}\0\0\0\u{4}#\0\0\0\u{2}\u{4}\0\u{10}\u{16}\0\0\0\u{11}$\0\0\0\u{2}\u{5}\0\u{10}\u{17}\0\0\0\u{12}%\0\0\0\u{2}\u{6}\0\u{10}\u{18}\0\0\0\u{7}&\0\0\0\u{2}\u{7}\0\u{10}\u{19}\0\0\0\u{6}'\0\0\0\u{2}\u{8}\0\u{10}\u{1a}\0\0\0\u{f}(\0\0\0\u{2}\u{9}\0\u{10}\u{1b}\0\0\0\u{10})\0\0\0\u{2}\u{a}\0\u{10}\u{1c}\0\0\0\u{2}*\0\0\0\u{2}\u{b}\0\u{10}\u{1d}\0\0\0\u{1}+\0\0\0\u{2}\u{c}\0\u{10}\u{1e}\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}\u{1f}\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10} \0\0\0\u{c}.\0\0\0\u{2}\u{f}\0\u{10}!\0\u{2}\0\u{a}0\0\0\0\u{2}\u{10}\0\u{10}\"\0\u{3}\0\u{b}1\0\0\0\u{2}\u{11}\0\u{10}#\0\u{1}\0\u{e}3\0\0\0\0t\0\0s\u{7f}\0\0\u{5}4\0\0\0\0@\u{1}\0s\u{7f}\0\0\u{3}5\0\0\0\0x\0\0s\u{7f}\0\0\u{d}6\0\0\0\0H\u{1}\0s\u{7f}\0\0\u{4}7\0\0\0\0|\0\0s\u{7f}\0\0\u{11}8\0\0\0\0P\u{1}\0s\u{7f}\0\0\u{12}9\0\0\0\0\0\u{1}\0s\u{7f}\0\0\u{7}:\0\0\0\0X\u{1}\0s\u{7f}\0\0\u{6};\0\0\0\0\u{4}\u{1}\0s\u{7f}\0\0\u{f}<\0\0\0\0`\u{1}\0s\u{7f}\0\0\u{10}=\0\0\0\0\u{8}\u{1}\0s\u{7f}\0\0\u{2}>\0\0\0\0h\u{1}\0s\u{7f}\0\0\u{1}?\0\0\0\0U\0\0s\u{7f}\0\0\u{8}@\0\0\0\0\u{1}\0@s\u{7f}\0\0\u{9}A\0\0\0\0\u{1}\0Ps\u{7f}\0\0\u{c}B\0\0\0\0\u{2}\00s\u{7f}\u{18}\0\u{a}D\0\0\0\0\u{3}\00s\u{7f}\u{3}\0\u{b}E\0\0\0\0\u{c}\u{1}\0s\u{7f}\u{1}\0\u{e}F\0\0\0\u{4}\0\0 $\0\u{4}\0\u{b}G\0\0\0\u{4}\u{1}\0 %\0\u{5}\0\u{b}H\0\0\0\u{4}\u{2}\0 &\0\u{6}\0\u{b}I\0\0\0\u{4}\u{3}\0 '\0\u{7}\0\u{b}J\0\0\0\u{4}\u{4}\0 (\0\u{8}\0\u{b}K\0\0\0\u{4}\u{5}\0 )\0\u{9}\0\u{b}L\0\0\0\u{4}\u{6}\0 *\0\u{a}\0\u{b}M\0\0\0\u{4}\u{7}\0 +\0\u{b}\0\u{b}N\0\0\0\u{4}\u{8}\0 ,\0\u{c}\0\u{b}O\0\0\0\u{4}\u{9}\0 -\0\u{d}\0\u{b}P\0\0\0\u{4}\u{a}\0 .\0\u{e}\0\u{b}Q\0\0\0\u{4}\u{b}\0 /\0\u{f}\0\u{b}R\0\0\0\u{4}\u{c}\0 0\0\u{10}\0\u{b}S\0\0\0\u{4}\u{d}\0 1\0\u{11}\0\u{b}T\0\0\0\u{4}\u{e}\0 2\0\u{12}\0\u{b}U\0\0\0\u{4}\u{f}\0 3\0\u{13}\0\u{b}V\0\0\0\u{4}\u{10}\0 4\0\u{14}\0\u{b}W\0\0\0\u{4}\u{11}\0 5\0\u{15}\0\u{b}X\0\0\0\u{4}\u{12}\0 6\0\u{16}\0\u{b}\u{1c}\0swift_proto_testing.Message2"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1e}\0\0 j%A\"{9\u{12}ga\u{12}$8|{\u{7f}k>i-N\tF-fk\u{1c}HqC|%\u{1a}\u{14}98|9%}:^^Xs\"&,%\u{1d}R[\u{b},34\u{1c}\u{8}LX\u{8}/|y#K0CwW_zWg\u{1f}\0~\u{7f},*uECfjS`Cy\u{1f}E\u{c}0^%\u{17}\u{19}TO0S%}\u{c}~XFyx9\t\rn\u{1a}!OIi\nl\u{1c}\u{1b}6.N\tkz@ :I\"gF?Ol\u{b}y\\7\r\rytD(W-~-\\l\u{8}\u{3}\u{11}A\u{1}\u{5}\u{7}\\Ox~\u{1f}iB!wUra[fnxbp]\u{c}$\tgI\0[/~EQ>9:aUS,3HC\r{R11n2o\r?st )ztB|C%n|\u{7}l=\u{10}\u{1c}\u{b}O8\u{f}]Y<\u{1d}#=xB\u{13}z\tT\u{1e}Y?%\\T\u{1f}zaz\u{12}&w[\u{8},qn(\u{1d}O>F=s\0yO:UW_ypt8\u{17}8$>\t\u{b}4C*s>\u{6}z}A\u{14}KIhA\u{17}ep^,B\r`le.\u{1d}f,ie\u{7}t#*6z`)\u{11}ub\0+\u{f}\u{19}VQjc}%\u{f}`Sy8\u{1d}+Z\u{1b}&*\u{13}z|\u{7}Z\u{10}\u{4}\u{12}?V\u{1a}p7\0Iy>&l{\u{2}q\u{13}^\"E\u{2}g?boS0(\u{4}\u{1a}+23wJMvz/\u{1a}Qt6\\:\u{15}gtN\u{e}pH.\u{14}-\u{1d}*d3Lq\u{3}b\u{1f}\r\u{3}T(:A-\u{1}C b_}=\u{e}Y9\u{c}\u{12}m; KK5HKWw\u{5}T\u{10}fl{\u{4}\u{18}Aa.L=1\u{6}\u{11}\u{5}\u{1}0QsKv&II\u{7}if\0X\":C4I~\u{1b}3\u{3}jniM+E(9jzR\u{4};\u{18}\u{12}FCeHdg\u{11}\\2 \0\u{1c}\u{15}0'9\u{14}UU*\u{8}n`\r\0}=}#\u{8}7w+nmm7Ai\u{19}\u{5}L\u{2}#h\u{19}#[Y?wC\"%Bw+'Qn\u{16}^\u{6}\r*qb\u{4}\u{18}\u{1d}hpYlqX*\u{c}2\u{1b}6cb~\u{1a}\u{b}{q{a\u{7f}$x)\u{13}R\u{13}1(;d\u{7}\u{17}7\u{15}Y:xB7A)qG0\u{1c}\u{1f}[7o\u{16}\u{17}>\u{12}sPHTSk)44\u{17}<\u{2}u_\u{3}l\u{16}\u{3}ZA\u{16}Nux\u{e}qu\u{13}\"\u{15}A\u{10}\u{1b}=lw/\u{1}#g!\u{19}>M9]sp0r:|o\u{5}serL?} P\u{3}=:\\5)Zf#EI#(\u{18}{\u{8}B\u{17}\u{1d}:\u{8}~^y\u{17}8wNS>{\u{10}\u{18}:pe \u{6}\u{1a}z\u{8}Hs o\u{3}K>j\\\u{10}\u{1d}72}}w3v\u{4}\u{1}*_!\0p ;]&Q\u{8}\n/(y\u{1f}\u{14}\u{1e}ui|v[\u{8}\u{b}FxL5\u{19}\0C:>ehy\u{16}\u{18}?[P8\u{10}p<O\u{11}-[=_#\u{11}\u{1e}_#\u{14}\u{11}\u{19}\u{c}{X\u{1f}!%q!7o2x#/Wi(BB (\u{15}\u{19})rT&Cc\u{14}o\u{1e}/\u{16}\u{13}s9\u{10}wB[ID7pj7RU\u{3}tD&|V,\u{1e}9\u{8}f\u{12}y\tE6qaQQaf\u{1e}0\u{1d}AQ{Q)nHDo`AT\07y\u{1d}ufB\u{e}@-nu6k}^T%\u{1f}\u{16}\u{1d}V\u{7}eO~B\u{e}\u{1b}\u{1f}s#+\"3G\u{7}:\u{1c}DB]\u{15}6\u{1c}~O_[W\u{16}W\u{8}c \u{e}x^=}midL6P``u\u{1c}\u{3}0\u{16}\u{7}LdG.ZJ\u{3}5\u{15}}~o3hxSg\u{12}\u{16}Qclp\r\n\u{15}\u{1}jZ\u{7f}\n;5W)k\u{6}\u{18}sB$\u{7}N\u{2}\u{c}\u{7}8\u{5}\u{4}\u{16}6P5^\u{f},9VzLW(_lD\u{1d}@B~\u{2}\u{b}3giPO\u{8}o\u{8}F\u{11}\u{7}yr,\n*h\"\\[\\ \u{1}O./{pQ:N_z\u{17}Ouj\u{15}4%\u{13}\u{1}\r\\\u{7}Vl}Y\u{14}\\k.2TlR\u{1d}\u{1a}\u{16}1\u{5}wD-ymKM\u{12}}S;H|\0;f\u{1f}E6a\u{1a}XJ\u{19}tT/b=\u{e}3*w\u{f}xo\u{19}_U]\u{14}\u{e}\u{11}I\u{7f}\u{1c}\u{1f}\u{c}xSiu\u{12}]>2{\u{4}vch\r$\n^N+a\\\u{8}R\u{5};\0{[W$W\u{1}f\u{1b}\u{6}\u{7f} gnX;P[\u{8}Wl9#\u{b}\u{c}3i_wy\u{11}4\u{12}B)/\u{b}\u{3}37{ igJ7GA0IS\\\u{2}'eSA*\u{1a}C#\u{6}/A\"Ze2z\u{18}tjs\u{19}\u{12}sSqc*2w~ol\u{16}C\u{1a} EH2\u{11}T!NedZfQz.?\"^GKI_!EPa#tR~5+8\u{1b}\u{1e}\u{7f}%\u{11}(Ep1\u{7}M>P{\u{5}Hq\u{15}4-y3[\u{16}6>&\\:M~<g\u{7f}Ep)A('Hlm2\u{b}\u{1d}cO\u{1d}Z\u{1f}#G$'wlXp/\u{7f}weZc{lt)pBYh\n~\u{2}9E/\u{1f}R\u{16}!\u{c}Y3\u{1c}@\"\u{7f}\u{1e}u4!\u{1e}Ez\nr\u{1f}=8\u{17}\u{1e}xJxiY;6\u{10}<\rMpsq\u{e}K6Ob0V\u{2}]\u{10}c\u{7}]\u{15}9(1\u{2}~B&\u{5}f\u{1}hVAzDjkdHe;\u{10}.]\u{1e}`xr{0\u{1}qugT(\u{15}\u{13}\u{3}<'\u{3}6\u{7f}{,C+n`lrK\u{7}Y_a%?5,rNrv]\u{5}\\:B\u{1c}\0W\n7@R\u{8}G>\u{b}6b;'`3\u{19}~#q;#&[6P\u{7f}\u{1}eQ\u{6}8~+\u{f}_D~^g\u{13}_6\u{7f}_]U]9|\u{5}y#'n\u{c}$^bYgK\u{b}qBf\u{17}VH\u{17}tF'^\t\u{1b}\u{4}\\Z<i5*zm|C\u{18}e`d\u{11}CRh.4f\u{e}G\u{17}@*~\u{10}\u{1d}S1C\u{b}G!8^\u{2}\u{f}\u{f}a\0^\u{1c}^8^`b\u{6}v\u{15}\u{7f}\u{7f}>N[2e\u{12},n\t|7\t|D{}SD\u{b}\u{17}qj)S}\u{14}P:\u{8}`3\u{19}g'){Uck\u{1e}\u{13}}vK;f\u{17}\u{1b}\u{b}l\u{17}iRAfI8D\0\n{\u{1},Kg[k8\u{13}(\u{13}Y,~cyphR\0\u{1}\0\0"
 
@@ -879,13 +879,13 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Message2.Enum {
+nonisolated extension SwiftProtoTesting_Message2.Enum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0!\0swift_proto_testing.Message2.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9L\u{13}\u{6}gb\u{1d}+9wMs\u{1f}guH\u{14}Y[he]WB<,@g^\u{3}@$in0Z\u{1e}99c\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_Message2.OptionalGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Message2.OptionalGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{11}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.Message2.OptionalGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rM$\"@Eg~/#\u{17}7w}H!Jr2\0"
 
@@ -895,7 +895,7 @@ extension SwiftProtoTesting_Message2.OptionalGroup: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Message2.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Message2.RepeatedGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0/\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}*\0swift_proto_testing.Message2.RepeatedGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rMdA=8f~/#\u{17}7w{H\u{f}8:\u{1e}\0"
 
@@ -905,7 +905,7 @@ extension SwiftProtoTesting_Message2.RepeatedGroup: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftProtoTesting_Message2.OneofGroup: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Message2.OneofGroup: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0C\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\u{1}\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}'\0swift_proto_testing.Message2.OneofGroup"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1_ ?\u{8}\u{e}S/4#@M|}x\u{17}lo\nwE.9\u{5}\u{13}\u{4}\0"
 
@@ -915,7 +915,7 @@ extension SwiftProtoTesting_Message2.OneofGroup: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Msg2NoStorage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Msg2NoStorage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0!\0swift_proto_testing.Msg2NoStorage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -925,7 +925,7 @@ extension SwiftProtoTesting_Msg2NoStorage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Msg2UsesStorage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Msg2UsesStorage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0g\u{7}\0\0\0\0\00\0\0\u{1}\0\u{b}#\0swift_proto_testing.Msg2UsesStorage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rm${\u{3}TpbB\u{e}\u{7}C4\\5d~\"<\0"
 
@@ -942,7 +942,7 @@ extension SwiftProtoTesting_Msg2UsesStorage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Msg2NamesNoStorage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Msg2NamesNoStorage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}&\0swift_proto_testing.Msg2NamesNoStorage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,E\u{3} r4S/sdWie\u{3}[8\u{14}\u{13}vg\u{15}!<\u{b}&F\u{7f}?@C\u{3}\u{7}Uh^F`\u{6}\0:I\u{8}XunQ%G}\u{17}+N0.Y{\u{13}tr\u{1}\u{3}\u{3})\u{1d}n\u{19}8\u{c}\u{1}%\u{b}1 \n!G~!\u{2}@ox\u{1f}?&#;@~\u{b}\0"
 
@@ -952,7 +952,7 @@ extension SwiftProtoTesting_Msg2NamesNoStorage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Msg2NamesUsesStorage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Msg2NamesUsesStorage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}(\0swift_proto_testing.Msg2NamesUsesStorage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{18}\u{1}\0\0 _\u{19}3-Z[,E\u{3} r4S/sdWie\u{3}[8\u{14}\u{13}vg\u{15}!<\u{b}&F\u{7f}?@C\u{3}\u{7}Uh^F`\u{6}\0:I\u{8}XunQ%G}\u{17}+N0.Y{\u{13}tr\u{1}\u{3}\u{3})\u{1d}n\u{19}8\u{c}\u{1}%\u{b}1 \n!G~!\u{2}@ox\u{1f}?&#;@~\u{b}\0"
 

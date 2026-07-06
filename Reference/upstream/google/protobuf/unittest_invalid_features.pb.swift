@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_TestInvalidFeatures: @unchecked Swift.Sendable {
+nonisolated struct Pb_TestInvalidFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -56,7 +56,7 @@ struct Pb_TestInvalidFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_testInvalid: Pb_TestInvalidFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_Extensions_test_invalid, default: Pb_TestInvalidFeatures()) }
@@ -76,7 +76,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_UnittestInvalidFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_UnittestInvalidFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_Extensions_test_invalid
 ]
 
@@ -84,14 +84,14 @@ let Pb_UnittestInvalidFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_test_invalid = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_test_invalid = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{f}\0pb.test_invalid",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_TestInvalidFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_TestInvalidFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_TestInvalidFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\0\0\u{5}\u{16}\0pb.TestInvalidFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0P\u{10}z1fLIJww:\u{16}+|8_h\u{1a}\u{8}\u{1d}~h(=,1\u{7f}Jh\u{1c}Z\u{1d}-\nM.\u{b}9\u{19}lAQ\u{15}\r~2\0\0"
 

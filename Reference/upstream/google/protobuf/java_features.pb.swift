@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_JavaFeatures: @unchecked Swift.Sendable {
+nonisolated struct Pb_JavaFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ struct Pb_JavaFeatures: @unchecked Swift.Sendable {
   mutating func clearNestInFileClass() { _uniqueStorage().clearValue(at: 8, type: Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass.self, hasBit: (0, 16)) }
 
   /// The UTF8 validation strategy to use.
-  enum Utf8Validation: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum Utf8Validation: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
     /// Invalid default, which should never be used.
     case unknown = 0
@@ -111,12 +111,12 @@ struct Pb_JavaFeatures: @unchecked Swift.Sendable {
 
   }
 
-  struct NestInFileClassFeature: @unchecked Swift.Sendable {
+  nonisolated struct NestInFileClassFeature: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    enum NestInFileClass: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+    nonisolated enum NestInFileClass: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
       /// Invalid default, which should never be used.
       case unknown = 0
@@ -166,7 +166,7 @@ struct Pb_JavaFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_java: Pb_JavaFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_Extensions_java, default: Pb_JavaFeatures()) }
@@ -186,7 +186,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_JavaFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_JavaFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_Extensions_java
 ]
 
@@ -194,14 +194,14 @@ let Pb_JavaFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_java = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_java = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{7}\0pb.java",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_JavaFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_JavaFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_JavaFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{5}\0\0\0\0\0\u{5}\0\0\u{6}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{3}\0\0\u{3}\0\0\0\u{8}\u{5}\0\0\0\0\u{8}\0\0\u{4}\0\u{2}\0\u{e}\u{f}\0pb.JavaFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\u{2}\0\0\u{10}\u{7f}CI\tZO\u{2}+\rPLN1,V2\u{7f}7+3qyU\n\u{1b}.H\u{1}&\u{15}\u{14}]\u{2}X\u{19}yQFhI\u{1f}\u{1f}tvVyCI\u{2}@\u{7}ZIj>\u{c}\u{16}]\u{3}6H_0Y\u{1c}\"Hy:\u{c}?tW\u{13}\t~sD\u{14}\u{16}U\u{c}LZW7VJVy\u{10}~\t/@U:Td1\u{14}&W#\u{6}\n\u{3}\u{1b}sPY\u{10}\u{1d}\u{16}D+Kjv\u{12}\"\u{11}FVLC.szK\u{1d}b_=`$;|jD\u{8}\u{2}dF\u{e}C.O7\u{8}yy\u{b}P\u{1d}]x?Q7\u{3}\u{1d}`_U]cJ\u{1e}L\u{17}/@D\u{4}\u{3}\ti5\u{1b}4O\u{1a}\u{15}\u{4}\0~1ERJ{\u{1e}:\0"
 
@@ -219,13 +219,13 @@ extension Pb_JavaFeatures: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Pb_JavaFeatures.Utf8Validation {
+nonisolated extension Pb_JavaFeatures.Utf8Validation {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1e}\0pb.JavaFeatures.Utf8Validation"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\\"w\u{15}\u{8}1cz@\\:xd>sR\u{7f}z.ms\\.\u{1d}f5XJ\u{14}7Ft6b@(\u{18}:$tk5f\u{11}IuH\u{7}\r^B\u{16}Far>/\u{17}j\u{e}<`,\u{18}\u{7f}E\r\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0&\0pb.JavaFeatures.NestInFileClassFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\0\0\0\0_Si=A~a\u{12}5U\u{3}\u{19})0\u{1}$z^C\0\0"
 
@@ -235,7 +235,7 @@ extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.GeneratedMessage
 
 }
 
-extension Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass {
+nonisolated extension Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\06\0pb.JavaFeatures.NestInFileClassFeature.NestInFileClass"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK\u{4}[aE'b@\u{f}$_9M\u{1d}C\u{2}O\u{1}*\u{7}Lrda\u{1d}`\u{5}\u{1a}aZt\u{3}1\u{2}\u{e}\u{12}L\\r0\u{1a}EDSKl\r:.\"7\u{f}O3G\u{1c}POy/B')S\u{7}J1+<W.o\u{15}x_Q-\u{11}\u{1a}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct UnittestDropUnknownFields_Foo: @unchecked Swift.Sendable {
+nonisolated struct UnittestDropUnknownFields_Foo: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -42,7 +42,7 @@ struct UnittestDropUnknownFields_Foo: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: newValue != .foo, hasBit: (0, 2)) }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case foo // = 0
     case bar // = 1
@@ -90,7 +90,7 @@ struct UnittestDropUnknownFields_Foo: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: @unchecked Swift.Sendable {
+nonisolated struct UnittestDropUnknownFields_FooWithExtraFields: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,7 +110,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 12, to: newValue, willBeSet: newValue != 0, hasBit: (0, 4)) }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case foo // = 0
     case bar // = 1
@@ -164,7 +164,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension UnittestDropUnknownFields_Foo: SwiftProtobuf.GeneratedMessage {
+nonisolated extension UnittestDropUnknownFields_Foo: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e} \0unittest_drop_unknown_fields.Foo"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#`~\u{18}p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\u{b}9{3h.GC\u{19}Q6fQ\u{14}\u{10}\u{19} \u{7f}n\u{1e}\u{14}aQ\u{5}L1m~\t<K\u{1d}%@8+1\u{f}]t7\u{19}\u{17}i\"\u{7}\u{2}\0"
 
@@ -181,13 +181,13 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension UnittestDropUnknownFields_Foo.NestedEnum {
+nonisolated extension UnittestDropUnknownFields_Foo.NestedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0+\0unittest_drop_unknown_fields.Foo.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.GeneratedMessage {
+nonisolated extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}/\0unittest_drop_unknown_fields.FooWithExtraFields"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\u{1}\0\0 ?)5\u{1d}Zs5&L\u{6}\u{10}al;tE#Cwg>w\u{f}~6\"6{\u{11}X+{\u{17}Fa\u{17}4XH,tw\u{7f}+\u{12},\u{16}\u{5}fP_i8GqeEAc'\u{1b}T@WBs}X,g\u{11}\u{1f}GM\u{18}%P2\u{19}[\u{1f}f\u{14}$B\u{16}@\u{f}*1r;H\u{2}"
 
@@ -204,7 +204,7 @@ extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.GeneratedM
 
 }
 
-extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum {
+nonisolated extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0:\0unittest_drop_unknown_fields.FooWithExtraFields.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9DCi\u{16}*/?\u{1b}e6\u{3}\u{1b}\u{1d}\u{10}CMS4Jy\u{5}nk~(Y\u{c}N\u{2}[\u{7}d|\u{1}&(\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

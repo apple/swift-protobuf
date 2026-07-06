@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto3Unittest_TestProto3BytesMap: @unchecked Swift.Sendable {
+nonisolated struct Proto3Unittest_TestProto3BytesMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -57,7 +57,7 @@ struct Proto3Unittest_TestProto3BytesMap: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto3Unittest_TestI32StrMap: @unchecked Swift.Sendable {
+nonisolated struct Proto3Unittest_TestI32StrMap: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -79,7 +79,7 @@ struct Proto3Unittest_TestI32StrMap: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto3Unittest_TestProto3BytesMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto3Unittest_TestProto3BytesMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{2}\0\0\0\u{4}\u{1}\0 \u{1}\0\u{2}\0\u{b}\"\0proto3_unittest.TestProto3BytesMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p!p\0\u{c}\u{14}1x\u{1e}\u{2}\u{1b}L?xY#`K\u{5}\u{1}gt\u{19}0M^uWd\u{1e}\u{11}*LRI;kfno\u{7}0Sx$\u{e}%*I\u{16};k\u{1}v5\\ui\u{16},,;y\u{1e}\u{e}\u{11}\0\0"
 
@@ -101,7 +101,7 @@ extension Proto3Unittest_TestProto3BytesMap: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Proto3Unittest_TestI32StrMap: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto3Unittest_TestI32StrMap: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}\u{1d}\0proto3_unittest.TestI32StrMap"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@\\[%.MIJww:\u{16}+|8_XZz\u{5}e(&iyh-?z\u{b}Lu|l \u{1b}\u{10}~V\u{7}\0"
 

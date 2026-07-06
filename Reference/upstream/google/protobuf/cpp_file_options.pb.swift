@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_File_CppFileOptions: @unchecked Swift.Sendable {
+nonisolated struct Pb_File_CppFileOptions: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -63,7 +63,7 @@ struct Pb_File_CppFileOptions: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FileOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
   var Pb_File_cpp: Pb_File_CppFileOptions {
     get { _protobuf_extensionStorage().value(of: Pb_File_Extensions_cpp, default: Pb_File_CppFileOptions()) }
@@ -83,7 +83,7 @@ extension SwiftProtobuf.Google_Protobuf_FileOptions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_File_CppFileOptions_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_File_CppFileOptions_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_File_Extensions_cpp
 ]
 
@@ -91,14 +91,14 @@ let Pb_File_CppFileOptions_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_File_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_File_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
   schema: "\0^\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{b}\0pb.file.cpp",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_File_CppFileOptions.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_File_CppFileOptions: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_File_CppFileOptions: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{16}\0pb.file.CppFileOptions"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp?lr\u{c}k)A\u{7}\u{7f}\u{4}|C\u{6}u_z\u{1}\0"
 

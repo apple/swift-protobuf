@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case unknown // = 0
   case somethingSpecial // = 1
@@ -91,7 +91,7 @@ enum SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: SwiftProtobuf.E
 
 }
 
-struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -117,13 +117,13 @@ struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: @unch
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0?\0swift_proto_testing.enum_value_json_string.EnumCustomJSONString"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{3}\0\00\u{1f}9 QZOr::\u{2}M\u{7}\0\nzx!B\u{1a}\r,\u{4}:#-JK~\u{3}[W\u{7f}&FrXF?y'3\u{7}\u{5}\u{7f}HfN\"\u{e}*F8*rs\\yqy~?\u{11}:rH\u{7f}\u{14}\u{7}j9\0Vu\u{3}S uF/HL\u{15}{<\\:\u{f}\u{1d}(e\u{17}\u{1a}wbwC< \u{3}.W\u{f}dbp'IR\u{1b}.ZwJO1xQ{x\0t|YyC-!wh7\u{e}>e-v3\u{2}G\u{17}\u{1a}p Q\n.\u{13}Z8:/I\u{6}W@@\u{17}b$B@ whL\u{18}>\u{6}\rU!O4$\u{4}9cG\u{8}:\u{14}05VbB\u{f}\t8\u{e}z^:3#OK^qpZ\u{1b}9^DA&avD\u{1}@\u{7f}7(KH}<\u{13}6k7mBn+\r?|\u{3}\u{17}EYcBL\n*vJ>\u{17}no\t\u{7}1y[\u{15}|\u{7f}u7\u{1}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}G\0swift_proto_testing.enum_value_json_string.EnumCustomJSONStringsMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@~K#:MIJww:\u{16}+|8_X\u{1a}|hIl\rET8\u{2}2*nI\u{19}4`6\u{16} \u{16}NV\n\0"
 

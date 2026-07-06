@@ -45,7 +45,7 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
   struct _2: ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -64,7 +64,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-struct Google_Protobuf_Api: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Api: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -157,7 +157,7 @@ struct Google_Protobuf_Api: @unchecked Swift.Sendable {
 /// strongly discouraged. This message does not reliability preserve all
 /// information necessary to model the schema and preserve semantics. Instead
 /// make use of FileDescriptorSet which preserves the necessary information.
-struct Google_Protobuf_Method: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Method: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -308,7 +308,7 @@ struct Google_Protobuf_Method: @unchecked Swift.Sendable {
 ///       }
 ///       ...
 ///     }
-struct Google_Protobuf_Mixin: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Mixin: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -338,7 +338,7 @@ struct Google_Protobuf_Mixin: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_Api: GeneratedMessage {
+nonisolated extension Google_Protobuf_Api: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{8}\0\0\0\0\0\u{1}\0\0\u{9}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{2}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{2}\0\u{b}\u{3}\0\0\0\u{2}\u{1}\0\u{10}\u{3}\0\u{3}\0\u{b}\u{4}\0\0\0\0\u{1}\0@\u{4}\0\0\0\u{9}\u{5}\0\0\0\0\0\00\0\0\u{5}\0\u{b}\u{6}\0\0\0\u{2}\u{2}\0\u{10}\u{5}\0\u{4}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0\u{2}\0@\u{7}\0\0\0\u{9}\u{13}\0google.protobuf.Api"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\u{1}\0\00?h<][?sGC //?~qIG*X>A\u{14}(\u{12}\u{15}@l!\u{3}oB?\u{18}\u{7}\u{16}\u{6}S\u{11}1\u{1f}\u{15}\u{16};\u{7f}\u{1f}|Pd%\u{15}E|inWx\u{13}\u{17}j\u{16}|m/NOQ\u{6}JGxh^\u{e}u\u{2}.\u{e}1\u{1c}5H\u{6}~\u{7f}\u{b}_\03(`l|;\u{1a}J\r&r\u{6}(\u{11}z)YAzJ~F`5Ra\u{11}U\u{7}\u{14}pV\u{c}\u{13}0O\"):\u{1d}y`1s\u{1c}&\\ 2izl\t3H;\u{3}\0"
 
@@ -359,7 +359,7 @@ extension Google_Protobuf_Api: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_Method: GeneratedMessage {
+nonisolated extension Google_Protobuf_Method: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{8}\0\0\0\0\0\0\0\0\u{9}\0\0\u{1}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\0\u{1}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{2}\0@\u{3}\0\0\0\u{9}\u{5}\0\0\0\0\u{2}\0\0\u{4}\0\0\0\u{8}\u{6}\0\0\0\u{2}\0\0\u{10}\u{5}\0\u{2}\0\u{b}\u{7}\0\0\0\0\u{4}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0\u{3}\0@\u{7}\0\0\0\u{9}\u{16}\0google.protobuf.Method"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\u{2}\0\0\07\u{7f}\t\u{11}H.l*q\0A\u{1b}C)wEW\u{14}4`\u{c}mCUfN\u{1}\tu1\u{3}\u{1f}\u{15}\u{f}^J\u{e}\u{14}x`X\u{11}%[.\u{8}jc*}\"\u{16}rzEJLb\u{15}-7\u{1d}\u{1d}\"B\0{|\u{15}\u{17}9C\u{15};t](r9U\t:8cQ8?\u{1d}Nong)\u{f}&8v \u{19}J TL\u{17}P\u{18}aYO2>aH+T`\u{19}aYK#*y1Qh_\u{17}xdR,Y\u{15}\\\u{19}/\u{12}N=7FT$t3*,9O3\u{6}C9\u{c}y>*-,\u{2}\u{1c}x}\u{3}il8yD\u{6}v%B'8\u{13}\0\0"
 
@@ -377,7 +377,7 @@ extension Google_Protobuf_Method: GeneratedMessage {
 
 }
 
-extension Google_Protobuf_Mixin: GeneratedMessage {
+nonisolated extension Google_Protobuf_Mixin: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{1}\0@\u{1}\0\0\0\u{9}\u{15}\0google.protobuf.Mixin"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}\u{14}}\u{14}JBU\u{13}i^3?\u{10}HWTf*\u{13}W\u{e}s\nmw\u{1}\0"
 

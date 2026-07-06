@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -120,14 +120,14 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage.self, hasBit: (0, 8)) }
 
-  enum OneOf_Options: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_Options: Swift.Equatable, Swift.Sendable {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
     case oneofInt32(Int32)
   }
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -172,7 +172,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.Sendable {
 
 /// These checks how the traverse() generated for a oneof
 /// deals with field orders.  Currently requires inspecting the code.
-struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -308,25 +308,25 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Swift.Sendab
   }
 
   /// Gaps, not no issues, no start:end: on traverse().
-  enum OneOf_OGood: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OGood: Swift.Equatable, Swift.Sendable {
     case a(Int32)
     case b(Int32)
   }
 
   /// Gaps with a field in the middle of the range.
-  enum OneOf_OConflictField: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OConflictField: Swift.Equatable, Swift.Sendable {
     case a2(Int32)
     case b2(Int32)
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsStart: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OConflictExtensionsStart: Swift.Equatable, Swift.Sendable {
     case a3(Int32)
     case b3(Int32)
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsEnd: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OConflictExtensionsEnd: Swift.Equatable, Swift.Sendable {
     case a4(Int32)
     case b4(Int32)
   }
@@ -350,7 +350,7 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Swift.Sendab
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Order_TestFieldOrderings {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings {
 
   var SwiftProtoTesting_Order_myExtensionString: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Order_Extensions_my_extension_string, default: String()) }
@@ -381,7 +381,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Order_Extensions_my_extension_string,
   SwiftProtoTesting_Order_Extensions_my_extension_int
 ]
@@ -390,19 +390,19 @@ let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.Ex
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
   schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}-\0swift_proto_testing.order.my_extension_string",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
   )
 
-let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}*\0swift_proto_testing.order.my_extension_int",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\0 \u{8}\0\0\0\0\0\u{4}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0 \0\0\0\0\0\0\u{3}\u{9}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{8}\u{a}\0\0\0\0\u{18}\0\0{\u{7f}\0\0\u{5}\u{b}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}<\0\0\0\0(\0\0{\u{7f}\0\0\u{3}e\0\0\0\0\u{1c}\0\0\u{2}\0\0\0\u{2}\u{16}\u{1}\0\0\0\u{1}\0@{\u{7f}\0\0\u{9}H\u{1}\0\0\0\0\00\u{3}\0\u{1}\0\u{b},\0swift_proto_testing.order.TestFieldOrderings"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{3}\0\0 _Nr=[ky!Vj@4\u{19}Hs\t>\u{1f}8ujI-1\u{14}\nd,^[\u{b}QAQiA\u{1e}\u{c}s\u{8}U1\u{4}@9gNrKe\u{f}-_GTz\u{1e}wfYixc'J\u{14}x^v? ~:1\u{13}6_2\u{1c}\u{f}jw`\0-zHoF;? B.?+?9woGC\u{7f}\u{10}QN[/0v)EPXY\u{1d}x[JDQ\u{5}uC|t\u{7}3\u{1a}:,\u{7f}gWv\u{8}yD{\u{13}QiGUokx\nB\u{8}mRJD\u{c}dcsIQ9o\u{3}V#)\u{1b}x\u{2}\0s)@B\u{19}09S\u{2}@<3h^G$,SEhV\u{3}D`Ah=*9\t\u{6}R\u{10}X|vH5_\u{16}\0\0\0"
 
@@ -419,7 +419,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{3}:\0swift_proto_testing.order.TestFieldOrderings.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1Jl1\u{1f}\u{2}d\u{b}!\u{12}PLUCBU\u{13}iR\u{13}(e<\u{11}dOOnh\u{14}\0"
 
@@ -429,7 +429,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobu
 
 }
 
-extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0H\0 \u{9}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0$\0\0{\u{7f}\0\0\u{5}\u{1a}\0\0\0\0(\0\0{\u{7f}\0\0\u{5}e\0\0\0\0,\0\0w\u{7f}\0\0\u{5}q\0\0\0\00\0\0\0\0\0\0\u{5}~\0\0\0\04\0\0w\u{7f}\0\0\u{5}I\u{1}\0\0\08\0\0s\u{7f}\0\0\u{5}b\u{1}\0\0\0<\0\0s\u{7f}\0\0\u{5}-\u{2}\0\0\0@\0\0o\u{7f}\0\0\u{5}F\u{2}\0\0\0D\0\0o\u{7f}\0\0\u{5}2\0swift_proto_testing.order.OneofTraversalGeneration"
   private static let _protobuf_reflectionData: Swift.StaticString = "8\u{1}\0\0 \u{1f}y>\u{15}\u{6}. \tF\u{2}\u{11}tt)%\t7[\"j\u{4}\0{ZsB^\u{1e}\u{8}\u{16}wdiD)\u{4}\u{13}'O&7\u{1b}E!B\u{1d}>,R\"k\u{17}{u?\u{15}\u{3}\u{8}>2\rCt\"~OyUa?i\u{c}\u{4}\u{1e}'sC0\u{e}J<5MU\u{1c}$!iTPE\u{5}`8Bhwkp^UCL8ps\u{6}#\u{1}\u{19}\u{1}\0"
 

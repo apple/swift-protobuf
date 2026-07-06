@@ -21,12 +21,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct ImportsImportsAPublicly: @unchecked Swift.Sendable {
+public nonisolated struct ImportsImportsAPublicly: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -61,7 +61,7 @@ public struct ImportsImportsAPublicly: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ImportsImportsAPublicly: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ImportsImportsAPublicly: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{15}\0\0\0\0\0\00\0\0\u{2}\0\u{b}\u{16}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{17}\0ImportsImportsAPublicly"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}Bg'U*;uH\u{1c}iSB%\u{7}AV\u{17}YBpMwc\u{e}\0\0"
 

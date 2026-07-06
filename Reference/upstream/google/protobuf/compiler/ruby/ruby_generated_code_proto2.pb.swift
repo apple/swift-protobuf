@@ -27,12 +27,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum A_B_C_TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum A_B_C_TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case `default` = 0
   case a = 1
   case b = 2
@@ -44,7 +44,7 @@ enum A_B_C_TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-struct A_B_C_TestMessage: @unchecked Swift.Sendable {
+nonisolated struct A_B_C_TestMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -412,7 +412,7 @@ struct A_B_C_TestMessage: @unchecked Swift.Sendable {
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 4, type: A_B_C_TestMessage.NestedMessage.self, hasBit: (2, 128)) }
 
-  enum OneOf_MyOneof: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_MyOneof: Swift.Equatable, Swift.Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -426,7 +426,7 @@ struct A_B_C_TestMessage: @unchecked Swift.Sendable {
     case oneofMsg(A_B_C_TestMessage)
   }
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -462,13 +462,13 @@ struct A_B_C_TestMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension A_B_C_TestEnum {
+nonisolated extension A_B_C_TestEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{e}\0A.B.C.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nCO&\u{1d}\tcE\u{11}JrR<\u{7f}=;)N.\u{b}r:N)\u{7}!-T\u{13}\u{c}q}p=\"bM.19,\u{10}\t^g%\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension A_B_C_TestMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension A_B_C_TestMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\00\u{1}\0.\0\0\u{b}\0\0\u{18}\0\0\u{d}\0\0\u{b}\0\0\0\0\0\u{5}\0\0\u{3}\0\0\u{3}\0\0\u{1}\0\0\0\08\0\0\u{b}\0\0\0\u{5}\u{2}\0\0\0\0h\0\0\u{c}\0\0\0\u{3}\u{3}\0\0\0\0<\0\0\u{d}\0\0\0\u{d}\u{4}\0\0\0\0p\0\0\u{e}\0\0\0\u{4}\u{5}\0\0\0\04\0\0\u{f}\0\0\0\u{8}\u{6}\0\0\0\0x\0\0\u{10}\0\0\0\u{1}\u{7}\0\0\0\0@\0\0\u{11}\0\0\0\u{2}\u{8}\0\0\0\0\0\0@\u{12}\0\0\0\u{9}\u{9}\0\0\0\0\0\0P\u{13}\0\0\0\u{c}\u{a}\0\0\0\0D\0\0\u{14}\0\u{1}\0\u{e}\u{b}\0\0\0\0\0\00\u{15}\0\u{2}\0\u{b}\u{c}\0\0\0\0\u{1}\00\u{16}\0\u{3}\0\u{b}\u{15}\0\0\0\u{2}\0\0\u{10}\u{18}\0\0\0\u{5}\u{16}\0\0\0\u{2}\u{1}\0\u{10}\u{19}\0\0\0\u{3}\u{17}\0\0\0\u{2}\u{2}\0\u{10}\u{1a}\0\0\0\u{d}\u{18}\0\0\0\u{2}\u{3}\0\u{10}\u{1b}\0\0\0\u{4}\u{19}\0\0\0\u{2}\u{4}\0\u{10}\u{1c}\0\0\0\u{8}\u{1a}\0\0\0\u{2}\u{5}\0\u{10}\u{1d}\0\0\0\u{1}\u{1b}\0\0\0\u{2}\u{6}\0\u{10}\u{1e}\0\0\0\u{2}\u{1c}\0\0\0\u{2}\u{7}\0\u{10}\u{1f}\0\0\0\u{9}\u{1d}\0\0\0\u{2}\u{8}\0\u{10} \0\0\0\u{c}\u{1e}\0\0\0\u{2}\u{9}\0\u{10}!\0\u{1}\0\u{e}\u{1f}\0\0\0\u{2}\u{a}\0\u{10}\"\0\u{2}\0\u{b})\0\0\0\0H\0\0\0\0\0\0\u{5}*\0\0\0\0\0\u{1}\0\u{1}\0\0\0\u{3}+\0\0\0\0L\0\0\u{2}\0\0\0\u{d},\0\0\0\0\u{8}\u{1}\0\u{3}\0\0\0\u{4}-\0\0\0\05\0\0\u{4}\0\0\0\u{8}.\0\0\0\0\u{10}\u{1}\0\u{5}\0\0\0\u{1}/\0\0\0\0P\0\0\u{6}\0\0\0\u{2}0\0\0\0\0\u{1}\0@\u{7}\0\0\0\u{9}1\0\0\0\0\u{1}\0P\u{8}\0\0\0\u{c}2\0\0\0\0T\0\0\u{9}\0\u{1}\0\u{e}3\0\0\0\0\u{2}\00\u{a}\0\u{2}\0\u{b}=\0\0\0\0X\0\0w\u{7f}\0\0\u{5}>\0\0\0\0\u{18}\u{1}\0w\u{7f}\0\0\u{3}?\0\0\0\0\\\0\0w\u{7f}\0\0\u{d}@\0\0\0\0 \u{1}\0w\u{7f}\0\0\u{4}A\0\0\0\06\0\0w\u{7f}\0\0\u{8}B\0\0\0\0(\u{1}\0w\u{7f}\0\0\u{1}C\0\0\0\0`\0\0w\u{7f}\0\0\u{2}D\0\0\0\0\u{2}\0@w\u{7f}\0\0\u{9}E\0\0\0\0\u{2}\0Pw\u{7f}\0\0\u{c}F\0\0\0\0d\0\0w\u{7f}\u{1}\0\u{e}G\0\0\0\0\u{3}\00w\u{7f}\u{2}\0\u{b}P\0\0\0\0\u{4}\00\u{17}\0\u{4}\0\u{b}\u{11}\0A.B.C.TestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\u{12}\0\00\u{4}\u{15}\u{19}V'V%p\u{6}Q7$\u{6}hr\u{1}|]n}WQ\u{1a}*\u{17}R/\u{1f}Oj\u{1c}@+\r-1<1s&jPT,\r\u{18}(B^M\u{3}wm?T~jg8\u{1e}'\u{1}\"b[(T\u{8}\u{1e}F$9.Z\u{b}(Q5s bF|G5xG\u{f}\u{11}4!~r gjm\"\u{10}x\u{1b}:pk.O\u{5}21\u{1b}dO\u{1e}\u{18}\u{18}w\0\u{e}n\u{2}\u{5}e\u{17}\u{f}\u{1c}r,V\u{8}B1\r\u{1d}^ YH$#\u{7}\u{19}YesDPb?\u{16}agM{bt \u{3}/_~\tux,%\u{19}<\u{17}tH-\0-\u{15}\u{8}\u{19}VJ/y\u{1a}%R|/m.\u{12}z\048p?g6\u{1}P0j'oP9$D\u{18}={?w\u{8}\u{11};\u{11}\u{7}\u{1c}7~\u{4}endjqb&X\u{c}h\u{1c}&\u{1e}?\u{16}~ U\u{e}\u{c}\u{4}Ti\u{18}1Tyo\u{19}M\u{4}1\u{10}_\u{18}\u{3}7%jio^OQl\r{q\u{1}\\\u{7}_iq[4<}\u{6}a\u{1f}\u{18}\u{1c}z0:x\u{4}qLBn{OGF9\u{f}V1\u{18}nO@|9Z/O\rx\u{1f}B\u{4}\u{6}\u{2}otlxvbm:!c1L6H\u{7f}1\u{19}\0\u{f}gF+?\u{11},a;A>?`ZaI\\_zWc+2`-b\u{5}{D]H|O|<E\u{12}\u{16}\t,*ADi\u{b}?;\u{7f}E=e A9kl\u{7}<\u{7f}a\u{14}\\\u{17}f>5\u{1a}WR]P\u{f}\u{17}\u{5}6B\\=j}!\u{c}Rg3 RNhF\u{1e}\u{f} }\u{c}\u{18}e\u{7f}P\u{19}MfRfguG\u{b}\0!.cCdd\u{16}lZ\n]M>i\u{17}[a2BFlv\u{8}\u{1b}\u{19}!\u{17}hl\u{2}R$\u{8}iy \n\u{7}\u{1c}\u{7}k\u{1f}g\u{11}[=z\r{\u{c}n*\u{2}%J\u{7}\u{6}dM#}m\\D\u{11}\u{8};\u{1b}\n\u{1d}o\t\u{1f}32B+BnGy99vd .Cz&N#?\rq5u\u{1b}\u{17}J-mL@+<+|Y\u{3}p3uf*0y8\u{12}\u{10}S\u{6}i\0U*\u{19}\u{14}\u{1}|1*\u{1e}`R\u{e}w1idS_=/a\u{2}$*\u{6}q\u{12}[DM<0EWj\u{1f}Y5WfU \u{1}#YMq;^fq4UO_%G8\0fHnpz_N\u{4}1\u{16}n\u{e}\u{19}r\u{19}WI?\r\u{15}y9\"\u{11}\u{6}s)-J6\u{16}\u{13}\u{1a}\u{2}\t{S\u{1a}\"\u{18}rYR\u{f},\\NW\u{1}\t\u{13}e\u{4}TeMw_;`pzSe!J@q\u{11}\u{17}) c(nr/)t\0/2;\u{14}siLqgG9wL_UI>\u{1d}\u{7f}g\u{14}\u{1b}>\u{1a}\u{e}\u{15}zo&u \rUux\t4\u{b},\u{1e}4M\u{10}J<,Zh6J\03V\"YK\u{1e}'pk+Ub5'64r68UD\u{10}d\\Qy\u{3}~,\u{16}\u{12}\u{1e}dLc73N&xn\u{3}\u{19}3|e-\u{16}\u{7}EHn\u{1e}i~%Y]mGRVwtp\u{7f}\u{1f}{f}&Ny\u{5}\u{11}O\u{3}n$\r*\u{1e}lX/0jF\u{18}o\u{4}BT\u{1a}\u{17}'g\u{12}s OsO\07W\u{1d}\u{1b}{VsL\u{11}&yVn\u{13}Ra\u{1f}~\u{1f}~\"Bn%i\u{13}r1\u{1b}\u{c}wM\n\u{4}/\u{c}-\u{b}2\\?IbOn`{Y\0\u{19}\u{13}H5r?Xb;')bqx\u{4}\u{10}\u{16}\u{10}!v\u{1e}g\u{7}cK(yAD\nkC7N\u{c} \u{1b}V<%k+{#qs\u{17}\u{e}]G\u{8}4\u{15}*\u{14}v\r\u{19}Pt \u{f}\u{1b}-'1ZIpW\tJ.)@K+\u{1}eb{M,\u{12}\u{3}9;[\u{b}n\u{8}.\u{1f}|gJO;$>hc&]~8MQ\u{1b}z4\u{13}l!\u{1c}0\u{1b}\u{5}\u{4}\u{11}E\u{c}\u{3}Qw\u{1b}F\u{19}\\J\u{1a}I*\u{1}V.@0R^nWcJ\u{1a};}\u{14}cNG\u{1e}T\u{18}*r80\u{1}\0\0"
 
@@ -488,7 +488,7 @@ extension A_B_C_TestMessage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension A_B_C_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension A_B_C_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{1f}\0A.B.C.TestMessage.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wps;\u{e}7p-H\u{11}3\u{4}\0\0"
 

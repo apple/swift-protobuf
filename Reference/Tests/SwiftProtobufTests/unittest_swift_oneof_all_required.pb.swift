@@ -45,12 +45,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage1: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_OneOfOptionMessage1: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -74,7 +74,7 @@ struct SwiftProtoTesting_OneOfOptionMessage1: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage2: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_OneOfOptionMessage2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -98,7 +98,7 @@ struct SwiftProtoTesting_OneOfOptionMessage2: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -146,14 +146,14 @@ struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 20, to: newValue, oneofPresence: (4, 6)) }
   }
 
-  enum OneOf_Option: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_Option: Swift.Equatable, Swift.Sendable {
     case option1(SwiftProtoTesting_OneOfOptionMessage1)
     case option2(SwiftProtoTesting_OneOfOptionMessage2)
     case option3(SwiftProtoTesting_OneOfContainer.Option3)
     case option4(Int32)
   }
 
-  struct Option3: @unchecked Swift.Sendable {
+  nonisolated struct Option3: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -198,7 +198,7 @@ struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage1"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0"
 
@@ -208,7 +208,7 @@ extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}'\0swift_proto_testing.OneOfOptionMessage2"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wpc|jKpj\u{13}.gg\0}O{|W|v\u{5}\0"
 
@@ -218,7 +218,7 @@ extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{4}\0\0\0\0\0\0\0\0\u{4}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00{\u{7f}\u{1}\0\u{b}\u{2}\0\0\0\0\u{1}\00{\u{7f}\u{2}\0\u{b}\u{3}\0\0\0\0\u{2}\00{\u{7f}\u{3}\0\u{a}\u{6}\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{5}\"\0swift_proto_testing.OneOfContainer"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}\u{1}pEZC#D#`O/o\u{16}VS\ttwN=AK^|[c6\u{c}|+u6p\0h&V\r_(\u{2}6.Z|W\u{16}*_O\u{5}\u{15}u\t\u{12}\\WHCc!X!&m)(S\0$7C\u{13}}T\u{19}\u{3}"
 
@@ -237,7 +237,7 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{4}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{5}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}*\0swift_proto_testing.OneOfContainer.Option3"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%Jl1\u{1f}B$f}|\u{7f}k<8@)P2Z\u{1c}l=\u{12}\u{7}t_\u{14}\u{5}l\u{5}\0"
 

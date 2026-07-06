@@ -18,12 +18,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: @unchecked Swift.Sendable {
+nonisolated struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,7 +47,7 @@ struct ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: @unchecked Swi
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: @unchecked Swift.Sendable {
+nonisolated struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -69,7 +69,7 @@ struct ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: @unchecked Swift.Sen
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}:\0third_party.protobuf.util.python.testdata.TimestampWrapper"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wpw\u{4}hBZ\u{4}*m\u{16}\t|C\u{6}u_z\u{1}\0"
 
@@ -86,7 +86,7 @@ extension ThirdParty_Protobuf_Util_Python_Testdata_TimestampWrapper: SwiftProtob
 
 }
 
-extension ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ThirdParty_Protobuf_Util_Python_Testdata_MapWrapper: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{4}\0\0 \0\0\u{1}\0\u{b}4\0third_party.protobuf.util.python.testdata.MapWrapper"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp3,\r\u{16}V(dH)\"\u{7}\0"
 

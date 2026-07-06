@@ -15,12 +15,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_LateLoadedOption: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_LateLoadedOption: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -53,7 +53,7 @@ struct Proto2Unittest_LateLoadedOption: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var Proto2Unittest_LateLoadedOption_ext: Proto2Unittest_LateLoadedOption {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_LateLoadedOption.Extensions.ext, default: Proto2Unittest_LateLoadedOption()) }
@@ -73,7 +73,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_LateLoadedOption_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_LateLoadedOption_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_LateLoadedOption.Extensions.ext
 ]
 
@@ -81,7 +81,7 @@ let Proto2Unittest_LateLoadedOption_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-extension Proto2Unittest_LateLoadedOption {
+nonisolated extension Proto2Unittest_LateLoadedOption {
   enum Extensions {
     static let ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0l\u{a}.-\u{10}\0\0\0\0\0\u{1}\0\u{b}$\0proto2_unittest.LateLoadedOption.ext",
@@ -92,7 +92,7 @@ extension Proto2Unittest_LateLoadedOption {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_LateLoadedOption: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_LateLoadedOption: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5} \0proto2_unittest.LateLoadedOption"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7}u\u{1e}\u{11}fq.r\u{3}~;T\u{8}\0"
 

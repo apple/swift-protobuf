@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -90,7 +90,7 @@ struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked Swift.Sendabl
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\0\0\0\u{2}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\u{4}\0\0 \u{3}\0\u{1}\0\u{b}\u{3}\0\0\0\u{4}\u{1}\0 \u{4}\0\u{2}\0\u{b}\u{4}\0\0\0\0\0\00\u{1}\0\u{3}\0\u{a}\u{5}\0\0\0\0\u{1}\00\u{2}\0\u{3}\0\u{b}1\0swift_descriptor_test.EditionsMessageForDelimited"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{2}\0\0\0?dE)ZO\u{2}+\rPLN1,V2\u{7f}7+3o%B%\u{b}n=gt2*n\u{8}i\\Pw\u{5}cS\u{11}:Ij~#&sP<]\u{1f},gr\u{3}\u{5}\u{8}'m~$6r+,w\\dd$\u{10}~V2@]V\0\u{1f}'\u{c}uQc\u{10}zA./ZV(\u{1}W1Wu*:\u{16}\nH?e6>c\u{10}\"Si_\u{3} R_RIzm\u{e}<xJ|&Kb\u{5}<*-F;7\u{19}az8hK\u{f}y8_:e\u{14}\rn\u{7}\0\0"
 

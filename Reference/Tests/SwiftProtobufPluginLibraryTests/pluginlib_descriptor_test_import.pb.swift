@@ -31,12 +31,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftDescriptorTest_Import_Version: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_Import_Version: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,7 +87,7 @@ struct SwiftDescriptorTest_Import_Version: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
+nonisolated struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -101,7 +101,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
   /// Clears the value of `subMsgField`. Subsequent reads from it will return its default value.
   mutating func clearSubMsgField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.self, hasBit: (0, 1)) }
 
-  struct ExtendableTwo: @unchecked Swift.Sendable {
+  nonisolated struct ExtendableTwo: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -128,7 +128,7 @@ struct SwiftDescriptorTest_Import_ExtendableOne: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}$\0swift_descriptor_test.import.Version"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KH+\u{1e}\u{17}d GMwQy\u{13}\u{7f}c[)rwJ%\u{10}9><\u{5}]5XP\u{6}\u{7f}V a9c\u{1f}\u{6}\r7[\u{13}Sa\u{1e}\u{1e}UVg\u{3}\u{1}\u{1d}ADtmw\u{16}&\tTG+p\u{2}"
 
@@ -138,7 +138,7 @@ extension SwiftDescriptorTest_Import_Version: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}*\0swift_descriptor_test.import.ExtendableOne"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k~\"Xv]\u{f}so|S\u{18}\n<\u{19}\u{7})p=G&\u{5}\u{5}\u{7f}\u{19}\u{3}\u{15}CPp\u{3}\0"
 
@@ -155,7 +155,7 @@ extension SwiftDescriptorTest_Import_ExtendableOne: SwiftProtobuf.GeneratedMessa
 
 }
 
-extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0 \0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\08\0swift_descriptor_test.import.ExtendableOne.ExtendableTwo"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 

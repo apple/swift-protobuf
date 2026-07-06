@@ -24,12 +24,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.Sendable {
+nonisolated struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,7 +64,7 @@ struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\u{1}\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{a},\0legacy_features_unittest.TestEditionsMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`+avHp\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}u\rtw\u{8}p>\u{14}E\u{11}\u{3}I~V)L\u{11}\u{6}t}Za*7?wEV\t\u{15}ZT|Q\u{1a}o\u{2}j\u{15}\\PhwR\u{3}\u{1a}/VN\u{c}oa\n\u{7}\0"
 

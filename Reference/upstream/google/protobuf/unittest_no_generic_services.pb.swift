@@ -24,12 +24,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum Proto2Unittest_NoGenericServicesTest_TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum Proto2Unittest_NoGenericServicesTest_TestEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
   case foo = 1
 
   init() {
@@ -38,7 +38,7 @@ enum Proto2Unittest_NoGenericServicesTest_TestEnum: Swift.Int, SwiftProtobuf.Enu
 
 }
 
-struct Proto2Unittest_NoGenericServicesTest_TestMessage: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_NoGenericServicesTest_TestMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,7 +71,7 @@ struct Proto2Unittest_NoGenericServicesTest_TestMessage: @unchecked Swift.Sendab
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Proto2Unittest_NoGenericServicesTest_TestMessage {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage {
 
   var Proto2Unittest_NoGenericServicesTest_testExtension: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension, default: 0) }
@@ -91,7 +91,7 @@ extension Proto2Unittest_NoGenericServicesTest_TestMessage {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.ExtensionMap = [
   Proto2Unittest_NoGenericServicesTest_Extensions_test_extension
 ]
 
@@ -99,20 +99,20 @@ let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: S
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}7\0proto2_unittest.no_generic_services_test.test_extension",
   extendedMessageResolver: { Proto2Unittest_NoGenericServicesTest_TestMessage.messageSchema }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_NoGenericServicesTest_TestEnum {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0proto2_unittest.no_generic_services_test.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpk%+*x\u{1c}H\u{11}3\u{4}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0 \u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}4\0proto2_unittest.no_generic_services_test.TestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
 

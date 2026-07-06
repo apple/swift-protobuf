@@ -45,12 +45,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,7 +91,7 @@ struct SwiftProtoTesting_TestAny: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_TestAny: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{4}\0\0\0\0\0\u{1}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{3}\0\0\0\u{2}\0\0\u{10}\u{2}\0\u{1}\0\u{b}\u{4}\0\0\0\0\0\0@\u{3}\0\0\0\u{9}\u{1b}\0swift_proto_testing.TestAny"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\u{1}\0\0 \u{1f}}\u{17}\tZs5F#`Oz$+q\0`W9\u{1c}kIwW;\u{15}g\u{b}fa{;\u{16}_~XfC}%RT\0J-e\tn\u{10}3s\u{1d}g\u{11}bo\u{17}=N\u{f}PQ-\u{17}B/c\u{e},Lz.\u{18}\u{f}J\u{b}\u{1d}M[\u{1e}^j(\u{4}.$*\u{14}yh`7Z}hM\u{1b}\u{11}ht<d`}\u{6}|fo\u{1}"
 

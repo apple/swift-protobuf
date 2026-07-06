@@ -28,12 +28,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Proto2Unittest_LazyImports_ImportedMessage: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_LazyImports_ImportedMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -57,7 +57,7 @@ struct Proto2Unittest_LazyImports_ImportedMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_LazyImports_MessageCustomOption: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_LazyImports_MessageCustomOption: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -72,7 +72,7 @@ struct Proto2Unittest_LazyImports_MessageCustomOption: @unchecked Swift.Sendable
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Proto2Unittest_LazyImports_MessageCustomOption2: @unchecked Swift.Sendable {
+nonisolated struct Proto2Unittest_LazyImports_MessageCustomOption2: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -89,7 +89,7 @@ struct Proto2Unittest_LazyImports_MessageCustomOption2: @unchecked Swift.Sendabl
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b},\0proto2_unittest.lazy_imports.ImportedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}FH\u{1}[C#\u{4}\u{15}\\2[\\\u{1f}6\u{18}k>\u{15}\u{12}o]^ \u{18}+\u{1d}&\u{6}0{,#ZQ#\u{14}wF\u{3}$!x\0\0"
 
@@ -106,7 +106,7 @@ extension Proto2Unittest_LazyImports_ImportedMessage: SwiftProtobuf.GeneratedMes
 
 }
 
-extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\00\0proto2_unittest.lazy_imports.MessageCustomOption"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -116,7 +116,7 @@ extension Proto2Unittest_LazyImports_MessageCustomOption: SwiftProtobuf.Generate
 
 }
 
-extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Proto2Unittest_LazyImports_MessageCustomOption2: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\01\0proto2_unittest.lazy_imports.MessageCustomOption2"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 

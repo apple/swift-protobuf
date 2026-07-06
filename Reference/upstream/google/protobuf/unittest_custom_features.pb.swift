@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum CustomFeatures_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum CustomFeatures_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case testEnumFeatureUnknown // = 0
   case value1 // = 1
@@ -117,7 +117,7 @@ enum CustomFeatures_EnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-enum CustomFeatures_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum CustomFeatures_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case testUnstableEnumFeatureUnknown // = 0
   case unstable1 // = 1
@@ -163,7 +163,7 @@ enum CustomFeatures_UnstableEnumFeature: SwiftProtobuf.Enum, Swift.CaseIterable 
 
 }
 
-enum CustomFeatures_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum CustomFeatures_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case testValueLifetimeUnknown // = 0
   case valueLifetimeInherited // = 1
@@ -217,7 +217,7 @@ enum CustomFeatures_ValueLifetimeFeature: SwiftProtobuf.Enum, Swift.CaseIterable
 
 }
 
-struct CustomFeatures_TestCustomFeatures: @unchecked Swift.Sendable {
+nonisolated struct CustomFeatures_TestCustomFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -430,7 +430,7 @@ struct CustomFeatures_TestCustomFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var CustomFeatures_test: CustomFeatures_TestCustomFeatures {
     get { _protobuf_extensionStorage().value(of: CustomFeatures_Extensions_test, default: CustomFeatures_TestCustomFeatures()) }
@@ -450,7 +450,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let CustomFeatures_UnittestCustomFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let CustomFeatures_UnittestCustomFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   CustomFeatures_Extensions_test
 ]
 
@@ -458,32 +458,32 @@ let CustomFeatures_UnittestCustomFeatures_Extensions: SwiftProtobuf.ExtensionMap
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let CustomFeatures_Extensions_test = SwiftProtobuf.ExtensionSchema(
+nonisolated let CustomFeatures_Extensions_test = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{14}\0custom_features.test",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(CustomFeatures_TestCustomFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension CustomFeatures_EnumFeature {
+nonisolated extension CustomFeatures_EnumFeature {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{10}\0\0\0\0\u{1b}\0custom_features.EnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{3}\0\0 ?^t.9M\u{14}W+cDhZ\u{c}\u{1d}5B\u{10}s\u{4}wi*\u{1a}\\\u{e}\u{14}ZzSvjNJzBf4Lq\u{5}$pxm\u{b}\u{1b}Q5k%52ad\u{11}\u{1c}. 83 CFoO)\u{4}ac\u{1f}rOt+\u{11}\u{1b}]~Y%2a?IIkt;nd8co\u{6}>yykg{X&\u{b}\u{3};w\u{1d}A\u{e}\u{7f}A^|DA\u{10}H`{Kk\u{1}\\\u{19}\u{10}c\u{2}h5~l)C\t!i\tm&M2Tw/!d\u{1f}w:\u{1d}m5qOB\u{1e}F)6+\u{4}h9G\u{5}}A \u{14}\u{1e}tFuL\"Y\u{12}G<\u{19}\r7cEMP x0\u{1d}Va2HcEnri\0Lt.P\u{15};DC:\u{1f}\u{1b};3W\u{18}Db!\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension CustomFeatures_UnstableEnumFeature {
+nonisolated extension CustomFeatures_UnstableEnumFeature {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0#\0custom_features.UnstableEnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{1}\0\0 ?-\u{1d}!\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}\u{e}E\\a\u{1d}!c\u{f}\u{18}Y|!*~\u{8}eU$\u{1}|7Y4oG7\u{e}BtJ;.G\u{4}\"yE\u{16}-\u{7f}(k4Stfer4\u{1e}Pq\u{7f}XI[\u{5} wdPkwTdkN+r.pN@\u{19}\u{18}\u{12}q89E!%\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension CustomFeatures_ValueLifetimeFeature {
+nonisolated extension CustomFeatures_ValueLifetimeFeature {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0$\0custom_features.ValueLifetimeFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{2}\0\0\0\u{1f}tG\u{1a}85-\u{b}ijxDl?=u\u{1f}x$$%m\u{18}rijcW\u{15}iDR_\u{1d}1{{*0gY|\u{1c}\u{10}D5\u{14}*2,F2\u{6}Zp\\<?~I\0\u{c}o\u{1f}5K\u{8}g\"gKmW1>L\u{12}(\nC\u{16}nh0\u{1c}`\u{e}`\u{f}-(N\u{5}akkY)}\u{1a}M\u{1f}T\u{10}\u{1f}!r\u{7f}N\u{b}\u{15}%_\u{f})!+\u{6}\u{1a}\u{17}\u{10}\u{c}(;\u{8}c_d6\u{b}Lc\t5,\u{18}H8\u{4}59q+\u{8}@\u{15}\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0T\0\0\u{15}\0\0\0\0\0\u{15}\0\0\u{c}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{1}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{1}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{1}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{1}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{1}\0\u{e}\u{a}\0\0\0\0(\0\0\u{9}\0\u{1}\0\u{e}\u{b}\0\0\0\0\u{3}\0\0\u{a}\0\0\0\u{8}\u{f}\0\0\0\0,\0\0\u{b}\0\u{1}\0\u{e}\u{10}\0\0\0\00\0\0\u{c}\0\u{1}\0\u{e}\u{11}\0\0\0\04\0\0\u{d}\0\u{1}\0\u{e}\u{12}\0\0\0\08\0\0\u{e}\0\u{1}\0\u{e}\u{13}\0\0\0\0<\0\0\u{f}\0\u{1}\0\u{e}\u{14}\0\0\0\0@\0\0\u{10}\0\u{2}\0\u{e}\u{15}\0\0\0\0D\0\0\u{11}\0\u{1}\0\u{e}\u{16}\0\0\0\0H\0\0\u{12}\0\u{3}\0\u{e}\u{17}\0\0\0\0L\0\0\u{13}\0\u{3}\0\u{e}\u{18}\0\0\0\0P\0\0\u{14}\0\u{3}\0\u{e}\"\0custom_features.TestCustomFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\t\0\00?e=Au\u{10}m QEj\u{16}.j}\u{1a}Izlh\u{3}\u{7f}o\u{11}I\nO5\u{4}f\\5V\u{b}\u{16}\u{10}'m\"V(\u{1b}\u{8}},\u{3}\u{12}\u{11}5P\\1pE\u{7f}>4-a\u{2}~)gJV`PcCm\u{1b}e+sF?Lf\u{13}5\u{1a}:B\t5\u{5}W\"\u{b}D\\-9J'}\u{14}\u{1f}\u{16}\u{6}9\u{12}?R5wlzo~*!6\u{f}\u{c}\u{4}\u{14}?'0L&v9*/b\u{e}-d^^9\u{11}m=D\u{19}P\u{f}~3U\u{12}\u{1d}g\u{7}DF\u{1c}\rI\u{12}vD\u{18}+G$g'Lmq\u{7f};o\u{1b}WI-.c2iG4\r\u{16}1#!(\u{1c}4WQFQ&N`>1blp\u{1}\u{12}t`\u{12}:\r{\u{5}m0r\u{1c}f;+=oZ\"\t\u{1c}E[-\u{1}\u{c}[\u{1d}zJ\u{11}AW\u{c}quy>\r\u{1a}LuE\u{1f}Ojl}@o^lJ 1Rvv8\u{1d}|\u{15}_\\.\u{1c}\u{6}\u{13}y\u{b}la!Q\u{1e}xY\u{7f}*kh&\u{1a}\u{19}LVr*9\u{1b}\u{1c}A\thhHy\u{18}[\u{1e}WiHdB%\u{12}N[LE\u{19}\u{5}|'v3\u{1b},ggV<\r3GYFYc\u{1d}`=\u{11}\u{16}J>'a`\u{8}&P.XPA\u{19}^:M{&VL\u{6}*A<?e\u{5}HT4.\u{11}\u{7}zU>D&\rrg\u{11}B5%Er7X\u{8}\u{7f}?\u{1a}?md\u{e}\u{1c}\u{15}fCj\u{1b}?I*)cO\0\\R\tc\u{4}E3V4\u{1b}Cn\u{b}\u{c} A4j\u{c}0CEXEh7I)<lW_\u{b}Jc!A\u{1f} \u{11}n6:+\"F^\u{10}C!\u{5}0\"\u{1e}\u{17}\u{1e}vv,WzI,BT\u{4}K[\u{19}i\nDP\\Y\u{1d}\u{7f}\u{2}1<_\"\u{17}\0;$AQr=\u{12}^Y\u{b}\u{1d}_\\FvOU9\u{5}eJv\u{3}50j&/f\u{7}M\\r\u{2}\u{1f}uz>4Gj?+ZI:pP&\u{b}vn_J3\t\u{16}@#ZS]C\u{3}Q\u{7}JR\u{1d}6q))\t\u{1c}0+{7e\u{17}\u{1a}_b=j\t0\u{13},Suz\u{11}\u{19}tc\u{f}9P\"1!\0\0\0"
 

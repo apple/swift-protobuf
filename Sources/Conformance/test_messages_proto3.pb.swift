@@ -33,12 +33,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+nonisolated enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Swift.Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -83,7 +83,7 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, Swift.CaseIter
 /// submessages of this message.  So for example, a fuzz test of TestAllTypes
 /// could trigger bugs that occur in any message type in this file.  We verify
 /// this stays true in a unit test.
-struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -973,7 +973,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable
     set { _uniqueStorage().updateValue(at: 188, to: newValue, willBeSet: newValue != 0, hasBit: (17, 64)) }
   }
 
-  enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage)
     case oneofString(String)
@@ -986,7 +986,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable
     case oneofNullValue(SwiftProtobuf.Google_Protobuf_NullValue)
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum NestedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case foo // = 0
     case bar // = 1
@@ -1030,7 +1030,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable
 
   }
 
-  enum AliasedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum AliasedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case aliasFoo // = 0
     case aliasBar // = 1
@@ -1070,7 +1070,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable
 
   }
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1109,7 +1109,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Swift.Sendable
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1129,7 +1129,7 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1144,12 +1144,12 @@ struct ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Swift.Sendab
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Swift.Sendable {
+nonisolated struct ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  enum BoolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum BoolEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Swift.Int
     case kFalse // = 0
     case kTrue // = 1
@@ -1195,13 +1195,13 @@ struct ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufTestMessages_Proto3_ForeignEnum {
+nonisolated extension ProtobufTestMessages_Proto3_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0)\0protobuf_test_messages.proto3.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\u{2}\0\u{19}\u{1}\0\0\0\0\u{13}\0\0\u{10}\0\0B\0\0\u{13}\0\0\u{14}\0\0\u{4}\0\0\u{2}\0\0\u{1}\0\0\0\0@\0\0\u{13}\0\0\0\u{5}\u{2}\0\0\0\0@\u{1}\0\u{14}\0\0\0\u{3}\u{3}\0\0\0\0D\0\0\u{15}\0\0\0\u{d}\u{4}\0\0\0\0H\u{1}\0\u{16}\0\0\0\u{4}\u{5}\0\0\0\0H\0\0\u{17}\0\0\0\u{11}\u{6}\0\0\0\0P\u{1}\0\u{18}\0\0\0\u{12}\u{7}\0\0\0\0L\0\0\u{19}\0\0\0\u{7}\u{8}\0\0\0\0X\u{1}\0\u{1a}\0\0\0\u{6}\u{9}\0\0\0\0P\0\0\u{1b}\0\0\0\u{f}\u{a}\0\0\0\0`\u{1}\0\u{1c}\0\0\0\u{10}\u{b}\0\0\0\0T\0\0\u{1d}\0\0\0\u{2}\u{c}\0\0\0\0h\u{1}\0\u{1e}\0\0\0\u{1}\u{d}\0\0\0\0<\0\0\u{1f}\0\0\0\u{8}\u{e}\0\0\0\0\0\0@ \0\0\0\u{9}\u{f}\0\0\0\0\0\0P!\0\0\0\u{c}\u{12}\0\0\0\0\0\00\0\0\u{5}\0\u{b}\u{13}\0\0\0\0\u{1}\00\u{1}\0\u{6}\0\u{b}\u{15}\0\0\0\0X\0\0\"\0\u{1}\0\u{e}\u{16}\0\0\0\0\\\0\0#\0\u{2}\0\u{e}\u{17}\0\0\0\0`\0\0$\0\u{3}\0\u{e}\u{18}\0\0\0\0\u{1}\0@%\0\0\0\u{9}\u{19}\0\0\0\0\u{2}\0@&\0\0\0\u{9}\u{1b}\0\0\0\0\u{2}\00\u{2}\0+\0\u{b}\u{1f}\0\0\0\u{a}\0\0\u{10}'\0\0\0\u{5} \0\0\0\u{a}\u{1}\0\u{10}(\0\0\0\u{3}!\0\0\0\u{a}\u{2}\0\u{10})\0\0\0\u{d}\"\0\0\0\u{a}\u{3}\0\u{10}*\0\0\0\u{4}#\0\0\0\u{a}\u{4}\0\u{10}+\0\0\0\u{11}$\0\0\0\u{a}\u{5}\0\u{10},\0\0\0\u{12}%\0\0\0\u{a}\u{6}\0\u{10}-\0\0\0\u{7}&\0\0\0\u{a}\u{7}\0\u{10}.\0\0\0\u{6}'\0\0\0\u{a}\u{8}\0\u{10}/\0\0\0\u{f}(\0\0\0\u{a}\u{9}\0\u{10}0\0\0\0\u{10})\0\0\0\u{a}\u{a}\0\u{10}1\0\0\0\u{2}*\0\0\0\u{a}\u{b}\0\u{10}2\0\0\0\u{1}+\0\0\0\u{a}\u{c}\0\u{10}3\0\0\0\u{8},\0\0\0\u{2}\u{d}\0\u{10}4\0\0\0\u{9}-\0\0\0\u{2}\u{e}\0\u{10}5\0\0\0\u{c}0\0\0\0\u{2}\u{f}\0\u{10}6\0\u{5}\0\u{b}1\0\0\0\u{2}\u{10}\0\u{10}7\0\u{6}\0\u{b}3\0\0\0\u{a}\u{11}\0\u{10}8\0\u{1}\0\u{e}4\0\0\0\u{a}\u{12}\0\u{10}9\0\u{2}\0\u{e}6\0\0\0\u{2}\u{13}\0\u{10}:\0\0\0\u{9}7\0\0\0\u{2}\u{14}\0\u{10};\0\0\0\u{9}8\0\0\0\u{4}\0\0 <\0\u{18}\0\u{b}9\0\0\0\u{4}\u{1}\0 =\0\u{19}\0\u{b}:\0\0\0\u{4}\u{2}\0 >\0\u{1a}\0\u{b};\0\0\0\u{4}\u{3}\0 ?\0\u{1b}\0\u{b}<\0\0\0\u{4}\u{4}\0 @\0\u{1c}\0\u{b}=\0\0\0\u{4}\u{5}\0 A\0\u{1d}\0\u{b}>\0\0\0\u{4}\u{6}\0 B\0\u{1e}\0\u{b}?\0\0\0\u{4}\u{7}\0 C\0\u{1f}\0\u{b}@\0\0\0\u{4}\u{8}\0 D\0 \0\u{b}A\0\0\0\u{4}\u{9}\0 E\0!\0\u{b}B\0\0\0\u{4}\u{a}\0 F\0\"\0\u{b}C\0\0\0\u{4}\u{b}\0 G\0#\0\u{b}D\0\0\0\u{4}\u{c}\0 H\0$\0\u{b}E\0\0\0\u{4}\u{d}\0 I\0%\0\u{b}F\0\0\0\u{4}\u{e}\0 J\0&\0\u{b}G\0\0\0\u{4}\u{f}\0 K\0'\0\u{b}H\0\0\0\u{4}\u{10}\0 L\0(\0\u{b}I\0\0\0\u{4}\u{11}\0 M\0)\0\u{b}J\0\0\0\u{4}\u{12}\0 N\0*\0\u{b}K\0\0\0\u{a}\u{15}\0\u{10}O\0\0\0\u{5}L\0\0\0\u{a}\u{16}\0\u{10}P\0\0\0\u{3}M\0\0\0\u{a}\u{17}\0\u{10}Q\0\0\0\u{d}N\0\0\0\u{a}\u{18}\0\u{10}R\0\0\0\u{4}O\0\0\0\u{a}\u{19}\0\u{10}S\0\0\0\u{11}P\0\0\0\u{a}\u{1a}\0\u{10}T\0\0\0\u{12}Q\0\0\0\u{a}\u{1b}\0\u{10}U\0\0\0\u{7}R\0\0\0\u{a}\u{1c}\0\u{10}V\0\0\0\u{6}S\0\0\0\u{a}\u{1d}\0\u{10}W\0\0\0\u{f}T\0\0\0\u{a}\u{1e}\0\u{10}X\0\0\0\u{10}U\0\0\0\u{a}\u{1f}\0\u{10}Y\0\0\0\u{2}V\0\0\0\u{a} \0\u{10}Z\0\0\0\u{1}W\0\0\0\u{a}!\0\u{10}[\0\0\0\u{8}X\0\0\0\u{a}\"\0\u{10}\\\0\u{1}\0\u{e}Y\0\0\0\u{2}#\0\u{10}]\0\0\0\u{5}Z\0\0\0\u{2}$\0\u{10}^\0\0\0\u{3}[\0\0\0\u{2}%\0\u{10}_\0\0\0\u{d}\\\0\0\0\u{2}&\0\u{10}`\0\0\0\u{4}]\0\0\0\u{2}'\0\u{10}a\0\0\0\u{11}^\0\0\0\u{2}(\0\u{10}b\0\0\0\u{12}_\0\0\0\u{2})\0\u{10}c\0\0\0\u{7}`\0\0\0\u{2}*\0\u{10}d\0\0\0\u{6}a\0\0\0\u{2}+\0\u{10}e\0\0\0\u{f}b\0\0\0\u{2},\0\u{10}f\0\0\0\u{10}c\0\0\0\u{2}-\0\u{10}g\0\0\0\u{2}d\0\0\0\u{2}.\0\u{10}h\0\0\0\u{1}e\0\0\0\u{2}/\0\u{10}i\0\0\0\u{8}f\0\0\0\u{2}0\0\u{10}j\0\u{1}\0\u{e}o\0\0\0\0d\0\0k\u{7f}\0\0\u{d}p\0\0\0\0\u{3}\00k\u{7f}\u{5}\0\u{b}q\0\0\0\0\u{3}\0@k\u{7f}\0\0\u{9}r\0\0\0\0\u{1}\0Pk\u{7f}\0\0\u{c}s\0\0\0\0=\0\0k\u{7f}\0\0\u{8}t\0\0\0\0p\u{1}\0k\u{7f}\0\0\u{4}u\0\0\0\0h\0\0k\u{7f}\0\0\u{2}v\0\0\0\0x\u{1}\0k\u{7f}\0\0\u{1}w\0\0\0\0l\0\0k\u{7f}\u{1}\0\u{e}x\0\0\0\0p\0\0k\u{7f}\u{4}\0\u{e}I\u{1}\0\0\0\u{4}\00\u{3}\0\u{7}\0\u{b}J\u{1}\0\0\0\u{5}\00\u{4}\0\u{8}\0\u{b}K\u{1}\0\0\0\u{6}\00\u{5}\0\u{9}\0\u{b}L\u{1}\0\0\0\u{7}\00\u{6}\0\u{a}\0\u{b}M\u{1}\0\0\0\u{8}\00\u{7}\0\u{b}\0\u{b}N\u{1}\0\0\0\u{9}\00\u{8}\0\u{c}\0\u{b}O\u{1}\0\0\0\u{a}\00\u{9}\0\u{d}\0\u{b}P\u{1}\0\0\0\u{b}\00\u{a}\0\u{e}\0\u{b}Q\u{1}\0\0\0\u{c}\00\u{b}\0\u{f}\0\u{b}S\u{1}\0\0\u{2}1\0\u{10}k\0\u{7}\0\u{b}T\u{1}\0\0\u{2}2\0\u{10}l\0\u{8}\0\u{b}U\u{1}\0\0\u{2}3\0\u{10}m\0\u{9}\0\u{b}V\u{1}\0\0\u{2}4\0\u{10}n\0\u{a}\0\u{b}W\u{1}\0\0\u{2}5\0\u{10}o\0\u{b}\0\u{b}X\u{1}\0\0\u{2}6\0\u{10}p\0\u{c}\0\u{b}Y\u{1}\0\0\u{2}7\0\u{10}q\0\u{d}\0\u{b}Z\u{1}\0\0\u{2}8\0\u{10}r\0\u{e}\0\u{b}[\u{1}\0\0\u{2}9\0\u{10}s\0\u{f}\0\u{b}-\u{2}\0\0\0\u{d}\00\u{c}\0\u{10}\0\u{b}.\u{2}\0\0\0\u{e}\00\u{d}\0\u{11}\0\u{b}/\u{2}\0\0\0\u{f}\00\u{e}\0\u{12}\0\u{b}0\u{2}\0\0\0\u{10}\00\u{f}\0\u{17}\0\u{b}1\u{2}\0\0\0\u{11}\00\u{10}\0\u{13}\0\u{b}2\u{2}\0\0\0\u{12}\00\u{11}\0\u{14}\0\u{b}3\u{2}\0\0\0t\0\0t\0\u{4}\0\u{e}4\u{2}\0\0\0\u{13}\00\u{12}\0\u{16}\0\u{b}7\u{2}\0\0\u{2}:\0\u{10}u\0\u{10}\0\u{b}8\u{2}\0\0\u{2};\0\u{10}v\0\u{11}\0\u{b}9\u{2}\0\0\u{2}<\0\u{10}w\0\u{12}\0\u{b};\u{2}\0\0\u{2}=\0\u{10}x\0\u{13}\0\u{b}<\u{2}\0\0\u{2}>\0\u{10}y\0\u{14}\0\u{b}=\u{2}\0\0\u{2}?\0\u{10}z\0\u{15}\0\u{b}>\u{2}\0\0\u{2}@\0\u{10}{\0\u{16}\0\u{b}D\u{2}\0\0\u{2}A\0\u{10}|\0\u{17}\0\u{b}\u{11}\u{3}\0\0\0x\0\0}\0\0\0\u{5}\u{12}\u{3}\0\0\0|\0\0~\0\0\0\u{5}\u{13}\u{3}\0\0\0\0\u{1}\0\u{7f}\0\0\0\u{5}\u{14}\u{3}\0\0\0\u{4}\u{1}\0\0\u{1}\0\0\u{5}\u{15}\u{3}\0\0\0\u{8}\u{1}\0\u{1}\u{1}\0\0\u{5}\u{16}\u{3}\0\0\0\u{c}\u{1}\0\u{2}\u{1}\0\0\u{5}\u{17}\u{3}\0\0\0\u{10}\u{1}\0\u{3}\u{1}\0\0\u{5}\u{18}\u{3}\0\0\0\u{14}\u{1}\0\u{4}\u{1}\0\0\u{5}\u{19}\u{3}\0\0\0\u{18}\u{1}\0\u{5}\u{1}\0\0\u{5}\u{1a}\u{3}\0\0\0\u{1c}\u{1}\0\u{6}\u{1}\0\0\u{5}\u{1b}\u{3}\0\0\0 \u{1}\0\u{7}\u{1}\0\0\u{5}\u{1c}\u{3}\0\0\0$\u{1}\0\u{8}\u{1}\0\0\u{5}\u{1d}\u{3}\0\0\0(\u{1}\0\u{9}\u{1}\0\0\u{5}\u{1e}\u{3}\0\0\0,\u{1}\0\u{a}\u{1}\0\0\u{5}\u{1f}\u{3}\0\0\00\u{1}\0\u{b}\u{1}\0\0\u{5} \u{3}\0\0\04\u{1}\0\u{c}\u{1}\0\0\u{5}!\u{3}\0\0\08\u{1}\0\u{d}\u{1}\0\0\u{5}\"\u{3}\0\0\0<\u{1}\0\u{e}\u{1}\0\0\u{5}0\0protobuf_test_messages.proto3.TestAllTypesProto3"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}D\0\00\u{1f}9\"\u{1f} #}~\u{11}\u{1a}\u{1d}idn2+=\u{5}\nF\n8\u{7}R0Or\u{18}f+a>\u{12}`Z\u{10}\u{1d}WJ;\u{17}a\u{b}DWo5Yr JC\u{7}S\u{1b}\u{11}48}O\u{8}7\u{1d}\u{1e}I\u{1c}-\u{1e}*3E\\\u{7}K\u{1f}po-MP8`M5ojA\u{7f}rI\u{1d};\u{1a}+{\u{14}PC-3\u{1b}*\u{11}fb\u{13}\u{f}5\u{6}Re:tv\u{1}Eh^l-\u{14}1\u{e}o\0.{\u{16}f@FN.K\t\t6ox\u{1}\u{11}R\u{1a}9IGR<\u{14}<q5^\u{1c}=-\u{15}Cu0^2{W;c\\g<3%Dl*G~X~\u{f} m+rmJ}U<!O'\u{18}RRN%R0IXo\u{4}]3m\u{19}z\u{2},*m}\u{7f}9$\u{18}\"V\u{7};~lc.T'0.>\u{1b}ZN\u{4}]4m\u{1f}/\r[?(\u{13}[\u{18}\tw[\u{1c}-,\u{12}S\u{b}\u{12}\u{1a}ID{/w)?t ,w\u{4}>[U#8\u{1e}q0L^6F\u{10}`z`\u{3}U$\t\u{e}S[5\u{6}oIv\u{1}K\u{1b}@\u{16}s\u{5}q\"N?;jpVk==R{[EJ6\0{_\u{11}H$\u{7f}@\u{2}H^\u{14}\u{1}w$ERG\u{1a}\u{f}On'\u{10}[_lQ \u{11}\u{1c}y\u{19}\u{5}Su3\u{f}B=\u{7}hp$\u{1c}\u{1f}E4\u{1f}TExGQ.\u{4}=%]*\u{e}\u{1f}\u{c}1j}qZ2\u{18}S\u{19}GY8A<E\u{2}vIBV\u{1a}R;nx\u{11}\u{1d}44\"W~\u{12}c6n?u;u\u{14}\u{8}\u{7f}hG]\u{1f}`#6/.fe+GBQ\u{7f}\u{1}`~7\u{e}\u{5}s1:a'\t\u{7f}pvT+\u{8}\u{3}^oodl7t\u{6}\"\u{3})#\u{8}6 \u{1c}c:HjMaT+Vuq@UpJ\u{1f}s)u{O\u{6}O\u{1d}pc<3{#L_%\u{7}\u{1d}~es\\\u{1a}eC:B4}s\u{18}!+\u{5}\r\u{1b}boW\u{16}F\u{1e}(G[@PGEkK,\u{f}\u{8}X\"\u{18}AX\u{5}F\u{17}g*BCRg\u{e}HQ_>F\u{12}tULI`]Z3\u{5}Op-^p)\u{6}uyr\"h~i\u{12}*%k\t\".5D\u{1e}E\r\u{1b}/Tsw.:\u{2}\u{1f}_YDY4#Me1s]i74\u{3}c\u{4}\u{10}UkN}Z\u{2}T1\u{1a}H\u{1b}~\u{6}hF.LD@It=b&!)j^3hRJS\u{10}?\u{1b}%Q\u{18}@|c5;[-wiU\u{15}qMNmb:\u{2}Htn\u{6}\09\u{f}&k h\u{19}\u{10}4 j\u{10}&Z\u{18}jE\u{10}T\u{5}m\\^%D&\u{19}]l\u{16}\u{17}@8\u{13}6mSsT3s\u{1}\rG9p}ij]Rqs!E}o1\u{16}\"\u{e}v\u{14}`b`\tA\u{1}KM\u{f}\u{13},\u{e}\n\u{10}?\u{15},N\0Y\u{13}$f{HF\u{2}fY=\u{1e}<0zP|U\u{4}U1\u{e}?S\u{1b}L\u{4}Dn\u{1e}\u{18}.(9svt\u{1c}\u{1}\r>i\r{\u{3}7RGvC}D/E\u{12}@<PE\u{15}\u{8}j\u{19}0\t\u{2}\rY\u{1f}\t:W~FP4\u{12}/\u{3}oR~;WBQ\u{19}P\u{5};Sg\u{f}^kM|\u{4}QuK\u{7}.-XUpYgRU*aA[\"m<\u{12}U!)\0S2>k\u{14} \n/UF8G7 3G5\"DS\u{7}tY\u{16}\u{16}n\u{16}1\u{1d}CcyQDp\u{1a}NeU!\u{2}\u{c}7gW\u{1b}d-\u{12}19p\u{12}qEX\u{1b} \u{4}@,h\u{17}6x$hCg\u{1c}m)T8u}o\u{f}\tUpF:R]\u{6}L\u{1e}\u{17}\u{14}/w;p/\u{2}XZV\u{18}Q+\u{1a}\u{18}Uw\u{12}\0fgcVy\u{1a}1-c\u{1f}.kip\u{c}x\\}.w@<!\\\u{f}mBC$JK=\u{2}:0\\C*\t\u{6}a\u{e}?i \u{17}?\u{13}\u{6}a)o\u{15}\\ww1[7|/S\u{3}WL{AY\u{1d}\u{1}Z\u{6}e,7Kc.\r\0\u{6}[\u{b}n\u{3}\u{e}7Iwt<^(8/v(Xy\u{b}vs{Gc`\u{1b}Ye\n\u{7}W1]`\u{10}\u{1d}\u{15}M8>\u{1d}\u{1c}pG4u&5QR?c:m,rM\u{5}\u{8}\u{15}\u{4}US\u{7f}o]^vmgs]vG!>A\u{c}\u{19}1+Mc\u{4}X\u{3}\u{e}PDX6I&/m\u{14}}mN\u{13}]5>BF\u{10}u[\u{13}\"\u{e}U2NF\u{1f}\u{8}\u{c}Kr[P\u{1}e)GBG&\u{8}z\u{1}sx;S=\u{3}WEI\u{c}\u{3}*7^U-\u{17}:XTC#GI~C\u{f}^B\u{1b}\u{7f}\u{14}\u{1d}AQpLZ/\u{1b};6K\u{6}K\u{f}d#ZSZF\u{1f}ha95znOD%S:\u{1a}\u{4}I]P\u{17}|Y\u{12}gq!\nL/1D<\u{19}\u{1e}J'm8!s]Pgw!7~{B\u{12}#},\\\u{1d}`@@5+\u{1}\u{15}`0e$\u{6}m^WPpsS\u{17}=njc\u{1d}o)ep\u{4}X\u{c}5`?'Gu>\r\u{7f}.9-m>\u{4}79MK\0\u{11}\u{11}\u{15}\u{17}iY\u{3}\u{7f}\u{19}\u{10}K3PKT*S\u{19}\u{5}\u{16}91\u{11},@h\nN<$\u{15}\u{b})\u{5}3mXzUBt\u{14}1\u{5}|\u{11}*/HW{ed\u{18}M\u{10}zoq\u{11}9Q.\u{1f}69\t@1\u{7f}\u{1b}\u{1a}b\u{e}\u{1c}po\u{10}\u{15}\u{1e}!vm\u{11}pa\u{5}\nL^EIQ\u{3}m\u{c}z1t\u{15}@\u{17}Im\u{5}K?\u{12}\u{18}\u{1}r\u{4}A0F\u{1}>WDrE2-\u{c}\u{1c}W@\u{17}R\u{19}*\u{14}\0_2O^c{\tcP\u{1b}us\u{18}\u{1e}=w9d!rB!\u{7f}JvOI\\\u{1d}o\u{1b})L\u{7f}*](7\u{14}V\u{10}4J&[\u{1d}}\u{7f}KcE/{\u{10}S\0=Ecg\\yV_4dB?W\u{5}+`,~\u{7f}WOUV\u{1a}\u{12}nr\u{13}*\u{e}R6?p=D\u{12}2Oj-kr?(,\u{14}ZVo\u{1f}k5`(o\u{5}`\u{14}\u{18}'b\u{1b}Z\\\u{1f}S\u{17}h~Q\u{3}cR\u{2}Lk~\\<l-:ss~\u{e}+\u{1a}\u{17}\u{1e}\u{7}b'+gN\u{11}\u{7f}\n=_SVMSVv\n\u{1f}8\nmjQ h8\u{5}O^1#U\\\u{11}\u{b}}\u{16}\tcQ%ABO\u{6}iYAAc\u{1c}\u{e}\u{17}\u{e}rK\u{8}\u{16}\u{7f}<)\u{7}/mMa\u{19}r0J}/jskB&>`_\u{7f}\u{1d}\u{5}/7>\u{1d}\u{1}$\u{4}\u{14}m\u{e}}1>\u{1b}\"|&T\u{1b}\u{1b}@\u{6}9U+e?\u{1f}<gIWTb@'U\n_~IN(Zj\u{1a}s\u{1b}+\u{17}C\u{b}]G9V/\nnJd\u{6}1qZ\u{7f}8j\u{7}3&\u{c}k}8 c2\u{15}lkI'H\u{16}\u{10}t\u{7}UW\n^SCp\u{13}9u&\u{1e}\u{11}\u{4}\u{1d}`\u{f}\u{1c},W\u{15}\u{1}&a\u{7}d\u{3}imu\u{16}:YV\u{17}Q\u{6}^;\u{c}WlrSODnp]$\08e@V[\u{7f}1~-]\u{3})/\u{1b}\u{10}7\u{7f}\u{5}\n2q6?l\r8XAZIGe$\u{2}\u{12}\u{8}\u{12})>y\u{13}0VMmgI\u{19}JZw\u{e}n\u{8}nz\u{14}>x\u{1c}\u{18}mP79g\u{e}O}{e8YgN>\u{b}`:>\u{7}RM?klm\u{13}4f$\u{1d}x\u{7}= ,@F^p\u{e},idIIx2\u{13}ngz\u{4}@t\u{15}? _K^x=MW\u{b}~=\0X\u{1d}GW+k\u{12}%\"\u{7f}\u{7f}ElF\u{19}OV\u{10}`Y\"D|f$6H+5#r\u{2}\u{5}E]H^<\nw`,6\u{19}\u{5}#B-o-\u{19}Tf\u{2}\0</7GW6rpzfX3\u{1}3.Hsi\r \u{17}\t\u{15}ji\u{4}\u{18}/\u{15}!;O\u{1b}ar||`G)i%?J\u{6}9Wt^(s0Gy%\u{4}\u{1a}eC(\u{1f})\n\u{14}X\rx|CN\u{12}\u{7}\r\u{12}bU\u{1}b$VY\u{f}?w)J\u{1d}z833J&VM3${\u{14}{T\u{3}4\u{8}%\\\u{1b}@}>p \u{c}Qn\u{7f}B(}/E\u{1f}E\u{19}.M77\u{c}\"5F\u{19};+9v\u{12}MSk3A-nU:\u{1}\u{1b}\u{1b}G$w,.\u{18}B#_,\u{1a}\u{5}\no\u{1a}0\u{19}\u{6}$:{\u{2}\u{7f}Ah`4~'>~=\u{15}3RLU/[MW\u{1b}^u\u{e}\u{1c}2z u\u{2}r\np(&\u{11}WB}\r\u{1e}\u{18}U6&\u{c}{\u{7f}\tg!y>B|\u{1b}\u{11}_{\u{16}\u{3}(\0'5cN.\u{e}\u{16}\u{5}\u{3}\u{15}/]S\\ld yq\0/7#C\u{6}dA[kO6\u{1f}v\u{1a}Z\u{f}k<>VaC\n4*\u{1e}jwksq_Uk*\u{6}E|BB)n\u{8} /1}u\u{12}H_\u{5}HPql\0Gyw\u{b}\u{f}vhKNa\u{1}\u{4}{o8>BNA\u{12}fE\u{f}#\0\u{2}\u{13}M\u{1f}g\\OkxV\u{16}`\tSxLZH\u{b}>u\u{5}^NA\u{1b}8e;B,\u{18}\u{19}\0!Vi\0\"\u{1}\0Mc\u{12}9\u{1f}\u{12}\u{1a}\u{6}+'h.o_Ko<8H\n\u{c}E\u{17}{{JF1\u{10}rLty\u{14}_\u{15}\u{e}(4/\u{10}\u{2}\u{6}2\u{1f}}B\u{7}\u{16}`A*6~])\n.A{&Pv\u{12}kpbeY\u{11})\\0e\u{16}G_i\"~VyBsOsk8\u{19}xnyi:$DZd\"\u{19}\u{16}\u{14}Qt\u{5}n=`\u{1a}\u{19}<X;P\u{15} 75A@4j2:\u{19}_\u{7}8x t3\u{19}H\u{6}>\u{7}Lx\u{1b}r<3I\u{f}C,S|E$\u{14}1J\u{5}4RC\u{14}M\t\0\u{1d}\u{10}=\u{1e}0 \u{f}m\u{f}X(,Fc[=W4QUAN\u{e}\"ub)6`\u{5}Jf`p}r<`C\u{3}K3\u{16}A\u{1a}\u{f}u=\u{1c}\u{1}]~KBY2\u{6}&\u{1a})`Nc\u{1f}s`72\u{16}&\u{19}y\u{7f}gIV\ne0\u{17}\u{18}q\u{17}\u{17}\u{16}|yI~u\u{17}/\u{14}/M<j7RyM*AJ'enX.Mp\u{3}umxbcb\rLmP>R6<\rbY\u{1}n\u{7}):z\u{c}\u{19}=a]*Q\n\u{8}\u{11}\u{19}/&\u{1a}\u{7f}1~:\u{13}iuC3B\0\u{1a}mM*Eh\u{b}F@;\u{15}\"t\u{e}\u{f}NW@L)n`D\u{19}\"gI\t/zq+ EaG1{/{(\t>t\u{1e}UGs\u{11}bMI\rfgHk5/.V.uhbKM]-W5\u{1e}\\;;os(H\u{e}~\u{1c}^\u{11}*#.Qh\u{7f}dD\u{16}]\u{1c}%OP7_l\u{1}i\u{8}]8]\u{6}\"I2\n@f8\u{18},\u{16}\u{3}cTc\u{3}\u{b}9\u{8}I;l\u{19}B\u{1e}\0\n\u{3}n^?\u{15}^EA\u{1f}\u{18}\u{15}\u{15}%M]L4\u{18}L$7\u{17}R1\u{1}\u{15}\u{14}j\u{3}\u{10}Hg\n\u{5}myy[~\u{1c}qIV\u{1a}]Mi\u{14}pO<\u{1e}mHxX\u{b}-)I<\t9dQ\0_w1cv.q`;\u{8}2O!~\u{18}\u{1}L\u{2}\u{1e}`TR!\u{b}>#?|\u{1c}#7u\u{15}\n\u{1}|y@\u{4}\u{16}y\u{4}R;)!78&\u{13}/m_X\u{19}r\u{2}.o\u{7}}\u{1}\n?cUS&l?,1KjO\u{1f}4\n\u{3}dyjlT+*K\\>0Qp\u{1f}\no_F=Hgz\u{7}j3\u{f}zZa^x\u{1d} .8[r\t%^\u{1c}Aq\u{1a}\u{1d}|h\u{7f}v!G\u{b}~{-Jp-!E-\u{11}pJT#Jln\u{b}\u{1a},\u{13}\u{1a}\u{4}Z${?\u{15}`f\\f\u{18}wy>g\u{7}@a\u{16}z2x4|\r2=HQ\u{2}i:0j\u{6}\u{1a}\u{17}`Hx\u{10}CFq\u{15}jq\u{4}P#\u{5}r\u{b}FK}P%\u{2}!\u{1b}pvI8q\u{12}O\u{1b}4k\u{19}$(bbgN<7|N3yGX<\\:\u{14}V\\)N(A=C\u{5}XG+ue\u{1c}3\\L3-tdrh?\u{7}NemiP.*\u{3}W&J7 \u{19}Q0L13\u{19}~q\u{c}\u{4}\u{3}yP85\\\t\u{7}aR{h}!uv\u{15}Rnt\u{1}\u{1a}\u{12}M2C\u{12}V|m|u<5P{x?FD\u{b}Msy8D\u{f}\u{3}S:6,@fr\u{2}\u{11}\\:^lh?,oH)\u{1c}\u{12}5LU4J~0U\u{19}DC\u{b}\u{5}zWfNNxp#]\u{17}a\u{4}\u{f}\u{1}\u{5}7\n'(\"l\u{4}av:O\u{e}Qi\u{18}\u{1e}_p\u{1e}\u{f}\u{1e}kUzW\u{16}=<?a>7\u{b}S&VoJ\u{1}\u{7f}FQoO\u{14}lyR\u{6}\u{11}v\u{c}6{(Cqxx\u{15}\u{19}M%\u{1f}U<x3\u{7f}\u{f}\u{17}@\nTkla\u{11}h:o`C\r$dB-Mc\u{2}M\u{19}r\ns @( .:K^\u{c}2W3\u{17}\u{b}q\u{4}+\u{7f})o\u{3}kY)~7\u{11})G!:DH{_7j~\u{13}$:fb(\u{6}\n\u{1c}\u{1b}@az\0\u{1f}\u{f}[{NW]x~Ok2M\ro$'\u{11}P\u{2}_|w6XRD*dJSF\u{3}\u{19}Z\ts(W[II!k+%ESq~\u{16}vbv@rD]b)\\#y\u{1}E=\u{12}9k\u{1b}G\u{c}k)n6}\u{16}iW;v\u{15}3\u{10}q+ \"\u{10}#regoNsy{ \u{8}\u{c}GT$3Q\u{5}P\u{f}\"m%,a>5Pv+\u{1c}cl%pcq_\u{5}\u{12}J?7bJ\"\u{18}EM{>\u{e}a8C\u{3}VJ>rT91\u{c}\\C\\i}\u{1a}m\u{11}0;fxm\u{4}j\\V\u{1a}\u{f}\u{7}\u{1f}X{BuM\u{4}7\u{1c}AB''^NoB1}\u{2}mR\u{1b}\u{1a}8,T'\u{c}\u{17}\u{11}@)!x~W\u{6}iNN\u{7f}9=W\u{1b}~J\0\0"
 
@@ -1298,19 +1298,19 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Generate
 
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
+nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0;\0protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9$\u{14}jJ\u{8}%;$f6\u{3}\u{1b}\u{1d}\u{10}{FN<*\u{7}{0~\u{1d}T+<;1ZiH\u{1a}P\u{12}\u{19}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum {
+nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0<\0protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}\u{5}XI\u{6}*\0/b06'\u{b}k\u{1d}nc\u{7f}h\u{15}o5!Q\\F\u{3}+X:j06S\nzi\u{b}S\0\u{5}KEbp\u{b}\t\u{12}\u{4}\u{7f}&D#Jl~^\u{17}\u{1f}<^84L7o\u{15}3<~L\u{8} ^g\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}\u{2}\0\0\0\0\0\00\0\0\u{1}\0\u{b}>\0protobuf_test_messages.proto3.TestAllTypesProto3.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}PJ\u{6}U u0U\n\u{17}2oq\u{18}U.=v..cL\u{b}b\r\u{15}V\t\0"
 
@@ -1327,7 +1327,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftPro
 
 }
 
-extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5},\0protobuf_test_messages.proto3.ForeignMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wp_\u{13}X\u{7}N%6c'\0\0"
 
@@ -1337,7 +1337,7 @@ extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.GeneratedMes
 
 }
 
-extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\02\0protobuf_test_messages.proto3.NullHypothesisProto3"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -1347,7 +1347,7 @@ extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.Genera
 
 }
 
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.GeneratedMessage {
+nonisolated extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0,\0protobuf_test_messages.proto3.EnumOnlyProto3"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -1357,7 +1357,7 @@ extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.GeneratedMes
 
 }
 
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum {
+nonisolated extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\01\0protobuf_test_messages.proto3.EnumOnlyProto3.Bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(ae>pNF\u{16}kE.U\0U  %YK\u{1d}&~?r\nEXC\u{10}\u{11}\u{19}]-W\u{18}9\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

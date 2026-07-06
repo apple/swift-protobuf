@@ -38,12 +38,12 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Merging_TestMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Merging_TestMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,14 +91,14 @@ struct SwiftProtoTesting_Merging_TestMessage: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 114)) }
   }
 
-  enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
+  nonisolated enum OneOf_OneofField: Swift.Equatable, Swift.Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_Merging_TestMessage.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
   }
 
-  struct NestedMessage: @unchecked Swift.Sendable {
+  nonisolated struct NestedMessage: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -150,7 +150,7 @@ struct SwiftProtoTesting_Merging_TestMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -169,7 +169,7 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
   }
 
-  struct RepeatedFieldsGenerator: @unchecked Swift.Sendable {
+  nonisolated struct RepeatedFieldsGenerator: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -206,7 +206,7 @@ struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{18}\0\0\u{4}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\u{1}\0\0o\0\0\0\0\u{14}\0\0{\u{7f}\0\0\u{d}p\0\0\0\0\0\00{\u{7f}\u{1}\0\u{b}q\0\0\0\0\0\0@{\u{7f}\0\0\u{9}r\0\0\0\0\0\0P{\u{7f}\0\0\u{c}'\0swift_proto_testing.merging.TestMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\u{1}\0\00?$\\a[\u{7}\u{f}kj#W\u{1a}eyA4\u{c}\u{7}AF?+{\u{6})\u{e}s{\u{1c}#9\u{1b}YJxls\u{1d}'F\t\u{1e}\rqNZk\u{1c}m\u{1f}k\u{11}/psG1\u{15}D45?ExTum\u{1c}/\u{1}TW5TkoUe\u{11}%\u{b}y'Ye\u{12}~\u{7}M;Ys\u{17}5\u{b}WkesW%v\u{7}3\u{12}'5H\u{13}w@\u{4}d\u{7}\u{17}Np\u{7f}\u{12}f\\\u{1f}9\0\0"
 
@@ -223,7 +223,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{3}\0\0\0\0\0\u{3}\0\0\u{4}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}5\0swift_proto_testing.merging.TestMessage.NestedMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KTZV{n GMwYY&|FK\u{e}gz\u{12}\rb gl^\u{1}K>\u{1c}y;? \u{1d}\u{b}\u{b}\0"
 
@@ -233,7 +233,7 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Gen
 
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\u{1}\0\0\u{3}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\00\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\0\0\u{10}\u{1}\0\u{1}\0\u{b},\0swift_proto_testing.merging.TestParsingMerge"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}EPAZ[,%L\u{6}\u{10}al;t5(F\\0n\u{b}uM\u{4}LZ3VSb\u{1a}#C;\u{f}Ft9W2^r\"\"6<\"b\u{15}h\u{11}9\"!z#jvP0%f5`PM\u{1a}.u\u{1c}t\u{1}\u{c}|\0\0"
 
@@ -250,7 +250,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.GeneratedMes
 
 }
 
-extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\u{2}\0\0\u{10}\0\0\u{1}\0\u{b}\u{2}\0\0\0\u{2}\u{1}\0\u{10}\u{1}\0\u{1}\0\u{b}D\0swift_proto_testing.merging.TestParsingMerge.RepeatedFieldsGenerator"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(\u{11}$\u{1d}Mo\u{8}HaJ=gYe\u{17}O/Q9\u{19}^\u{18} ~\u{8}OKdIzU\u{12}\0\0\0"
 

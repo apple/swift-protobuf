@@ -15,13 +15,13 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
 /// Non trivial child message
-struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -54,7 +54,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeChild: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
+nonisolated struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -105,7 +105,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
   /// Clears the value of `nested`. Subsequent reads from it will return its default value.
   mutating func clearNested() { _uniqueStorage().clearValue(atIndex: 1, type: Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested.self, hasBit: (0, 8)) }
 
-  struct Nested: @unchecked Swift.Sendable {
+  nonisolated struct Nested: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -150,7 +150,7 @@ struct Google_Protobuf_Compiler_Tools_AnalyzeThis: @unchecked Swift.Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}+\0google.protobuf.compiler.tools.AnalyzeChild"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MX$R\0*\u{10}u5\u{8}\u{3}o5Zr>\u{7f}p5\\B1\u{5}\u{18}\u{7f}'/ia\u{1}I\u{17}Ou<\t\u{1e}|O\u{4}\0"
 
@@ -167,7 +167,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeChild: SwiftProtobuf.GeneratedMe
 
 }
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{6}\0\0\0\0\0\u{4}\0\0\u{7}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{3}\0\0\0\u{2}\0\0\u{10}\u{4}\0\0\0\u{9}\u{4}\0\0\0\0\0\00\u{2}\0\u{1}\0\u{b}\u{5}\0\0\0\u{2}\u{1}\0\u{10}\u{5}\0\u{1}\0\u{b}\u{6}\0\0\0\0\u{1}\00\u{3}\0\u{2}\0\u{b}*\0google.protobuf.compiler.tools.AnalyzeThis"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{14}\u{2}\0\0\0_\u{18}$5ZOJX\u{1}R6\u{11}\u{14}#\u{2}\u{1}\u{14}G(\u{1}\u{f}C\u{3}90\0\u{5}\u{13}\tFxK,(cFB;*h\u{10}7>g/[My4.\u{8} TV\u{b}\u{4}\u{14} E\u{e}Ch|4D&']\u{14}}:zjF6|+6T\u{2}.<\u{1c}H7(V03!%7nhe\u{1}d@mIK==$\t~{\u{1a} SE\u{1c}>J*~\u{16}U#fKiyCE?YC@GBLdG_*,F e-V\u{7}\0"
 
@@ -185,7 +185,7 @@ extension Google_Protobuf_Compiler_Tools_AnalyzeThis: SwiftProtobuf.GeneratedMes
 
 }
 
-extension Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Google_Protobuf_Compiler_Tools_AnalyzeThis.Nested: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}1\0google.protobuf.compiler.tools.AnalyzeThis.Nested"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pg@z0p\u{15}\u{15}\u{10}3\u{1}cqsgp,\u{14}5\nh}=c\u{5}\u{1d}.Mj]y\u{2}}`g@F/c/Yl(%#,\u{b}d\u{c}i,-8\u{1c}\u{2}\u{11}Tp2=\"0R.J\t\u{7f}C:\u{6}r\u{8}\u{7}\u{c}\0"
 

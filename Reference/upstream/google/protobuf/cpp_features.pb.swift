@@ -22,12 +22,12 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct Pb_CppFeatures: @unchecked Swift.Sendable {
+nonisolated struct Pb_CppFeatures: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -72,7 +72,7 @@ struct Pb_CppFeatures: @unchecked Swift.Sendable {
   /// Clears the value of `repeatedType`. Subsequent reads from it will return its default value.
   mutating func clearRepeatedType() { _uniqueStorage().clearValue(at: 8, type: Pb_CppFeatures.RepeatedType.self, hasBit: (0, 8)) }
 
-  enum StringType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum StringType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
     case view = 1
     case cord = 2
@@ -84,7 +84,7 @@ struct Pb_CppFeatures: @unchecked Swift.Sendable {
 
   }
 
-  enum RepeatedType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  nonisolated enum RepeatedType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
 
     /// The repeated field will be backed by proto2::Repeated(Ptr)Field, and
@@ -120,7 +120,7 @@ struct Pb_CppFeatures: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtobuf.Google_Protobuf_FeatureSet {
+nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
   var Pb_cpp: Pb_CppFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_Extensions_cpp, default: Pb_CppFeatures()) }
@@ -140,7 +140,7 @@ extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let Pb_CppFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let Pb_CppFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
   Pb_Extensions_cpp
 ]
 
@@ -148,14 +148,14 @@ let Pb_CppFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Pb_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{6}\0pb.cpp",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_CppFeatures.messageSchema) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension Pb_CppFeatures: SwiftProtobuf.GeneratedMessage {
+nonisolated extension Pb_CppFeatures: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{4}\0\0\0\0\0\u{4}\0\0\u{5}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{1}\0\0\0\0\0\0\u{8}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\u{1}\0\u{e}\u{3}\0\0\0\0\u{2}\0\0\u{2}\0\0\0\u{8}\u{4}\0\0\0\0\u{8}\0\0\u{3}\0\u{2}\0\u{e}\u{e}\0pb.CppFeatures"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1}\0\00\u{1f}x>M[\u{7}\u{f}+l\u{5}dS&\t\u{16}}COH{l*b\u{18}\u{1e}\u{e}r'\u{1a}@YB6c;\n}p-u8~#Q\"\u{f}\u{13}C9^KaiO].\u{1f}\u{1a}j2#\u{18}9\u{14}HQ!\u{18}\u{14}TqM\u{b}\u{1d}<n;1\"\0^PUcg5'|LEy}=-M'&\u{7}Cd&\u{1d}X/f1a#'&AKq+rqb75\u{7}\u{12}\u{13}\u{1a}'\u{8}L6>}\u{7f}\u{e}-Lbe-\u{17}\u{4}2>\u{1b}\u{13}Xo\u{1b}\0\0\0\0"
 
@@ -173,13 +173,13 @@ extension Pb_CppFeatures: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension Pb_CppFeatures.StringType {
+nonisolated extension Pb_CppFeatures.StringType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{19}\0pb.CppFeatures.StringType"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{4}[aE'b@\u{f}$W\txIw\u{2}O\u{1}:t\u{7}Xda\u{1b}H!hwTp:3/hM2\t)\u{15}@X(-\"d\u{b}'V]\0\u{1e}bYhr\ti\u{16}\u{10}7Py,)\u{18}Zy~6\u{13}\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
-extension Pb_CppFeatures.RepeatedType {
+nonisolated extension Pb_CppFeatures.RepeatedType {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1b}\0pb.CppFeatures.RepeatedType"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{4}bt7!cwWlg\u{1f}&\t\nWb\u{8}KN>T\u{18}*\u{14}\u{c}7W\u{1c}7/\u{11}TU(\u{8}MiS\u{18}y UC\"f\u{11}#\u{13} \0A<\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)

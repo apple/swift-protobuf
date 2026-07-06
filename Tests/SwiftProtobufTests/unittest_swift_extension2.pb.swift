@@ -33,17 +33,17 @@
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-struct SwiftProtoTesting_Extend2_MyMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Extend2_MyMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  struct C: @unchecked Swift.Sendable {
+  nonisolated struct C: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -77,7 +77,7 @@ struct SwiftProtoTesting_Extend2_MyMessage: @unchecked Swift.Sendable {
   mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
-struct SwiftProtoTesting_Extend2_C: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtoTesting_Extend2_C: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,7 +110,7 @@ struct SwiftProtoTesting_Extend2_C: @unchecked Swift.Sendable {
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
+nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 
   var SwiftProtoTesting_Extend2_b: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend2_Extensions_b, default: String()) }
@@ -163,7 +163,7 @@ extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
 /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-let SwiftProtoTesting_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.ExtensionMap = [
+nonisolated let SwiftProtoTesting_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.ExtensionMap = [
   SwiftProtoTesting_Extend2_Extensions_b,
   SwiftProtoTesting_Extend2_Extensions_C,
   SwiftProtoTesting_Extend2_MyMessage.Extensions.b,
@@ -174,17 +174,17 @@ let SwiftProtoTesting_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftProtoTesting_Extend2_Extensions_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend2_Extensions_b = SwiftProtobuf.ExtensionSchema(
   schema: "\0\\\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_proto_testing.extend2.b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
   )
 
-let SwiftProtoTesting_Extend2_Extensions_C = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend2_Extensions_C = SwiftProtobuf.ExtensionSchema(
   schema: "\0]\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1d}\0swift_proto_testing.extend2.c",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Extend2_C.messageSchema) }
   )
 
-extension SwiftProtoTesting_Extend2_MyMessage {
+nonisolated extension SwiftProtoTesting_Extend2_MyMessage {
   enum Extensions {
     static let b = SwiftProtobuf.ExtensionSchema(
       schema: "\0R\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0swift_proto_testing.extend2.MyMessage.b",
@@ -200,7 +200,7 @@ extension SwiftProtoTesting_Extend2_MyMessage {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftProtoTesting_Extend2_MyMessage: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend2_MyMessage: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0%\0swift_proto_testing.extend2.MyMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
@@ -210,7 +210,7 @@ extension SwiftProtoTesting_Extend2_MyMessage: SwiftProtobuf.GeneratedMessage {
 
 }
 
-extension SwiftProtoTesting_Extend2_MyMessage.C: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend2_MyMessage.C: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0:\u{9}\0\0\0\u{8}\0\0\0\0\0\0\u{3}'\0swift_proto_testing.extend2.MyMessage.C"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rmdMNr`\u{18}5n?a8\\5d~\"<\0"
 
@@ -220,7 +220,7 @@ extension SwiftProtoTesting_Extend2_MyMessage.C: SwiftProtobuf.GeneratedMessage 
 
 }
 
-extension SwiftProtoTesting_Extend2_C: SwiftProtobuf.GeneratedMessage {
+nonisolated extension SwiftProtoTesting_Extend2_C: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0D\u{9}\0\0\0\u{8}\0\0\0\0\0\0\u{3}\u{1d}\0swift_proto_testing.extend2.C"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\rmdWvja\u{18}5n?a8\\5d~\"<\0"
 
