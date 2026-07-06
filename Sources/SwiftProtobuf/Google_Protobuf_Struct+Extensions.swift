@@ -45,8 +45,12 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
         if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
+        var keysSeen = Set<String>()
         while true {
             let key = try decoder.scanner.nextQuotedString()
+            if !keysSeen.insert(key).inserted {
+                throw JSONDecodingError.malformedMap
+            }
             try decoder.scanner.skipRequiredColon()
             var value = Google_Protobuf_Value()
             try value.decodeJSON(from: &decoder)

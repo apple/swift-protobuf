@@ -326,4 +326,17 @@ final class Test_Map_JSON: XCTestCase, PBTestHelpers {
             return $0.mapInt32ForeignMessage == [7: sub7, 8: sub8]
         }
     }
+
+    func testMap_duplicateKeyRejected() {
+        // A repeated key in a JSON map is rejected rather than letting the
+        // later entry silently overwrite the earlier one, matching the
+        // reference parser (json/internal/parser.cc ParseMap).
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2,\"1\":3}}")
+        assertJSONDecodeFails("{\"mapStringString\":{\"a\":\"x\",\"a\":\"y\"}}")
+        assertJSONDecodeFails("{\"mapBoolBool\":{\"true\":false,\"true\":true}}")
+        assertJSONDecodeFails("{\"mapInt32Enum\":{\"1\":\"MAP_ENUM_FOO\",\"1\":\"MAP_ENUM_BAZ\"}}")
+        assertJSONDecodeFails("{\"mapInt32ForeignMessage\":{\"1\":{\"c\":7},\"1\":{\"c\":8}}}")
+        // Distinct keys are still accepted.
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2,\"2\":3}}") { $0.mapInt32Int32 == [1: 2, 2: 3] }
+    }
 }
