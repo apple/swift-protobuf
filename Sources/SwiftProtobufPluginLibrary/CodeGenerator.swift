@@ -125,15 +125,15 @@ extension CodeGenerator {
                 // sites as well.
                 let extendedMessageName = e.extendedMessage.messageName
                 precondition(
-                    extendedMessageName.utf8CodeUnitsEqual("google.protobuf.EnumOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.EnumValueOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.ExtensionRangeOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FieldOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FileOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.MessageOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.MethodOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.OneofOptions")
-                        || extendedMessageName.utf8CodeUnitsEqual("google.protobuf.ServiceOptions"),
+                    extendedMessageName == Google_Protobuf_EnumOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_EnumValueOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_ExtensionRangeOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_FieldOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_FileOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_MessageOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_MethodOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_OneofOptions.messageSchema.messageName
+                        || extendedMessageName == Google_Protobuf_ServiceOptions.messageSchema.messageName,
                     "CodeGenerator `customOptionExtensions` must only extend the descriptor.proto 'Options' messages \(extendedMessageName)."
                 )
             }
