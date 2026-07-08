@@ -608,6 +608,7 @@ message GeneratedSwiftReservedMessages {
   message Key { int32 Key = 1; }
   message keyField { int32 keyField = 1; }
   message keyFieldOpt { int32 keyFieldOpt = 1; }
+  message keysSeen { int32 keysSeen = 1; }
   message KeyType { int32 KeyType = 1; }
   message kind { int32 kind = 1; }
   message l { int32 l = 1; }
