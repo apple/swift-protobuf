@@ -608,6 +608,7 @@ message GeneratedSwiftReservedEnums {
   enum Key { NONE_Key = 0; }
   enum keyField { NONE_keyField = 0; }
   enum keyFieldOpt { NONE_keyFieldOpt = 0; }
+  enum keysSeen { NONE_keysSeen = 0; }
   enum KeyType { NONE_KeyType = 0; }
   enum kind { NONE_kind = 0; }
   enum l { NONE_l = 0; }
