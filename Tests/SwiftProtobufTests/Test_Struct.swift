@@ -157,7 +157,8 @@ final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     }
 
     func test_JSON_nested_list() throws {
-        let limit = JSONDecodingOptions().messageDepthLimit
+        // Every element in a List is a Value, so the max depth is 1/2 of the limit.
+        let limit = JSONDecodingOptions().messageDepthLimit / 2
         let depths = [
             // Small lists
             1, 2, 3, 4, 5,
