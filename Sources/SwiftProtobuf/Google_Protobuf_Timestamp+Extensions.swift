@@ -107,7 +107,7 @@ func parseTimestamp(s: String) throws -> (Int64, Int32) {
 
     // Second: 2 digits (following char is checked below)
     let second = try fromAscii2(value[17], value[18])
-    if second > Int(61) {
+    if second > Int(59) {
         throw JSONDecodingError.malformedTimestamp
     }
 
