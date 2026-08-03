@@ -5,4 +5,3 @@ Recommended.*.JsonInput.FieldNameDuplicateDifferentCasing2 # Should have failed 
 
 # Tracking in #2132
 Required.*.JsonInput.TimestampJsonInputNonLeapFeb29 # Should have failed to parse, but didn't.
-Required.*.JsonInput.TimestampJsonInputSecondTooLarge # Should have failed to parse, but didn't.
