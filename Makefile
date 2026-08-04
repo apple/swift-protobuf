@@ -370,7 +370,7 @@ Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift: build ${PROTO
 	@${PROTOC} \
 		--edition_defaults_out=PluginLibEditionDefaults.bin \
 		--edition_defaults_minimum=PROTO2 \
-		--edition_defaults_maximum=2024 \
+		--edition_defaults_maximum=2026 \
 		-I Protos/Sources/SwiftProtobuf \
 		Protos/Sources/SwiftProtobuf/google/protobuf/descriptor.proto
 	@rm -f $@
@@ -386,7 +386,7 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 	@${PROTOC} \
 		--edition_defaults_out=PluginLibTestingEditionDefaults.bin \
 		--edition_defaults_minimum=PROTO2 \
-		--edition_defaults_maximum=2024 \
+		--edition_defaults_maximum=2026 \
 		-I Protos/Sources/SwiftProtobuf \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto

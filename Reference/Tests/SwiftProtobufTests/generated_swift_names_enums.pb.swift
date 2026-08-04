@@ -18151,6 +18151,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum keysSeen: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneKeysSeen // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneKeysSeen
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneKeysSeen
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneKeysSeen: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.keysSeen] = [
+      .noneKeysSeen,
+    ]
+
+  }
+
   nonisolated enum KeyType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneKeyType // = 0
@@ -33581,6 +33611,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ke
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.keyFieldOpt: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_keyFieldOpt\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.keysSeen: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_keysSeen\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.KeyType: SwiftProtobuf._ProtoNameProviding {

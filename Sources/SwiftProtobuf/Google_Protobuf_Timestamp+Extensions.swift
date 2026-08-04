@@ -87,9 +87,13 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
         throw JSONDecodingError.malformedTimestamp
     }
 
+    let isleap = (year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))
+
     // Day: 2 digits followed by 'T'
     let mday = try fromAscii2(value[8], value[9])
-    if value[10] != letterT || mday < Int(1) || mday > Int(31) {
+    let mdayMax: [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    let maxDays = (month == 2 && isleap) ? 29 : mdayMax[month - 1]
+    if value[10] != letterT || mday < Int(1) || mday > maxDays {
         throw JSONDecodingError.malformedTimestamp
     }
 
@@ -107,7 +111,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
 
     // Second: 2 digits (following char is checked below)
     let second = try fromAscii2(value[17], value[18])
-    if second > Int(61) {
+    if second > Int(59) {
         throw JSONDecodingError.malformedTimestamp
     }
 
@@ -120,7 +124,6 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     // Day of year
     let mdayStart: [Int] = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
     var yday = Int64(mdayStart[month - 1])
-    let isleap = (year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))
     if isleap && (month > 2) {
         yday += 1
     }
@@ -228,7 +231,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Timestamp {
-    /// Creates a new `Google_Protobuf_Timestamp` equal to the given number of
+    /// Creates a new ``Google_Protobuf_Timestamp`` equal to the given number of
     /// seconds and nanoseconds.
     ///
     /// - Parameter seconds: The number of seconds.
@@ -257,7 +260,7 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 
 extension Google_Protobuf_Timestamp {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds.
     ///
     /// - Parameter timeIntervalSince1970: The `TimeInterval`, interpreted as
@@ -268,7 +271,7 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
     /// nanosecond according to the given rounding rule.
     ///
@@ -288,7 +291,7 @@ extension Google_Protobuf_Timestamp {
     }
 
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds.
     ///
     /// - Parameter timeIntervalSinceReferenceDate: The `TimeInterval`,
@@ -302,7 +305,7 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
     /// nanosecond according to the given rounding rule.
     ///
@@ -329,7 +332,7 @@ extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized to the same time as
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized to the same time as
     /// the given `Date`.
     ///
     /// - Parameter date: The `Date` with which to initialize the timestamp.

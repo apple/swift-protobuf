@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding.
+/// Extensions to ``Message`` to provide binary coding and decoding.
 ///
 // -----------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will check
-    ///     `Message.isInitialized` before encoding to verify that all required
+    ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws.
     ///     ``BinaryEncodingError/missingRequiredFields``.
     ///   - options: The ``BinaryEncodingOptions`` to use.
@@ -79,7 +79,7 @@ extension Message {
         return visitor.serializedSize
     }
 
-    /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Creates a new message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
@@ -132,7 +132,7 @@ extension Message {
     }
     #endif
 
-    /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format into the
     /// receiver.
     ///

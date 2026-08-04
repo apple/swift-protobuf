@@ -8,12 +8,12 @@
 //
 
 /// The protocol which all generated protobuf messages implement.
-/// `Message` is the protocol type you should use whenever
+/// ``Message`` is the protocol type you should use whenever
 /// you need an argument or variable which holds "some message".
 ///
 /// Generated messages also implement `Hashable`, and thus `Equatable`.
 /// However, the protocol conformance is declared on a different protocol.
-/// This allows you to use `Message` as a type directly:
+/// This allows you to use ``Message`` as a type directly:
 ///
 ///     func consume(message: Message) { ... }
 ///
@@ -67,21 +67,21 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     ///
     /// This is the core method used by the deserialization machinery. It is
     /// `public` to enable users to implement their own encoding formats by
-    /// conforming to `Decoder`; it should not be called otherwise.
+    /// conforming to ``Decoder``; it should not be called otherwise.
     ///
     /// Note that this is not specific to binary encodng; formats that use
     /// textual identifiers translate those to field numbers and also go
     /// through this to decode messages.
     ///
     /// - Parameters:
-    ///   - decoder: a `Decoder`; the `Message` will call the method
+    ///   - decoder: a ``Decoder``; the ``Message`` will call the method
     ///     corresponding to the type of this field.
     /// - Throws: an error on failure or type mismatch.  The type of error
     ///     thrown depends on which decoder is used.
     mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
     /// Traverses the fields of the message, calling the appropriate methods
-    /// of the passed `Visitor` object.
+    /// of the passed ``Visitor`` object.
     ///
     /// This is used internally by:
     ///
@@ -107,7 +107,7 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// `Hashable` protocol.
     func hash(into hasher: inout Hasher)
 
-    /// Helper to compare `Message`s when not having a specific type to use
+    /// Helper to compare ``Message``s when not having a specific type to use
     /// normal `Equatable`. `Equatable` is provided with specific generated
     /// types.
     func isEqualTo(message: any Message) -> Bool
@@ -172,9 +172,9 @@ extension Message {
 
 /// Implementation base for all messages; not intended for client use.
 ///
-/// In general, use `SwiftProtobuf.Message` instead when you need a variable or
+/// In general, use ``Message`` instead when you need a variable or
 /// argument that can hold any type of message. Occasionally, you can use
-/// `SwiftProtobuf.Message & Equatable` or `SwiftProtobuf.Message & Hashable` as
+/// ``Message`` & `Equatable` or ``Message`` & `Hashable` as
 /// generic constraints if you need to write generic code that can be applied to
 /// multiple message types that uses equality tests, puts messages in a `Set`,
 /// or uses them as `Dictionary` keys.

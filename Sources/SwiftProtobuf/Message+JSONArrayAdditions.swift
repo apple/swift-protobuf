@@ -38,12 +38,12 @@ extension Message {
         return String(decoding: data, as: UTF8.self)
     }
 
-    /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the messages.
+    /// Returns a ``SwiftProtobufContiguousBytes`` containing the UTF-8 JSON serialization of the messages.
     ///
     /// Unlike binary encoding, presence of required fields is not enforced when
     /// serializing to JSON.
     ///
-    /// - Returns: A `SwiftProtobufContiguousBytes` containing the JSON serialization of the messages.
+    /// - Returns: A ``SwiftProtobufContiguousBytes`` containing the JSON serialization of the messages.
     /// - Parameters:
     ///   - collection: The list of messages to encode.
     ///   - options: The JSONEncodingOptions to use.
