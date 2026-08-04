@@ -203,14 +203,14 @@ nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage
 
   static func ==(lhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage, rhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._message != rhs_storage._message {return false}
-        if _storage._optionalEnum != rhs_storage._optionalEnum {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._message != rhs_storage._message {return false}
+      if _storage._optionalEnum != rhs_storage._optionalEnum {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

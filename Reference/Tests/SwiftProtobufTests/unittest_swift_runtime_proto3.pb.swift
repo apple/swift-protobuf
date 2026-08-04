@@ -1207,66 +1207,66 @@ nonisolated extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftPr
 
   static func ==(lhs: SwiftProtoTesting_Message3, rhs: SwiftProtoTesting_Message3) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
-        if _storage._optionalInt64 != rhs_storage._optionalInt64 {return false}
-        if _storage._optionalUint32 != rhs_storage._optionalUint32 {return false}
-        if _storage._optionalUint64 != rhs_storage._optionalUint64 {return false}
-        if _storage._optionalSint32 != rhs_storage._optionalSint32 {return false}
-        if _storage._optionalSint64 != rhs_storage._optionalSint64 {return false}
-        if _storage._optionalFixed32 != rhs_storage._optionalFixed32 {return false}
-        if _storage._optionalFixed64 != rhs_storage._optionalFixed64 {return false}
-        if _storage._optionalSfixed32 != rhs_storage._optionalSfixed32 {return false}
-        if _storage._optionalSfixed64 != rhs_storage._optionalSfixed64 {return false}
-        if _storage._optionalFloat != rhs_storage._optionalFloat {return false}
-        if _storage._optionalDouble != rhs_storage._optionalDouble {return false}
-        if _storage._optionalBool != rhs_storage._optionalBool {return false}
-        if _storage._optionalString != rhs_storage._optionalString {return false}
-        if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
-        if _storage._optionalMessage != rhs_storage._optionalMessage {return false}
-        if _storage._optionalEnum != rhs_storage._optionalEnum {return false}
-        if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
-        if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
-        if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}
-        if _storage._repeatedUint64 != rhs_storage._repeatedUint64 {return false}
-        if _storage._repeatedSint32 != rhs_storage._repeatedSint32 {return false}
-        if _storage._repeatedSint64 != rhs_storage._repeatedSint64 {return false}
-        if _storage._repeatedFixed32 != rhs_storage._repeatedFixed32 {return false}
-        if _storage._repeatedFixed64 != rhs_storage._repeatedFixed64 {return false}
-        if _storage._repeatedSfixed32 != rhs_storage._repeatedSfixed32 {return false}
-        if _storage._repeatedSfixed64 != rhs_storage._repeatedSfixed64 {return false}
-        if _storage._repeatedFloat != rhs_storage._repeatedFloat {return false}
-        if _storage._repeatedDouble != rhs_storage._repeatedDouble {return false}
-        if _storage._repeatedBool != rhs_storage._repeatedBool {return false}
-        if _storage._repeatedString != rhs_storage._repeatedString {return false}
-        if _storage._repeatedBytes != rhs_storage._repeatedBytes {return false}
-        if _storage._repeatedMessage != rhs_storage._repeatedMessage {return false}
-        if _storage._repeatedEnum != rhs_storage._repeatedEnum {return false}
-        if _storage._o != rhs_storage._o {return false}
-        if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
-        if _storage._mapInt64Int64 != rhs_storage._mapInt64Int64 {return false}
-        if _storage._mapUint32Uint32 != rhs_storage._mapUint32Uint32 {return false}
-        if _storage._mapUint64Uint64 != rhs_storage._mapUint64Uint64 {return false}
-        if _storage._mapSint32Sint32 != rhs_storage._mapSint32Sint32 {return false}
-        if _storage._mapSint64Sint64 != rhs_storage._mapSint64Sint64 {return false}
-        if _storage._mapFixed32Fixed32 != rhs_storage._mapFixed32Fixed32 {return false}
-        if _storage._mapFixed64Fixed64 != rhs_storage._mapFixed64Fixed64 {return false}
-        if _storage._mapSfixed32Sfixed32 != rhs_storage._mapSfixed32Sfixed32 {return false}
-        if _storage._mapSfixed64Sfixed64 != rhs_storage._mapSfixed64Sfixed64 {return false}
-        if _storage._mapInt32Float != rhs_storage._mapInt32Float {return false}
-        if _storage._mapInt32Double != rhs_storage._mapInt32Double {return false}
-        if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
-        if _storage._mapStringString != rhs_storage._mapStringString {return false}
-        if _storage._mapStringBytes != rhs_storage._mapStringBytes {return false}
-        if _storage._mapStringMessage != rhs_storage._mapStringMessage {return false}
-        if _storage._mapInt32Bytes != rhs_storage._mapInt32Bytes {return false}
-        if _storage._mapInt32Enum != rhs_storage._mapInt32Enum {return false}
-        if _storage._mapInt32Message != rhs_storage._mapInt32Message {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
+      if _storage._optionalInt64 != rhs_storage._optionalInt64 {return false}
+      if _storage._optionalUint32 != rhs_storage._optionalUint32 {return false}
+      if _storage._optionalUint64 != rhs_storage._optionalUint64 {return false}
+      if _storage._optionalSint32 != rhs_storage._optionalSint32 {return false}
+      if _storage._optionalSint64 != rhs_storage._optionalSint64 {return false}
+      if _storage._optionalFixed32 != rhs_storage._optionalFixed32 {return false}
+      if _storage._optionalFixed64 != rhs_storage._optionalFixed64 {return false}
+      if _storage._optionalSfixed32 != rhs_storage._optionalSfixed32 {return false}
+      if _storage._optionalSfixed64 != rhs_storage._optionalSfixed64 {return false}
+      if _storage._optionalFloat != rhs_storage._optionalFloat {return false}
+      if _storage._optionalDouble != rhs_storage._optionalDouble {return false}
+      if _storage._optionalBool != rhs_storage._optionalBool {return false}
+      if _storage._optionalString != rhs_storage._optionalString {return false}
+      if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
+      if _storage._optionalMessage != rhs_storage._optionalMessage {return false}
+      if _storage._optionalEnum != rhs_storage._optionalEnum {return false}
+      if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
+      if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
+      if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}
+      if _storage._repeatedUint64 != rhs_storage._repeatedUint64 {return false}
+      if _storage._repeatedSint32 != rhs_storage._repeatedSint32 {return false}
+      if _storage._repeatedSint64 != rhs_storage._repeatedSint64 {return false}
+      if _storage._repeatedFixed32 != rhs_storage._repeatedFixed32 {return false}
+      if _storage._repeatedFixed64 != rhs_storage._repeatedFixed64 {return false}
+      if _storage._repeatedSfixed32 != rhs_storage._repeatedSfixed32 {return false}
+      if _storage._repeatedSfixed64 != rhs_storage._repeatedSfixed64 {return false}
+      if _storage._repeatedFloat != rhs_storage._repeatedFloat {return false}
+      if _storage._repeatedDouble != rhs_storage._repeatedDouble {return false}
+      if _storage._repeatedBool != rhs_storage._repeatedBool {return false}
+      if _storage._repeatedString != rhs_storage._repeatedString {return false}
+      if _storage._repeatedBytes != rhs_storage._repeatedBytes {return false}
+      if _storage._repeatedMessage != rhs_storage._repeatedMessage {return false}
+      if _storage._repeatedEnum != rhs_storage._repeatedEnum {return false}
+      if _storage._o != rhs_storage._o {return false}
+      if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
+      if _storage._mapInt64Int64 != rhs_storage._mapInt64Int64 {return false}
+      if _storage._mapUint32Uint32 != rhs_storage._mapUint32Uint32 {return false}
+      if _storage._mapUint64Uint64 != rhs_storage._mapUint64Uint64 {return false}
+      if _storage._mapSint32Sint32 != rhs_storage._mapSint32Sint32 {return false}
+      if _storage._mapSint64Sint64 != rhs_storage._mapSint64Sint64 {return false}
+      if _storage._mapFixed32Fixed32 != rhs_storage._mapFixed32Fixed32 {return false}
+      if _storage._mapFixed64Fixed64 != rhs_storage._mapFixed64Fixed64 {return false}
+      if _storage._mapSfixed32Sfixed32 != rhs_storage._mapSfixed32Sfixed32 {return false}
+      if _storage._mapSfixed64Sfixed64 != rhs_storage._mapSfixed64Sfixed64 {return false}
+      if _storage._mapInt32Float != rhs_storage._mapInt32Float {return false}
+      if _storage._mapInt32Double != rhs_storage._mapInt32Double {return false}
+      if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
+      if _storage._mapStringString != rhs_storage._mapStringString {return false}
+      if _storage._mapStringBytes != rhs_storage._mapStringBytes {return false}
+      if _storage._mapStringMessage != rhs_storage._mapStringMessage {return false}
+      if _storage._mapInt32Bytes != rhs_storage._mapInt32Bytes {return false}
+      if _storage._mapInt32Enum != rhs_storage._mapInt32Enum {return false}
+      if _storage._mapInt32Message != rhs_storage._mapInt32Message {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1353,13 +1353,13 @@ nonisolated extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, 
 
   static func ==(lhs: SwiftProtoTesting_Msg3UsesStorage, rhs: SwiftProtoTesting_Msg3UsesStorage) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._y != rhs_storage._y {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._y != rhs_storage._y {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

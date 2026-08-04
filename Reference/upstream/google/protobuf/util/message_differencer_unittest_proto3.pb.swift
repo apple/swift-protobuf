@@ -167,18 +167,18 @@ nonisolated extension Proto3Unittest_TestNoPresenceField: SwiftProtobuf.Message,
 
   static func ==(lhs: Proto3Unittest_TestNoPresenceField, rhs: Proto3Unittest_TestNoPresenceField) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._noPresenceBool != rhs_storage._noPresenceBool {return false}
-        if _storage._noPresenceNested != rhs_storage._noPresenceNested {return false}
-        if _storage._noPresenceRepeatedNested != rhs_storage._noPresenceRepeatedNested {return false}
-        if _storage._noPresenceString != rhs_storage._noPresenceString {return false}
-        if _storage._noPresenceBool2 != rhs_storage._noPresenceBool2 {return false}
-        if _storage._noPresenceBool3 != rhs_storage._noPresenceBool3 {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._noPresenceBool != rhs_storage._noPresenceBool {return false}
+      if _storage._noPresenceNested != rhs_storage._noPresenceNested {return false}
+      if _storage._noPresenceRepeatedNested != rhs_storage._noPresenceRepeatedNested {return false}
+      if _storage._noPresenceString != rhs_storage._noPresenceString {return false}
+      if _storage._noPresenceBool2 != rhs_storage._noPresenceBool2 {return false}
+      if _storage._noPresenceBool3 != rhs_storage._noPresenceBool3 {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

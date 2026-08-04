@@ -134,14 +134,14 @@ nonisolated extension LegacyFeaturesUnittest_TestEditionsMessage: SwiftProtobuf.
 
   static func ==(lhs: LegacyFeaturesUnittest_TestEditionsMessage, rhs: LegacyFeaturesUnittest_TestEditionsMessage) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._requiredField != rhs_storage._requiredField {return false}
-        if _storage._delimitedField != rhs_storage._delimitedField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._requiredField != rhs_storage._requiredField {return false}
+      if _storage._delimitedField != rhs_storage._delimitedField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
