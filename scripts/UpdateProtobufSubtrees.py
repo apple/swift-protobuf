@@ -222,6 +222,7 @@ INCLUDE_PROTOS: list[tuple[str, str]] = [
     ("src/google/protobuf/descriptor.proto", "google/protobuf/descriptor.proto"),
     # Edition feature protos
     ("src/google/protobuf/cpp_features.proto", "google/protobuf/cpp_features.proto"),
+    ("csharp/google/protobuf/c_sharp_features.proto", "google/protobuf/c_sharp_features.proto"),
     ("go/google/protobuf/go_features.proto", "google/protobuf/go_features.proto"),
     ("java/core/src/main/resources/google/protobuf/java_features.proto", "google/protobuf/java_features.proto"),
     # Compiler plugin
@@ -230,7 +231,11 @@ INCLUDE_PROTOS: list[tuple[str, str]] = [
 
 # Proto files that may not exist in older protobuf versions.
 INCLUDE_PROTOS_OPTIONAL: list[tuple[str, str]] = [
-    ("csharp/google/protobuf/c_sharp_features.proto", "google/protobuf/c_sharp_features.proto"),
+    # New in v36
+    ("src/google/protobuf/cpp_file_options.proto", "google/protobuf/cpp_file_options.proto"),
+    ("src/google/protobuf/cpp_options.proto", "google/protobuf/cpp_options.proto"),
+    ("src/google/protobuf/json_enumvalue_options.proto", "google/protobuf/json_enumvalue_options.proto"),
+    ("src/google/protobuf/json_options.proto", "google/protobuf/json_options.proto"),
 ]
 
 
