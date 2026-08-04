@@ -87,9 +87,13 @@ func parseTimestamp(s: String) throws -> (Int64, Int32) {
         throw JSONDecodingError.malformedTimestamp
     }
 
+    let isleap = (year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))
+
     // Day: 2 digits followed by 'T'
     let mday = try fromAscii2(value[8], value[9])
-    if value[10] != letterT || mday < Int(1) || mday > Int(31) {
+    let mdayMax: [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    let maxDays = (month == 2 && isleap) ? 29 : mdayMax[month - 1]
+    if value[10] != letterT || mday < Int(1) || mday > maxDays {
         throw JSONDecodingError.malformedTimestamp
     }
 
@@ -107,7 +111,7 @@ func parseTimestamp(s: String) throws -> (Int64, Int32) {
 
     // Second: 2 digits (following char is checked below)
     let second = try fromAscii2(value[17], value[18])
-    if second > Int(61) {
+    if second > Int(59) {
         throw JSONDecodingError.malformedTimestamp
     }
 
@@ -120,7 +124,6 @@ func parseTimestamp(s: String) throws -> (Int64, Int32) {
     // Day of year
     let mdayStart: [Int] = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334]
     var yday = Int64(mdayStart[month - 1])
-    let isleap = (year % 400 == 0) || ((year % 100 != 0) && (year % 4 == 0))
     if isleap && (month > 2) {
         yday += 1
     }
@@ -150,10 +153,24 @@ func parseTimestamp(s: String) throws -> (Int64, Int32) {
     if value[pos] == period {  // "." begins fractional seconds
         pos += 1
         var digitValue = 100_000_000
+        var fractionalDigits = 0
         while pos < value.count && value[pos] >= zero && value[pos] <= nine {
+            fractionalDigits += 1
+            // Protobuf encodes sub-second time as nanoseconds, so the fraction
+            // is limited to 9 digits. Reject as soon as a tenth digit appears
+            // so we fail fast, and so the Int32 accumulation below cannot
+            // overflow on pathological input.
+            if fractionalDigits > 9 {
+                throw JSONDecodingError.malformedTimestamp
+            }
             nanos += Int32(digitValue * (value[pos] - zero))
             digitValue /= 10
             pos += 1
+        }
+        // Protobuf JSON also requires at least one digit after the decimal
+        // point. The reference parser rejects an empty fraction.
+        if fractionalDigits < 1 {
+            throw JSONDecodingError.malformedTimestamp
         }
     }
 

@@ -399,6 +399,7 @@ message GeneratedSwiftReservedEnums {
   enum forTypeURL { NONE_forTypeURL = 0; }
   enum ForwardParser { NONE_ForwardParser = 0; }
   enum forWritingInto { NONE_forWritingInto = 0; }
+  enum fractionalDigits { NONE_fractionalDigits = 0; }
   enum frequencies { NONE_frequencies = 0; }
   enum frequency { NONE_frequency = 0; }
   enum FrequencyModel { NONE_FrequencyModel = 0; }
