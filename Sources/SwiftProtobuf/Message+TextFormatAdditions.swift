@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to support text format encoding/decoding.
+/// Extensions to ``Message`` to support text format encoding/decoding.
 ///
 // -----------------------------------------------------------------------------
 

@@ -231,7 +231,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Timestamp {
-    /// Creates a new `Google_Protobuf_Timestamp` equal to the given number of
+    /// Creates a new ``Google_Protobuf_Timestamp`` equal to the given number of
     /// seconds and nanoseconds.
     ///
     /// - Parameter seconds: The number of seconds.
@@ -260,7 +260,7 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 
 extension Google_Protobuf_Timestamp {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds.
     ///
     /// - Parameter timeIntervalSince1970: The `TimeInterval`, interpreted as
@@ -271,7 +271,7 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
     /// nanosecond according to the given rounding rule.
     ///
@@ -291,7 +291,7 @@ extension Google_Protobuf_Timestamp {
     }
 
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds.
     ///
     /// - Parameter timeIntervalSinceReferenceDate: The `TimeInterval`,
@@ -305,7 +305,7 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
     /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
     /// nanosecond according to the given rounding rule.
     ///
@@ -332,7 +332,7 @@ extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
-    /// Creates a new `Google_Protobuf_Timestamp` initialized to the same time as
+    /// Creates a new ``Google_Protobuf_Timestamp`` initialized to the same time as
     /// the given `Date`.
     ///
     /// - Parameter date: The `Date` with which to initialize the timestamp.

@@ -17,8 +17,8 @@ extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
 
-    /// Creates a new `Google_Protobuf_Struct` from a dictionary of string keys to
-    /// values of type `Google_Protobuf_Value`.
+    /// Creates a new ``Google_Protobuf_Struct`` from a dictionary of string keys to
+    /// values of type ``Google_Protobuf_Value``.
     public init(dictionaryLiteral: (String, Google_Protobuf_Value)...) {
         self.init()
         for (k, v) in dictionaryLiteral {
@@ -64,18 +64,18 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Struct {
-    /// Creates a new `Google_Protobuf_Struct` from a dictionary of string keys to
-    /// values of type `Google_Protobuf_Value`.
+    /// Creates a new ``Google_Protobuf_Struct`` from a dictionary of string keys to
+    /// values of type ``Google_Protobuf_Value``.
     ///
     /// - Parameter fields: The dictionary from field names to
-    ///   `Google_Protobuf_Value` messages that should be used to create the
+    ///   ``Google_Protobuf_Value`` messages that should be used to create the
     ///   `Struct`.
     public init(fields: [String: Google_Protobuf_Value]) {
         self.init()
         self.fields = fields
     }
 
-    /// Accesses the `Google_Protobuf_Value` with the given key for reading and
+    /// Accesses the ``Google_Protobuf_Value`` with the given key for reading and
     /// writing.
     ///
     /// This key-based subscript returns the `Value` for the given key if the key
