@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding.
+/// Extensions to ``Message`` to provide binary coding and decoding.
 ///
 // -----------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ extension Message {
         return try serializedBytes(options: options)
     }
 
-    /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Creates a new message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format.
     ///
     /// - Parameters:
@@ -167,7 +167,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, options: options)
     }
 
-    /// Updates the message by decoding the given `SwiftProtobufContiguousBytes` value
+    /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format into the
     /// receiver.
     ///

@@ -8,12 +8,12 @@
 //
 
 /// The protocol which all generated protobuf messages implement.
-/// `Message` is the protocol type you should use whenever
+/// ``Message`` is the protocol type you should use whenever
 /// you need an argument or variable which holds "some message".
 ///
 /// Generated messages also implement `Hashable`, and thus `Equatable`.
 /// However, the protocol conformance is declared on a different protocol.
-/// This allows you to use `Message` as a type directly:
+/// This allows you to use ``Message`` as a type directly:
 ///
 ///     func consume(message: Message) { ... }
 ///
@@ -62,7 +62,7 @@ public protocol Message: Sendable, Equatable, Hashable, CustomDebugStringConvert
     /// `Hashable` protocol.
     func hash(into hasher: inout Hasher)
 
-    /// Helper to compare `Message`s when not having a specific type to use
+    /// Helper to compare ``Message``s when not having a specific type to use
     /// normal `Equatable`. `Equatable` is provided with specific generated
     /// types.
     func isEqualTo(message: any Message) -> Bool

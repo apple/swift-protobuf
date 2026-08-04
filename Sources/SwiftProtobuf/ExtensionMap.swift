@@ -16,11 +16,11 @@
 
 /// A collection of extension schemas.
 ///
-/// An `ExtensionMap` is used during decoding to look up extension schemas corresponding to
+/// An ``ExtensionMap`` is used during decoding to look up extension schemas corresponding to
 /// serialized data.
 ///
 /// This is a protocol so that applications can implement their own extension lookup if they need
-/// something more complex than the standard `SimpleExtensionMap` implementation.
+/// something more complex than the standard ``SimpleExtensionMap`` implementation.
 @preconcurrency
 public protocol ExtensionMap: Sendable {
     /// Returns the extension schema for the extension field in a message that has the given

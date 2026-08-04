@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extends the `Message` type with `Google_Protobuf_Any`-specific behavior.
+/// Extends the ``Message`` type with ``Google_Protobuf_Any``-specific behavior.
 ///
 // -----------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ extension Message {
     /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
     ///
     /// - Parameter unpackingAny: the message to decode.
-    /// - Parameter extensions: An `ExtensionMap` used to look up and decode any
+    /// - Parameter extensions: An ``ExtensionMap`` used to look up and decode any
     ///   extensions in this message or messages nested within this message's
     ///   fields.
     /// - Parameter options: The BinaryDecodingOptions to use.

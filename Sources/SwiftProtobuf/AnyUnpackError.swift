@@ -12,17 +12,17 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Describes errors that can occur when unpacking an `Google_Protobuf_Any`
+/// Describes errors that can occur when unpacking an ``Google_Protobuf_Any``
 /// message.
 ///
-/// `Google_Protobuf_Any` messages can be decoded from protobuf binary, text
+/// ``Google_Protobuf_Any`` messages can be decoded from protobuf binary, text
 /// format, or JSON. The contents are not parsed immediately; the raw data is
-/// held in the `Google_Protobuf_Any` message until you `unpack()` it into a
+/// held in the ``Google_Protobuf_Any`` message until you `unpack()` it into a
 /// message.  At this time, any error can occur that might have occurred from a
 /// regular decoding operation.  There are also other errors that can occur due
 /// to problems with the `Any` value's structure.
 public enum AnyUnpackError: Error {
-    /// The `type_url` field in the `Google_Protobuf_Any` message did not match
+    /// The `type_url` field in the ``Google_Protobuf_Any`` message did not match
     /// the message type provided to the `unpack()` method.
     case typeMismatch
 
@@ -31,7 +31,7 @@ public enum AnyUnpackError: Error {
     /// of the well-known type.
     case malformedWellKnownTypeJSON
 
-    /// The `Google_Protobuf_Any` message was malformed in some other way not
+    /// The ``Google_Protobuf_Any`` message was malformed in some other way not
     /// covered by the other error cases.
     case malformedAnyField
 }

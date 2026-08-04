@@ -20,7 +20,7 @@ import Foundation
 /// provide such a protocol.
 ///
 /// By conforming your own types to this protocol, you will be able to pass instances of said types
-/// directly to `SwiftProtobuf.Message`'s deserialisation methods
+/// directly to ``Message``'s deserialisation methods
 /// (i.e. `init(contiguousBytes:)` for binary format and `init(jsonUTF8Bytes:)` for JSON).
 public protocol SwiftProtobufContiguousBytes {
     /// An initializer for a bag of bytes type.
