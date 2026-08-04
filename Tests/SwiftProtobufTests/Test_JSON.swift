@@ -621,6 +621,11 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"optionalFloat\":\"1e3.2\"}")
         // Out-of-range numbers should fail
         assertJSONDecodeFails("{\"optionalFloat\":1e39}")
+        // A quoted out-of-range value must fail the same way an unquoted one does.
+        // The magnitude here is representable as Double but overflows Float.
+        assertJSONDecodeFails("{\"optionalFloat\":\"1e39\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"-1e39\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"3.5e38\"}")
 
         // A wide range of numbers should exactly round-trip
         assertRoundTripJSON { $0.optionalFloat = 0.1 }

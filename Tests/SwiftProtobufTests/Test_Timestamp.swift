@@ -182,6 +182,23 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"9999-12-31T00:00:00\"")
     }
 
+    func testJSON_subsecondDigits() {
+        // A fractional part is allowed to have between 1 and 9 digits.
+        assertJSONDecodeSucceeds("\"1970-01-01T00:00:00.1Z\"") {
+            $0.seconds == 0 && $0.nanos == 100_000_000
+        }
+        assertJSONDecodeSucceeds("\"1970-01-01T00:00:00.123456789Z\"") {
+            $0.seconds == 0 && $0.nanos == 123_456_789
+        }
+        // A '.' must be followed by at least one digit.
+        assertJSONDecodeFails("\"1970-01-01T00:00:00.Z\"")
+        assertJSONDecodeFails("\"1970-01-01T00:00:00.+00:00\"")
+        // More than nanosecond precision (>9 fractional digits) is invalid and
+        // must not be silently truncated.
+        assertJSONDecodeFails("\"1970-01-01T00:00:00.1234567890Z\"")
+        assertJSONDecodeFails("\"1970-01-01T00:00:00.123456789012345Z\"")
+    }
+
     func testJSON_daysInMonth() {
         // Valid leap day
         assertJSONDecodeSucceeds("\"2000-02-29T00:00:00Z\"") {
