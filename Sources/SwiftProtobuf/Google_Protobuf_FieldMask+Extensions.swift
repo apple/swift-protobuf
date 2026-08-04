@@ -134,7 +134,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
 
 #if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
-    /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
+    /// Creates a new ``Google_Protobuf_FieldMask`` from the given array of paths.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -146,7 +146,7 @@ extension Google_Protobuf_FieldMask {
         paths = protoPaths
     }
 
-    /// Creates a new `Google_Protobuf_FieldMask` from the given paths.
+    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -157,7 +157,7 @@ extension Google_Protobuf_FieldMask {
         self.init(protoPaths: protoPaths)
     }
 
-    /// Creates a new `Google_Protobuf_FieldMask` from the given paths.
+    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
     ///
     /// The paths should match the JSON names of the fields, which may be
     /// different than the corresponding Swift property names.
@@ -193,7 +193,7 @@ extension Google_Protobuf_FieldMask {
     ///   - messageType: Message type to get all paths from.
     ///   - fieldNumbers: Field numbers of paths to be included.
     /// - Returns: Field mask that include paths of corresponding field numbers.
-    /// - Throws: `FieldMaskError.invalidFieldNumber` if the field number
+    /// - Throws: ``FieldMaskError/invalidFieldNumber`` if the field number
     ///  is not on the message
     public init<M: Message & _ProtoNameProviding>(
         fieldNumbers: [Int],

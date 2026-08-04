@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding using ``Foundation/Data``.
+/// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
 ///
 // -----------------------------------------------------------------------------
 

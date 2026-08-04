@@ -128,7 +128,7 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Duration {
-    /// Creates a new `Google_Protobuf_Duration` equal to the given number of
+    /// Creates a new ``Google_Protobuf_Duration`` equal to the given number of
     /// seconds and nanoseconds.
     ///
     /// - Parameter seconds: The number of seconds.
@@ -157,7 +157,7 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
-    /// Creates a new `Google_Protobuf_Duration` from a floating point literal
+    /// Creates a new ``Google_Protobuf_Duration`` from a floating point literal
     /// that is interpreted as a duration in seconds, rounded to the nearest
     /// nanosecond.
     public init(floatLiteral value: Double) {
@@ -167,7 +167,7 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
 
 extension Google_Protobuf_Duration {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new `Google_Protobuf_Duration` that is equal to the given
+    /// Creates a new ``Google_Protobuf_Duration`` that is equal to the given
     /// `TimeInterval` (measured in seconds), rounded to the nearest nanosecond.
     ///
     /// - Parameter timeInterval: The `TimeInterval`.
@@ -177,7 +177,7 @@ extension Google_Protobuf_Duration {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new `Google_Protobuf_Duration` that is equal to the given
+    /// Creates a new ``Google_Protobuf_Duration`` that is equal to the given
     /// `TimeInterval` (measured in seconds), rounded to the nearest nanosecond
     /// according to the given rounding rule.
     ///
@@ -203,7 +203,7 @@ extension Google_Protobuf_Duration {
 
 @available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
 extension Google_Protobuf_Duration {
-    /// Creates a new `Google_Protobuf_Duration` by rounding a `Duration` to
+    /// Creates a new ``Google_Protobuf_Duration`` by rounding a `Duration` to
     /// the nearest nanosecond according to the given rounding rule.
     ///
     /// - Parameters:
@@ -228,12 +228,12 @@ extension Google_Protobuf_Duration {
 extension Duration {
     /// Creates a new `Duration` that is equal to the given duration.
     ///
-    /// Swift `Duration` has a strictly higher precision than `Google_Protobuf_Duration`
+    /// Swift `Duration` has a strictly higher precision than ``Google_Protobuf_Duration``
     /// (attoseconds vs. nanoseconds, respectively), so this conversion is always
     /// value-preserving.
     ///
     /// - Parameters:
-    ///   - duration: The `Google_Protobuf_Duration`.
+    ///   - duration: The ``Google_Protobuf_Duration``.
     public init(_ duration: Google_Protobuf_Duration) {
         self.init(
             secondsComponent: duration.seconds,

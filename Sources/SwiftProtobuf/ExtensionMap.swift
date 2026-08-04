@@ -16,12 +16,12 @@
 
 /// A collection of extension objects.
 ///
-/// An `ExtensionMap` is used during decoding to look up
+/// An ``ExtensionMap`` is used during decoding to look up
 /// extension objects corresponding to the serialized data.
 ///
 /// This is a protocol so that developers can build their own
 /// extension handling if they need something more complex than the
-/// standard `SimpleExtensionMap` implementation.
+/// standard ``SimpleExtensionMap`` implementation.
 @preconcurrency
 public protocol ExtensionMap: Sendable {
     /// Returns the extension object describing an extension or nil

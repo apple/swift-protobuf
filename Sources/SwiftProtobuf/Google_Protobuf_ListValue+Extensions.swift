@@ -18,8 +18,8 @@ extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
     // bits down to values
     public typealias Element = Google_Protobuf_Value
 
-    /// Creates a new `Google_Protobuf_ListValue` from an array literal containing
-    /// `Google_Protobuf_Value` elements.
+    /// Creates a new ``Google_Protobuf_ListValue`` from an array literal containing
+    /// ``Google_Protobuf_Value`` elements.
     public init(arrayLiteral elements: Element...) {
         self.init(values: elements)
     }
@@ -65,17 +65,17 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_ListValue {
-    /// Creates a new `Google_Protobuf_ListValue` from the given array of
-    /// `Google_Protobuf_Value` elements.
+    /// Creates a new ``Google_Protobuf_ListValue`` from the given array of
+    /// ``Google_Protobuf_Value`` elements.
     ///
-    /// - Parameter values: The list of `Google_Protobuf_Value` messages from
-    ///   which to create the `Google_Protobuf_ListValue`.
+    /// - Parameter values: The list of ``Google_Protobuf_Value`` messages from
+    ///   which to create the ``Google_Protobuf_ListValue``.
     public init(values: [Google_Protobuf_Value]) {
         self.init()
         self.values = values
     }
 
-    /// Accesses the `Google_Protobuf_Value` at the specified position.
+    /// Accesses the ``Google_Protobuf_Value`` at the specified position.
     ///
     /// - Parameter index: The position of the element to access.
     public subscript(index: Int) -> Google_Protobuf_Value {

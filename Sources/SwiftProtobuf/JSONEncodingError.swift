@@ -28,7 +28,7 @@ public enum JSONEncodingError: Error, Hashable {
     case fieldMaskConversion
     /// Field names were not compiled into the binary
     case missingFieldNames
-    /// Instances of `Google_Protobuf_Value` can only be encoded if they have a
+    /// Instances of ``Google_Protobuf_Value`` can only be encoded if they have a
     /// valid `kind` (that is, they represent a null value, number, boolean,
     /// string, struct, or list).
     case missingValue

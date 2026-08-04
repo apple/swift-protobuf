@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extends the `Google_Protobuf_Any` type with various custom behaviors.
+/// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
 ///
 // -----------------------------------------------------------------------------
 
@@ -55,15 +55,15 @@ extension Google_Protobuf_Any {
         _storage.state = .message(message)
     }
 
-    /// Creates a new `Google_Protobuf_Any` by decoding the given string
+    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
     /// containing a serialized message in Protocol Buffer text format.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
-    ///   - extensions: An `ExtensionMap` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    /// - Throws: an instance of `TextFormatDecodingError` on failure.
+    /// - Throws: an instance of ``TextFormatDecodingError`` on failure.
     @_disfavoredOverload
     public init(
         textFormatString: String,
@@ -77,7 +77,7 @@ extension Google_Protobuf_Any {
         )
     }
 
-    /// Creates a new `Google_Protobuf_Any` by decoding the given string
+    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
     /// containing a serialized message in Protocol Buffer text format.
     ///
     /// - Parameters:
@@ -114,10 +114,10 @@ extension Google_Protobuf_Any {
         }
     }
 
-    /// Returns true if this `Google_Protobuf_Any` message contains the given
+    /// Returns true if this ``Google_Protobuf_Any`` message contains the given
     /// message type.
     ///
-    /// The check is performed by looking at the passed `Message.Type` and the
+    /// The check is performed by looking at the passed ``Message`` type and the
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.
