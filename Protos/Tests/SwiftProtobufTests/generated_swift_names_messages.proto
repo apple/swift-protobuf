@@ -399,6 +399,7 @@ message GeneratedSwiftReservedMessages {
   message forTypeURL { int32 forTypeURL = 1; }
   message ForwardParser { int32 ForwardParser = 1; }
   message forWritingInto { int32 forWritingInto = 1; }
+  message fractionalDigits { int32 fractionalDigits = 1; }
   message frequencies { int32 frequencies = 1; }
   message frequency { int32 frequency = 1; }
   message FrequencyModel { int32 FrequencyModel = 1; }
