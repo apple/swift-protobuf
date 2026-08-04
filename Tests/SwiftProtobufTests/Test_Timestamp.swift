@@ -182,6 +182,42 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"9999-12-31T00:00:00\"")
     }
 
+    func testJSON_daysInMonth() {
+        // Valid leap day
+        assertJSONDecodeSucceeds("\"2000-02-29T00:00:00Z\"") {
+            $0.seconds == 951_782_400 && $0.nanos == 0
+        }
+        assertJSONDecodeSucceeds("\"2004-02-29T00:00:00Z\"") {
+            $0.seconds == 1_078_012_800 && $0.nanos == 0
+        }
+        assertJSONDecodeSucceeds("\"2400-02-29T00:00:00Z\"") {
+            $0.seconds == 13_574_563_200 && $0.nanos == 0
+        }
+
+        // Invalid leap day
+        assertJSONDecodeFails("\"1900-02-29T00:00:00Z\"")
+        assertJSONDecodeFails("\"2100-02-29T00:00:00Z\"")
+        assertJSONDecodeFails("\"2001-02-29T00:00:00Z\"")
+
+        // Invalid days for months
+        assertJSONDecodeFails("\"2000-01-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-02-30T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-03-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-04-31T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-05-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-06-31T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-07-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-08-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-09-31T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-10-32T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-11-31T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-12-32T00:00:00Z\"")
+
+        // Month 0 or day 0
+        assertJSONDecodeFails("\"2000-00-01T00:00:00Z\"")
+        assertJSONDecodeFails("\"2000-01-00T00:00:00Z\"")
+    }
+
     func testJSON_range() throws {
         // Check that JSON timestamps round-trip correctly over a wide range.
         // This checks about 15,000 dates scattered over a 10,000 year period
