@@ -76,6 +76,12 @@ extension Google_Protobuf_Value: _CustomJSONCodable {
     }
 
     internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        // No matter what was in the JSON, when it becomes a
+        // google.protobuf.Value, that means we've added an "object" to the
+        // depth of objects modeled, so manually include that in the recursion
+        // usage.
+        try decoder.scanner.incrementRecursionDepth()
+        defer { decoder.scanner.decrementRecursionDepth() }
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
