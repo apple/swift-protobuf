@@ -274,8 +274,8 @@ struct SwiftProtobufPlugin {
             // generate with PathToUnderscores naming, so the relative proto path becomes a single
             // file name with the directory separators replaced by underscores. We validated up
             // front that every file has the .proto suffix, which is dropped for .pb.swift.
-            let outputName = String(file.dropLast(".proto".count))
-                .replacingOccurrences(of: "/", with: "_") + ".pb.swift"
+            let baseName = String(file.dropLast(".proto".count))
+            let outputName = baseName.replacingOccurrences(of: "/", with: "_") + ".pb.swift"
             let protobufOutputPath = outputDirectory.appending(path: outputName)
 
             // Add the outputPath as an output file
