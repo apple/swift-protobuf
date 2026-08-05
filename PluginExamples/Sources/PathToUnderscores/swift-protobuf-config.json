@@ -1,0 +1,11 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "Proto/foo/Duplicate.proto",
+                "Proto/bar/Duplicate.proto",
+            ],
+            "visibility": "public"
+        }
+    ]
+}
