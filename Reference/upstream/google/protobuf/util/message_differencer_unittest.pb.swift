@@ -349,18 +349,18 @@ nonisolated extension Proto2Unittest_TestField: SwiftProtobuf.Message, SwiftProt
 
   static func ==(lhs: Proto2Unittest_TestField, rhs: Proto2Unittest_TestField) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._a != rhs_storage._a {return false}
-        if _storage._b != rhs_storage._b {return false}
-        if _storage._c != rhs_storage._c {return false}
-        if _storage._rc != rhs_storage._rc {return false}
-        if _storage._m != rhs_storage._m {return false}
-        if _storage._rm != rhs_storage._rm {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._a != rhs_storage._a {return false}
+      if _storage._b != rhs_storage._b {return false}
+      if _storage._c != rhs_storage._c {return false}
+      if _storage._rc != rhs_storage._rc {return false}
+      if _storage._m != rhs_storage._m {return false}
+      if _storage._rm != rhs_storage._rm {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

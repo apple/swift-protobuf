@@ -1210,14 +1210,14 @@ nonisolated extension Proto2Unittest_TestRecursion: SwiftProtobuf.Message, Swift
 
   static func ==(lhs: Proto2Unittest_TestRecursion, rhs: Proto2Unittest_TestRecursion) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._value != rhs_storage._value {return false}
-        if _storage._child != rhs_storage._child {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._value != rhs_storage._value {return false}
+      if _storage._child != rhs_storage._child {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

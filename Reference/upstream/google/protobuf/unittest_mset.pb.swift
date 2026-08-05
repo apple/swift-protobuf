@@ -497,15 +497,15 @@ nonisolated extension Proto2Unittest_NestedTestMessageSetContainer: SwiftProtobu
 
   static func ==(lhs: Proto2Unittest_NestedTestMessageSetContainer, rhs: Proto2Unittest_NestedTestMessageSetContainer) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._container != rhs_storage._container {return false}
-        if _storage._child != rhs_storage._child {return false}
-        if _storage._lazyChild != rhs_storage._lazyChild {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._container != rhs_storage._container {return false}
+      if _storage._child != rhs_storage._child {return false}
+      if _storage._lazyChild != rhs_storage._lazyChild {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -581,15 +581,15 @@ nonisolated extension Proto2Unittest_NestedTestInt: SwiftProtobuf.Message, Swift
 
   static func ==(lhs: Proto2Unittest_NestedTestInt, rhs: Proto2Unittest_NestedTestInt) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._a != rhs_storage._a {return false}
-        if _storage._b != rhs_storage._b {return false}
-        if _storage._child != rhs_storage._child {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._a != rhs_storage._a {return false}
+      if _storage._b != rhs_storage._b {return false}
+      if _storage._child != rhs_storage._child {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

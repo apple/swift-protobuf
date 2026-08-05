@@ -413,34 +413,30 @@ class MessageGenerator {
     private func generateMessageEquality(printer p: inout CodePrinter) {
         p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
         p.withIndentation { p in
-            var compareFields = true
             if let storage = storage {
                 p.print("if lhs._storage !== rhs._storage {")
                 p.indent()
-                p.print("let storagesAreEqual: Bool = ", newlines: false)
                 if storage.storageProvidesEqualTo {
-                    p.print("lhs._storage.isEqualTo(other: rhs._storage)")
-                    compareFields = false
-                }
-            }
-            if compareFields {
-                generateWithLifetimeExtension(
-                    printer: &p,
-                    alsoCapturing: "rhs",
-                    selfQualifier: "lhs"
-                ) { p in
+                    p.print("if !lhs._storage.isEqualTo(other: rhs._storage) {return false}")
+                } else {
+                    p.print("let _storage = lhs._storage")
+                    p.print("let rhs_storage = rhs._storage")
+                    p.print("defer {")
+                    p.withIndentation { p in
+                        p.print("withExtendedLifetime(_storage) {}")
+                        p.print("withExtendedLifetime(rhs_storage) {}")
+                    }
+                    p.print("}")
                     for f in fields {
                         f.generateFieldComparison(printer: &p)
                     }
-                    if storage != nil {
-                        p.print("return true")
-                    }
                 }
-            }
-            if storage != nil {
-                p.print("if !storagesAreEqual {return false}")
                 p.outdent()
                 p.print("}")
+            } else {
+                for f in fields {
+                    f.generateFieldComparison(printer: &p)
+                }
             }
             p.print("if lhs.unknownFields != rhs.unknownFields {return false}")
             if isExtensible {
@@ -512,17 +508,12 @@ class MessageGenerator {
     /// - Parameter returns: Indicates whether the code that will be printed
     ///   inside the block returns a value; if so, the printed call to
     ///   `withExtendedLifetime` will be preceded by `return`.
-    /// - Parameter capturedVariable: The name of another variable (which is
-    ///   assumed to be the same type as `self`) whose storage should also be
-    ///   captured (used for equality testing, where two messages are operated
-    ///   on simultaneously).
     /// - Parameter body: A closure that takes the code printer as its sole
     ///   `inout` argument.
     private func generateWithLifetimeExtension(
         printer p: inout CodePrinter,
         throws canThrow: Bool = false,
         returns: Bool = false,
-        alsoCapturing capturedVariable: String? = nil,
         selfQualifier qualifier: String? = nil,
         body: (inout CodePrinter) -> Void
     ) {
@@ -536,22 +527,10 @@ class MessageGenerator {
                 selfQualifier = ""
             }
 
-            if let capturedVariable = capturedVariable {
-                // withExtendedLifetime can only pass a single argument,
-                // so we have to build and deconstruct a tuple in this case:
-                let actualArgs = "(\(selfQualifier)_storage, \(capturedVariable)._storage)"
-                let formalArgs = "(_args: (_StorageClass, _StorageClass))"
-                p.print("\(prefixKeywords)withExtendedLifetime(\(actualArgs)) { \(formalArgs) in")
-                p.indent()
-                p.print("let _storage = _args.0")
-                p.print("let \(capturedVariable)_storage = _args.1")
-            } else {
-                // Single argument can be passed directly:
-                p.print(
-                    "\(prefixKeywords)withExtendedLifetime(\(selfQualifier)_storage) { (_storage: _StorageClass) in"
-                )
-                p.indent()
-            }
+            p.print(
+                "\(prefixKeywords)withExtendedLifetime(\(selfQualifier)_storage) { (_storage: _StorageClass) in"
+            )
+            p.indent()
         }
 
         body(&p)

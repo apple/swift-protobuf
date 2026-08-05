@@ -605,33 +605,33 @@ nonisolated extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Message, 
 
   static func ==(lhs: Proto2Unittest_TestProto3Optional, rhs: Proto2Unittest_TestProto3Optional) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
-        if _storage._optionalInt64 != rhs_storage._optionalInt64 {return false}
-        if _storage._optionalUint32 != rhs_storage._optionalUint32 {return false}
-        if _storage._optionalUint64 != rhs_storage._optionalUint64 {return false}
-        if _storage._optionalSint32 != rhs_storage._optionalSint32 {return false}
-        if _storage._optionalSint64 != rhs_storage._optionalSint64 {return false}
-        if _storage._optionalFixed32 != rhs_storage._optionalFixed32 {return false}
-        if _storage._optionalFixed64 != rhs_storage._optionalFixed64 {return false}
-        if _storage._optionalSfixed32 != rhs_storage._optionalSfixed32 {return false}
-        if _storage._optionalSfixed64 != rhs_storage._optionalSfixed64 {return false}
-        if _storage._optionalFloat != rhs_storage._optionalFloat {return false}
-        if _storage._optionalDouble != rhs_storage._optionalDouble {return false}
-        if _storage._optionalBool != rhs_storage._optionalBool {return false}
-        if _storage._optionalString != rhs_storage._optionalString {return false}
-        if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
-        if _storage._optionalCord != rhs_storage._optionalCord {return false}
-        if _storage._optionalNestedMessage != rhs_storage._optionalNestedMessage {return false}
-        if _storage._lazyNestedMessage != rhs_storage._lazyNestedMessage {return false}
-        if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
-        if _storage._singularInt32 != rhs_storage._singularInt32 {return false}
-        if _storage._singularInt64 != rhs_storage._singularInt64 {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
+      if _storage._optionalInt64 != rhs_storage._optionalInt64 {return false}
+      if _storage._optionalUint32 != rhs_storage._optionalUint32 {return false}
+      if _storage._optionalUint64 != rhs_storage._optionalUint64 {return false}
+      if _storage._optionalSint32 != rhs_storage._optionalSint32 {return false}
+      if _storage._optionalSint64 != rhs_storage._optionalSint64 {return false}
+      if _storage._optionalFixed32 != rhs_storage._optionalFixed32 {return false}
+      if _storage._optionalFixed64 != rhs_storage._optionalFixed64 {return false}
+      if _storage._optionalSfixed32 != rhs_storage._optionalSfixed32 {return false}
+      if _storage._optionalSfixed64 != rhs_storage._optionalSfixed64 {return false}
+      if _storage._optionalFloat != rhs_storage._optionalFloat {return false}
+      if _storage._optionalDouble != rhs_storage._optionalDouble {return false}
+      if _storage._optionalBool != rhs_storage._optionalBool {return false}
+      if _storage._optionalString != rhs_storage._optionalString {return false}
+      if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
+      if _storage._optionalCord != rhs_storage._optionalCord {return false}
+      if _storage._optionalNestedMessage != rhs_storage._optionalNestedMessage {return false}
+      if _storage._lazyNestedMessage != rhs_storage._lazyNestedMessage {return false}
+      if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
+      if _storage._singularInt32 != rhs_storage._singularInt32 {return false}
+      if _storage._singularInt64 != rhs_storage._singularInt64 {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

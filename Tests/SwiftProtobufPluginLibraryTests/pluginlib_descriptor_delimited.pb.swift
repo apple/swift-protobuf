@@ -170,17 +170,17 @@ nonisolated extension SwiftDescriptorTest_EditionsMessageForDelimited: SwiftProt
 
   static func ==(lhs: SwiftDescriptorTest_EditionsMessageForDelimited, rhs: SwiftDescriptorTest_EditionsMessageForDelimited) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._scalarField != rhs_storage._scalarField {return false}
-        if _storage._mapField != rhs_storage._mapField {return false}
-        if _storage._messageMapField != rhs_storage._messageMapField {return false}
-        if _storage._delimitedField != rhs_storage._delimitedField {return false}
-        if _storage._lengthPrefixedField != rhs_storage._lengthPrefixedField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._scalarField != rhs_storage._scalarField {return false}
+      if _storage._mapField != rhs_storage._mapField {return false}
+      if _storage._messageMapField != rhs_storage._messageMapField {return false}
+      if _storage._delimitedField != rhs_storage._delimitedField {return false}
+      if _storage._lengthPrefixedField != rhs_storage._lengthPrefixedField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

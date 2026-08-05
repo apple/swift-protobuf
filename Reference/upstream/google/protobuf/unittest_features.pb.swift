@@ -1000,33 +1000,33 @@ nonisolated extension Pb_TestFeatures: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   static func ==(lhs: Pb_TestFeatures, rhs: Pb_TestFeatures) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._fileFeature != rhs_storage._fileFeature {return false}
-        if _storage._extensionRangeFeature != rhs_storage._extensionRangeFeature {return false}
-        if _storage._messageFeature != rhs_storage._messageFeature {return false}
-        if _storage._fieldFeature != rhs_storage._fieldFeature {return false}
-        if _storage._oneofFeature != rhs_storage._oneofFeature {return false}
-        if _storage._enumFeature != rhs_storage._enumFeature {return false}
-        if _storage._enumEntryFeature != rhs_storage._enumEntryFeature {return false}
-        if _storage._serviceFeature != rhs_storage._serviceFeature {return false}
-        if _storage._methodFeature != rhs_storage._methodFeature {return false}
-        if _storage._multipleFeature != rhs_storage._multipleFeature {return false}
-        if _storage._boolFieldFeature != rhs_storage._boolFieldFeature {return false}
-        if _storage._sourceFeature != rhs_storage._sourceFeature {return false}
-        if _storage._sourceFeature2 != rhs_storage._sourceFeature2 {return false}
-        if _storage._removedFeature != rhs_storage._removedFeature {return false}
-        if _storage._sameEditionRemovedFeature != rhs_storage._sameEditionRemovedFeature {return false}
-        if _storage._futureFeature != rhs_storage._futureFeature {return false}
-        if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
-        if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
-        if _storage._newUnstableFeature != rhs_storage._newUnstableFeature {return false}
-        if _storage._unstableExistingFeature != rhs_storage._unstableExistingFeature {return false}
-        if _storage._removedUnstableFeature != rhs_storage._removedUnstableFeature {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._fileFeature != rhs_storage._fileFeature {return false}
+      if _storage._extensionRangeFeature != rhs_storage._extensionRangeFeature {return false}
+      if _storage._messageFeature != rhs_storage._messageFeature {return false}
+      if _storage._fieldFeature != rhs_storage._fieldFeature {return false}
+      if _storage._oneofFeature != rhs_storage._oneofFeature {return false}
+      if _storage._enumFeature != rhs_storage._enumFeature {return false}
+      if _storage._enumEntryFeature != rhs_storage._enumEntryFeature {return false}
+      if _storage._serviceFeature != rhs_storage._serviceFeature {return false}
+      if _storage._methodFeature != rhs_storage._methodFeature {return false}
+      if _storage._multipleFeature != rhs_storage._multipleFeature {return false}
+      if _storage._boolFieldFeature != rhs_storage._boolFieldFeature {return false}
+      if _storage._sourceFeature != rhs_storage._sourceFeature {return false}
+      if _storage._sourceFeature2 != rhs_storage._sourceFeature2 {return false}
+      if _storage._removedFeature != rhs_storage._removedFeature {return false}
+      if _storage._sameEditionRemovedFeature != rhs_storage._sameEditionRemovedFeature {return false}
+      if _storage._futureFeature != rhs_storage._futureFeature {return false}
+      if _storage._legacyFeature != rhs_storage._legacyFeature {return false}
+      if _storage._valueLifetimeFeature != rhs_storage._valueLifetimeFeature {return false}
+      if _storage._newUnstableFeature != rhs_storage._newUnstableFeature {return false}
+      if _storage._unstableExistingFeature != rhs_storage._unstableExistingFeature {return false}
+      if _storage._removedUnstableFeature != rhs_storage._removedUnstableFeature {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

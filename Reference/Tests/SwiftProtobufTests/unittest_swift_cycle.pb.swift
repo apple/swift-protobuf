@@ -239,15 +239,15 @@ nonisolated extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftPr
 
   static func ==(lhs: SwiftProtoTesting_CycleFoo, rhs: SwiftProtoTesting_CycleFoo) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._aFoo != rhs_storage._aFoo {return false}
-        if _storage._aBar != rhs_storage._aBar {return false}
-        if _storage._aBaz != rhs_storage._aBaz {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._aFoo != rhs_storage._aFoo {return false}
+      if _storage._aBar != rhs_storage._aBar {return false}
+      if _storage._aBaz != rhs_storage._aBaz {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -323,15 +323,15 @@ nonisolated extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftPr
 
   static func ==(lhs: SwiftProtoTesting_CycleBar, rhs: SwiftProtoTesting_CycleBar) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._aBar != rhs_storage._aBar {return false}
-        if _storage._aBaz != rhs_storage._aBaz {return false}
-        if _storage._aFoo != rhs_storage._aFoo {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._aBar != rhs_storage._aBar {return false}
+      if _storage._aBaz != rhs_storage._aBaz {return false}
+      if _storage._aFoo != rhs_storage._aFoo {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -407,15 +407,15 @@ nonisolated extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftPr
 
   static func ==(lhs: SwiftProtoTesting_CycleBaz, rhs: SwiftProtoTesting_CycleBaz) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._aBaz != rhs_storage._aBaz {return false}
-        if _storage._aFoo != rhs_storage._aFoo {return false}
-        if _storage._aBar != rhs_storage._aBar {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._aBaz != rhs_storage._aBaz {return false}
+      if _storage._aFoo != rhs_storage._aFoo {return false}
+      if _storage._aBar != rhs_storage._aBar {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

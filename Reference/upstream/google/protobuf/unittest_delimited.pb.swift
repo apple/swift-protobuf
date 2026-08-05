@@ -608,18 +608,18 @@ nonisolated extension EditionsUnittest_TestDelimited: SwiftProtobuf.Message, Swi
 
   static func ==(lhs: EditionsUnittest_TestDelimited, rhs: EditionsUnittest_TestDelimited) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._lengthprefixed != rhs_storage._lengthprefixed {return false}
-        if _storage._nested != rhs_storage._nested {return false}
-        if _storage._groupLike != rhs_storage._groupLike {return false}
-        if _storage._notgrouplike != rhs_storage._notgrouplike {return false}
-        if _storage._notgrouplikescope != rhs_storage._notgrouplikescope {return false}
-        if _storage._messageimport != rhs_storage._messageimport {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._lengthprefixed != rhs_storage._lengthprefixed {return false}
+      if _storage._nested != rhs_storage._nested {return false}
+      if _storage._groupLike != rhs_storage._groupLike {return false}
+      if _storage._notgrouplike != rhs_storage._notgrouplike {return false}
+      if _storage._notgrouplikescope != rhs_storage._notgrouplikescope {return false}
+      if _storage._messageimport != rhs_storage._messageimport {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}

@@ -793,31 +793,31 @@ nonisolated extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Messag
 
   static func ==(lhs: SwiftProtoTesting_TestWellKnownTypes, rhs: SwiftProtoTesting_TestWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._anyField != rhs_storage._anyField {return false}
-        if _storage._apiField != rhs_storage._apiField {return false}
-        if _storage._durationField != rhs_storage._durationField {return false}
-        if _storage._emptyField != rhs_storage._emptyField {return false}
-        if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
-        if _storage._structField != rhs_storage._structField {return false}
-        if _storage._timestampField != rhs_storage._timestampField {return false}
-        if _storage._typeField != rhs_storage._typeField {return false}
-        if _storage._doubleField != rhs_storage._doubleField {return false}
-        if _storage._floatField != rhs_storage._floatField {return false}
-        if _storage._int64Field != rhs_storage._int64Field {return false}
-        if _storage._uint64Field != rhs_storage._uint64Field {return false}
-        if _storage._int32Field != rhs_storage._int32Field {return false}
-        if _storage._uint32Field != rhs_storage._uint32Field {return false}
-        if _storage._boolField != rhs_storage._boolField {return false}
-        if _storage._stringField != rhs_storage._stringField {return false}
-        if _storage._bytesField != rhs_storage._bytesField {return false}
-        if _storage._valueField != rhs_storage._valueField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._anyField != rhs_storage._anyField {return false}
+      if _storage._apiField != rhs_storage._apiField {return false}
+      if _storage._durationField != rhs_storage._durationField {return false}
+      if _storage._emptyField != rhs_storage._emptyField {return false}
+      if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
+      if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
+      if _storage._structField != rhs_storage._structField {return false}
+      if _storage._timestampField != rhs_storage._timestampField {return false}
+      if _storage._typeField != rhs_storage._typeField {return false}
+      if _storage._doubleField != rhs_storage._doubleField {return false}
+      if _storage._floatField != rhs_storage._floatField {return false}
+      if _storage._int64Field != rhs_storage._int64Field {return false}
+      if _storage._uint64Field != rhs_storage._uint64Field {return false}
+      if _storage._int32Field != rhs_storage._int32Field {return false}
+      if _storage._uint32Field != rhs_storage._uint32Field {return false}
+      if _storage._boolField != rhs_storage._boolField {return false}
+      if _storage._stringField != rhs_storage._stringField {return false}
+      if _storage._bytesField != rhs_storage._bytesField {return false}
+      if _storage._valueField != rhs_storage._valueField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -979,30 +979,30 @@ nonisolated extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Me
 
   static func ==(lhs: SwiftProtoTesting_RepeatedWellKnownTypes, rhs: SwiftProtoTesting_RepeatedWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._anyField != rhs_storage._anyField {return false}
-        if _storage._apiField != rhs_storage._apiField {return false}
-        if _storage._durationField != rhs_storage._durationField {return false}
-        if _storage._emptyField != rhs_storage._emptyField {return false}
-        if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
-        if _storage._structField != rhs_storage._structField {return false}
-        if _storage._timestampField != rhs_storage._timestampField {return false}
-        if _storage._typeField != rhs_storage._typeField {return false}
-        if _storage._doubleField != rhs_storage._doubleField {return false}
-        if _storage._floatField != rhs_storage._floatField {return false}
-        if _storage._int64Field != rhs_storage._int64Field {return false}
-        if _storage._uint64Field != rhs_storage._uint64Field {return false}
-        if _storage._int32Field != rhs_storage._int32Field {return false}
-        if _storage._uint32Field != rhs_storage._uint32Field {return false}
-        if _storage._boolField != rhs_storage._boolField {return false}
-        if _storage._stringField != rhs_storage._stringField {return false}
-        if _storage._bytesField != rhs_storage._bytesField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._anyField != rhs_storage._anyField {return false}
+      if _storage._apiField != rhs_storage._apiField {return false}
+      if _storage._durationField != rhs_storage._durationField {return false}
+      if _storage._emptyField != rhs_storage._emptyField {return false}
+      if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
+      if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
+      if _storage._structField != rhs_storage._structField {return false}
+      if _storage._timestampField != rhs_storage._timestampField {return false}
+      if _storage._typeField != rhs_storage._typeField {return false}
+      if _storage._doubleField != rhs_storage._doubleField {return false}
+      if _storage._floatField != rhs_storage._floatField {return false}
+      if _storage._int64Field != rhs_storage._int64Field {return false}
+      if _storage._uint64Field != rhs_storage._uint64Field {return false}
+      if _storage._int32Field != rhs_storage._int32Field {return false}
+      if _storage._uint32Field != rhs_storage._uint32Field {return false}
+      if _storage._boolField != rhs_storage._boolField {return false}
+      if _storage._stringField != rhs_storage._stringField {return false}
+      if _storage._bytesField != rhs_storage._bytesField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1503,30 +1503,30 @@ nonisolated extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message
 
   static func ==(lhs: SwiftProtoTesting_MapWellKnownTypes, rhs: SwiftProtoTesting_MapWellKnownTypes) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._anyField != rhs_storage._anyField {return false}
-        if _storage._apiField != rhs_storage._apiField {return false}
-        if _storage._durationField != rhs_storage._durationField {return false}
-        if _storage._emptyField != rhs_storage._emptyField {return false}
-        if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
-        if _storage._structField != rhs_storage._structField {return false}
-        if _storage._timestampField != rhs_storage._timestampField {return false}
-        if _storage._typeField != rhs_storage._typeField {return false}
-        if _storage._doubleField != rhs_storage._doubleField {return false}
-        if _storage._floatField != rhs_storage._floatField {return false}
-        if _storage._int64Field != rhs_storage._int64Field {return false}
-        if _storage._uint64Field != rhs_storage._uint64Field {return false}
-        if _storage._int32Field != rhs_storage._int32Field {return false}
-        if _storage._uint32Field != rhs_storage._uint32Field {return false}
-        if _storage._boolField != rhs_storage._boolField {return false}
-        if _storage._stringField != rhs_storage._stringField {return false}
-        if _storage._bytesField != rhs_storage._bytesField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._anyField != rhs_storage._anyField {return false}
+      if _storage._apiField != rhs_storage._apiField {return false}
+      if _storage._durationField != rhs_storage._durationField {return false}
+      if _storage._emptyField != rhs_storage._emptyField {return false}
+      if _storage._fieldMaskField != rhs_storage._fieldMaskField {return false}
+      if _storage._sourceContextField != rhs_storage._sourceContextField {return false}
+      if _storage._structField != rhs_storage._structField {return false}
+      if _storage._timestampField != rhs_storage._timestampField {return false}
+      if _storage._typeField != rhs_storage._typeField {return false}
+      if _storage._doubleField != rhs_storage._doubleField {return false}
+      if _storage._floatField != rhs_storage._floatField {return false}
+      if _storage._int64Field != rhs_storage._int64Field {return false}
+      if _storage._uint64Field != rhs_storage._uint64Field {return false}
+      if _storage._int32Field != rhs_storage._int32Field {return false}
+      if _storage._uint32Field != rhs_storage._uint32Field {return false}
+      if _storage._boolField != rhs_storage._boolField {return false}
+      if _storage._stringField != rhs_storage._stringField {return false}
+      if _storage._bytesField != rhs_storage._bytesField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

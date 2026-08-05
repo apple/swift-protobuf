@@ -614,15 +614,15 @@ nonisolated extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._
 
   static func ==(lhs: SDTTopLevelMessage, rhs: SDTTopLevelMessage) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._field1 != rhs_storage._field1 {return false}
-        if _storage._field2 != rhs_storage._field2 {return false}
-        if _storage._o != rhs_storage._o {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._field1 != rhs_storage._field1 {return false}
+      if _storage._field2 != rhs_storage._field2 {return false}
+      if _storage._o != rhs_storage._o {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -702,15 +702,15 @@ nonisolated extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, Swif
 
   static func ==(lhs: SDTTopLevelMessage.SubMessage, rhs: SDTTopLevelMessage.SubMessage) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._field1 != rhs_storage._field1 {return false}
-        if _storage._field2 != rhs_storage._field2 {return false}
-        if _storage._field3 != rhs_storage._field3 {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._field1 != rhs_storage._field1 {return false}
+      if _storage._field2 != rhs_storage._field2 {return false}
+      if _storage._field3 != rhs_storage._field3 {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -780,14 +780,14 @@ nonisolated extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf.
 
   static func ==(lhs: SDTTopLevelMessage2, rhs: SDTTopLevelMessage2) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._left != rhs_storage._left {return false}
-        if _storage._right != rhs_storage._right {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._left != rhs_storage._left {return false}
+      if _storage._right != rhs_storage._right {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

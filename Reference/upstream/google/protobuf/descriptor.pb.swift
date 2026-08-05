@@ -3080,23 +3080,23 @@ nonisolated extension Google_Protobuf_DescriptorProto: Message, _MessageImplemen
 
   static func ==(lhs: Google_Protobuf_DescriptorProto, rhs: Google_Protobuf_DescriptorProto) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._field != rhs_storage._field {return false}
-        if _storage._extension != rhs_storage._extension {return false}
-        if _storage._nestedType != rhs_storage._nestedType {return false}
-        if _storage._enumType != rhs_storage._enumType {return false}
-        if _storage._extensionRange != rhs_storage._extensionRange {return false}
-        if _storage._oneofDecl != rhs_storage._oneofDecl {return false}
-        if _storage._options != rhs_storage._options {return false}
-        if _storage._reservedRange != rhs_storage._reservedRange {return false}
-        if _storage._reservedName != rhs_storage._reservedName {return false}
-        if _storage._visibility != rhs_storage._visibility {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._name != rhs_storage._name {return false}
+      if _storage._field != rhs_storage._field {return false}
+      if _storage._extension != rhs_storage._extension {return false}
+      if _storage._nestedType != rhs_storage._nestedType {return false}
+      if _storage._enumType != rhs_storage._enumType {return false}
+      if _storage._extensionRange != rhs_storage._extensionRange {return false}
+      if _storage._oneofDecl != rhs_storage._oneofDecl {return false}
+      if _storage._options != rhs_storage._options {return false}
+      if _storage._reservedRange != rhs_storage._reservedRange {return false}
+      if _storage._reservedName != rhs_storage._reservedName {return false}
+      if _storage._visibility != rhs_storage._visibility {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3546,18 +3546,18 @@ nonisolated extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImpl
 
   static func ==(lhs: Google_Protobuf_EnumDescriptorProto, rhs: Google_Protobuf_EnumDescriptorProto) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._value != rhs_storage._value {return false}
-        if _storage._options != rhs_storage._options {return false}
-        if _storage._reservedRange != rhs_storage._reservedRange {return false}
-        if _storage._reservedName != rhs_storage._reservedName {return false}
-        if _storage._visibility != rhs_storage._visibility {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._name != rhs_storage._name {return false}
+      if _storage._value != rhs_storage._value {return false}
+      if _storage._options != rhs_storage._options {return false}
+      if _storage._reservedRange != rhs_storage._reservedRange {return false}
+      if _storage._reservedName != rhs_storage._reservedName {return false}
+      if _storage._visibility != rhs_storage._visibility {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3679,15 +3679,15 @@ nonisolated extension Google_Protobuf_EnumValueDescriptorProto: Message, _Messag
 
   static func ==(lhs: Google_Protobuf_EnumValueDescriptorProto, rhs: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._number != rhs_storage._number {return false}
-        if _storage._options != rhs_storage._options {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._name != rhs_storage._name {return false}
+      if _storage._number != rhs_storage._number {return false}
+      if _storage._options != rhs_storage._options {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3998,33 +3998,33 @@ nonisolated extension Google_Protobuf_FileOptions: Message, _MessageImplementati
 
   static func ==(lhs: Google_Protobuf_FileOptions, rhs: Google_Protobuf_FileOptions) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._javaPackage != rhs_storage._javaPackage {return false}
-        if _storage._javaOuterClassname != rhs_storage._javaOuterClassname {return false}
-        if _storage._javaMultipleFiles != rhs_storage._javaMultipleFiles {return false}
-        if _storage._javaGenerateEqualsAndHash != rhs_storage._javaGenerateEqualsAndHash {return false}
-        if _storage._javaStringCheckUtf8 != rhs_storage._javaStringCheckUtf8 {return false}
-        if _storage._optimizeFor != rhs_storage._optimizeFor {return false}
-        if _storage._goPackage != rhs_storage._goPackage {return false}
-        if _storage._ccGenericServices != rhs_storage._ccGenericServices {return false}
-        if _storage._javaGenericServices != rhs_storage._javaGenericServices {return false}
-        if _storage._pyGenericServices != rhs_storage._pyGenericServices {return false}
-        if _storage._deprecated != rhs_storage._deprecated {return false}
-        if _storage._ccEnableArenas != rhs_storage._ccEnableArenas {return false}
-        if _storage._objcClassPrefix != rhs_storage._objcClassPrefix {return false}
-        if _storage._csharpNamespace != rhs_storage._csharpNamespace {return false}
-        if _storage._swiftPrefix != rhs_storage._swiftPrefix {return false}
-        if _storage._phpClassPrefix != rhs_storage._phpClassPrefix {return false}
-        if _storage._phpNamespace != rhs_storage._phpNamespace {return false}
-        if _storage._phpMetadataNamespace != rhs_storage._phpMetadataNamespace {return false}
-        if _storage._rubyPackage != rhs_storage._rubyPackage {return false}
-        if _storage._features != rhs_storage._features {return false}
-        if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._javaPackage != rhs_storage._javaPackage {return false}
+      if _storage._javaOuterClassname != rhs_storage._javaOuterClassname {return false}
+      if _storage._javaMultipleFiles != rhs_storage._javaMultipleFiles {return false}
+      if _storage._javaGenerateEqualsAndHash != rhs_storage._javaGenerateEqualsAndHash {return false}
+      if _storage._javaStringCheckUtf8 != rhs_storage._javaStringCheckUtf8 {return false}
+      if _storage._optimizeFor != rhs_storage._optimizeFor {return false}
+      if _storage._goPackage != rhs_storage._goPackage {return false}
+      if _storage._ccGenericServices != rhs_storage._ccGenericServices {return false}
+      if _storage._javaGenericServices != rhs_storage._javaGenericServices {return false}
+      if _storage._pyGenericServices != rhs_storage._pyGenericServices {return false}
+      if _storage._deprecated != rhs_storage._deprecated {return false}
+      if _storage._ccEnableArenas != rhs_storage._ccEnableArenas {return false}
+      if _storage._objcClassPrefix != rhs_storage._objcClassPrefix {return false}
+      if _storage._csharpNamespace != rhs_storage._csharpNamespace {return false}
+      if _storage._swiftPrefix != rhs_storage._swiftPrefix {return false}
+      if _storage._phpClassPrefix != rhs_storage._phpClassPrefix {return false}
+      if _storage._phpNamespace != rhs_storage._phpNamespace {return false}
+      if _storage._phpMetadataNamespace != rhs_storage._phpMetadataNamespace {return false}
+      if _storage._rubyPackage != rhs_storage._rubyPackage {return false}
+      if _storage._features != rhs_storage._features {return false}
+      if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -4260,26 +4260,26 @@ nonisolated extension Google_Protobuf_FieldOptions: Message, _MessageImplementat
 
   static func ==(lhs: Google_Protobuf_FieldOptions, rhs: Google_Protobuf_FieldOptions) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._ctype != rhs_storage._ctype {return false}
-        if _storage._packed != rhs_storage._packed {return false}
-        if _storage._jstype != rhs_storage._jstype {return false}
-        if _storage._lazy != rhs_storage._lazy {return false}
-        if _storage._unverifiedLazy != rhs_storage._unverifiedLazy {return false}
-        if _storage._deprecated != rhs_storage._deprecated {return false}
-        if _storage._weak != rhs_storage._weak {return false}
-        if _storage._debugRedact != rhs_storage._debugRedact {return false}
-        if _storage._retention != rhs_storage._retention {return false}
-        if _storage._targets != rhs_storage._targets {return false}
-        if _storage._editionDefaults != rhs_storage._editionDefaults {return false}
-        if _storage._features != rhs_storage._features {return false}
-        if _storage._featureSupport != rhs_storage._featureSupport {return false}
-        if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._ctype != rhs_storage._ctype {return false}
+      if _storage._packed != rhs_storage._packed {return false}
+      if _storage._jstype != rhs_storage._jstype {return false}
+      if _storage._lazy != rhs_storage._lazy {return false}
+      if _storage._unverifiedLazy != rhs_storage._unverifiedLazy {return false}
+      if _storage._deprecated != rhs_storage._deprecated {return false}
+      if _storage._weak != rhs_storage._weak {return false}
+      if _storage._debugRedact != rhs_storage._debugRedact {return false}
+      if _storage._retention != rhs_storage._retention {return false}
+      if _storage._targets != rhs_storage._targets {return false}
+      if _storage._editionDefaults != rhs_storage._editionDefaults {return false}
+      if _storage._features != rhs_storage._features {return false}
+      if _storage._featureSupport != rhs_storage._featureSupport {return false}
+      if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -5069,15 +5069,15 @@ nonisolated extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefaul
 
   static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._edition != rhs_storage._edition {return false}
-        if _storage._overridableFeatures != rhs_storage._overridableFeatures {return false}
-        if _storage._fixedFeatures != rhs_storage._fixedFeatures {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._edition != rhs_storage._edition {return false}
+      if _storage._overridableFeatures != rhs_storage._overridableFeatures {return false}
+      if _storage._fixedFeatures != rhs_storage._fixedFeatures {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

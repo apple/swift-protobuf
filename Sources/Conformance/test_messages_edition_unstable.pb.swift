@@ -465,27 +465,27 @@ nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUn
 
   static func ==(lhs: ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable, rhs: ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
-        if _storage._optionalForeignMessage != rhs_storage._optionalForeignMessage {return false}
-        if _storage._optionalForeignEnum != rhs_storage._optionalForeignEnum {return false}
-        if _storage._recursiveMessage != rhs_storage._recursiveMessage {return false}
-        if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
-        if _storage._repeatedForeignMessage != rhs_storage._repeatedForeignMessage {return false}
-        if _storage._repeatedForeignEnum != rhs_storage._repeatedForeignEnum {return false}
-        if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
-        if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
-        if _storage._mapStringString != rhs_storage._mapStringString {return false}
-        if _storage._mapStringForeignMessage != rhs_storage._mapStringForeignMessage {return false}
-        if _storage._mapStringForeignEnum != rhs_storage._mapStringForeignEnum {return false}
-        if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
-        if _storage._repeatedBytes != rhs_storage._repeatedBytes {return false}
-        if _storage._mapStringBytes != rhs_storage._mapStringBytes {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
+      if _storage._optionalForeignMessage != rhs_storage._optionalForeignMessage {return false}
+      if _storage._optionalForeignEnum != rhs_storage._optionalForeignEnum {return false}
+      if _storage._recursiveMessage != rhs_storage._recursiveMessage {return false}
+      if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
+      if _storage._repeatedForeignMessage != rhs_storage._repeatedForeignMessage {return false}
+      if _storage._repeatedForeignEnum != rhs_storage._repeatedForeignEnum {return false}
+      if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
+      if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
+      if _storage._mapStringString != rhs_storage._mapStringString {return false}
+      if _storage._mapStringForeignMessage != rhs_storage._mapStringForeignMessage {return false}
+      if _storage._mapStringForeignEnum != rhs_storage._mapStringForeignEnum {return false}
+      if _storage._optionalBytes != rhs_storage._optionalBytes {return false}
+      if _storage._repeatedBytes != rhs_storage._repeatedBytes {return false}
+      if _storage._mapStringBytes != rhs_storage._mapStringBytes {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}

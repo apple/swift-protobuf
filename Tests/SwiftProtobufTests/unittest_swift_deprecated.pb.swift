@@ -479,16 +479,16 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message,
 
   static func ==(lhs: SwiftProtoTesting_Deprecated_MyMsg, rhs: SwiftProtoTesting_Deprecated_MyMsg) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._stringField != rhs_storage._stringField {return false}
-        if _storage._intField != rhs_storage._intField {return false}
-        if _storage._fixedField != rhs_storage._fixedField {return false}
-        if _storage._msgField != rhs_storage._msgField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._stringField != rhs_storage._stringField {return false}
+      if _storage._intField != rhs_storage._intField {return false}
+      if _storage._fixedField != rhs_storage._fixedField {return false}
+      if _storage._msgField != rhs_storage._msgField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -598,16 +598,16 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message
 
   static func ==(lhs: SwiftProtoTesting_Deprecated_MyMsg2, rhs: SwiftProtoTesting_Deprecated_MyMsg2) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._stringField != rhs_storage._stringField {return false}
-        if _storage._intField != rhs_storage._intField {return false}
-        if _storage._fixedField != rhs_storage._fixedField {return false}
-        if _storage._msgField != rhs_storage._msgField {return false}
-        return true
+      let _storage = lhs._storage
+      let rhs_storage = rhs._storage
+      defer {
+        withExtendedLifetime(_storage) {}
+        withExtendedLifetime(rhs_storage) {}
       }
-      if !storagesAreEqual {return false}
+      if _storage._stringField != rhs_storage._stringField {return false}
+      if _storage._intField != rhs_storage._intField {return false}
+      if _storage._fixedField != rhs_storage._fixedField {return false}
+      if _storage._msgField != rhs_storage._msgField {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

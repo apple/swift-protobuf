@@ -185,8 +185,7 @@ nonisolated extension Google_Protobuf_Any: Message, _MessageImplementationBase, 
 
   public static func ==(lhs: Google_Protobuf_Any, rhs: Google_Protobuf_Any) -> Bool {
     if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = lhs._storage.isEqualTo(other: rhs._storage)
-      if !storagesAreEqual {return false}
+      if !lhs._storage.isEqualTo(other: rhs._storage) {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
