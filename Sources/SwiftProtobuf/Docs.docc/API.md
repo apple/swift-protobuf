@@ -64,7 +64,7 @@ public struct Example: SwiftProtobuf.Message {
 
   // Messages can be serialized or deserialized to Data objects
   // using protobuf binary format.
-  // Setting `partial` to `true` will suppress checks for required fields.
+  // Setting `partial` to `true` suppresses checks for required fields.
   // An extension map may be needed when decoding nested
   // proto2-format messages that utilize extensions.
   // See below for more details.
@@ -113,9 +113,9 @@ For example,
       }
    }
 ```
-will by default generate a struct named `MyCompany_CoolProject_FooBar`
+by default generates a struct named `MyCompany_CoolProject_FooBar`
 with another `Baz` struct nested inside it.
-Note that `Baz` is not prefixed because it will be scoped to the parent type.
+Note that `Baz` is not prefixed because it is scoped to the parent type.
 
 You can change the prefix with the `option swift_prefix` statement
 in your proto file:
@@ -127,14 +127,14 @@ in your proto file:
       ...
    }
 ```
-will generate a struct named `MyFooBar`.
+generates a struct named `MyFooBar`.
 (Note: `swift_prefix` is only supported by protoc 3.2 or later.)
 
 :warning: The `swift_prefix` option has proven problematic in practice.
 Because it ignores the `package` directive, it can easily lead to name
 conflicts and other confusion as your shared proto definitions evolve over
 time. For example, say you have a file that defines "User" and/or "Settings",
-that will work great without the package prefix until you use a second proto
+that works great without the package prefix until you use a second proto
 file that defined a different "User" and/or "Settings". Protocol Buffers solved
 this by having the `package` in the first place, so by overriding that with a
 custom Swift prefix makes you that much more likely to have collisions in the
@@ -143,10 +143,10 @@ _shorter_/_nicer_, then instead consider using a Swift `typealias` within your
 source to remap the names locally where they are used, but keeping the richer
 name for the full build to thus avoid the conflicts.
 
-If the resulting name would collide with a Swift reserved word
-or would otherwise cause problems in the generated code,
+If the resulting name collides with a Swift reserved word
+or otherwise causes problems in the generated code,
 then the word `Message` is appended to the name.
-For example, a `message Int` in the proto file will cause the
+For example, a `message Int` in the proto file causes the
 generator to emit a `struct IntMessage` to the generated Swift file.
 
 ## Enum API
@@ -154,7 +154,7 @@ generator to emit a `struct IntMessage` to the generated Swift file.
 Proto enums are translated to Swift enums in a fairly straightforward manner.
 The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
-The generated Swift enum will have a case for each enum value in the proto file.
+The generated Swift enum has a case for each enum value in the proto file.
 
 Proto3 syntax enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
 an unrecognized value is parsed from protobuf serialization or from other
@@ -195,17 +195,17 @@ public enum MyEnum: SwiftProtobuf.Enum {
 The name of the Swift enum is copied directly from the name in the proto file,
 prefixed with the package name or the name from `option swift_prefix`
 as documented above for messages.
-If that name would conflict with a Swift reserved word or otherwise
-cause problems for the generated code, the word `Enum` will
-be appended to the name.
+If that name conflicts with a Swift reserved word or otherwise
+cause problems for the generated code, the word `Enum` is
+appended to the name.
 
 Enum case names are converted from `UPPER_SNAKE_CASE` conventions
 in the proto file to `lowerCamelCase` in the Swift code.
 
 If the enum case name includes the enum name as a prefix (ignoring case
 and underscore characters), that prefix is stripped.
-If the stripped name would conflict with another entry in the
-same enum, the conflicting cases will have their respective numeric values
+If the stripped name conflicts with another entry in the
+same enum, the conflicting cases have their respective numeric values
 appended to ensure the results are unique.
 For example:
 ```protobuf
@@ -237,9 +237,9 @@ about enum case aliases.
 
 Note #2: In most cases where an enum case name might conflict with a
 Swift reserved word, or otherwise cause problems, the code generator
-will protect the enum case name by surrounding it with backticks.
+protects the enum case name by surrounding it with backticks.
 In the few cases where this is insufficient, the code generator
-will append an additional underscore `_` to the converted name.
+appends an additional underscore `_` to the converted name.
 
 ## Message Fields
 
@@ -248,10 +248,10 @@ property on the generated struct.
 Field names are converted from `snake_case` conventions in the proto
 file to `lowerCamelCase` property names in the Swift file.
 
-Note: In many cases where the resulting name would cause a problem in
-the generated Swift, the code generator will protect the field name by
+Note: In many cases where the resulting name causes a problem in
+the generated Swift, the code generator protects the field name by
 surrounding it with backticks.
-Sometimes, this is insufficient and the code generator will append
+Sometimes, this is insufficient and the code generator appends
 a `_p` to the converted name.
 
 Types in the proto file are mapped to Swift types as follows:
@@ -305,15 +305,15 @@ in the proto3 specification:
 * Message fields are initialized to an empty message of the appropriate type.
 
 Notes: For performance, the field may be initialized lazily, but this is
-invisible to the user.  The property will be serialized if it has a non-default
+invisible to the user.  The property is serialized if it has a non-default
 value.
 
 **Proto2 `optional` fields** generate properties of the corresponding
 type above.
 It also generates `has` and `clear` methods that can be used to
 test whether the field has a value or to reset it to it's default.
-If a default value was specified in the proto file, the field will be
-initialized to that value, and will be reset to that value when
+If a default value was specified in the proto file, the field is
+initialized to that value, and is reset to that value when
 you invoke the `clear` method.
 If no default value was specified, the default value is the same
 as for proto3 singular fields above.
@@ -332,7 +332,7 @@ message ExampleProto2 {
 }
 ```
 
-This will generate the following field structure in the Swift code:
+This generates the following field structure in the Swift code:
 ```swift
 public struct ExampleProto2 {
     public var itemCount: Int32 = 12
@@ -372,10 +372,10 @@ Oneof fields generate an enum with a case for each associated field.
 These enums conform to `ProtobufOneofEnum`.
 Every case has an associated value corresponding to the declared field.
 
-The message will have a read/write property named after the enum which contains
-the enum value; this property has an optional type and will be `nil` if no oneof field is set.
+The message has a read/write property named after the enum which contains
+the enum value; this property has an optional type and is `nil` if no oneof field is set.
 
-It also will contain a separate read/write
+It also contains a separate read/write
 computed property for each member field of the enum.
 
 Here is a simple example of a message with a `oneof` structure:
@@ -429,7 +429,7 @@ public struct ExampleOneOf: SwiftProtobuf.Message {
 
 ## Well-Known Types
 
-For most of the proto3 well-known types, the Swift API is exactly what you would
+For most of the proto3 well-known types, the Swift API is exactly what you
 expect from the corresponding proto definitions.  (In fact, the runtime library
 version for most of these is simply generated.)  For convenience, most of these
 also have hand-written extensions that expand the functionality with various
@@ -544,7 +544,7 @@ successfully even when the inner object is malformed.
 You can also, of course, have `repeated` Any fields or
 use them in other more complex structures.
 
-When coded to JSON format, the Any field will be written
+When coded to JSON format, the Any field is written
 in a verbose form that expands the JSON encoding of the
 contained object.
 This makes the result easier to read and easier to interoperate
@@ -557,14 +557,14 @@ comments for `Google_Protobuf_Any.register()` which explains
 how to make your custom types available to the decode/encode machinery
 for this purpose.
 
-Note:  Google's C++ implementation will not decode JSON
+Note:  Google's C++ implementation does not decode JSON
 unless it understands the types of all inner objects.
 SwiftProtobuf can decode JSON in this case and can re-encode
 back to JSON.  It only needs the types when translating
 between dissimilar encodings.
 
-Caveat:  SwiftProtobuf's Text format decoding will currently
-ignore Any fields if the types are not registered.
+Caveat:  SwiftProtobuf's Text format decoding currently
+ignores Any fields if the types are not registered.
 
 ### Google_Protobuf_Duration, Google_Protobuf_Timestamp
 
@@ -572,7 +572,7 @@ The `Google_Protobuf_Duration` and `Google_Protobuf_Timestamp` structs provide
 standard ways to exchange durations and timestamps between systems.
 
 Following Google's specification, serializing one of these objects to JSON
-will throw an error if the duration is greater
+throws an error if the duration is greater
 than 315576000000 seconds or if the timestamp is before `0001-01-01T00:00:00Z`
 or after `9999-12-31T23:59:59.999999999Z` in the Gregorian proleptic calendar.
 
@@ -652,7 +652,7 @@ There are several pieces to the extension support:
   corresponding to the context where the proto extension was defined (file
   level or within the message that wrapped the `extend` directive); generally
   it does not correspond to that of the message being extended.  In the above
-  example, the extension object would be `Extensions_extensionField` at the
+  example, the extension object is `Extensions_extensionField` at the
   file scope. Most common Swift code accessing Extensions won't have to access
   these directly.
 
@@ -666,7 +666,7 @@ There are several pieces to the extension support:
   message and field number.  An extension map is generated for every file that
   defined proto extensions and included as a static global variable.  It is
   named based on the proto package, filename, and then ends in `_Extensions`,
-  so the above file would be `Sample_Extensions`. These maps are then used
+  so the above file is `Sample_Extensions`. These maps are then used
   by the `Message` apis for parsing/merging extension fields in the binary
   data; if a mapping isn't found, the extension field ends up in the
   `unknownFields` on the message.

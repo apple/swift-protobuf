@@ -67,9 +67,9 @@ to be _CAPITALS_WITH_UNDERSCORES_, to support all languages, it also says the
 enum cases should be prefixed with the type name (avoids naming collisions in C
 based languages).
 
-To make these things more _Swifty_, the generator will use the rules and attempt
+To make these things more _Swifty_, the generator uses the rules and attempts
 to transform them into something _CamelCased_ which is more common in Swift. And
-for enum cases, it will attempt to strip the prefix since Swift enum cases are
+for enum cases, it attempts to strip the prefix since Swift enum cases are
 scoped to the Enum.
 
 Note: There are some issues with these transforms (especially around some edge
@@ -88,7 +88,7 @@ ignores the `package` directive, it can easily lead to name conflicts and other
 confusion as shared proto definitions evolve over time.
 
 For example, say you have a file that defines _User_ and/or _Settings_, that
-will work great without the package prefix until you use a second proto file
+works great without the package prefix until you use a second proto file
 that defined a different _User_ and/or _Settings_. Protocol Buffers solved this
 by having the package in the first place, so by overriding that with a custom
 Swift prefix makes you that much more likely to have collisions in the future.

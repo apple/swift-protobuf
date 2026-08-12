@@ -12,7 +12,7 @@ this article.
 
 The plugin works by running the system installed `protoc` compiler with the `protoc-gen-swift` plugin
 for specified `.proto` files in your targets source folder. Furthermore, the plugin allows defining a
-configuration file which will be used to customize the invocation of `protoc`.
+configuration file which is used to customize the invocation of `protoc`.
 
 ### Installing the protoc compiler
 
@@ -96,7 +96,7 @@ As you can see in the above configuration, the paths are relative with respect t
 If you add a file in the `Sources` folder, the plugin would be unable to access it as the path is computed relative to
 the `swift-protobuf-config.json` file.
 
-> Note: paths to your `.proto` files will have to include the relative path from the config file directory to the `.proto` file location.
+> Note: paths to your `.proto` files have to include the relative path from the config file directory to the `.proto` file location.
 > Files **must** be contained within the same directory as the config file.
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
@@ -108,7 +108,7 @@ problems where a single target contains two or more proto files with the same na
 ### Overriding the path to the protoc binary
 
 The plugin needs to be able to invoke the `protoc` binary to generate the Swift types.
-By default the plugin will use the latest `protoc` binary distributed as an
+By default the plugin uses the latest `protoc` binary distributed as an
 artifact bundle from the [swift-protobuf releases](https://github.com/apple/swift-protobuf/releases).
 
 There are several ways for you to override the path to the `protoc` binary.
@@ -143,5 +143,5 @@ since it forces the user of the library to install `protoc` into the expected lo
 - The configuration file _must not_ be excluded from the list of sources for the
   target in the package manifest (that is, it should not be present in the
   `exclude` argument for the target). The build system does not have access to
-  the file if it is excluded, however, `swift build` will result in a warning
+  the file if it is excluded, however, `swift build` results in a warning
   that the file should be excluded.

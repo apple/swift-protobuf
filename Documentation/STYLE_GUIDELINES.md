@@ -21,14 +21,14 @@ two pieces of advice:
    for guidance.
 1. Don't fight Xcode's auto-indenting unless doing so would make the
    formatting look horrible. Xcode has some baked-in assumptions about how
-   Swift code should be formatted and fighting it will make your life harder
+   Swift code should be formatted and fighting it makes your life harder
    and the lives of anyone who has to update that code in the future.
 
 ## File organization
 
 * For the most part, each Swift source file should contain only one type, and
   the name of the file should match that of the type (for example, `Foo.swift`
-  would contain a type named `Foo`).
+  contains a type named `Foo`).
   * In some cases, however, many small related types may be combined into a
     single .swift file for convenience. In that case, name the file based on a
     plural noun that describes the grouping. For example, the
@@ -78,7 +78,7 @@ Some points of emphasis:
 
 At the time of this writing, some of the code in this project does not conform
 to these guidelines (as it was written before the guidelines were adopted). As
-changes are made, old code will be opportunistically brought in line with these
+changes are made, old code is opportunistically brought in line with these
 guidelines.
 
 Eventually, it is our hope that the `swift-format` tool that is in Swift's
