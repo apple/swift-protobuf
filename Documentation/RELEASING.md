@@ -35,27 +35,27 @@ When doing a Swift Protobuf library release:
    PRs, you can use the [project's releases page](https://github.com/apple/swift-protobuf/releases)
    and _Draft a new release_; fill in _99.99_ for that tag, and then click the _Generate
    release notes_ button, it will include sections based on the _semver_ tags to indicate
-   which segment *must* be updated. If you do this *discard* this draft as you don't
+   which segment _must_ be updated. If you do this _discard_ this draft as you don't
    actually want to create a _99.99_ release later on.
 
    _Note:_ `a` is really rare since it is a major version bump usually reserved for
    breaking changes as it has a cost on all things that depend on this repo.
 
-   *Import* Make sure to commit/merge this _main_ on GitHub.
+   _Important:_ Make sure to commit/merge this _main_ on GitHub.
 
 1. Create a release on GitHub
 
    Top left of the [project's releases page](https://github.com/apple/swift-protobuf/releases)
    is _Draft a new release_.
 
-   The tag should be `[a.b.c]` where the number *exactly* matches one you used in the
+   The tag should be `[a.b.c]` where the number _exactly_ matches one you used in the
    previous step (and just committed to the repo).
 
    For the description click the _Generate release notes_ button. That should do
    everything based on the PR descriptions and _semver_ tags in the repo. Just read
    though was was generate to see if any tweaks are needed.
 
-   *Important* Ensure that the `Set as the latest release` is checked.
+   _Important:_ Ensure that the `Set as the latest release` is checked.
 
 1. Publish the `SwiftProtobuf.podspec`
 
