@@ -107,7 +107,7 @@ $ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.p
 The possible values for `FileNaming` are:
 
 * `FullPath` (default): Like all other languages, "foo/bar/baz.proto" makes
-  "foo/bar/baz.pb.swift.
+  "foo/bar/baz.pb.swift".
 * `PathToUnderscores`: To help with things like the Swift Package
   Manager where someone might want all the files in one directory;
   "foo/bar/baz.proto" makes "foo_bar_baz.pb.swift".
@@ -129,6 +129,8 @@ The possible values for `Visibility` are:
 
 * `Internal` (default): No visibility is set for the types, so they get the
   default internal visibility.
+* `Package`: The visibility on the types is set to `package` so the types
+  are exposed across the whole Swift package they belong to.
 * `Public`: The visibility on the types is set to `public` so the types are
   exposed outside the module they are compiled into.
 

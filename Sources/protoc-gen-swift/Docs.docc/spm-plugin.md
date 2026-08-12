@@ -7,7 +7,7 @@ Swift Package Manager.
 ## Overview
 
 > Warning: Due to limitations of binary executable discovery with Xcode we only recommend using the Swift Package Manager
-plugin in leaf packages. For more information, read the `Defining the path to the protoc binary` section of
+plugin in leaf packages. For more information, read the [Overriding the path to the protoc binary](#Overriding-the-path-to-the-protoc-binary) section of
 this article.
 
 The plugin works by running the system installed `protoc` compiler with the `protoc-gen-swift` plugin
@@ -76,7 +76,7 @@ So, the configuration file would look something like this:
     "invocations": [
         {
             "protoFiles": [
-                "Foo.proto",
+                "Foo.proto"
             ],
             "visibility": "internal",
             "implementationOnlyImports": true

@@ -369,7 +369,7 @@ Map fields are always initialized to an empty map.
 ### Oneof fields
 
 Oneof fields generate an enum with a case for each associated field.
-These enums conform to `ProtobufOneofEnum`.
+These enums conform to `Equatable` and `Sendable`.
 Every case has an associated value corresponding to the declared field.
 
 The message has a read/write property named after the enum which contains
