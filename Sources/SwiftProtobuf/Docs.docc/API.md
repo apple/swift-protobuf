@@ -676,7 +676,7 @@ There are several pieces to the extension support:
   [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/main/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
   The easiest way is to create a new `SimpleExtensionMap` passing in a list
   of the generated `*_Extensions` `ExtensionMap`s that were generated for you
-  in each file (i.e. - `let myMap = SimpleExtensionMap(Sample_Extensions, …)`).
+  in each file (for example, `let myMap = SimpleExtensionMap(Sample_Extensions, …)`).
 
 ## Descriptors
 

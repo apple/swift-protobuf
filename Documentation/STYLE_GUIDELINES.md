@@ -60,7 +60,7 @@ Some points of emphasis:
 
 * Method and property names should make use sites form grammatical English
   sentences. For example,
-  * Methods without side-effects (i.e., which return something) should be named
+  * Methods without side-effects (that is, which return something) should be named
     with a noun or noun phrase; for example, `serializedSize()`.
   * Methods with side-effects that return `Void` should be named with
     imperative verbs or verb phrases; for example, `encode(value:)`.

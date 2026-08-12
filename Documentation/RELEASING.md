@@ -89,7 +89,7 @@ The workflow can also be triggered manually from the [Actions tab](https://githu
 
 ### Manual Updates (If Needed)
 
-If you need to update the submodules manually (e.g., to test a pre-release version), follow these steps:
+If you need to update the submodules manually (for example, to test a pre-release version), follow these steps:
 
 1. **Check for new protobuf releases**
 
@@ -103,7 +103,7 @@ If you need to update the submodules manually (e.g., to test a pre-release versi
    ```bash
    cd Sources/protobuf/protobuf
    git fetch --tags
-   git checkout vX.Y.Z  # Replace with the actual release tag, e.g., v29.2
+   git checkout vX.Y.Z  # Replace with the actual release tag, for example, v29.2
    cd ../../..
    git add Sources/protobuf/protobuf
    ```
