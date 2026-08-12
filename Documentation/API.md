@@ -461,7 +461,7 @@ For most of these types, you should refer to Google's documentation.
 Details are provided here to explain details of how these are
 implemented by SwiftProtobuf.
 
-### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ArrayValue
+### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ListValue
 
 These types can be used for ad hoc encoding and decoding of arbitrary
 JSON structures.
@@ -492,7 +492,7 @@ mapping strings to `Google_Protobuf_Value` objects.
 It also conforms to `ExpressibleByDictionaryLiteral` and
 provides a `subscript` for directly accessing the values by name.
 
-`Google_Protobuf_ArrayValue` is similar, it conforms to `ExpressibleByArrayLiteral`
+`Google_Protobuf_ListValue` is similar, it conforms to `ExpressibleByArrayLiteral`
 and provides an integer-keyed `subscript` for accessing values by index.
 
 The `Google_Protobuf_Value` type can support any JSON type and provides

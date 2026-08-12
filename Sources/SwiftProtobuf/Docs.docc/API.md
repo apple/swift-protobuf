@@ -13,7 +13,7 @@ They're collected here to make it easier to understand.
 ## Message API
 
 Messages in the input proto file generate Swift structs in the result.
-These structs conform to `SwiftProtobuf.Message` and provide Swift properties for every
+These structs conform to ``Message`` and provide Swift properties for every
 field, basic information about the message, standard initializers, and
 serialization and deserialization methods.
 
@@ -152,7 +152,7 @@ generator to emit a `struct IntMessage` to the generated Swift file.
 ## Enum API
 
 Proto enums are translated to Swift enums in a fairly straightforward manner.
-The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which extends
+The resulting Swift enums conform to the ``Enum`` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
 The generated Swift enum has a case for each enum value in the proto file.
 
@@ -280,14 +280,14 @@ Types in the proto file are mapped to Swift types as follows:
 
 Enums in the proto file generate Int-valued enums in the Swift code.
 
-Groups in the proto file generate Swift structs that conform to `SwiftProtobuf.Message`.
+Groups in the proto file generate Swift structs that conform to ``Message``.
 
 Messages in the proto file generate Swift structs that conform to
-`SwiftProtobuf.Message`.
+``Message``.
 
-Note: There is also a `SwiftProtobuf._MessageImplementationBase`
+Note: There is also a `_MessageImplementationBase`
 protocol.  You should not refer to that directly; use
-`SwiftProtobuf.Message` when you need to work with arbitrary groups or
+``Message`` when you need to work with arbitrary groups or
 messages.
 
 ### Type modifiers
@@ -461,7 +461,7 @@ For most of these types, you should refer to Google's documentation.
 Details are provided here to explain details of how these are
 implemented by SwiftProtobuf.
 
-### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ArrayValue
+### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ListValue
 
 These types can be used for ad hoc encoding and decoding of arbitrary
 JSON structures.
@@ -480,27 +480,27 @@ message ExampleAdHocJSON {
 }
 ```
 
-`Google_Protobuf_NullValue` is a simple single-value enum that
+``Google_Protobuf_NullValue`` is a simple single-value enum that
 corresponds to `null` in JSON syntax.
 In particular, `NullValue` and `Value` are the only ways
 to determine if a `null` appeared in JSON.
 (In all other circumstances, protobuf JSON decoders treat JSON `null`
 as either illegal or as a default value for the field.)
 
-`Google_Protobuf_Struct` contains a single `fields` dictionary
-mapping strings to `Google_Protobuf_Value` objects.
+``Google_Protobuf_Struct`` contains a single `fields` dictionary
+mapping strings to ``Google_Protobuf_Value`` objects.
 It also conforms to `ExpressibleByDictionaryLiteral` and
 provides a `subscript` for directly accessing the values by name.
 
-`Google_Protobuf_ArrayValue` is similar, it conforms to `ExpressibleByArrayLiteral`
+``Google_Protobuf_ListValue`` is similar, it conforms to `ExpressibleByArrayLiteral`
 and provides an integer-keyed `subscript` for accessing values by index.
 
-The `Google_Protobuf_Value` type can support any JSON type and provides
+The ``Google_Protobuf_Value`` type can support any JSON type and provides
 a `oneof` view of the contents.
 
 ### Google_Protobuf_Any
 
-The `google.protobuf.Any` proto type is provided as `Google_Protobuf_Any`.
+The `google.protobuf.Any` proto type is provided as ``Google_Protobuf_Any``.
 This type serves as a general container that can store any protobuf
 message type.
 
@@ -517,7 +517,7 @@ message ExampleAny {
 
 If you have some other (separately-defined) message type `Foo`, you can
 store one of those objects in the `ExampleAny` struct by wrapping
-it in a `Google_Protobuf_Any` as follows:
+it in a ``Google_Protobuf_Any`` as follows:
 ```swift
     let foo = Foo()
     var exampleAny = ExampleAny()
@@ -568,7 +568,7 @@ ignores Any fields if the types are not registered.
 
 ### Google_Protobuf_Duration, Google_Protobuf_Timestamp
 
-The `Google_Protobuf_Duration` and `Google_Protobuf_Timestamp` structs provide
+The ``Google_Protobuf_Duration`` and ``Google_Protobuf_Timestamp`` structs provide
 standard ways to exchange durations and timestamps between systems.
 
 Following Google's specification, serializing one of these objects to JSON
@@ -576,11 +576,11 @@ throws an error if the duration is greater
 than 315576000000 seconds or if the timestamp is before `0001-01-01T00:00:00Z`
 or after `9999-12-31T23:59:59.999999999Z` in the Gregorian proleptic calendar.
 
-The `Google_Protobuf_Duration` type conforms to
+The ``Google_Protobuf_Duration`` type conforms to
 `ExpressibleByFloatLiteral`; it can be initialized with a double representing
 the number of seconds.
 
-A `Google_Protobuf_Duration` can be converted to and from a Foundation `TimeInterval`:
+A ``Google_Protobuf_Duration`` can be converted to and from a Foundation `TimeInterval`:
 ```swift
 extension Google_Protobuf_Duration {
    public init(timeInterval: TimeInterval)
@@ -588,7 +588,7 @@ extension Google_Protobuf_Duration {
 }
 ```
 
-A `Google_Protobuf_Timestamp` can be converted to and from common Foundation timestamp
+A ``Google_Protobuf_Timestamp`` can be converted to and from common Foundation timestamp
 representations:
 ```swift
 extension Google_Protobuf_Timestamp {
@@ -667,7 +667,7 @@ There are several pieces to the extension support:
   defined proto extensions and included as a static global variable.  It is
   named based on the proto package, filename, and then ends in `_Extensions`,
   so the above file is `Sample_Extensions`. These maps are then used
-  by the `Message` apis for parsing/merging extension fields in the binary
+  by the ``Message`` APIs for parsing/merging extension fields in the binary
   data; if a mapping isn't found, the extension field ends up in the
   `unknownFields` on the message.
 
