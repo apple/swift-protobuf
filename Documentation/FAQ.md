@@ -19,13 +19,13 @@ protobuf-using libraries from being used in the same program.
 
 A `.proto` file does not consider the order the fields are listed in as
 important, they can be reordered, new fields can be added in any order, etc.
-From a protocol buffers point of view, those aren't breaking changes as protocol
-buffers were design (especially the binary format) to support doing these things
+From a Protocol Buffers point of view, those aren't breaking changes as Protocol
+Buffers were design (especially the binary format) to support doing these things
 safely.
 
 This makes it possible for an updated `.proto` file to be incorporated into one
 piece of software while maintaining compatibility with other software that has
-not been updated. For example, this makes protocol buffers an excellent choice
+not been updated. For example, this makes Protocol Buffers an excellent choice
 when you have mobile apps (that may get updated by users at different times)
 speaking to a. common server.
 
@@ -89,7 +89,7 @@ confusion as shared proto definitions evolve over time.
 
 For example, say you have a file that defines _User_ and/or _Settings_, that
 will work great without the package prefix until you use a second proto file
-that defined a different _User_ and/or _Settings_. Protocol buffers solved this
+that defined a different _User_ and/or _Settings_. Protocol Buffers solved this
 by having the package in the first place, so by overriding that with a custom
 Swift prefix makes you that much more likely to have collisions in the future.
 

@@ -17,14 +17,14 @@ Swift runtime library to your project.
 
 ### System Requirements
 
-To use Swift with Protocol buffers, you'll need:
+To use Swift with Protocol Buffers, you'll need:
 
 * A recent Swift compiler. We recommend using the latest release build
   from [Swift.org](https://swift.org) or the command-line tools included
   with the latest version of Xcode.
 
 * Google's protoc compiler.  You can get recent versions from
-  [Google's github repository](https://github.com/protocolbuffers/protobuf).
+  [Google's GitHub repository](https://github.com/protocolbuffers/protobuf).
 
 ### Build and Install
 

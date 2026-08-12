@@ -13,7 +13,7 @@ When doing a Swift Protobuf library release:
 
 1. Examine what has changed
 
-   Github's compare UI does a reasonable job here.  [Open that UI](https://github.com/apple/swift-protobuf/compare)
+   GitHub's compare UI does a reasonable job here.  [Open that UI](https://github.com/apple/swift-protobuf/compare)
    and set the _base_ to be the previous tag (_X.Y.Z_), and the _compare_ can be left at _main_
    since that is what the release is cut off of.
 
@@ -21,7 +21,7 @@ When doing a Swift Protobuf library release:
    window/tab.  That way you can review each independently rather then looking at the unified
    diffs.
 
-   When looking at a individual commit, at the top github will show that it was a commit on main
+   When looking at a individual commit, at the top GitHub will show that it was a commit on main
    and include a reference '#XYZ', this tells you what pull request it was part of.  This is useful
    for doing the release notes in the next section.
 
@@ -41,9 +41,9 @@ When doing a Swift Protobuf library release:
    _Note:_ `a` is really rare since it is a major version bump usually reserved for
    breaking changes as it has a cost on all things that depend on this repo.
 
-   *Import* Make sure to commit/merge this _main_ on github.
+   *Import* Make sure to commit/merge this _main_ on GitHub.
 
-1. Create a release on github
+1. Create a release on GitHub
 
    Top left of the [project's releases page](https://github.com/apple/swift-protobuf/releases)
    is _Draft a new release_.
@@ -67,11 +67,11 @@ When doing a Swift Protobuf library release:
       ```
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
-      against the sources on github.
+      against the sources on GitHub.
 
 ## Updating Protobuf and Abseil Submodules
 
-The swift-protobuf repository uses git submodules for protobuf and abseil-cpp dependencies.
+The swift-protobuf repository uses Git submodules for protobuf and abseil-cpp dependencies.
 
 ### Automatic Updates (Recommended)
 

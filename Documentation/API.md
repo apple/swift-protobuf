@@ -135,7 +135,7 @@ Because it ignores the `package` directive, it can easily lead to name
 conflicts and other confusion as your shared proto definitions evolve over
 time. For example, say you have a file that defines "User" and/or "Settings",
 that will work great without the package prefix until you use a second proto
-file that defined a different "User" and/or "Settings". Protocol buffers solved
+file that defined a different "User" and/or "Settings". Protocol Buffers solved
 this by having the `package` in the first place, so by overriding that with a
 custom Swift prefix makes you that much more likely to have collisions in the
 future. If you are considering a prefix just to make the type names

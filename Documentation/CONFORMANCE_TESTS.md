@@ -83,7 +83,7 @@ At this writing, all of the conformance tests succeed.
 ## Report any issues
 
 If the conformance test prints out any "unexpected failures", please
-look in the Github Issues to see if the problem you're seeing was
+look in the GitHub Issues to see if the problem you're seeing was
 already reported.  If not, please send us a detailed report,
 including:
 * The specific operating system and version (for example, "macOS 10.12.1" or "Ubuntu 15.10")

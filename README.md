@@ -5,7 +5,7 @@
 **Welcome to Swift Protobuf!**
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
-complement to [Google's Protocol Buffer](https://protobuf.dev/)
+complement to [Google's Protocol Buffers](https://protobuf.dev/)
 ("protobuf") serialization technology.
 They both emphasize high performance and programmer safety.
 
@@ -61,8 +61,8 @@ additional effort on your part.
 More information is available in the associated documentation:
 
  * [Google's protobuf documentation](https://protobuf.dev/)
-   provides general information about protocol buffers, the protoc compiler,
-   and how to use protocol buffers with C++, Java, and other languages.
+   provides general information about Protocol Buffers, the protoc compiler,
+   and how to use Protocol Buffers with C++, Java, and other languages.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
    plugin that adds Swift support to the `protoc` program
  * [API.md](Documentation/API.md) documents how to use the generated code.
@@ -88,7 +88,7 @@ your project as explained below.
 
 ## System Requirements
 
-To use Swift with Protocol buffers, you'll need:
+To use Swift with Protocol Buffers, you'll need:
 
 * A Swift 6.1 or later compiler (or, if building with Xcode, Xcode 16.3 or later
   as required by the App Store). The Swift protobuf project is being developed
