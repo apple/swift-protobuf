@@ -9,8 +9,8 @@ While there are a [_few_ options that control the generated
 files](https://github.com/apple/swift-protobuf/blob/main/Documentation/PLUGIN.md#how-to-specify-code-generation-options),
 we prefer not to add customization points like this.
 
-The problem with generation options, especially if the change the generated API
-surface, is it leads to problems if two pieces of code depend on the same
+The problem with generation options, especially if they change the generated API
+surface, is that it leads to problems if two pieces of code depend on the same
 `.proto` files. If the two pieces of code rely on different option settings, it
 may not be possible for them to work correctly together. This can prevent
 protobuf-using libraries from being used in the same program.
@@ -20,23 +20,23 @@ protobuf-using libraries from being used in the same program.
 A `.proto` file does not consider the order the fields are listed in as
 important, they can be reordered, new fields can be added in any order, etc.
 From a Protocol Buffers point of view, those aren't breaking changes as Protocol
-Buffers were design (especially the binary format) to support doing these things
+Buffers were designed (especially the binary format) to support doing these things
 safely.
 
 This makes it possible for an updated `.proto` file to be incorporated into one
 piece of software while maintaining compatibility with other software that has
 not been updated. For example, this makes Protocol Buffers an excellent choice
 when you have mobile apps (that may get updated by users at different times)
-speaking to a. common server.
+speaking to a common server.
 
-This creates problems for member wise initializers. A large codebase taking
+This creates problems for memberwise initializers. A large codebase taking
 advantage of such initializers would need widespread source changes if a new
-`.proto` definition changed the order of fields. In addition, member wise
+`.proto` definition changed the order of fields. In addition, memberwise
 initializers are impractical with very large messages. Imposing an arbitrary
 limit on the size of such initializers would provide another avenue for source
 code breakage.
 
-Instead the library has standard support for a static `with` method for Messages
+Instead, the library has standard support for a static `with` method for Messages
 that allows a trailing closure to configure the Message:
 
 ```
@@ -63,9 +63,8 @@ to expose similar data publicly from the Swift Runtime.
 
 Protocol Buffers has a [styleguide](https://protobuf.dev/programming-guides/style/),
 and it calls for field names to be _underscore_separated_names_ and enum cases
-to be _CAPITALS_WITH_UNDERSCORES_, to support all languages, it also says the
-enum cases should be prefixed with the type name (avoids naming collisions in C
-based languages).
+to be _CAPITALS_WITH_UNDERSCORES_. To support all languages, it also says the
+enum cases should be prefixed with the type name (avoids naming collisions in C-based languages).
 
 To make these things more _Swifty_, the generator uses the rules and attempts
 to transform them into something _CamelCased_ which is more common in Swift. And
@@ -73,10 +72,10 @@ for enum cases, it attempts to strip the prefix since Swift enum cases are
 scoped to the Enum.
 
 Note: There are some issues with these transforms (especially around some edge
-case), but changing this code in the generator would effectively be a _breaking_
-change in that code that was working could fail to compile due to changes in
-this algorithm. So any future changes would have to happen with the library
-moves to a new major version and is generally accepting breaking changes.
+cases), but changing this code in the generator would effectively be a _breaking_
+change: code that was working could fail to compile due to changes in
+this algorithm. So any future changes would have to happen when the library
+moves to a new major version, which is generally when it accepts breaking changes.
 
 ## What's wrong with `swift_prefix`?
 
@@ -98,4 +97,4 @@ instead consider using a Swift `typealias` within your source to remap the names
 locally where they are used, but keeping the richer name for the full build to
 thus avoid the conflicts.
 
-<!-- Swift Codable Suppor -->
+<!-- Swift Codable Support -->
