@@ -41,7 +41,7 @@ When the minimum Swift version gets updated, update:
   `README.md` and we adopt the deployment minimums from the Xcode in
   `SwiftProtobuf.podspec`.
 
-  The deployment minimums for Xcode versions can be found on the [Developer
+  You can find the deployment minimums for Xcode versions on the [Developer
   Support: Xcode](https://developer.apple.com/support/xcode/) page.
 
 ## Field Storage

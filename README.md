@@ -164,7 +164,7 @@ The `protoc` program automatically looks for `protoc-gen-swift` in your
 Each `.proto` input file gets translated to a corresponding `.pb.swift`
 file in the output directory.
 
-More information about building and using `protoc-gen-swift` can be found
+Find more information about building and using `protoc-gen-swift`
 in the [detailed Plugin documentation](Documentation/PLUGIN.md).
 
 ## Adding the SwiftProtobuf library to your project...

@@ -1,7 +1,7 @@
 # Style Guidelines
 
 If you're interested in contributing to the Swift Protobuf project, welcome!
-Please make sure that your APIs are named and code is formatted according to
+Please name your APIs and format your code according to
 these guidelines so that we can ensure a consistent look-and-feel across the
 entire codebase.
 
@@ -46,8 +46,8 @@ two pieces of advice:
 * All public APIs should have documentation comments. Use `- Parameter foo:`
   and `- Returns:` tags when the meanings of parameters and return values are
   not obvious from the other documentation. Use `- Throws:` tags to describe
-  which errors are thrown and under which circumstances.
-* Internal/private APIs should also be documented unless it is unambiguously
+  which errors the method throws and under which circumstances.
+* You should also document internal/private APIs unless it is unambiguously
   clear from its name and signature what it does.
 
 ## API naming conventions

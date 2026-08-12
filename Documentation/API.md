@@ -617,7 +617,7 @@ public func +(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> 
 
 ### Google_Protobuf_FieldMask
 
-`Google_Protobuf_FieldMask` is used to specify which fields in 
+You use `Google_Protobuf_FieldMask` to specify which fields in 
 a protocol buffer message should be included in operations such as updates or merges. 
 It allows precise control over which parts of the message 
 are affected by defining a list of field paths.
@@ -829,7 +829,7 @@ message.trim(keeping: fieldMask)
 
 After this operation, the `bar` field in `message` still has the value `"bar"`, 
 while the `foo` field is cleared, resetting to its default value (an empty string, 
-in this case). The `trim(keeping:)` function is performed in-place, meaning it directly 
+in this case). The `trim(keeping:)` function operates in-place, meaning it directly 
 modifies the original message.
 
 ## Aside:  proto2 vs. proto3
