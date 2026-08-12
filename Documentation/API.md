@@ -319,7 +319,7 @@ If no default value was specified, the default value is the same
 as for proto3 singular fields above.
 
 **Proto2 `required` fields** Required fields behave the same as
-optional fields, except that serialization or deserialization may
+optional fields, except that binary serialization or deserialization may
 fail if the field is not provided.
 
 To illustrate the handling of proto2 fields, consider the following
@@ -703,7 +703,7 @@ There are several pieces to the extension support:
   defined proto extensions and included as a static global variable.  It is
   named based on the proto package, filename, and then ends in `_Extensions`,
   so the above file is `Sample_Extensions`. These maps are then used
-  by the `Message` apis for parsing/merging extension fields in the binary
+  by the `Message` APIs for parsing/merging extension fields in the binary
   data; if a mapping isn't found, the extension field ends up in the
   `unknownFields` on the message.
 
@@ -733,6 +733,9 @@ but will need careful consideration; the bloat/size issues is of the most
 concern because of Swift's common use for mobile applications.
 
 ## FieldMask Utilities
+
+Note: `merge(from:fieldMask:)`, `trim(keeping:)`, and most other `Google_Protobuf_FieldMask`
+convenience APIs require the `FieldMaskUtilities` trait, which is enabled by default.
 
 ### Merging Two Messages
 

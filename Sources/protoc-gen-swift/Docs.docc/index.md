@@ -216,6 +216,57 @@ mappings are preceded by a visibility modifier corresponding to the visibility o
 Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
 
+##### Generation Option: EnumGeneration
+
+By default, SwiftProtobuf does not annotate generated enums with `@nonexhaustive`.
+This option controls whether open proto enums and oneof enums are annotated with
+the `@nonexhaustive` attribute introduced in Swift SE-0487.
+
+Both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums
+are annotated, because adding a new case to either is wire-compatible and should not
+be a source-breaking Swift change.
+
+**Requires Swift 6.2.3 or later.**
+
+```
+$ protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+```
+
+The possible values for `EnumGeneration` are:
+
+* `None` (default): No `@nonexhaustive` attribute is emitted.
+* `Nonexhaustive`: Open proto enums and oneof enums are annotated with `@nonexhaustive`.
+* `NonexhaustiveWarn`: Open proto enums and oneof enums are annotated with `@nonexhaustive(warn)`,
+  which causes the Swift compiler to emit a warning when a `switch` statement does not
+  cover all known cases.
+
+
+##### Generation Option: ExperimentalHiddenNames
+
+This option lets you omit metadata names that SwiftProtobuf normally includes to support JSON and TextFormat serialization.
+
+**IMPORTANT: This feature is experimental and subject to change or removal in future releases.**
+
+By default, SwiftProtobuf includes field names, enum case names, and message/package names to
+support JSON serialization, full TextFormat serialization, and the `Google_Protobuf_Any` registry.
+In environments where TextFormat/JSON serialization is not required, this option allows you to
+selectively omit some or all of these strings.
+
+```
+$ protoc --swift_opt=ExperimentalHiddenNames=[values] --swift_out=. foo/bar/*.proto
+```
+
+This option accepts a comma-delimited list of features to hide:
+
+*   `Fields`: Suppresses the runtime `_NameMap` for message fields. Serializing to JSON fails.
+    TextFormat serialization falls back to printing numeric field tags.
+*   `EnumValues`: Suppresses the runtime `_NameMap` for enum cases. Serializing to JSON or
+    TextFormat falls back to outputting raw numeric integer values.
+*   `Types`: Sets the `protoMessageName` and `_protobuf_package` properties to empty strings.
+    Registering affected types in the `Google_Protobuf_Any` registry safely fails.
+*   `All`: A shorthand equivalent to enabling `Fields`, `EnumValues`, and `Types`.
+
+
 ### Building your project
 
 After copying the `.pb.swift` files into your project, you need
@@ -244,7 +295,7 @@ If you are using Xcode, then you should:
 
 * Add the Swift source files generated from your protos directly to your
   project.
-* Add this SwiftPM package as dependency of your xcode project:
+* Add this SwiftPM package as dependency of your Xcode project:
   [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)
 
 
