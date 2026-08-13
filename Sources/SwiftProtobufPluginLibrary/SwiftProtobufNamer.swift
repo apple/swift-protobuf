@@ -7,13 +7,14 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A helper that can generate SwiftProtobuf names from types.
-///
+//
+// A helper that can generate SwiftProtobuf names from types.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
+/// A helper that generates SwiftProtobuf names from types.
 public final class SwiftProtobufNamer {
     var filePrefixCache = [String: String]()
     var enumValueRelativeNameCache = [String: String]()
@@ -34,8 +35,10 @@ public final class SwiftProtobufNamer {
         self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
     }
 
-    /// Initializes a a new namer.  All names will be generated as from the pov of the
-    /// given file using the provided file to module mapper.
+    /// Initializes a new namer.
+    ///
+    /// All names will be generated as from the pov of the given file using the
+    /// provided file to module mapper.
     public convenience init(
         currentFile file: FileDescriptor,
         protoFileToModuleMappings mappings: ProtoFileToModuleMappings
@@ -175,10 +178,10 @@ public final class SwiftProtobufNamer {
         return "." + NamingUtils.trimBackticks(relativeName)
     }
 
-    /// Filters the Enum's values to those that will have unique Swift
-    /// names. Only poorly named proto enum alias values get filtered
-    /// away, so the assumption is they aren't really needed from an
-    /// api pov.
+    /// Filters the enum's values to those that will have unique Swift names.
+    ///
+    /// Only poorly named proto enum alias values get filtered away, so the
+    /// assumption is they aren't really needed from an api pov.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
         e.values.filter {

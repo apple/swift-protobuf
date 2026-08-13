@@ -47,7 +47,9 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     var isInitialized: Bool { get }
 
     /// Some formats include enough information to transport fields that were
-    /// not known at generation time. When encountered, they are stored here.
+    /// not known at generation time.
+    ///
+    /// When encountered, they are stored here.
     var unknownFields: UnknownStorage { get set }
 
     //
@@ -78,7 +80,7 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
     /// Traverses the fields of the message, calling the appropriate methods
-    /// of the passed ``Visitor`` object.
+    /// of the passed visitor object.
     ///
     /// This is used internally by:
     ///
@@ -101,12 +103,13 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     // the generated struct.
 
     /// An implementation of hash(into:) to provide conformance with the
-    /// `Hashable` protocol.
+    /// Hashable protocol.
     func hash(into hasher: inout Hasher)
 
-    /// Helper to compare ``Message``s when not having a specific type to use
-    /// normal `Equatable`. `Equatable` is provided with specific generated
-    /// types.
+    /// A helper to compare messages when you don't have a specific type to
+    /// use the normal Equatable protocol.
+    ///
+    /// `Equatable` is provided with specific generated types.
     func isEqualTo(message: any Message) -> Bool
 }
 
@@ -114,7 +117,9 @@ extension Message {
     /// Generated proto2 messages that contain required fields, nested messages
     /// that contain required fields, and/or extensions will provide their own
     /// implementation of this property that tests that all required fields are
-    /// set. Users of the generated code SHOULD NOT override this property.
+    /// set.
+    ///
+    /// Users of the generated code SHOULD NOT override this property.
     public var isInitialized: Bool {
         // The generated code will include a specialization as needed.
         true

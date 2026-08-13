@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Utility functions for dealing with Swift language issues
-///
+//
+// Utility functions for dealing with Swift language issues
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -115,10 +115,9 @@ public func isValidSwiftIdentifier(_ s: String, allowQuoted: Bool = false) -> Bo
     return true
 }
 
-/// These lists of keywords are taken directly from the Swift language
-/// spec.  See:
+/// Keywords used in declarations, taken directly from the Swift language spec.
 ///
-/// https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html
+/// See: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html
 
 public let swiftKeywordsUsedInDeclarations: Set<String> = [
     "associatedtype", "class", "deinit", "enum", "extension",
@@ -127,6 +126,7 @@ public let swiftKeywordsUsedInDeclarations: Set<String> = [
     "static", "struct", "subscript", "typealias", "var",
 ]
 
+/// Keywords used in statements, taken directly from the Swift language spec.
 public let swiftKeywordsUsedInStatements: Set<String> = [
     "break", "case",
     "continue", "default", "defer", "do", "else", "fallthrough",
@@ -134,12 +134,16 @@ public let swiftKeywordsUsedInStatements: Set<String> = [
     "while",
 ]
 
+/// Keywords used in expressions and types, taken directly from the Swift
+/// language spec.
 public let swiftKeywordsUsedInExpressionsAndTypes: Set<String> = [
     "as",
     "Any", "catch", "false", "is", "nil", "rethrows", "super", "self",
     "Self", "throw", "throws", "true", "try",
 ]
 
+/// Keywords that begin with a number sign, taken directly from the Swift
+/// language spec.
 public let swiftKeywordsWithNumberSign: Set<String> = [
     "#available",
     "#colorLiteral", "#column", "#else", "#elseif", "#endif", "#file",
@@ -147,6 +151,8 @@ public let swiftKeywordsWithNumberSign: Set<String> = [
     "#selector", "#sourceLocation",
 ]
 
+/// Keywords reserved only in particular contexts, taken directly from the
+/// Swift language spec.
 public let swiftKeywordsReservedInParticularContexts: Set<String> = [
     "associativity", "convenience", "dynamic", "didSet", "final",
     "get", "infix", "indirect", "lazy", "left", "mutating", "none",
@@ -155,9 +161,11 @@ public let swiftKeywordsReservedInParticularContexts: Set<String> = [
     "unowned", "weak", "willSet",
 ]
 
-/// These are standard Swift types that are heavily used, although
-/// they are not technically reserved.  Defining fields or structs
-/// with these names would break our generated code quite badly:
+/// These are standard Swift types that are heavily used, although they are
+/// not technically reserved.
+///
+/// Defining fields or structs with these names would break our generated
+/// code quite badly:
 public let swiftCommonTypes: Set<String> = [
     "Bool", "Data", "Double", "Float", "Int",
     "Int32", "Int64", "String", "UInt", "UInt32", "UInt64",

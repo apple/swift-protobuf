@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------------------
 ///
 /// A collection of extension field values on a particular object.
+///
 /// This is only used within messages to manage the values of extension fields;
 /// it does not need to be very sophisticated.
 ///

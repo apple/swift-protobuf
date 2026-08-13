@@ -7,11 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Enum constants that identify the particular error.
-///
+//
+// Enum constants that identify the particular error.
+//
 // -----------------------------------------------------------------------------
 
+/// The errors that can occur when encoding a message to JSON format.
 public enum JSONEncodingError: Error, Hashable {
     /// Any fields that were decoded from binary format cannot be
     /// re-encoded into JSON unless the object they hold is a
@@ -28,6 +29,8 @@ public enum JSONEncodingError: Error, Hashable {
     case fieldMaskConversion
     /// Field names were not compiled into the binary
     case missingFieldNames
+    /// A value that must hold one of its supported kinds didn't have any set.
+    ///
     /// Instances of ``Google_Protobuf_Value`` can only be encoded if they have a
     /// valid `kind` (that is, they represent a null value, number, boolean,
     /// string, struct, or list).

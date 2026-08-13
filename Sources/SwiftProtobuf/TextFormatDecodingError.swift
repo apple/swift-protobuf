@@ -7,11 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Protobuf text format decoding errors
-///
+//
+// Protobuf text format decoding errors
+//
 // -----------------------------------------------------------------------------
 
+/// The errors that can occur when decoding a message from text format.
 public enum TextFormatDecodingError: Error {
     /// Text data could not be parsed
     case malformedText
@@ -33,9 +34,11 @@ public enum TextFormatDecodingError: Error {
     case unrecognizedEnumValue
     /// Text format rejects conflicting values for the same oneof field
     case conflictingOneOf
-    /// An internal error happened while decoding.  If this is ever encountered,
-    /// please file an issue with SwiftProtobuf with as much details as possible
-    /// for what happened (proto definitions, bytes being decoded (if possible)).
+    /// An internal error happened while decoding.
+    ///
+    /// If this is ever encountered, please file an issue with SwiftProtobuf
+    /// with as much details as possible for what happened (proto definitions,
+    /// bytes being decoded (if possible)).
     case internalExtensionError
     /// Reached the nesting limit for messages within messages while decoding.
     case messageDepthLimit

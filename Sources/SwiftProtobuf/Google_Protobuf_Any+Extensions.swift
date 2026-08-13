@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
-///
+//
+// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
+//
 // -----------------------------------------------------------------------------
 
 // Explicit import of Foundation is necessary on Linux,
@@ -20,6 +20,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
+/// The default prefix used when building a type URL for an Any value.
 public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 
 extension Google_Protobuf_Any {

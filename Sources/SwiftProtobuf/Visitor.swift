@@ -7,22 +7,22 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Protocol for traversing the object tree.
-///
-/// This is used by:
-/// = Protobuf serialization
-/// = JSON serialization (with some twists to account for specialty JSON
-///   encodings)
-/// = Protobuf text serialization
-/// = Hashable computation
-///
-/// Conceptually, serializers create visitor objects that are
-/// then passed recursively to every message and field via generated
-/// 'traverse' methods.  The details get a little involved due to
-/// the need to allow particular messages to override particular
-/// behaviors for specific encodings, but the general idea is quite simple.
-///
+//
+// Protocol for traversing the object tree.
+//
+// This is used by:
+// = Protobuf serialization
+// = JSON serialization (with some twists to account for specialty JSON
+//   encodings)
+// = Protobuf text serialization
+// = Hashable computation
+//
+// Conceptually, serializers create visitor objects that are
+// then passed recursively to every message and field via generated
+// 'traverse' methods.  The details get a little involved due to
+// the need to allow particular messages to override particular
+// behaviors for specific encodings, but the general idea is quite simple.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -260,17 +260,16 @@ public protocol Visitor {
     mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws
 
     /// Called for each repeated, unpacked enum field.
-    /// The method is called once with the complete array of values for
-    /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The method is called once with the complete array of values for
+    /// the field. A default implementation is provided that simply calls
     /// `visitSingularEnumField` once for each item in the array.
     mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-    /// Called for each repeated nested message field. The method is called once
-    /// with the complete array of values for the field.
+    /// Called for each repeated nested message field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The method is called once with the complete array of values for the
+    /// field. A default implementation is provided that simply calls
     /// `visitSingularMessageField` once for each item in the array.
     mutating func visitRepeatedMessageField<M: Message>(
         value: [M],
@@ -401,41 +400,41 @@ public protocol Visitor {
     mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws
 
     /// Called for each repeated, packed enum field.
-    /// The method is called once with the complete array of values for
-    /// the field.
     ///
-    /// A default implementation is provided that simply forwards to
+    /// The method is called once with the complete array of values for the
+    /// field. A default implementation is provided that simply forwards to
     /// `visitRepeatedEnumField`. Implementors who need to handle packed fields
     /// differently than unpacked fields can override this and provide distinct
     /// implementations.
     mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-    /// Called for each map field with primitive values. The method is
-    /// called once with the complete dictionary of keys/values for the
-    /// field.
+    /// Called for each map field with primitive values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// The method is called once with the complete dictionary of keys/values
+    /// for the field. There is no default implementation. This must be
+    /// implemented.
     mutating func visitMapField<KeyType, ValueType: MapValueType>(
         fieldType: _ProtobufMap<KeyType, ValueType>.Type,
         value: _ProtobufMap<KeyType, ValueType>.BaseType,
         fieldNumber: Int
     ) throws
 
-    /// Called for each map field with enum values. The method is called
-    /// once with the complete dictionary of keys/values for the field.
+    /// Called for each map field with enum values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// The method is called once with the complete dictionary of keys/values
+    /// for the field. There is no default implementation. This must be
+    /// implemented.
     mutating func visitMapField<KeyType, ValueType>(
         fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
         value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
         fieldNumber: Int
     ) throws where ValueType.RawValue == Int
 
-    /// Called for each map field with message values. The method is
-    /// called once with the complete dictionary of keys/values for the
-    /// field.
+    /// Called for each map field with message values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// The method is called once with the complete dictionary of keys/values
+    /// for the field. There is no default implementation. This must be
+    /// implemented.
     mutating func visitMapField<KeyType, ValueType>(
         fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
         value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,

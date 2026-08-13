@@ -7,14 +7,14 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides some basic indentation management for emitting structured
-/// source code text.
-///
+//
+// This provides some basic indentation management for emitting structured
+// source code text.
+//
 // -----------------------------------------------------------------------------
 
-/// Prints code with automatic indentation based on calls to `indent` and
-/// `outdent`.
+/// Prints code with automatic indentation based on calls to indent and
+/// outdent.
 public struct CodePrinter {
 
     /// Reserve an initial buffer of 64KB scalars to eliminate some reallocations
@@ -84,7 +84,7 @@ public struct CodePrinter {
     }
 
     /// Initialize a new printer using the existing state from another printer
-    /// but with support to control the behavior of `addNewlines`.
+    /// but with control over whether newlines are added.
     ///
     /// This can be useful to use with generation subtasks, so see if they
     /// actually generate something (via `isEmpty`) to then optionally add it
@@ -126,8 +126,9 @@ public struct CodePrinter {
     }
 
     /// Writes the given strings to the printer, optionally adding a newline
-    /// after each string. If called with no strings, a blank line is added to
-    /// the printer.
+    /// after each string.
+    ///
+    /// If called with no strings, a blank line is added to the printer.
     ///
     /// Newlines within the strings are honored and indentention is applied.
     ///
@@ -185,7 +186,7 @@ public struct CodePrinter {
         }
     }
 
-    /// Appended the content of another `CodePrinter`to this one.
+    /// Appends the content of another printer to this one.
     ///
     /// - Parameters:
     ///   - printer: The other `CodePrinter` to copy from.
@@ -215,8 +216,8 @@ public struct CodePrinter {
         indentation.removeLast(indentCount)
     }
 
-    /// Indents, calls `body` to do other work relaying along the printer, and
-    /// the outdents after wards.
+    /// Indents, calls body to do other work relaying along the printer, and
+    /// then outdents.
     ///
     /// - Parameter body: A closure that is invoked after the indent is
     ///     increasted.

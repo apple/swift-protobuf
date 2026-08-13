@@ -7,11 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON decoding errors
-///
+//
+// JSON decoding errors
+//
 // -----------------------------------------------------------------------------
 
+/// The errors that can occur when decoding a message from JSON format.
 public enum JSONDecodingError: Error {
     /// Something was wrong
     case failure
@@ -34,6 +35,7 @@ public enum JSONDecodingError: Error {
     /// A value (text or numeric) for an enum was not found on the enum
     case unrecognizedEnumValue
     /// A 'null' token appeared in an illegal location.
+    ///
     /// For example, Protobuf JSON does not allow 'null' tokens to appear
     /// in lists.
     case illegalNull
@@ -55,8 +57,9 @@ public enum JSONDecodingError: Error {
     case conflictingOneOf
     /// Reached the nesting limit for messages within messages while decoding.
     case messageDepthLimit
-    /// Encountered an unknown field with the given name. When parsing JSON, you
-    /// can instead instruct the library to ignore this via
-    /// JSONDecodingOptions.ignoreUnknownFields.
+    /// Encountered an unknown field with the given name.
+    ///
+    /// When parsing JSON, you can instead instruct the library to ignore this
+    /// via `JSONDecodingOptions.ignoreUnknownFields`.
     case unknownField(String)
 }

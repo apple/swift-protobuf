@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helpers to read/write message with a length prefix.
-///
+//
+// Helpers to read/write message with a length prefix.
+//
 // -----------------------------------------------------------------------------
 
 #if !os(WASI) && BinaryDelimitedStreams
@@ -20,10 +20,12 @@ import Foundation
 public enum BinaryDelimited {
     /// Additional errors for delimited message handing.
     public enum Error: Swift.Error {
-        /// If a read/write to the stream fails, but the stream's `streamError` is nil,
-        /// this error will be throw instead since the stream didn't provide anything
-        /// more specific. A common cause for this can be failing to open the stream
-        /// before trying to read/write to it.
+        /// The stream failed without reporting a more specific error.
+        ///
+        /// This is thrown instead when a read or write to the stream fails but the
+        /// stream's `streamError` is nil, since the stream didn't provide anything
+        /// more specific. A common cause for this is failing to open the stream
+        /// before trying to read or write to it.
         case unknownStreamError
 
         /// While reading/writing to the stream, less than the expected bytes was

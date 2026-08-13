@@ -7,16 +7,16 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the basic interface for providing the generation outputs.
-///
+//
+// This provides the basic interface for providing the generation outputs.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
 /// Abstract interface for receiving generation outputs.
 public protocol GeneratorOutputs {
-    /// Add the a file with the given `name` and `contents` to the outputs.
+    /// Adds a file with the given name and contents to the outputs.
     ///
     /// - Parameters:
     ///   - fileName: The name of the file.

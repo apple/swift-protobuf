@@ -7,14 +7,14 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides some utilities for generating names.
-///
-/// NOTE: Only a very small subset of this is public. The intent is for this to
-/// expose a defined api within the PluginLib, but the the SwiftProtobufNamer
-/// to be what exposes the reusable parts at a much higher level. This reduces
-/// the changes of something being reimplemented but with minor differences.
-///
+//
+// This provides some utilities for generating names.
+//
+// NOTE: Only a very small subset of this is public. The intent is for this to
+// expose a defined api within the PluginLib, but the the SwiftProtobufNamer
+// to be what exposes the reusable parts at a much higher level. This reduces
+// the changes of something being reimplemented but with minor differences.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -363,6 +363,7 @@ private enum CamelCaser {
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
+/// Utilities for generating Swift identifiers from proto names.
 public enum NamingUtils {
 
     // Returns the type prefix to use for a given
@@ -558,16 +559,20 @@ public enum NamingUtils {
         }
     }
 
-    /// Accepts any inputs and tranforms form it into a leading
-    /// UpperCaseCamelCased Swift identifier. It follows the same conventions as
-    /// that are used for mapping field names into the Message property names.
+    /// Accepts any inputs and transforms it into a leading UpperCaseCamelCased
+    /// Swift identifier.
+    ///
+    /// It follows the same conventions as those used for mapping field names
+    /// into message property names.
     public static func toUpperCamelCase(_ s: String) -> String {
         CamelCaser.transform(s, initialUpperCase: true)
     }
 
-    /// Accepts any inputs and tranforms form it into a leading
-    /// lowerCaseCamelCased Swift identifier. It follows the same conventions as
-    /// that are used for mapping field names into the Message property names.
+    /// Accepts any inputs and transforms it into a leading lowerCaseCamelCased
+    /// Swift identifier.
+    ///
+    /// It follows the same conventions as those used for mapping field names
+    /// into message property names.
     public static func toLowerCamelCase(_ s: String) -> String {
         CamelCaser.transform(s, initialUpperCase: false)
     }
@@ -591,8 +596,10 @@ public enum NamingUtils {
     }
 
     /// This must be exactly the same as the corresponding code in the
-    /// SwiftProtobuf library.  Changing it will break compatibility of
-    /// the generated code with old library version.
+    /// SwiftProtobuf library.
+    ///
+    /// Changing it will break compatibility of the generated code with older
+    /// library versions.
     public static func toJsonFieldName(_ s: String) -> String {
         var result = String.UnicodeScalarView()
         var capitalizeNext = false

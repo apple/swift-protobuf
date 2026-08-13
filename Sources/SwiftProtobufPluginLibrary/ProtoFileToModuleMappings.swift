@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helper handling proto file to module mappings.
-///
+//
+// Helper handling proto file to module mappings.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -46,17 +46,20 @@ public struct ProtoFileToModuleMappings {
     public let hasMappings: Bool
 
     /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
+    ///
     /// We expect to find the WKTs in the module named here.
     public let swiftProtobufModuleName: String
 
-    /// Loads and parses the given module mapping from disk.  Raises LoadError
-    /// or TextFormatDecodingError.
+    /// Loads and parses the given module mapping from disk.
+    ///
+    /// Raises LoadError or TextFormatDecodingError.
     public init(path: String) throws {
         try self.init(path: path, swiftProtobufModuleName: nil)
     }
 
-    /// Loads and parses the given module mapping from disk.  Raises LoadError
-    /// or TextFormatDecodingError.
+    /// Loads and parses the given module mapping from disk.
+    ///
+    /// Raises LoadError or TextFormatDecodingError.
     public init(path: String, swiftProtobufModuleName: String?) throws {
         let content: String
         do {
@@ -69,12 +72,16 @@ public struct ProtoFileToModuleMappings {
         try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
-    /// Parses the given module mapping.  Raises LoadError.
+    /// Parses the given module mapping.
+    ///
+    /// Raises LoadError.
     public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
         try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
     }
 
-    /// Parses the given module mapping.  Raises LoadError.
+    /// Parses the given module mapping.
+    ///
+    /// Raises LoadError.
     public init(
         moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings,
         swiftProtobufModuleName: String?

@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
-///
+//
+// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -72,7 +72,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message, under the older `serializedBytes` parameter name.
+    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message, under the older parameter name.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -134,7 +134,7 @@ extension Message {
         }
     }
 
-    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver, under the older `serializedBytes` parameter name.
+    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver, under the older parameter name.
     ///
     /// - Note: If this method throws an error, the message may still have been
     ///   partially mutated by the binary data that was decoded before the error
