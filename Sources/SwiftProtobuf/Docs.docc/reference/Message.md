@@ -15,16 +15,16 @@
 
 ### Decoding binary data
 
-- ``init(contiguousBytes:extensions:partial:options:)``
 - ``init(serializedBytes:extensions:partial:options:)-(RawSpan,_,_,_)``
-- ``init(serializedBytes:extensions:partial:options:)-5hjsr``
 - ``init(serializedBytes:extensions:partial:options:)-90c6l``
-- ``init(serializedData:extensions:partial:options:)``
-- ``merge(contiguousBytes:extensions:partial:options:)``
 - ``merge(serializedBytes:extensions:partial:options:)-(RawSpan,_,_,_)``
-- ``merge(serializedBytes:extensions:partial:options:)-6hzoh``
 - ``merge(serializedBytes:extensions:partial:options:)-58wk3``
 - ``merge(serializedData:extensions:partial:options:)``
+- ``init(contiguousBytes:extensions:partial:options:)``
+- ``init(serializedBytes:extensions:partial:options:)-5hjsr``
+- ``init(serializedData:extensions:partial:options:)``
+- ``merge(contiguousBytes:extensions:partial:options:)``
+- ``merge(serializedBytes:extensions:partial:options:)-6hzoh``
 
 ### Serializing to binary data
 

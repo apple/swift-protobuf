@@ -17,15 +17,15 @@
 
 ### Converting to and from a Unix time interval
 
-- ``init(timeIntervalSince1970:)``
 - ``init(roundingTimeIntervalSince1970:rule:)``
 - ``timeIntervalSince1970``
+- ``init(timeIntervalSince1970:)``
 
 ### Converting to and from a reference-date time interval
 
-- ``init(timeIntervalSinceReferenceDate:)``
 - ``init(roundingTimeIntervalSinceReferenceDate:rule:)``
 - ``timeIntervalSinceReferenceDate``
+- ``init(timeIntervalSinceReferenceDate:)``
 
 ### Performing arithmetic
 
