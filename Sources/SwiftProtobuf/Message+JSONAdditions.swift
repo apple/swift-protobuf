@@ -95,7 +95,7 @@ extension Message {
         }
     }
 
-    /// Creates a message by decoding the given UTF-8 encoded JSON data.
+    /// Creates a message by decoding the given UTF-8 encoded JSON bytes.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -108,7 +108,7 @@ extension Message {
         try self.init(jsonUTF8Bytes: jsonUTF8Bytes, extensions: nil, options: options)
     }
 
-    /// Creates a message by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
+    /// Creates a message by decoding the given UTF-8 encoded JSON bytes, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.

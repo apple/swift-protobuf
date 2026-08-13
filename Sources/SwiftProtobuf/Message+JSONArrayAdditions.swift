@@ -100,7 +100,7 @@ extension Message {
         }
     }
 
-    /// Creates an array of messages by decoding the given UTF-8 encoded JSON data.
+    /// Creates an array of messages by decoding the given UTF-8 encoded JSON bytes.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -117,7 +117,7 @@ extension Message {
         )
     }
 
-    /// Creates an array of messages by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
+    /// Creates an array of messages by decoding the given UTF-8 encoded JSON bytes, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
