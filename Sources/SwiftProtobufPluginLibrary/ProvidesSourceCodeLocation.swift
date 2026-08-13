@@ -14,7 +14,7 @@ import SwiftProtobuf
 /// Protocol that all the Descriptors conform to for original .proto file
 /// location lookup.
 public protocol ProvidesSourceCodeLocation {
-    /// Returns the Location of a given object (Descriptor).
+    /// Returns the Location of this object (Descriptor).
     var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? { get }
 }
 

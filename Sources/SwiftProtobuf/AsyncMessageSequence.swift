@@ -132,7 +132,7 @@ public struct AsyncMessageSequence<
             return nil  // End of stream reached.
         }
 
-        /// Helper to read the given number of bytes.
+        /// Helper to read the number of bytes you provide.
         @usableFromInline
         mutating func readBytes(_ size: Int) async throws -> [UInt8] {
             // Even though the bytes are read in chunks, things can still hard fail if

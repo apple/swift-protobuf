@@ -1297,7 +1297,7 @@ internal struct BinaryDecoder: Decoder {
         p += length
     }
 
-    /// Private: Skip the body for the given tag.  If the given tag is
+    /// Private: Skip the body for the tag you provide.  If that tag is
     /// a group, it parses up through the corresponding group end.
     private mutating func skipOver(tag: FieldTag) throws {
         switch tag.wireFormat {

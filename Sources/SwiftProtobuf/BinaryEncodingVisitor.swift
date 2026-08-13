@@ -26,7 +26,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     var encoder: BinaryEncoder
 
     /// Creates a new visitor that writes the binary-coded message into the memory
-    /// at the given pointer.
+    /// at the pointer you provide.
     ///
     /// - Precondition: `pointer` must point to an allocated block of memory that
     ///   is large enough to hold the entire encoded message. For performance

@@ -34,7 +34,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
         encoder.stringResult
     }
 
-    /// Creates a new visitor that serializes the given message to protobuf text
+    /// Creates a new visitor that serializes the message you provide to protobuf text
     /// format.
     init(message: any Message, options: TextFormatEncodingOptions) {
         let nameMap: _NameMap?

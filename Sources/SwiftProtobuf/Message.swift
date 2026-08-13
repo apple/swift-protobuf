@@ -56,7 +56,7 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     // General serialization/deserialization machinery
     //
 
-    /// Decode all of the fields from the given decoder.
+    /// Decode all of the fields from the decoder you provide.
     ///
     /// This is a simple loop that repeatedly gets the next field number
     /// from `decoder.nextFieldNumber()` and then uses the number returned

@@ -16,7 +16,7 @@ import Foundation
 
 /// Abstract interface for receiving generation outputs.
 public protocol GeneratorOutputs {
-    /// Adds a file with the given name and contents to the outputs.
+    /// Adds a file with the name and contents you provide to the outputs.
     ///
     /// - Parameters:
     ///   - fileName: The name of the file.

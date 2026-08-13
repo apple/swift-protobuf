@@ -410,12 +410,12 @@ public final class FileDescriptor {
         for s in services { s.bind(file: self, registry: registry) }
     }
 
-    /// Fetch the source information for a given path.
+    /// Fetch the source information for the path you provide.
     ///
     /// For more details on the paths and what this information is, see
     /// `Google_Protobuf_SourceCodeInfo`.
     ///
-    /// For simpler access to the comments for given messages, fields, enums; see
+    /// For simpler access to the comments for messages, fields, and enums; see
     /// `Descriptor+Extensions.swift` and the `ProvidesLocationPath` and
     /// `ProvidesSourceCodeLocation` protocols.
     public func sourceCodeInfoLocation(path: IndexPath) -> Google_Protobuf_SourceCodeInfo.Location? {
@@ -923,7 +923,7 @@ public final class EnumDescriptor {
 
 /// Describes an individual enum constant of a particular type.
 ///
-/// To get the `EnumValueDescriptor` for a given enum value, first get the
+/// To get the `EnumValueDescriptor` for a specific enum value, first get the
 /// `EnumDescriptor` for its type.
 public final class EnumValueDescriptor {
     // We can't assign a value directly to `proto` in the init because we get the
@@ -1070,7 +1070,7 @@ public final class OneofDescriptor {
 
 /// Describes a single field of a message.
 ///
-/// To get the descriptor for a given field, first get the `Descriptor` for
+/// To get the descriptor for a specific field, first get the `Descriptor` for
 /// the message in which it is defined, then find the field. To get a
 /// `FieldDescriptor` for an extension, get the `Descriptor` or
 /// `FileDescriptor` for its containing scope, find the extension.

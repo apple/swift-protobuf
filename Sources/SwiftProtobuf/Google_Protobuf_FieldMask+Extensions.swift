@@ -216,7 +216,7 @@ extension Google_Protobuf_FieldMask {
 
     /// Adds a path to the field mask after checking whether the path you provide is valid.
     ///
-    /// This method throws an error if the path is not a valid path for the given message type.
+    /// This method throws an error if the path is not a valid path for the message type you provide.
     ///
     /// - Parameters:
     ///   - path: Path to be added to FieldMask.

@@ -56,7 +56,7 @@ package class FeatureResolver {
 
     private let extensionMap: (any ExtensionMap)?
 
-    /// Construct a resolver for a given edition with the correct defaults.
+    /// Construct a resolver for the edition you provide with the correct defaults.
     ///
     /// - Parameters:
     ///   - edition: The edition of defaults desired.
@@ -67,9 +67,9 @@ package class FeatureResolver {
     ///     `google.protobuf.FeatureSet` that define custom features. If used, the
     ///     `defaults` should have been parsed with the extensions being
     ///     supported.
-    /// - Returns: A configured resolver for the given edition/defaults.
+    /// - Returns: A configured resolver for the edition and defaults you provide.
     /// - Throws: `FeatureResolver.Error` if there edition requested can't be
-    ///           supported by the given defaults.
+    ///           supported by the defaults you provide.
     package init(
         edition: Google_Protobuf_Edition,
         featureSetDefaults defaults: Google_Protobuf_FeatureSetDefaults,
@@ -159,8 +159,8 @@ package class FeatureResolver {
         return resolve(features: features, resolvedParent: defaultFeatureSet)
     }
 
-    /// Resolve the Features for a given descriptor's options, the resolvedParent
-    /// values used to inherrit from.
+    /// Resolve the Features for the descriptor's options you provide, the resolvedParent
+    /// values used to inherit from.
     func resolve<T: ProvidesFeatureSets>(
         _ options: T,
         resolvedParent: Google_Protobuf_FeatureSet

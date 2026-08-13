@@ -36,7 +36,7 @@ internal struct JSONEncodingVisitor: Visitor {
         encoder.stringResult
     }
 
-    /// Creates a new visitor for serializing a message of the given type to JSON
+    /// Creates a new visitor for serializing a message of the type you provide to JSON
     /// format.
     init(type: any Message.Type, options: JSONEncodingOptions) throws {
         if let nameProviding = type as? any _ProtoNameProviding.Type {

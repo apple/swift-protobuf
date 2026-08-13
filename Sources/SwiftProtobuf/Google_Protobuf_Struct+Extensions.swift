@@ -75,10 +75,9 @@ extension Google_Protobuf_Struct {
 
     /// Accesses the value for the key you provide, for reading and writing.
     ///
-    /// This key-based subscript returns the value for the given key if the key
-    /// is found in the struct, or nil if the key is not found. If you assign
-    /// nil as the value for the given key, the struct removes that key and
-    /// its associated value.
+    /// This key-based subscript returns the value for the key you provide, or
+    /// nil if the key isn't found. If you assign nil as the value for that
+    /// key, the struct removes the key and its associated value.
     public subscript(key: String) -> Google_Protobuf_Value? {
         get { fields[key] }
         set(newValue) { fields[key] = newValue }

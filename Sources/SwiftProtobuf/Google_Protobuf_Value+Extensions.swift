@@ -115,7 +115,7 @@ extension Google_Protobuf_Value: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Value {
-    /// Creates a new ``Google_Protobuf_Value`` with the given kind.
+    /// Creates a new ``Google_Protobuf_Value`` with the kind you provide.
     fileprivate init(kind: OneOf_Kind) {
         self.init()
         self.kind = kind
@@ -146,7 +146,7 @@ extension Google_Protobuf_Value {
         self.init(kind: .listValue(listValue))
     }
 
-    /// Writes out the JSON representation of the value to the given encoder.
+    /// Writes out the JSON representation of the value to the encoder you provide.
     internal func serializeJSONValue(
         to encoder: inout JSONEncoder,
         options: JSONEncodingOptions

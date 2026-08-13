@@ -20,7 +20,7 @@ import SwiftProtobuf
 public protocol CodeGenerator {
     init()
 
-    /// Generates code for the given proto files.
+    /// Generates code for the proto files you provide.
     ///
     /// - Parameters:
     ///   - files: The list of .proto files to generate for.
@@ -208,7 +208,7 @@ extension CodeGenerator {
     }
 }
 
-/// Uses the given request and code generator to get code generated and
+/// Uses the request and code generator you provide to get code generated and
 /// create the response.
 ///
 /// If there is a failure, the failure will be used in the response to be

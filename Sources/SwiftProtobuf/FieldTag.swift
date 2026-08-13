@@ -49,7 +49,7 @@ package struct FieldTag: RawRepresentable {
 
     /// Creates a new tag from its raw numeric representation.
     ///
-    /// Note that if the raw value given here is not a valid tag (for example, it
+    /// Note that if the raw value you provide is not a valid tag (for example, it
     /// has an invalid wire format), this initializer will fail.
     package init?(rawValue: UInt32) {
         // Verify that the field number and wire format are valid and fail if they
@@ -62,7 +62,7 @@ package struct FieldTag: RawRepresentable {
         self.rawValue = rawValue
     }
 
-    /// Creates a new tag by composing the given field number and wire format.
+    /// Creates a new tag by composing the field number and wire format you provide.
     package init(fieldNumber: Int, wireFormat: WireFormat) {
         self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 | UInt32(wireFormat.rawValue)
     }

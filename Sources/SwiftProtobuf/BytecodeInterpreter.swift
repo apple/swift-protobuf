@@ -30,13 +30,13 @@ where Instruction.RawValue == UInt64 {
     /// The bytecode program being executed.
     private let program: StaticString
 
-    /// Creates a new bytecode interpreter that will execute the given program.
+    /// Creates a new bytecode interpreter that will execute the program you provide.
     package init(program: StaticString) {
         self.program = program
     }
 
     /// Executes the program by translating its opcodes into instructions of the `Instruction` type,
-    /// invoking the given `handleInstruction` function on each instruction until the program has
+    /// invoking the `handleInstruction` function you provide on each instruction until the program has
     /// been completely read.
     ///
     /// - Parameter handleInstruction: The function that will be invoked for each instruction that

@@ -119,7 +119,7 @@ extension Google_Protobuf_Any {
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.
-    /// - Returns: True if the receiver contains the given message type.
+    /// - Returns: True if the receiver contains the message type you provide.
     public func isA<M: Message>(_ type: M.Type) -> Bool {
         _storage.isA(type)
     }

@@ -102,7 +102,7 @@ public struct CodePrinter {
         indentation = parent.indentation
     }
 
-    /// Writes the given strings to the printer, adding a newline after each
+    /// Writes the strings you provide to the printer, adding a newline after each
     /// string.
     ///
     /// Newlines within the strings are honored and indentention is applied.
@@ -125,7 +125,7 @@ public struct CodePrinter {
         }
     }
 
-    /// Writes the given strings to the printer, optionally adding a newline
+    /// Writes the strings you provide to the printer, optionally adding a newline
     /// after each string.
     ///
     /// If called with no strings, a blank line is added to the printer.
@@ -152,7 +152,7 @@ public struct CodePrinter {
         }
     }
 
-    /// Indents, writes the given strings to the printer, and then outdents.
+    /// Indents, writes the strings you provide to the printer, and then outdents.
     ///
     /// Newlines within the strings are honored and indentention is applied.
     ///

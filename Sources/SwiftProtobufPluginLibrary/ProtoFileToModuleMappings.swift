@@ -29,7 +29,7 @@ public struct ProtoFileToModuleMappings {
         /// Raised if an mapping entry in the protobuf doesn't have any proto files listed.
         /// mappingIndex is the index (0-N) of the mapping.
         case entryHasNoProtoPaths(mappingIndex: Int)
-        /// The given proto path was listed for both modules.
+        /// The proto path you provided was listed for both modules.
         case duplicateProtoPathMapping(path: String, firstModule: String, secondModule: String)
     }
 
@@ -50,14 +50,14 @@ public struct ProtoFileToModuleMappings {
     /// We expect to find the WKTs in the module named here.
     public let swiftProtobufModuleName: String
 
-    /// Loads and parses the given module mapping from disk.
+    /// Loads and parses the module mapping from disk.
     ///
     /// Raises LoadError or TextFormatDecodingError.
     public init(path: String) throws {
         try self.init(path: path, swiftProtobufModuleName: nil)
     }
 
-    /// Loads and parses the given module mapping from disk.
+    /// Loads and parses the module mapping from disk.
     ///
     /// Raises LoadError or TextFormatDecodingError.
     public init(path: String, swiftProtobufModuleName: String?) throws {
@@ -72,14 +72,14 @@ public struct ProtoFileToModuleMappings {
         try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
-    /// Parses the given module mapping.
+    /// Parses the module mapping you provide.
     ///
     /// Raises LoadError.
     public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
         try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
     }
 
-    /// Parses the given module mapping.
+    /// Parses the module mapping you provide.
     ///
     /// Raises LoadError.
     public init(
@@ -126,13 +126,13 @@ public struct ProtoFileToModuleMappings {
         )
     }
 
-    /// Looks up the module a given file is in.
+    /// Looks up the module for the file you provide.
     public func moduleName(forFile file: FileDescriptor) -> String? {
         mappings[file.name]
     }
 
-    /// Returns the list of modules that need to be imported for a given file based on
-    /// the dependencies it has.
+    /// Returns the list of modules that need to be imported for the file you provide,
+    /// based on the dependencies it has.
     public func neededModules(forFile file: FileDescriptor) -> [String]? {
         guard hasMappings else { return nil }
         if file.dependencies.isEmpty {

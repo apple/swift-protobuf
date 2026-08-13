@@ -19,7 +19,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         !remainingProgram.isEmpty
     }
 
-    /// Creates a new bytecode reader that reads the given bytecode stream.
+    /// Creates a new bytecode reader that reads the bytecode stream you provide.
     package init(remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence) {
         self.remainingProgram = remainingProgram
 
@@ -29,7 +29,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         Self.checkProgramFormat(nextUInt64())
     }
 
-    /// Checks that the given program format is valid (i.e., not greater than the runtime supports),
+    /// Checks that the program format you provide is valid (i.e., not greater than the runtime supports),
     /// trapping if it is invalid.
     static func checkProgramFormat(_ programFormat: UInt64) {
         if programFormat > latestBytecodeProgramFormat {

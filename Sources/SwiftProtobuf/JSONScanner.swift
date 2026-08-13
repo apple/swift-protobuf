@@ -109,8 +109,8 @@ let base64Values: [Int] = [
     /* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 ]
 
-/// Returns a `Data` value containing bytes equivalent to the given
-/// Base64-encoded string, or nil if the conversion fails.
+/// Returns a `Data` value containing bytes equivalent to the Base64-encoded
+/// string you provide, or nil if the conversion fails.
 ///
 /// Notes on Google's implementation (Base64Unescape() in strutil.cc):
 ///  * Google's C++ implementation accepts arbitrary whitespace

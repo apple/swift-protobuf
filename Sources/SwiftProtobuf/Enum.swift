@@ -21,7 +21,7 @@ public protocol Enum: RawRepresentable, Hashable, Sendable {
     /// Creates an instance of the enum initialized to its default value.
     init()
 
-    /// Creates an instance of the enum from the given raw integer value.
+    /// Creates an instance of the enum from the raw integer value you provide.
     ///
     /// For proto2 enums, this initializer will fail if the raw value does not
     /// correspond to a valid enum value. For proto3 enums, this initializer never
@@ -63,7 +63,7 @@ extension Enum {
     }
 
     /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
+    /// name you provide, if the type has names.
     ///
     /// Since the text format and JSON names are always identical, we don't need
     /// to distinguish them.
@@ -79,7 +79,7 @@ extension Enum {
     }
 
     /// Internal convenience initializer that returns the enum value with the
-    /// given name, if it provides names.
+    /// name you provide, if the type has names.
     ///
     /// Since the text format and JSON names are always identical, we don't need
     /// to distinguish them.

@@ -37,8 +37,8 @@ public final class SwiftProtobufNamer {
 
     /// Initializes a new namer.
     ///
-    /// All names will be generated as from the pov of the given file using the
-    /// provided file to module mapper.
+    /// All names will be generated as from the point of view of the file and
+    /// module mapper you provide.
     public convenience init(
         currentFile file: FileDescriptor,
         protoFileToModuleMappings mappings: ProtoFileToModuleMappings
@@ -56,7 +56,7 @@ public final class SwiftProtobufNamer {
         self.targetModule = targetModule
     }
 
-    /// Calculate the relative name for the given message.
+    /// Calculate the relative name for the message you provide.
     public func relativeName(message: Descriptor) -> String {
         if message.containingType != nil {
             return NamingUtils.sanitize(messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
@@ -69,7 +69,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given message.
+    /// Calculate the full name for the message you provide.
     public func fullName(message: Descriptor) -> String {
         let relativeName = self.relativeName(message: message)
         guard let containingType = message.containingType else {
@@ -78,7 +78,7 @@ public final class SwiftProtobufNamer {
         return fullName(message: containingType) + "." + relativeName
     }
 
-    /// Calculate the relative name for the given enum.
+    /// Calculate the relative name for the enum you provide.
     public func relativeName(enum e: EnumDescriptor) -> String {
         if e.containingType != nil {
             return NamingUtils.sanitize(enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
@@ -88,7 +88,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given enum.
+    /// Calculate the full name for the enum you provide.
     public func fullName(enum e: EnumDescriptor) -> String {
         let relativeName = self.relativeName(enum: e)
         guard let containingType = e.containingType else {
@@ -157,7 +157,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the relative name for the given enum value.
+    /// Calculate the relative name for the enum value you provide.
     public func relativeName(enumValue: EnumValueDescriptor) -> String {
         if let name = enumValueRelativeNameCache[enumValue.fullName] {
             return name
@@ -166,7 +166,7 @@ public final class SwiftProtobufNamer {
         return enumValueRelativeNameCache[enumValue.fullName]!
     }
 
-    /// Calculate the full name for the given enum value.
+    /// Calculate the full name for the enum value you provide.
     public func fullName(enumValue: EnumValueDescriptor) -> String {
         fullName(enum: enumValue.enumType) + "." + relativeName(enumValue: enumValue)
     }
@@ -205,18 +205,18 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the relative name for the given oneof.
+    /// Calculate the relative name for the oneof you provide.
     public func relativeName(oneof: OneofDescriptor) -> String {
         let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
         return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
 
-    /// Calculate the full name for the given oneof.
+    /// Calculate the full name for the oneof you provide.
     public func fullName(oneof: OneofDescriptor) -> String {
         fullName(message: oneof.containingType) + "." + relativeName(oneof: oneof)
     }
 
-    /// Calculate the relative name for the given entension.
+    /// Calculate the relative name for the extension you provide.
     ///
     /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
     public func relativeName(extensionField field: FieldDescriptor) -> String {
@@ -230,7 +230,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given extension.
+    /// Calculate the full name for the extension you provide.
     ///
     /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
     public func fullName(extensionField field: FieldDescriptor) -> String {
@@ -358,7 +358,7 @@ public final class SwiftProtobufNamer {
         return result
     }
 
-    /// Internal helper to find the module prefix for a symbol given a file.
+    /// Internal helper to find the module prefix for a symbol, using the file you provide.
     func modulePrefix(file: FileDescriptor) -> String {
         guard let prefix = mappings.moduleName(forFile: file) else {
             return String()

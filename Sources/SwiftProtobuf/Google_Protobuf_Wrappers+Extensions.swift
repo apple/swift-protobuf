@@ -32,7 +32,7 @@ protocol ProtobufWrapper {
     /// Exposes the parameterless initializer to the extensions here.
     init()
 
-    /// Creates a new instance of the wrapper with the given value.
+    /// Creates a new instance of the wrapper with the value you provide.
     init(_ value: WrappedType.BaseType)
 }
 

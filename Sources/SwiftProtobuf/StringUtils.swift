@@ -108,7 +108,7 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
 }
 
 extension Unicode.Scalar {
-    /// Assuming the given scalar is ASCII, this is the uppercased equivalent (unchanged if it is
+    /// Assuming this scalar is ASCII, this is the uppercased equivalent (unchanged if it is
     /// not a lowercase alphabetic character).
     var uppercasedAssumingASCII: Unicode.Scalar {
         guard "a" <= self && self <= "z" else {

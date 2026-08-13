@@ -32,7 +32,7 @@ public protocol SwiftProtobufContiguousBytes {
     ///   - count: the number of times to repeat the byte value.
     init(repeating: UInt8, count: Int)
 
-    /// An initializer for a bag of bytes type, given a sequence of bytes.
+    /// An initializer for a bag of bytes type, from a sequence of bytes you provide.
     ///
     /// - Parameters:
     ///   - sequence: a sequence of UInt8 from which the bag of bytes should be constructed.
@@ -41,7 +41,7 @@ public protocol SwiftProtobufContiguousBytes {
     /// The number of bytes in the bag of bytes.
     var count: Int { get }
 
-    /// Calls the given closure with the contents of underlying storage.
+    /// Calls the closure you provide with the contents of underlying storage.
     ///
     /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
     ///         the same buffer pointer will be passed in every time.
@@ -49,7 +49,7 @@ public protocol SwiftProtobufContiguousBytes {
     ///            outside of the lifetime of the call to the closure.
     func withUnsafeBytes<R>(_ body: (UnsafeRawBufferPointer) throws -> R) rethrows -> R
 
-    /// Calls the given closure with the contents of underlying storage.
+    /// Calls the closure you provide with the contents of underlying storage.
     ///
     /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
     ///         the same buffer pointer will be passed in every time.

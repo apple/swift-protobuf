@@ -472,13 +472,13 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         }
     }
 
-    /// Returns the name bundle for the field/enum-case with the given number, or
-    /// `nil` if there is no match.
+    /// Returns the name bundle for the field/enum-case with the number you
+    /// provide, or `nil` if there is no match.
     internal func names(for number: Int) -> Names? {
         numberToNameMap[number]
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
     /// This is used by the Text format parser to look up field or enum
@@ -488,7 +488,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         return protoToNumberMap[n]
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
     /// This accepts a regular `String` and is used in JSON parsing
@@ -506,7 +506,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         }
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
     /// This is used by the JSON parser when a field name or enum name
@@ -523,7 +523,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         numberToNameMap.map(\.value.proto)
     }
 
-    /// Returns if the given name was reserved.
+    /// Returns if the name you provide was reserved.
     internal func isReserved(name: UnsafeRawBufferPointer) -> Bool {
         guard !reservedNames.isEmpty,
             let baseAddress = name.baseAddress,
@@ -534,7 +534,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         return reservedNames.contains(s)
     }
 
-    /// Returns if the given number was reserved.
+    /// Returns if the number you provide was reserved.
     internal func isReserved(number: Int32) -> Bool {
         for range in reservedRanges {
             if range.contains(number) {
