@@ -121,27 +121,27 @@ extension Google_Protobuf_Value {
         self.kind = kind
     }
 
-    /// Creates a value holding the given floating-point number.
+    /// Creates a value holding the floating-point number you provide.
     public init(numberValue: Double) {
         self.init(kind: .numberValue(numberValue))
     }
 
-    /// Creates a value holding the given string.
+    /// Creates a value holding the string you provide.
     public init(stringValue: String) {
         self.init(kind: .stringValue(stringValue))
     }
 
-    /// Creates a value holding the given boolean.
+    /// Creates a value holding the boolean you provide.
     public init(boolValue: Bool) {
         self.init(kind: .boolValue(boolValue))
     }
 
-    /// Creates a value holding the given struct.
+    /// Creates a value holding the struct you provide.
     public init(structValue: Google_Protobuf_Struct) {
         self.init(kind: .structValue(structValue))
     }
 
-    /// Creates a value holding the given list.
+    /// Creates a value holding the list you provide.
     public init(listValue: Google_Protobuf_ListValue) {
         self.init(kind: .listValue(listValue))
     }

@@ -63,7 +63,7 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Struct {
-    /// Creates a struct from the given dictionary of string keys and values.
+    /// Creates a struct from the dictionary of string keys and values you provide.
     ///
     /// - Parameter fields: The dictionary from field names to
     ///   ``Google_Protobuf_Value`` messages that should be used to create the
@@ -73,7 +73,7 @@ extension Google_Protobuf_Struct {
         self.fields = fields
     }
 
-    /// Accesses the value for the given key for reading and writing.
+    /// Accesses the value for the key you provide, for reading and writing.
     ///
     /// This key-based subscript returns the value for the given key if the key
     /// is found in the struct, or nil if the key is not found. If you assign

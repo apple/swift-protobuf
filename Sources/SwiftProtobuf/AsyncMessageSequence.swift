@@ -59,7 +59,7 @@ public struct AsyncMessageSequence<
     private let partial: Bool
     private let options: BinaryDecodingOptions
 
-    /// Reads size-delimited messages from the given sequence of bytes.
+    /// Reads size-delimited messages from the sequence of bytes you provide.
     ///
     /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
     /// is a varint encoding the message size followed by a message of exactly that size.

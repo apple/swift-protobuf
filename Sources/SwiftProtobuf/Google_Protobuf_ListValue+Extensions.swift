@@ -64,7 +64,7 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_ListValue {
-    /// Creates a list value from the given array of values.
+    /// Creates a list value from the array of values you provide.
     ///
     /// - Parameter values: The list of ``Google_Protobuf_Value`` messages from
     ///   which to create the ``Google_Protobuf_ListValue``.

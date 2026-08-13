@@ -63,7 +63,7 @@ extension Message {
         return Bytes(visitor.dataResult)
     }
 
-    /// Creates an array of messages by decoding the given JSON-formatted string.
+    /// Creates an array of messages by decoding the JSON-formatted string you provide.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter options: The JSONDecodingOptions to use.
@@ -79,7 +79,7 @@ extension Message {
         )
     }
 
-    /// Creates an array of messages by decoding the given JSON-formatted string, looking up extensions in the given extension map.
+    /// Creates an array of messages by decoding the JSON-formatted string you provide, looking up extensions in the extension map you supply.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter extensions: The extension map to use with this decode
@@ -100,7 +100,7 @@ extension Message {
         }
     }
 
-    /// Creates an array of messages by decoding the given UTF-8 encoded JSON bytes.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON bytes you provide.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -117,7 +117,7 @@ extension Message {
         )
     }
 
-    /// Creates an array of messages by decoding the given UTF-8 encoded JSON bytes, looking up extensions in the given extension map.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON bytes you provide, looking up extensions in the extension map you supply.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.

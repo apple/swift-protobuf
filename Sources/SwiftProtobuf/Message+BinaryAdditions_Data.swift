@@ -21,7 +21,7 @@ import Foundation
 /// Binary encoding and decoding methods for messages.
 extension Message {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a message by decoding the given serialized data in Protocol Buffer binary format.
+    /// Creates a message by decoding the serialized data you provide in Protocol Buffer binary format.
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message `Data` to decode.
@@ -46,7 +46,7 @@ extension Message {
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message.
+    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -72,7 +72,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message, under the older `serializedBytes` parameter name.
+    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message, under the older `serializedBytes` parameter name.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -103,7 +103,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Updates the message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message into the receiver.
+    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver.
     ///
     /// - Note: If this method throws an error, the message may still have been
     ///   partially mutated by the binary data that was decoded before the error
@@ -134,7 +134,7 @@ extension Message {
         }
     }
 
-    /// Updates the message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message into the receiver, under the older `serializedBytes` parameter name.
+    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver, under the older `serializedBytes` parameter name.
     ///
     /// - Note: If this method throws an error, the message may still have been
     ///   partially mutated by the binary data that was decoded before the error
@@ -171,7 +171,7 @@ extension Message {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Updates the message by decoding the given serialized data as Protocol Buffer binary format into the
+    /// Updates the message by decoding the serialized data you provide as Protocol Buffer binary format into the
     /// receiver.
     ///
     /// - Note: If this method throws an error, the message may still have been
@@ -212,7 +212,7 @@ extension Message {
         try serializedBytes(partial: partial, options: BinaryEncodingOptions())
     }
 
-    /// Returns the Protocol Buffer binary-format serialization of the message as data, using the given encoding options.
+    /// Returns the Protocol Buffer binary-format serialization of the message as data, using the encoding options you provide.
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will check

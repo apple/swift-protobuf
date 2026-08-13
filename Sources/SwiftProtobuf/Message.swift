@@ -144,8 +144,8 @@ extension Message {
         #endif
     }
 
-    /// Creates an instance of the message type, executes the given block on it,
-    /// and returns the result.
+    /// Creates an instance of the message type, executes the block you provide on
+    /// it, and returns the result.
     ///
     /// The block receives the message as its sole `inout` argument, so it can
     /// mutate the message directly.

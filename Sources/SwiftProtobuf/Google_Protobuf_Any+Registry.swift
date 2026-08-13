@@ -147,13 +147,13 @@ extension Google_Protobuf_Any {
         return result
     }
 
-    /// Returns the Message.Type expected for the given type URL.
+    /// Returns the Message.Type expected for the type URL you provide.
     public static func messageType(forTypeURL url: String) -> (any Message.Type)? {
         let messageTypeName = typeName(fromURL: url)
         return messageType(forMessageName: messageTypeName)
     }
 
-    /// Returns the Message.Type expected for the given proto message name.
+    /// Returns the Message.Type expected for the proto message name you provide.
     public static func messageType(forMessageName name: String) -> (any Message.Type)? {
         var result: (any Message.Type)?
         execute(flags: .none) {

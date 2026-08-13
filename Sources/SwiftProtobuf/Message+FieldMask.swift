@@ -38,7 +38,7 @@ import Foundation
 
 extension Message {
 
-    /// Checks whether the given path is valid for Message type.
+    /// Checks whether the path you provide is valid for Message type.
     ///
     /// - Parameter path: Path to be checked
     /// - Returns: Boolean determines path is valid.
@@ -98,8 +98,8 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 
     // TODO: Re-implement using clear fields instead of copying message
 
-    /// Removes from the message any field that is not represented in the given
-    /// field mask.
+    /// Removes from the message any field that is not represented in the field mask
+    /// you provide.
     ///
     /// If the field mask is empty, this method does nothing.
     ///

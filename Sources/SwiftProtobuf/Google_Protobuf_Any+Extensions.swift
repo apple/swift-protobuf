@@ -76,7 +76,7 @@ extension Google_Protobuf_Any {
         )
     }
 
-    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string, using the given decoding options.
+    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string, using the decoding options you provide.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
@@ -112,7 +112,7 @@ extension Google_Protobuf_Any {
         }
     }
 
-    /// Returns true if this message contains the given message type.
+    /// Returns true if this message contains the message type you provide.
     ///
     /// The check is performed by looking at the passed ``Message`` type and the
     /// `typeURL` of this message.

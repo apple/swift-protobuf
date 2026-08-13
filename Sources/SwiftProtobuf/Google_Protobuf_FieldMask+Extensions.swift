@@ -134,7 +134,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
 
 #if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
-    /// Creates a field mask from the given array of proto-formatted paths.
+    /// Creates a field mask from the array of proto-formatted paths you provide.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -146,7 +146,7 @@ extension Google_Protobuf_FieldMask {
         paths = protoPaths
     }
 
-    /// Creates a field mask from the given proto-formatted paths.
+    /// Creates a field mask from the proto-formatted paths you provide.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -157,7 +157,7 @@ extension Google_Protobuf_FieldMask {
         self.init(protoPaths: protoPaths)
     }
 
-    /// Creates a field mask from the given JSON-formatted paths.
+    /// Creates a field mask from the JSON-formatted paths you provide.
     ///
     /// The paths should match the JSON names of the fields, which may be
     /// different than the corresponding Swift property names.
@@ -214,7 +214,7 @@ extension Google_Protobuf_FieldMask {
 
 extension Google_Protobuf_FieldMask {
 
-    /// Adds a path to the field mask after checking whether the given path is valid.
+    /// Adds a path to the field mask after checking whether the path you provide is valid.
     ///
     /// This method throws an error if the path is not a valid path for the given message type.
     ///
@@ -311,7 +311,7 @@ extension Google_Protobuf_FieldMask {
         }
     }
 
-    /// Returns true if path is covered by the given FieldMask.
+    /// Returns true if path is covered by the field mask you provide.
     ///
     /// For example, path "foo.bar" covers all paths like "foo.bar.baz" and "foo.bar.quz.x".
     /// Parent paths are not covered by an explicit child path: "foo.bar" does not cover
@@ -331,7 +331,7 @@ extension Google_Protobuf_FieldMask {
 
 extension Google_Protobuf_FieldMask {
 
-    /// Checks whether the given FieldMask is valid for type M.
+    /// Checks whether the field mask you provide is valid for type M.
     ///
     /// - Parameter messageType: Message type to paths check with.
     /// - Returns: Boolean determines FieldMask is valid.

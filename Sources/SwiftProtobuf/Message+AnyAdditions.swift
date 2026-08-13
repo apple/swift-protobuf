@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 extension Message {
-    /// Creates a message by unpacking the given Any message.
+    /// Creates a message by unpacking the Any message you provide.
     ///
     /// This corresponds to the `unpack` method in the Google C++ API.
     ///

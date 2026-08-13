@@ -33,7 +33,7 @@ extension Message {
         textFormatString(options: TextFormatEncodingOptions())
     }
 
-    /// Returns the Protocol Buffer text-format serialization of the message as a string, using the given encoding options.
+    /// Returns the Protocol Buffer text-format serialization of the message as a string, using the encoding options you provide.
     ///
     /// Unlike binary encoding, presence of required fields is not enforced when
     /// serializing to text format.
@@ -56,7 +56,7 @@ extension Message {
         return visitor.result
     }
 
-    /// Creates a message by decoding the given Protocol Buffer text-format string.
+    /// Creates a message by decoding the Protocol Buffer text-format string you provide.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
@@ -76,7 +76,7 @@ extension Message {
         )
     }
 
-    /// Creates a message by decoding the given Protocol Buffer text-format string, using the given decoding options.
+    /// Creates a message by decoding the Protocol Buffer text-format string you provide, using the decoding options you supply.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.

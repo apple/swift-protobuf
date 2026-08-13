@@ -128,7 +128,7 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Duration {
-    /// Creates a duration equal to the given number of seconds and nanoseconds.
+    /// Creates a duration equal to the number of seconds and nanoseconds you provide.
     ///
     /// - Parameter seconds: The number of seconds.
     /// - Parameter nanos: The number of nanoseconds.
@@ -165,8 +165,8 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
 
 extension Google_Protobuf_Duration {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a duration equal to the given time interval in seconds, rounded to
-    /// the nearest nanosecond.
+    /// Creates a duration equal to the time interval in seconds you provide, rounded
+    /// to the nearest nanosecond.
     ///
     /// - Parameter timeInterval: The `TimeInterval`.
     @available(*, deprecated, renamed: "init(rounding:rule:)")
@@ -175,8 +175,8 @@ extension Google_Protobuf_Duration {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a duration equal to the given time interval in seconds, rounded to
-    /// the nearest nanosecond according to the given rounding rule.
+    /// Creates a duration equal to the time interval in seconds you provide, rounded
+    /// to the nearest nanosecond according to the rounding rule you supply.
     ///
     /// - Parameters:
     ///   - timeInterval: The `TimeInterval`.
@@ -201,7 +201,7 @@ extension Google_Protobuf_Duration {
 @available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
 extension Google_Protobuf_Duration {
     /// Creates a duration by rounding a Swift duration to the nearest nanosecond
-    /// according to the given rounding rule.
+    /// according to the rounding rule you provide.
     ///
     /// - Parameters:
     ///   - duration: The `Duration`.
@@ -223,7 +223,7 @@ extension Google_Protobuf_Duration {
 
 @available(macOS 13.0, iOS 16.0, watchOS 9.0, tvOS 16.0, *)
 extension Duration {
-    /// Creates a Swift duration equal to the given Protocol Buffer duration.
+    /// Creates a Swift duration equal to the Protocol Buffer duration you provide.
     ///
     /// Swift `Duration` has a strictly higher precision than ``Google_Protobuf_Duration``
     /// (attoseconds vs. nanoseconds, respectively), so this conversion is always

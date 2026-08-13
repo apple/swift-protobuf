@@ -62,7 +62,7 @@ extension Message {
         return Bytes(visitor.dataResult)
     }
 
-    /// Creates a message by decoding the given JSON-formatted string.
+    /// Creates a message by decoding the JSON-formatted string you provide.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter options: The JSONDecodingOptions to use.
@@ -74,7 +74,7 @@ extension Message {
         try self.init(jsonString: jsonString, extensions: nil, options: options)
     }
 
-    /// Creates a message by decoding the given JSON-formatted string, looking up extensions in the given extension map.
+    /// Creates a message by decoding the JSON-formatted string you provide, looking up extensions in the extension map you supply.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter extensions: An ExtensionMap for looking up extensions by name
@@ -95,7 +95,7 @@ extension Message {
         }
     }
 
-    /// Creates a message by decoding the given UTF-8 encoded JSON bytes.
+    /// Creates a message by decoding the UTF-8 encoded JSON bytes you provide.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -108,7 +108,7 @@ extension Message {
         try self.init(jsonUTF8Bytes: jsonUTF8Bytes, extensions: nil, options: options)
     }
 
-    /// Creates a message by decoding the given UTF-8 encoded JSON bytes, looking up extensions in the given extension map.
+    /// Creates a message by decoding the UTF-8 encoded JSON bytes you provide, looking up extensions in the extension map you supply.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
