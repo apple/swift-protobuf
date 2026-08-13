@@ -20,7 +20,7 @@ import Foundation
 
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
-    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data.
+    /// Creates an array of messages by decoding the given UTF-8 encoded JSON data.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -37,7 +37,7 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
+    /// Creates an array of messages by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.

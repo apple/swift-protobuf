@@ -18,10 +18,10 @@
 /// Generated enum types conform to this protocol.
 @preconcurrency
 public protocol Enum: RawRepresentable, Hashable, Sendable {
-    /// Creates a new instance of the enum initialized to its default value.
+    /// Creates an instance of the enum initialized to its default value.
     init()
 
-    /// Creates a new instance of the enum from the given raw integer value.
+    /// Creates an instance of the enum from the given raw integer value.
     ///
     /// For proto2 enums, this initializer will fail if the raw value does not
     /// correspond to a valid enum value. For proto3 enums, this initializer never

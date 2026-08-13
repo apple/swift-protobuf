@@ -30,7 +30,7 @@
 /// default implementations of the below methods and properties.
 @preconcurrency
 public protocol Message: Sendable, CustomDebugStringConvertible {
-    /// Creates a new message with all of its fields initialized to their default
+    /// Creates a message with all of its fields initialized to their default
     /// values.
     init()
 

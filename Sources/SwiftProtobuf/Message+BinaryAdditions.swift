@@ -78,7 +78,7 @@ extension Message {
         return visitor.serializedSize
     }
 
-    /// Creates a new message by decoding the given bytes as a serialized Protocol Buffer binary-format message.
+    /// Creates a message by decoding the given bytes as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -103,7 +103,7 @@ extension Message {
     }
 
     #if compiler(>=6.2)
-    /// Creates a new message by decoding the given raw span of bytes as a serialized Protocol Buffer binary-format message.
+    /// Creates a message by decoding the given raw span of bytes as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.

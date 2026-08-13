@@ -56,7 +56,7 @@ extension Message {
         return visitor.result
     }
 
-    /// Creates a new message by decoding the given Protocol Buffer text-format string.
+    /// Creates a message by decoding the given Protocol Buffer text-format string.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
@@ -76,7 +76,7 @@ extension Message {
         )
     }
 
-    /// Creates a new message by decoding the given Protocol Buffer text-format string, using the given decoding options.
+    /// Creates a message by decoding the given Protocol Buffer text-format string, using the given decoding options.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.

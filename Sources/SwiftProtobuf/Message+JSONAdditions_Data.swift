@@ -20,7 +20,7 @@ import Foundation
 
 /// JSON encoding and decoding methods for messages.
 extension Message {
-    /// Creates a new message by decoding the given UTF-8 encoded JSON data.
+    /// Creates a message by decoding the given UTF-8 encoded JSON data.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -33,7 +33,7 @@ extension Message {
         try self.init(jsonUTF8Bytes: jsonUTF8Data, extensions: nil, options: options)
     }
 
-    /// Creates a new message by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
+    /// Creates a message by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.

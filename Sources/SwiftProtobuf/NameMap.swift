@@ -294,7 +294,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// support TextFormat's requirement to skip these numbers in all cases.
     private var reservedRanges: [Range<Int32>] = []
 
-    /// Creates a new empty field/enum-case name/number mapping.
+    /// Creates an empty field/enum-case name/number mapping.
     public init() {}
 
     #if REMOVE_LEGACY_NAMEMAP_INITIALIZERS

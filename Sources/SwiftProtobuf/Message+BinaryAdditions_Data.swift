@@ -21,7 +21,7 @@ import Foundation
 /// Binary encoding and decoding methods for messages.
 extension Message {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new message by decoding the given serialized data in Protocol Buffer binary format.
+    /// Creates a message by decoding the given serialized data in Protocol Buffer binary format.
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message `Data` to decode.
@@ -46,7 +46,7 @@ extension Message {
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a new message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message.
+    /// Creates a message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -72,7 +72,7 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a new message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message, under the older `serializedBytes` parameter name.
+    /// Creates a message by decoding the given contiguous bytes as a serialized Protocol Buffer binary-format message, under the older `serializedBytes` parameter name.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
