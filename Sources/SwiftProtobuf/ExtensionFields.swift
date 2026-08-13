@@ -55,9 +55,7 @@ public protocol ExtensionField: AnyExtensionField, Hashable {
     init?<D: Decoder>(protobufExtension: any AnyMessageExtension, decoder: inout D) throws
 }
 
-///
-/// Singular field
-///
+/// The value of a singular scalar-typed extension field.
 public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = BaseType
@@ -116,9 +114,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     }
 }
 
-///
-/// Repeated fields
-///
+/// The values of a repeated scalar-typed extension field.
 public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = [BaseType]
@@ -171,12 +167,10 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     }
 }
 
-///
-/// Packed Repeated fields
-///
-/// TODO: This is almost (but not quite) identical to RepeatedFields;
-/// find a way to collapse the implementations.
-///
+// TODO: This is almost (but not quite) identical to RepeatedFields;
+// find a way to collapse the implementations.
+
+/// The values of a packed repeated scalar-typed extension field.
 public struct PackedExtensionField<T: FieldType>: ExtensionField {
     public typealias BaseType = T.BaseType
     public typealias ValueType = [BaseType]
@@ -229,9 +223,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     }
 }
 
-///
-/// Enum extensions
-///
+/// The value of a singular enum-typed extension field.
 public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
     public typealias BaseType = E
     public typealias ValueType = E
@@ -293,9 +285,7 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     }
 }
 
-///
-/// Repeated Enum fields
-///
+/// The values of a repeated enum-typed extension field.
 public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
     public typealias BaseType = E
     public typealias ValueType = [E]
@@ -351,12 +341,10 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     }
 }
 
-///
-/// Packed Repeated Enum fields
-///
-/// TODO: This is almost (but not quite) identical to RepeatedEnumFields;
-/// find a way to collapse the implementations.
-///
+// TODO: This is almost (but not quite) identical to RepeatedEnumFields;
+// find a way to collapse the implementations.
+
+/// The values of a packed repeated enum-typed extension field.
 public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue == Int {
     public typealias BaseType = E
     public typealias ValueType = [E]
@@ -412,9 +400,7 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
     }
 }
 
-//
-// ========== Message ==========
-//
+/// The value of a singular message-typed extension field.
 public struct OptionalMessageExtensionField<M: Message & Equatable>:
     ExtensionField
 {
@@ -482,6 +468,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     }
 }
 
+/// The values of a repeated message-typed extension field.
 public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     ExtensionField
 {
@@ -545,12 +532,10 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     }
 }
 
-//
-// ======== Groups within Messages ========
-//
 // Protoc internally treats groups the same as messages, but
 // they serialize very differently, so we have separate serialization
 // handling here...
+/// The value of a singular group-typed extension field.
 public struct OptionalGroupExtensionField<G: Message & Hashable>:
     ExtensionField
 {
@@ -618,6 +603,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     }
 }
 
+/// The values of a repeated group-typed extension field.
 public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     ExtensionField
 {

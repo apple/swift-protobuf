@@ -20,7 +20,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Describes errors can occure during decoding a proto by path.
+/// The errors that can occur when decoding a proto by path.
 public enum PathDecodingError: Error {
 
     /// Describes a mismatch in type of the fields.

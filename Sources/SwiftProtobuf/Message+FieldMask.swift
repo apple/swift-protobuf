@@ -14,7 +14,7 @@
 
 extension Google_Protobuf_FieldMask {
 
-    /// Defines available options for merging two messages.
+    /// The available options for merging two messages.
     public struct MergeOptions {
 
         public init() {}

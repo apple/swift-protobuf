@@ -14,7 +14,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Provides a general interface for a "bag of bytes" type used for
+/// A general interface for a "bag of bytes" type used for
 /// serialization and deserialization of protobufs.
 ///
 /// Conform your own types to this protocol to provide your own bag-of-bytes

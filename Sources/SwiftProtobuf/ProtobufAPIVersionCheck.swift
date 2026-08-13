@@ -32,7 +32,7 @@
 /// update one, make sure to update it here and in the associated type below.
 public protocol ProtobufAPIVersion_2 {}
 
-/// Binds the version of generated code to the version of this library.
+/// A binding between the version of generated code and the version of this library.
 ///
 /// Implemented by a fileprivate type in each source file emitted by
 /// protoc-gen-swift; causes a compile-time error, with reasonable

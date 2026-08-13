@@ -20,11 +20,12 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Contains any unknown fields in a decoded message; that is, fields that were
-/// sent on the wire but were not recognized by the generated message
-/// implementation or were valid field numbers but with mismatching wire
-/// formats (for example, a field encoded as a varint when a fixed32 integer
-/// was expected).
+/// The unknown fields in a decoded message.
+///
+/// These are fields that were sent on the wire but were not recognized by the
+/// generated message implementation, or were valid field numbers with
+/// mismatching wire formats -- for example, a field encoded as a varint when a
+/// fixed32 integer was expected.
 public struct UnknownStorage: Equatable, Sendable {
 
     /// The raw protocol buffer binary-encoded bytes that represent the unknown

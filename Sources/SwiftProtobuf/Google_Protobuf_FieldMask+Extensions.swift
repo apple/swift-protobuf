@@ -345,7 +345,7 @@ extension Google_Protobuf_FieldMask {
     }
 }
 
-/// Describes errors could happen during FieldMask utilities.
+/// The errors that can occur when using field mask utilities.
 public enum FieldMaskError: Error {
 
     /// Describes a path is invalid for a Message type.

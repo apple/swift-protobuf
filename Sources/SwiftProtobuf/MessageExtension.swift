@@ -24,7 +24,7 @@ public protocol AnyMessageExtension: Sendable {
     func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> (any AnyExtensionField)?
 }
 
-/// Relates a particular extension field to a particular message.
+/// An association between a particular extension field and a particular message.
 ///
 /// The generic constraints allow compile-time compatibility checks.
 public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {

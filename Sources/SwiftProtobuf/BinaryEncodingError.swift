@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Describes errors that can occur when decoding a message from binary format.
+/// The errors that can occur when encoding a message to binary format.
 public enum BinaryEncodingError: Error, Hashable {
     /// An unexpected failure when deserializing a ``Google_Protobuf_Any``.
     case anyTranscodeFailure

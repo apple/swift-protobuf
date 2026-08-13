@@ -30,6 +30,7 @@ import Foundation
 
 // Note: The protobuf- and JSON-specific methods here are defined
 // in ProtobufTypeAdditions.swift and JSONTypeAdditions.swift
+/// A description of how to encode and decode a single proto field type.
 @preconcurrency
 public protocol FieldType: Sendable {
     // The Swift type used to store data for this field.  For example,

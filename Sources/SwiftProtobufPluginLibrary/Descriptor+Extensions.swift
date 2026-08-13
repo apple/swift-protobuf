@@ -123,7 +123,9 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
     /// so there are no underscores, etc. to rebuild a camel case name from.
     var namingBase: String { isGroupLike ? messageType!.name : name }
 
-    /// TODO: Remove this when it is safe to make breaking changes.
+    // TODO: Remove this when it is safe to make breaking changes.
+
+    /// A Boolean value that indicates whether this field is group-like.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var internal_isGroupLike: Bool { isGroupLike }
 

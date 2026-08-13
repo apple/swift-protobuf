@@ -8,11 +8,11 @@
 //
 // -----------------------------------------------------------------------------
 
-/// TODO: Right now, only the NameMap and the NameDescription enum
-/// (which are directly used by the generated code) are public.
-/// This means that code outside the library has no way to actually
-/// use this data.  We should develop and publicize a suitable API
-/// for that purpose.  (Which might be the same as the internal API.)
+// TODO: Right now, only the NameMap and the NameDescription enum
+// (which are directly used by the generated code) are public.
+// This means that code outside the library has no way to actually
+// use this data.  We should develop and publicize a suitable API
+// for that purpose.  (Which might be the same as the internal API.)
 
 /// This must produce exactly the same outputs as the corresponding
 /// code in the protoc-gen-swift code generator. Changing it will

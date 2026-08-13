@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Describes errors that can occur when unpacking an Any message.
+/// The errors that can occur when unpacking an Any message.
 ///
 /// ``Google_Protobuf_Any`` messages can be decoded from protobuf binary, text
 /// format, or JSON. The contents are not parsed immediately; the raw data is
