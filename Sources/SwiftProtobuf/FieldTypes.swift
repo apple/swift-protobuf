@@ -382,7 +382,9 @@ public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
         try visitor.visitPackedBoolField(value: value, fieldNumber: fieldNumber)
     }
 
-    /// Custom _lessThan since `Bool` isn't `Comparable`.
+    /// Provides the ordering used when boolean values are map keys.
+    ///
+    /// Bool doesn't conform to Comparable, so this custom comparison stands in for it.
     public static func _lessThan(lhs: BaseType, rhs: BaseType) -> Bool {
         if !lhs {
             return rhs

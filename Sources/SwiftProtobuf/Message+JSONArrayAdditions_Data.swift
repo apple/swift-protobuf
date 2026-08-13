@@ -20,9 +20,7 @@ import Foundation
 
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
-    /// Creates a new array of messages by decoding the given `Data`
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -39,9 +37,7 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given `Data`
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -60,7 +56,7 @@ extension Message {
         )
     }
 
-    /// Returns a Data containing the UTF-8 JSON serialization of the messages.
+    /// Returns the UTF-8 JSON serialization of the messages as data.
     ///
     /// Unlike binary encoding, presence of required fields is not enforced when
     /// serializing to JSON.

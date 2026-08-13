@@ -31,8 +31,9 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// This is the key interface used by the generated `traverse()` methods
-/// used for serialization.  It is implemented by each serialization protocol:
+/// The key interface used by the generated traverse methods for serialization.
+///
+/// It is implemented by each serialization protocol:
 /// Protobuf Binary, Protobuf Text, JSON, and the Hash encoder.
 public protocol Visitor {
 

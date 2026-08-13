@@ -55,8 +55,7 @@ extension Google_Protobuf_Any {
         _storage.state = .message(message)
     }
 
-    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
-    /// containing a serialized message in Protocol Buffer text format.
+    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
@@ -77,8 +76,7 @@ extension Google_Protobuf_Any {
         )
     }
 
-    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
-    /// containing a serialized message in Protocol Buffer text format.
+    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string, using the given decoding options.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
@@ -114,8 +112,7 @@ extension Google_Protobuf_Any {
         }
     }
 
-    /// Returns true if this ``Google_Protobuf_Any`` message contains the given
-    /// message type.
+    /// Returns true if this message contains the given message type.
     ///
     /// The check is performed by looking at the passed ``Message`` type and the
     /// `typeURL` of this message.

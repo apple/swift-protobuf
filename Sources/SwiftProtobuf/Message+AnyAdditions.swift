@@ -13,8 +13,7 @@
 // -----------------------------------------------------------------------------
 
 extension Message {
-    /// Initialize this message from the provided `google.protobuf.Any`
-    /// well-known type.
+    /// Creates a message by unpacking the given Any message.
     ///
     /// This corresponds to the `unpack` method in the Google C++ API.
     ///

@@ -17,8 +17,7 @@ extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
 
-    /// Creates a new ``Google_Protobuf_Struct`` from a dictionary of string keys to
-    /// values of type ``Google_Protobuf_Value``.
+    /// Creates a struct from a dictionary literal of string keys and values.
     public init(dictionaryLiteral: (String, Google_Protobuf_Value)...) {
         self.init()
         for (k, v) in dictionaryLiteral {
@@ -64,8 +63,7 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Struct {
-    /// Creates a new ``Google_Protobuf_Struct`` from a dictionary of string keys to
-    /// values of type ``Google_Protobuf_Value``.
+    /// Creates a struct from the given dictionary of string keys and values.
     ///
     /// - Parameter fields: The dictionary from field names to
     ///   ``Google_Protobuf_Value`` messages that should be used to create the
@@ -75,13 +73,12 @@ extension Google_Protobuf_Struct {
         self.fields = fields
     }
 
-    /// Accesses the ``Google_Protobuf_Value`` with the given key for reading and
-    /// writing.
+    /// Accesses the value for the given key for reading and writing.
     ///
-    /// This key-based subscript returns the `Value` for the given key if the key
-    /// is found in the `Struct`, or nil if the key is not found. If you assign
-    /// nil as the `Value` for the given key, the `Struct` removes that key and
-    /// its associated `Value`.
+    /// This key-based subscript returns the value for the given key if the key
+    /// is found in the struct, or nil if the key is not found. If you assign
+    /// nil as the value for the given key, the struct removes that key and
+    /// its associated value.
     public subscript(key: String) -> Google_Protobuf_Value? {
         get { fields[key] }
         set(newValue) { fields[key] = newValue }

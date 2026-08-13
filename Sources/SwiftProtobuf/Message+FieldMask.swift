@@ -20,9 +20,10 @@ extension Google_Protobuf_FieldMask {
         public init() {}
 
         /// The default merging behavior will append entries from the source
-        /// repeated field to the destination repeated field. If you only want
-        /// to keep the entries from the source repeated field, set this flag
-        /// to true.
+        /// repeated field to the destination repeated field.
+        ///
+        /// Set this flag to true to keep only the entries from the source
+        /// repeated field instead.
         public var replaceRepeatedFields = false
     }
 }
@@ -97,8 +98,10 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
 
     // TODO: Re-implement using clear fields instead of copying message
 
-    /// Removes from 'message' any field that is not represented in the given
-    /// FieldMask. If the FieldMask is empty, does nothing.
+    /// Removes from the message any field that is not represented in the given
+    /// field mask.
+    ///
+    /// If the field mask is empty, this method does nothing.
     ///
     /// - Parameter fieldMask: FieldMask specifies which fields should be kept.
     /// - Returns: Boolean determines if the message is modified

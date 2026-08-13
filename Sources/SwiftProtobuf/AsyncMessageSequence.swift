@@ -16,6 +16,7 @@
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension AsyncSequence where Element == UInt8 {
     /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
+    ///
     /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
     /// is a varint encoding the message size followed by a message of exactly that size.
     ///
@@ -58,8 +59,9 @@ public struct AsyncMessageSequence<
     private let partial: Bool
     private let options: BinaryDecodingOptions
 
-    /// Reads size-delimited messages from the given sequence of bytes. Delimited
-    /// format allows a single file or stream to contain multiple messages. A delimited message
+    /// Reads size-delimited messages from the given sequence of bytes.
+    ///
+    /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
     /// is a varint encoding the message size followed by a message of exactly that size.
     ///
     /// - Parameters:

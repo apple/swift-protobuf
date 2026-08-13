@@ -231,8 +231,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Timestamp {
-    /// Creates a new ``Google_Protobuf_Timestamp`` equal to the given number of
-    /// seconds and nanoseconds.
+    /// Creates a timestamp equal to the given number of seconds and nanoseconds.
     ///
     /// - Parameter seconds: The number of seconds.
     /// - Parameter nanos: The number of nanoseconds.
@@ -260,8 +259,8 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 
 extension Google_Protobuf_Timestamp {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 1970 by a given number of seconds.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 1970 by a given
+    /// number of seconds.
     ///
     /// - Parameter timeIntervalSince1970: The `TimeInterval`, interpreted as
     ///   seconds relative to 00:00:00 UTC on 1 January 1970.
@@ -271,9 +270,9 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
-    /// nanosecond according to the given rounding rule.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 1970 by a given
+    /// number of seconds, rounded to the nearest nanosecond according to the given
+    /// rounding rule.
     ///
     /// - Parameters:
     ///   - timeIntervalSince1970: The `TimeInterval`, interpreted as
@@ -291,8 +290,8 @@ extension Google_Protobuf_Timestamp {
     }
 
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 2001 by a given number of seconds.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 2001 by a given
+    /// number of seconds.
     ///
     /// - Parameter timeIntervalSinceReferenceDate: The `TimeInterval`,
     ///   interpreted as seconds relative to 00:00:00 UTC on 1 January 2001.
@@ -305,9 +304,9 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
-    /// nanosecond according to the given rounding rule.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 2001 by a given
+    /// number of seconds, rounded to the nearest nanosecond according to the given
+    /// rounding rule.
     ///
     /// - Parameters:
     ///   - timeIntervalSinceReferenceDate: The `TimeInterval`,
@@ -332,8 +331,7 @@ extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized to the same time as
-    /// the given `Date`.
+    /// Creates a timestamp initialized to the same time as the given date.
     ///
     /// - Parameter date: The `Date` with which to initialize the timestamp.
     public init(date: Date) {
@@ -362,7 +360,7 @@ extension Google_Protobuf_Timestamp {
         ) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
     }
 
-    /// A `Date` initialized to the same time as the timestamp.
+    /// The date initialized to the same time as the timestamp.
     public var date: Date {
         Date(
             timeIntervalSinceReferenceDate: self.timeIntervalSinceReferenceDate

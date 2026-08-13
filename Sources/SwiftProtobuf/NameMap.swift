@@ -166,7 +166,9 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
 
 /// An immutable bidirectional mapping between field/enum-case names
 /// and numbers, used to record field names for text-based
-/// serialization (JSON and text).  These maps are lazily instantiated
+/// serialization (JSON and text).
+///
+/// These maps are lazily instantiated
 /// for each message as needed, so there is no run-time overhead for
 /// users who do not use text-based serialization formats.
 public struct _NameMap: ExpressibleByDictionaryLiteral {
@@ -247,6 +249,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     #if !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
     /// A description of the names for a particular field or enum case.
+    ///
     /// The different forms here let us minimize the amount of string
     /// data that we store in the binary.
     ///

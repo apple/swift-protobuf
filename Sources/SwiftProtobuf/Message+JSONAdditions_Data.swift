@@ -20,8 +20,7 @@ import Foundation
 
 /// JSON encoding and decoding methods for messages.
 extension Message {
-    /// Creates a new message by decoding the given `Data` containing a serialized message
-    /// in JSON format, interpreting the data as UTF-8 encoded text.
+    /// Creates a new message by decoding the given UTF-8 encoded JSON data.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -34,8 +33,7 @@ extension Message {
         try self.init(jsonUTF8Bytes: jsonUTF8Data, extensions: nil, options: options)
     }
 
-    /// Creates a new message by decoding the given `Data` containing a serialized message
-    /// in JSON format, interpreting the data as UTF-8 encoded text.
+    /// Creates a new message by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -50,7 +48,7 @@ extension Message {
         try self.init(jsonUTF8Bytes: jsonUTF8Data, extensions: extensions, options: options)
     }
 
-    /// Returns a Data containing the UTF-8 JSON serialization of the message.
+    /// Returns the UTF-8 JSON serialization of the message as data.
     ///
     /// Unlike binary encoding, presence of required fields is not enforced when
     /// serializing to JSON.

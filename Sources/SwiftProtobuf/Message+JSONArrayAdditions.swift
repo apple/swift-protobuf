@@ -38,7 +38,7 @@ extension Message {
         return String(decoding: data, as: UTF8.self)
     }
 
-    /// Returns a ``SwiftProtobufContiguousBytes`` containing the UTF-8 JSON serialization of the messages.
+    /// Returns the UTF-8 JSON serialization of the messages as bytes.
     ///
     /// Unlike binary encoding, presence of required fields is not enforced when
     /// serializing to JSON.
@@ -63,8 +63,7 @@ extension Message {
         return Bytes(visitor.dataResult)
     }
 
-    /// Creates a new array of messages by decoding the given string containing a
-    /// serialized array of messages in JSON format.
+    /// Creates a new array of messages by decoding the given JSON-formatted string.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter options: The JSONDecodingOptions to use.
@@ -80,8 +79,7 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given string containing a
-    /// serialized array of messages in JSON format.
+    /// Creates a new array of messages by decoding the given JSON-formatted string, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter extensions: The extension map to use with this decode
@@ -102,9 +100,7 @@ extension Message {
         }
     }
 
-    /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.
@@ -121,9 +117,7 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates a new array of messages by decoding the given UTF-8 encoded JSON data, looking up extensions in the given extension map.
     ///
     /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
     ///   as UTF-8 encoded text.

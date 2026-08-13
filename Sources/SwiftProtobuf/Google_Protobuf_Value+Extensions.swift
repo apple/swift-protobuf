@@ -16,7 +16,7 @@
 extension Google_Protobuf_Value: ExpressibleByIntegerLiteral {
     public typealias IntegerLiteralType = Int64
 
-    /// Creates a new ``Google_Protobuf_Value`` from an integer literal.
+    /// Creates a value from an integer literal.
     public init(integerLiteral value: Int64) {
         self.init(kind: .numberValue(Double(value)))
     }
@@ -25,7 +25,7 @@ extension Google_Protobuf_Value: ExpressibleByIntegerLiteral {
 extension Google_Protobuf_Value: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
-    /// Creates a new ``Google_Protobuf_Value`` from a floating point literal.
+    /// Creates a value from a floating-point literal.
     public init(floatLiteral value: Double) {
         self.init(kind: .numberValue(value))
     }
@@ -34,7 +34,7 @@ extension Google_Protobuf_Value: ExpressibleByFloatLiteral {
 extension Google_Protobuf_Value: ExpressibleByBooleanLiteral {
     public typealias BooleanLiteralType = Bool
 
-    /// Creates a new ``Google_Protobuf_Value`` from a boolean literal.
+    /// Creates a value from a boolean literal.
     public init(booleanLiteral value: Bool) {
         self.init(kind: .boolValue(value))
     }
@@ -45,24 +45,24 @@ extension Google_Protobuf_Value: ExpressibleByStringLiteral {
     public typealias ExtendedGraphemeClusterLiteralType = String
     public typealias UnicodeScalarLiteralType = String
 
-    /// Creates a new ``Google_Protobuf_Value`` from a string literal.
+    /// Creates a value from a string literal.
     public init(stringLiteral value: String) {
         self.init(kind: .stringValue(value))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` from a Unicode scalar literal.
+    /// Creates a value from a Unicode scalar literal.
     public init(unicodeScalarLiteral value: String) {
         self.init(kind: .stringValue(value))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` from a character literal.
+    /// Creates a value from a character literal.
     public init(extendedGraphemeClusterLiteral value: String) {
         self.init(kind: .stringValue(value))
     }
 }
 
 extension Google_Protobuf_Value: ExpressibleByNilLiteral {
-    /// Creates a new ``Google_Protobuf_Value`` from the nil literal.
+    /// Creates a value from the nil literal.
     public init(nilLiteral: ()) {
         self.init(kind: .nullValue(.nullValue))
     }
@@ -121,32 +121,27 @@ extension Google_Protobuf_Value {
         self.kind = kind
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` whose `kind` is `numberValue` with
-    /// the given floating-point value.
+    /// Creates a value holding the given floating-point number.
     public init(numberValue: Double) {
         self.init(kind: .numberValue(numberValue))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` whose `kind` is `stringValue` with
-    /// the given string value.
+    /// Creates a value holding the given string.
     public init(stringValue: String) {
         self.init(kind: .stringValue(stringValue))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` whose `kind` is `boolValue` with the
-    /// given boolean value.
+    /// Creates a value holding the given boolean.
     public init(boolValue: Bool) {
         self.init(kind: .boolValue(boolValue))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` whose `kind` is `structValue` with
-    /// the given ``Google_Protobuf_Struct`` value.
+    /// Creates a value holding the given struct.
     public init(structValue: Google_Protobuf_Struct) {
         self.init(kind: .structValue(structValue))
     }
 
-    /// Creates a new ``Google_Protobuf_Value`` whose `kind` is `listValue` with the
-    /// given ``Google_Protobuf_ListValue`` value.
+    /// Creates a value holding the given list.
     public init(listValue: Google_Protobuf_ListValue) {
         self.init(kind: .listValue(listValue))
     }

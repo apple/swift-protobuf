@@ -20,8 +20,7 @@ import Foundation
 
 /// Binary encoding and decoding methods for messages.
 extension Message {
-    /// Returns a ``SwiftProtobufContiguousBytes`` instance containing the Protocol Buffer binary
-    /// format serialization of the message.
+    /// Returns the Protocol Buffer binary-format serialization of the message as a sequence of bytes.
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will check
@@ -79,8 +78,7 @@ extension Message {
         return visitor.serializedSize
     }
 
-    /// Creates a new message by decoding the given ``SwiftProtobufContiguousBytes`` value
-    /// containing a serialized message in Protocol Buffer binary format.
+    /// Creates a new message by decoding the given bytes as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
@@ -105,8 +103,7 @@ extension Message {
     }
 
     #if compiler(>=6.2)
-    /// Creates a new message by decoding the bytes provided by a `RawSpan`
-    /// containing a serialized message in Protocol Buffer binary format.
+    /// Creates a new message by decoding the given raw span of bytes as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.
@@ -132,8 +129,7 @@ extension Message {
     }
     #endif
 
-    /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
-    /// containing a serialized message in Protocol Buffer binary format into the
+    /// Updates the message by decoding the given bytes as a serialized Protocol Buffer binary-format message into the
     /// receiver.
     ///
     /// - Note: If this method throws an error, the message may still have been
@@ -164,8 +160,7 @@ extension Message {
     }
 
     #if compiler(>=6.2)
-    /// Updates the message by decoding the bytes provided by a `RawSpan` containing
-    /// a serialized message in Protocol Buffer binary format into the receiver.
+    /// Updates the message by decoding the given raw span of bytes as a serialized Protocol Buffer binary-format message into the receiver.
     ///
     /// - Note: If this method throws an error, the message may still have been
     ///   partially mutated by the binary data that was decoded before the error

@@ -14,15 +14,16 @@
 
 /// Options for binary decoding.
 public struct BinaryDecodingOptions: Sendable {
-    /// The maximum nesting of message with messages.  The default is 100.
+    /// The maximum nesting of messages within messages.
     ///
-    /// To prevent corrupt or malicious messages from causing stack overflows,
-    /// this controls how deep messages can be nested within other messages
-    /// while parsing.
+    /// The default is 100. To prevent corrupt or malicious messages from causing
+    /// stack overflows, this controls how deep messages can be nested within
+    /// other messages while parsing.
     public var messageDepthLimit: Int = 100
 
-    /// Discard unknown fields while parsing.  The default is false, so parsering
-    /// does not discard unknown fields.
+    /// Discard unknown fields while parsing.
+    ///
+    /// The default is false, so parsing does not discard unknown fields.
     ///
     /// The Protobuf binary format allows unknown fields to be still parsed
     /// so the schema can be expanded without requiring all readers to be updated.

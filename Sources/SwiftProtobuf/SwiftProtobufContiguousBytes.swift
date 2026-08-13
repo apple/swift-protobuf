@@ -14,10 +14,12 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Conformance to this protocol gives users a way to provide their own "bag of bytes" types
-/// to be used for serialization and deserialization of protobufs.
-/// It provides a general interface for bytes since the Swift Standard Library currently does not
-/// provide such a protocol.
+/// Provides a general interface for a "bag of bytes" type used for
+/// serialization and deserialization of protobufs.
+///
+/// Conform your own types to this protocol to provide your own bag-of-bytes
+/// implementation; the Swift Standard Library does not currently provide such
+/// a protocol itself.
 ///
 /// By conforming your own types to this protocol, you will be able to pass instances of said types
 /// directly to ``Message``'s deserialisation methods

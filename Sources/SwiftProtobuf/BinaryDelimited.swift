@@ -32,8 +32,9 @@ public enum BinaryDelimited {
     }
 
     #if !os(WASI) && BinaryDelimitedStreams
-    /// Serialize a single size-delimited message to the given stream. Delimited
-    /// format allows a single file or stream to contain multiple messages,
+    /// Serializes a single size-delimited message to the given stream.
+    ///
+    /// Delimited format allows a single file or stream to contain multiple messages,
     /// whereas normally writing multiple non-delimited messages to the same
     /// stream would cause them to be merged. A delimited message is a varint
     /// encoding the message size followed by a message of exactly that size.
@@ -84,11 +85,12 @@ public enum BinaryDelimited {
         }
     }
 
-    /// Reads a single size-delimited message from the given stream. Delimited
-    /// format allows a single file or stream to contain multiple messages,
+    /// Reads a single size-delimited message from the given stream.
+    ///
+    /// Delimited format allows a single file or stream to contain multiple messages,
     /// whereas normally parsing consumes the entire input. A delimited message
     /// is a varint encoding the message size followed by a message of exactly
-    /// exactly that size.
+    /// that size.
     ///
     /// - Parameters:
     ///   - messageType: The type of message to read.
@@ -124,7 +126,9 @@ public enum BinaryDelimited {
     }
 
     /// Updates the message by reading a single size-delimited message from
-    /// the given stream. Delimited format allows a single file or stream to
+    /// the given stream.
+    ///
+    /// Delimited format allows a single file or stream to
     /// contain multiple messages, whereas normally parsing consumes the entire
     /// input. A delimited message is a varint encoding the message size
     /// followed by a message of exactly that size.

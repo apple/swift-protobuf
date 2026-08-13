@@ -8,12 +8,9 @@
 //
 
 /// The protocol which all generated protobuf messages implement.
-/// ``Message`` is the protocol type you should use whenever
-/// you need an argument or variable which holds "some message".
 ///
-/// Generated messages also implement `Hashable`, and thus `Equatable`.
-/// However, the protocol conformance is declared on a different protocol.
-/// This allows you to use ``Message`` as a type directly:
+/// Use this protocol type whenever you need an argument or variable that holds
+/// "some message":
 ///
 ///     func consume(message: Message) { ... }
 ///
@@ -147,10 +144,11 @@ extension Message {
         #endif
     }
 
-    /// Creates an instance of the message type on which this method is called,
-    /// executes the given block passing the message in as its sole `inout`
-    /// argument, and then returns the message.
+    /// Creates an instance of the message type, executes the given block on it,
+    /// and returns the result.
     ///
+    /// The block receives the message as its sole `inout` argument, so it can
+    /// mutate the message directly.
     /// This method acts essentially as a "builder" in that the initialization of
     /// the message is captured within the block, allowing the returned value to
     /// be set in an immutable variable. For example,

@@ -123,8 +123,9 @@ extension SwiftProtobufError {
             Self(.binaryDecodingError)
         }
 
-        /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
-        /// of the messages in the stream, or the stream as a whole.
+        /// Errors arising from decoding streams of binary messages.
+        ///
+        /// These errors have to do with the framing of the messages in the stream, or the stream as a whole.
         public static var binaryStreamDecodingError: Self {
             Self(.binaryStreamDecodingError)
         }
@@ -185,7 +186,9 @@ extension SwiftProtobufError: CustomDebugStringConvertible {
 extension SwiftProtobufError {
     /// Errors arising from binary decoding of data into protobufs.
     public enum BinaryDecoding {
-        /// Message is too large. Bytes and Strings have a max size of 2GB.
+        /// Message is too large.
+        ///
+        /// Bytes and strings have a max size of 2GB.
         public static func tooLarge(
             function: String = #function,
             file: String = #fileID,
@@ -199,10 +202,14 @@ extension SwiftProtobufError {
         }
     }
 
-    /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
+    /// Errors arising from decoding streams of binary messages.
+    ///
+    /// These errors have to do with the framing
     /// of the messages in the stream, or the stream as a whole.
     public enum BinaryStreamDecoding {
-        /// Message is too large. Bytes and Strings have a max size of 2GB.
+        /// Message is too large.
+        ///
+        /// Bytes and strings have a max size of 2GB.
         public static func tooLarge(
             function: String = #function,
             file: String = #fileID,
@@ -232,13 +239,14 @@ extension SwiftProtobufError {
             )
         }
 
-        /// This isn't really an error. `InputStream` documents that
-        /// `hasBytesAvailable` _may_ return `True` if a read is needed to
-        /// determine if there really are bytes available. So this "error" is thrown
-        /// when a `parse` or `merge` fails because there were no bytes available.
-        /// If this is raised, the callers should decide via what ever other means
-        /// are correct if the stream has completely ended or if more bytes might
-        /// eventually show up.
+        /// Indicates that no bytes were available when reading from the stream.
+        ///
+        /// This isn't really an error: `InputStream` documents that `hasBytesAvailable`
+        /// may return `true` if a read is needed to determine if there really are
+        /// bytes available. It's thrown when a `parse` or `merge` fails because
+        /// there were no bytes available. If this is raised, the caller should
+        /// use other means to determine whether the stream has completely ended
+        /// or more bytes might eventually show up.
         public static func noBytesAvailable(
             function: String = #function,
             file: String = #fileID,
@@ -257,8 +265,9 @@ extension SwiftProtobufError {
 
     /// Errors arising from JSON decoding of data into protobufs.
     public enum JSONDecoding {
-        /// While decoding a `google.protobuf.Any` encountered a malformed `@type` key for
-        /// the `type_url` field.
+        /// While decoding an Any message, the type URL was malformed.
+        ///
+        /// The type URL is stored under the `@type` key in the JSON representation.
         public static func invalidAnyTypeURL(
             type_url: String,
             function: String = #function,
@@ -272,7 +281,7 @@ extension SwiftProtobufError {
             )
         }
 
-        /// While decoding a `google.protobuf.Any` no `@type` field but the message had other fields.
+        /// While decoding an Any message, the type URL was missing even though the message had other fields.
         public static func emptyAnyTypeURL(
             function: String = #function,
             file: String = #fileID,
@@ -288,7 +297,7 @@ extension SwiftProtobufError {
 
     /// Errors arising from JSON encoding of messages.
     public enum JSONEncoding {
-        /// While encoding a `google.protobuf.Any` encountered a malformed `type_url` field.
+        /// While encoding an Any message, the type URL was malformed.
         public static func invalidAnyTypeURL(
             type_url: String,
             function: String = #function,
@@ -302,7 +311,7 @@ extension SwiftProtobufError {
             )
         }
 
-        /// While encoding a `google.protobuf.Any` encountered an empty `type_url` field.
+        /// While encoding an Any message, the type URL was empty.
         public static func emptyAnyTypeURL(
             function: String = #function,
             file: String = #fileID,

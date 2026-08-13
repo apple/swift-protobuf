@@ -16,15 +16,19 @@
 public struct JSONEncodingOptions: Sendable {
 
     /// Always prints int64s values as numbers.
+    ///
     /// By default, they are printed as strings as per proto3 JSON mapping rules.
-    /// NB: When used as Map keys, int64s will be printed as strings as expected.
+    /// When used as map keys, int64s are printed as strings regardless of this option.
     public var alwaysPrintInt64sAsNumbers: Bool = false
 
-    /// Always print enums as ints. By default they are printed as strings.
+    /// Always print enums as ints.
+    ///
+    /// By default, enums are printed as strings.
     public var alwaysPrintEnumsAsInts: Bool = false
 
     /// Whether to preserve proto field names.
-    /// By default they are converted to JSON(lowerCamelCase) names.
+    ///
+    /// By default, field names are converted to JSON lowerCamelCase names.
     public var preserveProtoFieldNames: Bool = false
 
     /// Whether to use deterministic ordering when serializing.

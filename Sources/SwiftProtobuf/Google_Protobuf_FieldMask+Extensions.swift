@@ -134,7 +134,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
 
 #if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given array of paths.
+    /// Creates a field mask from the given array of proto-formatted paths.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -146,7 +146,7 @@ extension Google_Protobuf_FieldMask {
         paths = protoPaths
     }
 
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
+    /// Creates a field mask from the given proto-formatted paths.
     ///
     /// The paths should match the names used in the .proto file, which may be
     /// different than the corresponding Swift property names.
@@ -157,7 +157,7 @@ extension Google_Protobuf_FieldMask {
         self.init(protoPaths: protoPaths)
     }
 
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
+    /// Creates a field mask from the given JSON-formatted paths.
     ///
     /// The paths should match the JSON names of the fields, which may be
     /// different than the corresponding Swift property names.
@@ -214,8 +214,9 @@ extension Google_Protobuf_FieldMask {
 
 extension Google_Protobuf_FieldMask {
 
-    /// Adds a path to FieldMask after checking whether the given path is valid.
-    /// This method check-fails if the path is not a valid path for Message type.
+    /// Adds a path to the field mask after checking whether the given path is valid.
+    ///
+    /// This method throws an error if the path is not a valid path for the given message type.
     ///
     /// - Parameters:
     ///   - path: Path to be added to FieldMask.
@@ -230,7 +231,9 @@ extension Google_Protobuf_FieldMask {
         paths.append(path)
     }
 
-    /// Converts a FieldMask to the canonical form. It will:
+    /// Converts a FieldMask to the canonical form.
+    ///
+    /// It will:
     ///   1. Remove paths that are covered by another path. For example,
     ///      "foo.bar" is covered by "foo" and will be removed if "foo"
     ///      is also in the FieldMask.
@@ -308,10 +311,11 @@ extension Google_Protobuf_FieldMask {
         }
     }
 
-    /// Returns true if path is covered by the given FieldMask. Note that path
-    /// "foo.bar" covers all paths like "foo.bar.baz", "foo.bar.quz.x", etc.
-    /// Also note that parent paths are not covered by explicit child path, i.e.
-    /// "foo.bar" does NOT cover "foo", even if "bar" is the only child.
+    /// Returns true if path is covered by the given FieldMask.
+    ///
+    /// For example, path "foo.bar" covers all paths like "foo.bar.baz" and "foo.bar.quz.x".
+    /// Parent paths are not covered by an explicit child path: "foo.bar" does not cover
+    /// "foo", even if "bar" is the only child.
     ///
     /// - Parameter path: Path to be checked.
     /// - Returns: Boolean determines is path covered.
