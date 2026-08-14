@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Additional capabilities needed by messages that allow extensions.
-///
+//
+// Additional capabilities needed by messages that allow extensions.
+//
 // -----------------------------------------------------------------------------
 
 // Messages that support extensions implement this protocol

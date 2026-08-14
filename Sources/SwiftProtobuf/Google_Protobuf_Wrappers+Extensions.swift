@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to the well-known types in wrapper.proto that customize the JSON
-/// format of those messages and provide convenience initializers from literals.
-///
+//
+// Extensions to the well-known types in wrapper.proto that customize the JSON
+// format of those messages and provide convenience initializers from literals.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

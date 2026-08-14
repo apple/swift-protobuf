@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Hand written storage class for Google_Protobuf_Any to support on demand
-/// transforms between the formats.
-///
+//
+// Hand written storage class for Google_Protobuf_Any to support on demand
+// transforms between the formats.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

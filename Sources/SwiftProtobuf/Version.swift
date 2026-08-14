@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A interface for exposing the version of the runtime.
-///
+//
+// A interface for exposing the version of the runtime.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `Google_Protobuf_Edition` provide some simple helpers.
-///
+//
+// Extensions to `Google_Protobuf_Edition` provide some simple helpers.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation

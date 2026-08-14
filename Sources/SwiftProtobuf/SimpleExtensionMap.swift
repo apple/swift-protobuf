@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A default implementation of ExtensionMap.
-///
+//
+// A default implementation of ExtensionMap.
+//
 // -----------------------------------------------------------------------------
 
 // Note: The generated code only relies on ExpressibleByArrayLiteral

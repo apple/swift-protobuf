@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This class represents a single Oneof in the proto and generates an efficient
-/// algebraic enum to store it in memory.
-///
+//
+// This class represents a single Oneof in the proto and generates an efficient
+// algebraic enum to store it in memory.
+//
 // -----------------------------------------------------------------------------
 import Foundation
 import SwiftProtobuf

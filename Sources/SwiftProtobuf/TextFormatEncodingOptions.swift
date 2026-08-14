@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Text format encoding options
-///
+//
+// Text format encoding options
+//
 // -----------------------------------------------------------------------------
 
 /// Options for TextFormatEncoding.

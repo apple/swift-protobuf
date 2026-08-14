@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Core protocols implemented by generated extensions.
-///
+//
+// Core protocols implemented by generated extensions.
+//
 // -----------------------------------------------------------------------------
 
 //

@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Generic type representing proto map<> fields.
-///
+//
+// Generic type representing proto map<> fields.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
