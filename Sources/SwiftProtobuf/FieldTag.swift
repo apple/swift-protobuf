@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Types related to binary encoded tags (field numbers and wire formats).
-///
+//
+// Types related to binary encoded tags (field numbers and wire formats).
+//
 // -----------------------------------------------------------------------------
 
 /// Encapsulates the number and wire format of a field, which together form the
@@ -17,8 +17,9 @@
 ///
 /// This type also validates tags in that it will never allow a tag with an
 /// improper field number (such as zero) or wire format (such as 6 or 7) to
-/// exist. In other words, a `FieldTag`'s properties never need to be tested
-/// for validity because they are guaranteed correct at initialization time.
+/// exist. In other words, callers never need to test a `FieldTag`'s
+/// properties for validity because the initializer guarantees they are
+/// correct.
 package struct FieldTag: RawRepresentable {
 
     package typealias RawValue = UInt32

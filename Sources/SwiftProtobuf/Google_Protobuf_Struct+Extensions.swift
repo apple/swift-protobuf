@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Struct is a well-known message type that can be used to parse or encode
-/// arbitrary JSON objects without a predefined schema.
-///
+//
+// Struct is a well-known message type you can use to parse or encode
+// arbitrary JSON objects without a predefined schema.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
@@ -66,7 +66,7 @@ extension Google_Protobuf_Struct {
     /// Creates a struct from the dictionary of string keys and values you provide.
     ///
     /// - Parameter fields: The dictionary from field names to
-    ///   ``Google_Protobuf_Value`` messages that should be used to create the
+    ///   ``Google_Protobuf_Value`` messages to use to create the
     ///   `Struct`.
     public init(fields: [String: Google_Protobuf_Value]) {
         self.init()
@@ -76,8 +76,9 @@ extension Google_Protobuf_Struct {
     /// Accesses the value for the key you provide, for reading and writing.
     ///
     /// This key-based subscript returns the value for the key you provide, or
-    /// nil if the key isn't found. If you assign nil as the value for that
-    /// key, the struct removes the key and its associated value.
+    /// nil if the struct doesn't contain the key. If you assign nil as the
+    /// value for that key, the struct removes the key and its associated
+    /// value.
     public subscript(key: String) -> Google_Protobuf_Value? {
         get { fields[key] }
         set(newValue) { fields[key] = newValue }

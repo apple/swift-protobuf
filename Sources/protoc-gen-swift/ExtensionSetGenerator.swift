@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Each instance of ExtensionGenerator represents a single Proto2 extension
-/// and contains the logic necessary to emit the various required sources.
-/// Note that this wraps the same FieldDescriptorProto used by MessageFieldGenerator,
-/// even though the Swift source emitted is very, very different.
-///
+//
+// Each instance of ExtensionGenerator represents a single Proto2 extension
+// and contains the logic necessary to emit the various required sources.
+// Note that this wraps the same FieldDescriptorProto that MessageFieldGenerator
+// uses, even though the Swift source emitted is very, very different.
+//
 // -----------------------------------------------------------------------------
 import Foundation
 import SwiftProtobuf

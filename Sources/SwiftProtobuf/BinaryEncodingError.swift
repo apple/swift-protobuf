@@ -17,7 +17,7 @@ public enum BinaryEncodingError: Error, Hashable {
     /// An unexpected failure when deserializing an Any message.
     case anyTranscodeFailure
     /// The definition of the message or one of its nested messages has required
-    /// fields that the message being encoded didn't include values for.
+    /// fields that the message you're encoding didn't include values for.
     ///
     /// Pass `partial: true` during encoding if you want to explicitly ignore
     /// missing required fields.

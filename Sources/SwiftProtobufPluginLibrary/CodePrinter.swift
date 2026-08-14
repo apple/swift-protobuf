@@ -23,15 +23,15 @@ public struct CodePrinter {
 
     private static let kNewline: String.UnicodeScalarView.Element = "\n"
 
-    /// The string content that was printed.
+    /// The string content this printer has accumulated.
     public var content: String {
         String(contentScalars)
     }
 
-    /// See if anything was printed.
+    /// Whether this printer has printed anything yet.
     public var isEmpty: Bool { contentScalars.isEmpty }
 
-    /// The Unicode scalar buffer used to build up the printed contents.
+    /// The Unicode scalar buffer the printer uses to build up its contents.
     private var contentScalars = String.UnicodeScalarView()
 
     /// The `UnicodeScalarView` representing a single indentation step.
@@ -44,8 +44,8 @@ public struct CodePrinter {
     /// of a line.
     private var atLineStart = true
 
-    /// Keeps track of if a newline should be added after each string to the
-    /// print apis.
+    /// Keeps track of whether the print APIs should add a newline after each
+    /// string.
     private let newlines: Bool
 
     public init(indent: String.UnicodeScalarView = "  ".unicodeScalars) {
@@ -84,7 +84,7 @@ public struct CodePrinter {
     }
 
     /// Initialize a new printer using the existing state from another printer
-    /// but with control over whether newlines are added.
+    /// but with control over whether the print APIs add newlines.
     ///
     /// This can be useful to use with generation subtasks, so see if they
     /// actually generate something (via `isEmpty`) to then optionally add it
@@ -105,15 +105,15 @@ public struct CodePrinter {
     /// Writes the strings you provide to the printer, adding a newline after each
     /// string.
     ///
-    /// Newlines within the strings are honored and indentention is applied.
+    /// The printer honors newlines within the strings and applies indentation.
     ///
-    /// The `addNewlines` value from initializing the printer controls if
-    /// newlines are appended after each string.
+    /// The `addNewlines` value from initializing the printer controls whether
+    /// the printer appends newlines after each string.
     ///
-    /// If called with no strings, a blank line is added to the printer
-    /// (even is `addNewlines` was false at initialization of the printer.
+    /// Calling this with no strings adds a blank line to the printer (even if
+    /// `addNewlines` was false when you initialized the printer).
     ///
-    /// - Parameter text: A variable-length list of strings to be printed.
+    /// - Parameter text: A variable-length list of strings to print.
     public mutating func print(_ text: String...) {
         if text.isEmpty {
             contentScalars.append(CodePrinter.kNewline)
@@ -128,12 +128,12 @@ public struct CodePrinter {
     /// Writes the strings you provide to the printer, optionally adding a newline
     /// after each string.
     ///
-    /// If called with no strings, a blank line is added to the printer.
+    /// Calling this with no strings adds a blank line to the printer.
     ///
-    /// Newlines within the strings are honored and indentention is applied.
+    /// The printer honors newlines within the strings and applies indentation.
     ///
     /// - Parameters
-    ///   - text: A variable-length list of strings to be printed.
+    ///   - text: A variable-length list of strings to print.
     ///   - newlines: Boolean to control adding newlines after each string. This
     ///       is an explicit override of the `addNewlines` value using to
     ///       initialize this `CodePrinter`.
@@ -154,12 +154,12 @@ public struct CodePrinter {
 
     /// Indents, writes the strings you provide to the printer, and then outdents.
     ///
-    /// Newlines within the strings are honored and indentention is applied.
+    /// The printer honors newlines within the strings and applies indentation.
     ///
-    /// The `addNewlines` value from initializing the printer controls if
-    /// newlines are appended after each string.
+    /// The `addNewlines` value from initializing the printer controls whether
+    /// the printer appends newlines after each string.
     ///
-    /// - Parameter text: A variable-length list of strings to be printed.
+    /// - Parameter text: A variable-length list of strings to print.
     public mutating func printIndented(_ text: String...) {
         indent()
         for t in text {
@@ -190,9 +190,9 @@ public struct CodePrinter {
     ///
     /// - Parameters:
     ///   - printer: The other `CodePrinter` to copy from.
-    ///   - indenting: Boolean, if the text being appended should be reindented
-    ///       to the current state of this printer. If the `printer` was
-    ///       initialized off of this printer, there isn't a need to reindent.
+    ///   - indenting: Boolean; if true, this reindents the appended text to the
+    ///       current state of this printer. If you initialized `printer`
+    ///       from this printer, there isn't a need to reindent.
     public mutating func append(_ printer: CodePrinter, indenting: Bool = false) {
         if indenting {
             printInternal(printer.contentScalars, addNewline: false)
@@ -219,8 +219,7 @@ public struct CodePrinter {
     /// Indents, calls body to do other work relaying along the printer, and
     /// then outdents.
     ///
-    /// - Parameter body: A closure that is invoked after the indent is
-    ///     increasted.
+    /// - Parameter body: A closure that runs after this increases the indent.
     public mutating func withIndentation(body: (_ p: inout CodePrinter) -> Void) {
         indent()
         body(&self)

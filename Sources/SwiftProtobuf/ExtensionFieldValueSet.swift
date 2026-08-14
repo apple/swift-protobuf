@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A collection of extension field values on a particular object.
-///
-/// This is only used within messages to manage the values of extension fields;
-/// it does not need to be very sophisticated.
-///
+//
+// A collection of extension field values on a particular object.
+//
+// Generated messages use this only to manage the values of extension fields;
+// it does not need to be very sophisticated.
+//
 // -----------------------------------------------------------------------------
 
 public struct ExtensionFieldValueSet: Hashable, Sendable {

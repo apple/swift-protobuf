@@ -98,8 +98,8 @@ func ==(lhs: Example, rhs: Example) -> Bool
 The name of generated struct is based on the name of the
 message in the proto file.
 
-For top-level messages, the name is prefixed with the proto package
-name as specified in any `package` statements.  The name is converted
+For top-level messages, the generator prefixes the name with the proto
+package name specified in any `package` statements. It converts the name
 to camel case with underscore separators to preserve the structure.
 
 For example,
@@ -115,7 +115,7 @@ For example,
 ```
 by default generates a struct named `MyCompany_CoolProject_FooBar`
 with another `Baz` struct nested inside it.
-Note that `Baz` is not prefixed because it is scoped to the parent type.
+Note that the generator doesn't prefix `Baz` because it's scoped to the parent type.
 
 You can change the prefix with the `option swift_prefix` statement
 in your proto file:
@@ -128,7 +128,7 @@ in your proto file:
    }
 ```
 generates a struct named `MyFooBar`.
-(Note: `swift_prefix` is only supported by protoc 3.2 or later.)
+(Note: Only protoc 3.2 or later supports `swift_prefix`.)
 
 :warning: The `swift_prefix` option has proven problematic in practice.
 Because it ignores the `package` directive, it can easily lead to name
@@ -145,27 +145,27 @@ name for the full build to thus avoid the conflicts.
 
 If the resulting name collides with a Swift reserved word
 or otherwise causes problems in the generated code,
-then the word `Message` is appended to the name.
+then the generator appends the word `Message` to the name.
 For example, a `message Int` in the proto file causes the
 generator to emit a `struct IntMessage` to the generated Swift file.
 
 ## Enum API
 
-Proto enums are translated to Swift enums in a fairly straightforward manner.
+The generator translates proto enums to Swift enums in a fairly straightforward manner.
 The resulting Swift enums conform to the ``Enum`` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
 The generated Swift enum has a case for each enum value in the proto file.
 
-Proto3 enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
-an unrecognized value is parsed from protobuf serialization or from other
-serializations that store integer enum values.
+Proto3 enums have an additional `UNRECOGNIZED(Int)` case, which the decoder
+uses whenever it parses an unrecognized value from protobuf serialization or
+from other serializations that store integer enum values.
 Proto2 enums lack this extra case.
 
 If deserialization encounters an unknown value:
--  For JSON, if the value was in _string_ form, it causes a parsing error as
-   it can't be mapped to a value. If the value was an integer value, then a
-   proto3 syntax enum can still capture it via the `UNRECOGNIZED(Int)` case.
-- For protobuf binary, the value is handled as an unknown field.
+-  For JSON, if the value was in _string_ form, it causes a parsing error
+   because the decoder can't map it to a value. If the value was an integer
+   value, then a proto3 syntax enum can still capture it via the `UNRECOGNIZED(Int)` case.
+- For protobuf binary, the decoder handles the value as an unknown field.
 
 ```swift
 public enum MyEnum: SwiftProtobuf.Enum {
@@ -192,21 +192,21 @@ public enum MyEnum: SwiftProtobuf.Enum {
 
 ### Enum and enum case naming
 
-The name of the Swift enum is copied directly from the name in the proto file,
-prefixed with the package name or the name from `option swift_prefix`
+The generator copies the name of the Swift enum directly from the name in the
+proto file, prefixed with the package name or the name from `option swift_prefix`
 as documented above for messages.
 If that name conflicts with a Swift reserved word or otherwise
-cause problems for the generated code, the word `Enum` is
-appended to the name.
+causes problems for the generated code, the generator appends
+the word `Enum` to the name.
 
-Enum case names are converted from `UPPER_SNAKE_CASE` conventions
+The generator converts enum case names from `UPPER_SNAKE_CASE` conventions
 in the proto file to `lowerCamelCase` in the Swift code.
 
 If the enum case name includes the enum name as a prefix (ignoring case
-and underscore characters), that prefix is stripped.
+and underscore characters), the generator strips that prefix.
 If the stripped name conflicts with another entry in the
-same enum, the conflicting cases have their respective numeric values
-appended to ensure the results are unique.
+same enum, the generator appends each conflicting case's numeric value
+to keep the results unique.
 For example:
 ```protobuf
 syntax = "proto3";
@@ -229,7 +229,7 @@ enum TestEnum {
 
 Note #1: Enum aliases can potentially result in conflicting names
 even after appending the case numeric value.
-Since aliases are only supported to provide alternate names for
+Since proto2 only supports aliases as alternate names for
 the same underlying numeric value, SwiftProtobuf simply drops
 the alias in such cases.
 See the protobuf documentation for `allow_alias` for more information
@@ -243,10 +243,10 @@ appends an additional underscore `_` to the converted name.
 
 ## Message Fields
 
-Each message field in the `proto` file is compiled into a corresponding
-property on the generated struct.
-Field names are converted from `snake_case` conventions in the proto
-file to `lowerCamelCase` property names in the Swift file.
+The generator compiles each message field in the `proto` file into a
+corresponding property on the generated struct. It converts field names
+from `snake_case` conventions in the proto file to `lowerCamelCase`
+property names in the Swift file.
 
 Note: In many cases where the resulting name causes a problem in
 the generated Swift, the code generator protects the field name by
@@ -254,7 +254,7 @@ surrounding it with backticks.
 Sometimes, this is insufficient and the code generator appends
 a `_p` to the converted name.
 
-Types in the proto file are mapped to Swift types as follows:
+The generator maps types in the proto file to Swift types as follows:
 
 ### Basic types
 
@@ -293,34 +293,34 @@ messages.
 ### Type modifiers
 
 **Proto3 singular fields** generate properties of the corresponding type above.
-These properties are initialized to the appropriate default value as specified
-in the proto3 specification:
+The generated initializer sets these properties to the appropriate default
+value specified in the proto3 specification:
 
-* Numeric fields are initialized to zero.
-* Boolean fields are initialize to false.
-* String fields are initialized to the empty string.
-* Bytes fields are initialized to an empty Data() object.
-* Enum fields are initialized to the default value (the value corresponding to
+* Numeric fields: zero.
+* Boolean fields: false.
+* String fields: the empty string.
+* Bytes fields: an empty `Data()` object.
+* Enum fields: the default value (the value corresponding to
   zero, which must be the first item in the enum).
-* Message fields are initialized to an empty message of the appropriate type.
+* Message fields: an empty message of the appropriate type.
 
-Notes: For performance, the field may be initialized lazily, but this is
-invisible to the user.  The property is serialized if it has a non-default
-value.
+Notes: For performance, the generated accessor may initialize the field
+lazily, but this is invisible to the user. The encoder serializes the
+property only if it has a non-default value.
 
 **Proto2 `optional` fields** generate properties of the corresponding
 type above.
-It also generates `has` and `clear` methods that can be used to
-test whether the field has a value or to reset it to it's default.
-If a default value was specified in the proto file, the field is
-initialized to that value, and is reset to that value when
-you invoke the `clear` method.
-If no default value was specified, the default value is the same
-as for proto3 singular fields above.
+It also generates `has` and `clear` methods that you can use to
+test whether the field has a value or to reset it to its default.
+If the `.proto` file specifies a default value, the generated initializer
+sets the field to that value, and the `clear` method resets it to that
+value when you invoke it.
+If the `.proto` file doesn't specify a default value, the default value is
+the same as for proto3 singular fields above.
 
 **Proto2 `required` fields** Required fields behave the same as
 optional fields, except that binary serialization or deserialization may
-fail if the field is not provided.
+fail if you don't provide the field.
 
 To illustrate the handling of proto2 fields, consider the following
 short example:
@@ -349,22 +349,22 @@ public struct ExampleProto2 {
 
 **Singular message fields** generate simple properties of the corresponding
 Swift struct type.
-The fields are initialized with default instances of the struct.
-(This initialization is usually done lazily the first time you read such
+The generated initializer sets the fields to default instances of the struct.
+(The generated accessor usually performs this initialization lazily, the first time you read such
 a field.)
 Message fields generate `has` and `clear` methods as above for both proto2
 and proto3.
 
 **Proto2 groups** act exactly like messages in all respects, except that
-they are serialized differently when they appear as a field value.
+the encoder serializes them differently when they appear as a field value.
 
 **Proto `repeated` fields** generate simple properties of type `Array<T>` where
 T is the base type from above.
-Repeated fields are always initialized to an empty array.
+The generated initializer always sets repeated fields to an empty array.
 
 **Proto `map` fields** generate simple properties of type `Dictionary<T,U>`
 where T and U are the respective key and value types from above.
-Map fields are always initialized to an empty map.
+The generated initializer always sets map fields to an empty map.
 
 ### Oneof fields
 
@@ -373,7 +373,7 @@ These enums conform to `Equatable` and `Sendable`.
 Every case has an associated value corresponding to the declared field.
 
 The message has a read/write property named after the enum which contains
-the enum value; this property has an optional type and is `nil` if no oneof field is set.
+the enum value; this property has an optional type and is `nil` until you set one of the oneof fields.
 
 It also contains a separate read/write
 computed property for each member field of the enum.
@@ -430,10 +430,10 @@ public struct ExampleOneOf: SwiftProtobuf.Message {
 ## Well-Known Types
 
 For most of the proto3 well-known types, the Swift API is exactly what you
-expect from the corresponding proto definitions.  (In fact, the runtime library
-version for most of these is simply generated.)  For convenience, most of these
+expect from the corresponding proto definitions.  (In fact, protoc-gen-swift
+generates the runtime library version for most of these the same way.)  For convenience, most of these
 also have hand-written extensions that expand the functionality with various
-convenience methods.  The variations from the default generated behavior are described below.
+convenience methods. The following sections describe the variations from the default generated behavior.
 
 | Proto Type                  |  Swift Type               |
 | -------------------------   | -----------------------   |
@@ -458,12 +458,11 @@ convenience methods.  The variations from the default generated behavior are des
 
 
 For most of these types, you should refer to Google's documentation.
-Details are provided here to explain details of how these are
-implemented by SwiftProtobuf.
+This section explains how SwiftProtobuf implements these types.
 
 ### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ListValue
 
-These types can be used for ad hoc encoding and decoding of arbitrary
+You can use these types for ad hoc encoding and decoding of arbitrary
 JSON structures.
 
 They are particularly useful when dealing with legacy JSON formats where
@@ -500,7 +499,7 @@ a `oneof` view of the contents.
 
 ### Google_Protobuf_Any
 
-The `google.protobuf.Any` proto type is provided as ``Google_Protobuf_Any``.
+SwiftProtobuf provides the `google.protobuf.Any` proto type as ``Google_Protobuf_Any``.
 This type serves as a general container that can store any protobuf
 message type.
 
@@ -536,15 +535,15 @@ Of course, after decoding an `ExampleAny`, you need to inspect the
     }
 ```
 
-Caveat:  The inner object is not actually decoded until you
-call the `unpackingAny` initializer.
+Caveat:  The `unpackingAny` initializer doesn't actually decode the inner
+object until you call it.
 In particular, it is possible for the outer object to decode
 successfully even when the inner object is malformed.
 
 You can also, of course, have `repeated` Any fields or
 use them in other more complex structures.
 
-When coded to JSON format, the Any field is written
+When you encode the Any field to JSON format, SwiftProtobuf writes it
 in a verbose form that expands the JSON encoding of the
 contained object.
 This makes the result easier to read and easier to interoperate
@@ -564,7 +563,7 @@ back to JSON.  It only needs the types when translating
 between dissimilar encodings.
 
 Caveat:  SwiftProtobuf's Text format decoding currently
-ignores Any fields if the types are not registered.
+ignores Any fields if you haven't registered the types.
 
 ### Google_Protobuf_Duration, Google_Protobuf_Timestamp
 
@@ -577,10 +576,10 @@ than 315576000000 seconds or if the timestamp is before `0001-01-01T00:00:00Z`
 or after `9999-12-31T23:59:59.999999999Z` in the Gregorian proleptic calendar.
 
 The ``Google_Protobuf_Duration`` type conforms to
-`ExpressibleByFloatLiteral`; it can be initialized with a double representing
+`ExpressibleByFloatLiteral`; you can initialize it with a double representing
 the number of seconds.
 
-A ``Google_Protobuf_Duration`` can be converted to and from a Foundation `TimeInterval`:
+You can convert a ``Google_Protobuf_Duration`` to and from a Foundation `TimeInterval`:
 ```swift
 extension Google_Protobuf_Duration {
    public init(timeInterval: TimeInterval)
@@ -588,7 +587,7 @@ extension Google_Protobuf_Duration {
 }
 ```
 
-A ``Google_Protobuf_Timestamp`` can be converted to and from common Foundation timestamp
+You can convert a ``Google_Protobuf_Timestamp`` to and from common Foundation timestamp
 representations:
 ```swift
 extension Google_Protobuf_Timestamp {
@@ -655,14 +654,14 @@ only these specified fields while leaving others unchanged.
 
 ## Extensions
 
-Extensions are used to add additional properties to messages defined elsewhere.
-They are fully supported in proto2 files.
+Extensions add additional properties to messages defined elsewhere.
+Proto2 fully supports them.
 
-They are supported in proto3 only when extending the standard Descriptor type.
+Proto3 supports them only when you extend the standard Descriptor type.
 
-Extensions are ignored when serializing or deserializing to JSON.
+The JSON encoder and decoder ignore extensions.
 
-They are defined in proto2 files as follows:
+You define them in proto2 files as follows:
 
 ```protobuf
 /// File sample.proto
@@ -684,9 +683,9 @@ There are several pieces to the extension support:
   should _not_ need to use these methods directly.
 
 * **Extension objects** are opaque objects that define the extension itself,
-  including storage and serialization details.  Because proto allows extension
-  names to be reused in different scopes, these objects appear in the scope
-  corresponding to the context where the proto extension was defined (file
+  including storage and serialization details.  Because proto allows you to
+  reuse extension names in different scopes, these objects appear in the scope
+  corresponding to the context where you defined the proto extension (file
   level or within the message that wrapped the `extend` directive); generally
   it does not correspond to that of the message being extended.  In the above
   example, the extension object is `Extensions_extensionField` at the
@@ -694,43 +693,43 @@ There are several pieces to the extension support:
   these directly.
 
 * **Extension properties** use Swift's `extension` capability to add properties
-  to the message that is being extended.  In most cases, you can simply use
+  to the extended message.  In most cases, you can simply use
   the extension properties without understanding any of the other extension
   machinery.  The above example creates a Swift extension of `CanBeExtended`
   that defines a new property `extensionField` of type `Int32`.
 
 * **Extension maps** are collections of extension objects indexed by the target
-  message and field number.  An extension map is generated for every file that
-  defined proto extensions and included as a static global variable.  It is
-  named based on the proto package, filename, and then ends in `_Extensions`,
-  so the above file is `Sample_Extensions`. These maps are then used
-  by the ``Message`` APIs for parsing/merging extension fields in the binary
-  data; if a mapping isn't found, the extension field ends up in the
+  message and field number.  The generator generates an extension map for every file
+  that defines proto extensions and includes it as a static global variable. It
+  names the map based on the proto package and filename, then appends `_Extensions`,
+  so the above file is `Sample_Extensions`. The ``Message`` APIs then use these maps
+  for parsing/merging extension fields in the binary
+  data; if a lookup doesn't find a mapping, the extension field ends up in the
   `unknownFields` on the message.
 
   If you need to handle extensions defined in multiple files, you can build up
-  your own `ExtensionMap` will all the data by using
+  your own `ExtensionMap` with all the data by using
   [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/main/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
   The easiest way is to create a new `SimpleExtensionMap` passing in a list
-  of the generated `*_Extensions` `ExtensionMap`s that were generated for you
+  of the generated `*_Extensions` `ExtensionMap`s the generator created for you
   in each file (for example, `let myMap = SimpleExtensionMap(Sample_Extensions, …)`).
 
 ## Descriptors
 
 Some other languages expose _Descriptor_ objects for messages, enums, fields,
 and oneof, but not all languages. The `.proto` language also allows developers
-to add options to messages, fields, etc. that can be looked up at runtime in
+to add options to messages, fields, etc. that you can look up at runtime in
 those descriptors.
 
 Support for descriptors ends up requiring some amount of code, but more
 importantly it requires capturing a large binary blob of data for every
-message, enum, oneof, etc. That data has two potential issues, it bloats the
-binaries, and it is something that can be extracted from the binary to help
+message, enum, oneof, etc. That data has two potential issues: it bloats the
+binaries, and someone can extract it from the binary to help
 reverse engineer details about the binary.
 
-For these reasons, SwiftProtobuf does not current support anything like the
-Descriptor objects. It is something that could get revisited in the future,
-but will need careful consideration; the bloat/size issues is of the most
+For these reasons, SwiftProtobuf does not currently support anything like the
+Descriptor objects. The SwiftProtobuf team could revisit this in the future,
+but it will need careful consideration; the bloat/size issues are of the most
 concern because of Swift's common use for mobile applications.
 
 ## FieldMask Utilities
@@ -740,13 +739,13 @@ convenience APIs require the `FieldMaskUtilities` trait, which is enabled by def
 
 ### Merging Two Messages
 
-The `merge(from:fieldMask:)` function in Swift Protobuf selectively merges 
-fields from one message into another, guided by a ``Google_Protobuf_FieldMask``. 
-This method is particularly useful when you need to update only specific 
-fields in a message without affecting others. 
-The `merge` function is available as a method on ``Message`` types and requires two parameters: 
-the source message (`from`) containing the data to merge 
-and the `fieldMask` that specifies which fields should be updated.
+The `merge(from:fieldMask:)` function in Swift Protobuf selectively merges
+fields from one message into another, guided by a ``Google_Protobuf_FieldMask``.
+This method is particularly useful when you need to update only specific
+fields in a message without affecting others.
+The `merge` function is available as a method on ``Message`` types and requires two parameters:
+the source message (`from`) containing the data to merge
+and the `fieldMask` that specifies which fields to update.
 
 For example, consider a message with the following structure:
 
@@ -798,9 +797,9 @@ try message1.merge(from: message2, fieldMask: fieldMask)
 After this operation, `message1.bar` has the value `"bar2"` from `message2`, 
 and `message1.nested.qux` has the value `"qux2"` from `message2`, 
 while `message1.foo` and `message1.nested.baz` remain `"foo1"` and `"baz1"`. 
-Be aware that including `"nested"` in the FieldMask paths causes all fields 
-within `message1.nested` to be updated from `message2` (including `baz` and `qux`), 
-whereas adding `"nested.qux"` only affects the `qux` field in the `nested` message. 
+Be aware that including `"nested"` in the FieldMask paths causes `merge` to update all fields
+within `message1.nested` from `message2` (including `baz` and `qux`),
+whereas adding `"nested.qux"` only affects the `qux` field in the `nested` message.
 The `merge` function operates in-place, meaning it directly modifies `message1`.
 
 ### Trimming a Message
@@ -832,17 +831,17 @@ message.trim(keeping: fieldMask)
 ```
 
 After this operation, the `bar` field in `message` still has the value `"bar"`, 
-while the `foo` field is cleared, resetting to its default value (an empty string, 
-in this case). The `trim(keeping:)` function operates in-place, meaning it directly 
+while `trim` clears the `foo` field, resetting it to its default value (an empty string,
+in this case). The `trim(keeping:)` function operates in-place, meaning it directly
 modifies the original message.
 
 ## Aside:  proto2 vs. proto3 syntax
 
 The terms *proto2* and *proto3* refer to two different dialects of the proto
-*language.*  The older proto2 language dates back to 2008, the proto3 language
-was introduced in 2015.  These should not be confused with versions of the
+*language.*  The older proto2 language dates back to 2008; Google introduced the
+proto3 language in 2015.  Don't confuse these with versions of the
 protobuf *project* or the protoc *software*.  In particular, the protoc 3.x
 software has solid support for both proto2 and proto3 language dialects.  Many
 people continue to use the proto2 language with protoc 3.x software because they have
 existing systems that depend on particular features of the proto2 language that
-were changed in the proto3 language.
+proto3 changed.

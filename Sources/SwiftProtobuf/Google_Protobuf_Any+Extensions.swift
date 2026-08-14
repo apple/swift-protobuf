@@ -28,10 +28,10 @@ extension Google_Protobuf_Any {
     ///
     /// This corresponds to the `pack` operation in the C++ API.
     ///
-    /// Unlike the C++ implementation, the message is not immediately
-    /// serialized; it is merely stored until the Any object itself
-    /// needs to be serialized.  This design avoids unnecessary
-    /// decoding/recoding when writing JSON format.
+    /// Unlike the C++ implementation, this initializer doesn't serialize the
+    /// message immediately; it stores the message and serializes it only
+    /// when you serialize the Any object itself. This design avoids
+    /// unnecessary decoding/recoding when writing JSON format.
     ///
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
@@ -39,10 +39,10 @@ extension Google_Protobuf_Any {
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
-    ///   - typePrefix: The prefix to be used when building the `type_url`.
+    ///   - typePrefix: The prefix to use when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
     /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
-    /// `partial` is false and `message` wasn't fully initialized.
+    /// `partial` is false and you didn't fully initialize `message`.
     public init(
         message: any Message,
         partial: Bool = false,
@@ -60,9 +60,9 @@ extension Google_Protobuf_Any {
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - extensions: An ``ExtensionMap`` the decoder uses to look up and
+    ///     decode any extensions in this message or messages nested within
+    ///     this message's fields.
     /// - Throws: an instance of ``TextFormatDecodingError`` on failure.
     @_disfavoredOverload
     public init(
@@ -82,9 +82,9 @@ extension Google_Protobuf_Any {
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
     ///   - options: The ``TextFormatDecodingOptions`` to use.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - extensions: An ``ExtensionMap`` the decoder uses to look up and
+    ///     decode any extensions in this message or messages nested within
+    ///     this message's fields.
     /// - Throws: ``TextFormatDecodingError`` on failure.
     public init(
         textFormatString: String,
@@ -115,7 +115,7 @@ extension Google_Protobuf_Any {
 
     /// Returns true if this message contains the message type you provide.
     ///
-    /// The check is performed by looking at the passed ``Message`` type and the
+    /// This method compares the ``Message`` type you provide to the
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.

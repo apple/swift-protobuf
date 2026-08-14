@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helper functions to ZigZag encode and decode signed integers.
-///
+//
+// Helper functions to ZigZag encode and decode signed integers.
+//
 // -----------------------------------------------------------------------------
 
 /// Contains helper methods to ZigZag encode and decode signed integers.
@@ -17,9 +17,10 @@ internal enum ZigZag {
 
     /// Return a 32-bit ZigZag-encoded value.
     ///
-    /// ZigZag encodes signed integers into values that can be efficiently encoded with varint.
-    /// (Otherwise, negative values must be sign-extended to 64 bits to be varint encoded, always
-    /// taking 10 bytes on the wire.)
+    /// ZigZag encodes signed integers into values that a varint encoder can
+    /// encode efficiently. (Otherwise, encoders must sign-extend negative
+    /// values to 64 bits before varint-encoding them, always taking 10 bytes
+    /// on the wire.)
     ///
     /// - Parameter value: A signed 32-bit integer.
     /// - Returns: An unsigned 32-bit integer representing the ZigZag-encoded value.
@@ -29,9 +30,10 @@ internal enum ZigZag {
 
     /// Return a 64-bit ZigZag-encoded value.
     ///
-    /// ZigZag encodes signed integers into values that can be efficiently encoded with varint.
-    /// (Otherwise, negative values must be sign-extended to 64 bits to be varint encoded, always
-    /// taking 10 bytes on the wire.)
+    /// ZigZag encodes signed integers into values that a varint encoder can
+    /// encode efficiently. (Otherwise, encoders must sign-extend negative
+    /// values to 64 bits before varint-encoding them, always taking 10 bytes
+    /// on the wire.)
     ///
     /// - Parameter value: A signed 64-bit integer.
     /// - Returns: An unsigned 64-bit integer representing the ZigZag-encoded value.
@@ -41,9 +43,10 @@ internal enum ZigZag {
 
     /// Return a 32-bit ZigZag-decoded value.
     ///
-    /// ZigZag enocdes signed integers into values that can be efficiently encoded with varint.
-    /// (Otherwise, negative values must be sign-extended to 64 bits to be varint encoded, always
-    /// taking 10 bytes on the wire.)
+    /// ZigZag encodes signed integers into values that a varint encoder can
+    /// encode efficiently. (Otherwise, encoders must sign-extend negative
+    /// values to 64 bits before varint-encoding them, always taking 10 bytes
+    /// on the wire.)
     ///
     /// - Parameter value: An unsigned 32-bit ZagZag-encoded integer.
     /// - Returns: The signed 32-bit decoded value.
@@ -53,9 +56,10 @@ internal enum ZigZag {
 
     /// Return a 64-bit ZigZag-decoded value.
     ///
-    /// ZigZag enocdes signed integers into values that can be efficiently encoded with varint.
-    /// (Otherwise, negative values must be sign-extended to 64 bits to be varint encoded, always
-    /// taking 10 bytes on the wire.)
+    /// ZigZag encodes signed integers into values that a varint encoder can
+    /// encode efficiently. (Otherwise, encoders must sign-extend negative
+    /// values to 64 bits before varint-encoding them, always taking 10 bytes
+    /// on the wire.)
     ///
     /// - Parameter value: An unsigned 64-bit ZigZag-encoded integer.
     /// - Returns: The signed 64-bit decoded value.

@@ -7,11 +7,11 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extends the generated Duration struct with various custom behaviors:
-/// * JSON coding and decoding
-/// * Arithmetic operations
-///
+//
+// Extends the generated Duration struct with various custom behaviors:
+// * JSON coding and decoding
+// * Arithmetic operations
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -156,8 +156,8 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
-    /// Creates a duration from a floating-point literal interpreted as seconds,
-    /// rounded to the nearest nanosecond.
+    /// Creates a duration from a floating-point literal, interpreting it as
+    /// seconds and rounding to the nearest nanosecond.
     public init(floatLiteral value: Double) {
         self.init(rounding: value, rule: .toNearestOrAwayFromZero)
     }
@@ -165,8 +165,8 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
 
 extension Google_Protobuf_Duration {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a duration equal to the time interval in seconds you provide, rounded
-    /// to the nearest nanosecond.
+    /// Creates a duration equal to the time interval in seconds you provide,
+    /// rounding to the nearest nanosecond.
     ///
     /// - Parameter timeInterval: The `TimeInterval`.
     @available(*, deprecated, renamed: "init(rounding:rule:)")
@@ -175,8 +175,9 @@ extension Google_Protobuf_Duration {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a duration equal to the time interval in seconds you provide, rounded
-    /// to the nearest nanosecond according to the rounding rule you supply.
+    /// Creates a duration equal to the time interval in seconds you provide,
+    /// rounding to the nearest nanosecond according to the rounding rule you
+    /// supply.
     ///
     /// - Parameters:
     ///   - timeInterval: The `TimeInterval`.

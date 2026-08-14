@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extends the ``Message`` type with ``Google_Protobuf_Any``-specific behavior.
-///
+//
+// Extends the ``Message`` type with ``Google_Protobuf_Any``-specific behavior.
+//
 // -----------------------------------------------------------------------------
 
 extension Message {
@@ -17,9 +17,9 @@ extension Message {
     ///
     /// This corresponds to the `unpack` method in the Google C++ API.
     ///
-    /// If the Any object was decoded from Protobuf Binary or JSON
-    /// format, then the enclosed field data was stored and is not
-    /// fully decoded until you unpack the Any object into a message.
+    /// If the binary or JSON decoder decoded the Any object, it stored the
+    /// enclosed field data and does not fully decode it until you unpack
+    /// the Any object into a message.
     /// As such, this method will typically need to perform a full
     /// deserialization of the enclosed data and can fail for any
     /// reason that deserialization can fail.
@@ -27,9 +27,9 @@ extension Message {
     /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
     ///
     /// - Parameter unpackingAny: the message to decode.
-    /// - Parameter extensions: An ``ExtensionMap`` used to look up and decode any
-    ///   extensions in this message or messages nested within this message's
-    ///   fields.
+    /// - Parameter extensions: An ``ExtensionMap`` that looks up and decodes
+    ///   any extensions in this message or in messages within this
+    ///   message's fields.
     /// - Parameter options: The BinaryDecodingOptions to use.
     /// - Throws: an instance of ``AnyUnpackError``, ``JSONDecodingError``, or
     ///   ``BinaryDecodingError`` on failure.

@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Generated enums conform to SwiftProtobuf.Enum
-///
-/// See ProtobufTypes and JSONTypes for extension
-/// methods to support binary and JSON coding.
-///
+//
+// Generated enums conform to SwiftProtobuf.Enum
+//
+// See ProtobufTypes and JSONTypes for extension
+// methods to support binary and JSON coding.
+//
 // -----------------------------------------------------------------------------
 
 /// Generated enum types conform to this protocol.
@@ -25,7 +25,7 @@ public protocol Enum: RawRepresentable, Hashable, Sendable {
     ///
     /// For proto2 enums, this initializer will fail if the raw value does not
     /// correspond to a valid enum value. For proto3 enums, this initializer never
-    /// fails; unknown values are created as instances of the `UNRECOGNIZED` case.
+    /// fails; it creates unknown values as instances of the `UNRECOGNIZED` case.
     ///
     /// - Parameter rawValue: The raw integer value from which to create the enum
     ///   value.
@@ -34,8 +34,8 @@ public protocol Enum: RawRepresentable, Hashable, Sendable {
     /// The raw integer value of the enum value.
     ///
     /// For a recognized enum case, this is the integer value of the case as
-    /// defined in the .proto file. For `UNRECOGNIZED` cases in proto3, this is
-    /// the value that was originally decoded.
+    /// the .proto file defines it. For `UNRECOGNIZED` cases in proto3, this is
+    /// the value the decoder originally decoded.
     var rawValue: Int { get }
 }
 

@@ -7,19 +7,19 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Serialization/deserialization support for each proto field type.
-///
-/// Note that we cannot just extend the standard Int32, etc, types
-/// with serialization information since proto language supports
-/// distinct types (with different codings) that use the same
-/// in-memory representation.  For example, proto "sint32" and
-/// "sfixed32" both are represented in-memory as Int32.
-///
-/// These types are used generically and also passed into
-/// various coding/decoding functions to provide type-specific
-/// information.
-///
+//
+// Serialization/deserialization support for each proto field type.
+//
+// Note that we cannot just extend the standard Int32, etc, types
+// with serialization information since proto language supports
+// distinct types (with different codings) that use the same
+// in-memory representation.  For example, proto "sint32" and
+// "sfixed32" both use Int32 as their in-memory representation.
+//
+// Generated code uses these types generically and also passes
+// them into various coding/decoding functions to provide
+// type-specific information.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -53,11 +53,12 @@ public protocol FieldType: Sendable {
 }
 
 ///
-/// Marker protocol for types that can be used as map keys
+/// Marker protocol for types usable as map keys
 ///
 @preconcurrency
 public protocol MapKeyType: FieldType {
-    /// A comparison function for where order is needed.  Can't use `Comparable`
+    /// A comparison function that encoders use to order map keys
+    /// deterministically.  Can't use `Comparable`
     /// because `Bool` doesn't conform, and since it is `public` there is no way
     /// to add a conformance internal to SwiftProtobuf.
     static func _lessThan(lhs: BaseType, rhs: BaseType) -> Bool
@@ -71,7 +72,7 @@ extension MapKeyType where BaseType: Comparable {
 }
 
 ///
-/// Marker Protocol for types that can be used as map values.
+/// Marker Protocol for types usable as map values.
 ///
 @preconcurrency
 public protocol MapValueType: FieldType {
@@ -383,7 +384,7 @@ public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
         try visitor.visitPackedBoolField(value: value, fieldNumber: fieldNumber)
     }
 
-    /// Provides the ordering used when boolean values are map keys.
+    /// Provides the ordering encoders use when boolean values are map keys.
     ///
     /// Bool doesn't conform to Comparable, so this custom comparison stands in for it.
     public static func _lessThan(lhs: BaseType, rhs: BaseType) -> Bool {

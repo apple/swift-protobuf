@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON serialization engine.
-///
+//
+// JSON serialization engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -91,7 +91,7 @@ internal struct JSONEncoder {
         data.append(contentsOf: buff)
     }
 
-    /// Append a `_NameMap.Name` to the JSON text surrounded by quotes.
+    /// Append a `_NameMap.Name` to the JSON text, wrapping it in quotes.
     internal mutating func appendQuoted(name: _NameMap.Name) {
         data.append(asciiDoubleQuote)
         // 99.999% of all JSON field names are ASCII, but `json_name` exists as an option in
@@ -101,14 +101,14 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
     }
 
-    /// Append a `String` to the JSON text. The text is assumed well formed for the current context
-    /// and so no processing is done.
+    /// Append a `String` to the JSON text. This assumes the text is well
+    /// formed for the current context and performs no processing.
     internal mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
 
-    /// Append a raw utf8 in a `[UInt8]` to the JSON text. The text is assumed well formed for
-    /// the current context and so no processing is done.
+    /// Append a raw utf8 in a `[UInt8]` to the JSON text. This assumes the text is well formed
+    /// for the current context and performs no processing.
     internal mutating func append(utf8Bytes: [UInt8]) {
         data.append(contentsOf: utf8Bytes)
     }
@@ -317,7 +317,7 @@ internal struct JSONEncoder {
     }
 
     /// Append a buffer with valid utf8 data as if it were a string value, escaping special
-    /// characters as needed, but assume quotes are handled be the caller.
+    /// characters as needed, but assumes the caller handles quotes.
     private mutating func appendEscapedStringValue(utf8Buffer: UnsafeRawBufferPointer) {
         for b in utf8Buffer {
             switch b {
@@ -339,8 +339,8 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Append a string value escaping special characters as needed, but assume quotes are
-    /// handled be the caller.
+    /// Append a string value escaping special characters as needed, but assumes the caller
+    /// handles quotes.
     private mutating func appendEscapedStringValue(string: String) {
         for c in string.unicodeScalars {
             switch c.value {

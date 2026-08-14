@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to ``Message`` to provide binary coding and decoding.
-///
+//
+// Extensions to ``Message`` to provide binary coding and decoding.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -67,7 +67,7 @@ extension Message {
     }
 
     /// Returns the size in bytes required to encode the message in binary format.
-    /// This is used by `serializedData()` to precalculate the size of the buffer
+    /// `serializedData()` calls this to precalculate the size of the buffer
     /// so that encoding can proceed without bounds checks or reallocation.
     internal func serializedDataSize() throws -> Int {
         // Note: since this api is internal, it doesn't currently worry about
@@ -82,7 +82,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -107,7 +107,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -132,13 +132,13 @@ extension Message {
     /// Updates the message by decoding the bytes you provide as a serialized Protocol Buffer binary-format message into
     /// the receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -162,13 +162,13 @@ extension Message {
     #if compiler(>=6.2)
     /// Updates the message by decoding the raw span of bytes you provide as a serialized Protocol Buffer binary-format message into the receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The `RawSpan` of binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check

@@ -17,11 +17,11 @@ public enum BinaryDecodingError: Error {
     /// Extraneous data remained after decoding should have been complete.
     case trailingGarbage
 
-    /// The decoder unexpectedly reached the end of the data before it was
+    /// The decoder unexpectedly reached the end of the data sooner than it
     /// expected.
     case truncated
 
-    /// A string field was not encoded as valid UTF-8.
+    /// A string field's data isn't valid UTF-8.
     case invalidUTF8
 
     /// The binary data was malformed in some way, such as an invalid wire format
@@ -37,9 +37,9 @@ public enum BinaryDecodingError: Error {
 
     /// An internal error happened while decoding.
     ///
-    /// If this is ever encountered, please file an issue with SwiftProtobuf with
-    /// as much details as possible for what happened (proto definitions, bytes
-    /// being decoded (if possible)).
+    /// If you ever encounter this, please file an issue with SwiftProtobuf
+    /// with as many details as possible about what happened (proto
+    /// definitions, the bytes you were decoding, if possible).
     case internalExtensionError
 
     /// Reached the nesting limit for messages within messages while decoding.

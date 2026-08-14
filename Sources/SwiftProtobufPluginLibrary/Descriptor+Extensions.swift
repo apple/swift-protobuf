@@ -105,7 +105,7 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
         return String()
     }
 
-    /// Returns true if the type can be used for a Packed field.
+    /// Returns true if the generator can use the type for a Packed field.
     static func isPackable(type: Google_Protobuf_FieldDescriptorProto.TypeEnum) -> Bool {
         // This logic comes from the C++ FieldDescriptor::IsTypePackable() impl.
         switch type {
@@ -118,9 +118,9 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
 
     /// Helper to return the name to as the "base" for naming of generated fields.
     ///
-    /// Groups use the underlying message's name. The way groups are declared in
-    /// proto files, the filed names is derived by lowercasing the Group's name,
-    /// so there are no underscores, etc. to rebuild a camel case name from.
+    /// Groups use the underlying message's name. Since proto files declare groups
+    /// by lowercasing the Group's name to produce the field name, there are no
+    /// underscores, etc. to rebuild a camel case name from.
     var namingBase: String { isGroupLike ? messageType!.name : name }
 
     // TODO: Remove this when it is safe to make breaking changes.

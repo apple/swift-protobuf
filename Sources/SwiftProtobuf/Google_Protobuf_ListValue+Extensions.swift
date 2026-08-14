@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// ListValue is a well-known message type that can be used to parse or encode
-/// arbitrary JSON arrays without a predefined schema.
-///
+//
+// ListValue is a well-known message type you can use to parse or encode
+// arbitrary JSON arrays without a predefined schema.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {

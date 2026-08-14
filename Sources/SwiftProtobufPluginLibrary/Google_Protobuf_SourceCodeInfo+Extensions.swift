@@ -15,8 +15,8 @@ extension Google_Protobuf_SourceCodeInfo.Location {
 
     /// Builds a source comment out of the location's comment fields.
     ///
-    /// If leadingDetachedPrefix is not provided, those comments won't
-    /// be collected.
+    /// If you don't provide leadingDetachedPrefix, this won't collect those
+    /// comments.
     public func asSourceComment(
         commentPrefix: String,
         leadingDetachedPrefix: String? = nil

@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Test format decoding engine.
-///
+//
+// Test format decoding engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -357,8 +357,8 @@ internal struct TextFormatScanner {
         return s!
     }
 
-    /// Scan a string that encodes a byte field, return a count of
-    /// the number of bytes that should be decoded from it
+    /// Scan a string that encodes a byte field, and return the number of
+    /// bytes it decodes to.
     private mutating func validateAndCountBytesFromString(terminator: UInt8, sawBackslash: inout Bool) throws -> Int {
         var count = 0
         let start = p
@@ -576,7 +576,7 @@ internal struct TextFormatScanner {
         }
     }
 
-    /// Assumes the leading quote has already been consumed
+    /// Assumes the caller has already consumed the leading quote.
     private mutating func parseStringSegment(terminator: UInt8) -> String? {
         let start = p
         var sawBackslash = false
@@ -753,8 +753,8 @@ internal struct TextFormatScanner {
     }
 
     /// Protobuf Text Format allows a single bytes field to
-    /// contain multiple quoted strings.  The values
-    /// are separately decoded and then concatenated:
+    /// contain multiple quoted strings.  This method decodes the values
+    /// separately and then concatenates them:
     ///  field1: "bytes" 'more bytes'
     ///        "and even more bytes"
     internal mutating func nextBytesValue() throws -> Data {
@@ -1077,8 +1077,8 @@ internal struct TextFormatScanner {
     /// Returns next extension key or nil if end-of-input or
     /// if next token is not an extension key.
     ///
-    /// Throws an error if the next token starts with '[' but
-    /// cannot be parsed as an extension key.
+    /// Throws an error if the next token starts with '[' but isn't a
+    /// valid extension key.
     internal mutating func nextOptionalExtensionKey() throws -> String? {
         skipWhitespace()
         if p == end {
@@ -1092,7 +1092,7 @@ internal struct TextFormatScanner {
 
     /// Parse the rest of an ExtensionName or AnyName. See
     ///   https://protobuf.dev/reference/protobuf/textformat-spec/#field-names
-    /// Assumes the initial "[" character has already been read (and is in the prefix)
+    /// Assumes the caller has already read the initial "[" character (and it's still in the prefix)
     private mutating func parseComplexFieldName(allowAnyName: Bool) throws -> String {
         assert(p[0] == asciiOpenSquareBracket)
         p += 1
@@ -1280,7 +1280,7 @@ internal struct TextFormatScanner {
     ///
     /// returns nil at end-of-input
     ///
-    /// Throws if field name cannot be parsed or if field name is
+    /// Throws if it cannot parse the field name or if the field name is
     /// unknown.
     ///
     /// This function accounts for as much as 2/3 of the total run

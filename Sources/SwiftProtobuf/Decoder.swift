@@ -20,7 +20,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Abstract protocol used by the generated code
+/// Abstract protocol that generated code uses
 /// to deserialize data.
 ///
 /// The generated code looks roughly like this:
@@ -59,18 +59,18 @@ import Foundation
 /// polluting the generated `Enum` and `Message` types with all of the
 /// necessary generic methods to support this.
 public protocol Decoder {
-    /// Called when a oneof field already has a value and is being asked to
-    /// accept a new one.
+    /// Called when generated code tries to decode a new value into a oneof
+    /// field that already has a value.
     ///
     /// Some formats require oneof decoding to fail in this case.
     mutating func handleConflictingOneOf() throws
 
-    /// Returns the next field number, or nil when the end of the input is
-    /// reached.
+    /// Returns the next field number, or nil once the decoder reaches the end
+    /// of the input.
     ///
     /// For JSON and text format, the decoder translates the field name to a
     /// number at this point, based on information it obtained from the message
-    /// when it was initialized.
+    /// at initialization.
     mutating func nextFieldNumber() throws -> Int?
 
     /// Decode a float value to non-Optional field storage
@@ -177,7 +177,7 @@ public protocol Decoder {
 
     /// Decode a message value to Optional field storage.
     ///
-    /// Unlike the primitive types, message fields are always stored
+    /// Unlike the primitive types, generated code always stores message fields
     /// as Swift `Optional` values.
     mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws
     /// Decode message values to repeated field storage
@@ -187,9 +187,9 @@ public protocol Decoder {
 
     /// Decode a group value to Optional field storage.
     ///
-    /// Unlike the primitive types, message fields are always stored
+    /// Unlike the primitive types, generated code always stores message fields
     /// as Swift `Optional` values.
-    /// Note that groups are only used in proto2.
+    /// Note that only proto2 uses groups.
     mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws
     /// Decode group values to repeated field storage
     mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws

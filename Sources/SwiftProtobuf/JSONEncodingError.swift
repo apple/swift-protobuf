@@ -14,28 +14,27 @@
 
 /// The errors that can occur when encoding a message to JSON format.
 public enum JSONEncodingError: Error, Hashable {
-    /// Any fields that were decoded from binary format cannot be
-    /// re-encoded into JSON unless the object they hold is a
-    /// well-known type or a type registered with via
-    /// Google_Protobuf_Any.register()
+    /// The JSON encoder cannot re-encode a field that the binary decoder
+    /// produced unless the object it holds is a well-known type or a type
+    /// registered with Google_Protobuf_Any.register()
     case anyTranscodeFailure
-    /// Timestamp values can only be JSON encoded if they hold a value
-    /// between 0001-01-01Z00:00:00 and 9999-12-31Z23:59:59.
+    /// The JSON encoder can only encode a timestamp value that holds a
+    /// value between 0001-01-01Z00:00:00 and 9999-12-31Z23:59:59.
     case timestampRange
-    /// Duration values can only be JSON encoded if they hold a value
-    /// less than +/- 100 years.
+    /// The JSON encoder can only encode a duration value that holds a
+    /// value less than +/- 100 years.
     case durationRange
-    /// Field masks get edited when converting between JSON and protobuf
+    /// Converting between JSON and protobuf edits field masks
     case fieldMaskConversion
-    /// Field names were not compiled into the binary
+    /// The build did not compile field names into the binary
     case missingFieldNames
     /// A value that must hold one of its supported kinds didn't have any set.
     ///
-    /// Instances of ``Google_Protobuf_Value`` can only be encoded if they have a
-    /// valid `kind` (that is, they represent a null value, number, boolean,
-    /// string, struct, or list).
+    /// The encoder can only encode an instance of ``Google_Protobuf_Value``
+    /// that has a valid `kind` (that is, it represents a null value, number,
+    /// boolean, string, struct, or list).
     case missingValue
     /// google.protobuf.Value cannot encode double values for infinity or nan,
-    /// because they would be parsed as a string.
+    /// because the parser would parse them as a string.
     case valueNumberNotFinite
 }

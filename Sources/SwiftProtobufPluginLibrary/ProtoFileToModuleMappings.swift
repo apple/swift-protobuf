@@ -19,17 +19,17 @@ private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {
 
-    /// Errors raised from parsing mappings
+    /// Errors that occur while parsing mappings
     public enum LoadError: Error, Equatable {
-        /// Raised if the path wasn't found.
+        /// The path doesn't exist.
         case failToOpen(path: String)
-        /// Raised if an mapping entry in the protobuf doesn't have a module name.
+        /// A mapping entry in the protobuf doesn't have a module name.
         /// mappingIndex is the index (0-N) of the mapping.
         case entryMissingModuleName(mappingIndex: Int)
-        /// Raised if an mapping entry in the protobuf doesn't have any proto files listed.
+        /// A mapping entry in the protobuf doesn't list any proto files.
         /// mappingIndex is the index (0-N) of the mapping.
         case entryHasNoProtoPaths(mappingIndex: Int)
-        /// The proto path you provided was listed for both modules.
+        /// Both modules list the proto path you provided.
         case duplicateProtoPathMapping(path: String, firstModule: String, secondModule: String)
     }
 
@@ -41,8 +41,8 @@ public struct ProtoFileToModuleMappings {
     /// A Boolean value that indicates that there were developer provided
     /// mappings.
     ///
-    /// Since `mappings` will have the bundled proto files also, this is used
-    /// to track whether there are any provided mappings.
+    /// Since `mappings` also includes the bundled proto files, this flag
+    /// tracks whether the caller provided any additional mappings.
     public let hasMappings: Bool
 
     /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
@@ -131,8 +131,8 @@ public struct ProtoFileToModuleMappings {
         mappings[file.name]
     }
 
-    /// Returns the list of modules that need to be imported for the file you provide,
-    /// based on the dependencies it has.
+    /// Returns the list of modules that the file you provide needs to import,
+    /// based on its dependencies.
     public func neededModules(forFile file: FileDescriptor) -> [String]? {
         guard hasMappings else { return nil }
         if file.dependencies.isEmpty {

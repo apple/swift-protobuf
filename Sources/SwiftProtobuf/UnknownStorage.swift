@@ -7,11 +7,11 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Proto2 binary coding requires storing and recoding of unknown fields.
-/// This simple support class handles that requirement.  A property of this type
-/// is compiled into every proto2 message.
-///
+//
+// Proto2 binary coding requires storing and recoding of unknown fields.
+// This simple support class handles that requirement.  The generator adds
+// a property of this type to every proto2 message.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -22,10 +22,10 @@ import Foundation
 
 /// The unknown fields in a decoded message.
 ///
-/// These are fields that were sent on the wire but were not recognized by the
-/// generated message implementation, or were valid field numbers with
-/// mismatching wire formats -- for example, a field encoded as a varint when a
-/// fixed32 integer was expected.
+/// These are fields that arrived on the wire but the generated message
+/// implementation didn't recognize, or fields with valid field numbers but
+/// mismatched wire formats -- for example, a field encoded as a varint when
+/// the schema expected a fixed32 integer.
 public struct UnknownStorage: Equatable, Sendable {
 
     /// The raw protocol buffer binary-encoded bytes that represent the unknown

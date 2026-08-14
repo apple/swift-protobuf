@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON decoding options
-///
+//
+// JSON decoding options
+//
 // -----------------------------------------------------------------------------
 
 /// Options for JSONDecoding.
@@ -17,15 +17,15 @@ public struct JSONDecodingOptions: Sendable {
     /// The maximum nesting of messages within messages.
     ///
     /// The default is 100. To prevent corrupt or malicious messages from causing
-    /// stack overflows, this controls how deep messages can be nested within
-    /// other messages while parsing.
+    /// stack overflows, this controls how deeply the decoder can nest messages
+    /// within other messages while parsing.
     public var messageDepthLimit: Int = 100
 
-    /// If unknown fields in the JSON should be ignored.
+    /// If the decoder should ignore unknown fields in the JSON.
     ///
-    /// If they aren't ignored, an error is raised if one is encountered. This
-    /// also causes unknown enum values (especially string values) to be
-    /// silently ignored.
+    /// If it doesn't ignore them, it raises an error when it encounters one.
+    /// This also causes it to silently ignore unknown enum values
+    /// (especially string values).
     public var ignoreUnknownFields: Bool = false
 
     public init() {}

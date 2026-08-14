@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A 'Message Extension' is an immutable class object that describes
-/// a particular extension field, including string and number
-/// identifiers, serialization details, and the identity of the
-/// message that is being extended.
-///
+//
+// A 'Message Extension' is an immutable class object that describes
+// a particular extension field, including string and number
+// identifiers, serialization details, and the identity of the
+// message it extends.
+//
 // -----------------------------------------------------------------------------
 
 /// Type-erased MessageExtension field implementation.

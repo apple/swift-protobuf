@@ -37,7 +37,7 @@ public final class SwiftProtobufNamer {
 
     /// Initializes a new namer.
     ///
-    /// All names will be generated as from the point of view of the file and
+    /// The namer generates all names from the point of view of the file and
     /// module mapper you provide.
     public convenience init(
         currentFile file: FileDescriptor,
@@ -171,8 +171,8 @@ public final class SwiftProtobufNamer {
         fullName(enum: enumValue.enumType) + "." + relativeName(enumValue: enumValue)
     }
 
-    /// The relative name with a leading dot so it can be used where
-    /// the type is known.
+    /// The relative name with a leading dot, so you can use it where you
+    /// already know the type.
     public func dottedRelativeName(enumValue: EnumValueDescriptor) -> String {
         let relativeName = self.relativeName(enumValue: enumValue)
         return "." + NamingUtils.trimBackticks(relativeName)
@@ -180,8 +180,8 @@ public final class SwiftProtobufNamer {
 
     /// Filters the enum's values to those that will have unique Swift names.
     ///
-    /// Only poorly named proto enum alias values get filtered away, so the
-    /// assumption is they aren't really needed from an api pov.
+    /// This filters away only poorly named proto enum alias values, since
+    /// the API doesn't really need them.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
         e.values.filter {
@@ -249,7 +249,7 @@ public final class SwiftProtobufNamer {
 
     /// Calculate the names to use for the Swift fields on the message.
     ///
-    /// If `prefixed` is not empty, the name prefixed with that will also be included.
+    /// If `prefixed` is not empty, the result also includes the name prefixed with that.
     ///
     /// If `includeHasAndClear` is False, the has:, clear: values in the result will
     /// be the empty string.
@@ -343,7 +343,7 @@ public final class SwiftProtobufNamer {
         return MessageExtensionNames(value: fieldName, has: hasName, clear: clearName)
     }
 
-    /// Calculate the prefix to use for this file, it is derived from the
+    /// Calculate the prefix to use for this file, deriving it from the
     /// proto package or swift_prefix file option.
     public func typePrefix(forFile file: FileDescriptor) -> String {
         if let result = filePrefixCache[file.name] {

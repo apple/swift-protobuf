@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Support for registering and looking up Message types. Used
-/// in support of Google_Protobuf_Any.
-///
+//
+// Support for registering and looking up Message types, which
+// Google_Protobuf_Any uses internally.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -100,30 +100,30 @@ extension Google_Protobuf_Any {
     /// Register a message type so that Any objects can use
     /// them for decoding contents.
     ///
-    /// This is currently only required in two cases:
+    /// You currently only need this in two cases:
     ///
     /// * When decoding Protobuf Text format.  Currently,
     ///   Any objects do not defer deserialization from Text
-    ///   format.  Depending on how the Any objects are stored
-    ///   in text format, the Any object may need to look up
+    ///   format.  Depending on how the text format represents
+    ///   the Any objects, the Any object may need to look up
     ///   the message type in order to deserialize itself.
     ///
     /// * When re-encoding an Any object into a different
-    ///   format than it was decoded from.  For example, if
+    ///   format than the one you decoded it from.  For example, if
     ///   you decode a message containing an Any object from
     ///   JSON format and then re-encode the message into Protobuf
     ///   Binary format, the Any object will need to complete the
     ///   deferred deserialization of the JSON object before it
     ///   can re-encode.
     ///
-    /// Note that well-known types are pre-registered for you and
+    /// Note that this library pre-registers well-known types for you, so
     /// you do not need to register them from your code.
     ///
     /// Also note that this is not needed if you only decode and encode
     /// to and from the same format.
     ///
-    /// Returns: true if the type was registered, false if something
-    ///   else was already registered for the messageName.
+    /// Returns: true if this method registers the type, false if the
+    ///   registry already maps the messageName to something else.
     @discardableResult public static func register(messageType: any Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
         guard !messageTypeName.isEmpty else {
@@ -147,13 +147,14 @@ extension Google_Protobuf_Any {
         return result
     }
 
-    /// Returns the Message.Type expected for the type URL you provide.
+    /// Looks up and returns the Message.Type for the type URL you provide.
     public static func messageType(forTypeURL url: String) -> (any Message.Type)? {
         let messageTypeName = typeName(fromURL: url)
         return messageType(forMessageName: messageTypeName)
     }
 
-    /// Returns the Message.Type expected for the proto message name you provide.
+    /// Looks up and returns the Message.Type for the proto message name you
+    /// provide.
     public static func messageType(forMessageName name: String) -> (any Message.Type)? {
         var result: (any Message.Type)?
         execute(flags: .none) {

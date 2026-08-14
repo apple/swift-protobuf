@@ -27,9 +27,9 @@ import SwiftProtobuf
 
 /// The front interface for building and getting descriptors.
 ///
-/// The objects vended from here are different from the raw
-/// `Google_Protobuf_*Proto` types in that they have all the cross object
-/// references resolved or wired up, making for an easier to use object
+/// The objects that `DescriptorSet` vends differ from the raw
+/// `Google_Protobuf_*Proto` types in that it resolves and wires up all the
+/// cross object references, making for an easier to use object
 /// model.
 ///
 /// This is like the `DescriptorPool` class in the C++ protobuf library.
@@ -57,8 +57,8 @@ public final class DescriptorSet {
         bundledFeatureSetDefaults.minimumEdition...bundledFeatureSetDefaults.maximumEdition
     }
 
-    /// Construct out of an ordered list of file descriptor protos likely
-    /// created by protoc.
+    /// Construct from an ordered list of file descriptor protos that protoc
+    /// likely created.
     public convenience init(protos: [Google_Protobuf_FileDescriptorProto]) {
         self.init(
             protos: protos,
@@ -66,23 +66,22 @@ public final class DescriptorSet {
         )
     }
 
-    /// Construct out of an ordered list of file descriptor protos likely
-    /// created by protoc.
+    /// Construct from an ordered list of file descriptor protos that protoc
+    /// likely created.
     ///
-    /// Since .proto files can import other .proto files, the imports have to be
-    /// listed before the things that use them so the graph can be
-    /// reconstructed.
+    /// Since .proto files can import other .proto files, you must list
+    /// imports before the things that use them so this initializer can
+    /// reconstruct the graph.
     ///
     /// - Parameters:
     ///   - protos: An ordered list of `Google_Protobuf_FileDescriptorProto`.
-    ///     They must be order such that a file is provided before another file
-    ///     that depends on it.
+    ///     Order them so a file comes before any other file that depends on
+    ///     it.
     ///   - featureSetDefaults: A `Google_Protobuf_FeatureSetDefaults` that provides
     ///     the Feature defaults to use when parsing the give File protos.
     ///   - featureExtensions: A list of Protobuf Extension extensions to
-    ///     `google.protobuf.FeatureSet` that define custom features. If used, the
-    ///     `defaults` should have been parsed with the extensions being
-    ///     supported.
+    ///     `google.protobuf.FeatureSet` that define custom features. If you use
+    ///     this, parse `defaults` with these extensions so it supports them.
     public init(
         protos: [Google_Protobuf_FileDescriptorProto],
         featureSetDefaults: Google_Protobuf_FeatureSetDefaults,
@@ -115,11 +114,11 @@ public final class DescriptorSet {
 
     /// Lookup a specific file.
     ///
-    /// The names for files are what was captured in the
-    /// `Google_Protobuf_FileDescriptorProto` when it was created; protoc uses
-    /// the path name for how the file was found.
+    /// The names for files are whatever protoc captured in the
+    /// `Google_Protobuf_FileDescriptorProto` when it created the proto;
+    /// protoc uses the path name it used to find the file.
     ///
-    /// This is a legacy api since it requires the file to be found or it aborts.
+    /// This is a legacy api: it aborts if it can't find the file.
     /// Mainly kept for grpc-swift compatibility.
     @available(*, deprecated, renamed: "fileDescriptor(named:)")
     public func lookupFileDescriptor(protoName name: String) -> FileDescriptor {
@@ -128,16 +127,16 @@ public final class DescriptorSet {
 
     /// Find a specific file.
     ///
-    /// The names for files are what was captured in the
-    /// `Google_Protobuf_FileDescriptorProto` when it was created; protoc uses
-    /// the path name for how the file was found.
+    /// The names for files are whatever protoc captured in the
+    /// `Google_Protobuf_FileDescriptorProto` when it created the proto;
+    /// protoc uses the path name it used to find the file.
     public func fileDescriptor(named name: String) -> FileDescriptor? {
         registry.fileDescriptor(named: name)
     }
 
     /// Find the descriptor for a named proto message.
     ///
-    /// This is a legacy api since it requires the proto to be found or it aborts.
+    /// This is a legacy api: it aborts if it can't find the proto.
     /// Mainly kept for grpc-swift compatibility.
     @available(*, deprecated, renamed: "descriptor(named:)")
     public func lookupDescriptor(protoName: String) -> Descriptor {
@@ -151,7 +150,7 @@ public final class DescriptorSet {
 
     /// Find the enum descriptor for a named proto enum.
     ///
-    /// This is a legacy api since it requires the enum to be found or it aborts.
+    /// This is a legacy api: it aborts if it can't find the enum.
     /// Mainly kept for grpc-swift compatibility.
     @available(*, deprecated, renamed: "enumDescriptor(named:)")
     public func lookupEnumDescriptor(protoName: String) -> EnumDescriptor {
@@ -165,7 +164,7 @@ public final class DescriptorSet {
 
     /// Find the service descriptor for a named proto service.
     ///
-    /// This is a legacy api since it requires the enum to be found or it aborts.
+    /// This is a legacy api: it aborts if it can't find the service.
     /// Mainly kept for grpc-swift compatibility.
     @available(*, deprecated, renamed: "serviceDescriptor(named:)")
     public func lookupServiceDescriptor(protoName: String) -> ServiceDescriptor {
@@ -181,7 +180,7 @@ public final class DescriptorSet {
 /// Options for collected a proto object from a Descriptor.
 public struct ExtractProtoOptions {
 
-    /// If the source code info should also be included in the proto file.
+    /// Whether to also include the source code info in the proto file.
     ///
     /// If embedding the descriptor in a binary for some reason, normally the `SourceCodeInfo`
     /// isn't needed and would just be an increas in binary size.
@@ -201,9 +200,9 @@ public struct ExtractProtoOptions {
 
 /// Models a .proto file.
 ///
-/// `FileDescriptor`s are not directly created, instead they are
-/// constructed/fetched via the `DescriptorSet` or they are directly accessed
-/// via a `file` property on all the other types of descriptors.
+/// You don't create `FileDescriptor`s directly; instead, construct or
+/// fetch them via the `DescriptorSet`, or access them directly via a
+/// `file` property on all the other types of descriptors.
 public final class FileDescriptor {
     /// The legacy proto2/proto3 syntax indicator for a file, superseded by editions.
     @available(*, deprecated, message: "This enum has been deprecated. Use `Google_Protobuf_Edition` instead.")
@@ -440,9 +439,9 @@ public final class FileDescriptor {
 /// Describes a type of protocol message, or a particular group within a
 /// message.
 ///
-/// `Descriptor`s are not directly created, instead they are
-/// constructed/fetched via the `DescriptorSet` or they are directly accessed
-/// via a `messageType` property on `FieldDescriptor`s, etc.
+/// You don't create `Descriptor`s directly; instead, construct or fetch
+/// them via the `DescriptorSet`, or access them directly via a
+/// `messageType` property on `FieldDescriptor`s, etc.
 public final class Descriptor {
     // We can't assign a value directly to `proto` in the init because we get the
     // deprecation warning. This private prop only exists as a workaround to avoid
@@ -493,8 +492,8 @@ public final class Descriptor {
 
     /// Describes an extension range of a message.
     ///
-    /// `ExtensionRange`s are not directly created, instead they are
-    /// constructed/fetched via the `Descriptor`.
+    /// You don't create `ExtensionRange`s directly; instead, construct or
+    /// fetch them via the `Descriptor`.
     public final class ExtensionRange {
         /// The start field number of this range (inclusive).
         public let start: Int32
@@ -547,8 +546,8 @@ public final class Descriptor {
     /// The fully-qualified name of the message type, scope delimited by
     /// periods.
     ///
-    /// For example, message type "Foo" which is declared in package
-    /// "bar" has full name "bar.Foo".  If a type "Baz" is nested within
+    /// For example, if you declare a message type "Foo" in package "bar",
+    /// its full name is "bar.Foo".  If a type "Baz" is nested within
     /// Foo, Baz's `fullName` is "bar.Foo.Baz".  To get only the part that
     /// comes after the last '.', use name().
     public let fullName: String
@@ -585,8 +584,9 @@ public final class Descriptor {
     public let oneofs: [OneofDescriptor]
     /// Non synthetic oneofs.
     ///
-    /// These always come first (enforced by the C++ Descriptor code). So this is always a
-    /// leading subset of `oneofs` (or the same if there are no synthetic entries).
+    /// The C++ Descriptor code enforces that these always come first, so
+    /// this is always a leading subset of `oneofs` (or the same if there are
+    /// no synthetic entries).
     public private(set) lazy var realOneofs: [OneofDescriptor] = {
         // Lazy because `isSynthetic` can't be called until after `bind()`.
         self.oneofs.filter { !$0._isSynthetic }
@@ -594,21 +594,21 @@ public final class Descriptor {
     /// The extension field defintions under this message.
     public let extensions: [FieldDescriptor]
 
-    /// The extension ranges declared for this message.
+    /// The extension ranges that this message declares.
     ///
-    /// They are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let messageExtensionRanges: [ExtensionRange]
 
-    /// The extension ranges declared for this message.
+    /// The extension ranges that this message declares.
     ///
-    /// They are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     @available(*, deprecated, message: "This property is now deprecated: please use proto.extensionRange instead.")
     public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
         proto.extensionRange
     }
 
-    /// The extension ranges declared for this message, ordered and with any
-    /// that are contiguous merged together.
+    /// Orders the extension ranges that this message declares, merging
+    /// together any that are contiguous.
     ///
     /// The `extensionRanges` are in the order they appear in the original
     /// .proto file; this orders them and then merges any ranges that are
@@ -667,11 +667,11 @@ public final class Descriptor {
 
     /// The reserved field number ranges for this message.
     ///
-    /// These are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let reservedRanges: [Range<Int32>]
     /// The reserved field names for this message.
     ///
-    /// These are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let reservedNames: [String]
 
     /// True/False if this message is just for a map entry.
@@ -812,9 +812,9 @@ public final class Descriptor {
 
 /// Describes a type of protocol enum.
 ///
-/// `EnumDescriptor`s are not directly created, instead they are
-/// constructed/fetched via the `DescriptorSet` or they are directly accessed
-/// via a `EnumType` property on `FieldDescriptor`s, etc.
+/// You don't create `EnumDescriptor`s directly; instead, construct or
+/// fetch them via the `DescriptorSet`, or access them directly via a
+/// `EnumType` property on `FieldDescriptor`s, etc.
 public final class EnumDescriptor {
     // We can't assign a value directly to `proto` in the init because we get the
     // deprecation warning. This private prop only exists as a workaround to avoid
@@ -844,8 +844,8 @@ public final class EnumDescriptor {
 
     /// The values defined for this enum.
     ///
-    /// Guaranteed (by protoc) to be atleast one item. These are returned in
-    /// the order they were defined in the .proto file.
+    /// protoc guarantees at least one item, in the order they appear in
+    /// the .proto file.
     public let values: [EnumValueDescriptor]
 
     /// The options set on this enum.
@@ -853,11 +853,11 @@ public final class EnumDescriptor {
 
     /// The reserved value ranges for this enum.
     ///
-    /// These are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let reservedRanges: [ClosedRange<Int32>]
     /// The reserved value names for this enum.
     ///
-    /// These are returned in the order they are defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let reservedNames: [String]
 
     /// Returns true whether this is a "closed" enum, meaning that it:
@@ -1480,7 +1480,7 @@ public final class ServiceDescriptor {
 
     /// The methods defined on this service.
     ///
-    /// These are returned in the order they were defined in the .proto file.
+    /// This returns them in the order they appear in the .proto file.
     public let methods: [MethodDescriptor]
 
     // Storage for `file`, will be set by bind()

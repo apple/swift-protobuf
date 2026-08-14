@@ -7,15 +7,15 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Utility functions for converting UTF8 bytes into Strings.
-/// These functions must:
-///  * Accept any valid UTF8, including a zero byte (which is
-///    a valid UTF8 encoding of U+0000)
-///  * Return nil for any invalid UTF8
-///  * Be fast (since they're extensively used by all decoders
-///    and even some of the encoders)
-///
+//
+// Utility functions for converting UTF8 bytes into Strings.
+// These functions must:
+//  * Accept any valid UTF8, including a zero byte (which is
+//    a valid UTF8 encoding of U+0000)
+//  * Return nil for any invalid UTF8
+//  * Be fast (all decoders and even some of the encoders use them
+//    extensively)
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

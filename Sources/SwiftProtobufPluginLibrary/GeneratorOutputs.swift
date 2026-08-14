@@ -24,7 +24,7 @@ public protocol GeneratorOutputs {
     ///
     /// - Throws May throw errors for duplicate file names or any other problem.
     ///     Generally `CodeGenerator`s do *not* need to catch these, and instead
-    ///     they are ripple all the way out to the code calling the
+    ///     they ripple all the way out to the code calling the
     ///     `CodeGenerator`.
     func add(fileName: String, contents: String) throws
 

@@ -8,9 +8,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// An async sequence of messages decoded from a binary delimited protobuf stream.
-///
+//
+// An async sequence that decodes messages from a binary delimited protobuf stream.
+//
 // -----------------------------------------------------------------------------
 
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
@@ -18,16 +18,16 @@ extension AsyncSequence where Element == UInt8 {
     /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
     ///
     /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
-    /// is a varint encoding the message size followed by a message of exactly that size.
+    /// is a varint that encodes the message size, then a message of exactly that size.
     ///
     /// - Parameters:
     ///   - messageType: The type of message to read.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
-    ///    messages encoded by this sequence, or in messages nested within these messages.
-    ///   - partial: If `false` (the default),  after decoding a message, ``Message/isInitialized-6abgi``
-    ///     will be checked to ensure all fields are present.
+    ///   - extensions: An ``ExtensionMap`` that this sequence uses to look up and decode any
+    ///    extensions in the messages it decodes, or in messages nested within these messages.
+    ///   - partial: If `false` (the default), after decoding a message, this method checks
+    ///     ``Message/isInitialized-6abgi`` to ensure all fields are present.
     ///   - options: The ``BinaryDecodingOptions`` to use.
-    /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+    /// - Returns: An asynchronous sequence of messages this method decodes from the `AsyncSequence` of bytes.
     @inlinable
     public func binaryProtobufDelimitedMessages<M: Message>(
         of messageType: M.Type = M.self,
@@ -44,7 +44,7 @@ extension AsyncSequence where Element == UInt8 {
     }
 }
 
-/// An asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
+/// An asynchronous sequence that decodes messages from an asynchronous sequence of bytes.
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AsyncMessageSequence<
     Base: AsyncSequence,
@@ -62,16 +62,16 @@ public struct AsyncMessageSequence<
     /// Reads size-delimited messages from the sequence of bytes you provide.
     ///
     /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
-    /// is a varint encoding the message size followed by a message of exactly that size.
+    /// is a varint that encodes the message size, then a message of exactly that size.
     ///
     /// - Parameters:
     ///   - base: The `AsyncSequence` to read messages from.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any extensions in
-    ///    messages encoded by this sequence, or in messages nested within these messages.
-    ///   - partial: If `false` (the default), after decoding a message, ``Message/isInitialized-6abgi``
-    ///     will be checked to ensure all fields are present.
+    ///   - extensions: An ``ExtensionMap`` that this sequence uses to look up and decode any
+    ///    extensions in the messages it decodes, or in messages nested within these messages.
+    ///   - partial: If `false` (the default), after decoding a message, this method checks
+    ///     ``Message/isInitialized-6abgi`` to ensure all fields are present.
     ///   - options: The ``BinaryDecodingOptions`` to use.
-    /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+    /// - Returns: An asynchronous sequence of messages this method decodes from the `AsyncSequence` of bytes.
     public init(
         base: Base,
         extensions: (any ExtensionMap)? = nil,
@@ -200,7 +200,7 @@ public struct AsyncMessageSequence<
     /// Creates the asynchronous iterator that produces elements of this
     /// asynchronous sequence.
     ///
-    /// - Returns: An instance of the `AsyncIterator` type used to produce
+    /// - Returns: An instance of the `AsyncIterator` type that produces
     /// messages in the asynchronous sequence.
     public func makeAsyncIterator() -> AsyncMessageSequence.AsyncIterator {
         AsyncIterator(

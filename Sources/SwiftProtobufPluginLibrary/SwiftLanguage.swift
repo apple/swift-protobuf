@@ -14,10 +14,10 @@
 
 import Foundation
 
-/// Used to check if a character is a valid identifier head character.
+/// Checks whether a character is a valid identifier head character.
 ///
-/// This is mainly a building block for isValidSwiftIdentifier(), but is exposed
-/// within the plugin library so other parts of the library can use it.
+/// This is mainly a building block for isValidSwiftIdentifier(), but the
+/// plugin library exposes it so other parts of the library can use it.
 func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
     switch c.value {
     // identifier-head → Upper- or lowercase letter A through Z
@@ -57,10 +57,10 @@ func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
     }
 }
 
-/// Used to check if a character is a valid identifier character.
+/// Checks whether a character is a valid identifier character.
 ///
-/// This is mainly a building block for isValidSwiftIdentifier(), but is exposed
-/// within the plugin library so other parts of the library can use it.
+/// This is mainly a building block for isValidSwiftIdentifier(), but the
+/// plugin library exposes it so other parts of the library can use it.
 func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
     switch c.value {
     // identifier-character → Digit 0 through 9
@@ -76,7 +76,7 @@ func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
 /// valid for use in generated Swift code.
 ///
 /// This implements the full grammar for validating an arbitrary Swift
-/// identifier as documented in "The Swift Programming Language."
+/// identifier, as "The Swift Programming Language" defines it.
 /// In particular, it does correctly handle identifiers with
 /// arbitrary Unicode in them.
 ///
@@ -89,7 +89,7 @@ func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
 /// parameter identifiers ("$1", "$2", etc) and "_", though.
 ///
 /// - Parameter s: The string to check.
-/// - Parameter allowQuoted: If the parameter to should allowed to be a quoted
+/// - Parameter allowQuoted: Whether to allow the parameter to be a quoted
 ///     identifier.
 ///
 public func isValidSwiftIdentifier(_ s: String, allowQuoted: Bool = false) -> Bool {
@@ -115,7 +115,9 @@ public func isValidSwiftIdentifier(_ s: String, allowQuoted: Bool = false) -> Bo
     return true
 }
 
-/// Keywords used in declarations, taken directly from the Swift language spec.
+/// Keywords that declarations use.
+///
+/// This list copies them directly from the Swift language spec.
 ///
 /// See: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html
 
@@ -126,7 +128,9 @@ public let swiftKeywordsUsedInDeclarations: Set<String> = [
     "static", "struct", "subscript", "typealias", "var",
 ]
 
-/// Keywords used in statements, taken directly from the Swift language spec.
+/// Keywords that statements use.
+///
+/// This list copies them directly from the Swift language spec.
 public let swiftKeywordsUsedInStatements: Set<String> = [
     "break", "case",
     "continue", "default", "defer", "do", "else", "fallthrough",
@@ -134,16 +138,18 @@ public let swiftKeywordsUsedInStatements: Set<String> = [
     "while",
 ]
 
-/// Keywords used in expressions and types, taken directly from the Swift
-/// language spec.
+/// Keywords that expressions and types use.
+///
+/// This list copies them directly from the Swift language spec.
 public let swiftKeywordsUsedInExpressionsAndTypes: Set<String> = [
     "as",
     "Any", "catch", "false", "is", "nil", "rethrows", "super", "self",
     "Self", "throw", "throws", "true", "try",
 ]
 
-/// Keywords that begin with a number sign, taken directly from the Swift
-/// language spec.
+/// Keywords that begin with a number sign.
+///
+/// This list copies them directly from the Swift language spec.
 public let swiftKeywordsWithNumberSign: Set<String> = [
     "#available",
     "#colorLiteral", "#column", "#else", "#elseif", "#endif", "#file",
@@ -151,8 +157,9 @@ public let swiftKeywordsWithNumberSign: Set<String> = [
     "#selector", "#sourceLocation",
 ]
 
-/// Keywords reserved only in particular contexts, taken directly from the
-/// Swift language spec.
+/// Keywords that Swift reserves only in particular contexts.
+///
+/// This list copies them directly from the Swift language spec.
 public let swiftKeywordsReservedInParticularContexts: Set<String> = [
     "associativity", "convenience", "dynamic", "didSet", "final",
     "get", "infix", "indirect", "lazy", "left", "mutating", "none",
@@ -161,8 +168,8 @@ public let swiftKeywordsReservedInParticularContexts: Set<String> = [
     "unowned", "weak", "willSet",
 ]
 
-/// These are standard Swift types that are heavily used, although they are
-/// not technically reserved.
+/// These are standard Swift types that code commonly uses, although Swift
+/// doesn't technically reserve them.
 ///
 /// Defining fields or structs with these names would break our generated
 /// code quite badly:
@@ -171,8 +178,8 @@ public let swiftCommonTypes: Set<String> = [
     "Int32", "Int64", "String", "UInt", "UInt32", "UInt64",
 ]
 
-/// Special magic variables defined by the compiler that we don't
-/// really want to interfere with:
+/// Special magic variables that the compiler defines. We don't really want
+/// to interfere with them:
 public let swiftSpecialVariables: Set<String> = [
     "__COLUMN__",
     "__FILE__", "__FUNCTION__", "__LINE__",

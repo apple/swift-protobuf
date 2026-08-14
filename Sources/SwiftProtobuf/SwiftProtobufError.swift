@@ -15,7 +15,7 @@
 /// ``SwiftProtobufError/Code-swift.struct/binaryDecodingError`` error code.
 /// Errors also include a message describing what went wrong and how to remedy it (if applicable). The
 /// message is not static and may include dynamic information such as the
-/// type URL for a type that could not be decoded, for example.
+/// type URL for a type the decoder could not decode, for example.
 public struct SwiftProtobufError: Error, @unchecked Sendable {
     // Note: @unchecked because we use a backing class for storage.
 
@@ -59,7 +59,7 @@ public struct SwiftProtobufError: Error, @unchecked Sendable {
         }
     }
 
-    /// A message describing what went wrong and how it may be remedied.
+    /// A message describing what went wrong and how to remedy it.
     package var message: String {
         get { self.storage.message }
         set {
@@ -143,13 +143,13 @@ extension SwiftProtobufError {
 
     /// A location within source code.
     public struct SourceLocation: Sendable, Hashable {
-        /// The function in which the error was thrown.
+        /// The function that threw the error.
         public var function: String
 
-        /// The file in which the error was thrown.
+        /// The file that threw the error.
         public var file: String
 
-        /// The line on which the error was thrown.
+        /// The line that threw the error.
         public var line: Int
 
         public init(function: String, file: String, line: Int) {
@@ -243,9 +243,9 @@ extension SwiftProtobufError {
         ///
         /// This isn't really an error: `InputStream` documents that `hasBytesAvailable`
         /// may return `true` if a read is needed to determine if there really are
-        /// bytes available. It's thrown when a `parse` or `merge` fails because
-        /// there were no bytes available. If this is raised, the caller should
-        /// use other means to determine whether the stream has completely ended
+        /// bytes available. `parse` or `merge` throws this when it fails because
+        /// there were no bytes available. If you encounter this, use other means
+        /// to determine whether the stream has completely ended
         /// or more bytes might eventually show up.
         public static func noBytesAvailable(
             function: String = #function,
@@ -267,7 +267,7 @@ extension SwiftProtobufError {
     public enum JSONDecoding {
         /// While decoding an Any message, the type URL was malformed.
         ///
-        /// The type URL is stored under the `@type` key in the JSON representation.
+        /// The JSON representation stores the type URL under the `@type` key.
         public static func invalidAnyTypeURL(
             type_url: String,
             function: String = #function,

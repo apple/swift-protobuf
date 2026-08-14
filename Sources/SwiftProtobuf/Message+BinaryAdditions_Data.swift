@@ -25,7 +25,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message `Data` to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -50,7 +50,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -76,7 +76,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -105,13 +105,13 @@ extension Message {
 
     /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -136,13 +136,13 @@ extension Message {
 
     /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver, under the older parameter name.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -174,13 +174,13 @@ extension Message {
     /// Updates the message by decoding the serialized data you provide as Protocol Buffer binary format into the
     /// receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check

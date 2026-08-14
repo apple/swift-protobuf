@@ -60,13 +60,13 @@ $ protoc --swift_out=. my.proto
 The `protoc` program automatically looks for `protoc-gen-swift` in your
 `PATH` and uses it.
 
-Each `.proto` input file gets translated to a corresponding `.pb.swift` file
+The plugin translates each `.proto` input file to a corresponding `.pb.swift` file
 in the output directory.
 
 #### How to Specify Code-Generation Options
 
 The plugin tries to use reasonable default behaviors for the code it
-generates, but there are a few things that can be configured to
+generates, but you can configure a few things to
 specific needs.
 
 You can use the `--swift_opt` argument to `protoc` to pass options to the
@@ -85,20 +85,20 @@ $ protoc \
 ```
 
 _NOTE:_ `protoc` 3.2.0 does not recognize `--swift_opt` if you rely on
-`protoc-gen-swift` being found on the `PATH`. To work around this, you need to
+`protoc` finding `protoc-gen-swift` on the `PATH`. To work around this, you need to
 explicitly add the argument `--plugin=[PATH-TO-protoc-gen-swift]` to the
-command line, then the `--swift_opt` argument is understood.  If you are
+command line; then `protoc` understands the `--swift_opt` argument.  If you are
 using `protoc` 3.2.1 or later, then this workaround is _not_ needed.
 
 ##### Generation Option: FileNaming
 
 This option controls the naming of generated Swift source files.
 
-By default, the paths to the proto files are maintained on the
+By default, the plugin maintains the paths to the proto files on the
 generated files.  So if you pass `foo/bar/my.proto`, you get
 `foo/bar/my.pb.swift` in the output directory. The Swift plugin
-supports an option to control the generated file names, the option is
-given as part of the `--swift_opt` argument like this:
+supports an option to control the generated file names; you provide the
+option as part of the `--swift_opt` argument like this:
 
 ```
 $ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
@@ -127,23 +127,23 @@ $ protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.p
 
 The possible values for `Visibility` are:
 
-* `Internal` (default): No visibility is set for the types, so they get the
+* `Internal` (default): The generator sets no visibility for the types, so they get the
   default internal visibility.
-* `Package`: The visibility on the types is set to `package` so the types
-  are exposed across the whole Swift package they belong to.
-* `Public`: The visibility on the types is set to `public` so the types are
-  exposed outside the module they are compiled into.
+* `Package`: The generator sets the visibility on the types to `package`, so they're
+  visible across the whole Swift package they belong to.
+* `Public`: The generator sets the visibility on the types to `public`, so they're
+  visible outside the module that contains them.
 
 
 ##### Generation Option: ProtoPathModuleMappings
 
 This option specifies which Swift module each generated file belongs to, based on its proto file path.
 
-By default, the code generator assumes all of the resulting Swift files are
-put into the same module. However, since protos can reference types from
+By default, the code generator assumes it puts all of the resulting Swift files
+into the same module. However, since protos can reference types from
 another proto file, those generated files might end up in different modules.
-This option allows you to specify that the code generated from the proto
-files is distributed in multiple modules. This data is used during
+This option allows you to specify that you distribute the code generated from the proto
+files across multiple modules. The generator uses this data during
 generation to then `import` the module and scope the types. This option
 takes the path of a file providing the mapping:
 
@@ -174,8 +174,8 @@ The `proto_file_path` values here should match the paths used in the proto file
 ##### Generation Option: ImplementationOnlyImports
 
 By default, the code generator does not annotate any imports with `@_implementationOnly`.
-However, in some scenarios, such as when distributing an `XCFramework`, imports 
-for types used only internally should be annotated as `@_implementationOnly` to 
+However, in some scenarios, such as when distributing an `XCFramework`, you should
+annotate imports for types used only internally as `@_implementationOnly` to
 avoid exposing internal symbols to clients.
 You can change this with the `ImplementationOnlyImports` option:
 
@@ -185,18 +185,18 @@ $ protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.p
 
 The possible values for `ImplementationOnlyImports` are:
 
-* `false` (default): The `@_implementationOnly` annotation is never used.
-* `true`: Imports of internal dependencies and any modules defined in the module
-mappings are annotated as `@_implementationOnly`. 
+* `false` (default): The generator never uses the `@_implementationOnly` annotation.
+* `true`: The generator annotates imports of internal dependencies and any modules defined in the module
+mappings as `@_implementationOnly`.
 
-**Important:** Modules cannot be imported as implementation-only if they're 
-exposed via public API, so even if `ImplementationOnlyImports` is set to `true`,
-this only works if the `Visibility` is set to `internal`. 
+**Important:** You can't import modules as implementation-only if they're
+exposed via public API, so even if you set `ImplementationOnlyImports` to `true`,
+this only works if you set `Visibility` to `internal`.
 
 
 ##### Generation Option: UseAccessLevelOnImports
 
-This option controls whether generated `import` statements are preceded by a visibility modifier (`public`, `package`, or `internal`).
+This option controls whether the generator precedes generated `import` statements with a visibility modifier (`public`, `package`, or `internal`).
 
 The default behavior depends on the Swift version the plugin is compiled with. 
 For Swift versions below 6.0 the default is `false` and the code generator does not precede any imports with a visibility modifier. 
@@ -209,21 +209,21 @@ $ protoc --swift_opt=UseAccessLevelOnImports=[value] --swift_out=. foo/bar/*.pro
 The possible values for `UseAccessLevelOnImports` are:
 
 * `false`: Generates plain import directives without a visibility modifier.
-* `true`: Imports of internal dependencies and any modules defined in the module
-mappings are preceded by a visibility modifier corresponding to the visibility of the generated types - see `Visibility` option. 
+* `true`: The generator precedes imports of internal dependencies and any modules defined in the module
+mappings with a visibility modifier corresponding to the visibility of the generated types - see the `Visibility` option.
 
-**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports. 
+**Important:** We strongly encourage using `internal` imports instead of `@_implementationOnly` imports.
 Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
 
 ##### Generation Option: EnumGeneration
 
 By default, SwiftProtobuf does not annotate generated enums with `@nonexhaustive`.
-This option controls whether open proto enums and oneof enums are annotated with
+This option controls whether the generator annotates open proto enums and oneof enums with
 the `@nonexhaustive` attribute introduced in Swift SE-0487.
 
-Both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums
-are annotated, because adding a new case to either is wire-compatible and should not
+The generator annotates both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums,
+because adding a new case to either is wire-compatible and shouldn't
 be a source-breaking Swift change.
 
 **Requires Swift 6.2.3 or later.**
@@ -234,9 +234,9 @@ $ protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble
 
 The possible values for `EnumGeneration` are:
 
-* `None` (default): No `@nonexhaustive` attribute is emitted.
-* `Nonexhaustive`: Open proto enums and oneof enums are annotated with `@nonexhaustive`.
-* `NonexhaustiveWarn`: Open proto enums and oneof enums are annotated with `@nonexhaustive(warn)`,
+* `None` (default): The generator emits no `@nonexhaustive` attribute.
+* `Nonexhaustive`: The generator annotates open proto enums and oneof enums with `@nonexhaustive`.
+* `NonexhaustiveWarn`: The generator annotates open proto enums and oneof enums with `@nonexhaustive(warn)`,
   which causes the Swift compiler to emit a warning when a `switch` statement does not
   cover all known cases.
 
@@ -249,7 +249,7 @@ This option lets you omit metadata names that SwiftProtobuf normally includes to
 
 By default, SwiftProtobuf includes field names, enum case names, and message/package names to
 support JSON serialization, full TextFormat serialization, and the `Google_Protobuf_Any` registry.
-In environments where TextFormat/JSON serialization is not required, this option allows you to
+In environments where you don't need TextFormat/JSON serialization, this option allows you to
 selectively omit some or all of these strings.
 
 ```

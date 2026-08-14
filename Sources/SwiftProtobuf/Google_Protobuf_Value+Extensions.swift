@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Value is a well-known message type that can be used to parse or encode
-/// arbitrary JSON without a predefined schema.
-///
+//
+// Value is a well-known message type for parsing or encoding arbitrary
+// JSON without a predefined schema.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Value: ExpressibleByIntegerLiteral {

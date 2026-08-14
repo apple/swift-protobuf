@@ -15,8 +15,8 @@
 
 import Foundation
 
-/// The generator-specific parameter that was passed to the protocol compiler
-/// invocation.
+/// The generator-specific parameter that the protocol compiler invocation
+/// passed.
 ///
 /// The protocol buffer compiler supports providing parameters via the
 /// `--[LANG]_out` or `--[LANG]_opt` command line flags. The compiler relays
@@ -29,7 +29,7 @@ public protocol CodeGeneratorParameter {
     /// parameters.
     var parameter: String { get }
 
-    /// The parameter, split back out into its individual key/value arguments.
+    /// Splits the parameter into its individual key/value arguments.
     ///
     /// The protocol buffer compiler combines multiple `--[LANG]_opt`
     /// directives into a "single" parameter by joining them with commas. For

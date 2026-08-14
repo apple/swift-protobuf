@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to ``Message`` to support text format encoding/decoding.
-///
+//
+// Extensions to ``Message`` to support text format encoding/decoding.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -22,8 +22,8 @@ import Foundation
 extension Message {
     /// Returns the Protocol Buffer text-format serialization of the message as a string.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to text format.
+    /// Unlike binary encoding, serializing to text format doesn't enforce the
+    /// presence of required fields.
     ///
     /// - Returns: A string containing the text format serialization of the
     ///   message.
@@ -35,8 +35,8 @@ extension Message {
 
     /// Returns the Protocol Buffer text-format serialization of the message as a string, using the encoding options you provide.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to text format.
+    /// Unlike binary encoding, serializing to text format doesn't enforce the
+    /// presence of required fields.
     ///
     /// - Returns: A string containing the text format serialization of the message.
     /// - Parameters:
@@ -60,7 +60,7 @@ extension Message {
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     /// - Throws: ``SwiftProtobufError`` on failure.
@@ -81,7 +81,7 @@ extension Message {
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
     ///   - options: The ``TextFormatDecodingOptions`` to use.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     /// - Throws: ``TextFormatDecodingError`` on failure.
