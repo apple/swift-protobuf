@@ -64,9 +64,21 @@ func run<M: SwiftProtobuf.Message & Equatable>(
     named name: String,
     fixtures: [[UInt8]]
 ) throws {
+    // SP_ONLY=<substring> narrows the run to matching workloads. A profiler then sees
+    // one field type's path and nothing else.
+    if let only = ProcessInfo.processInfo.environment["SP_ONLY"], !name.contains(only) {
+        return
+    }
     try gateRoundTrip(type, fixtures: fixtures)
-    report(type: name, op: "decode", messages: fixtures.count, try benchDecode(type, fixtures: fixtures))
-    report(type: name, op: "encode", messages: fixtures.count, try benchEncode(type, fixtures: fixtures))
+    // SP_OP=decode|encode narrows further. A profile of one operation is then not
+    // diluted by the other.
+    let op = ProcessInfo.processInfo.environment["SP_OP"]
+    if op == nil || op == "decode" {
+        report(type: name, op: "decode", messages: fixtures.count, try benchDecode(type, fixtures: fixtures))
+    }
+    if op == nil || op == "encode" {
+        report(type: name, op: "encode", messages: fixtures.count, try benchEncode(type, fixtures: fixtures))
+    }
 }
 
 // MARK: - CatalogEntry (~80 fields: scalars, enums, submessages, repeated, strings)
