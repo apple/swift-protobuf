@@ -30,4 +30,6 @@ func runSyntheticWorkloads() throws {
     try run(Synthetic_PerfRepeatedDouble.self, named: "repeated double", fixtures: try FixtureLoader.named("synthetic_RepeatedDouble.pb"))
     try run(Synthetic_PerfRepeatedString.self, named: "repeated string", fixtures: try FixtureLoader.named("synthetic_RepeatedString.pb"))
     try run(Synthetic_PerfRepeatedMessage.self, named: "repeated message", fixtures: try FixtureLoader.named("synthetic_RepeatedMessage.pb"))
+    try run(Synthetic_PerfNestedChain.self, named: "nested chain (depth 12)", fixtures: try FixtureLoader.named("synthetic_NestedChain.pb"))
+    try run(Synthetic_PerfNestedTree.self, named: "nested tree (3^4)", fixtures: try FixtureLoader.named("synthetic_NestedTree.pb"))
 }

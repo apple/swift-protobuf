@@ -17,6 +17,16 @@ message SubMessage {
     int32 value = 1;
 }
 
+message Node {
+    int64 p1 = 1;
+    int64 p2 = 2;
+    int64 p3 = 3;
+    int64 p4 = 4;
+    int64 p5 = 5;
+    int64 p6 = 6;
+    repeated Node children = 7;
+}
+
 message PerfInt32 {
     int32 f1 = 1;
     int32 f2 = 2;
@@ -414,4 +424,12 @@ message PerfRepeatedMessage {
     repeated SubMessage f14 = 14;
     repeated SubMessage f15 = 15;
     repeated SubMessage f16 = 16;
+}
+
+message PerfNestedChain {
+    Node root = 1;
+}
+
+message PerfNestedTree {
+    Node root = 1;
 }
