@@ -58,6 +58,11 @@ timed. A decoder that silently drops fields then cannot post a fast number.
 Fixtures are checked in rather than synthesized so that every baseline decodes
 byte-identical input.
 
+## `weaklink/`
+
+A separate experiment measuring what `@_weakLinked import` does to the size of
+proto-to-proto dependencies. See [weaklink/README.md](weaklink/README.md).
+
 ## Notes
 
 `run.py` passes `--disable-sandbox` to SwiftPM. Manifest compilation runs `swiftc`
