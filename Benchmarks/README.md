@@ -50,6 +50,10 @@ timed. A decoder that silently drops fields then cannot post a fast number.
   recorded data. Shared with a companion Swift decoder's benchmarks and with
   `tools/upb-benchmark` in that repo, so numbers are comparable across all three
   implementations.
+- `protos/synthetic.proto` + `fixtures/synthetic_*.pb` — one message per protobuf field
+  type, each carrying only fields of that type, so a slow row in the results names the
+  field type responsible. Regenerate with `./gen-synthetic.py` and commit the output.
+  Set `SP_SKIP_SYNTHETIC=1` to run only the real-world workload.
 
 Fixtures are checked in rather than synthesized so that every baseline decodes
 byte-identical input.

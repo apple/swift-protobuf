@@ -74,3 +74,11 @@ func run<M: SwiftProtobuf.Message & Equatable>(
 let catalogFixtures = try FixtureLoader.named("catalog_entries.pb")
 precondition(!catalogFixtures.isEmpty, "catalog_entries.pb produced no messages")
 try run(Benchmarks_CatalogEntry.self, named: "CatalogEntry", fixtures: catalogFixtures)
+
+// MARK: - Per-field-type breakdown
+
+// You can skip this. The real-world workload is the one to watch most of the time.
+// The synthetic sweep adds 21 more workloads.
+if ProcessInfo.processInfo.environment["SP_SKIP_SYNTHETIC"] == nil {
+    try runSyntheticWorkloads()
+}

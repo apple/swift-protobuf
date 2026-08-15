@@ -76,16 +76,13 @@ def build_and_run(label, checkout, protoc):
     shutil.rmtree(generated, ignore_errors=True)
     os.makedirs(generated)
     swift_out = f"{GEN_OPTS}:{generated}" if GEN_OPTS else generated
-    for proto in ["catalog", "audiobook_session"]:
-        proto_path = os.path.join(HERE, "protos", f"{proto}.proto")
-        if not os.path.isfile(proto_path):
-            continue
+    for proto in sorted(glob.glob(os.path.join(HERE, "protos", "*.proto"))):
         run([
             protoc,
             f"--plugin=protoc-gen-swift={os.path.join(bin_path, 'protoc-gen-swift')}",
             f"--swift_out={swift_out}",
             "-I", os.path.join(HERE, "protos"),
-            proto_path,
+            proto,
         ])
 
     print(f"==> [{label}] linking benchmark")

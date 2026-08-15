@@ -71,7 +71,9 @@ func measure(opsPerBatch: Int, _ body: () throws -> Void) rethrows -> Measuremen
 func report(type: String, op: String, messages: Int, _ m: Measurement) {
     let fields = [
         "baseline=\(baselineLabel)",
-        "type=\(type)",
+        // Whitespace would break the driver's `key=value` splitting. Workload names
+        // are spelled the way .proto spells them ("repeated int32").
+        "type=\(type.replacingOccurrences(of: " ", with: "_"))",
         "op=\(op)",
         "messages=\(messages)",
         "per_op_ns=\(String(format: "%.2f", m.perOpNanosMedian))",
