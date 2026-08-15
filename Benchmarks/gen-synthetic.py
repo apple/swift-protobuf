@@ -152,6 +152,48 @@ def length_delimited_stream(messages):
     return b"".join(delimited(m) for m in messages)
 
 
+# MARK: - nested shapes
+
+# Depth of the linear chain fixture.
+CHAIN_DEPTH = 12
+
+# Branching factor and depth of the tree fixture.
+TREE_FANOUT, TREE_DEPTH = 3, 4
+
+# Payload fields on every node, so a subtree costs something real to re-walk.
+NODE_FIELDS = 6
+
+
+def encode_node(depth, children_encoder, message_index):
+    """Encodes a Node: NODE_FIELDS int64 payload fields, then submessage children."""
+    out = bytearray()
+    for field in range(1, NODE_FIELDS + 1):
+        out += tag(field, VARINT) + signed_varint((field * 37 + depth * 11 + message_index) << 10)
+    for child in children_encoder(depth):
+        out += tag(NODE_FIELDS + 1, LENGTH) + delimited(child)
+    return bytes(out)
+
+
+def encode_chain(message_index):
+    def children(depth):
+        return [] if depth >= CHAIN_DEPTH else [encode_node(depth + 1, children, message_index)]
+    return encode_node(0, children, message_index)
+
+
+def encode_tree(message_index):
+    def children(depth):
+        if depth >= TREE_DEPTH:
+            return []
+        return [encode_node(depth + 1, children, message_index) for _ in range(TREE_FANOUT)]
+    return encode_node(0, children, message_index)
+
+
+NESTED = [
+    ("NestedChain", encode_chain, f"nested chain (depth {CHAIN_DEPTH})"),
+    ("NestedTree", encode_tree, f"nested tree ({TREE_FANOUT}^{TREE_DEPTH})"),
+]
+
+
 # MARK: - emit
 
 def main():
@@ -174,6 +216,10 @@ message SubMessage {
     int32 value = 1;
 }
 """]
+    node_fields = "\n".join(f"    int64 p{n} = {n};" for n in range(1, NODE_FIELDS + 1))
+    protos.append(
+        f"message Node {{\n{node_fields}\n    repeated Node children = {NODE_FIELDS + 1};\n}}\n"
+    )
     workloads = []
     fixtures_dir = HERE / "fixtures"
 
@@ -199,6 +245,16 @@ message SubMessage {
         ])
         (fixtures_dir / f"synthetic_{name}.pb").write_bytes(stream)
         workloads.append((name, display(f"repeated {proto_type}")))
+
+    for name, encoder, label in NESTED:
+        protos.append(f"message Perf{name} {{\n    Node root = 1;\n}}\n")
+        stream = length_delimited_stream([
+            delimited(tag(1, LENGTH) + delimited(encoder(m))) if False
+            else tag(1, LENGTH) + delimited(encoder(m))
+            for m in range(MESSAGE_COUNT)
+        ])
+        (fixtures_dir / f"synthetic_{name}.pb").write_bytes(stream)
+        workloads.append((name, label))
 
     (HERE / "protos" / "synthetic.proto").write_text("\n".join(protos))
 
