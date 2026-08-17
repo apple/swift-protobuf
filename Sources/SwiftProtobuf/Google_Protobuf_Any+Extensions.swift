@@ -113,13 +113,13 @@ extension Google_Protobuf_Any {
         }
     }
 
-    /// Returns true if this message contains the message type you provide.
+    /// Returns a Boolean value that indicates whether this message contains the message type you provide.
     ///
     /// This method compares the ``Message`` type you provide to the
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.
-    /// - Returns: True if the receiver contains the message type you provide.
+    /// - Returns: A Boolean value that indicates whether the receiver contains the message type you provide.
     public func isA<M: Message>(_ type: M.Type) -> Bool {
         _storage.isA(type)
     }

@@ -105,7 +105,7 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
         return String()
     }
 
-    /// Returns true if the generator can use the type for a Packed field.
+    /// Returns a Boolean value that indicates whether the generator can use the type for a Packed field.
     static func isPackable(type: Google_Protobuf_FieldDescriptorProto.TypeEnum) -> Bool {
         // This logic comes from the C++ FieldDescriptor::IsTypePackable() impl.
         switch type {

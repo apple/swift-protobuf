@@ -1022,8 +1022,8 @@ public final class OneofDescriptor {
     /// The resolved features for this Oneof.
     public let features: Google_Protobuf_FeatureSet
 
-    /// Returns whether this oneof was inserted by the compiler to wrap a proto3
-    /// optional field. If this returns true, code generators should *not* emit it.
+    /// A Boolean value that indicates whether the compiler inserted this oneof to wrap a proto3
+    /// optional field. If this value is `true`, code generators should *not* emit it.
     var _isSynthetic: Bool {
         fields.count == 1 && fields.first!.proto3Optional
     }
@@ -1173,7 +1173,7 @@ public final class FieldDescriptor {
         type == .message && messageType!.options.mapEntry
     }
 
-    /// Returns true if this field was syntactically written with "optional" in the
+    /// A Boolean value that indicates whether this field was syntactically written with "optional" in the
     /// .proto file. Excludes singular proto3 fields that do not have a label.
     package var _hasOptionalKeyword: Bool {
         // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
@@ -1185,8 +1185,8 @@ public final class FieldDescriptor {
         _hasOptionalKeyword
     }
 
-    /// Returns true if this field tracks presence, ie. does the field
-    /// distinguish between "unset" and "present with default value."
+    /// A Boolean value that indicates whether this field tracks presence, that is, whether the field
+    /// distinguishes between "unset" and "present with default value."
     ///
     /// This includes required, optional, and oneof fields. It excludes maps,
     /// repeated fields, and singular proto3 fields without "optional".
@@ -1203,7 +1203,7 @@ public final class FieldDescriptor {
         return isExtension || oneofIndex != nil || features.fieldPresence != .implicit
     }
 
-    /// Returns true if this is a string field and should do UTF-8 validation.
+    /// A Boolean value that indicates whether this is a string field and should do UTF-8 validation.
     ///
     /// This api is for completeness, but it likely should never be used. The
     /// concept comes from the C++ FieldDescriptory::requires_utf8_validation(),

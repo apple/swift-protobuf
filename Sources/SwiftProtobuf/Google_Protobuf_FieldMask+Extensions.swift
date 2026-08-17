@@ -312,14 +312,14 @@ extension Google_Protobuf_FieldMask {
         }
     }
 
-    /// Returns true if the field mask covers the path you provide.
+    /// Returns a Boolean value that indicates whether the field mask covers the path you provide.
     ///
     /// For example, path "foo.bar" covers all paths like "foo.bar.baz" and "foo.bar.quz.x".
     /// An explicit child path does not cover its parent paths: "foo.bar" does
     /// not cover "foo", even if "bar" is the only child.
     ///
     /// - Parameter path: Path to check.
-    /// - Returns: `true` if the field mask covers path.
+    /// - Returns: A Boolean value that indicates whether the field mask covers the path.
     public func contains(_ path: String) -> Bool {
         for fieldMaskPath in paths {
             if path.hasPrefix("\(fieldMaskPath).") || fieldMaskPath == path {
