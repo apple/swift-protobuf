@@ -28,5 +28,6 @@ public struct BinaryEncodingOptions: Sendable {
     /// and subject to change.
     public var useDeterministicOrdering: Bool = false
 
+    /// Creates a default set of options for binary encoding.
     public init() {}
 }

@@ -235,6 +235,19 @@ public protocol Decoder {
 /// format, so provide a default implementation simply looping on the
 /// fieldNumbers and feeding through to extension decoding.
 extension Decoder {
+    /// Decodes proto2 extension fields encoded in the legacy MessageSet wire format into the values you provide.
+    ///
+    /// This default implementation loops over the remaining field numbers and
+    /// feeds each one through ``Decoder/decodeExtensionField(values:messageType:fieldNumber:)``.
+    /// A decoder overrides this method only when it needs to interpret the
+    /// `MessageSet` group/message layout itself, rather than treating it as a
+    /// regular sequence of fields.
+    ///
+    /// - Parameters:
+    ///   - values: The set of decoded extension field values to update.
+    ///   - messageType: The message type that owns the extensions, used to look up
+    ///     matching extension fields.
+    /// - Throws: An error if decoding any extension field fails.
     public mutating func decodeExtensionFieldsAsMessageSet(
         values: inout ExtensionFieldValueSet,
         messageType: any Message.Type

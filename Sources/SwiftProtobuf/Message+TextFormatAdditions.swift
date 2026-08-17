@@ -56,6 +56,8 @@ extension Message {
         return visitor.result
     }
 
+    // TODO: delete this (and keep the one with the extra param instead) when we break API
+
     /// Creates a message by decoding the Protocol Buffer text-format string you provide.
     ///
     /// - Parameters:
@@ -64,7 +66,6 @@ extension Message {
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     /// - Throws: ``SwiftProtobufError`` on failure.
-    // TODO: delete this (and keep the one with the extra param instead) when we break API
     public init(
         textFormatString: String,
         extensions: (any ExtensionMap)? = nil

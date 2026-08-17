@@ -40,6 +40,7 @@ public protocol Enum: RawRepresentable, Hashable, Sendable {
 }
 
 extension Enum {
+    /// A hash based on the enum's raw value.
     public func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
     }

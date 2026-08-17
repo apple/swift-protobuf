@@ -32,12 +32,23 @@ public struct UnknownStorage: Equatable, Sendable {
     /// fields of a decoded message.
     public private(set) var data = Data()
 
+    /// Creates a new, empty collection of unknown fields.
     public init() {}
 
+    /// Appends more raw protobuf binary-encoded bytes to the unknown fields.
+    ///
+    /// - Parameter protobufData: The binary-encoded bytes to append.
     package mutating func append(protobufData: Data) {
         data.append(protobufData)
     }
 
+    /// Traverses the unknown fields, giving the visitor a chance to process the raw bytes.
+    ///
+    /// If any unknown-field bytes are present, this calls ``Visitor/visitUnknown(bytes:)``
+    /// with them.
+    ///
+    /// - Parameter visitor: The ``Visitor`` that receives the unknown-field bytes.
+    /// - Throws: An error if the visitor throws while processing the bytes.
     public func traverse<V: Visitor>(visitor: inout V) throws {
         if !data.isEmpty {
             try visitor.visitUnknown(bytes: data)

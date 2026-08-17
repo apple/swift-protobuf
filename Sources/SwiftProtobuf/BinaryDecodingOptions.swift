@@ -36,5 +36,6 @@ public struct BinaryDecodingOptions: Sendable {
     /// the unknown fields from the object graph they're creating.
     public var discardUnknownFields: Bool = false
 
+    /// Creates a default set of options for binary decoding.
     public init() {}
 }

@@ -76,6 +76,12 @@ public struct SwiftProtobufError: Error, @unchecked Sendable {
         }
     }
 
+    /// Creates a new error using the code, message, and location you provide.
+    ///
+    /// - Parameters:
+    ///   - code: A high-level ``SwiftProtobufError/Code-swift.struct`` that classifies the error.
+    ///   - message: A message describing what went wrong and how to remedy it.
+    ///   - location: The location in source code that threw the error.
     public init(
         code: Code,
         message: String,
@@ -108,7 +114,7 @@ extension SwiftProtobufError {
             }
         }
 
-        /// This Code's description.
+        /// A short, human-readable label for the kind of error this code represents.
         public var description: String {
             String(describing: self.code)
         }
@@ -152,6 +158,12 @@ extension SwiftProtobufError {
         /// The line that threw the error.
         public var line: Int
 
+        /// Creates a new location within source code.
+        ///
+        /// - Parameters:
+        ///   - function: The function that threw the error.
+        ///   - file: The file that threw the error.
+        ///   - line: The line that threw the error.
         public init(function: String, file: String, line: Int) {
             self.function = function
             self.file = file
@@ -170,12 +182,14 @@ extension SwiftProtobufError {
 }
 
 extension SwiftProtobufError: CustomStringConvertible {
+    /// A human-readable summary that combines the error's code, location, and message.
     public var description: String {
         "\(self.code) (at \(self.location)): \(self.message)"
     }
 }
 
 extension SwiftProtobufError: CustomDebugStringConvertible {
+    /// A more detailed summary that reflects the full code, location, and message for debugging.
     public var debugDescription: String {
         "\(String(reflecting: self.code)) (at \(String(reflecting: self.location))): \(String(reflecting: self.message))"
     }

@@ -37,5 +37,6 @@ public struct TextFormatDecodingOptions: Sendable {
     /// skips part of the TextFormat.
     public var ignoreUnknownExtensionFields: Bool = false
 
+    /// Creates a default set of options for text-format decoding.
     public init() {}
 }

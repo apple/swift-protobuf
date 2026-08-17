@@ -35,5 +35,6 @@ public struct TextFormatEncodingOptions: Sendable {
     /// and conformance requirements for sorted map keys).
     public var useDeterministicOrdering: Bool = true
 
+    /// Creates a default set of options for text-format encoding.
     public init() {}
 }

@@ -28,5 +28,6 @@ public struct JSONDecodingOptions: Sendable {
     /// (especially string values).
     public var ignoreUnknownFields: Bool = false
 
+    /// Creates a default set of options for JSON decoding.
     public init() {}
 }

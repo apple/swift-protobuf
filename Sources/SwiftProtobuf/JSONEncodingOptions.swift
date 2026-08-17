@@ -48,5 +48,6 @@ public struct JSONEncodingOptions: Sendable {
     /// detail and subject to change.
     public var useDeterministicOrdering: Bool = false
 
+    /// Creates a default set of options for JSON encoding.
     public init() {}
 }

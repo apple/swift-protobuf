@@ -353,6 +353,8 @@ extension AnyMessageStorage {
     //    the Swift, Objective-C, and Go runtimes all tend to have random
     //    orders, so the messages could be identical, but in binary form
     //    they could differ.
+
+    /// A hash based on the type URL, kept consistent with this type's best-effort equality.
     public func hash(into hasher: inout Hasher) {
         if !_typeURL.isEmpty {
             hasher.combine(_typeURL)

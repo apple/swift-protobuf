@@ -22,6 +22,7 @@
 /// correct.
 package struct FieldTag: RawRepresentable {
 
+    /// The underlying raw type that backs a field tag.
     package typealias RawValue = UInt32
 
     /// The raw numeric value of the tag, which contains both the field number and
