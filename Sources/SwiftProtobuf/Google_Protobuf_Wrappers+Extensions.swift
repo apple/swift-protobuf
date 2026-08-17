@@ -48,14 +48,19 @@ extension Google_Protobuf_DoubleValue:
     ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufDouble
+
+    /// The type Swift uses when creating this wrapper directly from a floating-point literal.
     public typealias FloatLiteralType = WrappedType.BaseType
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from a floating-point literal.
     public init(floatLiteral: FloatLiteralType) {
         self.init(floatLiteral)
     }
@@ -78,14 +83,19 @@ extension Google_Protobuf_FloatValue:
     ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufFloat
+
+    /// The type Swift uses when creating this wrapper directly from a floating-point literal.
     public typealias FloatLiteralType = Float
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from a floating-point literal.
     public init(floatLiteral: FloatLiteralType) {
         self.init(floatLiteral)
     }
@@ -108,14 +118,19 @@ extension Google_Protobuf_Int64Value:
     ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufInt64
+
+    /// The type Swift uses when creating this wrapper directly from an integer literal.
     public typealias IntegerLiteralType = WrappedType.BaseType
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from an integer literal.
     public init(integerLiteral: IntegerLiteralType) {
         self.init(integerLiteral)
     }
@@ -133,14 +148,19 @@ extension Google_Protobuf_UInt64Value:
     ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufUInt64
+
+    /// The type Swift uses when creating this wrapper directly from an integer literal.
     public typealias IntegerLiteralType = WrappedType.BaseType
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from an integer literal.
     public init(integerLiteral: IntegerLiteralType) {
         self.init(integerLiteral)
     }
@@ -158,14 +178,19 @@ extension Google_Protobuf_Int32Value:
     ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufInt32
+
+    /// The type Swift uses when creating this wrapper directly from an integer literal.
     public typealias IntegerLiteralType = WrappedType.BaseType
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from an integer literal.
     public init(integerLiteral: IntegerLiteralType) {
         self.init(integerLiteral)
     }
@@ -179,14 +204,19 @@ extension Google_Protobuf_UInt32Value:
     ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufUInt32
+
+    /// The type Swift uses when creating this wrapper directly from an integer literal.
     public typealias IntegerLiteralType = WrappedType.BaseType
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from an integer literal.
     public init(integerLiteral: IntegerLiteralType) {
         self.init(integerLiteral)
     }
@@ -200,14 +230,19 @@ extension Google_Protobuf_BoolValue:
     ProtobufWrapper, ExpressibleByBooleanLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufBool
+
+    /// The type Swift uses when creating this wrapper directly from a Boolean literal.
     public typealias BooleanLiteralType = Bool
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from a Boolean literal.
     public init(booleanLiteral: Bool) {
         self.init(booleanLiteral)
     }
@@ -221,24 +256,35 @@ extension Google_Protobuf_StringValue:
     ProtobufWrapper, ExpressibleByStringLiteral, _CustomJSONCodable
 {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufString
+
+    /// The type Swift uses when creating this wrapper directly from a string literal.
     public typealias StringLiteralType = String
+
+    /// The type Swift uses when creating this wrapper from a single extended grapheme cluster.
     public typealias ExtendedGraphemeClusterLiteralType = String
+
+    /// The type Swift uses when creating this wrapper from a single Unicode scalar.
     public typealias UnicodeScalarLiteralType = String
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value
     }
 
+    /// Creates a wrapper from a string literal.
     public init(stringLiteral: String) {
         self.init(stringLiteral)
     }
 
+    /// Creates a wrapper from a single extended grapheme cluster literal.
     public init(extendedGraphemeClusterLiteral: String) {
         self.init(extendedGraphemeClusterLiteral)
     }
 
+    /// Creates a wrapper from a single Unicode scalar literal.
     public init(unicodeScalarLiteral: String) {
         self.init(unicodeScalarLiteral)
     }
@@ -252,8 +298,10 @@ extension Google_Protobuf_StringValue:
 
 extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
 
+    /// The protobuf field type that stores this wrapper's underlying value.
     public typealias WrappedType = ProtobufBytes
 
+    /// Creates a wrapper that holds the value you provide.
     public init(_ value: WrappedType.BaseType) {
         self.init()
         self.value = value

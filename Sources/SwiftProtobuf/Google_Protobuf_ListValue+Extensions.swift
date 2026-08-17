@@ -16,6 +16,8 @@
 extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
     // TODO: Give this a direct array interface by proxying the interesting
     // bits down to values
+
+    /// The type Swift uses when creating this list value directly from an array literal.
     public typealias Element = Google_Protobuf_Value
 
     /// Creates a list value from an array literal of values.

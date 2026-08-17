@@ -14,7 +14,10 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
+    /// The dictionary key type Swift uses when creating this struct directly from a dictionary literal.
     public typealias Key = String
+
+    /// The dictionary value type Swift uses when creating this struct directly from a dictionary literal.
     public typealias Value = Google_Protobuf_Value
 
     /// Creates a struct from a dictionary literal of string keys and values.

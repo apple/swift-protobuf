@@ -154,6 +154,7 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
+    /// The type Swift uses when creating this duration directly from a floating-point literal.
     public typealias FloatLiteralType = Double
 
     /// Creates a duration from a floating-point literal, interpreting it as
@@ -267,6 +268,7 @@ private func normalizeForDuration(
     return (seconds: s, nanos: n)
 }
 
+/// Returns the duration with its sign reversed.
 public prefix func - (
     operand: Google_Protobuf_Duration
 ) -> Google_Protobuf_Duration {
@@ -280,6 +282,7 @@ public prefix func - (
     return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
+/// Returns the sum of two durations.
 public func + (
     lhs: Google_Protobuf_Duration,
     rhs: Google_Protobuf_Duration
@@ -291,6 +294,7 @@ public func + (
     return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
+/// Returns the difference between two durations.
 public func - (
     lhs: Google_Protobuf_Duration,
     rhs: Google_Protobuf_Duration
@@ -302,6 +306,7 @@ public func - (
     return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
+/// Returns the duration between two timestamps.
 public func - (
     lhs: Google_Protobuf_Timestamp,
     rhs: Google_Protobuf_Timestamp

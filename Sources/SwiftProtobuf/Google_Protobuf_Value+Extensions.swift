@@ -14,6 +14,7 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Value: ExpressibleByIntegerLiteral {
+    /// The type Swift uses when creating this value directly from an integer literal.
     public typealias IntegerLiteralType = Int64
 
     /// Creates a value from an integer literal.
@@ -23,6 +24,7 @@ extension Google_Protobuf_Value: ExpressibleByIntegerLiteral {
 }
 
 extension Google_Protobuf_Value: ExpressibleByFloatLiteral {
+    /// The type Swift uses when creating this value directly from a floating-point literal.
     public typealias FloatLiteralType = Double
 
     /// Creates a value from a floating-point literal.
@@ -32,6 +34,7 @@ extension Google_Protobuf_Value: ExpressibleByFloatLiteral {
 }
 
 extension Google_Protobuf_Value: ExpressibleByBooleanLiteral {
+    /// The type Swift uses when creating this value directly from a Boolean literal.
     public typealias BooleanLiteralType = Bool
 
     /// Creates a value from a boolean literal.
@@ -41,8 +44,13 @@ extension Google_Protobuf_Value: ExpressibleByBooleanLiteral {
 }
 
 extension Google_Protobuf_Value: ExpressibleByStringLiteral {
+    /// The type Swift uses when creating this value directly from a string literal.
     public typealias StringLiteralType = String
+
+    /// The type Swift uses when creating this value from a single extended grapheme cluster.
     public typealias ExtendedGraphemeClusterLiteralType = String
+
+    /// The type Swift uses when creating this value from a single Unicode scalar.
     public typealias UnicodeScalarLiteralType = String
 
     /// Creates a value from a string literal.

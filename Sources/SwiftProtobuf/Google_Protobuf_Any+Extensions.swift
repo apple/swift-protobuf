@@ -124,6 +124,7 @@ extension Google_Protobuf_Any {
         _storage.isA(type)
     }
 
+    /// A hash based on the type URL, kept consistent with this type's best-effort equality.
     public func hash(into hasher: inout Hasher) {
         _storage.hash(into: &hasher)
     }

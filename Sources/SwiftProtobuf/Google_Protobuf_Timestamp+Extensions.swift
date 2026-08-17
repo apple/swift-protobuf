@@ -379,6 +379,7 @@ private func normalizeForTimestamp(
     return (seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by advancing a timestamp by a duration.
 public func + (
     lhs: Google_Protobuf_Timestamp,
     rhs: Google_Protobuf_Duration
@@ -390,6 +391,7 @@ public func + (
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by advancing a timestamp by a duration.
 public func + (
     lhs: Google_Protobuf_Duration,
     rhs: Google_Protobuf_Timestamp
@@ -401,6 +403,7 @@ public func + (
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by moving a timestamp back by a duration.
 public func - (
     lhs: Google_Protobuf_Timestamp,
     rhs: Google_Protobuf_Duration
