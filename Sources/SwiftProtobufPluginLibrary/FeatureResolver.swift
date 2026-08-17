@@ -29,6 +29,7 @@ extension Google_Protobuf_MethodOptions: ProvidesFeatureSets {}
 /// `feature_resolver.cpp`.
 package class FeatureResolver {
 
+    /// The errors that feature resolution can throw.
     package enum Error: Swift.Error, Equatable, CustomStringConvertible {
         case unsupported(
             edition: Google_Protobuf_Edition,
@@ -37,6 +38,7 @@ package class FeatureResolver {
         case noDefault(edition: Google_Protobuf_Edition)
         case invalidExtension(type: String)
 
+        /// A human-readable description of what caused this error.
         package var description: String {
             switch self {
             case .unsupported(let edition, let supported):

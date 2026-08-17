@@ -368,6 +368,9 @@ private enum CamelCaser {
 public enum NamingUtils {
 
     // Returns the type prefix to use for a given
+
+    /// Returns the prefix to add to generated Swift type names for the proto package and file
+    /// options you provide.
     package static func typePrefix(protoPackage: String, fileOptions: Google_Protobuf_FileOptions) -> String {
         // Explicit option (including blank), wins.
         if fileOptions.hasSwiftPrefix {
@@ -426,6 +429,8 @@ public enum NamingUtils {
     package struct PrefixStripper {
         private let prefixChars: String.UnicodeScalarView
 
+        /// Creates a prefix stripper that ignores underscores and letter case when comparing
+        /// against the prefix you provide.
         package init(prefix: String) {
             self.prefixChars = prefix.lowercased().replacingOccurrences(of: "_", with: "").unicodeScalars
         }
@@ -486,18 +491,26 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a message type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(messageName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Message", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns an enum type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(enumName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Enum", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns a oneof type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(oneofName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Oneof", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns a field name adjusted to avoid colliding with Swift keywords or with the accessor
+    /// names generated for the field you name in `basedOn`.
     package static func sanitize(fieldName s: String, basedOn: String) -> String {
         if basedOn.hasPrefix("clear") && isCharacterUppercase(basedOn, index: 5) {
             return s + "_p"
@@ -516,10 +529,13 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a field name adjusted to avoid colliding with Swift keywords or with its own
+    /// generated accessor names.
     package static func sanitize(fieldName s: String) -> String {
         sanitize(fieldName: s, basedOn: s)
     }
 
+    /// Returns an enum case name adjusted to avoid colliding with Swift keywords.
     package static func sanitize(enumCaseName s: String) -> String {
         if reservedEnumCases.contains(s) {
             return "\(s)_"
@@ -532,6 +548,7 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a message-scoped extension name adjusted to avoid colliding with Swift keywords.
     package static func sanitize(messageScopedExtensionName s: String) -> String {
         if reservedMessageScopedExtensionNames.contains(s) {
             return "\(s)_"
@@ -579,6 +596,8 @@ public enum NamingUtils {
         CamelCaser.transform(s, initialUpperCase: false)
     }
 
+    /// Returns the string you provide with a single pair of surrounding backticks removed, if
+    /// present.
     package static func trimBackticks(_ s: String) -> String {
         // This only has to deal with the backticks added when computing relative names, so
         // they are always matched and a single set.

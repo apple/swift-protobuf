@@ -18,11 +18,18 @@ import Foundation
 public final class SwiftProtobufNamer {
     var filePrefixCache = [String: String]()
     var enumValueRelativeNameCache = [String: String]()
+    /// The mapping from proto files to Swift modules that this namer uses.
     public let mappings: ProtoFileToModuleMappings
+
+    /// The name of the Swift module this namer generates names for.
     public let targetModule: String
 
+    /// The name of the Swift module that provides the SwiftProtobuf runtime types.
     public var swiftProtobufModuleName: String { mappings.swiftProtobufModuleName }
 
+    /// The prefix to add before references to SwiftProtobuf runtime types.
+    ///
+    /// This is empty when the target module is the SwiftProtobuf module itself.
     public var swiftProtobufModulePrefix: String {
         guard targetModule != mappings.swiftProtobufModuleName else {
             return ""
@@ -245,6 +252,8 @@ public final class SwiftProtobufNamer {
         return extensionScopeSwiftFullName + ".Extensions." + relativeNameNoBackticks
     }
 
+    /// The set of Swift names generated for one message field: its property name, an optionally
+    /// prefixed variant, and its has/clear accessor names.
     public typealias MessageFieldNames = (name: String, prefixed: String, has: String, clear: String)
 
     /// Calculate the names to use for the Swift fields on the message.
@@ -278,6 +287,8 @@ public final class SwiftProtobufNamer {
         return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: hasName, clear: clearName)
     }
 
+    /// The set of Swift names generated for one oneof: its property name and an optionally
+    /// prefixed variant.
     public typealias OneofFieldNames = (name: String, prefixed: String)
 
     /// Calculate the name to use for the Swift field on the message.
@@ -288,6 +299,8 @@ public final class SwiftProtobufNamer {
         return OneofFieldNames(name: fieldName, prefixed: prefixedFieldName)
     }
 
+    /// The set of Swift names generated for one message extension: its value, has, and clear
+    /// accessor names.
     public typealias MessageExtensionNames = (value: String, has: String, clear: String)
 
     /// Calculate the names to use for the Swift Extension on the extended

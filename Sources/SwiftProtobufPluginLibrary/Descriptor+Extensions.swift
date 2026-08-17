@@ -12,6 +12,7 @@ import Foundation
 import SwiftProtobuf
 
 extension FileDescriptor: ProvidesSourceCodeLocation {
+    /// The source code information recorded for this file as a whole.
     public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
         // google/protobuf's descriptor.cc says it should be an empty path.
         sourceCodeInfoLocation(path: IndexPath())
@@ -19,6 +20,7 @@ extension FileDescriptor: ProvidesSourceCodeLocation {
 }
 
 extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
+    /// Appends this message type's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         if let containingType = containingType {
             containingType.getLocationPath(path: &path)
@@ -29,11 +31,16 @@ extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFi
         path.append(index)
     }
 
+    /// The label used in generated deprecation comments for message types.
     public var typeName: String { "message" }
+
+    /// A Boolean value that indicates whether this message type is marked deprecated in its
+    /// options.
     public var isDeprecated: Bool { options.deprecated }
 }
 
 extension Descriptor.ExtensionRange: ProvidesLocationPath, ProvidesSourceCodeLocation {
+    /// Appends this extension range's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         containingType.getLocationPath(path: &path)
         path.append(Google_Protobuf_DescriptorProto.FieldNumbers.extensionRange)
@@ -42,6 +49,7 @@ extension Descriptor.ExtensionRange: ProvidesLocationPath, ProvidesSourceCodeLoc
 }
 
 extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
+    /// Appends this enum type's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         if let containingType = containingType {
             containingType.getLocationPath(path: &path)
@@ -52,22 +60,30 @@ extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Type
         path.append(index)
     }
 
+    /// The label used in generated deprecation comments for enum types.
     public var typeName: String { "enum" }
+
+    /// A Boolean value that indicates whether this enum type is marked deprecated in its options.
     public var isDeprecated: Bool { options.deprecated }
 }
 
 extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, SimpleProvidesDeprecationComment {
+    /// Appends this enum value's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         enumType.getLocationPath(path: &path)
         path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
         path.append(index)
     }
 
+    /// The label used in generated deprecation comments for enum values.
     public var typeName: String { "enum value" }
+
+    /// A Boolean value that indicates whether this enum value is marked deprecated in its options.
     public var isDeprecated: Bool { options.deprecated }
 }
 
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+    /// Appends this oneof's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         containingType.getLocationPath(path: &path)
         path.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
@@ -76,6 +92,7 @@ extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, ProvidesDeprecationComment {
+    /// Appends this field's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         if isExtension {
             if let extensionScope = extensionScope {
@@ -91,6 +108,8 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
         path.append(index)
     }
 
+    /// Returns a deprecation notice for this field, prefixed with the comment marker you provide,
+    /// or an empty string if neither the field nor its file is deprecated.
     public func deprecationComment(commentPrefix: String) -> String {
         // FieldDesciptor can be an extension field or a normal field, so it needs
         // a custom imply to only look at the file for extentsion fields.
@@ -167,22 +186,30 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, Pro
 }
 
 extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
+    /// Appends this service's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.service)
         path.append(index)
     }
 
+    /// The label used in generated deprecation comments for services.
     public var typeName: String { "service" }
+
+    /// A Boolean value that indicates whether this service is marked deprecated in its options.
     public var isDeprecated: Bool { options.deprecated }
 }
 
 extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, SimpleProvidesDeprecationComment {
+    /// Appends this method's location path segment onto the path you provide.
     public func getLocationPath(path: inout IndexPath) {
         service.getLocationPath(path: &path)
         path.append(Google_Protobuf_ServiceDescriptorProto.FieldNumbers.method)
         path.append(index)
     }
 
+    /// The label used in generated deprecation comments for methods.
     public var typeName: String { "method" }
+
+    /// A Boolean value that indicates whether this method is marked deprecated in its options.
     public var isDeprecated: Bool { options.deprecated }
 }

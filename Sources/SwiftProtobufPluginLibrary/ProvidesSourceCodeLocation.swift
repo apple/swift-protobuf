@@ -20,6 +20,7 @@ public protocol ProvidesSourceCodeLocation {
 
 /// Default implementation for things that support ProvidesLocationPath.
 extension ProvidesSourceCodeLocation where Self: ProvidesLocationPath {
+    /// The source code information recorded at this object's location within its file.
     public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
         var path = IndexPath()
         getLocationPath(path: &path)

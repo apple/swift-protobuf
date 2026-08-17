@@ -48,6 +48,7 @@ public struct CodePrinter {
     /// string.
     private let newlines: Bool
 
+    /// Creates a code printer that indents each level by the string you provide.
     public init(indent: String.UnicodeScalarView = "  ".unicodeScalars) {
         contentScalars.reserveCapacity(CodePrinter.initialBufferSize)
         singleIndent = indent

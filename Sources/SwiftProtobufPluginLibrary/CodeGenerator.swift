@@ -179,16 +179,29 @@ extension CodeGenerator {
 // Provide default implementation for things so `CodeGenerator`s only have to
 // provide them if they wish too.
 extension CodeGenerator {
+    /// The default edition range, which claims support for no editions until a generator overrides
+    /// it.
     public var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
         // Default impl of unknown so generator don't have to provide this until
         // they support editions.
         Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
     }
+
+    /// The default list of custom option extensions, which is empty until a generator overrides
+    /// it.
     public var customOptionExtensions: [any AnyMessageExtension] { [] }
+
+    /// The default version string, which is absent until a generator overrides it.
     public var version: String? { nil }
+
+    /// The default project URL, which is absent until a generator overrides it.
     public var projectURL: String? { nil }
+
+    /// The default copyright line, which is absent until a generator overrides it.
     public var copyrightLine: String? { nil }
 
+    /// Prints default help text built from the version, project URL, and copyright line you
+    /// provide.
     public func printHelp() {
         print("\(programName): A plugin for protoc and should not normally be run directly.")
         if let copyright = copyrightLine {

@@ -115,10 +115,12 @@ public struct ProtoFileToModuleMappings {
         self.hasMappings = initialCount != builder.count
     }
 
+    /// Creates an empty set of module mappings.
     public init() {
         try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
     }
 
+    /// Creates an empty set of module mappings, using the SwiftProtobuf module name you provide.
     public init(swiftProtobufModuleName: String?) {
         try! self.init(
             moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(),

@@ -40,6 +40,8 @@ public final class DescriptorSet {
 
     // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
     // created by protoc.
+
+    /// Creates a descriptor set from a file descriptor set that protoc produced.
     public convenience init(proto: Google_Protobuf_FileDescriptorSet) {
         self.init(protos: proto.file)
     }
@@ -195,6 +197,7 @@ public struct ExtractProtoOptions {
     // NOTE: in the future maybe add toggles to model the behavior of the *Descriptor::Copy*To()
     // apis.
 
+    /// Creates a default set of options for extracting a proto.
     public init() {}
 }
 
@@ -210,6 +213,8 @@ public final class FileDescriptor {
         case proto2
         case proto3
 
+        /// Creates a syntax value from the raw proto syntax string, treating an empty string as
+        /// proto2.
         public init?(rawValue: String) {
             switch rawValue {
             case "proto2", "":
@@ -227,6 +232,7 @@ public final class FileDescriptor {
     /// The proto package.
     public let package: String
 
+    /// The legacy proto2/proto3 syntax of this file, superseded by the edition property.
     @available(*, deprecated, message: "This property has been deprecated. Use `edition` instead.")
     public var syntax: Syntax {
         Syntax(rawValue: self._proto.syntax)!
@@ -301,6 +307,7 @@ public final class FileDescriptor {
     public var proto: Google_Protobuf_FileDescriptorProto { _proto }
     private let _proto: Google_Protobuf_FileDescriptorProto
 
+    /// A Boolean value that indicates whether this file is marked deprecated in its options.
     @available(*, deprecated, message: "Use `fileOptions/deprecated` instead.")
     public var isDeprecated: Bool { proto.options.deprecated }
 
@@ -448,6 +455,7 @@ public final class Descriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_DescriptorProto
+    /// The underlying proto message that defines this message type.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_DescriptorProto {
         _proto
@@ -501,7 +509,9 @@ public final class Descriptor {
         // The end field number of this range (exclusive).
         public fileprivate(set) var end: Int32
 
-        // Tndex of this extension range within the message's extension range array.
+        // Index of this extension range within the message's extension range array.
+
+        /// The position of this extension range within the message's extension range array.
         public let index: Int
 
         /// The resolved features for this ExtensionRange.
@@ -568,6 +578,8 @@ public final class Descriptor {
     public let options: Google_Protobuf_MessageOptions
 
     // If this descriptor represents a well known type, which type it is.
+
+    /// Which well-known type this message represents, if any.
     public let wellKnownType: WellKnownType?
 
     /// The enum defintions under this message.
@@ -692,6 +704,7 @@ public final class Descriptor {
     // Storage for `file`, will be set by bind()
     private unowned var _file: FileDescriptor?
 
+    /// A Boolean value that indicates whether this message uses the legacy MessageSet wire format.
     @available(*, deprecated, renamed: "options.messageSetWireFormat")
     public var useMessageSetWireFormat: Bool { options.messageSetWireFormat }
 
@@ -821,6 +834,7 @@ public final class EnumDescriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_EnumDescriptorProto
+    /// The underlying proto message that defines this enum type.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_EnumDescriptorProto {
         _proto
@@ -873,6 +887,7 @@ public final class EnumDescriptor {
     // Storage for `file`, will be set by bind()
     private unowned var _file: FileDescriptor?
 
+    /// The default value for this enum, which is always its first declared value.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var defaultValue: EnumValueDescriptor {
         // The compiler requires the be atleast one value, so force unwrap is safe.
@@ -931,6 +946,7 @@ public final class EnumValueDescriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_EnumValueDescriptorProto
+    /// The underlying proto message that defines this enum value.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_EnumValueDescriptorProto {
         _proto
@@ -1007,6 +1023,7 @@ public final class OneofDescriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_OneofDescriptorProto
+    /// The underlying proto message that defines this oneof.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_OneofDescriptorProto {
         _proto
@@ -1027,6 +1044,8 @@ public final class OneofDescriptor {
     var _isSynthetic: Bool {
         fields.count == 1 && fields.first!.proto3Optional
     }
+    /// A Boolean value that indicates whether the compiler inserted this oneof to wrap a proto3
+    /// optional field.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var isSynthetic: Bool {
         _isSynthetic
@@ -1080,6 +1099,7 @@ public final class FieldDescriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_FieldDescriptorProto
+    /// The underlying proto message that defines this field.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_FieldDescriptorProto {
         _proto
@@ -1103,6 +1123,7 @@ public final class FieldDescriptor {
     /// JSON name of this field.
     public let jsonName: String?
 
+    /// The resolved features for this field.
     public let features: Google_Protobuf_FeatureSet
 
     /// File in which this field was defined.
@@ -1180,6 +1201,8 @@ public final class FieldDescriptor {
         // impl.
         proto3Optional || (file.edition == .proto2 && !isRequired && !isRepeated && oneofIndex == nil)
     }
+    /// A Boolean value that indicates whether this field was syntactically written with "optional"
+    /// in the .proto file.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var hasOptionalKeyword: Bool {
         _hasOptionalKeyword
@@ -1457,6 +1480,7 @@ public final class ServiceDescriptor {
     // this warning and preserve backwards compatibility - it should be removed
     // when removing `proto`.
     private let _proto: Google_Protobuf_ServiceDescriptorProto
+    /// The underlying proto message that defines this service.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public var proto: Google_Protobuf_ServiceDescriptorProto {
         _proto
@@ -1552,10 +1576,12 @@ public final class MethodDescriptor {
 
     /// Whether the client streams multiple requests.
     public let clientStreaming: Bool
-    // Whether the server streams multiple responses.
+
+    /// A Boolean value that indicates whether the server streams multiple responses.
     public let serverStreaming: Bool
 
     /// The proto version of the descriptor that defines this method.
+    /// The underlying proto message that defines this method.
     @available(
         *,
         deprecated,
