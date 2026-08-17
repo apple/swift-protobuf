@@ -500,7 +500,7 @@ nonisolated extension Proto2Unittest_TestMapLite: SwiftProtobuf.GeneratedMessage
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
     case 2: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
@@ -570,7 +570,7 @@ nonisolated extension Proto2Unittest_TestArenaMapLite: SwiftProtobuf.GeneratedMe
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_MapInt32Int32Entry)
     case 2: return .message(_protobuf_mapEntrySchema_MapInt64Int64Entry)
@@ -637,7 +637,7 @@ nonisolated extension Proto2Unittest_TestRequiredMessageMapLite: SwiftProtobuf.G
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_MapFieldEntry)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
@@ -656,7 +656,7 @@ nonisolated extension Proto2Unittest_TestEnumMapLite: SwiftProtobuf.GeneratedMes
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_KnownMapFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_UnknownMapFieldEntry)
@@ -678,7 +678,7 @@ nonisolated extension Proto2Unittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Gen
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_KnownMapFieldEntry)
     case 2: return .message(_protobuf_mapEntrySchema_UnknownMapFieldEntry)
@@ -700,7 +700,7 @@ nonisolated extension Proto2Unittest_TestMessageMapLite: SwiftProtobuf.Generated
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(_protobuf_mapEntrySchema_MapInt32MessageEntry)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")

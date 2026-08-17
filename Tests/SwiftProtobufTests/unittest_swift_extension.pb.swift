@@ -471,7 +471,7 @@ nonisolated extension SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.Gen
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(SwiftProtoTesting_Extend_MsgUsesStorage.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")

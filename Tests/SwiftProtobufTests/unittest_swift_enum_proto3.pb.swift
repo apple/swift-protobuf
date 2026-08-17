@@ -291,7 +291,7 @@ nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Gener
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1.enumSchema)
     case 2: return .enum(SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2.enumSchema)
@@ -335,7 +335,7 @@ nonisolated extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProto
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias.enumSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
