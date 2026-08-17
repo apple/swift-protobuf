@@ -470,30 +470,39 @@ extension Visitor {
     // and a few even work for Protobuf Binary (thanks to varint coding
     // which erases the size difference between 32-bit and 64-bit ints).
 
+    /// Visits the value as a singular double field, widened from a float.
     public mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
         try visitSingularDoubleField(value: Double(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular int64 field, widened from a 32-bit integer.
     public mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: Int64(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular uint64 field, widened from a 32-bit unsigned integer.
     public mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
         try visitSingularUInt64Field(value: UInt64(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular int32 field.
     public mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular int64 field.
     public mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular uint32 field.
     public mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
         try visitSingularUInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular uint64 field.
     public mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
         try visitSingularUInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular int32 field.
     public mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular int64 field.
     public mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
     }
@@ -503,6 +512,7 @@ extension Visitor {
     // and size visitor), Protobuf Text, and Hash visitors.  JSON format stores
     // repeated values differently from singular, so overrides these.
 
+    /// Visits each value in the array as a singular float field.
     public mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -510,6 +520,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular double field.
     public mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -517,6 +528,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular int32 field.
     public mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -524,6 +536,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular int64 field.
     public mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -531,6 +544,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular uint32 field.
     public mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -538,6 +552,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular uint64 field.
     public mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -545,6 +560,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular sint32 field.
     public mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -552,6 +568,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular sint64 field.
     public mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -559,6 +576,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed32 field.
     public mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -566,6 +584,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed64 field.
     public mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -573,6 +592,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular sfixed32 field.
     public mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -580,6 +600,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular sfixed64 field.
     public mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -587,6 +608,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular bool field.
     public mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -594,6 +616,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular string field.
     public mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -601,6 +624,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular bytes field.
     public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -608,6 +632,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular enum field.
     public mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -615,6 +640,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular message field.
     public mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -622,6 +648,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular group field.
     public mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -634,71 +661,85 @@ extension Visitor {
     // (which do not distinguish packed vs. non-packed) but are
     // overridden by Protobuf Binary and Text.
 
+    /// Visits the array as a repeated, unpacked float field.
     public mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedFloatField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked double field.
     public mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedDoubleField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked int32 field.
     public mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked int64 field.
     public mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked uint32 field.
     public mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedUInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked uint64 field.
     public mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedUInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed int32 field.
     public mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed int64 field.
     public mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed uint32 field.
     public mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedUInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed uint64 field.
     public mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedUInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed int32 field.
     public mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed int64 field.
     public mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked bool field.
     public mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedBoolField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked enum field.
     public mutating func visitPackedEnumField<E: Enum>(
         value: [E],
         fieldNumber: Int
@@ -712,6 +753,7 @@ extension Visitor {
     // format (which has a different encoding for groups) and JSON
     // (which explicitly ignores all groups).
 
+    /// Visits the group's value as a singular message field.
     public mutating func visitSingularGroupField<G: Message>(
         value: G,
         fieldNumber: Int
@@ -723,6 +765,7 @@ extension Visitor {
     // as plain extensions. Formats that what custom behavior can override
     // it.
 
+    /// Visits the extension range as ordinary extension fields.
     public mutating func visitExtensionFieldsAsMessageSet(
         fields: ExtensionFieldValueSet,
         start: Int,

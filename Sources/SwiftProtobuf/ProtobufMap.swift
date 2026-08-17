@@ -20,21 +20,36 @@ import Foundation
 
 /// SwiftProtobuf Internal: Support for Encoding/Decoding.
 public struct _ProtobufMap<KeyType: MapKeyType, ValueType: FieldType> {
+    /// The type that represents a map field's key.
     public typealias Key = KeyType.BaseType
+
+    /// The type that represents a map field's scalar value.
     public typealias Value = ValueType.BaseType
+
+    /// The dictionary type this map field decodes to and encodes from.
     public typealias BaseType = [Key: Value]
 }
 
 /// SwiftProtobuf Internal: Support for Encoding/Decoding.
 public struct _ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message & Hashable> {
+    /// The type that represents a map field's key.
     public typealias Key = KeyType.BaseType
+
+    /// The message type that represents a map field's value.
     public typealias Value = ValueType
+
+    /// The dictionary type this map field decodes to and encodes from.
     public typealias BaseType = [Key: Value]
 }
 
 /// SwiftProtobuf Internal: Support for Encoding/Decoding.
 public struct _ProtobufEnumMap<KeyType: MapKeyType, ValueType: Enum> {
+    /// The type that represents a map field's key.
     public typealias Key = KeyType.BaseType
+
+    /// The enum type that represents a map field's value.
     public typealias Value = ValueType
+
+    /// The dictionary type this map field decodes to and encodes from.
     public typealias BaseType = [Key: Value]
 }
