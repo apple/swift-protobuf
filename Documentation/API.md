@@ -708,7 +708,7 @@ There are several pieces to the extension support:
   `unknownFields` on the message.
 
   If you need to handle extensions defined in multiple files, you can build up
-  your own `ExtensionMap` will all the data by using
+  your own `ExtensionMap` with all the data by using
   [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/main/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
   The easiest way is to create a new `SimpleExtensionMap` passing in a list
   of the generated `*_Extensions` `ExtensionMap`s that were generated for you

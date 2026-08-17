@@ -152,7 +152,7 @@ $ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/ba
 ```
 
 The format of that mapping file is defined in
-[swift_protobuf_module_mappings.proto](../Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto),
+[swift_protobuf_module_mappings.proto](https://github.com/apple/swift-protobuf/blob/main/Protos/Sources/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto),
 and files would look something like:
 
 ```
@@ -278,7 +278,7 @@ Swift Package Manager, you should first check what version of
 
 ```
 $ protoc-gen-swift --version
-protoc-gen-swift 1.0.1
+protoc-gen-swift 1.27.0
 ```
 
 And then add a dependency to your Package.swift file.  Adjust the
@@ -287,7 +287,7 @@ above:
 
 ```swift
 dependencies: [
-    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
 ]
 ```
 
