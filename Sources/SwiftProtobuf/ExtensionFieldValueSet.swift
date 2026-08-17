@@ -15,9 +15,13 @@
 //
 // -----------------------------------------------------------------------------
 
+/// A collection that holds the decoded values of a message's proto2 extension fields, keyed by
+/// field number.
 public struct ExtensionFieldValueSet: Hashable, Sendable {
     fileprivate var values = [Int: any AnyExtensionField]()
 
+    /// Returns a Boolean value that indicates whether two extension field value sets hold the same
+    /// field numbers with equal values.
     public static func == (
         lhs: ExtensionFieldValueSet,
         rhs: ExtensionFieldValueSet
@@ -40,8 +44,14 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         return true
     }
 
+    /// Creates an empty extension field value set.
     public init() {}
 
+    /// A hash based on this set's field numbers and values, kept consistent with this type's
+    /// equality.
+    ///
+    /// The hash mixes each field's contribution together independent of storage order, since
+    /// dictionary iteration order isn't stable.
     public func hash(into hasher: inout Hasher) {
         // AnyExtensionField is not Hashable, and the Self constraint that would
         // add breaks some of the uses of it; so the only choice is to manually
@@ -57,6 +67,8 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         hasher.combine(hash)
     }
 
+    /// Visits the values of the extension fields whose field numbers fall within the range you
+    /// provide, in field-number order.
     public func traverse<V: Visitor>(visitor: inout V, start: Int, end: Int) throws {
         let validIndexes = values.keys.filter { $0 >= start && $0 < end }
         for i in validIndexes.sorted() {
@@ -65,6 +77,7 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         }
     }
 
+    /// Accesses the extension field value stored at the field number you provide.
     public subscript(index: Int) -> (any AnyExtensionField)? {
         get { values[index] }
         set { values[index] = newValue }
@@ -79,6 +92,10 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
         try modifier(&values[index])
     }
 
+    /// A Boolean value that indicates whether every proto2 required field in this set's extension
+    /// values has a value set.
+    ///
+    /// This check recurses into any nested messages held by the extension values.
     public var isInitialized: Bool {
         for (_, v) in values {
             if !v.isInitialized {

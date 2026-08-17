@@ -28,14 +28,24 @@ public protocol AnyMessageExtension: Sendable {
 ///
 /// The generic constraints allow compile-time compatibility checks.
 public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {
+    /// The field number this extension occupies within the message it extends.
     public let fieldNumber: Int
+
+    /// The full proto (text-format) name of this extension field.
     public let fieldName: String
+
+    /// The message type this extension extends.
     public let messageType: any Message.Type
+
+    /// Creates an extension descriptor for the field number and name you provide.
     public init(_protobuf_fieldNumber: Int, fieldName: String) {
         self.fieldNumber = _protobuf_fieldNumber
         self.fieldName = fieldName
         self.messageType = MessageType.self
     }
+
+    /// Returns a decoded field for this extension by reading from the decoder you provide, or
+    /// `nil` if the decoder has no value for it.
     public func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> (any AnyExtensionField)? {
         try FieldType(protobufExtension: self, decoder: &decoder)
     }

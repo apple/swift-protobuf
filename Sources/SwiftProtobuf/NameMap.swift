@@ -223,16 +223,19 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
         internal let utf8Buffer: UnsafeRawBufferPointer
 
+        /// The name's characters, decoded from its interned UTF-8 storage.
         public var description: String {
             String(decoding: self.utf8Buffer, as: UTF8.self)
         }
 
+        /// A hash based on this name's UTF-8 bytes, kept consistent with this type's equality.
         public func hash(into hasher: inout Hasher) {
             for byte in utf8Buffer {
                 hasher.combine(byte)
             }
         }
 
+        /// Returns a Boolean value that indicates whether two names contain the same UTF-8 bytes.
         public static func == (lhs: Name, rhs: Name) -> Bool {
             if lhs.utf8Buffer.count != rhs.utf8Buffer.count {
                 return false
@@ -301,6 +304,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     #if REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
     // Provide a dummy for ExpressibleByDictionaryLiteral conformance.
+
+    /// A placeholder that satisfies dictionary literal conformance when legacy initializer support
+    /// is compiled out.
+    ///
+    /// Calling it always traps.
     public init(dictionaryLiteral elements: (Int, Int)...) {
         fatalError("Support compiled out removed")
     }
@@ -384,6 +392,8 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
     #endif  // !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
+    /// Creates a name map by executing the bytecode instructions the code generator embeds in
+    /// generated messages.
     public init(bytecode: StaticString) {
         var previousNumber = 0
         BytecodeInterpreter<ProtoNameInstruction>(program: bytecode).execute { instruction, reader in
