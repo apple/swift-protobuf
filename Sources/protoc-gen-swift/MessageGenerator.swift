@@ -258,7 +258,7 @@ class MessageGenerator {
             p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)")
             p.print(
                 "",
-                "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {"
+                "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {"
             )
             p.withIndentation { p in
                 p.print("switch token.index {")
