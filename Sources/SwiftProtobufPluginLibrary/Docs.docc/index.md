@@ -1,6 +1,6 @@
 # ``SwiftProtobufPluginLibrary``
 
-A reusable framework for building `protoc` plugins in Swift.
+A reusable framework for building plugins for the protoc compiler in Swift.
 
 ## Overview
 
