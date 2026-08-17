@@ -1,10 +1,11 @@
 # Using the Swift Package Manager plugin
 
-The Swift Package Manager introduced new plugin capabilities in Swift 5.6, enabling the extension of
-the build process with custom build tools. Learn how to use the SwiftProtobuf plugin for the
-Swift Package Manager.
+Extend your build process by using the SwiftProtobuf plugin for the Swift Package Manager.
 
 ## Overview
+
+The Swift Package Manager introduced plugin capabilities in Swift 5.6 that let you extend
+the build process with custom build tools.
 
 > Warning: Due to limitations of binary executable discovery with Xcode we only recommend using the Swift Package Manager
 plugin in leaf packages. For more information, read the [Overriding the path to the protoc binary](#Overriding-the-path-to-the-protoc-binary) section of
