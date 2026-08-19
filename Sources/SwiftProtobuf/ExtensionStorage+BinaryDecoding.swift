@@ -115,8 +115,14 @@ extension ExtensionStorage {
                 }
 
             case .group:
-                guard tag.wireFormat == .startGroup else { return false }
-                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                guard
+                    tag.wireFormat == .startGroup,
+                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                else {
+                    // Send it to unknown fields if the tag is incorrect or if the schema is
+                    // unavailable (e.g., it was weak-linked and dropped by the linker).
+                    return false
+                }
                 try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -139,8 +145,14 @@ extension ExtensionStorage {
                 }
 
             case .message:
-                guard tag.wireFormat == .lengthDelimited else { return false }
-                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                guard
+                    tag.wireFormat == .lengthDelimited,
+                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                else {
+                    // Send it to unknown fields if the tag is incorrect or if the schema is
+                    // unavailable (e.g., it was weak-linked and dropped by the linker).
+                    return false
+                }
                 try reader.withReaderForNextLengthDelimitedSlice { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -235,8 +247,14 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: Float(bitPattern: try reader.nextLittleEndianUInt32()))
 
             case .group:
-                guard tag.wireFormat == .startGroup else { return false }
-                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                guard
+                    tag.wireFormat == .startGroup,
+                    let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                else {
+                    // Send it to unknown fields if the tag is incorrect or if the schema is
+                    // unavailable (e.g., it was weak-linked and dropped by the linker).
+                    return false
+                }
                 try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -257,8 +275,14 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: Int64(bitPattern: try reader.nextVarint()))
 
             case .message:
-                guard tag.wireFormat == .lengthDelimited else { return false }
-                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                guard
+                    tag.wireFormat == .lengthDelimited,
+                    let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                else {
+                    // Send it to unknown fields if the tag is incorrect or if the schema is
+                    // unavailable (e.g., it was weak-linked and dropped by the linker).
+                    return false
+                }
                 try reader.withReaderForNextLengthDelimitedSlice { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -367,13 +391,12 @@ extension ExtensionStorage {
         isRepeated: Bool,
         unknownFields: inout UnknownStorage
     ) throws {
-        let enumSchema = ext.enumSchema
-
         // Read a single raw value from the wire.
         let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
-        guard enumSchema.isValidValue(rawValue) else {
+        guard let enumSchema = ext.enumSchema, enumSchema.isValidValue(rawValue) else {
             // Serialize the invalid values into a binary blob that will be passed as a single
-            // varint field into unknown fields.
+            // varint field into unknown fields. This includes cases where the enum schema is not
+            // found (i.e., it was weak-linked and the linker dropped it).
             //
             // Note that because we've already read the value, we have to put it into unknown fields
             // ourselves. The `decodeUnknownField` flow assumes that we've only read the tag and
@@ -421,13 +444,14 @@ extension ExtensionStorage {
         // into unknown fields at the end.
         var invalidValues: [Int32] = []
 
-        let enumSchema = ext.enumSchema
-
         // Recursion budget is irrelevant here because we're only reading enums.
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
         while elementsReader.hasAvailableData {
             let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
-            if enumSchema.isValidValue(rawValue) {
+
+            // Keep track of all invalid values, including those from enums that were weak-linked
+            // but dropped by the linker.
+            if let enumSchema = ext.enumSchema, enumSchema.isValidValue(rawValue) {
                 appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: ext)
             } else {
                 invalidValues.append(rawValue)

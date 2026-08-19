@@ -63,8 +63,12 @@ public final class ExtensionStorage {
                 case .double:
                     destination.values[fieldNumber] = .init(schema: ext, value: value.value(as: [Double].self))
                 case .enum:
+                    guard let enumSchema = ext.enumSchema else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing enum schema for present extension field \(fieldNumber)")
+                    }
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.enumSchema.invokeWitness(
+                    enumSchema.invokeWitness(
                         .arrayCopyInitialize(
                             source: value.unsafeRawPointer,
                             destination: destinationValue.unsafeMutableRawPointer
@@ -72,8 +76,12 @@ public final class ExtensionStorage {
                     )
                     destination.values[fieldNumber] = destinationValue
                 case .group, .message:
+                    guard let messageSchema = ext.messageSchema else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing message schema for present extension field \(fieldNumber)")
+                    }
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.messageSchema.invokeWitness(
+                    messageSchema.invokeWitness(
                         .arrayCopyInitialize(
                             source: value.unsafeRawPointer,
                             destination: destinationValue.unsafeMutableRawPointer
@@ -102,8 +110,12 @@ public final class ExtensionStorage {
                     destination.values[fieldNumber] = .init(schema: ext, value: value.value(as: Data.self))
 
                 case .group, .message:
+                    guard let messageSchema = ext.messageSchema else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing message schema for present extension field \(fieldNumber)")
+                    }
                     let destinationValue = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                    ext.messageSchema.invokeWitness(
+                    messageSchema.invokeWitness(
                         .messageCopyInitialize(
                             source: value.unsafeRawPointer,
                             destination: destinationValue.unsafeMutableRawPointer

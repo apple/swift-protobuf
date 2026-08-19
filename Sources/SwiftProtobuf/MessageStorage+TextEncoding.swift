@@ -244,7 +244,11 @@ extension MessageStorage {
                 encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
             case .enum:
-                encoder.putEnumValue(rawValue: assumedPresentValue(at: offset), enumSchema: enumSchema(for: field))
+                guard let resolvedEnumSchema = enumSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing enum schema for present enum field \(field.fieldNumber)")
+                }
+                encoder.putEnumValue(rawValue: assumedPresentValue(at: offset), enumSchema: resolvedEnumSchema)
 
             case .fixed32, .uint32:
                 encoder.putUInt64(value: UInt64(assumedPresentValue(at: offset) as UInt32))
@@ -288,7 +292,10 @@ extension MessageStorage {
     /// field is packed.
     private func emitRepeatedEnumField(_ field: MessageSchema.Field, into encoder: inout TextFormatEncoder) {
         let fieldNumber = field.fieldNumber
-        let enumSchema = enumSchema(for: field)
+        guard let enumSchema = enumSchema(for: field) else {
+            // We shouldn't have a value for this field in memory if the linker dropped the schema.
+            preconditionFailure("Missing enum schema for present enum field \(fieldNumber)")
+        }
         if field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
             emitName(ofFieldNumber: fieldNumber, into: &encoder)

@@ -53,7 +53,7 @@ public struct ExtensionSchema: @unchecked Sendable {
     public typealias ExtendedMessageResolver = () -> MessageSchema
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageOrEnumResolver = () -> SubmessageOrEnumSchema
+    public typealias SubmessageOrEnumResolver = () -> SubmessageOrEnumSchema?
 
     /// The function that is invoked to retrieve the schema of the message that this
     /// extension field extends.
@@ -128,20 +128,28 @@ extension ExtensionSchema {
     /// The message schema for this extension field, if it is a message or group.
     ///
     /// - Precondition: The extension field must be a message or group field.
-    var messageSchema: MessageSchema {
-        guard case .message(let messageSchema) = submessageOrEnumResolver() else {
+    var messageSchema: MessageSchema? {
+        switch submessageOrEnumResolver() {
+        case nil:
+            return nil
+        case .message(let messageSchema)?:
+            return messageSchema
+        case .enum?:
             fatalError("messageSchema called on non-message/group extension field")
         }
-        return messageSchema
     }
 
     /// The enum schema for this extension field, if it is an enum.
     ///
     /// - Precondition: The extension field must be an enum field.
-    var enumSchema: EnumSchema {
-        guard case .enum(let enumSchema) = submessageOrEnumResolver() else {
+    var enumSchema: EnumSchema? {
+        switch submessageOrEnumResolver() {
+        case nil:
+            return nil
+        case .enum(let enumSchema)?:
+            return enumSchema
+        case .message?:
             fatalError("enumSchema called on non-enum extension field")
         }
-        return enumSchema
     }
 }

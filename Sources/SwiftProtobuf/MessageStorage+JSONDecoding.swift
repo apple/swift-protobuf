@@ -183,8 +183,17 @@ extension MessageStorage {
                     appendValue(try reader.consumeDouble(), to: field)
 
                 case .enum:
-                    // This returns nil if the value was unknown and we're ignoring unknowns.
-                    guard let value = try reader.consumeEnumValue(schema: enumSchema(for: field)) else {
+                    // Decoding an enum field in JSON requires that the schema be linked into the
+                    // binary; otherwise, we don't know the value names.
+                    guard let resolvedEnumSchema = enumSchema(for: field) else {
+                        throw reader.parsingError(
+                            reason: """
+                                Schema not found for enum field \(field.fieldNumber); \
+                                was it weak-linked and dropped by the linker?
+                                """
+                        )
+                    }
+                    guard let value = try reader.consumeEnumValue(schema: resolvedEnumSchema) else {
                         break
                     }
                     appendEnumValue(withRawValue: value, toRepeatedEnumField: field)
@@ -292,11 +301,21 @@ extension MessageStorage {
             }
 
         case .enum:
+            // Decoding an enum field in JSON requires that the schema be linked into the
+            // binary; otherwise, we don't know the value names.
+            guard let resolvedEnumSchema = enumSchema(for: field) else {
+                throw reader.parsingError(
+                    reason: """
+                        Schema not found for enum field \(field.fieldNumber); \
+                        was it weak-linked and dropped by the linker?
+                        """
+                )
+            }
+
             // If we're decoding a `NullValue` well-known type, `null` should be
             // stored as the `NULL_VALUE` value, not clear the field.
             if isNull {
-                let enumSchema = enumSchema(for: field)
-                switch CustomJSONWKTClassification(enumSchema: enumSchema) {
+                switch CustomJSONWKTClassification(enumSchema: resolvedEnumSchema) {
                 case .nullValue:
                     updateValue(of: field, to: Int32(0))
                 default:
@@ -306,7 +325,7 @@ extension MessageStorage {
             }
 
             // This returns nil if the value was unknown and we're ignoring unknowns.
-            guard let value = try reader.consumeEnumValue(schema: enumSchema(for: field)) else {
+            guard let value = try reader.consumeEnumValue(schema: resolvedEnumSchema) else {
                 return false
             }
             updateValue(of: field, to: value)
@@ -354,11 +373,22 @@ extension MessageStorage {
                 break
             }
 
-            switch CustomJSONWKTClassification(messageSchema: messageSchema(for: field)) {
+            guard let submessageSchema = messageSchema(for: field) else {
+                throw reader.parsingError(
+                    reason: """
+                        Schema not found for message field \(field.fieldNumber); \
+                        was it weak-linked and dropped by the linker?
+                        """
+                )
+            }
+            switch CustomJSONWKTClassification(messageSchema: submessageSchema) {
             case .value:
                 // A `null` value for `google.protobuf.Value` decodes to a message whose
                 // `nullValue` field is set to `google.protobuf.NullValue.nullValue`.
-                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+                //
+                // This is safe to force-unwrap because it would only return nil if the schema
+                // wasn't found, which is checked above.
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)!
                 let nullValueField = KnownField.valueNullValue(in: submessageStorage.schema)
                 guard case .oneOfMember(let oneofOffset) = nullValueField.presence else {
                     preconditionFailure("expected nullValue to be a oneof member; this is a generator bug")
@@ -445,7 +475,14 @@ extension MessageStorage {
     ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanSingularMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
-        let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
+        guard let submessageStorage = uniqueMessageStorage(forSingularMessageField: field) else {
+            throw reader.parsingError(
+                reason: """
+                    Schema not found for message field \(field.fieldNumber); \
+                    was it weak-linked and dropped by the linker?
+                    """
+            )
+        }
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
@@ -457,7 +494,14 @@ extension MessageStorage {
     ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanRepeatedMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
-        let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
+        guard let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field) else {
+            throw reader.parsingError(
+                reason: """
+                    Schema not found for message field \(field.fieldNumber); \
+                    was it weak-linked and dropped by the linker?
+                    """
+            )
+        }
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }

@@ -179,6 +179,10 @@ extension MessageStorage {
                 emitRepeatedField { encoder.putDoubleValue(value: $0) }
 
             case .enum:
+                guard let resolvedEnumSchema = enumSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing enum schema for present enum field \(field.fieldNumber)")
+                }
                 var firstItem = true
                 forEachRawValue(inAssumedPresentRepeatedEnumField: field) { rawValue in
                     if !firstItem {
@@ -186,7 +190,7 @@ extension MessageStorage {
                     }
                     encoder.putEnumValue(
                         rawValue: rawValue,
-                        enumSchema: enumSchema(for: field),
+                        enumSchema: resolvedEnumSchema,
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
@@ -282,9 +286,13 @@ extension MessageStorage {
             encoder.putDoubleValue(value: assumedPresentValue(at: offset))
 
         case .enum:
+            guard let resolvedEnumSchema = enumSchema(for: field) else {
+                // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                preconditionFailure("Missing enum schema for present enum field \(field.fieldNumber)")
+            }
             encoder.putEnumValue(
                 rawValue: assumedPresentValue(at: offset, as: Int32.self),
-                enumSchema: enumSchema(for: field),
+                enumSchema: resolvedEnumSchema,
                 alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
             )
 
