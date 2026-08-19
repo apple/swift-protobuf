@@ -135,7 +135,7 @@ public struct MessageSchema: @unchecked Sendable {
     public typealias InvokeWitnessFunction = (MessageWitnessOperation) -> Void
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema
+    public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema?
 
     let invokeWitness: InvokeWitnessFunction
 

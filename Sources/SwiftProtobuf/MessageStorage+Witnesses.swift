@@ -24,24 +24,34 @@ enum IterationBehavior {
 extension MessageStorage {
     /// Returns the message schema for the given field.
     ///
+    /// - Returns: The message schema, or `nil` if the schema is not available (e.g., it
+    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be a message, group, or map field.
-    func messageSchema(for field: MessageSchema.Field) -> MessageSchema {
-        let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
-        guard case .message(let subSchema) = resolution else {
+    func messageSchema(for field: MessageSchema.Field) -> MessageSchema? {
+        switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
+        case nil:
+            return nil
+        case .message(let subSchema)?:
+            return subSchema
+        case .enum?:
             preconditionFailure("Field should have a message schema; this is a generator bug")
         }
-        return subSchema
     }
 
     /// Returns the enum schema for the given field.
     ///
+    /// - Returns: The enum schema, or `nil` if the schema is not available (e.g., it
+    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be an enum field.
-    func enumSchema(for field: MessageSchema.Field) -> EnumSchema {
-        let resolution = schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex))
-        guard case .enum(let enumSchema) = resolution else {
+    func enumSchema(for field: MessageSchema.Field) -> EnumSchema? {
+        switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
+        case nil:
+            return nil
+        case .enum(let enumSchema)?:
+            return enumSchema
+        case .message?:
             preconditionFailure("Field should have an enum schema; this is a generator bug")
         }
-        return enumSchema
     }
 }
 
@@ -53,9 +63,13 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a message or group field.
     func messageStorage(forAssumedPresentSingularMessageField field: MessageSchema.Field) -> MessageStorage {
         let pointer = rawPointer(for: field)
+        // Accessing storage for an assumed-present message field requires a non-nil schema.
+        guard let submessageSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+        }
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
-            messageSchema(for: field).invokeWitness(.messageGetStorage(pointer: pointer, result: $0))
+            submessageSchema.invokeWitness(.messageGetStorage(pointer: pointer, result: $0))
         }
         return submessageStorage!.takeUnretainedValue()
     }
@@ -64,11 +78,15 @@ extension MessageStorage {
     ///
     /// If the field is not yet present, its value will be initialized first.
     ///
+    /// - Returns: The message storage, or `nil` if the message schema is not available (e.g., it
+    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be a singular message or group field.
     @inline(never)
-    func uniqueMessageStorage(forSingularMessageField field: MessageSchema.Field) -> MessageStorage {
+    func uniqueMessageStorage(forSingularMessageField field: MessageSchema.Field) -> MessageStorage? {
         let pointer = rawPointer(for: field)
-        let submessageSchema = messageSchema(for: field)
+        guard let submessageSchema = messageSchema(for: field) else {
+            return nil
+        }
 
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) { submessageStoragePointer in
@@ -97,9 +115,13 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func elementCount(forAssumedPresentRepeatedMessageField field: MessageSchema.Field) -> Int {
         let pointer = rawPointer(for: field)
+        // Accessing element count for an assumed-present repeated message field requires a non-nil schema.
+        guard let submessageSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+        }
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
-            messageSchema(for: field).invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
+            submessageSchema.invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
         }
         return count
     }
@@ -112,9 +134,13 @@ extension MessageStorage {
         inAssumedPresentRepeatedMessageField field: MessageSchema.Field
     ) -> MessageStorage {
         let pointer = rawPointer(for: field)
+        // Accessing element storage for an assumed-present repeated message field requires a non-nil schema.
+        guard let submessageSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+        }
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
-            messageSchema(for: field).invokeWitness(.arrayGetElementStorage(pointer: pointer, index: index, result: $0))
+            submessageSchema.invokeWitness(.arrayGetElementStorage(pointer: pointer, index: index, result: $0))
         }
         return submessageStorage!.takeUnretainedValue()
     }
@@ -137,10 +163,14 @@ extension MessageStorage {
     ///
     /// If the field is not yet present, its array value will be initialized first.
     ///
+    /// - Returns: The message storage, or `nil` if the message schema is not available (e.g., it
+    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be a repeated message or group field.
-    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField field: MessageSchema.Field) -> MessageStorage {
+    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField field: MessageSchema.Field) -> MessageStorage? {
         let pointer = rawPointer(for: field)
-        let submessageSchema = messageSchema(for: field)
+        guard let submessageSchema = messageSchema(for: field) else {
+            return nil
+        }
 
         if !isPresent(field) {
             // If the field is not present, initialize it with an empty array and update its presence.
@@ -221,9 +251,13 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func elementCount(forAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int {
         let pointer = rawPointer(for: field)
+        // Accessing element count for an assumed-present repeated enum field requires a non-nil schema.
+        guard let resolvedEnumSchema = enumSchema(for: field) else {
+            preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
+        }
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
-            enumSchema(for: field).invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
+            resolvedEnumSchema.invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
         }
         return count
     }
@@ -233,9 +267,13 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func rawValue(at index: Int, inAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int32 {
         let pointer = rawPointer(for: field)
+        // Accessing raw value for an assumed-present repeated enum field requires a non-nil schema.
+        guard let resolvedEnumSchema = enumSchema(for: field) else {
+            preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
+        }
         var value: Int32 = 0
         withUnsafeMutablePointer(to: &value) {
-            enumSchema(for: field).invokeWitness(.arrayGetElementRawValue(pointer: pointer, index: index, result: $0))
+            resolvedEnumSchema.invokeWitness(.arrayGetElementRawValue(pointer: pointer, index: index, result: $0))
         }
         return value
     }
@@ -261,7 +299,9 @@ extension MessageStorage {
     /// - Precondition: The field must be a repeated enum field.
     func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField field: MessageSchema.Field) {
         let pointer = rawPointer(for: field)
-        let enumSchema = enumSchema(for: field)
+        guard let enumSchema = enumSchema(for: field) else {
+            preconditionFailure("Missing enum schema for field \(field.fieldNumber)")
+        }
 
         if !isPresent(field) {
             // If the field is not present, initialize it with an empty array and update its presence.
@@ -298,7 +338,10 @@ extension MessageStorage {
         perform: (MessageStorage) throws -> IterationBehavior
     ) rethrows {
         let pointer = rawPointer(for: field)
-        let mapSchema = messageSchema(for: field)
+        // Iterating over a present map field requires a non-nil schema.
+        guard let mapSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
+        }
 
         // Compute the required size and alignment for the map iterator.
         var iteratorSize = 0
@@ -366,7 +409,9 @@ extension MessageStorage {
     @inline(never)
     func insertMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) {
         let pointer = rawPointer(for: field)
-        let mapSchema = messageSchema(for: field)
+        guard let mapSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing map schema for field \(field.fieldNumber)")
+        }
 
         if !isPresent(field) {
             // If the field is not present, initialize it with an empty dictionary and update its presence.
@@ -385,7 +430,10 @@ extension MessageStorage {
     ///
     /// - Precondition: The field must be present and must be a map field.
     func isMapField(_ field: MessageSchema.Field, equalToSameFieldIn other: MessageStorage) -> Bool {
-        let mapSchema = messageSchema(for: field)
+        // Comparing a present map field requires a non-nil schema.
+        guard let mapSchema = messageSchema(for: field) else {
+            preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
+        }
         let pointer = rawPointer(for: field)
         let otherPointer = other.rawPointer(for: field)
         var result: Bool = false

@@ -54,8 +54,18 @@ extension ExtensionStorage {
                     appendValue(try reader.consumeDouble(), to: schema)
 
                 case .enum:
+                    // Decoding an enum field in TextFormat requires that the schema be linked into
+                    // the binary; otherwise, we don't know the value names.
+                    guard let enumSchema = schema.enumSchema else {
+                        throw reader.parsingError(
+                            reason: """
+                                Schema not found for extension enum field \(schema.fieldNumber); \
+                                was it weak-linked and dropped by the linker?
+                                """
+                        )
+                    }
                     appendEnumValue(
-                        withRawValue: try reader.consumeEnumValue(schema: schema.enumSchema),
+                        withRawValue: try reader.consumeEnumValue(schema: enumSchema),
                         toRepeatedEnumField: schema
                     )
 
@@ -70,7 +80,15 @@ extension ExtensionStorage {
                     appendValue(try Float(reader.consumeDouble()), to: schema)
 
                 case .group, .message:
-                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                    guard let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: schema)
+                    else {
+                        throw reader.parsingError(
+                            reason: """
+                                Schema not found for extension message field \(schema.fieldNumber); \
+                                was it weak-linked and dropped by the linker?
+                                """
+                        )
+                    }
                     try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                         try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
                     }
@@ -102,7 +120,16 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: try reader.consumeDouble())
 
             case .enum:
-                updateValue(of: schema, to: try reader.consumeEnumValue(schema: schema.enumSchema))
+                // Decoding an extension enum field in TextFormat requires a non-nil EnumSchema.
+                guard let enumSchema = schema.enumSchema else {
+                    throw reader.parsingError(
+                        reason: """
+                            Schema not found for extension enum field \(schema.fieldNumber); \
+                            was it weak-linked and dropped by the linker?
+                            """
+                    )
+                }
+                updateValue(of: schema, to: try reader.consumeEnumValue(schema: enumSchema))
 
             case .fixed32, .uint32:
                 let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
@@ -115,7 +142,14 @@ extension ExtensionStorage {
                 updateValue(of: schema, to: try Float(reader.consumeDouble()))
 
             case .group, .message:
-                let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema)
+                guard let submessageStorage = uniqueMessageStorage(forSingularMessageField: schema) else {
+                    throw reader.parsingError(
+                        reason: """
+                            Schema not found for extension message field \(schema.fieldNumber); \
+                            was it weak-linked and dropped by the linker?
+                            """
+                    )
+                }
                 try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                     try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
                 }

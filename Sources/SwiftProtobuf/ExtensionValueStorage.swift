@@ -92,10 +92,18 @@ import Foundation
             case .bytes: release(type: [Data].self)
             case .double: release(type: [Double].self)
             case .enum:
-                schema.enumSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
+                guard let enumSchema = schema.enumSchema else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing enum schema for present extension field \(schema.fieldNumber)")
+                }
+                enumSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
                 unsafeMutableRawPointer.deallocate()
             case .group, .message:
-                schema.messageSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
+                guard let messageSchema = schema.messageSchema else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing message schema for present extension field \(schema.fieldNumber)")
+                }
+                messageSchema.invokeWitness(.arrayDeinitialize(pointer: unsafeMutableRawPointer))
                 unsafeMutableRawPointer.deallocate()
             case .fixed32, .uint32: release(type: [UInt32].self)
             case .fixed64, .uint64: release(type: [UInt64].self)
@@ -111,7 +119,11 @@ import Foundation
             case .bytes: release(type: Data.self)
             case .string: release(type: String.self)
             case .group, .message:
-                schema.messageSchema.invokeWitness(.messageDeinitialize(pointer: unsafeMutableRawPointer))
+                guard let messageSchema = schema.messageSchema else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing message schema for present extension field \(schema.fieldNumber)")
+                }
+                messageSchema.invokeWitness(.messageDeinitialize(pointer: unsafeMutableRawPointer))
                 unsafeMutableRawPointer.deallocate()
             default:
                 // Ignore trivial fields; no deinitialization is necessary.

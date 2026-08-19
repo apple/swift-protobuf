@@ -46,8 +46,17 @@ extension ExtensionStorage {
                     appendValue(try reader.consumeDouble(), to: schema)
 
                 case .enum:
-                    // This returns nil if the value was unknown and we're ignoring unknowns.
-                    guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
+                    // Decoding an enum field in JSON requires that the schema be linked into the
+                    // binary; otherwise, we don't know the value names.
+                    guard let enumSchema = schema.enumSchema else {
+                        throw reader.parsingError(
+                            reason: """
+                                Schema not found for extension enum field \(schema.fieldNumber); \
+                                was it weak-linked and dropped by the linker?
+                                """
+                        )
+                    }
+                    guard let value = try reader.consumeEnumValue(schema: enumSchema) else {
                         break
                     }
                     appendValue(value, to: schema)
@@ -126,8 +135,17 @@ extension ExtensionStorage {
                 clearValue(of: schema, type: Int32.self)
                 break
             }
-            // This returns nil if the value was unknown and we're ignoring unknowns.
-            guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
+            // Decoding an enum field in JSON requires that the schema be linked into the
+            // binary; otherwise, we don't know the value names.
+            guard let enumSchema = schema.enumSchema else {
+                throw reader.parsingError(
+                    reason: """
+                        Schema not found for extension enum field \(schema.fieldNumber); \
+                        was it weak-linked and dropped by the linker?
+                        """
+                )
+            }
+            guard let value = try reader.consumeEnumValue(schema: enumSchema) else {
                 break
             }
             updateValue(of: schema, to: value)
@@ -194,7 +212,14 @@ extension ExtensionStorage {
     ///   - ext: The ``ExtensionSchema`` of the extension field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanSingularMessageField(_ ext: ExtensionSchema, from reader: inout JSONReader) throws {
-        let submessageStorage = uniqueMessageStorage(forSingularMessageField: ext)
+        guard let submessageStorage = uniqueMessageStorage(forSingularMessageField: ext) else {
+            throw reader.parsingError(
+                reason: """
+                    Schema not found for extension message field \(ext.fieldNumber); \
+                    was it weak-linked and dropped by the linker?
+                    """
+            )
+        }
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
@@ -206,7 +231,14 @@ extension ExtensionStorage {
     ///   - ext: The ``ExtensionSchema`` of the extension field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanRepeatedMessageField(_ ext: ExtensionSchema, from reader: inout JSONReader) throws {
-        let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: ext)
+        guard let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: ext) else {
+            throw reader.parsingError(
+                reason: """
+                    Schema not found for extension message field \(ext.fieldNumber); \
+                    was it weak-linked and dropped by the linker?
+                    """
+            )
+        }
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }

@@ -145,7 +145,11 @@ extension MessageStorage {
     @usableFromInline func deinitializeFieldForced(_ field: MessageSchema.Field) {
         switch field.fieldMode.cardinality {
         case .map:
-            messageSchema(for: field).invokeWitness(.mapDeinitialize(pointer: rawPointer(for: field)))
+            guard let submessageSchema = messageSchema(for: field) else {
+                // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
+            }
+            submessageSchema.invokeWitness(.mapDeinitialize(pointer: rawPointer(for: field)))
 
         case .array:
             switch field.rawFieldType {
@@ -153,9 +157,17 @@ extension MessageStorage {
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
             case .enum:
-                enumSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
+                guard let resolvedEnumSchema = enumSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
+                }
+                resolvedEnumSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .group, .message:
-                messageSchema(for: field).invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
+                guard let submessageSchema = messageSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+                }
+                submessageSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
             case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
             case .float: deinitializeField(field, type: [Float].self)
@@ -170,7 +182,11 @@ extension MessageStorage {
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                messageSchema(for: field).invokeWitness(
+                guard let submessageSchema = messageSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+                }
+                submessageSchema.invokeWitness(
                     .messageDeinitialize(pointer: rawPointer(for: field))
                 )
             default:
@@ -231,7 +247,11 @@ extension MessageStorage {
                 guard isPresent(field) else { continue }
                 let source = rawPointer(for: field)
                 let destination = destination.rawPointer(for: field)
-                messageSchema(for: field).invokeWitness(.mapCopyInitialize(source: source, destination: destination))
+                guard let submessageSchema = messageSchema(for: field) else {
+                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                    preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
+                }
+                submessageSchema.invokeWitness(.mapCopyInitialize(source: source, destination: destination))
 
             case .array:
                 switch field.rawFieldType {
@@ -242,13 +262,21 @@ extension MessageStorage {
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    enumSchema(for: field).invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
+                    guard let resolvedEnumSchema = enumSchema(for: field) else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
+                    }
+                    resolvedEnumSchema.invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
 
                 case .group, .message:
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    messageSchema(for: field).invokeWitness(
+                    guard let submessageSchema = messageSchema(for: field) else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+                    }
+                    submessageSchema.invokeWitness(
                         .arrayCopyInitialize(source: source, destination: destination)
                     )
 
@@ -270,7 +298,11 @@ extension MessageStorage {
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    messageSchema(for: field).invokeWitness(
+                    guard let submessageSchema = messageSchema(for: field) else {
+                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
+                        preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
+                    }
+                    submessageSchema.invokeWitness(
                         .messageCopyInitialize(source: source, destination: destination)
                     )
 

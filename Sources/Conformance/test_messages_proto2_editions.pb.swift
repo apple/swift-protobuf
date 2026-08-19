@@ -2414,7 +2414,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2: S
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.NestedEnum.enumSchema)
     case 2: return .enum(ProtobufTestMessages_Editions_Proto2_ForeignEnumProto2.enumSchema)
@@ -2507,7 +2507,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.Ne
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
@@ -2564,7 +2564,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.Me
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
@@ -2611,7 +2611,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_UnknownToTestAllTypes
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_Proto2_ForeignMessageProto2.messageSchema)
     case 2: return .message(ProtobufTestMessages_Editions_Proto2_UnknownToTestAllTypes.OptionalGroup.messageSchema)
@@ -2685,7 +2685,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesP
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .enum(ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesProto2.NestedEnum.enumSchema)
     case 2: return .enum(ProtobufTestMessages_Editions_Proto2_ForeignEnumProto2.enumSchema)
@@ -2713,7 +2713,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesP
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_Proto2_TestAllRequiredTypesProto2.messageSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
@@ -2770,7 +2770,7 @@ nonisolated extension ProtobufTestMessages_Editions_Proto2_TestLargeOneof: Swift
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema {
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
     case 1: return .message(ProtobufTestMessages_Editions_Proto2_TestLargeOneof.A1.messageSchema)
     case 2: return .message(ProtobufTestMessages_Editions_Proto2_TestLargeOneof.A2.messageSchema)
