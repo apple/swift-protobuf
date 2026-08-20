@@ -284,6 +284,9 @@ compile-tests-nonisolateddeclarations:
 # of our harness as well as the codegen.
 compile-tests-weakimports:
 	${SWIFT} run -c release --package-path CompileTests/WeakImports
+	/usr/bin/env python3 CompileTests/WeakImports/check_symbols.py \
+	  --binary CompileTests/WeakImports/.build/release/Client \
+	  --check-file CompileTests/WeakImports/Sources/Client/Client.swift
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift

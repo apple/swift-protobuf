@@ -15,6 +15,9 @@ struct Main {
   static func main() {
     do {
       // Referencing MessageA's fields should keep those properties alive.
+
+      // HAS-SYMBOL: nominal type descriptor for ModuleA.Test_MessageA
+      // HAS-SYMBOL: ModuleA.Test_MessageA.init() -> ModuleA.Test_MessageA
       var msg = Test_MessageA()
       msg.title = "Hello Weak Imports"
       expect(msg.hasTitle)
@@ -24,13 +27,19 @@ struct Main {
     do {
       // Referencing MessageC's fields should keep those properties in MessageA
       // and MessageC alive.
+
       var msg = Test_MessageA()
+      // HAS-SYMBOL: ModuleC.Test_MessageC.id.setter : Swift.Int32
+      // HAS-SYMBOL: ModuleA.Test_MessageA.nestedC.{{getter|setter|modify}} : ModuleC.Test_MessageC
       msg.nestedC.id = 12345
+      // HAS-SYMBOL: ModuleA.Test_MessageA.hasNestedC.getter : Swift.Bool
       expect(msg.hasNestedC)
+      // HAS-SYMBOL: ModuleC.Test_MessageC.id.getter : Swift.Int32
       expect(msg.nestedC.id == 12345)
     }
 
     // TODO: Add more tests.
+    // HAS-SYMBOL-NOT: NonExistentSymbol_DoesNotExist
 
     print("✅ All tests passed!")
   }
