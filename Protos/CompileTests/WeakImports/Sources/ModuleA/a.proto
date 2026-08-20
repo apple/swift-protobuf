@@ -1,0 +1,41 @@
+syntax = "proto2";
+
+package test;
+
+import "Sources/ModuleB/b.proto";
+import "Sources/ModuleC/c.proto";
+
+message MessageA {
+    optional string title = 1;
+
+    // Fields for ModuleB
+    optional MessageB nested_b = 2;
+    optional EnumB nested_enum = 3;
+    map<string, MessageB> map_b = 4;
+    repeated MessageB repeated_b = 5;
+    repeated EnumB repeated_enum_b = 6;
+    oneof oneof_b {
+        MessageB oneof_message_b = 7;
+        EnumB oneof_enum_b = 8;
+    }
+
+    // Fields for ModuleC
+    optional MessageC nested_c = 10;
+    optional EnumC nested_enum_c = 11;
+    map<string, MessageC> map_c = 12;
+    repeated MessageC repeated_c = 13;
+    repeated EnumC repeated_enum_c = 14;
+    oneof oneof_c {
+        MessageC oneof_message_c = 15;
+        EnumC oneof_enum_c = 16;
+    }
+
+    extensions 100 to max;
+}
+
+extend MessageA {
+    optional MessageB ext_message = 100;
+    optional EnumB ext_enum = 101;
+    optional MessageC ext_message_c = 102;
+    optional EnumC ext_enum_c = 103;
+}

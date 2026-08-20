@@ -1,0 +1,12 @@
+mapping {
+  module_name: "ModuleB"
+  proto_file_path: "Sources/ModuleB/b.proto"
+}
+mapping {
+  module_name: "ModuleC"
+  proto_file_path: "Sources/ModuleC/c.proto"
+}
+mapping {
+  module_name: "ModuleA"
+  proto_file_path: "Sources/ModuleA/a.proto"
+}

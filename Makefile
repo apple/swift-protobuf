@@ -233,6 +233,13 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p _test/CompileTests/WeakImports
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/WeakImports \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
+		--tfiws_out=_test/CompileTests/WeakImports \
+		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
 	diff -ru _test Reference
 
 # Test the SPM plugin.
@@ -248,7 +255,8 @@ test-spm-plugin:
 compile-tests: \
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
-	compile-tests-nonisolateddeclarations
+	compile-tests-nonisolateddeclarations \
+	compile-tests-weakimports
 
 # Test that ensures generating public into multiple modules with `import public`
 # yields buildable code.
@@ -270,6 +278,12 @@ compile-tests-internalimportsbydefault:
 # target that has `.defaultIsolation(MainActor.self)`.
 compile-tests-nonisolateddeclarations:
 	${SWIFT} build --package-path CompileTests/NonisolatedDeclarations
+
+# Test that ensures weak imports across multiple modules compile.
+# Note that this is a `swift run` because we're verifying the runtime behavior
+# of our harness as well as the codegen.
+compile-tests-weakimports:
+	${SWIFT} run -c release --package-path CompileTests/WeakImports
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
@@ -321,6 +335,13 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=UseAccessLevelOnImports=true \
 		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
 		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
+	@mkdir -p Reference/CompileTests/WeakImports
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/WeakImports \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
+		--tfiws_out=Reference/CompileTests/WeakImports \
+		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -588,7 +609,8 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 regenerate-compiletests-protos: \
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
-	copy-compiletests-nonisolateddeclarations-protos
+	copy-compiletests-nonisolateddeclarations-protos \
+	regenerate-compiletests-weakimports-protos
 
 # Update the CompileTests/MultiModule files.
 # NOTE: Any changes here must also be done on the "test-plugin" target so it
@@ -601,6 +623,18 @@ regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=CompileTests/MultiModule \
 		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+
+# Update the CompileTests/WeakImports files.
+# NOTE: Any changes here must also be done on the "test-plugin" target so it
+# generates in the same way.
+regenerate-compiletests-weakimports-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
+	find CompileTests/WeakImports -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/WeakImports \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
+		--tfiws_out=CompileTests/WeakImports \
+		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
 
 # We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
