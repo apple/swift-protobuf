@@ -31,7 +31,7 @@ let package = Package(
         .executableTarget(
             name: "Client",
             dependencies: [
-                .target(name: "ModuleA"),
+                .target(name: "ModuleA")
             ]
         ),
     ]
