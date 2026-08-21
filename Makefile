@@ -432,9 +432,7 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 # TODO(tvl): Revisit "-I Protos/Sources/protoc-gen-swift" once we the files is in a
-# protobuf release.
-# TODO(tvl): Remove "--experimental_editions" the java_options are no longer locked down
-# to "unstable".
+# protobuf release, but they may be complex when using a different protoc binary (head).
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
@@ -442,7 +440,6 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftPr
 	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
-		--experimental_editions \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
