@@ -108,6 +108,16 @@ nonisolated struct Pb_InternalFieldOptionsCpp: @unchecked Swift.Sendable {
     /// Clears the value of `force`. Subsequent reads from it will return its default value.
     mutating func clearForce() { _uniqueStorage().clearValue(at: 4, type: Pb_InternalOptionsForce.Enum.self, hasBit: (0, 1)) }
 
+    /// If set, we force the SSO size of the field.
+    var ssoSize: Int32 {
+      get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
+      set { _uniqueStorage().updateValue(at: 8, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    }
+    /// Returns true if `ssoSize` has been explicitly set.
+    var hasSsoSize: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
+    /// Clears the value of `ssoSize`. Subsequent reads from it will return its default value.
+    mutating func clearSsoSize() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
+
     init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
     private var _storage: SwiftProtobuf.MessageStorage
@@ -230,8 +240,8 @@ nonisolated extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.GeneratedMessage
 }
 
 nonisolated extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}&\0pb.InternalFieldOptionsCpp.MicroString"
-  private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}WpsC.%-^-x\u{6}`\u{c}\u{18}?\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{c}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}&\0pb.InternalFieldOptionsCpp.MicroString"
+  private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P2j/rLI\u{1a}\u{3}\u{14}MX$R\u{4}$/[|.J#Z`H\u{f};\u{f}7sh\"G\u{4}*.\\h\u{7f} \u{1c}m58px\u{11}f/9ydJy\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 

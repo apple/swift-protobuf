@@ -482,6 +482,11 @@ nonisolated struct Proto2Unittest_ComplexOptionType1: @unchecked Swift.Sendable 
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 8)) }
   }
 
+  var myMap: [String: Int32] {
+    get { _storage.value(atIndex: 0, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 16)) }
+  }
+
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
@@ -2118,10 +2123,19 @@ nonisolated extension Proto2Unittest_SettingRealsFromNegativeNan: SwiftProtobuf.
 }
 
 nonisolated extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0 \u{4}\0\0\0\0\0\u{3}\0\0\u{5}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\u{2}\0\0\u{10}\u{3}\0\0\0\u{5}\"\0proto2_unittest.ComplexOptionType1"
-  private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}8r\u{17}\u{11}|xa\u{15}\u{8}\t1V|hY`\u{12}Pe\u{1}5w\u{2}J\u{1a}\u{f}\u{7}H&9\u{10}`UCK\u{5}t^( {L{`~l\u{c}C-\u{1b}\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{10}\0 \u{5}\0\0\0\0\0\u{3}\0\0\u{6}\0\0\u{1}\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\u{2}\0\0\u{10}\u{3}\0\0\0\u{5}\u{5}\0\0\0\u{4}\0\0 \u{4}\0\u{1}\0\u{b}\"\0proto2_unittest.ComplexOptionType1"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{1}\0\0 \u{7f}\t1=ZC#DC -un\u{16}VS\ttw=\u{b}tO\u{e}z/4\u{e}LV1+8Zp@\\\u{1f}h\u{19}Obqq\u{f}4\u{2}\u{1f}\u{b}lDFu[0`POTIm7J|8\u{7f} [?6n|0FMPt<{^:\u{1c}\0"
 
-  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
+
+  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
+    switch token.index {
+    case 1: return .message(_protobuf_mapEntrySchema_MyMapEntry)
+    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
+    }
+  }
+  private static let _protobuf_mapEntrySchema_MyMapEntry_string: Swift.StaticString = "\0\u{8}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\u{4}\0\0\u{1}\0\0\0\u{5}-\0proto2_unittest.ComplexOptionType1.MyMapEntry"
+  private static let _protobuf_mapEntrySchema_MyMapEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MyMapEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapInt32Field.self)
 
   func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
