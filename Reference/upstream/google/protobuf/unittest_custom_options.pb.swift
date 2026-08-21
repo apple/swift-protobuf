@@ -381,6 +381,8 @@ nonisolated struct Proto2Unittest_ComplexOptionType1: SwiftProtobuf.ExtensibleMe
 
   var foo4: [Int32] = []
 
+  var myMap: Dictionary<String,Int32> = [:]
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -2396,7 +2398,7 @@ nonisolated extension Proto2Unittest_SettingRealsFromNegativeNan: SwiftProtobuf.
 
 nonisolated extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType1"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}foo\0\u{1}foo2\0\u{1}foo3\0\u{1}foo4\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}foo\0\u{1}foo2\0\u{1}foo3\0\u{1}foo4\0\u{3}my_map\0")
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -2413,6 +2415,7 @@ nonisolated extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.Message, 
       case 2: try { try decoder.decodeSingularInt32Field(value: &self._foo2) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self._foo3) }()
       case 4: try { try decoder.decodeRepeatedInt32Field(value: &self.foo4) }()
+      case 5: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufInt32>.self, value: &self.myMap) }()
       case 100..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Proto2Unittest_ComplexOptionType1.self, fieldNumber: fieldNumber) }()
       default: break
@@ -2437,6 +2440,9 @@ nonisolated extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.Message, 
     if !self.foo4.isEmpty {
       try visitor.visitRepeatedInt32Field(value: self.foo4, fieldNumber: 4)
     }
+    if !self.myMap.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufInt32>.self, value: self.myMap, fieldNumber: 5)
+    }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2446,6 +2452,7 @@ nonisolated extension Proto2Unittest_ComplexOptionType1: SwiftProtobuf.Message, 
     if lhs._foo2 != rhs._foo2 {return false}
     if lhs._foo3 != rhs._foo3 {return false}
     if lhs.foo4 != rhs.foo4 {return false}
+    if lhs.myMap != rhs.myMap {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
