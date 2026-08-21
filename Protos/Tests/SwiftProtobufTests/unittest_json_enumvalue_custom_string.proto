@@ -14,7 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-edition = "UNSTABLE";
+edition = "2026";
 
 package swift_proto_testing.enum_value_json_string;
 
