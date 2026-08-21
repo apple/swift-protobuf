@@ -78,7 +78,7 @@ jobs:
       # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       #
       # `make` is needed for using our own `Makefile`.
-      run: apt-get update && apt-get install -y make g++
+      run: apt-get update && apt-get install -y make g++ python3
     - name: Compilation Tests
       run: make compile-tests
 
