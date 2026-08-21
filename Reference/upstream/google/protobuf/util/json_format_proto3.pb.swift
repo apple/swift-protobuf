@@ -79,9 +79,30 @@ nonisolated struct Proto3_MessageType: Sendable {
 
   var value: Int32 = 0
 
+  var optionalInt32Value: Int32 {
+    get {_optionalInt32Value ?? 0}
+    set {_optionalInt32Value = newValue}
+  }
+  /// Returns true if `optionalInt32Value` has been explicitly set.
+  var hasOptionalInt32Value: Bool {self._optionalInt32Value != nil}
+  /// Clears the value of `optionalInt32Value`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32Value() {self._optionalInt32Value = nil}
+
+  var optionalStringValue: String {
+    get {_optionalStringValue ?? String()}
+    set {_optionalStringValue = newValue}
+  }
+  /// Returns true if `optionalStringValue` has been explicitly set.
+  var hasOptionalStringValue: Bool {self._optionalStringValue != nil}
+  /// Clears the value of `optionalStringValue`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalStringValue() {self._optionalStringValue = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+
+  fileprivate var _optionalInt32Value: Int32? = nil
+  fileprivate var _optionalStringValue: String? = nil
 }
 
 nonisolated struct Proto3_TestMessage: @unchecked Sendable {
@@ -307,6 +328,15 @@ nonisolated struct Proto3_TestMessage: @unchecked Sendable {
     set {_uniqueStorage()._nonStandardName_ = newValue}
   }
 
+  var timestampValue: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {_storage._timestampValue ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._timestampValue = newValue}
+  }
+  /// Returns true if `timestampValue` has been explicitly set.
+  var hasTimestampValue: Bool {_storage._timestampValue != nil}
+  /// Clears the value of `timestampValue`. Subsequent reads from it will return its default value.
+  mutating func clearTimestampValue() {_uniqueStorage()._timestampValue = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -450,6 +480,34 @@ nonisolated struct Proto3_TestStringMap: Sendable {
   var stringMap: Dictionary<String,String> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// An overlay message of TestStringMap intended to make it easier to
+/// construct some test cases of the binary wire format.
+nonisolated struct Proto3_TestStringMapOverlay: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var stringMap: [Proto3_TestStringMapOverlay.MapEntry] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  nonisolated struct MapEntry: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var key: String = String()
+
+    var value: String = String()
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
 
   init() {}
 }
@@ -1306,7 +1364,7 @@ nonisolated extension Proto3_EnumType: SwiftProtobuf._ProtoNameProviding {
 
 nonisolated extension Proto3_MessageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageType"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0\u{3}optional_int32_value\0\u{3}optional_string_value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1315,20 +1373,34 @@ nonisolated extension Proto3_MessageType: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.value) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32Value) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._optionalStringValue) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.value != 0 {
       try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
     }
+    try { if let v = self._optionalInt32Value {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalStringValue {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Proto3_MessageType, rhs: Proto3_MessageType) -> Bool {
     if lhs.value != rhs.value {return false}
+    if lhs._optionalInt32Value != rhs._optionalInt32Value {return false}
+    if lhs._optionalStringValue != rhs._optionalStringValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1336,7 +1408,7 @@ nonisolated extension Proto3_MessageType: SwiftProtobuf.Message, SwiftProtobuf._
 
 nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bool_value\0\u{3}int32_value\0\u{3}int64_value\0\u{3}uint32_value\0\u{3}uint64_value\0\u{3}float_value\0\u{3}double_value\0\u{3}string_value\0\u{3}bytes_value\0\u{3}enum_value\0\u{3}message_value\0\u{4}\u{a}repeated_bool_value\0\u{3}repeated_int32_value\0\u{3}repeated_int64_value\0\u{3}repeated_uint32_value\0\u{3}repeated_uint64_value\0\u{3}repeated_float_value\0\u{3}repeated_double_value\0\u{3}repeated_string_value\0\u{3}repeated_bytes_value\0\u{3}repeated_enum_value\0\u{3}repeated_message_value\0\u{4}\u{a}optional_bool_value\0\u{3}optional_int32_value\0\u{3}optional_int64_value\0\u{3}optional_uint32_value\0\u{3}optional_uint64_value\0\u{3}optional_float_value\0\u{3}optional_double_value\0\u{3}optional_string_value\0\u{3}optional_bytes_value\0\u{3}optional_enum_value\0\u{3}optional_message_value\0\u{3}_nonStandard_name_\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bool_value\0\u{3}int32_value\0\u{3}int64_value\0\u{3}uint32_value\0\u{3}uint64_value\0\u{3}float_value\0\u{3}double_value\0\u{3}string_value\0\u{3}bytes_value\0\u{3}enum_value\0\u{3}message_value\0\u{4}\u{a}repeated_bool_value\0\u{3}repeated_int32_value\0\u{3}repeated_int64_value\0\u{3}repeated_uint32_value\0\u{3}repeated_uint64_value\0\u{3}repeated_float_value\0\u{3}repeated_double_value\0\u{3}repeated_string_value\0\u{3}repeated_bytes_value\0\u{3}repeated_enum_value\0\u{3}repeated_message_value\0\u{4}\u{a}optional_bool_value\0\u{3}optional_int32_value\0\u{3}optional_int64_value\0\u{3}optional_uint32_value\0\u{3}optional_uint64_value\0\u{3}optional_float_value\0\u{3}optional_double_value\0\u{3}optional_string_value\0\u{3}optional_bytes_value\0\u{3}optional_enum_value\0\u{3}optional_message_value\0\u{3}_nonStandard_name_\0\u{3}timestamp_value\0")
 
   fileprivate class _StorageClass {
     var _boolValue: Bool = false
@@ -1373,6 +1445,7 @@ nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._
     var _optionalEnumValue: Proto3_EnumType? = nil
     var _optionalMessageValue: Proto3_MessageType? = nil
     var _nonStandardName_: Int32 = 0
+    var _timestampValue: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -1417,6 +1490,7 @@ nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._
       _optionalEnumValue = source._optionalEnumValue
       _optionalMessageValue = source._optionalMessageValue
       _nonStandardName_ = source._nonStandardName_
+      _timestampValue = source._timestampValue
     }
   }
 
@@ -1469,6 +1543,7 @@ nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._
         case 50: try { try decoder.decodeSingularEnumField(value: &_storage._optionalEnumValue) }()
         case 51: try { try decoder.decodeSingularMessageField(value: &_storage._optionalMessageValue) }()
         case 52: try { try decoder.decodeSingularInt32Field(value: &_storage._nonStandardName_) }()
+        case 53: try { try decoder.decodeSingularMessageField(value: &_storage._timestampValue) }()
         default: break
         }
       }
@@ -1583,6 +1658,9 @@ nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._
       if _storage._nonStandardName_ != 0 {
         try visitor.visitSingularInt32Field(value: _storage._nonStandardName_, fieldNumber: 52)
       }
+      try { if let v = _storage._timestampValue {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1626,6 +1704,7 @@ nonisolated extension Proto3_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._
         if _storage._optionalEnumValue != rhs_storage._optionalEnumValue {return false}
         if _storage._optionalMessageValue != rhs_storage._optionalMessageValue {return false}
         if _storage._nonStandardName_ != rhs_storage._nonStandardName_ {return false}
+        if _storage._timestampValue != rhs_storage._timestampValue {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -1885,6 +1964,71 @@ nonisolated extension Proto3_TestStringMap: SwiftProtobuf.Message, SwiftProtobuf
 
   static func ==(lhs: Proto3_TestStringMap, rhs: Proto3_TestStringMap) -> Bool {
     if lhs.stringMap != rhs.stringMap {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Proto3_TestStringMapOverlay: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestStringMapOverlay"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}string_map\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.stringMap) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.stringMap.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.stringMap, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3_TestStringMapOverlay, rhs: Proto3_TestStringMapOverlay) -> Bool {
+    if lhs.stringMap != rhs.stringMap {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension Proto3_TestStringMapOverlay.MapEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto3_TestStringMapOverlay.protoMessageName + ".MapEntry"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}key\0\u{1}value\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.key) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.value) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.key.isEmpty {
+      try visitor.visitSingularStringField(value: self.key, fieldNumber: 1)
+    }
+    if !self.value.isEmpty {
+      try visitor.visitSingularStringField(value: self.value, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3_TestStringMapOverlay.MapEntry, rhs: Proto3_TestStringMapOverlay.MapEntry) -> Bool {
+    if lhs.key != rhs.key {return false}
+    if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
