@@ -24,7 +24,7 @@ jobs:
         # which is also what would be desired, so we don't bother listing explicit ones.
         # TODO: Bring back 6.1, currently has a building error.
         #swift: ["6.3", "6.2", "6.1"]
-        swift: ["6.3", "6.2"]
+        swift: &swift_versions ["6.3", "6.2"]
         traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
 
         include:
@@ -59,8 +59,27 @@ jobs:
     - name: Test SPM plugin
       if: ${{ matrix.traits == 'default' }}
       run: make test-spm-plugin
+
+  compile_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        swift: *swift_versions
+    name: Swift ${{ matrix.swift }} | Compilation Tests
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+    - name: Update and install dependencies
+      # Just ensure we have the latest `g++` for building protoc (since it is
+      # built by SwiftPM), full dependencies available at
+      # https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
+      #
+      # `make` is needed for using our own `Makefile`.
+      run: apt-get update && apt-get install -y make g++
     - name: Compilation Tests
-      if: ${{ matrix.traits == 'default' }}
       run: make compile-tests
 
 # TODO: Enable this when the NSLock usage is resolved.
