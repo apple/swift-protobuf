@@ -2378,6 +2378,15 @@ nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
   /// Clears the value of `defaultSymbolVisibility`. Subsequent reads from it will return its default value.
   mutating func clearDefaultSymbolVisibility() { _uniqueStorage().clearValue(at: 32, type: Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility.self, hasBit: (0, 128)) }
 
+  var enforceProtoLimits: Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
+    get { _storage.value(at: 36, default: .protoLimitsUnknown, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateValue(at: 36, to: newValue, willBeSet: true, hasBit: (1, 1)) }
+  }
+  /// Returns true if `enforceProtoLimits` has been explicitly set.
+  var hasEnforceProtoLimits: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
+  /// Clears the value of `enforceProtoLimits`. Subsequent reads from it will return its default value.
+  mutating func clearEnforceProtoLimits() { _uniqueStorage().clearValue(at: 36, type: Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits.self, hasBit: (1, 1)) }
+
   nonisolated enum FieldPresence: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
     case explicit = 1
@@ -2481,6 +2490,40 @@ nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable {
 
       init() {
         self = .unknown
+      }
+
+    }
+
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+    private var _storage: SwiftProtobuf.MessageStorage
+    private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+      if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+      return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  }
+
+  nonisolated struct ProtoLimitsFeature: @unchecked Swift.Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    nonisolated enum EnforceProtoLimits: Swift.Int, Enum, Swift.CaseIterable {
+      case protoLimitsUnknown = 0
+
+      /// Default pre-EDITION_2026: there are no limit enforcement at the protoc
+      /// level. Practical limits still exist, but they will tend to fail while
+      /// compiling protoc-generated code, and these limits tend to be language
+      /// or toolchain specific.
+      case legacyNoExplicitLimits = 1
+
+      /// A set of limits enforced by Edition 2026 by default. For a detailed
+      /// list of all the limits please consult the Edition 2026 documentation.
+      case protoLimits2026 = 2
+
+      init() {
+        self = .protoLimitsUnknown
       }
 
     }
@@ -2682,6 +2725,23 @@ nonisolated struct Google_Protobuf_SourceCodeInfo: @unchecked Swift.Sendable {
     ///   [ 4, 3, 2, 7 ]
     /// this path refers to the whole field declaration (from the beginning
     /// of the label to the terminating semicolon).
+    ///
+    /// For options, the path refers to the interpreted option in the descriptor.
+    /// E.g., for a custom option `(my_opt) = "foo"` on a message using extension
+    /// number 10101, the path is:
+    ///   [ 4, 3, 7, 10101 ]
+    /// refers to:
+    ///   file.message_type(3)     // 4, 3
+    ///       .options()           // 7
+    ///       .my_opt()            // 10101
+    ///
+    /// Sub-locations corresponding to the interpreted option's corresponding
+    /// `UninterpretedOption` are also appended to the interpreted option, which
+    /// deviates from the actual FileDescriptorProto path. E.g.:
+    ///   [ 4, 3, 7, 10101, 2 ]
+    /// refers to the option name `(my_opt)`, and:
+    ///   [ 4, 3, 7, 10101, 7 ]
+    /// refers to the "foo" string value of the option.
     var path: [Int32] {
       get { _storage.value(atIndex: 0, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 4)) }
@@ -3417,8 +3477,8 @@ nonisolated extension Google_Protobuf_UninterpretedOption.NamePart: GeneratedMes
 }
 
 nonisolated extension Google_Protobuf_FeatureSet: GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0 \u{8}\0\0\0\0\0\u{8}\0\0\u{9}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{5}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{6}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{7}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{8}\0\u{e}\u{1a}\0google.protobuf.FeatureSet"
-  private static let _protobuf_reflectionData: Swift.StaticString = "h\u{3}\0\00?!]iZS\n2w`LN1,V\"^UB6euzb\tu\u{7f}\u{1d}s\u{5}Tl<rx'\u{13}U1P\u{16}]R\u{13}pKKNg29#]\0sV\u{16}vNAj*>S*?\u{17}4F \u{8}#lyt\u{1b}\u{c}\u{2}Q+`j#q0V(-Z\\\u{1}E2~A1\u{1a}L7+\u{1b}SY'}C\u{e}[\u{14}\niZP*&O3X\u{1b}\"0!\u{b}'WJY\u{c}hU7OrjheADjL\u{1a}+>\u{17}AQN\u{8}\u{15}mS\r\"\u{14}\u{5}oV\rU!Fr9-DHp+f*=z7`6$ZVTh\u{14}\r,OP\u{12}Z\u{1e}\u{19}Fv_s~\0w+KTDXQ1\u{17}i\u{1b}\u{17}c\u{b}d \u{17}_}9{4@$m\u{7f}t98.&Q\n\u{1}p\u{16}7YPex:\u{b}4\r\u{e}@[\u{b}&`\u{3}\u{13}\u{19}GL[\u{1}\u{e}8\u{18}\u{4}nx\u{8}R\0|KF<\u{14}txL)\u{5}\u{5}\0\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0(\0 \u{9}\0\0\0\0\0\u{9}\0\0\u{a}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\u{1}\0\u{e}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\u{2}\0\u{e}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\u{3}\0\u{e}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\u{4}\0\u{e}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\u{5}\0\u{e}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\u{6}\0\u{e}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\u{7}\0\u{e}\u{8}\0\0\0\0 \0\0\u{7}\0\u{8}\0\u{e}\u{9}\0\0\0\0$\0\0\u{8}\0\u{9}\0\u{e}\u{1a}\0google.protobuf.FeatureSet"
+  private static let _protobuf_reflectionData: Swift.StaticString = "(\u{4}\0\0\0?dEH89CDHgj\u{16}.j}\u{1a});I\u{4}pb\"Q:\u{1}\u{15}ux\u{1a}!(5m\u{15}\"qH>:P#>g=;lobS\nQ\u{3}ZUCu\u{16}\tt\u{11}3w9&|y,GIt\u{16}a9D|\u{5}le(I\"\n[k?`|01_h\u{12}.8(\\9ou`.\u{5}u|\u{8}>R:S\tO@R\u{8}8\u{7}.\u{f}04\u{19}L\u{1}bU+dVuX`\u{e}tV^\u{1c}6\u{1b}=PX\u{7f}\u{15}3\u{14},\u{1}<N\rD7\u{1e}\\3?.n\r(iM655\u{1}\t\u{6}Fg7m!tRf\u{17}09\u{10}j=*\u{1a}6<\0\n~\u{11}p\0cKtB;}lk\u{7f}g\u{1b}NScZ\u{1}\0zM_#TX:\u{c}Sj3o1G:\u{e}\u{1}>R\u{1e}V\nh#,\nT3gq\u{16}6P}+H\u{2}\u{11}w6(\u{1f}d >|!9h^fkt+Gj\u{e}\u{8}q(]\u{7f}g06+\u{7}\u{e};\u{7}O7SMa4\u{8}\u{4}\u{12}\u{19}i<T\u{1a}1@\u{c}.!#\rPUZE?,\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)
 
@@ -3432,6 +3492,7 @@ nonisolated extension Google_Protobuf_FeatureSet: GeneratedMessage {
     case 6: return .enum(Google_Protobuf_FeatureSet.JsonFormat.enumSchema)
     case 7: return .enum(Google_Protobuf_FeatureSet.EnforceNamingStyle.enumSchema)
     case 8: return .enum(Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility.enumSchema)
+    case 9: return .enum(Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits.enumSchema)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
@@ -3495,6 +3556,22 @@ nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature: GeneratedMes
 nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0D\0google.protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{1}\0\0 \u{1f}q}\u{1d}\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}\u{e}ED\0i \"1$b\u{1c}2\r[\u{19}\u{b}J\u{16}HO3 \t\u{1b}]'C|vLY*\u{1a}\u{17}jw\n\u{4}S\u{7f}\u{7}\u{7}&EP\u{5}|y\02\u{c}Z#\u{15}\u{14}JcY6\u{f}e\t6Za\u{7}\u{16}5;7\u{19}-]~xT!\u{7}O`0:Oo/_{U$/Ae%_nh\u{4}zqI}0\u{1}\0"
+  static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0-\0google.protobuf.FeatureSet.ProtoLimitsFeature"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
+
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
+nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0@\0google.protobuf.FeatureSet.ProtoLimitsFeature.EnforceProtoLimits"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{4}J\u{13}\u{3}\tc\u{5}2E\u{e}\u{1e}&~\u{1}\u{1d}\\P\r:xz.\u{17};d7R(\u{10}i\u{18}_F\u{1d}0u\u{11}8y\u{3}5q\n#\u{1b}A\u{17}SFrD{Re~@\u{7}^\u{1e}\u{4}+]oG\u{c}\0\0"
   static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
