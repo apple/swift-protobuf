@@ -475,7 +475,11 @@ nonisolated struct Proto3Unittest_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto3Unittest_TestPackedTypes: Sendable {
@@ -583,7 +587,11 @@ nonisolated struct Proto3Unittest_NestedTestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -1061,7 +1069,11 @@ nonisolated struct Proto3Unittest_TestHasbits: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

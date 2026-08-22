@@ -389,7 +389,11 @@ public nonisolated struct Google_Protobuf_DescriptorProto: @unchecked Sendable {
 
   public init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 public nonisolated struct Google_Protobuf_ExtensionRangeOptions: ExtensibleMessage, Sendable {
@@ -878,7 +882,11 @@ public nonisolated struct Google_Protobuf_EnumDescriptorProto: @unchecked Sendab
 
   public init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Describes a value within an enum.
@@ -1025,7 +1033,11 @@ public nonisolated struct Google_Protobuf_MethodDescriptorProto: @unchecked Send
 
   public init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 public nonisolated struct Google_Protobuf_FileOptions: ExtensibleMessage, @unchecked Sendable {
@@ -1314,7 +1326,11 @@ public nonisolated struct Google_Protobuf_FileOptions: ExtensibleMessage, @unche
   public init() {}
 
   public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 public nonisolated struct Google_Protobuf_MessageOptions: ExtensibleMessage, Sendable {
@@ -1819,7 +1835,11 @@ public nonisolated struct Google_Protobuf_FieldOptions: ExtensibleMessage, @unch
   public init() {}
 
   public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 public nonisolated struct Google_Protobuf_OneofOptions: ExtensibleMessage, Sendable {
@@ -1988,7 +2008,11 @@ public nonisolated struct Google_Protobuf_EnumValueOptions: ExtensibleMessage, @
   public init() {}
 
   public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 public nonisolated struct Google_Protobuf_ServiceOptions: ExtensibleMessage, Sendable {
@@ -2548,7 +2572,11 @@ public nonisolated struct Google_Protobuf_FeatureSetDefaults: Sendable {
 
     public init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   public init() {}

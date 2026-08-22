@@ -810,12 +810,20 @@ nonisolated struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendab
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
