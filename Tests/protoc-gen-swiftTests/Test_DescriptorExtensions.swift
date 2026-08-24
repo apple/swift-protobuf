@@ -495,6 +495,16 @@ final class Test_DescriptorExtensions: XCTestCase {
             let expected = symbols.map { "@_implementationOnly import \($0)" }.joined(separator: "\n")
             XCTAssertEqual(expected, result, message, file: file, line: line)
         }
+        do {
+            let result = fileDesc.computeImports(mappings: mappings, directive: .plain, weakLinked: true)
+            let expected = symbols.map { "@_weakLinked import \($0)" }.joined(separator: "\n")
+            XCTAssertEqual(expected, result, message, file: file, line: line)
+        }
+        do {
+            let result = fileDesc.computeImports(mappings: mappings, directive: .accessLevel(.public), weakLinked: true)
+            let expected = symbols.map { "@_weakLinked public import \($0)" }.joined(separator: "\n")
+            XCTAssertEqual(expected, result, message, file: file, line: line)
+        }
     }
 }
 
@@ -502,7 +512,8 @@ extension FileDescriptor {
     fileprivate func computeImports(
         mappings: ProtoFileToModuleMappings,
         directive: GeneratorOptions.ImportDirective,
-        reexport: Bool = false
+        reexport: Bool = false,
+        weakLinked: Bool = false
     ) -> String {
         let namer = SwiftProtobufNamer(
             currentFile: self,
@@ -511,7 +522,8 @@ extension FileDescriptor {
         return computeImports(
             namer: namer,
             directive: directive,
-            reexportPublicImports: reexport
+            reexportPublicImports: reexport,
+            weakLinked: weakLinked
         )
     }
 }
