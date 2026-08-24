@@ -102,6 +102,7 @@ package class GeneratorOptions {
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
     package let experimentalHiddenNames: ExperimentalHiddenNames
+    package let experimentalWeakImports: Bool
 
     // The Swift compiler may fail when checking whether large switch statements
     // are exhaustive. See
@@ -125,6 +126,7 @@ package class GeneratorOptions {
         var useAccessLevelOnImports = false
         var experimentalStripNonfunctionalCodegen: Bool = false
         var experimentalHiddenNames: ExperimentalHiddenNames = []
+        var experimentalWeakImports: Bool = false
 
         for pair in parameter.parsedPairs {
             switch pair.key {
@@ -199,6 +201,17 @@ package class GeneratorOptions {
                         value: pair.value
                     )
                 }
+            case "ExperimentalWeakImports":
+                if pair.value.isEmpty {
+                    experimentalWeakImports = true
+                } else if let value = Bool(pair.value) {
+                    experimentalWeakImports = value
+                } else {
+                    throw GenerationError.invalidParameterValue(
+                        name: pair.key,
+                        value: pair.value
+                    )
+                }
             default:
                 throw GenerationError.unknownParameter(name: pair.key)
             }
@@ -234,6 +247,7 @@ package class GeneratorOptions {
 
         self.experimentalStripNonfunctionalCodegen = experimentalStripNonfunctionalCodegen
         self.experimentalHiddenNames = experimentalHiddenNames
+        self.experimentalWeakImports = experimentalWeakImports
 
         switch (implementationOnlyImports, useAccessLevelOnImports) {
         case (false, false): self.importDirective = .plain
