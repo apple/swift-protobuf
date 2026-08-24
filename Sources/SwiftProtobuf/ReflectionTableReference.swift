@@ -51,14 +51,7 @@ final class ReflectionTableReference: @unchecked Sendable {
     /// Calls the given body with the reflection table, decompressing it on the
     /// first call if needed.
     func withTable<R>(_ body: (borrowing ReflectionTable) throws -> R) rethrows -> R {
-        // Fast path (lock-free): if we already have the decompressed table, use it.
-        if let table = cachedTable {
-            return try body(table)
-        }
-
-        return try lock.withLock {
-            // Second chance: another thread may have decompressed the table while
-            // we were waiting for the lock.
+        try lock.withLock {
             if let table = cachedTable {
                 return try body(table)
             }
