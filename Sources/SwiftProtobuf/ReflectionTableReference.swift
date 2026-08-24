@@ -51,9 +51,9 @@ final class ReflectionTableReference: @unchecked Sendable {
     /// Calls the given body with the reflection table, decompressing it on the
     /// first call if needed.
     func withTable<R>(_ body: (borrowing ReflectionTable) throws -> R) rethrows -> R {
-        try lock.withLock {
+        let table: ReflectionTable = lock.withLock {
             if let table = cachedTable {
-                return try body(table)
+                return table
             }
 
             guard let compressed else {
@@ -65,7 +65,8 @@ final class ReflectionTableReference: @unchecked Sendable {
                 data: Compression.decompress(compressed)
             )
             cachedTable = table
-            return try body(table)
+            return table
         }
+        return try body(table)
     }
 }
