@@ -236,6 +236,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/WeakImports \
 		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ExperimentalWeakImports=true \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
 		--tfiws_out=_test/CompileTests/WeakImports \
 		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
@@ -340,6 +341,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/WeakImports \
 		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ExperimentalWeakImports=true \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
 		--tfiws_out=Reference/CompileTests/WeakImports \
 		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
@@ -630,6 +632,7 @@ regenerate-compiletests-weakimports-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	${GENERATE_SRCS} \
 	    -I Protos/CompileTests/WeakImports \
 		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ExperimentalWeakImports=true \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
 		--tfiws_out=CompileTests/WeakImports \
 		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
