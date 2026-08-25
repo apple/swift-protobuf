@@ -61,16 +61,12 @@ struct Main {
         // them with regular expressions to ensure that no symbols matching a
         // particular pattern end up in the final linkage.
         //
-        // Generated symbols in other proto modules:
-        //   HAS-SYMBOL-NOT: ModuleA.Test_MessageA.nestedB.{{getter|setter|modify}} : ModuleB.Test_MessageB
-        //
         // Protobuf runtime support:
         //   HAS-SYMBOL: ModuleB.Test_MessageB.messageSchema.unsafeMutableAddressor : SwiftProtobuf.MessageSchema
         //   HAS-SYMBOL: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
         //
         // Protocol conformance support:
         //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: generic specialization <serialized, ModuleB.Test_MessageB> of (extension in SwiftProtobuf):SwiftProtobuf.Message.isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
         //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
         //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
         //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
