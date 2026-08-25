@@ -35,9 +35,6 @@ jobs:
       with:
         repository: protocolbuffers/protobuf
         path: protobuf
-        # Using a commit from Fri Aug 14 16:16:08 2026 -0700 when cmake still built.
-        # remove this once main seems to be building again.
-        ref: e7e6ef07ba38d5234a48122e3089c4b9da1bbb12
     - name: Build protobuf
       working-directory: protobuf
       # https://github.com/protocolbuffers/protobuf/blob/main/cmake/README.md#c-version
