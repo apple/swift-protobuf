@@ -9,7 +9,7 @@ let swiftSettings: [SwiftSetting] = [
     // This isn't a standard build configuration, but clients who care enough
     // about minimizing binary size to use weak imports would likely also be
     // setting this.
-    .unsafeFlags(["-Xfrontend", "-internalize-at-link"]),
+    .unsafeFlags(["-Xfrontend", "-internalize-at-link"])
 ]
 
 let package = Package(

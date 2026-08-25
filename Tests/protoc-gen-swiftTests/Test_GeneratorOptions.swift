@@ -68,4 +68,3 @@ private struct FakeParameter: CodeGeneratorParameter {
         try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalWeakImports", "invalid")]))
     }
 }
-
