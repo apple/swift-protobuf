@@ -143,7 +143,8 @@ class FileGenerator {
         let neededImports = fileDescriptor.computeImports(
             namer: namer,
             directive: generatorOptions.importDirective,
-            reexportPublicImports: generatorOptions.visibility != .internal
+            reexportPublicImports: generatorOptions.visibility != .internal,
+            weakLinked: generatorOptions.experimentalWeakImports
         )
         if !neededImports.isEmpty {
             if hasImports {

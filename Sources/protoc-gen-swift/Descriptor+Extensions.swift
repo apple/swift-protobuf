@@ -68,7 +68,8 @@ extension FileDescriptor {
     package func computeImports(
         namer: SwiftProtobufNamer,
         directive: GeneratorOptions.ImportDirective,
-        reexportPublicImports: Bool
+        reexportPublicImports: Bool,
+        weakLinked: Bool = false
     ) -> String {
         // The namer should be configured with the module this file generated for.
         assert(namer.targetModule == (namer.mappings.moduleName(forFile: self) ?? ""))
@@ -86,7 +87,8 @@ extension FileDescriptor {
             return ""
         }
 
-        let importSnippet = directive.snippet
+        let prefix = weakLinked ? "@_weakLinked " : ""
+        let importSnippet = "\(prefix)\(directive.snippet)"
         var imports = Set<String>()
         for dependency in dependencies {
             if SwiftProtobufInfo.isBundledProto(file: dependency) {
@@ -113,7 +115,8 @@ extension FileDescriptor {
             reexportPublicImports
             ? computeSymbolReExports(
                 namer: namer,
-                useAccessLevelOnImports: directive.isAccessLevel
+                useAccessLevelOnImports: directive.isAccessLevel,
+                weakLinked: weakLinked
             )
             : [String]()
 
@@ -129,7 +132,11 @@ extension FileDescriptor {
     }
 
     // Internal helper to `computeImports(...)`.
-    private func computeSymbolReExports(namer: SwiftProtobufNamer, useAccessLevelOnImports: Bool) -> [String] {
+    private func computeSymbolReExports(
+        namer: SwiftProtobufNamer,
+        useAccessLevelOnImports: Bool,
+        weakLinked: Bool = false
+    ) -> [String] {
         var result = [String]()
 
         // To handle re-exporting, recursively walk all the `import public` files
@@ -139,7 +146,8 @@ extension FileDescriptor {
         // authored code.
         var toScan = publicDependencies
         var visited = Set<String>()
-        let exportedImportDirective = "@_exported\(useAccessLevelOnImports ? " public" : "") import"
+        let prefix = weakLinked ? "@_weakLinked " : ""
+        let exportedImportDirective = "\(prefix)@_exported\(useAccessLevelOnImports ? " public" : "") import"
         while let dependency = toScan.popLast() {
             let dependencyName = dependency.name
             if visited.contains(dependencyName) { continue }

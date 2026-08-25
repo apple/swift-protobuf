@@ -50,3 +50,21 @@ private struct FakeParameter: CodeGeneratorParameter {
         try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "unknownFeature")]))
     }
 }
+
+@Test func experimentalWeakImports() throws {
+    do {
+        let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalWeakImports", "true")]))
+        #expect(options.experimentalWeakImports)
+    }
+    do {
+        let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalWeakImports", "")]))
+        #expect(options.experimentalWeakImports)
+    }
+    do {
+        let options = try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalWeakImports", "false")]))
+        #expect(!options.experimentalWeakImports)
+    }
+    #expect(throws: (any Error).self) {
+        try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalWeakImports", "invalid")]))
+    }
+}

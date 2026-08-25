@@ -32,8 +32,9 @@ def compile_pattern(pattern_str):
   for m in re.finditer(r'\{\{(.*?)\}\}', pattern_str):
     # Escape literal text preceding the {{...}} block
     parts.append(re.escape(pattern_str[last_end:m.start()]))
-    # Keep the raw regex expression inside {{...}}
-    parts.append(m.group(1))
+    # Keep the raw regex expression inside {{...}}, wrapped in a non-capturing
+    # group so alternation (|) doesn't leak into outer regex scope.
+    parts.append(f"(?:{m.group(1)})")
     last_end = m.end()
 
   parts.append(re.escape(pattern_str[last_end:]))
@@ -44,15 +45,15 @@ def compile_pattern(pattern_str):
 def parse_check_file(check_file_path):
   """Extracts symbol match directives from the given file."""
   directives = []
+  directive_re = re.compile(r"//\s*(HAS-SYMBOL(?:-NOT)?):\s*(.*)$")
   with open(check_file_path, "r", encoding="utf-8") as f:
     for line_num, line in enumerate(f, start=1):
       line = line.strip()
-      if "// HAS-SYMBOL-NOT:" in line:
-        pattern_str = line.split("// HAS-SYMBOL-NOT:", 1)[1].strip()
-        directives.append((line_num, "HAS-SYMBOL-NOT", pattern_str, compile_pattern(pattern_str)))
-      elif "// HAS-SYMBOL:" in line:
-        pattern_str = line.split("// HAS-SYMBOL:", 1)[1].strip()
-        directives.append((line_num, "HAS-SYMBOL", pattern_str, compile_pattern(pattern_str)))
+      m = directive_re.search(line)
+      if m:
+        directive_type = m.group(1)
+        pattern_str = m.group(2).strip()
+        directives.append((line_num, directive_type, pattern_str, compile_pattern(pattern_str)))
   return directives
 
 
@@ -141,20 +142,24 @@ def main():
   failed = False
   print(f"Checking symbols in {args.binary} against {args.check_file}...")
 
+  GREEN = "\033[32m"
+  RED = "\033[31m"
+  RESET = "\033[0m"
+
   for line_num, directive_type, pattern_str, regex in directives:
     matching_symbols = [s for s in symbols if regex.search(s)]
 
     if directive_type == "HAS-SYMBOL":
       if matching_symbols:
-        print(f"  [PASS] Line {line_num}: HAS-SYMBOL: {pattern_str}")
+        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: HAS-SYMBOL: {pattern_str}")
       else:
-        print(f"  [FAIL] Line {line_num}: HAS-SYMBOL: {pattern_str} (expected symbol not found)")
+        print(f"  {RED}[FAIL]{RESET} Line {line_num}: HAS-SYMBOL: {pattern_str} (expected symbol not found)")
         failed = True
     elif directive_type == "HAS-SYMBOL-NOT":
       if not matching_symbols:
-        print(f"  [PASS] Line {line_num}: HAS-SYMBOL-NOT: {pattern_str}")
+        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: HAS-SYMBOL-NOT: {pattern_str}")
       else:
-        print(f"  [FAIL] Line {line_num}: HAS-SYMBOL-NOT: {pattern_str} (unwanted symbol found: '{matching_symbols[0].strip()}')")
+        print(f"  {RED}[FAIL]{RESET} Line {line_num}: HAS-SYMBOL-NOT: {pattern_str} (unwanted symbol found: '{matching_symbols[0].strip()}')")
         failed = True
 
   if failed:
