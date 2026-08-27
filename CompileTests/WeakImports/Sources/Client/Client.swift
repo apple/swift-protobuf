@@ -27,6 +27,7 @@ struct Main {
             // HAS-SYMBOL: type metadata accessor for ModuleA.Test_MessageA
             // HAS-SYMBOL: type metadata for ModuleA.Test_MessageA
             // HAS-SYMBOL: ModuleA.Test_MessageA.init() -> ModuleA.Test_MessageA
+            // HAS-SYMBOL: _test_MessageA_getMessageSchema
             var msg = Test_MessageA()
             msg.title = "Hello Weak Imports"
             expect(msg.hasTitle)
@@ -40,6 +41,7 @@ struct Main {
             // HAS-SYMBOL: nominal type descriptor for ModuleC.Test_MessageC
             // HAS-SYMBOL: type metadata accessor for ModuleC.Test_MessageC
             // HAS-SYMBOL: type metadata for ModuleC.Test_MessageC
+            // HAS-SYMBOL: _test_MessageC_getMessageSchema
             msg.nestedC.id = 12345
             expect(msg.hasNestedC)
             expect(msg.nestedC.id == 12345)
@@ -62,7 +64,8 @@ struct Main {
         // particular pattern end up in the final linkage.
         //
         // Protobuf runtime support:
-        //   HAS-SYMBOL: ModuleB.Test_MessageB.messageSchema.unsafeMutableAddressor : SwiftProtobuf.MessageSchema
+        //   HAS-SYMBOL: _test_MessageB_getMessageSchema
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.messageSchema.unsafeMutableAddressor : SwiftProtobuf.MessageSchema
         //   HAS-SYMBOL: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
         //
         // Protocol conformance support:
