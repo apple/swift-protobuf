@@ -54,18 +54,27 @@ class ExtensionSetGenerator {
             switch descriptor.type {
             case .group:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                submessageOrEnumReference = .message(swiftSingularType)
+                submessageOrEnumReference = .message(
+                    swiftTypeName: swiftSingularType,
+                    protoFullName: descriptor.messageType!.fullName
+                )
             case .message:
                 if descriptor.isMap {
                     let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
                     submessageOrEnumReference = .map(entrySchemaName)
                 } else {
                     let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                    submessageOrEnumReference = .message(swiftSingularType)
+                    submessageOrEnumReference = .message(
+                        swiftTypeName: swiftSingularType,
+                        protoFullName: descriptor.messageType!.fullName
+                    )
                 }
             case .enum:
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                submessageOrEnumReference = .enum(swiftSingularType)
+                submessageOrEnumReference = .enum(
+                    swiftTypeName: swiftSingularType,
+                    protoFullName: descriptor.enumType!.fullName
+                )
             default:
                 submessageOrEnumReference = nil
             }
@@ -115,10 +124,28 @@ class ExtensionSetGenerator {
                 if let field = extensionSchemaCalculator.submessageOrEnumFields.first {
                     let resolver: String
                     switch field.kind {
-                    case .message(let name):
-                        resolver = ".message(\(name).messageSchema)"
-                    case .enum(let name):
-                        resolver = ".enum(\(name).enumSchema)"
+                    case .message(let swiftTypeName, let protoFullName):
+                        if generatorOptions.experimentalWeakImports {
+                            let symbol = namer.dynamicSymbolName(
+                                forProtoFullName: protoFullName,
+                                suffix: "_getMessageSchema"
+                            )
+                            resolver =
+                                "return \(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
+                        } else {
+                            resolver = ".message(\(swiftTypeName).messageSchema)"
+                        }
+                    case .enum(let swiftTypeName, let protoFullName):
+                        if generatorOptions.experimentalWeakImports {
+                            let symbol = namer.dynamicSymbolName(
+                                forProtoFullName: protoFullName,
+                                suffix: "_getEnumSchema"
+                            )
+                            resolver =
+                                "return \(namer.swiftProtobufModulePrefix)EnumSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.enum)"
+                        } else {
+                            resolver = ".enum(\(swiftTypeName).enumSchema)"
+                        }
                     case .map:
                         preconditionFailure("unreachable; extensions cannot be map fields")
                     }

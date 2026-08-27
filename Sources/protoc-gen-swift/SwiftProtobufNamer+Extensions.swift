@@ -43,4 +43,10 @@ extension SwiftProtobufNamer {
             return aliasInfo.aliases(aliasOf)![firstAlias!] === $0
         }
     }
+
+    /// Returns the symbol name to use for dynamic schema lookups
+    // (`@_silgen_name`) for the given proto full name and suffix.
+    package func dynamicSymbolName(forProtoFullName protoFullName: String, suffix: String) -> String {
+        protoFullName.replacingOccurrences(of: ".", with: "_") + suffix
+    }
 }

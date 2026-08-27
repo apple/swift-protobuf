@@ -227,6 +227,26 @@ class MessageGenerator {
         }
         p.print("}")
 
+        if generatorOptions.experimentalWeakImports {
+            let getterSymbol = namer.dynamicSymbolName(
+                forProtoFullName: descriptor.fullName,
+                suffix: "_getMessageSchema"
+            )
+            let spiSnippet = visibility.contains("public") ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            p.print(
+                "",
+                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\")",
+                "#if compiler(>=6.3)",
+                "@used",
+                "#else",
+                "@_used",
+                "#endif",
+                "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = \(swiftFullName).messageSchema",
+                "}"
+            )
+        }
+
         // Nested enums and messages
         for e in enums {
             e.generateRuntimeSupport(printer: &p)
@@ -263,16 +283,11 @@ class MessageGenerator {
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in submessageOrEnumFields {
-                    let schema: String
-                    switch field.kind {
-                    case .enum(let typeName):
-                        schema = ".enum(\(typeName).enumSchema)"
-                    case .message(let typeName):
-                        schema = ".message(\(typeName).messageSchema)"
-                    case .map(let schemaName):
-                        schema = ".message(\(schemaName))"
+                    if generatorOptions.experimentalWeakImports {
+                        generateWeakSubmessageOrEnumResolverCase(for: field, printer: &p)
+                    } else {
+                        generateStrongSubmessageOrEnumResolverCase(for: field, printer: &p)
                     }
-                    p.print("case \(field.index): return \(schema)")
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage/enum token; this is a generator bug\")",
@@ -289,6 +304,41 @@ class MessageGenerator {
                     entryGenerator.generateSchema(into: &p)
                 }
             }
+        }
+    }
+
+    private func generateStrongSubmessageOrEnumResolverCase(
+        for field: SubmessageOrEnumField,
+        printer p: inout CodePrinter
+    ) {
+        switch field.kind {
+        case .enum(let swiftTypeName, _):
+            p.print("case \(field.index): return .enum(\(swiftTypeName).enumSchema)")
+        case .message(let swiftTypeName, _):
+            p.print("case \(field.index): return .message(\(swiftTypeName).messageSchema)")
+        case .map(let schemaName):
+            p.print("case \(field.index): return .message(\(schemaName))")
+        }
+    }
+
+    private func generateWeakSubmessageOrEnumResolverCase(
+        for field: SubmessageOrEnumField,
+        printer p: inout CodePrinter
+    ) {
+        switch field.kind {
+        case .enum(_, let protoFullName):
+            let symbol = namer.dynamicSymbolName(forProtoFullName: protoFullName, suffix: "_getEnumSchema")
+            p.print(
+                "case \(field.index): return \(namer.swiftProtobufModulePrefix)EnumSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.enum)"
+            )
+        case .message(_, let protoFullName):
+            let symbol = namer.dynamicSymbolName(forProtoFullName: protoFullName, suffix: "_getMessageSchema")
+            p.print(
+                "case \(field.index): return \(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
+            )
+        case .map(let schemaName):
+            // TODO: Support lazy map entry schemas.
+            p.print("case \(field.index): return .message(\(schemaName))")
         }
     }
 
