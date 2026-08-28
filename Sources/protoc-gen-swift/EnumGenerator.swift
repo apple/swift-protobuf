@@ -125,7 +125,8 @@ class EnumGenerator {
                 forProtoFullName: enumDescriptor.fullName,
                 suffix: "_getEnumSchema"
             )
-            let spiSnippet = generatorOptions.visibilitySourceSnippet.contains("public") ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet =
+                generatorOptions.visibilitySourceSnippet.contains("public") ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
                 "\(spiSnippet)@_cdecl(\"\(getterSymbol)\")",

@@ -258,22 +258,22 @@ public nonisolated let Test_A_Extensions: SwiftProtobuf.ExtensionMap = [
 
 public nonisolated let Test_Extensions_ext_message = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{10}\0test.ext_message",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { .message(ModuleB.Test_MessageB.messageSchema) }
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_MessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
   )
 
 public nonisolated let Test_Extensions_ext_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{d}\0test.ext_enum",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { .enum(ModuleB.Test_EnumB.enumSchema) }
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_EnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
   )
 
 public nonisolated let Test_Extensions_ext_message_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{12}\0test.ext_message_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { .message(ModuleC.Test_MessageC.messageSchema) }
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_MessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
   )
 
 public nonisolated let Test_Extensions_ext_enum_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{f}\0test.ext_enum_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { .enum(ModuleC.Test_EnumC.enumSchema) }
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_EnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
   )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -286,10 +286,10 @@ nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
 
   private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
     switch token.index {
-    case 1: return .enum(ModuleB.Test_EnumB.enumSchema)
-    case 2: return .enum(ModuleC.Test_EnumC.enumSchema)
-    case 3: return .message(ModuleB.Test_MessageB.messageSchema)
-    case 4: return .message(ModuleC.Test_MessageC.messageSchema)
+    case 1: return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_EnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum)
+    case 2: return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_EnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum)
+    case 3: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_MessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
+    case 4: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_MessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
     case 5: return .message(_protobuf_mapEntrySchema_MapBEntry)
     case 6: return .message(_protobuf_mapEntrySchema_MapCEntry)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
@@ -302,4 +302,15 @@ nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
+}
+
+@_spi(ForGeneratedCodeOnly)
+@_cdecl("test_MessageA_getMessageSchema")
+#if compiler(>=6.3)
+@used
+#else
+@_used
+#endif
+public func __test_MessageA_getMessageSchema(_ out: UnsafeMutableRawPointer) {
+    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageA.messageSchema
 }
