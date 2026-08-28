@@ -21,6 +21,10 @@ struct Main {
 
         do {
             // Verify that MessageA is obviously kept in the linkage.
+            //
+            // Here and below, the C functions used to dynamically load schemas
+            // match optional leading underscores, because Darwin includes an
+            // underscore while Linux does not.
 
             // HAS-SYMBOL: full type metadata for ModuleA.Test_MessageA
             // HAS-SYMBOL: nominal type descriptor for ModuleA.Test_MessageA
