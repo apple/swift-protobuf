@@ -28,7 +28,7 @@ import Darwin
 #if canImport(Darwin) || os(FreeBSD) || os(OpenBSD)
 private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: -2) }
 #elseif os(Android) && _pointerBitWidth(_32)
-private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: UInt(0xFFFFFFFF)) }
+private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: UInt(0xFFFF_FFFF)) }
 #elseif os(Linux) || os(Android)
 private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: 0) }
 #endif
