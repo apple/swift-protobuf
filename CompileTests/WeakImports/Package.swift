@@ -12,6 +12,10 @@ let swiftSettings: [SwiftSetting] = [
     .unsafeFlags(["-Xfrontend", "-internalize-at-link"])
 ]
 
+let linkerSettings: [LinkerSetting] = [
+    .unsafeFlags(["-Xlinker", "-export-dynamic"], .when(platforms: [.linux, .android]))
+]
+
 let package = Package(
     name: "WeakImports",
     dependencies: [
@@ -46,7 +50,8 @@ let package = Package(
             dependencies: [
                 .target(name: "ModuleA")
             ],
-            swiftSettings: swiftSettings
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
         ),
     ]
 )
