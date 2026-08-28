@@ -154,9 +154,12 @@ class MessageGenerator {
         // copy-on-write behavior.
         conformances.append("@unchecked Swift.Sendable")
 
+        let spiSnippet =
+            (descriptor.fullName == "swift_protobuf.ImplicitWeakMessage" && generatorOptions.visibility == .public)
+            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
         p.print(
             "",
-            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
+            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
         )
         p.withIndentation { p in
             p.print(
