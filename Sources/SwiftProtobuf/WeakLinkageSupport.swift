@@ -22,14 +22,15 @@ import Darwin
 @preconcurrency import Bionic
 #endif
 
-#if canImport(Darwin)
-private var defaultDynamicLibraryHandle: UnsafeMutableRawPointer? {
-    UnsafeMutableRawPointer(bitPattern: -2)
-}
-#elseif canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-private var defaultDynamicLibraryHandle: UnsafeMutableRawPointer? {
-    UnsafeMutableRawPointer(bitPattern: 0)
-}
+// These constants are equal to the `RTLD_DEFAULT` value from dlfcn.h on each
+// platform. That C constant cannot be reliably referenced from Swift because
+// Linux only defines it when `_GNU_SOURCE` is defined, so we repeat it here.
+#if canImport(Darwin) || os(FreeBSD) || os(OpenBSD)
+private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: -2) }
+#elseif os(Android) && _pointerBitWidth(_32)
+private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: UInt(0xFFFFFFFF)) }
+#elseif os(Linux) || os(Android)
+private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: 0) }
 #endif
 
 extension MessageSchema {
@@ -42,7 +43,7 @@ extension MessageSchema {
     public static func resolveLazy(named symbolName: String) -> MessageSchema? {
         // TODO: Put a cache around this.
         #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-        guard let symbol = dlsym(defaultDynamicLibraryHandle, symbolName) else { return nil }
+        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
         typealias Resolver = @convention(c) (UnsafeMutableRawPointer) -> Void
         let resolver = unsafeBitCast(symbol, to: Resolver.self)
         var schema: MessageSchema? = nil
@@ -64,7 +65,7 @@ extension EnumSchema {
     public static func resolveLazy(named symbolName: String) -> EnumSchema? {
         // TODO: Put a cache around this.
         #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-        guard let symbol = dlsym(defaultDynamicLibraryHandle, symbolName) else { return nil }
+        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
         typealias Resolver = @convention(c) (UnsafeMutableRawPointer) -> Void
         let resolver = unsafeBitCast(symbol, to: Resolver.self)
         var schema: EnumSchema? = nil

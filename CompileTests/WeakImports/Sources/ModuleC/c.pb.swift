@@ -88,13 +88,8 @@ nonisolated extension Test_EnumC {
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_EnumC_getEnumSchema")
-#if compiler(>=6.3)
-@used
-#else
-@_used
-#endif
-public func __test_EnumC_getEnumSchema(_ out: UnsafeMutableRawPointer) {
+@_cdecl("test_DEnumC_getEnumSchema") @used
+public func __test_DEnumC_getEnumSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.EnumSchema?).self).pointee = Test_EnumC.enumSchema
 }
 
@@ -109,12 +104,7 @@ nonisolated extension Test_MessageC: SwiftProtobuf.GeneratedMessage {
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_MessageC_getMessageSchema")
-#if compiler(>=6.3)
-@used
-#else
-@_used
-#endif
-public func __test_MessageC_getMessageSchema(_ out: UnsafeMutableRawPointer) {
+@_cdecl("test_DMessageC_getMessageSchema") @used
+public func __test_DMessageC_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageC.messageSchema
 }

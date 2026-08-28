@@ -232,15 +232,10 @@ class MessageGenerator {
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMessageSchema"
             )
-            let spiSnippet = visibility.contains("public") ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
-                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\")",
-                "#if compiler(>=6.3)",
-                "@used",
-                "#else",
-                "@_used",
-                "#endif",
+                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
                 "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = \(swiftFullName).messageSchema",
                 "}"

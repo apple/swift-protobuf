@@ -125,16 +125,10 @@ class EnumGenerator {
                 forProtoFullName: enumDescriptor.fullName,
                 suffix: "_getEnumSchema"
             )
-            let spiSnippet =
-                generatorOptions.visibilitySourceSnippet.contains("public") ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
-                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\")",
-                "#if compiler(>=6.3)",
-                "@used",
-                "#else",
-                "@_used",
-                "#endif",
+                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
                 "\(generatorOptions.visibilitySourceSnippet)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = \(swiftFullName).enumSchema",
                 "}"
