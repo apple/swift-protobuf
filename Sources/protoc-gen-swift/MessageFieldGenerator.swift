@@ -90,18 +90,27 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         switch descriptor.type {
         case .group:
             let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-            submessageOrEnumReference = .message(swiftSingularType)
+            submessageOrEnumReference = .message(
+                swiftTypeName: swiftSingularType,
+                protoFullName: descriptor.messageType!.fullName
+            )
         case .message:
             if descriptor.isMap {
                 let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
                 submessageOrEnumReference = .map(entrySchemaName)
             } else {
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-                submessageOrEnumReference = .message(swiftSingularType)
+                submessageOrEnumReference = .message(
+                    swiftTypeName: swiftSingularType,
+                    protoFullName: descriptor.messageType!.fullName
+                )
             }
         case .enum:
             let swiftSingularType = descriptor.swiftSingularType(namer: namer)
-            submessageOrEnumReference = .enum(swiftSingularType)
+            submessageOrEnumReference = .enum(
+                swiftTypeName: swiftSingularType,
+                protoFullName: descriptor.enumType!.fullName
+            )
         default:
             submessageOrEnumReference = nil
         }

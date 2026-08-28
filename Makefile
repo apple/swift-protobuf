@@ -282,11 +282,18 @@ compile-tests-nonisolateddeclarations:
 # Test that ensures weak imports across multiple modules compile.
 # Note that this is a `swift run` because we're verifying the runtime behavior
 # of our harness as well as the codegen.
+#
+# Since this is experimental and requires some features that are only supported
+# by Swift 6.3, we don't run the test on earlier compiler versions.
 compile-tests-weakimports:
-	${SWIFT} run -c release --package-path CompileTests/WeakImports
-	/usr/bin/env python3 CompileTests/WeakImports/check_symbols.py \
-	  --binary CompileTests/WeakImports/.build/release/Client \
-	  --check-file CompileTests/WeakImports/Sources/Client/Client.swift
+	@SWIFT_MAJOR=$$(${SWIFT} --version 2>/dev/null | sed -E -n 's/.*Swift version ([0-9]+)\.([0-9]+).*/\1/p' | head -n1); \
+	SWIFT_MINOR=$$(${SWIFT} --version 2>/dev/null | sed -E -n 's/.*Swift version ([0-9]+)\.([0-9]+).*/\2/p' | head -n1); \
+	if [ "$$SWIFT_MAJOR" -gt 6 ] 2>/dev/null || ([ "$$SWIFT_MAJOR" -eq 6 ] && [ "$$SWIFT_MINOR" -ge 3 ]) 2>/dev/null; then \
+		${SWIFT} run -c release --package-path CompileTests/WeakImports && \
+		/usr/bin/env python3 CompileTests/WeakImports/check_symbols.py \
+		  --binary CompileTests/WeakImports/.build/release/Client \
+		  --check-file CompileTests/WeakImports/Sources/Client/Client.swift; \
+	fi
 
 
 # Rebuild the reference files by running the local version of protoc-gen-swift

@@ -119,6 +119,21 @@ class EnumGenerator {
             )
         }
         p.print("}")
+
+        if generatorOptions.experimentalWeakImports {
+            let getterSymbol = namer.dynamicSymbolName(
+                forProtoFullName: enumDescriptor.fullName,
+                suffix: "_getEnumSchema"
+            )
+            let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            p.print(
+                "",
+                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
+                "\(generatorOptions.visibilitySourceSnippet)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = \(swiftFullName).enumSchema",
+                "}"
+            )
+        }
     }
 
     /// Iterates over the cases in the protobuf enum and generates the appropriate cases or static

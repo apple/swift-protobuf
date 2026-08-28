@@ -80,9 +80,15 @@ class OneofGenerator {
 
             switch descriptor.type {
             case .group, .message:
-                submessageOrEnumReference = .message(swiftType)
+                submessageOrEnumReference = .message(
+                    swiftTypeName: swiftType,
+                    protoFullName: descriptor.messageType!.fullName
+                )
             case .enum:
-                submessageOrEnumReference = .enum(swiftType)
+                submessageOrEnumReference = .enum(
+                    swiftTypeName: swiftType,
+                    protoFullName: descriptor.enumType!.fullName
+                )
             default:
                 submessageOrEnumReference = nil
             }

@@ -40,13 +40,13 @@ package enum FieldPresence {
 package enum SubmessageOrEnumReference: Equatable, Hashable {
     /// The field is a singular or repeated message or group type.
     ///
-    /// The associated value is the full Swift name of that type.
-    case message(String)
+    /// The associated values are the full Swift name of that type and its full proto name.
+    case message(swiftTypeName: String, protoFullName: String)
 
     /// The field is a singular or repeated enum type.
     ///
-    /// The associated value is the full Swift name of that type.
-    case `enum`(String)
+    /// The associated values are the full Swift name of that type and its full proto name.
+    case `enum`(swiftTypeName: String, protoFullName: String)
 
     /// The field is a map type.
     ///
