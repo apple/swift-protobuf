@@ -258,6 +258,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertTextFormatEncode(
         _ expected: String,
         extensions: (any ExtensionMap)? = nil,
+        options: TextFormatEncodingOptions = TextFormatEncodingOptions(),
         file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
@@ -266,7 +267,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         var configured = empty
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
-        let encoded = configured.textFormatString()
+        let encoded = configured.textFormatString(options: options)
 
         XCTAssertEqual(expected, encoded, "Did not encode correctly", file: file, line: line)
         do {

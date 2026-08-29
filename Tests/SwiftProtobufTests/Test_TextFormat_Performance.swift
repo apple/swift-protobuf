@@ -59,7 +59,9 @@ final class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
         // decoding here because decoding is much slower -- due to the
         // need to create a lot of objects -- which makes it much less
         // obvious when the encoding goes awry.
-        let encoded = msg.textFormatString()
+        var options = TextFormatEncodingOptions()
+        options.useDeterministicOrdering = true
+        let encoded = msg.textFormatString(options: options)
         XCTAssertEqual(expected, encoded)
     }
 
