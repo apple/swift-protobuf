@@ -179,10 +179,13 @@ class EnumGenerator {
 private final class OpenEnumGenerator: EnumGenerator {
     override func generateTypeDeclaration(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
+        let spiSnippet =
+            (enumDescriptor.fullName == "swift_protobuf.ImplicitWeakEnum" && generatorOptions.visibility == .public)
+            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             p.print("\(visibility)typealias RawValue = Swift.Int")
@@ -330,10 +333,13 @@ private final class OpenEnumGenerator: EnumGenerator {
 private final class ClosedEnumGenerator: EnumGenerator {
     override func generateTypeDeclaration(to p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
+        let spiSnippet =
+            (enumDescriptor.fullName == "swift_protobuf.ImplicitWeakEnum" && generatorOptions.visibility == .public)
+            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             // Cases/aliases
