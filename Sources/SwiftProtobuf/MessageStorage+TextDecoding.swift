@@ -114,15 +114,7 @@ extension MessageStorage {
                     appendValue(try Float(reader.consumeDouble()), to: field)
 
                 case .group, .message:
-                    guard let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
-                    else {
-                        throw reader.parsingError(
-                            reason: """
-                                Schema not found for message field \(field.fieldNumber); \
-                                was it weak-linked and dropped by the linker?
-                                """
-                        )
-                    }
+                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
                     try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                         try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
                     }
@@ -207,14 +199,7 @@ extension MessageStorage {
                 }
 
             case .group, .message:
-                guard let submessageStorage = uniqueMessageStorage(forSingularMessageField: field) else {
-                    throw reader.parsingError(
-                        reason: """
-                            Schema not found for message field \(field.fieldNumber); \
-                            was it weak-linked and dropped by the linker?
-                            """
-                    )
-                }
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
                 try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
                     try submessageStorage.merge(byParsingTextFormatFrom: &subReader)
                 }

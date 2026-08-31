@@ -145,10 +145,7 @@ extension MessageStorage {
     @usableFromInline func deinitializeFieldForced(_ field: MessageSchema.Field) {
         switch field.fieldMode.cardinality {
         case .map:
-            guard let submessageSchema = messageSchema(for: field) else {
-                // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
-            }
+            let submessageSchema = messageSchema(for: field)
             submessageSchema.invokeWitness(.mapDeinitialize(pointer: rawPointer(for: field)))
 
         case .array:
@@ -163,10 +160,7 @@ extension MessageStorage {
                 }
                 resolvedEnumSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .group, .message:
-                guard let submessageSchema = messageSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                }
+                let submessageSchema = messageSchema(for: field)
                 submessageSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .fixed32, .uint32: deinitializeField(field, type: [UInt32].self)
             case .fixed64, .uint64: deinitializeField(field, type: [UInt64].self)
@@ -182,10 +176,7 @@ extension MessageStorage {
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
             case .group, .message:
-                guard let submessageSchema = messageSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                }
+                let submessageSchema = messageSchema(for: field)
                 submessageSchema.invokeWitness(
                     .messageDeinitialize(pointer: rawPointer(for: field))
                 )
@@ -247,10 +238,7 @@ extension MessageStorage {
                 guard isPresent(field) else { continue }
                 let source = rawPointer(for: field)
                 let destination = destination.rawPointer(for: field)
-                guard let submessageSchema = messageSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
-                }
+                let submessageSchema = messageSchema(for: field)
                 submessageSchema.invokeWitness(.mapCopyInitialize(source: source, destination: destination))
 
             case .array:
@@ -272,10 +260,7 @@ extension MessageStorage {
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    guard let submessageSchema = messageSchema(for: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                    }
+                    let submessageSchema = messageSchema(for: field)
                     submessageSchema.invokeWitness(
                         .arrayCopyInitialize(source: source, destination: destination)
                     )
@@ -298,10 +283,7 @@ extension MessageStorage {
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    guard let submessageSchema = messageSchema(for: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                    }
+                    let submessageSchema = messageSchema(for: field)
                     submessageSchema.invokeWitness(
                         .messageCopyInitialize(source: source, destination: destination)
                     )

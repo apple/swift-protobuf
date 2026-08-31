@@ -72,10 +72,7 @@ extension MessageStorage {
 
                 if source.isPresent(field) {
                     let sourceSubmessage = source.messageStorage(forAssumedPresentSingularMessageField: field)
-                    guard let destinationSubmessage = self.uniqueMessageStorage(forSingularMessageField: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing message schema for field \(field.fieldNumber)")
-                    }
+                    let destinationSubmessage = self.uniqueMessageStorage(forSingularMessageField: field)
                     try destinationSubmessage.merge(
                         from: sourceSubmessage,
                         fieldMask: subMask,
@@ -143,10 +140,7 @@ extension MessageStorage {
         case .map:
             if replaceRepeated {
                 self.deinitializeField(field)
-                guard let mapSchema = self.messageSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing map schema for present field \(field.fieldNumber)")
-                }
+                let mapSchema = self.messageSchema(for: field)
                 mapSchema.invokeWitness(
                     .mapCopyInitialize(source: sourcePointer, destination: destinationPointer)
                 )
@@ -207,10 +201,7 @@ extension MessageStorage {
             case .group, .message:
                 if replaceRepeated {
                     self.deinitializeField(field)
-                    guard let submessageSchema = self.messageSchema(for: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                    }
+                    let submessageSchema = self.messageSchema(for: field)
                     submessageSchema.invokeWitness(
                         .arrayCopyInitialize(source: sourcePointer, destination: destinationPointer)
                     )
@@ -219,19 +210,11 @@ extension MessageStorage {
                     // For each message in the source array, create a new message in the destination
                     // and then copy the fields of the source message into the destination message.
                     source.forEachMessage(inAssumedPresentRepeatedMessageField: field) { sourceStorage in
-                        guard
-                            let destinationStorage =
-                                self.messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
-                        else {
-                            // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                            preconditionFailure("Missing message schema for field \(field.fieldNumber)")
-                        }
+                        let destinationStorage =
+                            self.messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
                         let sourcePointer = sourceStorage.buffer.baseAddress!
                         let destinationPointer = destinationStorage.buffer.baseAddress!
-                        guard let submessageSchema = self.messageSchema(for: field) else {
-                            // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                            preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                        }
+                        let submessageSchema = self.messageSchema(for: field)
                         submessageSchema.invokeWitness(
                             .messageCopyInitialize(source: sourcePointer, destination: destinationPointer)
                         )
@@ -276,17 +259,11 @@ extension MessageStorage {
                 self.updateValue(of: field, to: source.value(of: field) as Float)
 
             case .group, .message:
-                guard let submessageSchema = source.messageSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing message schema for present field \(field.fieldNumber)")
-                }
+                let submessageSchema = source.messageSchema(for: field)
                 if self.isPresent(field) {
                     // Recursively merge the fields of the source message into the destination message.
                     let sourceSubstorage = source.messageStorage(forAssumedPresentSingularMessageField: field)
-                    guard let destinationSubstorage = self.uniqueMessageStorage(forSingularMessageField: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing message schema for field \(field.fieldNumber)")
-                    }
+                    let destinationSubstorage = self.uniqueMessageStorage(forSingularMessageField: field)
 
                     var subPaths: [String] = []
                     for f in submessageSchema.fields {

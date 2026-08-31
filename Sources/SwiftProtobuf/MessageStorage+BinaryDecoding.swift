@@ -319,14 +319,8 @@ extension MessageStorage {
                 }
 
             case .group:
-                guard
-                    tag.wireFormat == .startGroup,
-                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
-                else {
-                    // Send it to unknown fields if the tag is incorrect or if the schema is
-                    // unavailable (e.g., it was weak-linked and dropped by the linker).
-                    return false
-                }
+                guard tag.wireFormat == .startGroup else { return false }
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
                 try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -349,14 +343,8 @@ extension MessageStorage {
                 }
 
             case .message:
-                guard
-                    tag.wireFormat == .lengthDelimited,
-                    let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
-                else {
-                    // Send it to unknown fields if the tag is incorrect or if the schema is
-                    // unavailable (e.g., it was weak-linked and dropped by the linker).
-                    return false
-                }
+                guard tag.wireFormat == .lengthDelimited else { return false }
+                let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
                 try reader.withReaderForNextLengthDelimitedSlice { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -451,14 +439,8 @@ extension MessageStorage {
                 updateValue(of: field, to: Float(bitPattern: try reader.nextLittleEndianUInt32()))
 
             case .group:
-                guard
-                    tag.wireFormat == .startGroup,
-                    let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
-                else {
-                    // Send it to unknown fields if the tag is incorrect or if the schema is
-                    // unavailable (e.g., it was weak-linked and dropped by the linker).
-                    return false
-                }
+                guard tag.wireFormat == .startGroup else { return false }
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
                 try reader.withReaderForNextGroup(withFieldNumber: UInt32(tag.fieldNumber)) { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,
@@ -479,14 +461,8 @@ extension MessageStorage {
                 updateValue(of: field, to: Int64(bitPattern: try reader.nextVarint()))
 
             case .message:
-                guard
-                    tag.wireFormat == .lengthDelimited,
-                    let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
-                else {
-                    // Send it to unknown fields if the tag is incorrect or if the schema is
-                    // unavailable (e.g., it was weak-linked and dropped by the linker).
-                    return false
-                }
+                guard tag.wireFormat == .lengthDelimited else { return false }
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
                 try reader.withReaderForNextLengthDelimitedSlice { subReader in
                     try submessageStorage.merge(
                         byReadingFrom: &subReader,

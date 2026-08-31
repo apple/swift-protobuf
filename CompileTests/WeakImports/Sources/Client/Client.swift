@@ -1,5 +1,11 @@
 import ModuleA
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#else
+import Foundation
+#endif
+
 /// A small test harness for weak-linked Swift protos.
 ///
 /// We use a minimal executable client to make sure we have as much control over
@@ -57,6 +63,46 @@ struct Main {
             msg.nestedEnumC = .first
             expect(msg.hasNestedEnumC)
             expect(msg.nestedEnumC == .first)
+        }
+
+        do {
+            // This test ensures that even without `MessageB` being linked into
+            // the binary, decoding, hazzer behavior, and encoding all
+            // round-trip correctly.
+
+            // Field 1 (title): "Hello" (tag 0x0A, len 5, "Hello")
+            // Field 2 (nested_b): tag 0x12, len 2, payload [0x08, 0x64] (id: 100)
+            let rawBytes = Data([0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x12, 0x02, 0x08, 0x64])
+            let decoded = try! Test_MessageA(serializedBytes: rawBytes)
+            expect(decoded.hasTitle)
+            expect(decoded.title == "Hello")
+            expect(decoded.hasNestedB)
+            expect(!decoded.hasNestedC)
+
+            // Re-serializing should preserve the exact original bytes including
+            // the `nested_b` payload.
+            let reserialized = try! decoded.serializedData()
+            expect(reserialized == rawBytes)
+
+            // Copy-on-write test: copying decoded message and mutating title
+            var copy = decoded
+            expect(copy.hasNestedB)
+            copy.title = "World"
+            expect(copy.title == "World")
+            expect(decoded.title == "Hello")
+            // Invoking the hazzer here ensures that the placeholder message is
+            // working as expected. If it returns false but the check of the
+            // reserialized bytes above succeeded, that means the submessage
+            // data was placed in the parent message's unknown fields, which is
+            // incorrect.
+            //
+            // NOTE: We must ONLY use the hazzer here. Accessing `nestedB`
+            // directly would pull it into the linkage.
+            expect(copy.hasNestedB)
+
+            let copyBytes = try! copy.serializedData()
+            let expectedCopyBytes = Data([0x0A, 0x05, 0x57, 0x6F, 0x72, 0x6C, 0x64, 0x12, 0x02, 0x08, 0x64])
+            expect(copyBytes == expectedCopyBytes)
         }
 
         // TODO: ModuleB symbols should all be stripped since they're never

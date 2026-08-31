@@ -33,16 +33,19 @@ public enum SwiftProtobufInfo {
         "google/protobuf/timestamp.proto",
         "google/protobuf/type.proto",
         "google/protobuf/wrappers.proto",
+        "implicit_weak_message.proto",
     ]
 
     /// Checks if a `Google_Protobuf_FileDescriptorProto` is a library bundled proto file.
     @available(*, deprecated, message: "Use the version that takes a FileDescriptor instead.")
     public static func isBundledProto(file: Google_Protobuf_FileDescriptorProto) -> Bool {
-        file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
+        (file.package == "google.protobuf" || file.package == "swift_protobuf")
+            && bundledProtoFiles.contains(file.name)
     }
 
     /// Checks if a `FileDescriptor` is a library bundled proto file.
     public static func isBundledProto(file: FileDescriptor) -> Bool {
-        file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
+        (file.package == "google.protobuf" || file.package == "swift_protobuf")
+            && bundledProtoFiles.contains(file.name)
     }
 }

@@ -373,14 +373,7 @@ extension MessageStorage {
                 break
             }
 
-            guard let submessageSchema = messageSchema(for: field) else {
-                throw reader.parsingError(
-                    reason: """
-                        Schema not found for message field \(field.fieldNumber); \
-                        was it weak-linked and dropped by the linker?
-                        """
-                )
-            }
+            let submessageSchema = messageSchema(for: field)
             switch CustomJSONWKTClassification(messageSchema: submessageSchema) {
             case .value:
                 // A `null` value for `google.protobuf.Value` decodes to a message whose
@@ -388,7 +381,7 @@ extension MessageStorage {
                 //
                 // This is safe to force-unwrap because it would only return nil if the schema
                 // wasn't found, which is checked above.
-                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)!
+                let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
                 let nullValueField = KnownField.valueNullValue(in: submessageStorage.schema)
                 guard case .oneOfMember(let oneofOffset) = nullValueField.presence else {
                     preconditionFailure("expected nullValue to be a oneof member; this is a generator bug")
@@ -475,14 +468,7 @@ extension MessageStorage {
     ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanSingularMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
-        guard let submessageStorage = uniqueMessageStorage(forSingularMessageField: field) else {
-            throw reader.parsingError(
-                reason: """
-                    Schema not found for message field \(field.fieldNumber); \
-                    was it weak-linked and dropped by the linker?
-                    """
-            )
-        }
+        let submessageStorage = uniqueMessageStorage(forSingularMessageField: field)
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
@@ -494,14 +480,7 @@ extension MessageStorage {
     ///   - field: The ``MessageSchema.Field`` of the field being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanRepeatedMessageField(_ field: MessageSchema.Field, from reader: inout JSONReader) throws {
-        guard let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field) else {
-            throw reader.parsingError(
-                reason: """
-                    Schema not found for message field \(field.fieldNumber); \
-                    was it weak-linked and dropped by the linker?
-                    """
-            )
-        }
+        let submessageStorage = messageStorage(forNewlyAppendedElementOfRepeatedMessageField: field)
         try reader.withReaderForNextObject(expectedSchema: submessageStorage.schema) { subReader in
             try submessageStorage.merge(byParsingJSONFrom: &subReader)
         }
