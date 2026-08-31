@@ -105,6 +105,49 @@ struct Main {
             expect(copyBytes == expectedCopyBytes)
         }
 
+        do {
+            // This test ensures that even without `EnumB` being linked into
+            // the binary, decoding, hazzer behavior, and encoding for singular
+            // and repeated enums all round-trip correctly.
+            //
+            // Field 1 (title): "Hello" (tag 0x0A, len 5, "Hello")
+            // Field 3 (nested_enum): tag 0x18, varint 1 (ENUM_B_FIRST)
+            // Field 6 (repeated_enum_b): tag 0x30, varint 1; tag 0x30, varint 2
+            // Field 8 (oneof_enum_b): tag 0x40, varint 1
+            let rawBytes = Data([
+                0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F,
+                0x18, 0x01,
+                0x30, 0x01, 0x30, 0x02,
+                0x40, 0x01,
+            ])
+            let decoded = try! Test_MessageA(serializedBytes: rawBytes)
+            expect(decoded.hasTitle)
+            expect(decoded.title == "Hello")
+            expect(decoded.hasNestedEnum)
+            expect(!decoded.hasNestedEnumC)
+
+            // Re-serializing should preserve the exact original bytes.
+            let reserialized = try! decoded.serializedData()
+            expect(reserialized == rawBytes)
+
+            // Copy-on-write test: mutating decoded message
+            var copy = decoded
+            expect(copy.hasNestedEnum)
+            copy.title = "World"
+            expect(copy.title == "World")
+            expect(decoded.title == "Hello")
+            expect(copy.hasNestedEnum)
+
+            let copyBytes = try! copy.serializedData()
+            let expectedCopyBytes = Data([
+                0x0A, 0x05, 0x57, 0x6F, 0x72, 0x6C, 0x64,
+                0x18, 0x01,
+                0x30, 0x01, 0x30, 0x02,
+                0x40, 0x01,
+            ])
+            expect(copyBytes == expectedCopyBytes)
+        }
+
         // TODO: ModuleB symbols should all be stripped since they're never
         // referenced by this source file, so the long-term goal is for these
         // to all be `HAS-SYMBOL-NOT` checks. For now, we list the symbols
@@ -116,6 +159,8 @@ struct Main {
         // Protobuf runtime support:
         //   HAS-SYMBOL: {{_?}}test_DMessageB_getMessageSchema
         //   HAS-SYMBOL: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
+        //   HAS-SYMBOL: {{_?}}test_DEnumB_getEnumSchema
+        //   HAS-SYMBOL: static ModuleB.Test_EnumB.enumSchema : SwiftProtobuf.EnumSchema
         //
         // Protocol conformance support:
         //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_MessageB : Swift.Hashable in ModuleB
@@ -158,12 +203,49 @@ struct Main {
         //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
         //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
         //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness for static Swift.CaseIterable.allCases.getter : A.AllCases in conformance ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL: protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL: protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: protocol witness for static SwiftProtobuf.Enum.enumSchema.getter : SwiftProtobuf.EnumSchema in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.rawValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.init(rawValue: Swift.Int) -> A? in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.init() -> A in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: protocol witness for Swift.RawRepresentable.rawValue.getter : A.RawValue in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: protocol witness for Swift.RawRepresentable.init(rawValue: A.RawValue) -> A? in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
         //
         // Type metadata:
         //   HAS-SYMBOL: full type metadata for ModuleB.Test_MessageB
         //   HAS-SYMBOL: nominal type descriptor for ModuleB.Test_MessageB
         //   HAS-SYMBOL: type metadata accessor for ModuleB.Test_MessageB
         //   HAS-SYMBOL: type metadata for ModuleB.Test_MessageB
+        //   HAS-SYMBOL: full type metadata for ModuleB.Test_EnumB
+        //   HAS-SYMBOL: nominal type descriptor for ModuleB.Test_EnumB
+        //   HAS-SYMBOL: type metadata accessor for ModuleB.Test_EnumB
+        //   HAS-SYMBOL: type metadata for ModuleB.Test_EnumB
+        //   HAS-SYMBOL: value witness table for ModuleB.Test_EnumB
 
         print("✅ All tests passed!")
     }
