@@ -88,16 +88,7 @@ extension MessageStorage {
                     appendValue(try reader.consumeDouble(), to: field)
 
                 case .enum:
-                    // Decoding an enum field in TextFormat requires that the schema be linked into
-                    // the binary; otherwise, we don't know the value names.
-                    guard let resolvedEnumSchema = enumSchema(for: field) else {
-                        throw reader.parsingError(
-                            reason: """
-                                Schema not found for enum field \(field.fieldNumber); \
-                                was it weak-linked and dropped by the linker?
-                                """
-                        )
-                    }
+                    let resolvedEnumSchema = enumSchema(for: field)
                     appendEnumValue(
                         withRawValue: try reader.consumeEnumValue(schema: resolvedEnumSchema),
                         toRepeatedEnumField: field
@@ -161,16 +152,7 @@ extension MessageStorage {
                 }
 
             case .enum:
-                // Decoding an enum field in TextFormat requires that the schema be linked into
-                // the binary; otherwise, we don't know the value names.
-                guard let resolvedEnumSchema = enumSchema(for: field) else {
-                    throw reader.parsingError(
-                        reason: """
-                            Schema not found for enum field \(field.fieldNumber); \
-                            was it weak-linked and dropped by the linker?
-                            """
-                    )
-                }
+                let resolvedEnumSchema = enumSchema(for: field)
                 updateValue(of: field, to: try reader.consumeEnumValue(schema: resolvedEnumSchema))
 
             case .fixed32, .uint32:

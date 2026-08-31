@@ -128,10 +128,10 @@ extension ExtensionSchema {
     /// The message schema for this extension field, if it is a message or group.
     ///
     /// - Precondition: The extension field must be a message or group field.
-    var messageSchema: MessageSchema? {
+    var messageSchema: MessageSchema {
         switch submessageOrEnumResolver() {
         case nil:
-            return nil
+            return SwiftProtobuf_ImplicitWeakMessage.messageSchema
         case .message(let messageSchema)?:
             return messageSchema
         case .enum?:
@@ -142,10 +142,10 @@ extension ExtensionSchema {
     /// The enum schema for this extension field, if it is an enum.
     ///
     /// - Precondition: The extension field must be an enum field.
-    var enumSchema: EnumSchema? {
+    var enumSchema: EnumSchema {
         switch submessageOrEnumResolver() {
         case nil:
-            return nil
+            return SwiftProtobuf_ImplicitWeakEnum.enumSchema
         case .enum(let enumSchema)?:
             return enumSchema
         case .message?:

@@ -28,7 +28,7 @@ extension MessageStorage {
     func messageSchema(for field: MessageSchema.Field) -> MessageSchema {
         switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
         case nil:
-            // If the resolver turned nil, then the protos must have been
+            // If the resolver returned nil, then the protos must have been
             // generated with weak imports and the schema was dropped by the
             // linker. Substitute the placeholder message, which will correctly
             // handle all fields during binary decoding and encoding (by using
@@ -43,13 +43,15 @@ extension MessageStorage {
 
     /// Returns the enum schema for the given field.
     ///
-    /// - Returns: The enum schema, or `nil` if the schema is not available (e.g., it
-    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be an enum field.
-    func enumSchema(for field: MessageSchema.Field) -> EnumSchema? {
+    func enumSchema(for field: MessageSchema.Field) -> EnumSchema {
         switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
         case nil:
-            return nil
+            // If the resolver returned nil, then the protos must have been
+            // generated with weak imports and the schema was dropped by the
+            // linker. Substitute the placeholder enum, which will correctly
+            // handle all operations.
+            return SwiftProtobuf_ImplicitWeakEnum.enumSchema
         case .enum(let enumSchema)?:
             return enumSchema
         case .message?:
@@ -237,10 +239,7 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func elementCount(forAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int {
         let pointer = rawPointer(for: field)
-        // Accessing element count for an assumed-present repeated enum field requires a non-nil schema.
-        guard let resolvedEnumSchema = enumSchema(for: field) else {
-            preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
-        }
+        let resolvedEnumSchema = enumSchema(for: field)
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
             resolvedEnumSchema.invokeWitness(.arrayGetCount(pointer: pointer, result: $0))
@@ -253,10 +252,7 @@ extension MessageStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func rawValue(at index: Int, inAssumedPresentRepeatedEnumField field: MessageSchema.Field) -> Int32 {
         let pointer = rawPointer(for: field)
-        // Accessing raw value for an assumed-present repeated enum field requires a non-nil schema.
-        guard let resolvedEnumSchema = enumSchema(for: field) else {
-            preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
-        }
+        let resolvedEnumSchema = enumSchema(for: field)
         var value: Int32 = 0
         withUnsafeMutablePointer(to: &value) {
             resolvedEnumSchema.invokeWitness(.arrayGetElementRawValue(pointer: pointer, index: index, result: $0))
@@ -285,9 +281,7 @@ extension MessageStorage {
     /// - Precondition: The field must be a repeated enum field.
     func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField field: MessageSchema.Field) {
         let pointer = rawPointer(for: field)
-        guard let enumSchema = enumSchema(for: field) else {
-            preconditionFailure("Missing enum schema for field \(field.fieldNumber)")
-        }
+        let enumSchema = enumSchema(for: field)
 
         if !isPresent(field) {
             // If the field is not present, initialize it with an empty array and update its presence.

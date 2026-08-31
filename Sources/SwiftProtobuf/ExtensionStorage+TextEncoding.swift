@@ -148,11 +148,7 @@ extension ExtensionStorage {
                 encoder.putDoubleValue(value: value.value(as: Double.self))
 
             case .enum:
-                guard let enumSchema = schema.enumSchema else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing enum schema for present extension field \(schema.fieldNumber)")
-                }
-                encoder.putEnumValue(rawValue: value.value(as: Int32.self), enumSchema: enumSchema)
+                encoder.putEnumValue(rawValue: value.value(as: Int32.self), enumSchema: schema.enumSchema)
 
             case .fixed32, .uint32:
                 encoder.putUInt64(value: UInt64(value.value(as: UInt32.self)))
@@ -184,10 +180,7 @@ extension ExtensionStorage {
     /// Emits the name and values of a repeated enum field, using compact representation if the
     /// field is packed.
     private func emitRepeatedEnumField(_ schema: ExtensionSchema, into encoder: inout TextFormatEncoder) {
-        guard let enumSchema = schema.enumSchema else {
-            // We shouldn't have a value for this field in memory if the linker dropped the schema.
-            preconditionFailure("Missing enum schema for present extension field \(schema.fieldNumber)")
-        }
+        let enumSchema = schema.enumSchema
         if schema.field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
             encoder.emitExtensionFieldName(name: schema.fieldName)

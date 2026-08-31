@@ -174,10 +174,7 @@ extension MessageStorage {
             case .enum:
                 if replaceRepeated {
                     self.deinitializeField(field)
-                    guard let resolvedEnumSchema = self.enumSchema(for: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
-                    }
+                    let resolvedEnumSchema = self.enumSchema(for: field)
                     resolvedEnumSchema.invokeWitness(
                         .arrayCopyInitialize(source: sourcePointer, destination: destinationPointer)
                     )

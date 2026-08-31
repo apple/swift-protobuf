@@ -22,13 +22,9 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a message or group field.
     func messageStorage(forAssumedPresentSingularMessageField ext: ExtensionSchema) -> MessageStorage {
         let value = values[ext.field.fieldNumber]!
-        // Accessing storage for an assumed-present extension message field requires a non-nil schema.
-        guard let messageSchema = ext.messageSchema else {
-            preconditionFailure("Missing message schema for present extension field \(ext.fieldNumber)")
-        }
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
-            messageSchema.invokeWitness(
+            ext.messageSchema.invokeWitness(
                 .messageGetStorage(pointer: value.unsafeRawPointer, result: $0)
             )
         }
@@ -39,20 +35,15 @@ extension ExtensionStorage {
     ///
     /// If the field is not yet present, its value will be initialized first.
     ///
-    /// - Returns: The message storage, or `nil` if the message schema is not available (e.g., it
-    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be a singular message or group field.
     @inline(never)
-    func uniqueMessageStorage(forSingularMessageField ext: ExtensionSchema) -> MessageStorage? {
-        guard let messageSchema = ext.messageSchema else {
-            return nil
-        }
+    func uniqueMessageStorage(forSingularMessageField ext: ExtensionSchema) -> MessageStorage {
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) { submessageStoragePointer in
             if let value = values[ext.field.fieldNumber] {
                 // The message already exists, so ensure that its storage is unique for mutation
                 // before returning it.
-                messageSchema.invokeWitness(
+                ext.messageSchema.invokeWitness(
                     .messageGetUniqueStorage(
                         pointer: value.unsafeMutableRawPointer,
                         result: submessageStoragePointer
@@ -61,7 +52,7 @@ extension ExtensionStorage {
             } else {
                 // If the extension is not present, initialize it.
                 let value = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                messageSchema.invokeWitness(
+                ext.messageSchema.invokeWitness(
                     .messageInitialize(
                         pointer: value.unsafeMutableRawPointer,
                         result: submessageStoragePointer
@@ -78,13 +69,9 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a repeated message or group field.
     func elementCount(forAssumedPresentRepeatedMessageField ext: ExtensionSchema) -> Int {
         let value = values[ext.field.fieldNumber]!
-        // Accessing element count for an assumed-present repeated extension message field requires a non-nil schema.
-        guard let messageSchema = ext.messageSchema else {
-            preconditionFailure("Missing message schema for present extension field \(ext.fieldNumber)")
-        }
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
-            messageSchema.invokeWitness(.arrayGetCount(pointer: value.unsafeRawPointer, result: $0))
+            ext.messageSchema.invokeWitness(.arrayGetCount(pointer: value.unsafeRawPointer, result: $0))
         }
         return count
     }
@@ -97,13 +84,9 @@ extension ExtensionStorage {
         inAssumedPresentRepeatedMessageField ext: ExtensionSchema
     ) -> MessageStorage {
         let value = values[ext.field.fieldNumber]!
-        // Accessing element storage for an assumed-present repeated extension message field requires a non-nil schema.
-        guard let messageSchema = ext.messageSchema else {
-            preconditionFailure("Missing message schema for present extension field \(ext.fieldNumber)")
-        }
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) {
-            messageSchema.invokeWitness(
+            ext.messageSchema.invokeWitness(
                 .arrayGetElementStorage(pointer: value.unsafeRawPointer, index: index, result: $0)
             )
         }
@@ -128,13 +111,8 @@ extension ExtensionStorage {
     ///
     /// If the field is not yet present, its array value will be initialized first.
     ///
-    /// - Returns: The message storage, or `nil` if the message schema is not available (e.g., it
-    ///   was weak-linked and dropped by the linker).
     /// - Precondition: The field must be a repeated message or group field.
-    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField ext: ExtensionSchema) -> MessageStorage? {
-        guard let messageSchema = ext.messageSchema else {
-            return nil
-        }
+    func messageStorage(forNewlyAppendedElementOfRepeatedMessageField ext: ExtensionSchema) -> MessageStorage {
         var submessageStorage: Unmanaged<MessageStorage>? = nil
         withUnsafeMutablePointer(to: &submessageStorage) { submessageStoragePointer in
             let value: ExtensionValueStorage
@@ -143,11 +121,11 @@ extension ExtensionStorage {
             } else {
                 // If the extension is not present, initialize it to an empty array.
                 value = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-                messageSchema.invokeWitness(.arrayInitialize(pointer: value.unsafeMutableRawPointer))
+                ext.messageSchema.invokeWitness(.arrayInitialize(pointer: value.unsafeMutableRawPointer))
                 values[ext.field.fieldNumber] = value
             }
             // Append a new element to the array and return its storage.
-            messageSchema.invokeWitness(
+            ext.messageSchema.invokeWitness(
                 .arrayAppendNew(
                     pointer: value.unsafeMutableRawPointer,
                     result: submessageStoragePointer
@@ -178,13 +156,9 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func elementCount(forAssumedPresentRepeatedEnumField ext: ExtensionSchema) -> Int {
         let value = values[ext.field.fieldNumber]!
-        // Accessing element count for an assumed-present repeated extension enum field requires a non-nil schema.
-        guard let enumSchema = ext.enumSchema else {
-            preconditionFailure("Missing enum schema for present extension field \(ext.fieldNumber)")
-        }
         var count: Int = 0
         withUnsafeMutablePointer(to: &count) {
-            enumSchema.invokeWitness(.arrayGetCount(pointer: value.unsafeRawPointer, result: $0))
+            ext.enumSchema.invokeWitness(.arrayGetCount(pointer: value.unsafeRawPointer, result: $0))
         }
         return count
     }
@@ -194,13 +168,9 @@ extension ExtensionStorage {
     /// - Precondition: The field must be present and must be a repeated enum field.
     func rawValue(at index: Int, inAssumedPresentRepeatedEnumField ext: ExtensionSchema) -> Int32 {
         let value = values[ext.field.fieldNumber]!
-        // Accessing raw value for an assumed-present repeated extension enum field requires a non-nil schema.
-        guard let enumSchema = ext.enumSchema else {
-            preconditionFailure("Missing enum schema for present extension field \(ext.fieldNumber)")
-        }
         var rawValue: Int32 = 0
         withUnsafeMutablePointer(to: &rawValue) {
-            enumSchema.invokeWitness(
+            ext.enumSchema.invokeWitness(
                 .arrayGetElementRawValue(pointer: value.unsafeRawPointer, index: index, result: $0)
             )
         }
@@ -227,19 +197,16 @@ extension ExtensionStorage {
     ///
     /// - Precondition: The field must be a repeated enum field.
     func appendEnumValue(withRawValue rawValue: Int32, toRepeatedEnumField ext: ExtensionSchema) {
-        guard let enumSchema = ext.enumSchema else {
-            preconditionFailure("Missing enum schema for extension field \(ext.fieldNumber)")
-        }
         let value: ExtensionValueStorage
         if let existingValue = values[ext.field.fieldNumber] {
             value = existingValue
         } else {
             // If the extension is not present, initialize it to an empty array.
             value = ExtensionValueStorage(uninitializedMessageExtensionField: ext)
-            enumSchema.invokeWitness(.arrayInitialize(pointer: value.unsafeMutableRawPointer))
+            ext.enumSchema.invokeWitness(.arrayInitialize(pointer: value.unsafeMutableRawPointer))
             values[ext.field.fieldNumber] = value
         }
-        enumSchema.invokeWitness(
+        ext.enumSchema.invokeWitness(
             .arrayAppendRawValue(
                 pointer: value.unsafeMutableRawPointer,
                 rawValue: rawValue

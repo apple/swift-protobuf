@@ -183,16 +183,7 @@ extension MessageStorage {
                     appendValue(try reader.consumeDouble(), to: field)
 
                 case .enum:
-                    // Decoding an enum field in JSON requires that the schema be linked into the
-                    // binary; otherwise, we don't know the value names.
-                    guard let resolvedEnumSchema = enumSchema(for: field) else {
-                        throw reader.parsingError(
-                            reason: """
-                                Schema not found for enum field \(field.fieldNumber); \
-                                was it weak-linked and dropped by the linker?
-                                """
-                        )
-                    }
+                    let resolvedEnumSchema = enumSchema(for: field)
                     guard let value = try reader.consumeEnumValue(schema: resolvedEnumSchema) else {
                         break
                     }
@@ -301,16 +292,7 @@ extension MessageStorage {
             }
 
         case .enum:
-            // Decoding an enum field in JSON requires that the schema be linked into the
-            // binary; otherwise, we don't know the value names.
-            guard let resolvedEnumSchema = enumSchema(for: field) else {
-                throw reader.parsingError(
-                    reason: """
-                        Schema not found for enum field \(field.fieldNumber); \
-                        was it weak-linked and dropped by the linker?
-                        """
-                )
-            }
+            let resolvedEnumSchema = enumSchema(for: field)
 
             // If we're decoding a `NullValue` well-known type, `null` should be
             // stored as the `NULL_VALUE` value, not clear the field.

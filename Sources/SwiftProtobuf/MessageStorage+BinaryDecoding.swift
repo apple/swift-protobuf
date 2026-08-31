@@ -572,7 +572,8 @@ extension MessageStorage {
     ) throws {
         // Read a single raw value from the wire.
         let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try reader.nextVarint()))
-        guard let enumSchema = enumSchema(for: field), enumSchema.isValidValue(rawValue) else {
+        let enumSchema = enumSchema(for: field)
+        guard enumSchema.isValidValue(rawValue) else {
             if self.schema.extensibilityMode == .mapEntry {
                 // Map entries are always parsed in the context of some other message, so this
                 // error will be caught upstream and handled, not leaked to the user.
@@ -635,7 +636,7 @@ extension MessageStorage {
         var elementsReader = WireFormatReader(buffer: elementsBuffer, recursionBudget: 0)
         while elementsReader.hasAvailableData {
             let rawValue = Int32(bitPattern: UInt32(truncatingIfNeeded: try elementsReader.nextVarint()))
-            if let resolvedEnumSchema, resolvedEnumSchema.isValidValue(rawValue) {
+            if resolvedEnumSchema.isValidValue(rawValue) {
                 appendEnumValue(withRawValue: rawValue, toRepeatedEnumField: field)
             } else {
                 invalidValues.append(rawValue)
@@ -804,12 +805,7 @@ extension MessageStorage {
             return true
         }
 
-        guard let submessageStorage = extensionStorage.uniqueMessageStorage(forSingularMessageField: extensionSchema)
-        else {
-            // Send it to unknown fields if the schema is unavailable (e.g., it
-            // was weak-linked and dropped by the linker).
-            return false
-        }
+        let submessageStorage = extensionStorage.uniqueMessageStorage(forSingularMessageField: extensionSchema)
         var subReader = WireFormatReader(buffer: messageBytes, recursionBudget: reader.recursionBudget)
         try submessageStorage.merge(
             byReadingFrom: &subReader,

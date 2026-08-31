@@ -68,10 +68,6 @@ extension ExtensionStorage {
                 emitRepeatedField { encoder.putDoubleValue(value: $0) }
 
             case .enum:
-                guard let enumSchema = schema.enumSchema else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing enum schema for present extension field \(schema.fieldNumber)")
-                }
                 var firstItem = true
                 forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { rawValue in
                     if !firstItem {
@@ -79,7 +75,7 @@ extension ExtensionStorage {
                     }
                     encoder.putEnumValue(
                         rawValue: rawValue,
-                        enumSchema: enumSchema,
+                        enumSchema: schema.enumSchema,
                         alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
                     )
                     firstItem = false
@@ -156,13 +152,9 @@ extension ExtensionStorage {
             encoder.putDoubleValue(value: value.value(as: Double.self))
 
         case .enum:
-            guard let enumSchema = schema.enumSchema else {
-                // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                preconditionFailure("Missing enum schema for present extension field \(schema.fieldNumber)")
-            }
             encoder.putEnumValue(
                 rawValue: value.value(as: Int32.self),
-                enumSchema: enumSchema,
+                enumSchema: schema.enumSchema,
                 alwaysPrintEnumsAsInts: options.alwaysPrintEnumsAsInts
             )
 

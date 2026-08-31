@@ -154,10 +154,7 @@ extension MessageStorage {
             case .bytes: deinitializeField(field, type: [Data].self)
             case .double: deinitializeField(field, type: [Double].self)
             case .enum:
-                guard let resolvedEnumSchema = enumSchema(for: field) else {
-                    // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                    preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
-                }
+                let resolvedEnumSchema = enumSchema(for: field)
                 resolvedEnumSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(for: field)))
             case .group, .message:
                 let submessageSchema = messageSchema(for: field)
@@ -250,10 +247,7 @@ extension MessageStorage {
                     guard isPresent(field) else { continue }
                     let source = rawPointer(for: field)
                     let destination = destination.rawPointer(for: field)
-                    guard let resolvedEnumSchema = enumSchema(for: field) else {
-                        // We shouldn't have a value for this field in memory if the linker dropped the schema.
-                        preconditionFailure("Missing enum schema for present field \(field.fieldNumber)")
-                    }
+                    let resolvedEnumSchema = enumSchema(for: field)
                     resolvedEnumSchema.invokeWitness(.arrayCopyInitialize(source: source, destination: destination))
 
                 case .group, .message:
