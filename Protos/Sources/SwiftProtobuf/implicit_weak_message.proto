@@ -15,3 +15,9 @@ package swift_protobuf;
 // An empty message used as a placeholder in storage when a submessage's schema
 // is not present in the linkage.
 message ImplicitWeakMessage {}
+
+// An open enum used as a placeholder when an enum's schema is not present in
+// the linkage.
+enum ImplicitWeakEnum {
+  ZERO = 0;
+}
