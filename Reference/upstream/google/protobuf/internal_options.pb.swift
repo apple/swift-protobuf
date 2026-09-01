@@ -105,11 +105,22 @@ nonisolated struct Pb_InternalFieldOptionsCpp: Sendable {
     /// Clears the value of `force`. Subsequent reads from it will return its default value.
     mutating func clearForce() {self._force = nil}
 
+    /// If set, we force the SSO size of the field.
+    var ssoSize: Int32 {
+      get {_ssoSize ?? 0}
+      set {_ssoSize = newValue}
+    }
+    /// Returns true if `ssoSize` has been explicitly set.
+    var hasSsoSize: Bool {self._ssoSize != nil}
+    /// Clears the value of `ssoSize`. Subsequent reads from it will return its default value.
+    mutating func clearSsoSize() {self._ssoSize = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
     fileprivate var _force: Pb_InternalOptionsForce.Enum? = nil
+    fileprivate var _ssoSize: Int32? = nil
   }
 
   init() {}
@@ -248,7 +259,7 @@ nonisolated extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftPr
 
 nonisolated extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_InternalFieldOptionsCpp.protoMessageName + ".MicroString"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}force\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}force\0\u{3}sso_size\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -257,6 +268,7 @@ nonisolated extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self._force) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._ssoSize) }()
       default: break
       }
     }
@@ -270,11 +282,15 @@ nonisolated extension Pb_InternalFieldOptionsCpp.MicroString: SwiftProtobuf.Mess
     try { if let v = self._force {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._ssoSize {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_InternalFieldOptionsCpp.MicroString, rhs: Pb_InternalFieldOptionsCpp.MicroString) -> Bool {
     if lhs._force != rhs._force {return false}
+    if lhs._ssoSize != rhs._ssoSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
