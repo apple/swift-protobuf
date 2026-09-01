@@ -317,4 +317,93 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
         }
     }
 
+    func test_Initialization_MultipleProtos() {
+        let baselineEntries = SwiftProtobufInfo.bundledProtoFiles.count
+        let baselineModules = 1
+
+        let config1Text = """
+        mapping { module_name: "ModuleA", proto_file_path: ["a.proto", "shared.proto"] }
+        """
+        let config2Text = """
+        mapping { module_name: "ModuleB", proto_file_path: "b.proto" }
+        mapping { module_name: "ModuleA", proto_file_path: "shared.proto" }
+        """
+
+        do {
+            let proto1 = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: config1Text)
+            let proto2 = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: config2Text)
+
+            let mapper = try ProtoFileToModuleMappings(moduleMappingsProtos: [proto1, proto2])
+            XCTAssertEqual(mapper.mappings.count, 3 + baselineEntries)
+            XCTAssertEqual(Set(mapper.mappings.values).count, 2 + baselineModules)
+            XCTAssertEqual(mapper.mappings["a.proto"], "ModuleA")
+            XCTAssertEqual(mapper.mappings["b.proto"], "ModuleB")
+            XCTAssertEqual(mapper.mappings["shared.proto"], "ModuleA")
+            XCTAssertTrue(mapper.hasMappings)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+
+        // Conflicting mappings across protos should fail.
+        let conflictingConfigText = """
+        mapping { module_name: "ModuleConflict", proto_file_path: "shared.proto" }
+        """
+        do {
+            let proto1 = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: config1Text)
+            let protoConflict = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: conflictingConfigText)
+            XCTAssertThrowsError(try ProtoFileToModuleMappings(moduleMappingsProtos: [proto1, protoConflict])) { error in
+                guard let loadError = error as? ProtoFileToModuleMappings.LoadError else {
+                    XCTFail("Expected LoadError, got \(error)")
+                    return
+                }
+                XCTAssertEqual(
+                    loadError,
+                    .duplicateProtoPathMapping(
+                        path: "shared.proto",
+                        firstModule: "ModuleA",
+                        secondModule: "ModuleConflict"
+                    )
+                )
+            }
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    func test_Initialization_MultiplePaths() throws {
+        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
+        defer {
+            try? FileManager.default.removeItem(at: tempDir)
+        }
+
+        let path1 = tempDir.appendingPathComponent("map1.asciipb").path
+        let path2 = tempDir.appendingPathComponent("map2.asciipb").path
+
+        let config1Text = """
+        mapping { module_name: "Core", proto_file_path: ["core1.proto", "core2.proto"] }
+        """
+        let config2Text = """
+        mapping { module_name: "Auth", proto_file_path: "auth.proto" }
+        """
+
+        try config1Text.write(toFile: path1, atomically: true, encoding: .utf8)
+        try config2Text.write(toFile: path2, atomically: true, encoding: .utf8)
+
+        let mapper = try ProtoFileToModuleMappings(paths: [path1, path2])
+        XCTAssertEqual(mapper.mappings["core1.proto"], "Core")
+        XCTAssertEqual(mapper.mappings["core2.proto"], "Core")
+        XCTAssertEqual(mapper.mappings["auth.proto"], "Auth")
+
+        // Fail to open missing file
+        let nonExistentPath = tempDir.appendingPathComponent("missing.asciipb").path
+        XCTAssertThrowsError(try ProtoFileToModuleMappings(paths: [path1, nonExistentPath])) { error in
+            guard let loadError = error as? ProtoFileToModuleMappings.LoadError else {
+                XCTFail("Expected LoadError, got \(error)")
+                return
+            }
+            XCTAssertEqual(loadError, .failToOpen(path: nonExistentPath))
+        }
+    }
+
 }

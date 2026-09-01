@@ -52,26 +52,59 @@ public struct ProtoFileToModuleMappings {
     /// Loads and parses the given module mapping from disk.  Raises LoadError
     /// or TextFormatDecodingError.
     public init(path: String) throws {
-        try self.init(path: path, swiftProtobufModuleName: nil)
+        try self.init(paths: [path], swiftProtobufModuleName: nil)
     }
 
     /// Loads and parses the given module mapping from disk.  Raises LoadError
     /// or TextFormatDecodingError.
     public init(path: String, swiftProtobufModuleName: String?) throws {
-        let content: String
-        do {
-            content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-        } catch {
-            throw LoadError.failToOpen(path: path)
-        }
+        try self.init(paths: [path], swiftProtobufModuleName: swiftProtobufModuleName)
+    }
 
-        let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
-        try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
+    /// Loads and parses the given module mappings from disk.  Raises LoadError
+    /// or TextFormatDecodingError.
+    public init(paths: [String]) throws {
+        try self.init(paths: paths, swiftProtobufModuleName: nil)
+    }
+
+    /// Loads and parses the given module mappings from disk.  Raises LoadError
+    /// or TextFormatDecodingError.
+    public init(paths: [String], swiftProtobufModuleName: String?) throws {
+        var merged = SwiftProtobuf_GenSwift_ModuleMappings()
+        for path in paths {
+            let content: String
+            do {
+                content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            } catch {
+                throw LoadError.failToOpen(path: path)
+            }
+
+            let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
+            merged.mapping.append(contentsOf: mappingsProto.mapping)
+        }
+        try self.init(moduleMappingsProto: merged, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
     /// Parses the given module mapping.  Raises LoadError.
     public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
         try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
+    }
+
+    /// Parses the given module mappings.  Raises LoadError.
+    public init(moduleMappingsProtos mappingsList: [SwiftProtobuf_GenSwift_ModuleMappings]) throws {
+        try self.init(moduleMappingsProtos: mappingsList, swiftProtobufModuleName: nil)
+    }
+
+    /// Parses the given module mappings.  Raises LoadError.
+    public init(
+        moduleMappingsProtos mappingsList: [SwiftProtobuf_GenSwift_ModuleMappings],
+        swiftProtobufModuleName: String?
+    ) throws {
+        var merged = SwiftProtobuf_GenSwift_ModuleMappings()
+        for mappings in mappingsList {
+            merged.mapping.append(contentsOf: mappings.mapping)
+        }
+        try self.init(moduleMappingsProto: merged, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
     /// Parses the given module mapping.  Raises LoadError.

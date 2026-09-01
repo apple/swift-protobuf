@@ -148,7 +148,7 @@ package class GeneratorOptions {
     package init(parameter: any CodeGeneratorParameter) throws {
         var outputNaming: OutputNaming = .fullPath
         var enumGeneration: EnumGeneration = .none
-        var moduleMapPath: String?
+        var moduleMapPaths: [String] = []
         var visibility: Visibility = .internal
         var swiftProtobufModuleName: String? = nil
         var implementationOnlyImports: Bool = false
@@ -178,7 +178,7 @@ package class GeneratorOptions {
                 }
             case "ProtoPathModuleMappings":
                 if !pair.value.isEmpty {
-                    moduleMapPath = pair.value
+                    moduleMapPaths.append(pair.value)
                 }
             case "Visibility":
                 if let value = Visibility(flag: pair.value) {
@@ -243,15 +243,15 @@ package class GeneratorOptions {
             }
         }
 
-        if let moduleMapPath = moduleMapPath {
+        if !moduleMapPaths.isEmpty {
             do {
                 self.protoToModuleMappings = try ProtoFileToModuleMappings(
-                    path: moduleMapPath,
+                    paths: moduleMapPaths,
                     swiftProtobufModuleName: swiftProtobufModuleName
                 )
             } catch let e {
                 throw GenerationError.wrappedError(
-                    message: "Parameter 'ProtoPathModuleMappings=\(moduleMapPath)'",
+                    message: "Parameter 'ProtoPathModuleMappings=\(moduleMapPaths.joined(separator: ","))'",
                     error: e
                 )
             }
