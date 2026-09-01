@@ -44,11 +44,12 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
             return
         }
         try decoder.scanner.skipRequiredArrayStart()
-        // Since we override the JSON decoding, we can't rely
-        // on the default recursion depth tracking.
+        // When a JSON array becomes a google.protobuf.List, that means we're
+        // adding an "object" to the depth of objects modeled, so manually
+        // include that in the recursion usage.
         try decoder.scanner.incrementRecursionDepth()
+        defer { decoder.scanner.decrementRecursionDepth() }
         if decoder.scanner.skipOptionalArrayEnd() {
-            decoder.scanner.decrementRecursionDepth()
             return
         }
         while true {
@@ -56,7 +57,6 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
             try v.decodeJSON(from: &decoder)
             values.append(v)
             if decoder.scanner.skipOptionalArrayEnd() {
-                decoder.scanner.decrementRecursionDepth()
                 return
             }
             try decoder.scanner.skipRequiredComma()
