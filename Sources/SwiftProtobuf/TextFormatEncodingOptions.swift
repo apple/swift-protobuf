@@ -30,7 +30,10 @@ public struct TextFormatEncodingOptions: Sendable {
     /// If deterministic serialization is requested, map entries will be sorted
     /// by keys in lexicographical order. This is an implementation detail
     /// and subject to change.
-    public var useDeterministicOrdering: Bool = false
+    ///
+    /// Default: `true` (to adhere to Protocol Buffers TextFormat specification
+    /// and conformance requirements for sorted map keys).
+    public var useDeterministicOrdering: Bool = true
 
     public init() {}
 }
