@@ -819,7 +819,11 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_ForeignMessageLite: Sendable {
@@ -1008,7 +1012,11 @@ nonisolated struct Proto2Unittest_TestDeprecatedLite: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// See the comments of the same type in unittest.proto.
@@ -1638,7 +1646,11 @@ nonisolated struct Proto2Unittest_RecursiveMessage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_RecursiveGroup: @unchecked Sendable {
@@ -1659,7 +1671,11 @@ nonisolated struct Proto2Unittest_RecursiveGroup: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Extension support defined in unittest_lite.proto.

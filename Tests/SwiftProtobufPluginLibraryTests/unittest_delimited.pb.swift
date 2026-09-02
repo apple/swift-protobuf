@@ -245,7 +245,11 @@ nonisolated struct EditionsUnittest_TestDelimited: SwiftProtobuf.ExtensibleMessa
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Extension support defined in unittest_delimited.proto.
