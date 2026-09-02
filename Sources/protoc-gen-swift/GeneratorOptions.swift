@@ -117,7 +117,7 @@ package class GeneratorOptions {
 
     let outputNaming: OutputNaming
     let enumGeneration: EnumGeneration
-    let protoToModuleMappings: ProtoFileToModuleMappings
+    package let protoToModuleMappings: ProtoFileToModuleMappings
     let visibility: Visibility
     let importDirective: ImportDirective
     let experimentalStripNonfunctionalCodegen: Bool
