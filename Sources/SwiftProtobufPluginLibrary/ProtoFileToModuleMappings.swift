@@ -24,13 +24,41 @@ public struct ProtoFileToModuleMappings {
         /// Raised if the path wasn't found.
         case failToOpen(path: String)
         /// Raised if an mapping entry in the protobuf doesn't have a module name.
-        /// mappingIndex is the index (0-N) of the mapping.
-        case entryMissingModuleName(mappingIndex: Int)
+        /// mappingIndex is the index (0-N) of the mapping within the source file or proto.
+        case entryMissingModuleName(mappingIndex: Int, path: String?)
         /// Raised if an mapping entry in the protobuf doesn't have any proto files listed.
-        /// mappingIndex is the index (0-N) of the mapping.
-        case entryHasNoProtoPaths(mappingIndex: Int)
+        /// mappingIndex is the index (0-N) of the mapping within the source file or proto.
+        case entryHasNoProtoPaths(mappingIndex: Int, path: String?)
         /// The given proto path was listed for both modules.
-        case duplicateProtoPathMapping(path: String, firstModule: String, secondModule: String)
+        case duplicateProtoPathMapping(
+            path: String,
+            firstModule: String,
+            firstPath: String?,
+            secondModule: String,
+            secondPath: String?
+        )
+
+        public static func entryMissingModuleName(mappingIndex: Int) -> LoadError {
+            .entryMissingModuleName(mappingIndex: mappingIndex, path: nil)
+        }
+
+        public static func entryHasNoProtoPaths(mappingIndex: Int) -> LoadError {
+            .entryHasNoProtoPaths(mappingIndex: mappingIndex, path: nil)
+        }
+
+        public static func duplicateProtoPathMapping(
+            path: String,
+            firstModule: String,
+            secondModule: String
+        ) -> LoadError {
+            .duplicateProtoPathMapping(
+                path: path,
+                firstModule: firstModule,
+                firstPath: nil,
+                secondModule: secondModule,
+                secondPath: nil
+            )
+        }
     }
 
     /// Proto file name to module name.
@@ -52,21 +80,35 @@ public struct ProtoFileToModuleMappings {
     /// Loads and parses the given module mapping from disk.  Raises LoadError
     /// or TextFormatDecodingError.
     public init(path: String) throws {
-        try self.init(path: path, swiftProtobufModuleName: nil)
+        try self.init(paths: [path], swiftProtobufModuleName: nil)
     }
 
     /// Loads and parses the given module mapping from disk.  Raises LoadError
     /// or TextFormatDecodingError.
     public init(path: String, swiftProtobufModuleName: String?) throws {
-        let content: String
-        do {
-            content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
-        } catch {
-            throw LoadError.failToOpen(path: path)
-        }
+        try self.init(paths: [path], swiftProtobufModuleName: swiftProtobufModuleName)
+    }
 
-        let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
-        try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
+    /// Loads and parses the given module mappings from disk.  Raises LoadError
+    /// or TextFormatDecodingError.
+    public init(paths: [String]) throws {
+        try self.init(paths: paths, swiftProtobufModuleName: nil)
+    }
+
+    /// Loads and parses the given module mappings from disk.  Raises LoadError
+    /// or TextFormatDecodingError.
+    public init(paths: [String], swiftProtobufModuleName: String?) throws {
+        let mappingsList: [(mapping: SwiftProtobuf_GenSwift_ModuleMappings, path: String?)] = try paths.map { path in
+            let content: String
+            do {
+                content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+            } catch {
+                throw LoadError.failToOpen(path: path)
+            }
+            let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
+            return (mapping: mappingsProto, path: path)
+        }
+        try self.init(moduleMappings: mappingsList, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
     /// Parses the given module mapping.  Raises LoadError.
@@ -74,37 +116,69 @@ public struct ProtoFileToModuleMappings {
         try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
     }
 
+    /// Parses the given module mappings.  Raises LoadError.
+    public init(moduleMappingsProtos mappingsList: [SwiftProtobuf_GenSwift_ModuleMappings]) throws {
+        try self.init(moduleMappingsProtos: mappingsList, swiftProtobufModuleName: nil)
+    }
+
+    /// Parses the given module mappings.  Raises LoadError.
+    public init(
+        moduleMappingsProtos mappingsList: [SwiftProtobuf_GenSwift_ModuleMappings],
+        swiftProtobufModuleName: String?
+    ) throws {
+        try self.init(
+            moduleMappings: mappingsList.map { (mapping: $0, path: nil) },
+            swiftProtobufModuleName: swiftProtobufModuleName
+        )
+    }
+
     /// Parses the given module mapping.  Raises LoadError.
     public init(
         moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings,
         swiftProtobufModuleName: String?
     ) throws {
+        try self.init(moduleMappingsProtos: [mappings], swiftProtobufModuleName: swiftProtobufModuleName)
+    }
+
+    private init(
+        moduleMappings: [(mapping: SwiftProtobuf_GenSwift_ModuleMappings, path: String?)],
+        swiftProtobufModuleName: String?
+    ) throws {
         self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
-        var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
+        var builder = [String: (module: String, sourcePath: String?)]()
+        for proto in SwiftProtobufInfo.bundledProtoFiles {
+            builder[proto] = (module: self.swiftProtobufModuleName, sourcePath: nil)
+        }
         let initialCount = builder.count
-        for (idx, mapping) in mappings.mapping.lazy.enumerated() {
-            if mapping.moduleName.isEmpty {
-                throw LoadError.entryMissingModuleName(mappingIndex: idx)
-            }
-            if mapping.protoFilePath.isEmpty {
-                throw LoadError.entryHasNoProtoPaths(mappingIndex: idx)
-            }
-            for path in mapping.protoFilePath {
-                if let existing = builder[path] {
-                    if existing != mapping.moduleName {
-                        throw LoadError.duplicateProtoPathMapping(
-                            path: path,
-                            firstModule: existing,
-                            secondModule: mapping.moduleName
-                        )
+
+        for (mappings, sourcePath) in moduleMappings {
+            for (idx, mapping) in mappings.mapping.lazy.enumerated() {
+                if mapping.moduleName.isEmpty {
+                    throw LoadError.entryMissingModuleName(mappingIndex: idx, path: sourcePath)
+                }
+                if mapping.protoFilePath.isEmpty {
+                    throw LoadError.entryHasNoProtoPaths(mappingIndex: idx, path: sourcePath)
+                }
+                for protoPath in mapping.protoFilePath {
+                    if let existing = builder[protoPath] {
+                        if existing.module != mapping.moduleName {
+                            throw LoadError.duplicateProtoPathMapping(
+                                path: protoPath,
+                                firstModule: existing.module,
+                                firstPath: existing.sourcePath,
+                                secondModule: mapping.moduleName,
+                                secondPath: sourcePath
+                            )
+                        }
+                        // Was a repeat, just allow it.
+                    } else {
+                        builder[protoPath] = (module: mapping.moduleName, sourcePath: sourcePath)
                     }
-                    // Was a repeat, just allow it.
-                } else {
-                    builder[path] = mapping.moduleName
                 }
             }
         }
-        self.mappings = builder
+
+        self.mappings = builder.mapValues { $0.module }
         self.hasMappings = initialCount != builder.count
     }
 
@@ -185,7 +259,41 @@ public struct ProtoFileToModuleMappings {
     }
 }
 
-// Used to seed the mappings, the wkt are all part of the main library.
-private func wktMappings(swiftProtobufModuleName: String) -> [String: String] {
-    SwiftProtobufInfo.bundledProtoFiles.reduce(into: [:]) { $0[$1] = swiftProtobufModuleName }
+
+extension ProtoFileToModuleMappings.LoadError: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .failToOpen(let path):
+            return "Failed to open '\(path)'"
+        case .entryMissingModuleName(let mappingIndex, let path):
+            if let path = path {
+                return "Mapping entry \(mappingIndex) in '\(path)' is missing a module_name"
+            } else {
+                return "Mapping entry \(mappingIndex) is missing a module_name"
+            }
+        case .entryHasNoProtoPaths(let mappingIndex, let path):
+            if let path = path {
+                return "Mapping entry \(mappingIndex) in '\(path)' has no proto_file_path entries"
+            } else {
+                return "Mapping entry \(mappingIndex) has no proto_file_path entries"
+            }
+        case .duplicateProtoPathMapping(
+            let protoPath,
+            let firstModule,
+            let firstPath,
+            let secondModule,
+            let secondPath
+        ):
+            var msg = "Duplicate mapping for proto '\(protoPath)': '\(firstModule)'"
+            if let firstPath = firstPath {
+                msg += " (in '\(firstPath)')"
+            }
+            msg += " vs '\(secondModule)'"
+            if let secondPath = secondPath {
+                msg += " (in '\(secondPath)')"
+            }
+            return msg
+        }
+    }
 }
+
