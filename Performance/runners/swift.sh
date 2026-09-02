@@ -51,6 +51,7 @@ function run_swift_harness() {
     # that.
     echo "Building SwiftProtobuf dynamic library..."
     ${XCRUN} "${SWIFTC}" -emit-library -emit-module -O -wmo \
+        -package-name SwiftProtobuf \
         -o "$perf_dir/_generated/libSwiftProtobuf.dylib" \
         ${OTHER_SWIFT_FLAGS:-} \
         "$perf_dir/../Sources/SwiftProtobuf/"*.swift
