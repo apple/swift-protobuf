@@ -183,6 +183,7 @@ public struct TextFormatFuzzingOptions: SupportsFuzzOptions {
             .boolean(\.decoding.ignoreUnknownFields),
             .boolean(\.decoding.ignoreUnknownExtensionFields),
             .invertedBoolean(\.encoding.printUnknownFields),  // see note above for why inverted
+            .invertedBoolean(\.encoding.useDeterministicOrdering),  // see note above for why inverted
         ]
     }
 }

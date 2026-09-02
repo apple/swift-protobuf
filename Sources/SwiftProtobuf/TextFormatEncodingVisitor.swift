@@ -631,23 +631,44 @@ internal struct TextFormatEncodingVisitor: Visitor {
         let oldNameResolver = self.nameResolver
         let oldExtensions = self.extensions
 
-        for (k, v) in map.sorted(by: { isOrderedBefore($0.0, $1.0) }) {
-            emitFieldName(lookingUp: fieldNumber)
-            encoder.startMessageField()
+        if options.useDeterministicOrdering {
+            for (k, v) in map.sorted(by: { isOrderedBefore($0.0, $1.0) }) {
+                emitFieldName(lookingUp: fieldNumber)
+                encoder.startMessageField()
 
-            // Update visitor configuration for map
-            self.nameMap = nil
-            self.nameResolver = mapNameResolver
-            self.extensions = nil
+                // Update visitor configuration for map
+                self.nameMap = nil
+                self.nameResolver = mapNameResolver
+                self.extensions = nil
 
-            try encode(&self, k, v)
+                try encode(&self, k, v)
 
-            // Restore configuration before resuming containing message
-            self.extensions = oldExtensions
-            self.nameResolver = oldNameResolver
-            self.nameMap = oldNameMap
+                // Restore configuration before resuming containing message
+                self.extensions = oldExtensions
+                self.nameResolver = oldNameResolver
+                self.nameMap = oldNameMap
 
-            encoder.endMessageField()
+                encoder.endMessageField()
+            }
+        } else {
+            for (k, v) in map {
+                emitFieldName(lookingUp: fieldNumber)
+                encoder.startMessageField()
+
+                // Update visitor configuration for map
+                self.nameMap = nil
+                self.nameResolver = mapNameResolver
+                self.extensions = nil
+
+                try encode(&self, k, v)
+
+                // Restore configuration before resuming containing message
+                self.extensions = oldExtensions
+                self.nameResolver = oldNameResolver
+                self.nameMap = oldNameMap
+
+                encoder.endMessageField()
+            }
         }
     }
 
