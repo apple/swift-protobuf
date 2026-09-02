@@ -361,7 +361,9 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
                     .duplicateProtoPathMapping(
                         path: "shared.proto",
                         firstModule: "ModuleA",
-                        secondModule: "ModuleConflict"
+                        firstPath: nil,
+                        secondModule: "ModuleConflict",
+                        secondPath: nil
                     )
                 )
             }
@@ -379,6 +381,8 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
 
         let path1 = tempDir.appendingPathComponent("map1.asciipb").path
         let path2 = tempDir.appendingPathComponent("map2.asciipb").path
+        let pathConflict = tempDir.appendingPathComponent("conflict.asciipb").path
+        let pathInvalidEntry = tempDir.appendingPathComponent("invalid.asciipb").path
 
         let config1Text = """
         mapping { module_name: "Core", proto_file_path: ["core1.proto", "core2.proto"] }
@@ -386,9 +390,18 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
         let config2Text = """
         mapping { module_name: "Auth", proto_file_path: "auth.proto" }
         """
+        let configConflictText = """
+        mapping { module_name: "Other", proto_file_path: "core1.proto" }
+        """
+        let configInvalidEntryText = """
+        mapping { module_name: "Valid", proto_file_path: "valid.proto" }
+        mapping { module_name: "", proto_file_path: "bad.proto" }
+        """
 
         try config1Text.write(toFile: path1, atomically: true, encoding: .utf8)
         try config2Text.write(toFile: path2, atomically: true, encoding: .utf8)
+        try configConflictText.write(toFile: pathConflict, atomically: true, encoding: .utf8)
+        try configInvalidEntryText.write(toFile: pathInvalidEntry, atomically: true, encoding: .utf8)
 
         let mapper = try ProtoFileToModuleMappings(paths: [path1, path2])
         XCTAssertEqual(mapper.mappings["core1.proto"], "Core")
@@ -403,6 +416,45 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
                 return
             }
             XCTAssertEqual(loadError, .failToOpen(path: nonExistentPath))
+            XCTAssertEqual(loadError.description, "Failed to open '\(nonExistentPath)'")
+        }
+
+        // Duplicate conflict with source paths
+        XCTAssertThrowsError(try ProtoFileToModuleMappings(paths: [path1, pathConflict])) { error in
+            guard let loadError = error as? ProtoFileToModuleMappings.LoadError else {
+                XCTFail("Expected LoadError, got \(error)")
+                return
+            }
+            XCTAssertEqual(
+                loadError,
+                .duplicateProtoPathMapping(
+                    path: "core1.proto",
+                    firstModule: "Core",
+                    firstPath: path1,
+                    secondModule: "Other",
+                    secondPath: pathConflict
+                )
+            )
+            XCTAssertEqual(
+                loadError.description,
+                "Duplicate mapping for proto 'core1.proto': 'Core' (in '\(path1)') vs 'Other' (in '\(pathConflict)')"
+            )
+        }
+
+        // Invalid entry in second file reports file-local index (1) and path
+        XCTAssertThrowsError(try ProtoFileToModuleMappings(paths: [path1, pathInvalidEntry])) { error in
+            guard let loadError = error as? ProtoFileToModuleMappings.LoadError else {
+                XCTFail("Expected LoadError, got \(error)")
+                return
+            }
+            XCTAssertEqual(
+                loadError,
+                .entryMissingModuleName(mappingIndex: 1, path: pathInvalidEntry)
+            )
+            XCTAssertEqual(
+                loadError.description,
+                "Mapping entry 1 in '\(pathInvalidEntry)' is missing a module_name"
+            )
         }
     }
 
