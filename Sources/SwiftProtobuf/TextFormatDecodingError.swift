@@ -7,15 +7,16 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Protobuf text format decoding errors
-///
+//
+// Protobuf text format decoding errors
+//
 // -----------------------------------------------------------------------------
 
+/// The errors that can occur when decoding a message from text format.
 public enum TextFormatDecodingError: Error {
-    /// Text data could not be parsed
+    /// The decoder could not parse the text data
     case malformedText
-    /// A number could not be parsed
+    /// The decoder could not parse a number
     case malformedNumber
     /// Extraneous data remained after decoding should have been complete
     case trailingGarbage
@@ -23,19 +24,21 @@ public enum TextFormatDecodingError: Error {
     case truncated
     /// A string was not valid UTF8
     case invalidUTF8
-    /// The data being parsed does not match the type specified in the proto file
+    /// The data does not match the type specified in the proto file
     case schemaMismatch
-    /// Field names were not compiled into the binary
+    /// The generated code does not include field names
     case missingFieldNames
-    /// A field identifier (name or number) was not found on the message
+    /// The decoder could not find a field identifier (name or number) on the message
     case unknownField
-    /// The enum value was not recognized
+    /// The decoder did not recognize the enum value
     case unrecognizedEnumValue
     /// Text format rejects conflicting values for the same oneof field
     case conflictingOneOf
-    /// An internal error happened while decoding.  If this is ever encountered,
-    /// please file an issue with SwiftProtobuf with as much details as possible
-    /// for what happened (proto definitions, bytes being decoded (if possible)).
+    /// An internal error happened while decoding.
+    ///
+    /// If you ever encounter this, please file an issue with SwiftProtobuf
+    /// with as much details as possible for what happened (proto definitions,
+    /// bytes being decoded (if possible)).
     case internalExtensionError
     /// Reached the nesting limit for messages within messages while decoding.
     case messageDepthLimit

@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `Array` to support JSON encoding/decoding.
-///
+//
+// Extensions to `Array` to support JSON encoding/decoding.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -22,8 +22,8 @@ import Foundation
 extension Message {
     /// Returns a string containing the JSON serialization of the messages.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to JSON.
+    /// Unlike binary encoding, serializing to JSON doesn't enforce the presence
+    /// of required fields.
     ///
     /// - Returns: A string containing the JSON serialization of the messages.
     /// - Parameters:
@@ -38,10 +38,10 @@ extension Message {
         return String(decoding: data, as: UTF8.self)
     }
 
-    /// Returns a ``SwiftProtobufContiguousBytes`` containing the UTF-8 JSON serialization of the messages.
+    /// Returns the UTF-8 JSON serialization of the messages as bytes.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to JSON.
+    /// Unlike binary encoding, serializing to JSON doesn't enforce the presence
+    /// of required fields.
     ///
     /// - Returns: A ``SwiftProtobufContiguousBytes`` containing the JSON serialization of the messages.
     /// - Parameters:
@@ -63,8 +63,7 @@ extension Message {
         return Bytes(visitor.dataResult)
     }
 
-    /// Creates a new array of messages by decoding the given string containing a
-    /// serialized array of messages in JSON format.
+    /// Creates an array of messages by decoding the JSON-formatted string you provide.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter options: The JSONDecodingOptions to use.
@@ -80,8 +79,7 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given string containing a
-    /// serialized array of messages in JSON format.
+    /// Creates an array of messages by decoding the JSON-formatted string you provide, looking up extensions in the extension map you supply.
     ///
     /// - Parameter jsonString: The JSON-formatted string to decode.
     /// - Parameter extensions: The extension map to use with this decode
@@ -102,12 +100,10 @@ extension Message {
         }
     }
 
-    /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON bytes you provide.
     ///
-    /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
-    ///   as UTF-8 encoded text.
+    /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, as UTF-8
+    ///   encoded text.
     /// - Parameter options: The JSONDecodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array<Bytes: SwiftProtobufContiguousBytes>(
@@ -121,12 +117,10 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given ``SwiftProtobufContiguousBytes``
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON bytes you provide, looking up extensions in the extension map you supply.
     ///
-    /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
-    ///   as UTF-8 encoded text.
+    /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, as UTF-8
+    ///   encoded text.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.

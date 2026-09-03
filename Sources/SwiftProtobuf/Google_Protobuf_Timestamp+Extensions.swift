@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extend the generated Timestamp message with customized JSON coding,
-/// arithmetic operations, and convenience methods.
-///
+//
+// Extend the generated Timestamp message with customized JSON coding,
+// arithmetic operations, and convenience methods.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -231,8 +231,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 }
 
 extension Google_Protobuf_Timestamp {
-    /// Creates a new ``Google_Protobuf_Timestamp`` equal to the given number of
-    /// seconds and nanoseconds.
+    /// Creates a timestamp equal to the number of seconds and nanoseconds you provide.
     ///
     /// - Parameter seconds: The number of seconds.
     /// - Parameter nanos: The number of nanoseconds.
@@ -260,24 +259,24 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 
 extension Google_Protobuf_Timestamp {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 1970 by a given number of seconds.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 1970 by the number
+    /// of seconds you provide.
     ///
-    /// - Parameter timeIntervalSince1970: The `TimeInterval`, interpreted as
-    ///   seconds relative to 00:00:00 UTC on 1 January 1970.
+    /// - Parameter timeIntervalSince1970: The `TimeInterval`, in seconds
+    ///   relative to 00:00:00 UTC on 1 January 1970.
     @available(*, deprecated, renamed: "init(roundingTimeIntervalSince1970:rule:)")
     public init(timeIntervalSince1970: TimeInterval) {
         self.init(roundingTimeIntervalSince1970: timeIntervalSince1970, rule: .toNearestOrAwayFromZero)
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 1970 by a given number of seconds, rounded to the nearest
-    /// nanosecond according to the given rounding rule.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 1970 by the number
+    /// of seconds you provide, rounding to the nearest nanosecond according to the
+    /// rounding rule you supply.
     ///
     /// - Parameters:
-    ///   - timeIntervalSince1970: The `TimeInterval`, interpreted as
-    ///     seconds relative to 00:00:00 UTC on 1 January 1970.
+    ///   - timeIntervalSince1970: The `TimeInterval`, in seconds
+    ///     relative to 00:00:00 UTC on 1 January 1970.
     ///   - rule: The rounding rule to use.
     public init(
         roundingTimeIntervalSince1970 timeIntervalSince1970: TimeInterval,
@@ -291,11 +290,11 @@ extension Google_Protobuf_Timestamp {
     }
 
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 2001 by a given number of seconds.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 2001 by the number
+    /// of seconds you provide.
     ///
     /// - Parameter timeIntervalSinceReferenceDate: The `TimeInterval`,
-    ///   interpreted as seconds relative to 00:00:00 UTC on 1 January 2001.
+    ///   in seconds relative to 00:00:00 UTC on 1 January 2001.
     @available(*, deprecated, renamed: "init(roundingTimeIntervalSinceReferenceDate:rule:)")
     public init(timeIntervalSinceReferenceDate: TimeInterval) {
         self.init(
@@ -305,13 +304,13 @@ extension Google_Protobuf_Timestamp {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized relative to 00:00:00
-    /// UTC on 1 January 2001 by a given number of seconds, rounded to the nearest
-    /// nanosecond according to the given rounding rule.
+    /// Creates a timestamp relative to 00:00:00 UTC on 1 January 2001 by the number
+    /// of seconds you provide, rounding to the nearest nanosecond according to the
+    /// rounding rule you supply.
     ///
     /// - Parameters:
     ///   - timeIntervalSinceReferenceDate: The `TimeInterval`,
-    ///     interpreted as seconds relative to 00:00:00 UTC on 1 January 2001.
+    ///     in seconds relative to 00:00:00 UTC on 1 January 2001.
     ///   - rule: The rounding rule to use.
     public init(
         roundingTimeIntervalSinceReferenceDate timeIntervalSinceReferenceDate: TimeInterval,
@@ -332,8 +331,7 @@ extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
-    /// Creates a new ``Google_Protobuf_Timestamp`` initialized to the same time as
-    /// the given `Date`.
+    /// Creates a timestamp equal to the date you provide.
     ///
     /// - Parameter date: The `Date` with which to initialize the timestamp.
     public init(date: Date) {
@@ -362,7 +360,7 @@ extension Google_Protobuf_Timestamp {
         ) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
     }
 
-    /// A `Date` initialized to the same time as the timestamp.
+    /// The date equivalent to this timestamp.
     public var date: Date {
         Date(
             timeIntervalSinceReferenceDate: self.timeIntervalSinceReferenceDate
@@ -381,6 +379,7 @@ private func normalizeForTimestamp(
     return (seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by advancing a timestamp by a duration.
 public func + (
     lhs: Google_Protobuf_Timestamp,
     rhs: Google_Protobuf_Duration
@@ -392,6 +391,7 @@ public func + (
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by advancing a timestamp by a duration.
 public func + (
     lhs: Google_Protobuf_Duration,
     rhs: Google_Protobuf_Timestamp
@@ -403,6 +403,7 @@ public func + (
     return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
+/// Returns the timestamp you get by moving a timestamp back by a duration.
 public func - (
     lhs: Google_Protobuf_Timestamp,
     rhs: Google_Protobuf_Duration

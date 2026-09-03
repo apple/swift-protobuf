@@ -7,28 +7,33 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the basic interface for a CodeGeneratorParameter. This is
-/// passed to the `CodeGenerator` to get any command line options.
-///
+//
+// This provides the basic interface for a CodeGeneratorParameter. This is
+// passed to the `CodeGenerator` to get any command line options.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
-/// The the generator specific parameter that was passed to the protocol
-/// compiler invocation. The protocol buffer compiler supports providing
-/// parameters via the `--[LANG]_out` or `--[LANG]_opt` command line flags.
-/// The compiler will relay those through as a _parameter_ string.
+/// The generator-specific parameter that the protocol compiler invocation
+/// passed.
+///
+/// The protocol buffer compiler supports providing parameters via the
+/// `--[LANG]_out` or `--[LANG]_opt` command line flags. The compiler relays
+/// those through as a parameter string.
 public protocol CodeGeneratorParameter {
-    /// The raw value from the compiler as a single string, if multiple values
-    /// were passed, they are joined into a single string. See `parsedPairs` as
-    /// that is likely a better option for consuming the parameters.
+    /// The raw value from the compiler as a single string, joining multiple
+    /// passed values into one.
+    ///
+    /// See `parsedPairs` as that is likely a better option for consuming the
+    /// parameters.
     var parameter: String { get }
 
-    /// The protocol buffer compiler will combine multiple `--[LANG]_opt`
-    /// directives into a "single" parameter by joining them with commas. This
-    /// vends the parameter split back back out into the individual arguments:
-    /// i.e.,
+    /// Splits the parameter into its individual key/value arguments.
+    ///
+    /// The protocol buffer compiler combines multiple `--[LANG]_opt`
+    /// directives into a "single" parameter by joining them with commas. For
+    /// example, this parameter value:
     ///   "foo=bar,baz,mumble=blah"
     /// becomes:
     ///   [

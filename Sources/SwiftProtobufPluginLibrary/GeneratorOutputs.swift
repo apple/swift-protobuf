@@ -7,16 +7,16 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the basic interface for providing the generation outputs.
-///
+//
+// This provides the basic interface for providing the generation outputs.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
 /// Abstract interface for receiving generation outputs.
 public protocol GeneratorOutputs {
-    /// Add the a file with the given `name` and `contents` to the outputs.
+    /// Adds a file with the name and contents you provide to the outputs.
     ///
     /// - Parameters:
     ///   - fileName: The name of the file.
@@ -24,7 +24,7 @@ public protocol GeneratorOutputs {
     ///
     /// - Throws May throw errors for duplicate file names or any other problem.
     ///     Generally `CodeGenerator`s do *not* need to catch these, and instead
-    ///     they are ripple all the way out to the code calling the
+    ///     they ripple all the way out to the code calling the
     ///     `CodeGenerator`.
     func add(fileName: String, contents: String) throws
 

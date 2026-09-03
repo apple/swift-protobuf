@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Decoder which sets value of a field by its path.
-///
+//
+// Decoder which sets value of a field by its path.
+//
 // -----------------------------------------------------------------------------
 
 #if FieldMaskUtilities
@@ -20,19 +20,19 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Describes errors can occure during decoding a proto by path.
+/// The errors that can occur when decoding a proto by path.
 public enum PathDecodingError: Error {
 
     /// Describes a mismatch in type of the fields.
     ///
-    /// If a value of type A is applied to a path with type B.
-    /// this error will be thrown.
+    /// If you apply a value of type A to a path with type B,
+    /// the decoder throws this error.
     case typeMismatch
 
     /// Describes path is not found in message type.
     ///
-    /// If a message has no field with the given path this
-    /// error will be thrown.
+    /// If a message has no field with the path you provide, the
+    /// decoder throws this error.
     case pathNotFound
 }
 

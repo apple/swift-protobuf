@@ -7,17 +7,17 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helper functions to varint-encode and decode integers.
-///
+//
+// Helper functions to varint-encode and decode integers.
+//
 // -----------------------------------------------------------------------------
 
 /// Contains helper methods to varint-encode and decode integers.
 package enum Varint {
 
-    /// Computes the number of bytes that would be needed to store a 32-bit varint.
+    /// Computes the number of bytes a 32-bit varint needs.
     ///
-    /// - Parameter value: The number whose varint size should be calculated.
+    /// - Parameter value: The number to calculate the varint size for.
     /// - Returns: The size, in bytes, of the 32-bit varint.
     @usableFromInline
     package static func encodedSize(of value: UInt32) -> Int {
@@ -27,10 +27,10 @@ package enum Varint {
         return ((UInt32.bitWidth &* 9 &+ 64) &- (clz &* 9)) / 64
     }
 
-    /// Computes the number of bytes that would be needed to store a signed 32-bit varint, if it were
-    /// treated as an unsigned integer with the same bit pattern.
+    /// Computes the number of bytes a signed 32-bit varint needs, treating it
+    /// as an unsigned integer with the same bit pattern.
     ///
-    /// - Parameter value: The number whose varint size should be calculated.
+    /// - Parameter value: The number to calculate the varint size for.
     /// - Returns: The size, in bytes, of the 32-bit varint.
     @inline(__always)
     package static func encodedSize(of value: Int32) -> Int {
@@ -38,19 +38,19 @@ package enum Varint {
         encodedSize(of: Int64(value))
     }
 
-    /// Computes the number of bytes that would be needed to store a 64-bit varint.
+    /// Computes the number of bytes a 64-bit varint needs.
     ///
-    /// - Parameter value: The number whose varint size should be calculated.
+    /// - Parameter value: The number to calculate the varint size for.
     /// - Returns: The size, in bytes, of the 64-bit varint.
     @inline(__always)
     static func encodedSize(of value: Int64) -> Int {
         encodedSize(of: UInt64(bitPattern: value))
     }
 
-    /// Computes the number of bytes that would be needed to store an unsigned 64-bit varint, if it
-    /// were treated as a signed integer with the same bit pattern.
+    /// Computes the number of bytes an unsigned 64-bit varint needs, treating
+    /// it as a signed integer with the same bit pattern.
     ///
-    /// - Parameter value: The number whose varint size should be calculated.
+    /// - Parameter value: The number to calculate the varint size for.
     /// - Returns: The size, in bytes, of the 64-bit varint.
     @usableFromInline
     static func encodedSize(of value: UInt64) -> Int {

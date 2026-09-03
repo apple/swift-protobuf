@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Generally useful time/calendar functions and constants
-///
+//
+// Generally useful time/calendar functions and constants
+//
 // -----------------------------------------------------------------------------
 
 let minutesPerDay: Int32 = 1440

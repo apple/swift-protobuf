@@ -7,21 +7,29 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A helper that can generate SwiftProtobuf names from types.
-///
+//
+// A helper that can generate SwiftProtobuf names from types.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
+/// A helper that generates SwiftProtobuf names from types.
 public final class SwiftProtobufNamer {
     var filePrefixCache = [String: String]()
     var enumValueRelativeNameCache = [String: String]()
+    /// The mapping from proto files to Swift modules that this namer uses.
     public let mappings: ProtoFileToModuleMappings
+
+    /// The name of the Swift module this namer generates names for.
     public let targetModule: String
 
+    /// The name of the Swift module that provides the SwiftProtobuf runtime types.
     public var swiftProtobufModuleName: String { mappings.swiftProtobufModuleName }
 
+    /// The prefix to add before references to SwiftProtobuf runtime types.
+    ///
+    /// This is empty when the target module is the SwiftProtobuf module itself.
     public var swiftProtobufModulePrefix: String {
         guard targetModule != mappings.swiftProtobufModuleName else {
             return ""
@@ -34,8 +42,10 @@ public final class SwiftProtobufNamer {
         self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
     }
 
-    /// Initializes a a new namer.  All names will be generated as from the pov of the
-    /// given file using the provided file to module mapper.
+    /// Initializes a new namer.
+    ///
+    /// The namer generates all names from the point of view of the file and
+    /// module mapper you provide.
     public convenience init(
         currentFile file: FileDescriptor,
         protoFileToModuleMappings mappings: ProtoFileToModuleMappings
@@ -53,7 +63,7 @@ public final class SwiftProtobufNamer {
         self.targetModule = targetModule
     }
 
-    /// Calculate the relative name for the given message.
+    /// Calculate the relative name for the message you provide.
     public func relativeName(message: Descriptor) -> String {
         if message.containingType != nil {
             return NamingUtils.sanitize(messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
@@ -66,7 +76,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given message.
+    /// Calculate the full name for the message you provide.
     public func fullName(message: Descriptor) -> String {
         let relativeName = self.relativeName(message: message)
         guard let containingType = message.containingType else {
@@ -75,7 +85,7 @@ public final class SwiftProtobufNamer {
         return fullName(message: containingType) + "." + relativeName
     }
 
-    /// Calculate the relative name for the given enum.
+    /// Calculate the relative name for the enum you provide.
     public func relativeName(enum e: EnumDescriptor) -> String {
         if e.containingType != nil {
             return NamingUtils.sanitize(enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
@@ -85,7 +95,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given enum.
+    /// Calculate the full name for the enum you provide.
     public func fullName(enum e: EnumDescriptor) -> String {
         let relativeName = self.relativeName(enum: e)
         guard let containingType = e.containingType else {
@@ -154,7 +164,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the relative name for the given enum value.
+    /// Calculate the relative name for the enum value you provide.
     public func relativeName(enumValue: EnumValueDescriptor) -> String {
         if let name = enumValueRelativeNameCache[enumValue.fullName] {
             return name
@@ -163,22 +173,22 @@ public final class SwiftProtobufNamer {
         return enumValueRelativeNameCache[enumValue.fullName]!
     }
 
-    /// Calculate the full name for the given enum value.
+    /// Calculate the full name for the enum value you provide.
     public func fullName(enumValue: EnumValueDescriptor) -> String {
         fullName(enum: enumValue.enumType) + "." + relativeName(enumValue: enumValue)
     }
 
-    /// The relative name with a leading dot so it can be used where
-    /// the type is known.
+    /// The relative name with a leading dot, so you can use it where you
+    /// already know the type.
     public func dottedRelativeName(enumValue: EnumValueDescriptor) -> String {
         let relativeName = self.relativeName(enumValue: enumValue)
         return "." + NamingUtils.trimBackticks(relativeName)
     }
 
-    /// Filters the Enum's values to those that will have unique Swift
-    /// names. Only poorly named proto enum alias values get filtered
-    /// away, so the assumption is they aren't really needed from an
-    /// api pov.
+    /// Filters the enum's values to those that will have unique Swift names.
+    ///
+    /// This filters away only poorly named proto enum alias values, since
+    /// the API doesn't really need them.
     @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
     public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
         e.values.filter {
@@ -202,18 +212,18 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the relative name for the given oneof.
+    /// Calculate the relative name for the oneof you provide.
     public func relativeName(oneof: OneofDescriptor) -> String {
         let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
         return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
 
-    /// Calculate the full name for the given oneof.
+    /// Calculate the full name for the oneof you provide.
     public func fullName(oneof: OneofDescriptor) -> String {
         fullName(message: oneof.containingType) + "." + relativeName(oneof: oneof)
     }
 
-    /// Calculate the relative name for the given entension.
+    /// Calculate the relative name for the extension you provide.
     ///
     /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
     public func relativeName(extensionField field: FieldDescriptor) -> String {
@@ -227,7 +237,7 @@ public final class SwiftProtobufNamer {
         }
     }
 
-    /// Calculate the full name for the given extension.
+    /// Calculate the full name for the extension you provide.
     ///
     /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
     public func fullName(extensionField field: FieldDescriptor) -> String {
@@ -242,11 +252,13 @@ public final class SwiftProtobufNamer {
         return extensionScopeSwiftFullName + ".Extensions." + relativeNameNoBackticks
     }
 
+    /// The set of Swift names generated for one message field: its property name, an optionally
+    /// prefixed variant, and its has/clear accessor names.
     public typealias MessageFieldNames = (name: String, prefixed: String, has: String, clear: String)
 
     /// Calculate the names to use for the Swift fields on the message.
     ///
-    /// If `prefixed` is not empty, the name prefixed with that will also be included.
+    /// If `prefixed` is not empty, the result also includes the name prefixed with that.
     ///
     /// If `includeHasAndClear` is False, the has:, clear: values in the result will
     /// be the empty string.
@@ -275,6 +287,8 @@ public final class SwiftProtobufNamer {
         return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: hasName, clear: clearName)
     }
 
+    /// The set of Swift names generated for one oneof: its property name and an optionally
+    /// prefixed variant.
     public typealias OneofFieldNames = (name: String, prefixed: String)
 
     /// Calculate the name to use for the Swift field on the message.
@@ -285,6 +299,8 @@ public final class SwiftProtobufNamer {
         return OneofFieldNames(name: fieldName, prefixed: prefixedFieldName)
     }
 
+    /// The set of Swift names generated for one message extension: its value, has, and clear
+    /// accessor names.
     public typealias MessageExtensionNames = (value: String, has: String, clear: String)
 
     /// Calculate the names to use for the Swift Extension on the extended
@@ -340,7 +356,7 @@ public final class SwiftProtobufNamer {
         return MessageExtensionNames(value: fieldName, has: hasName, clear: clearName)
     }
 
-    /// Calculate the prefix to use for this file, it is derived from the
+    /// Calculate the prefix to use for this file, deriving it from the
     /// proto package or swift_prefix file option.
     public func typePrefix(forFile file: FileDescriptor) -> String {
         if let result = filePrefixCache[file.name] {
@@ -355,7 +371,7 @@ public final class SwiftProtobufNamer {
         return result
     }
 
-    /// Internal helper to find the module prefix for a symbol given a file.
+    /// Internal helper to find the module prefix for a symbol, using the file you provide.
     func modulePrefix(file: FileDescriptor) -> String {
         guard let prefix = mappings.moduleName(forFile: file) else {
             return String()

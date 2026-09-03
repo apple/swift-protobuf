@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helpers to read/write message with a length prefix.
-///
+//
+// Helpers to read/write message with a length prefix.
+//
 // -----------------------------------------------------------------------------
 
 #if !os(WASI) && BinaryDelimitedStreams
@@ -20,28 +20,32 @@ import Foundation
 public enum BinaryDelimited {
     /// Additional errors for delimited message handing.
     public enum Error: Swift.Error {
-        /// If a read/write to the stream fails, but the stream's `streamError` is nil,
-        /// this error will be throw instead since the stream didn't provide anything
-        /// more specific. A common cause for this can be failing to open the stream
-        /// before trying to read/write to it.
+        /// The stream failed without reporting a more specific error.
+        ///
+        /// The methods in this enum throw this error instead when a read or
+        /// write to the stream fails but the stream's `streamError` is nil,
+        /// since the stream didn't provide anything more specific. A common
+        /// cause for this is failing to open the stream before trying to
+        /// read or write to it.
         case unknownStreamError
 
-        /// While reading/writing to the stream, less than the expected bytes was
-        /// read/written.
+        /// While reading/writing to the stream, the stream read/wrote fewer
+        /// bytes than expected.
         case truncated
     }
 
     #if !os(WASI) && BinaryDelimitedStreams
-    /// Serialize a single size-delimited message to the given stream. Delimited
-    /// format allows a single file or stream to contain multiple messages,
+    /// Serializes a single size-delimited message to the stream you provide.
+    ///
+    /// Delimited format allows a single file or stream to contain multiple messages,
     /// whereas normally writing multiple non-delimited messages to the same
-    /// stream would cause them to be merged. A delimited message is a varint
-    /// encoding the message size followed by a message of exactly that size.
+    /// stream would merge them. A delimited message is a varint that encodes
+    /// the message size, then a message of exactly that size.
     ///
     /// - Parameters:
-    ///   - message: The message to be written.
-    ///   - stream: The `OutputStream` to write the message to.  The stream is
-    ///     is assumed to be ready to be written to.
+    ///   - message: The message to write.
+    ///   - stream: The `OutputStream` to write the message to.  This method
+    ///     assumes the stream is already open and ready to write to.
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws
@@ -84,25 +88,26 @@ public enum BinaryDelimited {
         }
     }
 
-    /// Reads a single size-delimited message from the given stream. Delimited
-    /// format allows a single file or stream to contain multiple messages,
+    /// Reads a single size-delimited message from the stream you provide.
+    ///
+    /// Delimited format allows a single file or stream to contain multiple messages,
     /// whereas normally parsing consumes the entire input. A delimited message
-    /// is a varint encoding the message size followed by a message of exactly
-    /// exactly that size.
+    /// is a varint that encodes the message size, then a message of exactly
+    /// that size.
     ///
     /// - Parameters:
     ///   - messageType: The type of message to read.
-    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
-    ///     to be ready to read from.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - stream: The `InputStream` to read the data from.  This method
+    ///     assumes the stream is already open and ready to read from.
+    ///   - extensions: An ``ExtensionMap`` that this method uses to look up
+    ///     and decode any extensions in this message or messages nested
+    ///     within this message's fields.
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws
     ///     ``BinaryDecodingError/missingRequiredFields``.
     ///   - options: The ``BinaryDecodingOptions`` to use.
-    /// - Returns: The message read.
+    /// - Returns: The message this method decoded.
     /// - Throws: ``BinaryDelimited/Error`` or ``SwiftProtobufError`` if decoding fails,
     /// some reading errors; or the underlying `InputStream.streamError` for a stream error.
     public static func parse<M: Message>(
@@ -124,22 +129,24 @@ public enum BinaryDelimited {
     }
 
     /// Updates the message by reading a single size-delimited message from
-    /// the given stream. Delimited format allows a single file or stream to
-    /// contain multiple messages, whereas normally parsing consumes the entire
-    /// input. A delimited message is a varint encoding the message size
-    /// followed by a message of exactly that size.
+    /// the stream you provide.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
-    ///   occurred.
+    /// Delimited format allows a single file or stream to
+    /// contain multiple messages, whereas normally parsing consumes the entire
+    /// input. A delimited message is a varint that encodes the message size,
+    /// then a message of exactly that size.
+    ///
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the
+    ///   error occurred.
     ///
     /// - Parameters:
     ///   - message: The message to merge the data into.
-    ///   - stream: The `InputStream` to read the data from.  The stream is assumed
-    ///     to be ready to read from.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - stream: The `InputStream` to read the data from.  This method
+    ///     assumes the stream is already open and ready to read from.
+    ///   - extensions: An ``ExtensionMap`` that this method uses to look up
+    ///     and decode any extensions in this message or messages nested
+    ///     within this message's fields.
     ///   - partial: If `false` (the default), this method will check
     ///     ``Message/isInitialized-6abgi`` after decoding to verify that all required
     ///     fields are present. If any are missing, this method throws

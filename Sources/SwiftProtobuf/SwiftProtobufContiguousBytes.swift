@@ -14,10 +14,12 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Conformance to this protocol gives users a way to provide their own "bag of bytes" types
-/// to be used for serialization and deserialization of protobufs.
-/// It provides a general interface for bytes since the Swift Standard Library currently does not
-/// provide such a protocol.
+/// A general interface for a "bag of bytes" type used for
+/// serialization and deserialization of protobufs.
+///
+/// Conform your own types to this protocol to provide your own bag-of-bytes
+/// implementation; the Swift Standard Library does not currently provide such
+/// a protocol itself.
 ///
 /// By conforming your own types to this protocol, you will be able to pass instances of said types
 /// directly to ``Message``'s deserialisation methods
@@ -26,33 +28,33 @@ public protocol SwiftProtobufContiguousBytes {
     /// An initializer for a bag of bytes type.
     ///
     /// - Parameters:
-    ///   - repeating: the byte value to be repeated.
+    ///   - repeating: the byte value to repeat.
     ///   - count: the number of times to repeat the byte value.
     init(repeating: UInt8, count: Int)
 
-    /// An initializer for a bag of bytes type, given a sequence of bytes.
+    /// An initializer for a bag of bytes type, from a sequence of bytes you provide.
     ///
     /// - Parameters:
-    ///   - sequence: a sequence of UInt8 from which the bag of bytes should be constructed.
+    ///   - sequence: a sequence of UInt8 to construct the bag of bytes from.
     init<S: Sequence>(_ sequence: S) where S.Element == UInt8
 
     /// The number of bytes in the bag of bytes.
     var count: Int { get }
 
-    /// Calls the given closure with the contents of underlying storage.
+    /// Calls the closure you provide with the contents of underlying storage.
     ///
-    /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
-    ///         the same buffer pointer will be passed in every time.
-    /// - warning: The buffer argument to the body should not be stored or used
-    ///            outside of the lifetime of the call to the closure.
+    /// - note: Calling `withUnsafeBytes` multiple times does not guarantee
+    ///         that it will pass in the same buffer pointer every time.
+    /// - warning: Do not store or use the buffer argument to the body outside
+    ///            of the lifetime of the call to the closure.
     func withUnsafeBytes<R>(_ body: (UnsafeRawBufferPointer) throws -> R) rethrows -> R
 
-    /// Calls the given closure with the contents of underlying storage.
+    /// Calls the closure you provide with the contents of underlying storage.
     ///
-    /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
-    ///         the same buffer pointer will be passed in every time.
-    /// - warning: The buffer argument to the body should not be stored or used
-    ///            outside of the lifetime of the call to the closure.
+    /// - note: Calling `withUnsafeBytes` multiple times does not guarantee
+    ///         that it will pass in the same buffer pointer every time.
+    /// - warning: Do not store or use the buffer argument to the body outside
+    ///            of the lifetime of the call to the closure.
     mutating func withUnsafeMutableBytes<R>(_ body: (UnsafeMutableRawBufferPointer) throws -> R) rethrows -> R
 }
 

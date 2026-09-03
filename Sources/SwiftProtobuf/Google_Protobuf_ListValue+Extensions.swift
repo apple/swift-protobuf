@@ -7,19 +7,20 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// ListValue is a well-known message type that can be used to parse or encode
-/// arbitrary JSON arrays without a predefined schema.
-///
+//
+// ListValue is a well-known message type you can use to parse or encode
+// arbitrary JSON arrays without a predefined schema.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
     // TODO: Give this a direct array interface by proxying the interesting
     // bits down to values
+
+    /// The type Swift uses when creating this list value directly from an array literal.
     public typealias Element = Google_Protobuf_Value
 
-    /// Creates a new ``Google_Protobuf_ListValue`` from an array literal containing
-    /// ``Google_Protobuf_Value`` elements.
+    /// Creates a list value from an array literal of values.
     public init(arrayLiteral elements: Element...) {
         self.init(values: elements)
     }
@@ -65,8 +66,7 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
 }
 
 extension Google_Protobuf_ListValue {
-    /// Creates a new ``Google_Protobuf_ListValue`` from the given array of
-    /// ``Google_Protobuf_Value`` elements.
+    /// Creates a list value from the array of values you provide.
     ///
     /// - Parameter values: The list of ``Google_Protobuf_Value`` messages from
     ///   which to create the ``Google_Protobuf_ListValue``.
@@ -75,7 +75,7 @@ extension Google_Protobuf_ListValue {
         self.values = values
     }
 
-    /// Accesses the ``Google_Protobuf_Value`` at the specified position.
+    /// Accesses the value at the specified position.
     ///
     /// - Parameter index: The position of the element to access.
     public subscript(index: Int) -> Google_Protobuf_Value {

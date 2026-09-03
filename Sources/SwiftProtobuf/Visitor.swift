@@ -7,22 +7,22 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Protocol for traversing the object tree.
-///
-/// This is used by:
-/// = Protobuf serialization
-/// = JSON serialization (with some twists to account for specialty JSON
-///   encodings)
-/// = Protobuf text serialization
-/// = Hashable computation
-///
-/// Conceptually, serializers create visitor objects that are
-/// then passed recursively to every message and field via generated
-/// 'traverse' methods.  The details get a little involved due to
-/// the need to allow particular messages to override particular
-/// behaviors for specific encodings, but the general idea is quite simple.
-///
+//
+// Protocol for traversing the object tree.
+//
+// This is used by:
+// = Protobuf serialization
+// = JSON serialization (with some twists to account for specialty JSON
+//   encodings)
+// = Protobuf text serialization
+// = Hashable computation
+//
+// Conceptually, serializers create visitor objects that are
+// then passed recursively to every message and field via generated
+// 'traverse' methods.  The details get a little involved due to
+// the need to allow particular messages to override particular
+// behaviors for specific encodings, but the general idea is quite simple.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -31,260 +31,262 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// This is the key interface used by the generated `traverse()` methods
-/// used for serialization.  It is implemented by each serialization protocol:
-/// Protobuf Binary, Protobuf Text, JSON, and the Hash encoder.
+/// The key interface that the generated traverse methods use for serialization.
+///
+/// Each serialization protocol implements it: Protobuf Binary, Protobuf Text,
+/// JSON, and the Hash encoder.
 public protocol Visitor {
 
-    /// Called for each non-repeated float field
+    /// `traverse()` calls this for each non-repeated float field.
     ///
-    /// A default implementation is provided that just widens the value
-    /// and calls `visitSingularDoubleField`
+    /// The default implementation widens the value and calls
+    /// `visitSingularDoubleField`.
     mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws
 
-    /// Called for each non-repeated double field
+    /// `traverse()` calls this for each non-repeated double field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws
 
-    /// Called for each non-repeated int32 field
+    /// `traverse()` calls this for each non-repeated 32-bit integer field.
     ///
-    /// A default implementation is provided that just widens the value
-    /// and calls `visitSingularInt64Field`
+    /// The default implementation widens the value and calls
+    /// `visitSingularInt64Field`.
     mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws
 
-    /// Called for each non-repeated int64 field
+    /// `traverse()` calls this for each non-repeated 64-bit integer field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws
 
-    /// Called for each non-repeated uint32 field
+    /// `traverse()` calls this for each non-repeated 32-bit unsigned integer field.
     ///
-    /// A default implementation is provided that just widens the value
-    /// and calls `visitSingularUInt64Field`
+    /// The default implementation widens the value and calls
+    /// `visitSingularUInt64Field`.
     mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws
 
-    /// Called for each non-repeated uint64 field
+    /// `traverse()` calls this for each non-repeated 64-bit unsigned integer field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws
 
-    /// Called for each non-repeated sint32 field
+    /// `traverse()` calls this for each non-repeated zigzag-encoded 32-bit integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularInt32Field`
+    /// The default implementation just forwards to `visitSingularInt32Field`.
     mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws
 
-    /// Called for each non-repeated sint64 field
+    /// `traverse()` calls this for each non-repeated zigzag-encoded 64-bit integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularInt64Field`
+    /// The default implementation just forwards to `visitSingularInt64Field`.
     mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws
 
-    /// Called for each non-repeated fixed32 field
+    /// `traverse()` calls this for each non-repeated fixed-width 32-bit unsigned integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularUInt32Field`
+    /// The default implementation just forwards to `visitSingularUInt32Field`.
     mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws
 
-    /// Called for each non-repeated fixed64 field
+    /// `traverse()` calls this for each non-repeated fixed-width 64-bit unsigned integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularUInt64Field`
+    /// The default implementation just forwards to `visitSingularUInt64Field`.
     mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws
 
-    /// Called for each non-repeated sfixed32 field
+    /// `traverse()` calls this for each non-repeated fixed-width 32-bit integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularInt32Field`
+    /// The default implementation just forwards to `visitSingularInt32Field`.
     mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws
 
-    /// Called for each non-repeated sfixed64 field
+    /// `traverse()` calls this for each non-repeated fixed-width 64-bit integer field.
     ///
-    /// A default implementation is provided that just forwards to
-    /// `visitSingularInt64Field`
+    /// The default implementation just forwards to `visitSingularInt64Field`.
     mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws
 
-    /// Called for each non-repeated bool field
+    /// `traverse()` calls this for each non-repeated Boolean field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws
 
-    /// Called for each non-repeated string field
+    /// `traverse()` calls this for each non-repeated string field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularStringField(value: String, fieldNumber: Int) throws
 
-    /// Called for each non-repeated bytes field
+    /// `traverse()` calls this for each non-repeated bytes field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws
 
-    /// Called for each non-repeated enum field
+    /// `traverse()` calls this for each non-repeated enum field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws
 
-    /// Called for each non-repeated nested message field.
+    /// `traverse()` calls this for each non-repeated nested message field.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// There is no default implementation, so conforming types must implement
+    /// this method.
     mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws
 
-    /// Called for each non-repeated proto2 group field.
+    /// `traverse()` calls this for each non-repeated proto2 group field.
     ///
-    /// A default implementation is provided that simply forwards to
+    /// The default implementation simply forwards to
     /// `visitSingularMessageField`. Implementors who need to handle groups
     /// differently than nested messages can override this and provide distinct
     /// implementations.
     mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws
 
     // Called for each non-packed repeated float field.
-    /// The method is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularFloatField` once for each item in the array.
     mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws
 
     // Called for each non-packed repeated double field.
-    /// The method is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularDoubleField` once for each item in the array.
     mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated int32 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated 32-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularInt32Field` once for each item in the array.
     mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated int64 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated 64-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularInt64Field` once for each item in the array.
     mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated uint32 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated 32-bit unsigned integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularUInt32Field` once for each item in the array.
     mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated uint64 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated 64-bit unsigned integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularUInt64Field` once for each item in the array.
     mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated sint32 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated zigzag-encoded 32-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularSInt32Field` once for each item in the array.
     mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated sint64 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated zigzag-encoded 64-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularSInt64Field` once for each item in the array.
     mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated fixed32 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated fixed-width 32-bit unsigned integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularFixed32Field` once for each item in the array.
     mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated fixed64 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated fixed-width 64-bit unsigned integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularFixed64Field` once for each item in the array.
     mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated sfixed32 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated fixed-width 32-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularSFixed32Field` once for each item in the array.
     mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated sfixed64 field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated fixed-width 64-bit integer field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularSFixed64Field` once for each item in the array.
     mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each non-packed repeated bool field.
-    /// The method is called once with the complete array of values for
+    // Called for each non-packed repeated Boolean field.
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularBoolField` once for each item in the array.
     mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws
 
     // Called for each non-packed repeated string field.
-    /// The method is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularStringField` once for each item in the array.
     mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws
 
     // Called for each non-packed repeated bytes field.
-    /// The method is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularBytesField` once for each item in the array.
     mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws
 
-    /// Called for each repeated, unpacked enum field.
-    /// The method is called once with the complete array of values for
-    /// the field.
+    /// `traverse()` calls this for each repeated, unpacked enum field.
     ///
-    /// A default implementation is provided that simply calls
-    /// `visitSingularEnumField` once for each item in the array.
+    /// It provides the complete array of values for the field in a single
+    /// call. The default implementation simply calls `visitSingularEnumField`
+    /// once for each item in the array.
     mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-    /// Called for each repeated nested message field. The method is called once
-    /// with the complete array of values for the field.
+    /// `traverse()` calls this for each repeated nested message field.
     ///
-    /// A default implementation is provided that simply calls
+    /// It provides the complete array of values for the field in a single
+    /// call. The default implementation simply calls
     /// `visitSingularMessageField` once for each item in the array.
     mutating func visitRepeatedMessageField<M: Message>(
         value: [M],
         fieldNumber: Int
     ) throws
 
-    /// Called for each repeated proto2 group field.
+    /// `traverse()` calls this for each repeated proto2 group field.
     ///
-    /// A default implementation is provided that simply calls
+    /// The default implementation simply calls
     /// `visitSingularGroupField` once for each item in the array.
     mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws
 
     // Called for each packed, repeated float field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
@@ -293,158 +295,158 @@ public protocol Visitor {
 
     // Called for each packed, repeated double field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws
 
-    // Called for each packed, repeated int32 field.
+    // Called for each packed, repeated 32-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each packed, repeated int64 field.
+    // Called for each packed, repeated 64-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each packed, repeated uint32 field.
+    // Called for each packed, repeated 32-bit unsigned integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws
 
-    // Called for each packed, repeated uint64 field.
+    // Called for each packed, repeated 64-bit unsigned integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws
 
-    // Called for each packed, repeated sint32 field.
+    // Called for each packed, repeated zigzag-encoded 32-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each packed, repeated sint64 field.
+    // Called for each packed, repeated zigzag-encoded 64-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each packed, repeated fixed32 field.
+    // Called for each packed, repeated fixed-width 32-bit unsigned integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws
 
-    // Called for each packed, repeated fixed64 field.
+    // Called for each packed, repeated fixed-width 64-bit unsigned integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws
 
-    // Called for each packed, repeated sfixed32 field.
+    // Called for each packed, repeated fixed-width 32-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws
 
-    // Called for each packed, repeated sfixed64 field.
+    // Called for each packed, repeated fixed-width 64-bit integer field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws
 
-    // Called for each packed, repeated bool field.
+    // Called for each packed, repeated Boolean field.
     ///
-    /// This is called once with the complete array of values for
+    /// `traverse()` calls this once with the complete array of values for
     /// the field.
     ///
     /// There is a default implementation that forwards to the non-packed
     /// function.
     mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws
 
-    /// Called for each repeated, packed enum field.
-    /// The method is called once with the complete array of values for
-    /// the field.
+    /// `traverse()` calls this for each repeated, packed enum field.
     ///
-    /// A default implementation is provided that simply forwards to
+    /// It provides the complete array of values for the field in a single
+    /// call. The default implementation simply forwards to
     /// `visitRepeatedEnumField`. Implementors who need to handle packed fields
     /// differently than unpacked fields can override this and provide distinct
     /// implementations.
     mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-    /// Called for each map field with primitive values. The method is
-    /// called once with the complete dictionary of keys/values for the
-    /// field.
+    /// `traverse()` calls this for each map field with primitive values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// It provides the complete dictionary of keys/values for the field in
+    /// a single call. There is no default implementation, so conforming
+    /// types must implement this method.
     mutating func visitMapField<KeyType, ValueType: MapValueType>(
         fieldType: _ProtobufMap<KeyType, ValueType>.Type,
         value: _ProtobufMap<KeyType, ValueType>.BaseType,
         fieldNumber: Int
     ) throws
 
-    /// Called for each map field with enum values. The method is called
-    /// once with the complete dictionary of keys/values for the field.
+    /// `traverse()` calls this for each map field with enum values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// It provides the complete dictionary of keys/values for the field in
+    /// a single call. There is no default implementation, so conforming
+    /// types must implement this method.
     mutating func visitMapField<KeyType, ValueType>(
         fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
         value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
         fieldNumber: Int
     ) throws where ValueType.RawValue == Int
 
-    /// Called for each map field with message values. The method is
-    /// called once with the complete dictionary of keys/values for the
-    /// field.
+    /// `traverse()` calls this for each map field with message values.
     ///
-    /// There is no default implementation.  This must be implemented.
+    /// It provides the complete dictionary of keys/values for the field in
+    /// a single call. There is no default implementation, so conforming
+    /// types must implement this method.
     mutating func visitMapField<KeyType, ValueType>(
         fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
         value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
         fieldNumber: Int
     ) throws
 
-    /// Called for each extension range.
+    /// `traverse()` calls this for each extension range.
     mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws
 
-    /// Called for each extension range.
+    /// `traverse()` calls this for each extension range.
     mutating func visitExtensionFieldsAsMessageSet(
         fields: ExtensionFieldValueSet,
         start: Int,
@@ -468,30 +470,39 @@ extension Visitor {
     // and a few even work for Protobuf Binary (thanks to varint coding
     // which erases the size difference between 32-bit and 64-bit ints).
 
+    /// Visits the value as a singular double field, widened from a float.
     public mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
         try visitSingularDoubleField(value: Double(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 64-bit integer field, widened from a 32-bit integer.
     public mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: Int64(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 64-bit unsigned integer field, widened from a 32-bit unsigned integer.
     public mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
         try visitSingularUInt64Field(value: UInt64(value), fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 32-bit integer field.
     public mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 64-bit integer field.
     public mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 32-bit unsigned integer field.
     public mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
         try visitSingularUInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 64-bit unsigned integer field.
     public mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
         try visitSingularUInt64Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 32-bit integer field.
     public mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
         try visitSingularInt32Field(value: value, fieldNumber: fieldNumber)
     }
+    /// Visits the value as a singular 64-bit integer field.
     public mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
         try visitSingularInt64Field(value: value, fieldNumber: fieldNumber)
     }
@@ -501,6 +512,7 @@ extension Visitor {
     // and size visitor), Protobuf Text, and Hash visitors.  JSON format stores
     // repeated values differently from singular, so overrides these.
 
+    /// Visits each value in the array as a singular float field.
     public mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -508,6 +520,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular double field.
     public mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -515,6 +528,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular 32-bit integer field.
     public mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -522,6 +536,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular 64-bit integer field.
     public mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -529,6 +544,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular 32-bit unsigned integer field.
     public mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -536,6 +552,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular 64-bit unsigned integer field.
     public mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -543,6 +560,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular zigzag-encoded 32-bit integer field.
     public mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -550,6 +568,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular zigzag-encoded 64-bit integer field.
     public mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -557,6 +576,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed-width 32-bit unsigned integer field.
     public mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -564,6 +584,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed-width 64-bit unsigned integer field.
     public mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -571,6 +592,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed-width 32-bit integer field.
     public mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -578,6 +600,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular fixed-width 64-bit integer field.
     public mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -585,6 +608,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular Boolean field.
     public mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -592,6 +616,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular string field.
     public mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -599,6 +624,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular bytes field.
     public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -606,6 +632,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular enum field.
     public mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -613,6 +640,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular message field.
     public mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -620,6 +648,7 @@ extension Visitor {
         }
     }
 
+    /// Visits each value in the array as a singular group field.
     public mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         for v in value {
@@ -632,71 +661,85 @@ extension Visitor {
     // (which do not distinguish packed vs. non-packed) but are
     // overridden by Protobuf Binary and Text.
 
+    /// Visits the array as a repeated, unpacked float field.
     public mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedFloatField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked double field.
     public mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedDoubleField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked 32-bit integer field.
     public mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked 64-bit integer field.
     public mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked 32-bit unsigned integer field.
     public mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedUInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked 64-bit unsigned integer field.
     public mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedUInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 32-bit integer field.
     public mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 64-bit integer field.
     public mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 32-bit unsigned integer field.
     public mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedUInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 64-bit unsigned integer field.
     public mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedUInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 32-bit integer field.
     public mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt32Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a packed 64-bit integer field.
     public mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitPackedInt64Field(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked Boolean field.
     public mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
         assert(!value.isEmpty)
         try visitRepeatedBoolField(value: value, fieldNumber: fieldNumber)
     }
 
+    /// Visits the array as a repeated, unpacked enum field.
     public mutating func visitPackedEnumField<E: Enum>(
         value: [E],
         fieldNumber: Int
@@ -710,6 +753,7 @@ extension Visitor {
     // format (which has a different encoding for groups) and JSON
     // (which explicitly ignores all groups).
 
+    /// Visits the group's value as a singular message field.
     public mutating func visitSingularGroupField<G: Message>(
         value: G,
         fieldNumber: Int
@@ -721,6 +765,7 @@ extension Visitor {
     // as plain extensions. Formats that what custom behavior can override
     // it.
 
+    /// Visits the extension range as ordinary extension fields.
     public mutating func visitExtensionFieldsAsMessageSet(
         fields: ExtensionFieldValueSet,
         start: Int,
@@ -733,7 +778,7 @@ extension Visitor {
     // the ExtensionFieldValueSet. Formats that don't care about extensions
     // can override to avoid it.
 
-    /// Called for each extension range.
+    /// `traverse()` calls this for each extension range.
     public mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
         try fields.traverse(visitor: &self, start: start, end: end)
     }

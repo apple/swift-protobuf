@@ -18,8 +18,8 @@ import SwiftProtobufPluginLibrary
 
 /// Wraps the calculation of the "cost" of fields.
 ///
-/// As mentioned in the file comment, these numbers can be revised in the future
-/// to compute a real stack/heap cost if desired.
+/// As mentioned in the file comment, a future change could revise these
+/// numbers to compute a real stack/heap cost if desired.
 private enum FieldCost {
     /// Of a repeated field.
     static let repeated = 1

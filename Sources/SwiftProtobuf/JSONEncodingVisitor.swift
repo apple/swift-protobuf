@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Visitor that writes a message in JSON format.
-///
+//
+// Visitor that writes a message in JSON format.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -26,17 +26,17 @@ internal struct JSONEncodingVisitor: Visitor {
     private var extensions: ExtensionFieldValueSet?
     private let options: JSONEncodingOptions
 
-    /// The JSON text produced by the visitor, as raw UTF8 bytes.
+    /// The JSON text the visitor produces, as raw UTF8 bytes.
     var dataResult: [UInt8] {
         encoder.dataResult
     }
 
-    /// The JSON text produced by the visitor, as a String.
+    /// The JSON text the visitor produces, as a String.
     internal var stringResult: String {
         encoder.stringResult
     }
 
-    /// Creates a new visitor for serializing a message of the given type to JSON
+    /// Creates a new visitor for serializing a message of the type you provide to JSON
     /// format.
     init(type: any Message.Type, options: JSONEncodingOptions) throws {
         if let nameProviding = type as? any _ProtoNameProviding.Type {
@@ -421,8 +421,8 @@ internal struct JSONEncodingVisitor: Visitor {
         encoder.append(text: "}")
     }
 
-    /// Helper function that throws an error if the field number could not be
-    /// resolved.
+    /// Helper function that throws an error if it cannot resolve the field
+    /// number.
     private mutating func startField(for number: Int) throws {
         let name: _NameMap.Name?
 

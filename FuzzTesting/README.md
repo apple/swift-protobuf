@@ -1,8 +1,8 @@
 # FuzzTesting
 
-This subpackage build binaries to be use with Fuzz testing.
+This subpackage builds binaries to be used with fuzz testing.
 
-NOTE: The Swift toolchain distributed with Xcode do not include the fuzzing
+NOTE: The Swift toolchain distributed with Xcode does not include the fuzzing
 support, so for macOS, one needs to install the swift.org toolchain and use that
 instead.
 
@@ -27,24 +27,24 @@ could find different issues.
 
 In this directory you will also find a `do_build.sh` script.  By default it
 builds for both _debug_ and _release_. You can also pass `--run-regressions` to
-have it run the the build against the previous failcases to check for
+have it run the build against the previous failcases to check for
 regressions.
 
 When issues are found:
 
 1. Make sure you add a file to `FailCases` subdirectory so regressions can
-   easily be watched for. The GitHub workflow runs against there.
+   easily be watched for. The GitHub workflow runs against them.
 
-2. Consider adding them to `Tests/SwiftProtobufTests/Test_FuzzTests.swift`, this
-   help in debugging while working on the failure, but also provides yet another way
+2. Consider adding them to `Tests/SwiftProtobufTests/Test_FuzzTests.swift`. This
+   helps with debugging while working on the failure, but also provides yet another way
    to ensure things don't regress and if they do, it is much easier to immediately
    debug the issue.
 
-A note about memory issues, the address sanitizer is enabled in the fuzz tests
-and in that context can find different things that what are found running the
-unittests with the address sanitizer. So having test cases in both places can be
+A note about memory issues: the address sanitizer is enabled in the fuzz tests
+and in that context can find different things than what is found when running the
+unit tests with the address sanitizer. So having test cases in both places can be
 needed to help ensure something is less likely to regress.
 
-There are dictionaries to help steer the fuzzing of JSON and TextFormat, to run
-with them, just add `-dict=FuzzJSON.dict` or `-dict=FuzzTextFormat.dict` to the
+There are dictionaries to help steer the fuzzing of JSON and TextFormat. To use
+them, add `-dict=FuzzJSON.dict` or `-dict=FuzzTextFormat.dict` to the
 invocation of the fuzz binary.

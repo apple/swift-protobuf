@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Text format serialization engine.
-///
+//
+// Text format serialization engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -29,12 +29,12 @@ internal struct TextFormatEncodingVisitor: Visitor {
     private var extensions: ExtensionFieldValueSet?
     private let options: TextFormatEncodingOptions
 
-    /// The protobuf text produced by the visitor.
+    /// The protobuf text that the visitor produces.
     var result: String {
         encoder.stringResult
     }
 
-    /// Creates a new visitor that serializes the given message to protobuf text
+    /// Creates a new visitor that serializes the message you provide to protobuf text
     /// format.
     init(message: any Message, options: TextFormatEncodingOptions) {
         let nameMap: _NameMap?
@@ -114,9 +114,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
     /// door to someone sending a message with an unknown field that is a stack
     /// bomb, i.e. - it causes this code to recurse, exhausting the stack and
     /// thus opening up an attack vector. To keep this "help", but avoid the
-    /// attack, a limit is placed on how many times it will recurse before just
-    /// treating the length delimited fields as bytes and not trying to decode
-    /// them.
+    /// attack, the implementation limits how many times it will recurse before
+    /// just treating the length delimited fields as bytes and not trying to
+    /// decode them.
     private mutating func visitUnknown(
         decoder: inout BinaryDecoder,
         recursionBudget: Int = 10

@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Code generation for the private storage class used inside copy-on-write
-/// messages.
-///
+//
+// Code generation for the private storage class used inside copy-on-write
+// messages.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation

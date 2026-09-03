@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to ``Message`` to support text format encoding/decoding.
-///
+//
+// Extensions to ``Message`` to support text format encoding/decoding.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -20,11 +20,10 @@ import Foundation
 
 /// Text format encoding and decoding methods for messages.
 extension Message {
-    /// Returns a string containing the Protocol Buffer text format serialization
-    /// of the message.
+    /// Returns the Protocol Buffer text-format serialization of the message as a string.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to text format.
+    /// Unlike binary encoding, serializing to text format doesn't enforce the
+    /// presence of required fields.
     ///
     /// - Returns: A string containing the text format serialization of the
     ///   message.
@@ -34,11 +33,10 @@ extension Message {
         textFormatString(options: TextFormatEncodingOptions())
     }
 
-    /// Returns a string containing the Protocol Buffer text format serialization
-    /// of the message.
+    /// Returns the Protocol Buffer text-format serialization of the message as a string, using the encoding options you provide.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to text format.
+    /// Unlike binary encoding, serializing to text format doesn't enforce the
+    /// presence of required fields.
     ///
     /// - Returns: A string containing the text format serialization of the message.
     /// - Parameters:
@@ -58,16 +56,16 @@ extension Message {
         return visitor.result
     }
 
-    /// Creates a new message by decoding the given string containing a
-    /// serialized message in Protocol Buffer text format.
+    // TODO: delete this (and keep the one with the extra param instead) when we break API
+
+    /// Creates a message by decoding the Protocol Buffer text-format string you provide.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     /// - Throws: ``SwiftProtobufError`` on failure.
-    // TODO: delete this (and keep the one with the extra param instead) when we break API
     public init(
         textFormatString: String,
         extensions: (any ExtensionMap)? = nil
@@ -79,13 +77,12 @@ extension Message {
         )
     }
 
-    /// Creates a new message by decoding the given string containing a
-    /// serialized message in Protocol Buffer text format.
+    /// Creates a message by decoding the Protocol Buffer text-format string you provide, using the decoding options you supply.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
     ///   - options: The ``TextFormatDecodingOptions`` to use.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     /// - Throws: ``TextFormatDecodingError`` on failure.
