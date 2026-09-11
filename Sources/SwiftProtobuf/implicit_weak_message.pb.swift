@@ -32,24 +32,23 @@ fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIV
 
 /// An open enum used as a placeholder when an enum's schema is not present in
 /// the linkage.
-@_spi(ForGeneratedCodeOnly)
-public nonisolated enum SwiftProtobuf_ImplicitWeakEnum: Enum, Swift.CaseIterable {
-  public typealias RawValue = Swift.Int
+nonisolated enum SwiftProtobuf_ImplicitWeakEnum: Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
   case zero // = 0
   case UNRECOGNIZED(Swift.Int)
 
-  public init() {
+  init() {
     self = .zero
   }
 
-  public init?(rawValue: Swift.Int) {
+  init?(rawValue: Swift.Int) {
     switch rawValue {
     case 0: self = .zero
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
-  public var rawValue: Swift.Int {
+  var rawValue: Swift.Int {
     switch self {
     case .zero: return 0
     case .UNRECOGNIZED(let i): return i
@@ -57,7 +56,7 @@ public nonisolated enum SwiftProtobuf_ImplicitWeakEnum: Enum, Swift.CaseIterable
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [SwiftProtobuf_ImplicitWeakEnum] = [
+  static let allCases: [SwiftProtobuf_ImplicitWeakEnum] = [
     .zero,
   ]
 
@@ -65,20 +64,19 @@ public nonisolated enum SwiftProtobuf_ImplicitWeakEnum: Enum, Swift.CaseIterable
 
 /// An empty message used as a placeholder in storage when a submessage's schema
 /// is not present in the linkage.
-@_spi(ForGeneratedCodeOnly)
-public nonisolated struct SwiftProtobuf_ImplicitWeakMessage: @unchecked Swift.Sendable {
+nonisolated struct SwiftProtobuf_ImplicitWeakMessage: @unchecked Swift.Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+  init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
     if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
     return _storage
   }
-  public mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -86,15 +84,15 @@ public nonisolated struct SwiftProtobuf_ImplicitWeakMessage: @unchecked Swift.Se
 nonisolated extension SwiftProtobuf_ImplicitWeakEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1f}\0swift_protobuf.ImplicitWeakEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}F8\02yO)\u{1f}9*0\u{1a}1\u{4}\u{b}\0"
-  public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+  static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtobuf_ImplicitWeakMessage: GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\"\0swift_protobuf.ImplicitWeakMessage"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\0\0\0\0_Si=ArYy^\u{15}d\0\0\0"
 
-  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 
-  public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
