@@ -28,6 +28,7 @@ class EnumGenerator {
     fileprivate let enumDescriptor: EnumDescriptor
     fileprivate let generatorOptions: GeneratorOptions
     fileprivate let namer: SwiftProtobufNamer
+    fileprivate let visibility: String
 
     /// The aliasInfo for the values.
     private let aliasInfo: EnumDescriptor.ValueAliasInfo
@@ -68,6 +69,13 @@ class EnumGenerator {
         self.enumDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
+
+        if descriptor.fullName == "swift_protobuf.ImplicitWeakEnum" {
+            visibility = ""
+        } else {
+            visibility = generatorOptions.visibilitySourceSnippet
+        }
+
         aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: descriptor)
 
         mainEnumValueDescriptorsSorted = aliasInfo.mainValues.sorted(by: {
@@ -115,7 +123,7 @@ class EnumGenerator {
                 #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#
             )
             p.print(
-                "\(generatorOptions.visibilitySourceSnippet)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
+                "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
             )
         }
         p.print("}")
@@ -129,7 +137,7 @@ class EnumGenerator {
             p.print(
                 "",
                 "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
-                "\(generatorOptions.visibilitySourceSnippet)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = \(swiftFullName).enumSchema",
                 "}"
             )
@@ -171,21 +179,16 @@ class EnumGenerator {
     ) {
         let aliasName = namer.relativeName(enumValue: aliasDescriptor)
         let originalName = namer.relativeName(enumValue: originalDescriptor)
-        p.print("\(generatorOptions.visibilitySourceSnippet)static let \(aliasName) = \(originalName)")
+        p.print("\(visibility)static let \(aliasName) = \(originalName)")
     }
 }
 
 /// Generates an open protobuf enum as a Swift enum.
 private final class OpenEnumGenerator: EnumGenerator {
     override func generateTypeDeclaration(to p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-        let spiSnippet =
-            (enumDescriptor.fullName == "swift_protobuf.ImplicitWeakEnum" && generatorOptions.visibility == .public)
-            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
-
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             p.print("\(visibility)typealias RawValue = Swift.Int")
@@ -233,8 +236,6 @@ private final class OpenEnumGenerator: EnumGenerator {
     ///
     /// - Parameter p: The code printer.
     private func generateInitRawValue(to p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-
         p.print("\(visibility)init?(rawValue: Swift.Int) {")
         p.withIndentation { p in
             p.print("switch rawValue {")
@@ -256,8 +257,6 @@ private final class OpenEnumGenerator: EnumGenerator {
     ///
     /// - Parameter p: The code printer.
     private func generateRawValueProperty(to p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-
         // See https://github.com/apple/swift-protobuf/issues/904 for full
         // details on why maxCasesInSwitch is necessary.
         let maxCasesInSwitch = generatorOptions.maxCasesInSwitch
@@ -312,7 +311,6 @@ private final class OpenEnumGenerator: EnumGenerator {
     private func generateCaseIterableConformance(to p: inout CodePrinter) {
         guard !enumDescriptor.isClosed else { return }
 
-        let visibility = generatorOptions.visibilitySourceSnippet
         p.print(
             "",
             "// The compiler won't synthesize support with the \(unrecognizedCaseName) case.",
@@ -332,14 +330,9 @@ private final class OpenEnumGenerator: EnumGenerator {
 /// Generates a closed protobuf enum as a Swift enum.
 private final class ClosedEnumGenerator: EnumGenerator {
     override func generateTypeDeclaration(to p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-        let spiSnippet =
-            (enumDescriptor.fullName == "swift_protobuf.ImplicitWeakEnum" && generatorOptions.visibility == .public)
-            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
-
         p.print(
             "",
-            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
+            "\(enumDescriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated enum \(swiftRelativeName): Swift.Int, \(namer.swiftProtobufModulePrefix)Enum, \(Self.requiredProtocolConformancesForEnums) {"
         )
         p.withIndentation { p in
             // Cases/aliases
