@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON format decoding engine.
-///
+//
+// JSON format decoding engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

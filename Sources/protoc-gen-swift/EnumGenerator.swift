@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This file handles the generation of a Swift enum for each .proto enum.
-///
+//
+// This file handles the generation of a Swift enum for each .proto enum.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation

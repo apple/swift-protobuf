@@ -7,18 +7,18 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides some basic interface about the protocol buffer compiler
-/// being used to generate.
-///
+//
+// This provides some basic interface about the protocol buffer compiler
+// that generates the code.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
 
 /// Abstact interface to get information about the protocol buffer compiler
-/// being used for generation.
+/// that generates the code.
 public protocol ProtoCompilerContext {
-    /// The version of the protocol buffer compiler (if it was provided in the
-    /// generation request).
+    /// The version of the protocol buffer compiler (if the generation request
+    /// includes it).
     var version: Google_Protobuf_Compiler_Version? { get }
 }

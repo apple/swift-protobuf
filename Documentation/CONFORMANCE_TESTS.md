@@ -16,8 +16,8 @@ these tests regularly.
 
 ## Preparation
 
-The conformance test suite requires Swift 4.0, standard command-line
-tools such as make and awk, and a full source checkout of
+The conformance test suite requires Swift, standard command-line
+tools such as `make` and `awk`, and a full source checkout of
 [Google's protobuf project](https://github.com/protocolbuffers/protobuf).
 
 The Makefile assumes by default that the protobuf project
@@ -83,11 +83,11 @@ At this writing, all of the conformance tests succeed.
 ## Report any issues
 
 If the conformance test prints out any "unexpected failures", please
-look in the Github Issues to see if the problem you're seeing was
+look in the GitHub Issues to see if the problem you're seeing was
 already reported.  If not, please send us a detailed report,
 including:
 * The specific operating system and version (for example, "macOS 10.12.1" or "Ubuntu 15.10")
 * The version of Swift you have installed (from `swift --version`)
-* The version of the protobuf source code you are working with (look at the AC_INIT line near the top of configure.ac)
+* The version of the protobuf source code you are working with (look at the `AC_INIT` line near the top of `configure.ac`)
 * The full output of the conformance test run, starting with "CONFORMANCE TEST BEGIN"
 

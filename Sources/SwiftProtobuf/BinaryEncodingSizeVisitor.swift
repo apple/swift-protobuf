@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Visitor used during binary encoding that precalcuates the size of a
-/// serialized message.
-///
+//
+// Visitor that the binary encoder uses to precalculate the size of a
+// serialized message.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -19,8 +19,8 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Visitor that calculates the binary-encoded size of a message so that a
-/// properly sized `Data` or `UInt8` array can be pre-allocated before
+/// Visitor that calculates the binary-encoded size of a message so a caller
+/// can pre-allocate a properly sized `Data` or `UInt8` array before
 /// serialization.
 internal struct BinaryEncodingSizeVisitor: Visitor {
 

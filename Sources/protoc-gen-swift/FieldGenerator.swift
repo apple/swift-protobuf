@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Code generation for the private storage class used inside copy-on-write
-/// messages.
-///
+//
+// Code generation for the private storage class used inside copy-on-write
+// messages.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -48,12 +48,12 @@ protocol FieldGenerator {
     /// The generated code should return false in the current scope if the field's don't match.
     func generateFieldComparison(printer: inout CodePrinter)
 
-    /// Generate any support needed to ensure required fields are set.
-    /// The generated code should return false the field isn't set.
+    /// Generate any support needed to ensure the caller has set required fields.
+    /// The generated code should return false if the caller hasn't set the field.
     func generateRequiredFieldCheck(printer: inout CodePrinter)
 
-    /// Generate any support needed to this field's value is initialized.
-    /// The generated code should return false if it isn't set.
+    /// Generate any support needed to ensure the caller has initialized this field's value.
+    /// The generated code should return false if the caller hasn't initialized it.
     func generateIsInitializedCheck(printer: inout CodePrinter)
 }
 

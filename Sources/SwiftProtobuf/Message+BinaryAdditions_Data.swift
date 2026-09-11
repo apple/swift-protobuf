@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
-///
+//
+// Extensions to ``Message`` to provide binary coding and decoding using ``Foundation/Data``.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -21,12 +21,11 @@ import Foundation
 /// Binary encoding and decoding methods for messages.
 extension Message {
     #if !REMOVE_DEPRECATED_APIS
-    /// Creates a new message by decoding the given `Data` value
-    /// containing a serialized message in Protocol Buffer binary format.
+    /// Creates a message by decoding the serialized data you provide in Protocol Buffer binary format.
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message `Data` to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -47,12 +46,11 @@ extension Message {
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a new message by decoding the given `Foundation/ContiguousBytes` value
-    /// containing a serialized message in Protocol Buffer binary format.
+    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -74,12 +72,11 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Creates a new message by decoding the given `Foundation/ContiguousBytes` value
-    /// containing a serialized message in Protocol Buffer binary format.
+    /// Creates a message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message, under the older parameter name.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -106,17 +103,15 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Updates the message by decoding the given `Foundation/ContiguousBytes` value
-    /// containing a serialized message in Protocol Buffer binary format into the
-    /// receiver.
+    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -139,17 +134,15 @@ extension Message {
         }
     }
 
-    /// Updates the message by decoding the given `Foundation/ContiguousBytes` value
-    /// containing a serialized message in Protocol Buffer binary format into the
-    /// receiver.
+    /// Updates the message by decoding the contiguous bytes you provide as a serialized Protocol Buffer binary-format message into the receiver, under the older parameter name.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - bytes: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -178,17 +171,16 @@ extension Message {
     }
     #endif  // !REMOVE_DEPRECATED_APIS
 
-    /// Updates the message by decoding the given `Data` value
-    /// containing a serialized message in Protocol Buffer binary format into the
+    /// Updates the message by decoding the serialized data you provide as Protocol Buffer binary format into the
     /// receiver.
     ///
-    /// - Note: If this method throws an error, the message may still have been
-    ///   partially mutated by the binary data that was decoded before the error
+    /// - Note: If this method throws an error, it may have already partially
+    ///   mutated the message with the binary data it decoded before the error
     ///   occurred.
     ///
     /// - Parameters:
     ///   - data: The binary-encoded message data to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
+    ///   - extensions: An ``ExtensionMap`` for looking up and decoding any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
     ///   - partial: If `false` (the default), this method will check
@@ -207,8 +199,7 @@ extension Message {
         try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
     }
 
-    /// Returns a `Data` instance containing the Protocol Buffer binary
-    /// format serialization of the message.
+    /// Returns the Protocol Buffer binary-format serialization of the message as data.
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will check
@@ -221,8 +212,7 @@ extension Message {
         try serializedBytes(partial: partial, options: BinaryEncodingOptions())
     }
 
-    /// Returns a `Data` instance containing the Protocol Buffer binary
-    /// format serialization of the message.
+    /// Returns the Protocol Buffer binary-format serialization of the message as data, using the encoding options you provide.
     ///
     /// - Parameters:
     ///   - partial: If `false` (the default), this method will check

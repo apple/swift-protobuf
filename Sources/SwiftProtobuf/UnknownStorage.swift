@@ -7,11 +7,11 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Proto2 binary coding requires storing and recoding of unknown fields.
-/// This simple support class handles that requirement.  A property of this type
-/// is compiled into every proto2 message.
-///
+//
+// Proto2 binary coding requires storing and recoding of unknown fields.
+// This simple support class handles that requirement.  The generator adds
+// a property of this type to every proto2 message.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -20,23 +20,35 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Contains any unknown fields in a decoded message; that is, fields that were
-/// sent on the wire but were not recognized by the generated message
-/// implementation or were valid field numbers but with mismatching wire
-/// formats (for example, a field encoded as a varint when a fixed32 integer
-/// was expected).
+/// The unknown fields in a decoded message.
+///
+/// These are fields that arrived on the wire but the generated message
+/// implementation didn't recognize, or fields with valid field numbers but
+/// mismatched wire formats -- for example, a field encoded as a varint when
+/// the schema expected a fixed32 integer.
 public struct UnknownStorage: Equatable, Sendable {
 
     /// The raw protocol buffer binary-encoded bytes that represent the unknown
     /// fields of a decoded message.
     public private(set) var data = Data()
 
+    /// Creates a new, empty collection of unknown fields.
     public init() {}
 
+    /// Appends more raw protobuf binary-encoded bytes to the unknown fields.
+    ///
+    /// - Parameter protobufData: The binary-encoded bytes to append.
     package mutating func append(protobufData: Data) {
         data.append(protobufData)
     }
 
+    /// Traverses the unknown fields, giving the visitor a chance to process the raw bytes.
+    ///
+    /// If any unknown-field bytes are present, this calls ``Visitor/visitUnknown(bytes:)``
+    /// with them.
+    ///
+    /// - Parameter visitor: The ``Visitor`` that receives the unknown-field bytes.
+    /// - Throws: An error if the visitor throws while processing the bytes.
     public func traverse<V: Visitor>(visitor: inout V) throws {
         if !data.isEmpty {
             try visitor.visitUnknown(bytes: data)

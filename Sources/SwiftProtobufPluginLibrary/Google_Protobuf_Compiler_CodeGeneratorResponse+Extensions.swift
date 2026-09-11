@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `CodeGeneratorResponse` provide some simple helpers.
-///
+//
+// Extensions to `CodeGeneratorResponse` provide some simple helpers.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse {

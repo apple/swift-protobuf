@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helpers for info about the SwiftProtobuf library itself.
-///
+//
+// Helpers for info about the SwiftProtobuf library itself.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -35,13 +35,13 @@ public enum SwiftProtobufInfo {
         "google/protobuf/wrappers.proto",
     ]
 
-    /// Checks if a `Google_Protobuf_FileDescriptorProto` is a library bundled proto file.
+    /// Checks if a file descriptor proto is a library bundled proto file.
     @available(*, deprecated, message: "Use the version that takes a FileDescriptor instead.")
     public static func isBundledProto(file: Google_Protobuf_FileDescriptorProto) -> Bool {
         file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
     }
 
-    /// Checks if a `FileDescriptor` is a library bundled proto file.
+    /// Checks if a file descriptor is a library bundled proto file.
     public static func isBundledProto(file: FileDescriptor) -> Bool {
         file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
     }

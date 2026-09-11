@@ -1,18 +1,19 @@
 # Using the Swift Package Manager plugin
 
-The Swift Package Manager introduced new plugin capabilities in Swift 5.6, enabling the extension of
-the build process with custom build tools. Learn how to use the SwiftProtobuf plugin for the
-Swift Package Manager.
+Extend your build process by using the SwiftProtobuf plugin for the Swift Package Manager.
 
 ## Overview
 
+The Swift Package Manager introduced plugin capabilities in Swift 5.6 that let you extend
+the build process with custom build tools.
+
 > Warning: Due to limitations of binary executable discovery with Xcode we only recommend using the Swift Package Manager
-plugin in leaf packages. For more information, read the `Defining the path to the protoc binary` section of
+plugin in leaf packages. For more information, read the [Overriding the path to the protoc binary](#Overriding-the-path-to-the-protoc-binary) section of
 this article.
 
 The plugin works by running the system installed `protoc` compiler with the `protoc-gen-swift` plugin
-for specified `.proto` files in your targets source folder. Furthermore, the plugin allows defining a
-configuration file which will be used to customize the invocation of `protoc`.
+for specified `.proto` files in your targets source folder. Furthermore, the plugin allows you to define a
+configuration file that customizes the invocation of `protoc`.
 
 ### Installing the protoc compiler
 
@@ -20,7 +21,7 @@ First, you must ensure that you have the `protoc` compiler installed.
 There are multiple ways to do this. Some of the easiest are:
 
 1. If you are on macOS, installing it via `brew install protobuf`
-2. Download the binary from [Google's github repository](https://github.com/protocolbuffers/protobuf).
+2. Download the binary from [Google's GitHub repository](https://github.com/protocolbuffers/protobuf).
 
 ### Adding the plugin to your manifest
 
@@ -33,7 +34,7 @@ let package = Package(
   products: [...],
   dependencies: [
     ...
-    .package(url: "https://github.com/apple/swift-protobuf", from: "2.0.0"),
+    .package(url: "https://github.com/apple/swift-protobuf", from: "1.27.0"),
     ...
   ],
   targets: [
@@ -51,9 +52,9 @@ let package = Package(
 
 ### Configuring the plugin
 
-Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your target's sources.
+You configure the plugin by adding a `swift-protobuf-config.json` file anywhere in your target's sources.
 Before you start configuring the plugin, you need to add the `.proto` files to your sources. You should also commit these
-files to your git repository since the generated types are now generated on demand.
+files to your Git repository since the plugin now generates the types on demand.
 It's also important to note that the proto files in your configuration should be in
 the same directory as the config file. Let's see an example to have a better understanding.
 
@@ -76,7 +77,7 @@ So, the configuration file would look something like this:
     "invocations": [
         {
             "protoFiles": [
-                "Foo.proto",
+                "Foo.proto"
             ],
             "visibility": "internal",
             "implementationOnlyImports": true
@@ -93,27 +94,27 @@ So, the configuration file would look something like this:
 
 ```
 As you can see in the above configuration, the paths are relative with respect to the `ProtoBuf` folder and not the root folder.
-If you add a file in the `Sources` folder, the plugin would be unable to access it as the path is computed relative to
+If you add a file in the `Sources` folder, the plugin would be unable to access it because it computes the path relative to
 the `swift-protobuf-config.json` file.
 
-> Note: paths to your `.proto` files will have to include the relative path from the config file directory to the `.proto` file location.
+> Note: paths to your `.proto` files have to include the relative path from the config file directory to the `.proto` file location.
 > Files **must** be contained within the same directory as the config file.
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
 is generating Swift types for the `Foo.proto` file with `internal` visibility. The second invocation
 is generating Swift types for the `Bar.proto` file with the `public` visibility. Furthermore, the second
-invocation is using the `pathToUnderscores` file naming option. This option can be used to solve
+invocation is using the `pathToUnderscores` file naming option. You can use this option to solve
 problems where a single target contains two or more proto files with the same name.
 
 ### Overriding the path to the protoc binary
 
 The plugin needs to be able to invoke the `protoc` binary to generate the Swift types.
-By default the plugin will use the latest `protoc` binary distributed as an
+By default the plugin uses the latest `protoc` binary distributed as an
 artifact bundle from the [swift-protobuf releases](https://github.com/apple/swift-protobuf/releases).
 
 There are several ways for you to override the path to the `protoc` binary.
 
-* Set an environment variable `PROTOC_PATH` that gets picked up by the plugin.
+* Set an environment variable `PROTOC_PATH` that the plugin picks up.
 Here are two examples of how you can achieve this:
 
 ```shell
@@ -127,8 +128,8 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xed .
 env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
 ```
 
-* Point the plugin to the concrete location of the `protoc` compiler is by changing
-the configuration file. This is only advisable for applications and not libaries
+* Point the plugin to the concrete location of the `protoc` compiler by changing
+the configuration file. This is only advisable for applications and not libraries
 since it forces the user of the library to install `protoc` into the expected location.
 
 ```json
@@ -140,8 +141,8 @@ since it forces the user of the library to install `protoc` into the expected lo
 
 ### Known Issues
 
-- The configuration file _must not_ be excluded from the list of sources for the
+- You must not exclude the configuration file from the list of sources for the
   target in the package manifest (that is, it should not be present in the
   `exclude` argument for the target). The build system does not have access to
-  the file if it is excluded, however, `swift build` will result in a warning
-  that the file should be excluded.
+  the file if you exclude it; however, `swift build` results in a warning
+  saying you should exclude the file.

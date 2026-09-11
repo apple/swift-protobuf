@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the basic interface for writing a CodeGenerator.
-///
+//
+// This provides the basic interface for writing a CodeGenerator.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -20,23 +20,22 @@ import SwiftProtobuf
 public protocol CodeGenerator {
     init()
 
-    /// Generates code for the given proto files.
+    /// Generates code for the proto files you provide.
     ///
     /// - Parameters:
     ///   - files: The list of .proto files to generate for.
-    ///   - parameter: The parameter (or paramenters) passed for the generator.
-    ///       This is for parameters specific to this generator,
-    ///       `parse(parameter:)` (below) can be used to split back out
-    ///       multiple parameters into the combined for the protocol buffer
-    ///       compiler uses.
+    ///   - parameter: The parameter (or parameters) protoc passes to the
+    ///       generator. This is for parameters specific to this generator;
+    ///       use `parse(parameter:)` (below) to split the combined string
+    ///       protoc uses back out into individual parameters.
     ///   - protoCompilerContext: Context information about the protocol buffer
-    ///       compiler being used.
-    ///   - generatorOutputs: A object that can be used to send back the
-    ///       generated outputs.
+    ///       compiler that's running this generator.
+    ///   - generatorOutputs: An object you use to send back the generated
+    ///       outputs.
     ///
-    /// - Throws: Can throw any `Error` to fail generate. `String(describing:)`
-    ///       will be called on the error to provide the error string reported
-    ///       to the user attempting to generate sources.
+    /// - Throws: Can throw any `Error` to fail generate. The plugin harness
+    ///       calls `String(describing:)` on the error to build the error
+    ///       string it reports to the user attempting to generate sources.
     func generate(
         files: [FileDescriptor],
         parameter: any CodeGeneratorParameter,
@@ -44,41 +43,47 @@ public protocol CodeGenerator {
         generatorOutputs: any GeneratorOutputs
     ) throws
 
-    /// The list of features this CodeGenerator support to be reported back to
-    /// the protocol buffer compiler.
+    /// The list of features this CodeGenerator reports back to the protocol
+    /// buffer compiler.
     var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] { get }
 
-    /// The Protobuf Edition range that this generator can handle. Attempting
-    /// to generate for an Edition outside this range will cause protoc to
-    /// error.
+    /// The Protobuf Edition range that this generator can handle.
+    ///
+    /// Attempting to generate for an Edition outside this range will cause
+    /// protoc to error.
     var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> { get }
 
-    /// A list of extensions that define Custom Options
-    /// (https://protobuf.dev/programming-guides/proto2/#customoptions) for this generator so
-    /// they will be exposed on the `Descriptor` options.
+    /// A list of extensions that define Custom Options for this generator.
+    ///
+    /// See https://protobuf.dev/programming-guides/proto2/#customoptions.
+    /// The library exposes these on the `Descriptor` options.
     var customOptionExtensions: [any AnyMessageExtension] { get }
 
-    /// If provided, the argument parsing will support `--version` and report
-    /// this value.
+    /// If you provide this, argument parsing supports --version and reports
+    /// it.
     var version: String? { get }
 
-    /// If provided and `printHelp` isn't provide, this value will be including in
-    /// default output for the `--help` output.
+    /// The project URL to show in the default help output.
+    ///
+    /// This is used only if you provide it and haven't overridden `printHelp`;
+    /// it appears in the default `--help` output.
     var projectURL: String? { get }
 
-    /// If provided and `printHelp` isn't provide, this value will be including in
-    /// default output for the `--help` output.
+    /// The copyright line to show in the default help output.
+    ///
+    /// This is used only if you provide it and haven't overridden `printHelp`;
+    /// it appears in the default `--help` output.
     var copyrightLine: String? { get }
 
-    /// Will be called for `-h` or `--help`, should `print()` out whatever is
-    /// desired; there is a default implementation that uses the above info
-    /// when provided.
+    /// The plugin harness calls this for -h or --help; implement it to print
+    /// whatever you want. There's a default implementation that uses the
+    /// info above when you provide it.
     func printHelp()
 }
 
 extension CommandLine {
-    /// Get the command-line arguments passed to this process in a non mutable
-    /// form. Idea from https://github.com/swiftlang/swift/issues/66213
+    /// Gets the command-line arguments the OS passed to this process, in an
+    /// immutable form. Idea from https://github.com/swiftlang/swift/issues/66213
     ///
     /// - Returns: An array of command-line arguments.
     fileprivate static let safeArguments: [String] =
@@ -95,8 +100,9 @@ extension CodeGenerator {
         return String(name)
     }
 
-    /// Runs as a protocol buffer compiler plugin based on the given arguments
-    /// or falls back to `CommandLine.arguments`.
+    /// Runs as a protocol buffer compiler plugin based on the arguments you provide.
+    ///
+    /// Falls back to `CommandLine.arguments` when you pass nil.
     public func main(_ args: [String]?) {
         let args = args ?? Array(CommandLine.safeArguments.dropFirst())
 
@@ -173,16 +179,29 @@ extension CodeGenerator {
 // Provide default implementation for things so `CodeGenerator`s only have to
 // provide them if they wish too.
 extension CodeGenerator {
+    /// The default edition range, which claims support for no editions until a generator overrides
+    /// it.
     public var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
         // Default impl of unknown so generator don't have to provide this until
         // they support editions.
         Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
     }
+
+    /// The default list of custom option extensions, which is empty until a generator overrides
+    /// it.
     public var customOptionExtensions: [any AnyMessageExtension] { [] }
+
+    /// The default version string, which is absent until a generator overrides it.
     public var version: String? { nil }
+
+    /// The default project URL, which is absent until a generator overrides it.
     public var projectURL: String? { nil }
+
+    /// The default copyright line, which is absent until a generator overrides it.
     public var copyrightLine: String? { nil }
 
+    /// Prints default help text built from the version, project URL, and copyright line you
+    /// provide.
     public func printHelp() {
         print("\(programName): A plugin for protoc and should not normally be run directly.")
         if let copyright = copyrightLine {
@@ -201,17 +220,17 @@ extension CodeGenerator {
     }
 }
 
-/// Uses the given `Google_Protobuf_Compiler_CodeGeneratorRequest` and
-/// `CodeGenerator` to get code generated and create the
-/// `Google_Protobuf_Compiler_CodeGeneratorResponse`. If there is a failure,
-/// the failure will be used in the response to be returned to the protocol
-/// buffer compiler to then be reported.
+/// Uses the request and code generator you provide to generate code and
+/// create the response.
+///
+/// If generation fails, this function records the failure in the response
+/// it returns so the protocol buffer compiler can report it.
 ///
 /// - Parameters:
-///   - request: The request proto as generated by the protocol buffer compiler.
+///   - request: The request proto that the protocol buffer compiler generates.
 ///   - generator: The `CodeGenerator` to use for generation.
 ///
-/// - Returns a filled out response with the success or failure of the
+/// - Returns: A response describing the success or failure of the
 ///    generation.
 public func generateCode(
     request: Google_Protobuf_Compiler_CodeGeneratorRequest,

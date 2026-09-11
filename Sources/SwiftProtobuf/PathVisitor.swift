@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Visitor which captures a pair of paths and their values.
-///
+//
+// Visitor which captures a pair of paths and their values.
+//
 // -----------------------------------------------------------------------------
 
 #if FieldMaskUtilities

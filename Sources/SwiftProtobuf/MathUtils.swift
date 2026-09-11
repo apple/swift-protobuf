@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Generally useful mathematical and arithmetic functions.
-///
+//
+// Generally useful mathematical and arithmetic functions.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

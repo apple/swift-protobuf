@@ -7,18 +7,19 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Enum constants that identify the particular error.
-///
+//
+// Enum constants that identify the particular error.
+//
 // -----------------------------------------------------------------------------
 
-/// Describes errors that can occur when decoding a message from binary format.
+/// The errors that can occur when encoding a message to binary format.
 public enum BinaryEncodingError: Error, Hashable {
-    /// An unexpected failure when deserializing a ``Google_Protobuf_Any``.
+    /// An unexpected failure when deserializing an Any message.
     case anyTranscodeFailure
     /// The definition of the message or one of its nested messages has required
-    /// fields but the message being encoded did not include values for them. You
-    /// must pass `partial: true` during encoding if you wish to explicitly ignore
+    /// fields that the message you're encoding didn't include values for.
+    ///
+    /// Pass `partial: true` during encoding if you want to explicitly ignore
     /// missing required fields.
     case missingRequiredFields
 }

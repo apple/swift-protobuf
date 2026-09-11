@@ -7,11 +7,11 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// In this way, the generated code only knows about schema
-/// information; the decoder logic knows how to decode particular
-/// wire types based on that information.
-///
+//
+// In this way, the generated code only knows about schema
+// information; the decoder logic knows how to decode particular
+// wire types based on that information.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -20,7 +20,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// Abstract protocol used by the generated code
+/// Abstract protocol that generated code uses
 /// to deserialize data.
 ///
 /// The generated code looks roughly like this:
@@ -59,124 +59,125 @@ import Foundation
 /// polluting the generated `Enum` and `Message` types with all of the
 /// necessary generic methods to support this.
 public protocol Decoder {
-    /// Called by a `oneof` when it already has a value and is being asked to
-    /// accept a new value. Some formats require `oneof` decoding to fail in this
-    /// case.
+    /// Called when generated code tries to decode a new value into a oneof
+    /// field that already has a value.
+    ///
+    /// Some formats require oneof decoding to fail in this case.
     mutating func handleConflictingOneOf() throws
 
-    /// Returns the next field number, or nil when the end of the input is
-    /// reached.
+    /// Returns the next field number, or nil once the decoder reaches the end
+    /// of the input.
     ///
     /// For JSON and text format, the decoder translates the field name to a
     /// number at this point, based on information it obtained from the message
-    /// when it was initialized.
+    /// at initialization.
     mutating func nextFieldNumber() throws -> Int?
 
-    /// Decode a float value to non-`Optional` field storage
+    /// Decode a float value to non-Optional field storage
     mutating func decodeSingularFloatField(value: inout Float) throws
-    /// Decode a float value to `Optional` field storage
+    /// Decode a float value to Optional field storage
     mutating func decodeSingularFloatField(value: inout Float?) throws
     /// Decode float values to repeated field storage
     mutating func decodeRepeatedFloatField(value: inout [Float]) throws
-    /// Decode a double value to non-`Optional` field storage
+    /// Decode a double value to non-Optional field storage
     mutating func decodeSingularDoubleField(value: inout Double) throws
-    /// Decode a double value to `Optional` field storage
+    /// Decode a double value to Optional field storage
     mutating func decodeSingularDoubleField(value: inout Double?) throws
     /// Decode double values to repeated field storage
     mutating func decodeRepeatedDoubleField(value: inout [Double]) throws
-    /// Decode an int32 value to non-`Optional` field storage
+    /// Decode an int32 value to non-Optional field storage
     mutating func decodeSingularInt32Field(value: inout Int32) throws
-    /// Decode an int32 value to `Optional` field storage
+    /// Decode an int32 value to Optional field storage
     mutating func decodeSingularInt32Field(value: inout Int32?) throws
     /// Decode int32 values to repeated field storage
     mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws
-    /// Decode an int64 value to non-`Optional` field storage
+    /// Decode an int64 value to non-Optional field storage
     mutating func decodeSingularInt64Field(value: inout Int64) throws
-    /// Decode an int64 value to `Optional` field storage
+    /// Decode an int64 value to Optional field storage
     mutating func decodeSingularInt64Field(value: inout Int64?) throws
     /// Decode int64 values to repeated field storage
     mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws
-    /// Decode a uint32 value to non-`Optional` field storage
+    /// Decode a uint32 value to non-Optional field storage
     mutating func decodeSingularUInt32Field(value: inout UInt32) throws
-    /// Decode a uint32 value to `Optional` field storage
+    /// Decode a uint32 value to Optional field storage
     mutating func decodeSingularUInt32Field(value: inout UInt32?) throws
     /// Decode uint32 values to repeated field storage
     mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws
-    /// Decode a uint64 value to non-`Optional` field storage
+    /// Decode a uint64 value to non-Optional field storage
     mutating func decodeSingularUInt64Field(value: inout UInt64) throws
-    /// Decode a uint64 value to `Optional` field storage
+    /// Decode a uint64 value to Optional field storage
     mutating func decodeSingularUInt64Field(value: inout UInt64?) throws
     /// Decode uint64 values to repeated field storage
     mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws
-    /// Decode an sint32 value to non-`Optional` field storage
+    /// Decode an sint32 value to non-Optional field storage
     mutating func decodeSingularSInt32Field(value: inout Int32) throws
-    /// Decode an sint32 value to `Optional` field storage
+    /// Decode an sint32 value to Optional field storage
     mutating func decodeSingularSInt32Field(value: inout Int32?) throws
     /// Decode sint32 values to repeated field storage
     mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws
-    /// Decode an sint64 value to non-`Optional` field storage
+    /// Decode an sint64 value to non-Optional field storage
     mutating func decodeSingularSInt64Field(value: inout Int64) throws
-    /// Decode an sint64 value to `Optional` field storage
+    /// Decode an sint64 value to Optional field storage
     mutating func decodeSingularSInt64Field(value: inout Int64?) throws
     /// Decode sint64 values to repeated field storage
     mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws
-    /// Decode a fixed32 value to non-`Optional` field storage
+    /// Decode a fixed32 value to non-Optional field storage
     mutating func decodeSingularFixed32Field(value: inout UInt32) throws
-    /// Decode a fixed32 value to `Optional` field storage
+    /// Decode a fixed32 value to Optional field storage
     mutating func decodeSingularFixed32Field(value: inout UInt32?) throws
     /// Decode fixed32 values to repeated field storage
     mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws
-    /// Decode a fixed64 value to non-`Optional` field storage
+    /// Decode a fixed64 value to non-Optional field storage
     mutating func decodeSingularFixed64Field(value: inout UInt64) throws
-    /// Decode a fixed64 value to `Optional` field storage
+    /// Decode a fixed64 value to Optional field storage
     mutating func decodeSingularFixed64Field(value: inout UInt64?) throws
     /// Decode fixed64 values to repeated field storage
     mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws
-    /// Decode an sfixed32 value to non-`Optional` field storage
+    /// Decode an sfixed32 value to non-Optional field storage
     mutating func decodeSingularSFixed32Field(value: inout Int32) throws
-    /// Decode an sfixed32 value to `Optional` field storage
+    /// Decode an sfixed32 value to Optional field storage
     mutating func decodeSingularSFixed32Field(value: inout Int32?) throws
     /// Decode sfixed32 values to repeated field storage
     mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws
-    /// Decode an sfixed64 value to non-`Optional` field storage
+    /// Decode an sfixed64 value to non-Optional field storage
     mutating func decodeSingularSFixed64Field(value: inout Int64) throws
-    /// Decode an sfixed64 value to `Optional` field storage
+    /// Decode an sfixed64 value to Optional field storage
     mutating func decodeSingularSFixed64Field(value: inout Int64?) throws
     /// Decode sfixed64 values to repeated field storage
     mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws
-    /// Decode a bool value to non-`Optional` field storage
+    /// Decode a bool value to non-Optional field storage
     mutating func decodeSingularBoolField(value: inout Bool) throws
-    /// Decode a bool value to `Optional` field storage
+    /// Decode a bool value to Optional field storage
     mutating func decodeSingularBoolField(value: inout Bool?) throws
     /// Decode bool values to repeated field storage
     mutating func decodeRepeatedBoolField(value: inout [Bool]) throws
-    /// Decode a string value to non-`Optional` field storage
+    /// Decode a string value to non-Optional field storage
     mutating func decodeSingularStringField(value: inout String) throws
-    /// Decode a string value to `Optional` field storage
+    /// Decode a string value to Optional field storage
     mutating func decodeSingularStringField(value: inout String?) throws
     /// Decode string values to repeated field storage
     mutating func decodeRepeatedStringField(value: inout [String]) throws
-    /// Decode a bytes value to non-`Optional` field storage
+    /// Decode a bytes value to non-Optional field storage
     mutating func decodeSingularBytesField(value: inout Data) throws
-    /// Decode a bytes value to `Optional` field storage
+    /// Decode a bytes value to Optional field storage
     mutating func decodeSingularBytesField(value: inout Data?) throws
     /// Decode bytes values to repeated field storage
     mutating func decodeRepeatedBytesField(value: inout [Data]) throws
 
     // Decode Enum fields
 
-    /// Decode an enum value to non-`Optional` field storage
+    /// Decode an enum value to non-Optional field storage
     mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int
-    /// Decode an enum value to `Optional` field storage
+    /// Decode an enum value to Optional field storage
     mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int
     /// Decode enum values to repeated field storage
     mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int
 
     // Decode Message fields
 
-    /// Decode a message value to `Optional` field storage.
+    /// Decode a message value to Optional field storage.
     ///
-    /// Unlike the primitive types, message fields are always stored
+    /// Unlike the primitive types, generated code always stores message fields
     /// as Swift `Optional` values.
     mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws
     /// Decode message values to repeated field storage
@@ -184,11 +185,11 @@ public protocol Decoder {
 
     // Decode Group fields
 
-    /// Decode a group value to `Optional` field storage.
+    /// Decode a group value to Optional field storage.
     ///
-    /// Unlike the primitive types, message fields are always stored
+    /// Unlike the primitive types, generated code always stores message fields
     /// as Swift `Optional` values.
-    /// Note that groups are only used in proto2.
+    /// Note that only proto2 uses groups.
     mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws
     /// Decode group values to repeated field storage
     mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws
@@ -234,6 +235,19 @@ public protocol Decoder {
 /// format, so provide a default implementation simply looping on the
 /// fieldNumbers and feeding through to extension decoding.
 extension Decoder {
+    /// Decodes proto2 extension fields encoded in the legacy MessageSet wire format into the values you provide.
+    ///
+    /// This default implementation loops over the remaining field numbers and
+    /// feeds each one through ``Decoder/decodeExtensionField(values:messageType:fieldNumber:)``.
+    /// A decoder overrides this method only when it needs to interpret the
+    /// `MessageSet` group/message layout itself, rather than treating it as a
+    /// regular sequence of fields.
+    ///
+    /// - Parameters:
+    ///   - values: The set of decoded extension field values to update.
+    ///   - messageType: The message type that owns the extensions, used to look up
+    ///     matching extension fields.
+    /// - Throws: An error if decoding any extension field fails.
     public mutating func decodeExtensionFieldsAsMessageSet(
         values: inout ExtensionFieldValueSet,
         messageType: any Message.Type

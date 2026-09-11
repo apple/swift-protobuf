@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Field numbers needed by SwiftProtobufPluginLibrary since they currently aren't generated.
-///
+//
+// Field numbers that SwiftProtobufPluginLibrary needs because protoc doesn't currently generate them.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation

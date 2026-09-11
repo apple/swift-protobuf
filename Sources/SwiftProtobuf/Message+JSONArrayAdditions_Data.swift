@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `Array` to support JSON encoding/decoding.
-///
+//
+// Extensions to `Array` to support JSON encoding/decoding.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -20,12 +20,10 @@ import Foundation
 
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {
-    /// Creates a new array of messages by decoding the given `Data`
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON data you provide.
     ///
-    /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
-    ///   as UTF-8 encoded text.
+    /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, as UTF-8
+    ///   encoded text.
     /// - Parameter options: The JSONDecodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
@@ -39,12 +37,10 @@ extension Message {
         )
     }
 
-    /// Creates a new array of messages by decoding the given `Data`
-    /// containing a serialized array of messages in JSON format, interpreting the data as
-    /// UTF-8 encoded text.
+    /// Creates an array of messages by decoding the UTF-8 encoded JSON data you provide, looking up extensions in the extension map you supply.
     ///
-    /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
-    ///   as UTF-8 encoded text.
+    /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, as UTF-8
+    ///   encoded text.
     /// - Parameter extensions: The extension map to use with this decode
     /// - Parameter options: The JSONDecodingOptions to use.
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
@@ -60,10 +56,10 @@ extension Message {
         )
     }
 
-    /// Returns a Data containing the UTF-8 JSON serialization of the messages.
+    /// Returns the UTF-8 JSON serialization of the messages as data.
     ///
-    /// Unlike binary encoding, presence of required fields is not enforced when
-    /// serializing to JSON.
+    /// Unlike binary encoding, serializing to JSON doesn't enforce the presence
+    /// of required fields.
     ///
     /// - Returns: A Data containing the JSON serialization of the messages.
     /// - Parameters:

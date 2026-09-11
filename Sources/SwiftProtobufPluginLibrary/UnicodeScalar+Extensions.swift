@@ -7,13 +7,14 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Internal utility functions and properties for working with UnicodeScalars.
-///
-/// NOTE: This is a purely internal extension that provides the limited
-/// functionality needed to manipulate ASCII characters that are represented as
-/// UnicodeScalars. It does not support the full range of Unicode code points.
-///
+//
+// Internal utility functions and properties for working with UnicodeScalars.
+//
+// NOTE: This is a purely internal extension that provides the limited
+// functionality needed to manipulate ASCII characters that this extension
+// represents as UnicodeScalars. It does not support the full range of
+// Unicode code points.
+//
 // -----------------------------------------------------------------------------
 
 extension UnicodeScalar {

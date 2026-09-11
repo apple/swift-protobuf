@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Types related to binary encoded tags (field numbers and wire formats).
-///
+//
+// Types related to binary encoded tags (field numbers and wire formats).
+//
 // -----------------------------------------------------------------------------
 
 /// Encapsulates the number and wire format of a field, which together form the
@@ -17,10 +17,12 @@
 ///
 /// This type also validates tags in that it will never allow a tag with an
 /// improper field number (such as zero) or wire format (such as 6 or 7) to
-/// exist. In other words, a `FieldTag`'s properties never need to be tested
-/// for validity because they are guaranteed correct at initialization time.
+/// exist. In other words, callers never need to test a `FieldTag`'s
+/// properties for validity because the initializer guarantees they are
+/// correct.
 package struct FieldTag: RawRepresentable {
 
+    /// The underlying raw type that backs a field tag.
     package typealias RawValue = UInt32
 
     /// The raw numeric value of the tag, which contains both the field number and
@@ -49,7 +51,7 @@ package struct FieldTag: RawRepresentable {
 
     /// Creates a new tag from its raw numeric representation.
     ///
-    /// Note that if the raw value given here is not a valid tag (for example, it
+    /// Note that if the raw value you provide is not a valid tag (for example, it
     /// has an invalid wire format), this initializer will fail.
     package init?(rawValue: UInt32) {
         // Verify that the field number and wire format are valid and fail if they
@@ -62,7 +64,7 @@ package struct FieldTag: RawRepresentable {
         self.rawValue = rawValue
     }
 
-    /// Creates a new tag by composing the given field number and wire format.
+    /// Creates a new tag by composing the field number and wire format you provide.
     package init(fieldNumber: Int, wireFormat: WireFormat) {
         self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 | UInt32(wireFormat.rawValue)
     }

@@ -1,4 +1,4 @@
 # Conformance
 
-Test program for use with Google's Protobuf Conformance suite.
+Test program for use with Google's protobuf conformance suite.
 

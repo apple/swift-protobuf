@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Hashing is basically a serialization problem, so we can leverage the
-/// generated traversal methods for that.
-///
+//
+// Hashing is basically a serialization problem, so we can leverage the
+// generated traversal methods for that.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

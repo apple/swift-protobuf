@@ -5,15 +5,15 @@
 **Welcome to Swift Protobuf!**
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
-complement to [Google's Protocol Buffer](https://protobuf.dev/)
+complement to [Google's Protocol Buffers](https://protobuf.dev/)
 ("protobuf") serialization technology.
 They both emphasize high performance and programmer safety.
 
 This project provides both the command-line program that adds Swift
 code generation to Google's `protoc` and the runtime library that is
 necessary for using the generated code.
-After using the protoc plugin to generate Swift code from your .proto
-files, you will need to add this library to your project.
+After using the `protoc` plugin to generate Swift code from your .proto
+files, you need to add this library to your project.
 
 [![Build and Test](https://github.com/apple/swift-protobuf/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/apple/swift-protobuf/actions/workflows/build.yml)
 [![Check Upstream Protos](https://github.com/apple/swift-protobuf/actions/workflows/check_upstream_protos.yml/badge.svg?branch=main)](https://github.com/apple/swift-protobuf/actions/workflows/check_upstream_protos.yml)
@@ -51,7 +51,7 @@ systems:
 
 Best of all, you can take the same `.proto` file and generate
 Java, C++, Python, or Objective-C for use on other platforms. The
-generated code for those languages will use the exact same
+generated code for those languages uses the exact same
 serialization and deserialization conventions as SwiftProtobuf, making
 it easy to exchange serialized data in binary or JSON forms, with no
 additional effort on your part.
@@ -61,8 +61,8 @@ additional effort on your part.
 More information is available in the associated documentation:
 
  * [Google's protobuf documentation](https://protobuf.dev/)
-   provides general information about protocol buffers, the protoc compiler,
-   and how to use protocol buffers with C++, Java, and other languages.
+   provides general information about Protocol Buffers, the `protoc` compiler,
+   and how to use Protocol Buffers with C++, Java, and other languages.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
    plugin that adds Swift support to the `protoc` program
  * [API.md](Documentation/API.md) documents how to use the generated code.
@@ -80,32 +80,32 @@ More information is available in the associated documentation:
 
 If you've worked with Protocol Buffers before, adding Swift support is very
 simple: you just need to build the `protoc-gen-swift` program and copy it into
-your PATH.
-The `protoc` program will find and use it automatically, allowing you
+your `PATH`.
+The `protoc` program finds and uses it automatically, allowing you
 to build Swift sources for your proto files.
-You will also, of course, need to add the SwiftProtobuf runtime library to
+You also, of course, need to add the SwiftProtobuf runtime library to
 your project as explained below.
 
 ## System Requirements
 
-To use Swift with Protocol buffers, you'll need:
+To use Swift with Protocol Buffers, you'll need:
 
 * A Swift 6.1 or later compiler (or, if building with Xcode, Xcode 16.3 or later
   as required by the App Store). The Swift protobuf project is being developed
   and tested against the latest release version of Swift available from
   [Swift.org](https://swift.org)
 
-* Google's protoc compiler.  The Swift protoc plugin is being actively developed
+* Google's `protoc` compiler.  The Swift `protoc` plugin is being actively developed
   and tested against the latest protobuf sources. The SwiftProtobuf tests need a
-  version of protoc which supports the `swift_prefix` option (introduced in
-  protoc 3.2.0). It may work with earlier versions of protoc. You can get recent
+  version of `protoc` which supports the `swift_prefix` option (introduced in
+  `protoc` 3.2.0). It may work with earlier versions of `protoc`. You can get recent
   versions from
   [Google's github repository](https://github.com/protocolbuffers/protobuf).
 
 ## Building and Installing the Code Generator Plugin
 
-To translate `.proto` files into Swift, you will need both Google's
-protoc compiler and the SwiftProtobuf code generator plugin.
+To translate `.proto` files into Swift, you need both Google's
+`protoc` compiler and the SwiftProtobuf code generator plugin.
 
 Building the plugin should be simple on any supported Swift platform:
 
@@ -122,14 +122,14 @@ git tag -l
 ```
 
 Once you pick the version you will use, set your local state to match, and
-build the protoc plugin:
+build the `protoc` plugin:
 
 ```bash
 git checkout tags/[tag_name]
 swift build -c release
 ```
 
-This will create a binary called `protoc-gen-swift` in the `.build/release`
+This creates a binary called `protoc-gen-swift` in the `.build/release`
 directory.
 
 To install, just copy this one executable into a directory that is
@@ -147,7 +147,7 @@ If you prefer using [Homebrew](https://brew.sh):
 brew install swift-protobuf
 ```
 
-This will install `protoc` compiler and Swift code generator plugin.
+This installs `protoc` compiler and Swift code generator plugin.
 
 ## Converting .proto files into Swift
 
@@ -158,26 +158,26 @@ usual, using the `--swift_out=<directory>` option:
 protoc --swift_out=. my.proto
 ```
 
-The `protoc` program will automatically look for `protoc-gen-swift` in your
-`PATH` and use it.
+The `protoc` program automatically looks for `protoc-gen-swift` in your
+`PATH` and uses it.
 
-Each `.proto` input file will get translated to a corresponding `.pb.swift`
+Each `.proto` input file gets translated to a corresponding `.pb.swift`
 file in the output directory.
 
-More information about building and using `protoc-gen-swift` can be found
+Find more information about building and using `protoc-gen-swift`
 in the [detailed Plugin documentation](Documentation/PLUGIN.md).
 
 ## Adding the SwiftProtobuf library to your project...
 
 To use the generated code, you need to include the `SwiftProtobuf` library
-module in your project.  How you do this will vary depending on how
+module in your project.  How you do this varies depending on how
 you're building your project.  Note that in all cases, we strongly recommend
 that you use the version of the SwiftProtobuf library that corresponds to
 the version of `protoc-gen-swift` you used to generate the code.
 
 ### ...using `swift build`
 
-After copying the `.pb.swift` files into your project, you will need to add the
+After copying the `.pb.swift` files into your project, you need to add the
 [SwiftProtobuf library](https://github.com/apple/swift-protobuf) to your
 project to support the generated code.
 If you are using the Swift Package Manager, add a dependency to your
@@ -244,7 +244,7 @@ Then generate Swift code using:
 protoc --swift_out=. DataModel.proto
 ```
 
-The generated code will expose a Swift property for
+The generated code exposes a Swift property for
 each of the proto fields as well as a selection
 of serialization and deserialization capabilities:
 ```swift
@@ -301,7 +301,7 @@ At a minimum, please include:
 * The specific operating system and version (for example, "macOS 10.12.1" or
   "Ubuntu 16.10")
 * The version of Swift you have installed (from `swift --version`)
-* The version of the protoc compiler you are working with from
+* The version of the `protoc` compiler you are working with from
   `protoc --version`
 * The specific version of this source code (you can use `git log -1` to get the
   latest commit ID)

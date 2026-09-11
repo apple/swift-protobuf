@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A simple static object that provides information about the plugin.
-///
+//
+// A simple static object that provides information about the plugin.
+//
 // ----------------------------------------------------------------------------
 
 import SwiftProtobuf

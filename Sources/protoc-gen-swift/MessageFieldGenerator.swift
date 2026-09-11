@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This code mostly handles the complex mapping between proto types and
-/// the types provided by the Swift Protobuf Runtime.
-///
+//
+// This code mostly handles the complex mapping between proto types and
+// the types the Swift Protobuf Runtime provides.
+//
 // -----------------------------------------------------------------------------
 import Foundation
 import SwiftProtobuf

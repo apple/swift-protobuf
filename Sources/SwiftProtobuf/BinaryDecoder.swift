@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Protobuf binary format decoding engine.
-///
-/// This provides the Decoder interface that interacts directly
-/// with the generated code.
-///
+//
+// Protobuf binary format decoding engine.
+//
+// This provides the Decoder interface that interacts directly
+// with the generated code.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -1297,7 +1297,7 @@ internal struct BinaryDecoder: Decoder {
         p += length
     }
 
-    /// Private: Skip the body for the given tag.  If the given tag is
+    /// Private: Skip the body for the tag you provide.  If that tag is
     /// a group, it parses up through the corresponding group end.
     private mutating func skipOver(tag: FieldTag) throws {
         switch tag.wireFormat {
@@ -1351,8 +1351,8 @@ internal struct BinaryDecoder: Decoder {
 
     /// Private: Skip to the end of the current field.
     ///
-    /// Assumes that fieldStartP was bookmarked by a previous
-    /// call to getTagType().
+    /// Assumes a previous call to getTagType() bookmarked
+    /// fieldStartP.
     ///
     /// On exit, fieldStartP points to the first byte of the tag, fieldEndP points
     /// to the first byte after the field contents, and p == fieldEndP.
@@ -1414,8 +1414,8 @@ internal struct BinaryDecoder: Decoder {
     }
 
     /// Private: Parse and validate the next tag without
-    /// bookmarking the start of the field.  This is used within
-    /// skip() to skip over fields within a group.
+    /// bookmarking the start of the field. `skip()` uses this
+    /// to skip over fields within a group.
     private mutating func getTagWithoutUpdatingFieldStart() throws -> FieldTag? {
         if available < 1 {
             return nil

@@ -187,8 +187,8 @@ extension Descriptor {
 
     /// Returns true if the file will need to import Foundation.
     ///
-    /// `bytes` fields are modeled as `Data`, that is currently the only reason
-    /// why the generated sources need to `import Foundation`.
+    /// The generator models `bytes` fields as `Data`, which is currently the
+    /// only reason the generated sources need to `import Foundation`.
     var needsFoundationImport: Bool {
         if fields.contains(where: { $0.type == .bytes }) {
             return true
@@ -249,18 +249,19 @@ extension Descriptor {
     /// contiguous (i.e. - [(21,30),(10,20)] -> [(10,30)])
     ///
     /// This also uses Range<> since the options that could be on
-    /// `extensionRanges` no longer can apply as the things have been merged.
+    /// `extensionRanges` no longer can apply once this merges the ranges.
     package var _normalizedExtensionRanges: [Range<Int32>] {
         self.messageExtensionRanges.map({ $0.start..<$0.end }).sortAndMergeContinuous()
     }
 
     /// The `extensionRanges` from `normalizedExtensionRanges`, but takes a step
-    /// further in that any ranges that do _not_ have any fields inbetween them
-    /// are also merged together. These can then be used in context where it is
-    /// ok to include field numbers that have to be extension or unknown fields.
+    /// further and also merges together any ranges that do _not_ have any
+    /// fields inbetween them. Callers can then use these in contexts where it
+    /// is ok to include field numbers that have to be extension or unknown
+    /// fields.
     ///
     /// This also uses Range<> since the options that could be on
-    /// `extensionRanges` no longer can apply as the things have been merged.
+    /// `extensionRanges` no longer can apply once this merges the ranges.
     package var _ambitiousExtensionRanges: [Range<Int32>] {
         var merged = self._normalizedExtensionRanges
         if merged.count > 1 {
@@ -416,8 +417,8 @@ extension FieldDescriptor {
         }
     }
 
-    /// Calculates the traits type used for maps and extensions, they
-    /// are used in decoding and visiting.
+    /// Calculates the traits type used for maps and extensions, which
+    /// decoding and visiting code use.
     func traitsType(namer: SwiftProtobufNamer) -> String {
         if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
             let keyTraits = keyField.traitsType(namer: namer)
