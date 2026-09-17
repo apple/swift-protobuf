@@ -115,7 +115,7 @@ extension Harness {
         try message.serializedBytes()
       }
       let message2 = try measureSubtask("Decode binary") {
-        return try PerfMessage(serializedData: data)
+        return try PerfMessage(serializedBytes: data)
       }
 
       // Exercise JSON serialization.
