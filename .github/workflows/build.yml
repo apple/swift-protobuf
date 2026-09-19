@@ -23,7 +23,7 @@ jobs:
         # Looking at https://hub.docker.com/_/swift, the version only tags (i.e. - 6.1)
         # could use different Ubuntu releases. At the moment they are all the "noble",
         # which is also what would be desired, so we don't bother listing explicit ones.
-        swift: &swift_versions ["6.3", "6.2", "6.1"]
+        swift: &swift_versions ["6.4", "6.3", "6.2", "6.1"]
         traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
 
         include:
