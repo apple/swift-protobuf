@@ -2293,7 +2293,11 @@ nonisolated struct SwiftProtoTesting_Names_FieldNames: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct SwiftProtoTesting_Names_MessageNames: Sendable {
@@ -8878,7 +8882,11 @@ nonisolated struct SwiftProtoTesting_Names_FieldNamingInitials: Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   nonisolated struct Uppers: Sendable {
@@ -9486,7 +9494,11 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// No special handling needed in the generator.
@@ -9517,7 +9529,11 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Extension support defined in unittest_swift_naming.proto.

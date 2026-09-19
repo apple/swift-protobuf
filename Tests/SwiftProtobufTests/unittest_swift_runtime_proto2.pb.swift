@@ -667,7 +667,11 @@ nonisolated struct SwiftProtoTesting_Message2: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct SwiftProtoTesting_Msg2NoStorage: Sendable {
@@ -699,7 +703,11 @@ nonisolated struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Names that match protocols - No Storage

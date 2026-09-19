@@ -984,7 +984,11 @@ nonisolated struct Proto2Unittest_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// This proto includes a recursively nested message.
@@ -1038,7 +1042,11 @@ nonisolated struct Proto2Unittest_NestedTestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestDeprecatedFields: @unchecked Sendable {
@@ -1105,7 +1113,11 @@ nonisolated struct Proto2Unittest_TestDeprecatedFields: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// NOTE: This message was marked as deprecated in the .proto file.
@@ -2148,7 +2160,11 @@ nonisolated struct Proto2Unittest_TestRequired: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestRequiredForeign: Sendable {
@@ -2255,7 +2271,11 @@ nonisolated struct Proto2Unittest_TestRequiredLazyMessage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestNestedRequiredForeign: @unchecked Sendable {
@@ -2331,7 +2351,11 @@ nonisolated struct Proto2Unittest_TestNestedRequiredForeign: @unchecked Sendable
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test that we can use NestedMessage from outside TestAllTypes.
@@ -2507,7 +2531,11 @@ nonisolated struct Proto2Unittest_TestRecursiveMessage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test that mutual recursion works.
@@ -2559,7 +2587,11 @@ nonisolated struct Proto2Unittest_TestMutualRecursionA: @unchecked Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   nonisolated struct SubGroup: @unchecked Sendable {
@@ -2590,7 +2622,11 @@ nonisolated struct Proto2Unittest_TestMutualRecursionA: @unchecked Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   nonisolated struct SubGroupR: Sendable {
@@ -2616,7 +2652,11 @@ nonisolated struct Proto2Unittest_TestMutualRecursionA: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestMutualRecursionB: @unchecked Sendable {
@@ -2646,7 +2686,11 @@ nonisolated struct Proto2Unittest_TestMutualRecursionB: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestIsInitialized: Sendable {
@@ -2927,7 +2971,11 @@ nonisolated struct Proto2Unittest_TestLazyRequiredEnum: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestLazyMessageRepeated: Sendable {
@@ -3540,7 +3588,11 @@ nonisolated struct Proto2Unittest_TestExtremeDefaultValues: @unchecked Sendable 
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_SparseEnumMessage: Sendable {
@@ -3928,7 +3980,11 @@ nonisolated struct Proto2Unittest_ManyOptionalString: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test int32, uint32, int64, uint64, and bool are all compatible
@@ -4494,7 +4550,11 @@ nonisolated struct Proto2Unittest_TestOneof2: Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   init() {}
@@ -5604,7 +5664,11 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbers: SwiftProtobuf.Extensible
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessage, Sendable {
@@ -6698,7 +6762,11 @@ nonisolated struct Proto2Unittest_TestVerifyBigFieldNumberUint32: Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   init() {}
@@ -7035,7 +7103,11 @@ nonisolated struct Proto2Unittest_EnumParseTester: SwiftProtobuf.ExtensibleMessa
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// This message contains different kind of bool fields to exercise the different
@@ -7285,7 +7357,11 @@ nonisolated struct Proto2Unittest_InlinedStringIdxRegressionProto: @unchecked Se
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_StringParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
@@ -7800,7 +7876,11 @@ nonisolated struct Proto2Unittest_TestMessageWithManyRepeatedPtrFields: @uncheck
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_MessageCreatorZeroInit: @unchecked Sendable {
@@ -7884,7 +7964,11 @@ nonisolated struct Proto2Unittest_MessageCreatorZeroInit: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_MessageCreatorMemcpy: @unchecked Sendable {
@@ -7924,7 +8008,11 @@ nonisolated struct Proto2Unittest_MessageCreatorMemcpy: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_MessageCreatorFunc: Sendable {
@@ -8352,7 +8440,11 @@ nonisolated struct Proto2Unittest_TestMessageForMove_Large: @unchecked Sendable 
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestAllTypesAsExtension: SwiftProtobuf.ExtensibleMessage, Sendable {

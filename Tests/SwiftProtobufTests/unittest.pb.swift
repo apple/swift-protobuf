@@ -709,7 +709,11 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// This proto includes a recursively nested message.
@@ -745,7 +749,11 @@ nonisolated struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -1167,7 +1175,11 @@ nonisolated struct SwiftProtoTesting_TestRequired: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct SwiftProtoTesting_TestRequiredForeign: Sendable {
@@ -1308,7 +1320,11 @@ nonisolated struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
@@ -1645,7 +1661,11 @@ nonisolated struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendab
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test oneofs.

@@ -188,7 +188,13 @@ class MessageGenerator {
                 if !isExtensible {
                     p.print()
                 }
-                p.print("\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance")
+                p.print(
+                    "#if compiler(>=6.2)",
+                    "\(storage.storageVisibility) var _storage = unsafe _StorageClass.defaultInstance",
+                    "#else",
+                    "\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance",
+                    "#endif"
+                )
             } else {
                 var subMessagePrinter = CodePrinter(p)
                 for f in fields {

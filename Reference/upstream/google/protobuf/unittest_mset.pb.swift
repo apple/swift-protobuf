@@ -96,7 +96,11 @@ nonisolated struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Send
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_NestedTestInt: @unchecked Sendable {
@@ -135,7 +139,11 @@ nonisolated struct Proto2Unittest_NestedTestInt: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct Proto2Unittest_TestMessageSetExtension1: Sendable {

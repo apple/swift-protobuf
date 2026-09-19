@@ -931,7 +931,11 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// This proto includes a recursively nested message.
@@ -985,7 +989,11 @@ nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
@@ -1052,7 +1060,11 @@ nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// NOTE: This message was marked as deprecated in the .proto file.
@@ -2057,7 +2069,11 @@ nonisolated struct EditionUnittest_TestRequired: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_TestRequiredForeign: Sendable {
@@ -2210,7 +2226,11 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Sendabl
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test that we can use NestedMessage from outside TestAllTypes.
@@ -2386,7 +2406,11 @@ nonisolated struct EditionUnittest_TestRecursiveMessage: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test that mutual recursion works.
@@ -2438,7 +2462,11 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   nonisolated struct SubGroup: @unchecked Sendable {
@@ -2469,7 +2497,11 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   nonisolated struct SubGroupR: Sendable {
@@ -2495,7 +2527,11 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_TestMutualRecursionB: @unchecked Sendable {
@@ -2525,7 +2561,11 @@ nonisolated struct EditionUnittest_TestMutualRecursionB: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_TestIsInitialized: Sendable {
@@ -3332,7 +3372,11 @@ nonisolated struct EditionUnittest_TestExtremeDefaultValues: @unchecked Sendable
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_SparseEnumMessage: Sendable {
@@ -3720,7 +3764,11 @@ nonisolated struct EditionUnittest_ManyOptionalString: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// Test int32, uint32, int64, uint64, and bool are all compatible
@@ -6329,7 +6377,11 @@ nonisolated struct EditionUnittest_TestVerifyBigFieldNumberUint32: Sendable {
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   init() {}
@@ -6667,7 +6719,11 @@ nonisolated struct EditionUnittest_EnumParseTester: SwiftProtobuf.ExtensibleMess
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 /// This message contains different kind of bool fields to exercise the different
@@ -6917,7 +6973,11 @@ nonisolated struct EditionUnittest_InlinedStringIdxRegressionProto: @unchecked S
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct EditionUnittest_StringParseTester: SwiftProtobuf.ExtensibleMessage, Sendable {
@@ -7401,7 +7461,11 @@ nonisolated struct EditionUnittest_TestMessageWithManyRepeatedPtrFields: @unchec
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 // MARK: - Extension support defined in edition_unittest.proto.

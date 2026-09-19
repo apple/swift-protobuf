@@ -831,7 +831,11 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftP
 
     init() {}
 
+    #if compiler(>=6.2)
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
+    #else
     fileprivate var _storage = _StorageClass.defaultInstance
+    #endif
   }
 
   /// groups
@@ -869,7 +873,11 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: SwiftP
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct ProtobufTestMessages_Editions_ForeignMessageEdition2023: Sendable {

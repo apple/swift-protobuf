@@ -710,7 +710,11 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Sendable {
 
   init() {}
 
+  #if compiler(>=6.2)
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
+  #else
   fileprivate var _storage = _StorageClass.defaultInstance
+  #endif
 }
 
 nonisolated struct FuzzUnittest_ForeignMessage: Sendable {
