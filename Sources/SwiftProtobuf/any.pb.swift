@@ -134,7 +134,7 @@ public nonisolated struct Google_Protobuf_Any: @unchecked Sendable {
 
   public init() {}
 
-  internal var _storage = _StorageClass.defaultInstance
+  internal var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

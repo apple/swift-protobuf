@@ -81,7 +81,7 @@ nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   nonisolated struct NestedMessage2: Sendable {
