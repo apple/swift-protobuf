@@ -432,7 +432,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendab
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto2NofieldpresenceUnittest_TestAllMapTypes: Sendable {
