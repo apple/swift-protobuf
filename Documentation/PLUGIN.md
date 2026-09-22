@@ -133,10 +133,17 @@ another proto file, those generated files might end up in different modules.
 This option allows you to specify that the code generated from the proto
 files will be distributed in multiple modules. This data is used during
 generation to then `import` the module and scope the types. This option
-takes the path of a file providing the mapping:
+takes the path of a file providing the mapping (multiple instances of this option
+can be provided to load and combine multiple mapping files):
 
 ```
 protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
+```
+
+Or with multiple mapping files:
+
+```
+protoc --swift_opt=ProtoPathModuleMappings=[path1.asciipb],ProtoPathModuleMappings=[path2.asciipb] --swift_out=. foo/bar/*.proto
 ```
 
 The format of that mapping file is defined in
