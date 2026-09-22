@@ -85,7 +85,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Foundation linkage test
     container:
-      image: swift:latest
+      # Looks like 6.4 is failing for some reason.
+      image: swift:6.3
+      #image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v6
@@ -153,7 +155,9 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release.
-      image: swift:latest
+      # Looks like 6.4 is failing for some reason.
+      image: swift:6.3
+      #image: swift:latest
     steps:
     - uses: actions/checkout@v6
 
