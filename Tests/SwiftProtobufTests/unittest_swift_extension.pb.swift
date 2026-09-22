@@ -175,7 +175,7 @@ nonisolated struct SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.Extens
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_swift_extension.proto.
