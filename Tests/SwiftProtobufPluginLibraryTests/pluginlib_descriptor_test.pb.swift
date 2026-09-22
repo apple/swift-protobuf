@@ -164,12 +164,12 @@ nonisolated struct SDTTopLevelMessage: @unchecked Sendable {
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct SDTTopLevelMessage2: @unchecked Sendable {
@@ -199,7 +199,7 @@ nonisolated struct SDTTopLevelMessage2: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct SDTExternalRefs: Sendable {
