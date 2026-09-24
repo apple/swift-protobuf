@@ -63,6 +63,51 @@ struct Main {
             msg.nestedEnumC = .first
             expect(msg.hasNestedEnumC)
             expect(msg.nestedEnumC == .first)
+
+            msg.mapC["key"] = msg.nestedC
+            expect(msg.mapC["key"]?.id == 12345)
+            let bytes = try! msg.serializedData()
+            let decoded = try! Test_MessageA(serializedBytes: bytes)
+            expect(decoded.mapC["key"]?.id == 12345)
+        }
+
+        do {
+            // This test ensures that when a map field whose value type is from
+            // an unlinked module (MessageB) is encountered in the payload,
+            // the map entry bytes are preserved into unknown fields and round-trip.
+            //
+            // Field 1 (title): "Hello" (tag 0x0A, len 5, "Hello")
+            // Field 4 (map_b): tag 0x22, len 9
+            //   Entry field 1 (key): tag 0x0A, len 3, "foo"
+            //   Entry field 2 (value): tag 0x12, len 2, [0x08, 0x2A] (id: 42)
+            let rawBytes = Data([
+                0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F,
+                0x22, 0x09,
+                0x0A, 0x03, 0x66, 0x6F, 0x6F,
+                0x12, 0x02, 0x08, 0x2A,
+            ])
+            let decoded = try! Test_MessageA(serializedBytes: rawBytes)
+            expect(decoded.hasTitle)
+            expect(decoded.title == "Hello")
+            // Re-serializing should preserve the exact original bytes including
+            // the `map_b` payload in unknown fields.
+            let reserialized = try! decoded.serializedData()
+            expect(reserialized == rawBytes)
+
+            // Copy-on-write test: mutating decoded message
+            var copy = decoded
+            copy.title = "World"
+            expect(copy.title == "World")
+            expect(decoded.title == "Hello")
+
+            let copyBytes = try! copy.serializedData()
+            let expectedCopyBytes = Data([
+                0x0A, 0x05, 0x57, 0x6F, 0x72, 0x6C, 0x64,
+                0x22, 0x09,
+                0x0A, 0x03, 0x66, 0x6F, 0x6F,
+                0x12, 0x02, 0x08, 0x2A,
+            ])
+            expect(copyBytes == expectedCopyBytes)
         }
 
         do {
@@ -159,8 +204,10 @@ struct Main {
         // Protobuf runtime support:
         //   HAS-SYMBOL: {{_?}}test_DMessageB_getMessageSchema
         //   HAS-SYMBOL: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
+        //   HAS-SYMBOL: {{_?}}test_DMessageB_getMapWitness
         //   HAS-SYMBOL: {{_?}}test_DEnumB_getEnumSchema
         //   HAS-SYMBOL: static ModuleB.Test_EnumB.enumSchema : SwiftProtobuf.EnumSchema
+        //   HAS-SYMBOL: {{_?}}test_DEnumB_getMapWitness
         //
         // Protocol conformance support:
         //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_MessageB : Swift.Hashable in ModuleB
