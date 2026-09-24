@@ -93,6 +93,12 @@ public func __test_DEnumB_getEnumSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.EnumSchema?).self).pointee = Test_EnumB.enumSchema
 }
 
+@_spi(ForGeneratedCodeOnly)
+@_cdecl("test_DEnumB_getMapWitness") @used
+public func __test_DEnumB_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_EnumB._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
+}
+
 nonisolated extension Test_MessageB: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{d}\0test.MessageB"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}P\u{4}\u{5}\u{1e}'\u{18}?\u{f}.\u{18}E\u{1}=\u{16}aL'\u{8}q\u{6}tz\u{17}P\u{1}\0"
@@ -107,4 +113,10 @@ nonisolated extension Test_MessageB: SwiftProtobuf.GeneratedMessage {
 @_cdecl("test_DMessageB_getMessageSchema") @used
 public func __test_DMessageB_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageB.messageSchema
+}
+
+@_spi(ForGeneratedCodeOnly)
+@_cdecl("test_DMessageB_getMapWitness") @used
+public func __test_DMessageB_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_MessageB._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }
