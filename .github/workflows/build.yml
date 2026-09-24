@@ -24,7 +24,7 @@ jobs:
         # which is also what would be desired, so we don't bother listing explicit ones.
         # TODO: Bring back 6.1, currently has a building error.
         #swift: ["6.3", "6.2", "6.1"]
-        swift: &swift_versions ["6.3", "6.2"]
+        swift: &swift_versions ["6.4", "6.3", "6.2"]
         traits: ["default", "disable-default-traits", "BinaryDelimitedStreams", "FieldMaskUtilities"]
 
         include:
@@ -86,7 +86,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Foundation linkage test
     container:
-      image: swift:latest
+      # Looks like 6.4 is failing for some reason.
+      image: swift:6.3
+      #image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v6
@@ -136,7 +138,9 @@ jobs:
            swiftpm_config: "debug"
     container:
       # Test on the latest Swift release.
-      image: swift:latest
+      # Looks like 6.4 is failing for some reason.
+      image: swift:6.3
+      #image: swift:latest
     steps:
     - uses: actions/checkout@v6
 
