@@ -38,6 +38,13 @@ package enum FieldPresence {
 
 /// References to submessage and enum schemas that are generated into the resolver function.
 package enum SubmessageOrEnumReference: Equatable, Hashable {
+    /// Describes the value type of a map field for weak schema resolution.
+    package enum MapValueKind: Equatable, Hashable {
+        case message(protoFullName: String)
+        case `enum`(protoFullName: String)
+        case other
+    }
+
     /// The field is a singular or repeated message or group type.
     ///
     /// The associated values are the full Swift name of that type and its full proto name.
@@ -50,9 +57,9 @@ package enum SubmessageOrEnumReference: Equatable, Hashable {
 
     /// The field is a map type.
     ///
-    /// The associated value is the name of the schema variable in the containing message that
-    /// represents the `MessageSchema` for the map entries.
-    case map(String)
+    /// The associated values are the name of the schema variable in the containing message that
+    /// represents the `MessageSchema` for the map entries, and the kind of value type in the map.
+    case map(schemaName: String, valueKind: MapValueKind)
 }
 
 /// Interface for field generators.
