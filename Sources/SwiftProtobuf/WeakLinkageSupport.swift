@@ -53,6 +53,71 @@ extension MessageSchema {
         return nil
         #endif
     }
+
+    /// Dynamically looks up a map witness function based on the name of a generated
+    /// accessor function.
+    ///
+    /// Returns nil if the symbol is not found (i.e., if it has been dropped by the
+    /// linker).
+    @_spi(ForGeneratedCodeOnly)
+    public static func resolveLazyMapWitness(
+        named symbolName: String,
+        keyKind: ProtobufMapKeyKind
+    ) -> InvokeWitnessFunction? {
+        // TODO: Put a cache around this.
+        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
+        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
+        typealias Resolver = @convention(c) (UInt8, UnsafeMutableRawPointer) -> Void
+        let resolver = unsafeBitCast(symbol, to: Resolver.self)
+        var witness: InvokeWitnessFunction? = nil
+        withUnsafeMutablePointer(to: &witness) { witnessPointer in
+            resolver(keyKind.rawValue, witnessPointer)
+        }
+        return witness
+        #else
+        return nil
+        #endif
+    }
+
+    /// Creates a message schema for a map entry with a lazily-resolved submessage value.
+    @_spi(ForGeneratedCodeOnly)
+    public static func forLazyMapEntry(
+        schema: StaticString,
+        keyKind: ProtobufMapKeyKind,
+        mapWitnessNamed witnessSymbol: String,
+        messageSchemaNamed schemaSymbol: String
+    ) -> MessageSchema? {
+        forMapEntry(
+            schema: schema,
+            invokeWitness: resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind),
+            submessageOrEnumResolver: { token in
+                guard token.index == 1 else {
+                    preconditionFailure("This should have been unreachable; this is a generator bug")
+                }
+                return resolveLazy(named: schemaSymbol).map(SubmessageOrEnumSchema.message)
+            }
+        )
+    }
+
+    /// Creates a message schema for a map entry with a lazily-resolved enum value.
+    @_spi(ForGeneratedCodeOnly)
+    public static func forLazyMapEntry(
+        schema: StaticString,
+        keyKind: ProtobufMapKeyKind,
+        mapWitnessNamed witnessSymbol: String,
+        enumSchemaNamed schemaSymbol: String
+    ) -> MessageSchema? {
+        forMapEntry(
+            schema: schema,
+            invokeWitness: resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind),
+            submessageOrEnumResolver: { token in
+                guard token.index == 1 else {
+                    preconditionFailure("This should have been unreachable; this is a generator bug")
+                }
+                return EnumSchema.resolveLazy(named: schemaSymbol).map(SubmessageOrEnumSchema.enum)
+            }
+        )
+    }
 }
 
 extension EnumSchema {

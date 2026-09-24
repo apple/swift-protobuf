@@ -38,11 +38,15 @@ struct MapEntryWorkingSpace {
     }
 
     /// Returns the `MessageStorage` used to encode/decode map entries with the given submessage/enum
-    /// index, creating it if necessary.
-    mutating func storage(for submessageOrEnumIndex: Int) -> MessageStorage {
+    /// index, creating it if necessary. Returns `nil` if the map entry schema cannot be resolved
+    /// (e.g. if the value type is a weak-imported message/enum that is not linked).
+    mutating func storage(for submessageOrEnumIndex: Int) -> MessageStorage? {
         // TODO: Sample this and see if it's a hot enough path that we should add the cache back.
         let token = SubmessageOrEnumToken(index: submessageOrEnumIndex)
-        guard case .message(let mapEntrySchema) = ownerSchema.submessageOrEnumResolver(token) else {
+        guard let resolved = ownerSchema.submessageOrEnumResolver(token) else {
+            return nil
+        }
+        guard case .message(let mapEntrySchema) = resolved else {
             preconditionFailure("map entry should have resolved to a message schema; this is a generator bug")
         }
         let storage = MessageStorage(schema: mapEntrySchema)

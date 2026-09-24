@@ -247,6 +247,22 @@ public struct MessageSchema: @unchecked Sendable {
         )
     }
 
+    /// Creates a new message schema for map entries using the given invoke witness and submessage/enum resolver.
+    @_spi(ForGeneratedCodeOnly)
+    public static func forMapEntry(
+        schema: StaticString,
+        invokeWitness: InvokeWitnessFunction?,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
+    ) -> MessageSchema? {
+        guard let invokeWitness else { return nil }
+        return MessageSchema(
+            schema: schema,
+            reflectionReference: .mapEntry,
+            invokeWitness: invokeWitness,
+            submessageOrEnumResolver: submessageOrEnumResolver
+        )
+    }
+
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is a message.
     @_spi(ForGeneratedCodeOnly)

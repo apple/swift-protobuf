@@ -54,6 +54,17 @@ extension ProtobufMapParticipant {
     }
 }
 
+/// An enumeration of the valid key types for protobuf maps.
+@_spi(ForGeneratedCodeOnly)
+public enum ProtobufMapKeyKind: UInt8, Sendable {
+    case bool = 1
+    case int32 = 2
+    case int64 = 3
+    case uint32 = 4
+    case uint64 = 5
+    case string = 6
+}
+
 /// Defines additional operations for proxy types that represent Swift types that can be used as
 /// the key of a protobuf map.
 @_spi(ForGeneratedCodeOnly) public protocol ProtobufMapKey: ProtobufMapParticipant where Base: Hashable {

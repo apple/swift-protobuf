@@ -149,14 +149,15 @@ extension MessageStorage {
                 // Insert the map entries from the source into the destination (overwriting any that
                 // have matching keys).
                 var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: self.schema)
-                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
-                source.forEachMapEntry(
-                    in: field,
-                    useDeterministicOrdering: false,
-                    workingSpace: workingSpace
-                ) { entry in
-                    self.insertMapEntry(in: field, from: entry)
-                    return .continue
+                if let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) {
+                    source.forEachMapEntry(
+                        in: field,
+                        useDeterministicOrdering: false,
+                        workingSpace: workingSpace
+                    ) { entry in
+                        self.insertMapEntry(in: field, from: entry)
+                        return .continue
+                    }
                 }
             }
 

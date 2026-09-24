@@ -317,7 +317,9 @@ extension MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) -> Int {
         var totalEntriesSize = 0
-        let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+        guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+            return 0
+        }
         forEachMapEntry(
             in: field,
             // Deterministic ordering doesn't matter when calculating the size.

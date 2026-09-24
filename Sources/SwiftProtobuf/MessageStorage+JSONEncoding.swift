@@ -130,7 +130,10 @@ extension MessageStorage {
             encoder.startObject()
 
             var firstItem = true
-            let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                encoder.endObject()
+                return
+            }
             try forEachMapEntry(
                 in: field,
                 useDeterministicOrdering: options.useDeterministicOrdering,
@@ -474,25 +477,26 @@ extension MessageStorage {
         if isPresent(fieldsField) {
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
             var firstItem = true
-            let workingSpace = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex)
-            try forEachMapEntry(
-                in: fieldsField,
-                useDeterministicOrdering: false,
-                workingSpace: workingSpace
-            ) { mapEntryStorage in
-                if !firstItem {
-                    encoder.comma()
+            if let workingSpace = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex) {
+                try forEachMapEntry(
+                    in: fieldsField,
+                    useDeterministicOrdering: false,
+                    workingSpace: workingSpace
+                ) { mapEntryStorage in
+                    if !firstItem {
+                        encoder.comma()
+                    }
+                    let mapEntrySchema = mapEntryStorage.schema
+                    try mapEntryStorage.emitAsMapKey(KnownField.mapEntryKey(in: mapEntrySchema), to: &encoder)
+                    encoder.append(text: ":")
+                    try mapEntryStorage.emitSingularValue(
+                        of: KnownField.mapEntryValue(in: mapEntrySchema),
+                        to: &encoder,
+                        options: options
+                    )
+                    firstItem = false
+                    return .continue
                 }
-                let mapEntrySchema = mapEntryStorage.schema
-                try mapEntryStorage.emitAsMapKey(KnownField.mapEntryKey(in: mapEntrySchema), to: &encoder)
-                encoder.append(text: ":")
-                try mapEntryStorage.emitSingularValue(
-                    of: KnownField.mapEntryValue(in: mapEntrySchema),
-                    to: &encoder,
-                    options: options
-                )
-                firstItem = false
-                return .continue
             }
         }
 

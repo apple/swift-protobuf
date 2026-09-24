@@ -1395,7 +1395,9 @@ extension MessageStorage {
                 }
                 switch field.fieldMode.cardinality {
                 case .map:
-                    let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                    guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                        continue
+                    }
                     var areAllInitialized = true
                     forEachMapEntry(in: field, useDeterministicOrdering: false, workingSpace: workingSpace) {
                         if !$0.isMessageInitializedRecursive {

@@ -236,16 +236,19 @@ extension MessageStorage {
             let slice = try reader.nextLengthDelimitedSlice()
             var success: Bool
             do {
-                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
-                var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
-                try workingSpace.merge(
-                    byReadingFrom: &subReader,
-                    extensions: extensions,
-                    options: options,
-                    isInitializedShallow: &isInitializedShallow
-                )
-                insertMapEntry(in: field, from: workingSpace)
-                success = true
+                if let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) {
+                    var subReader = WireFormatReader(buffer: slice, recursionBudget: reader.recursionBudget)
+                    try workingSpace.merge(
+                        byReadingFrom: &subReader,
+                        extensions: extensions,
+                        options: options,
+                        isInitializedShallow: &isInitializedShallow
+                    )
+                    insertMapEntry(in: field, from: workingSpace)
+                    success = true
+                } else {
+                    success = false
+                }
             } catch InternalBinaryDecodingError.unknownEnumValueInMapValue {
                 success = false
             }
