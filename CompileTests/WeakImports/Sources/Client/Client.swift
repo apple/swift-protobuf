@@ -199,7 +199,18 @@ struct Main {
         // explicitly so we can chip away at them as the work progresses but
         // keeping the tests passing in the current state. Later, we can replace
         // them with regular expressions to ensure that no symbols matching a
-        // particular pattern end up in the final linkage.
+        //
+        // Properties and initializers:
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.getter : Swift.Int32
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.setter : Swift.Int32
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.modify : Swift.Int32
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.getter : Swift.String
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.setter : Swift.String
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.modify : Swift.String
+        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.init() -> ModuleB.Test_MessageB
+        //   HAS-SYMBOL-NOT: static ModuleB.Test_EnumB.allCases.getter : [ModuleB.Test_EnumB]
+        //   HAS-SYMBOL-NOT: ModuleB.Test_EnumB.init() -> ModuleB.Test_EnumB
+        //   HAS-SYMBOL-NOT: ModuleB.Test_EnumB.init(rawValue: Swift.Int) -> ModuleB.Test_EnumB?
         //
         // Protobuf runtime support:
         //   HAS-SYMBOL: {{_?}}test_DMessageB_getMessageSchema
