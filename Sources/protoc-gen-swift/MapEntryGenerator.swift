@@ -76,6 +76,59 @@ class MapEntryGenerator {
         printer.print(
             #"private static let \#(entrySchemaName)_string: Swift.StaticString = "\#(entrySchemaCalculator.schemaLiteral)""#
         )
+        let keyDescriptor = descriptor.mapKeyAndValue!.key
+        let valueDescriptor = descriptor.mapKeyAndValue!.value
+
+        if generatorOptions.experimentalWeakImports {
+            let keyKind: String?
+            switch keyDescriptor.type {
+            case .bool: keyKind = ".bool"
+            case .int32, .sfixed32, .sint32: keyKind = ".int32"
+            case .int64, .sfixed64, .sint64: keyKind = ".int64"
+            case .uint32, .fixed32: keyKind = ".uint32"
+            case .uint64, .fixed64: keyKind = ".uint64"
+            case .string: keyKind = ".string"
+            default: keyKind = nil
+            }
+
+            if let keyKind {
+                switch valueDescriptor.type {
+                case .group, .message:
+                    let protoFullName = valueDescriptor.messageType!.fullName
+                    let witnessSymbol = namer.dynamicSymbolName(
+                        forProtoFullName: protoFullName,
+                        suffix: "_getMapWitness"
+                    )
+                    let schemaSymbol = namer.dynamicSymbolName(
+                        forProtoFullName: protoFullName,
+                        suffix: "_getMessageSchema"
+                    )
+                    printer.print(
+                        "private static let \(entrySchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(entrySchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", messageSchemaNamed: \"\(schemaSymbol)\")"
+                    )
+                    return
+
+                case .enum:
+                    let protoFullName = valueDescriptor.enumType!.fullName
+                    let witnessSymbol = namer.dynamicSymbolName(
+                        forProtoFullName: protoFullName,
+                        suffix: "_getMapWitness"
+                    )
+                    let schemaSymbol = namer.dynamicSymbolName(
+                        forProtoFullName: protoFullName,
+                        suffix: "_getEnumSchema"
+                    )
+                    printer.print(
+                        "private static let \(entrySchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(entrySchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", enumSchemaNamed: \"\(schemaSymbol)\")"
+                    )
+                    return
+
+                default:
+                    break
+                }
+            }
+        }
+
         printer.print(
             "private static let \(entrySchemaName) = SwiftProtobuf.MessageSchema(schema: \(entrySchemaName)_string, forMapEntryWithKeyType: \(keyParticipantType).self, valueType: \(valueParticipantType).self)"
         )

@@ -290,15 +290,15 @@ nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
     case 2: return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum)
     case 3: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
     case 4: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
-    case 5: return .message(_protobuf_mapEntrySchema_MapBEntry)
-    case 6: return .message(_protobuf_mapEntrySchema_MapCEntry)
+    case 5: return _protobuf_mapEntrySchema_MapBEntry.map(SwiftProtobuf.SubmessageOrEnumSchema.message)
+    case 6: return _protobuf_mapEntrySchema_MapCEntry.map(SwiftProtobuf.SubmessageOrEnumSchema.message)
     default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
     }
   }
   private static let _protobuf_mapEntrySchema_MapBEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{17}\0test.MessageA.MapBEntry"
-  private static let _protobuf_mapEntrySchema_MapBEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapBEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ModuleB.Test_MessageB>.self)
+  private static let _protobuf_mapEntrySchema_MapBEntry = SwiftProtobuf.MessageSchema.forLazyMapEntry(schema: _protobuf_mapEntrySchema_MapBEntry_string, keyKind: .string, mapWitnessNamed: "test_DMessageB_getMapWitness", messageSchemaNamed: "test_DMessageB_getMessageSchema")
   private static let _protobuf_mapEntrySchema_MapCEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{17}\0test.MessageA.MapCEntry"
-  private static let _protobuf_mapEntrySchema_MapCEntry = SwiftProtobuf.MessageSchema(schema: _protobuf_mapEntrySchema_MapCEntry_string, forMapEntryWithKeyType: ProtobufMapStringField.self, valueType: ProtobufMapMessageField<ModuleC.Test_MessageC>.self)
+  private static let _protobuf_mapEntrySchema_MapCEntry = SwiftProtobuf.MessageSchema.forLazyMapEntry(schema: _protobuf_mapEntrySchema_MapCEntry_string, keyKind: .string, mapWitnessNamed: "test_DMessageC_getMapWitness", messageSchemaNamed: "test_DMessageC_getMessageSchema")
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
@@ -308,4 +308,10 @@ nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
 @_cdecl("test_DMessageA_getMessageSchema") @used
 public func __test_DMessageA_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageA.messageSchema
+}
+
+@_spi(ForGeneratedCodeOnly)
+@_cdecl("test_DMessageA_getMapWitness") @used
+public func __test_DMessageA_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_MessageA._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }

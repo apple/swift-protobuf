@@ -67,7 +67,11 @@ extension MessageStorage {
         switch field.fieldMode.cardinality {
         case .map:
             try reader.consumePossibleArray { reader in
-                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                    throw reader.parsingError(
+                        reason: "Could not resolve schema for map entry field \(field.fieldNumber)"
+                    )
+                }
                 let mapEntrySchema = workingSpace.schema
                 try reader.withReaderForNextObject(expectedSchema: mapEntrySchema) { subReader in
                     try workingSpace.merge(byParsingTextFormatFrom: &subReader)

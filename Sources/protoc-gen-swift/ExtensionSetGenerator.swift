@@ -61,7 +61,7 @@ class ExtensionSetGenerator {
             case .message:
                 if descriptor.isMap {
                     let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
-                    submessageOrEnumReference = .map(entrySchemaName)
+                    submessageOrEnumReference = .map(schemaName: entrySchemaName, valueKind: .other)
                 } else {
                     let swiftSingularType = descriptor.swiftSingularType(namer: namer)
                     submessageOrEnumReference = .message(

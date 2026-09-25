@@ -97,7 +97,17 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         case .message:
             if descriptor.isMap {
                 let entrySchemaName = MapEntryGenerator.schemaName(for: descriptor.messageType!)
-                submessageOrEnumReference = .map(entrySchemaName)
+                let valueDescriptor = descriptor.messageType!.mapKeyAndValue!.value
+                let valueKind: SubmessageOrEnumReference.MapValueKind
+                switch valueDescriptor.type {
+                case .group, .message:
+                    valueKind = .message(protoFullName: valueDescriptor.messageType!.fullName)
+                case .enum:
+                    valueKind = .enum(protoFullName: valueDescriptor.enumType!.fullName)
+                default:
+                    valueKind = .other
+                }
+                submessageOrEnumReference = .map(schemaName: entrySchemaName, valueKind: valueKind)
             } else {
                 let swiftSingularType = descriptor.swiftSingularType(namer: namer)
                 submessageOrEnumReference = .message(

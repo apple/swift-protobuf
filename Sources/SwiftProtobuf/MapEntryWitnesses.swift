@@ -136,3 +136,47 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
         }
     }
 }
+
+extension GeneratedMessage {
+    @_spi(ForGeneratedCodeOnly)
+    public static func _protobuf_mapWitness(
+        for keyKind: ProtobufMapKeyKind
+    ) -> MessageSchema.InvokeWitnessFunction {
+        switch keyKind {
+        case .bool:
+            return MapEntryWitnesses<ProtobufMapBoolField, ProtobufMapMessageField<Self>>.perform
+        case .int32:
+            return MapEntryWitnesses<ProtobufMapInt32Field, ProtobufMapMessageField<Self>>.perform
+        case .int64:
+            return MapEntryWitnesses<ProtobufMapInt64Field, ProtobufMapMessageField<Self>>.perform
+        case .uint32:
+            return MapEntryWitnesses<ProtobufMapUInt32Field, ProtobufMapMessageField<Self>>.perform
+        case .uint64:
+            return MapEntryWitnesses<ProtobufMapUInt64Field, ProtobufMapMessageField<Self>>.perform
+        case .string:
+            return MapEntryWitnesses<ProtobufMapStringField, ProtobufMapMessageField<Self>>.perform
+        }
+    }
+}
+
+extension Enum {
+    @_spi(ForGeneratedCodeOnly)
+    public static func _protobuf_mapWitness(
+        for keyKind: ProtobufMapKeyKind
+    ) -> MessageSchema.InvokeWitnessFunction {
+        switch keyKind {
+        case .bool:
+            return MapEntryWitnesses<ProtobufMapBoolField, ProtobufMapEnumField<Self>>.perform
+        case .int32:
+            return MapEntryWitnesses<ProtobufMapInt32Field, ProtobufMapEnumField<Self>>.perform
+        case .int64:
+            return MapEntryWitnesses<ProtobufMapInt64Field, ProtobufMapEnumField<Self>>.perform
+        case .uint32:
+            return MapEntryWitnesses<ProtobufMapUInt32Field, ProtobufMapEnumField<Self>>.perform
+        case .uint64:
+            return MapEntryWitnesses<ProtobufMapUInt64Field, ProtobufMapEnumField<Self>>.perform
+        case .string:
+            return MapEntryWitnesses<ProtobufMapStringField, ProtobufMapEnumField<Self>>.perform
+        }
+    }
+}

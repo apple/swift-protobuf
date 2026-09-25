@@ -44,7 +44,11 @@ class MessageGenerator {
         self.generatorOptions = generatorOptions
         self.namer = namer
 
-        visibility = generatorOptions.visibilitySourceSnippet
+        if descriptor.fullName == "swift_protobuf.ImplicitWeakMessage" {
+            visibility = ""
+        } else {
+            visibility = generatorOptions.visibilitySourceSnippet
+        }
         swiftRelativeName = namer.relativeName(message: descriptor)
         swiftFullName = namer.fullName(message: descriptor)
 
@@ -154,12 +158,9 @@ class MessageGenerator {
         // copy-on-write behavior.
         conformances.append("@unchecked Swift.Sendable")
 
-        let spiSnippet =
-            (descriptor.fullName == "swift_protobuf.ImplicitWeakMessage" && generatorOptions.visibility == .public)
-            ? "@_spi(ForGeneratedCodeOnly)\n" : ""
         p.print(
             "",
-            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(spiSnippet)\(visibility)nonisolated struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
+            "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)nonisolated struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {"
         )
         p.withIndentation { p in
             p.print(
@@ -235,12 +236,21 @@ class MessageGenerator {
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMessageSchema"
             )
+            let mapWitnessSymbol = namer.dynamicSymbolName(
+                forProtoFullName: descriptor.fullName,
+                suffix: "_getMapWitness"
+            )
             let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
                 "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
                 "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = \(swiftFullName).messageSchema",
+                "}",
+                "",
+                "\(spiSnippet)@_cdecl(\"\(mapWitnessSymbol)\") @used",
+                "\(visibility)func __\(mapWitnessSymbol)(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {",
+                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
             )
         }
@@ -298,7 +308,7 @@ class MessageGenerator {
 
             // Generate map entry schemas, if any.
             for field in submessageOrEnumFields {
-                if case .map(let schemaName) = field.kind, let entryGenerator = mapEntries[schemaName] {
+                if case .map(let schemaName, _) = field.kind, let entryGenerator = mapEntries[schemaName] {
                     entryGenerator.generateSchema(into: &p)
                 }
             }
@@ -314,7 +324,7 @@ class MessageGenerator {
             p.print("case \(field.index): return .enum(\(swiftTypeName).enumSchema)")
         case .message(let swiftTypeName, _):
             p.print("case \(field.index): return .message(\(swiftTypeName).messageSchema)")
-        case .map(let schemaName):
+        case .map(let schemaName, _):
             p.print("case \(field.index): return .message(\(schemaName))")
         }
     }
@@ -334,9 +344,15 @@ class MessageGenerator {
             p.print(
                 "case \(field.index): return \(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
             )
-        case .map(let schemaName):
-            // TODO: Support lazy map entry schemas.
-            p.print("case \(field.index): return .message(\(schemaName))")
+        case .map(let schemaName, let valueKind):
+            switch valueKind {
+            case .message, .enum:
+                p.print(
+                    "case \(field.index): return \(schemaName).map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
+                )
+            case .other:
+                p.print("case \(field.index): return .message(\(schemaName))")
+            }
         }
     }
 

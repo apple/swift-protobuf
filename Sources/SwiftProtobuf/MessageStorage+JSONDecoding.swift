@@ -419,7 +419,9 @@ extension MessageStorage {
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         try reader.consumeObject { reader in
-            let submessageStorage = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            guard let submessageStorage = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                throw reader.parsingError(reason: "Could not resolve schema for map entry field \(field.fieldNumber)")
+            }
             let mapEntrySchema = submessageStorage.schema
 
             // The next value must be a double-quoted string, because map keys must always be
@@ -610,7 +612,9 @@ extension MessageStorage {
                 throw reader.parsingError(expected: "a string key")
             }
 
-            let submessageStorage = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex)
+            guard let submessageStorage = mapEntryWorkingSpace.storage(for: fieldsField.submessageIndex) else {
+                throw reader.parsingError(reason: "Could not resolve schema for struct fields")
+            }
             let mapEntrySchema = submessageStorage.schema
 
             try submessageStorage.scanSingularValue(

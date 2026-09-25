@@ -78,7 +78,9 @@ extension MessageStorage {
         let offset = schema.byteOffset(of: field)
         switch field.fieldMode.cardinality {
         case .map:
-            let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+            guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                return
+            }
             try forEachMapEntry(
                 in: field,
                 useDeterministicOrdering: options.useDeterministicOrdering,

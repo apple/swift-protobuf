@@ -48,7 +48,9 @@ extension MessageStorage {
 
             switch field.fieldMode.cardinality {
             case .map:
-                let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex)
+                guard let workingSpace = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
+                    continue
+                }
                 forEachMapEntry(
                     in: field,
                     useDeterministicOrdering: false,
