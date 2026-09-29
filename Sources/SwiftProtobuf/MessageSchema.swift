@@ -137,6 +137,12 @@ public struct MessageSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema?
 
+    @_spi(ForGeneratedCodeOnly)
+    public typealias DynamicLookupThunk = @convention(thin) (UnsafeMutableRawPointer) -> Void
+
+    @_spi(ForGeneratedCodeOnly)
+    public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
+
     let invokeWitness: InvokeWitnessFunction
 
     let submessageOrEnumResolver: SubmessageOrEnumResolver
@@ -197,7 +203,9 @@ public struct MessageSchema: @unchecked Sendable {
         schema: StaticString,
         reflection: StaticString,
         invokeWitness: @escaping InvokeWitnessFunction,
-        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
     ) {
         self.init(
             schema: schema,
@@ -206,7 +214,9 @@ public struct MessageSchema: @unchecked Sendable {
                 fieldCount: Self.fieldCount(from: schema.rawBufferPointer)
             ),
             invokeWitness: invokeWitness,
-            submessageOrEnumResolver: submessageOrEnumResolver
+            submessageOrEnumResolver: submessageOrEnumResolver,
+            dynamicLookupThunk: dynamicLookupThunk,
+            dynamicMapWitnessThunk: dynamicMapWitnessThunk
         )
     }
 
@@ -215,7 +225,13 @@ public struct MessageSchema: @unchecked Sendable {
     /// Schemas created with this initalizer must have no submessage fields because the invalid
     /// submessage operation placeholder will be used.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
+    public init(
+        schema: StaticString,
+        reflection: StaticString,
+        invokeWitness: @escaping InvokeWitnessFunction,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
+    ) {
         self.init(
             schema: schema,
             reflectionReference: .init(
@@ -225,7 +241,9 @@ public struct MessageSchema: @unchecked Sendable {
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
-            }
+            },
+            dynamicLookupThunk: dynamicLookupThunk,
+            dynamicMapWitnessThunk: dynamicMapWitnessThunk
         )
     }
 
@@ -310,7 +328,9 @@ public struct MessageSchema: @unchecked Sendable {
         schema: StaticString,
         reflectionReference: ReflectionTableReference,
         invokeWitness: @escaping InvokeWitnessFunction,
-        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
     ) {
         precondition(
             schema.hasPointerRepresentation,

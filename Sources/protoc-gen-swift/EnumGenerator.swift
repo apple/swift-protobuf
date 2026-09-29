@@ -122,9 +122,23 @@ class EnumGenerator {
                 #"private static let _protobuf_enumSchemaString: Swift.StaticString = "\#(enumSchemaCalculator.schemaLiteral)""#,
                 #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#
             )
-            p.print(
-                "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
-            )
+            if generatorOptions.experimentalWeakImports {
+                let getterSymbol = namer.dynamicSymbolName(
+                    forProtoFullName: enumDescriptor.fullName,
+                    suffix: "_getEnumSchema"
+                )
+                let mapWitnessSymbol = namer.dynamicSymbolName(
+                    forProtoFullName: enumDescriptor.fullName,
+                    suffix: "_getMapWitness"
+                )
+                p.print(
+                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform, dynamicLookupThunk: __\(getterSymbol), dynamicMapWitnessThunk: __\(mapWitnessSymbol))"
+                )
+            } else {
+                p.print(
+                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
+                )
+            }
         }
         p.print("}")
 
@@ -140,12 +154,12 @@ class EnumGenerator {
             let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
-                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
+                "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
                 "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = \(swiftFullName).enumSchema",
                 "}",
                 "",
-                "\(spiSnippet)@_cdecl(\"\(mapWitnessSymbol)\") @used",
+                "\(spiSnippet)@_silgen_name(\"\(mapWitnessSymbol)\")",
                 "\(visibility)func __\(mapWitnessSymbol)(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
