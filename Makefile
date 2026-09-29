@@ -289,10 +289,7 @@ compile-tests-weakimports:
 	@SWIFT_MAJOR=$$(${SWIFT} --version 2>/dev/null | sed -E -n 's/.*Swift version ([0-9]+)\.([0-9]+).*/\1/p' | head -n1); \
 	SWIFT_MINOR=$$(${SWIFT} --version 2>/dev/null | sed -E -n 's/.*Swift version ([0-9]+)\.([0-9]+).*/\2/p' | head -n1); \
 	if [ "$$SWIFT_MAJOR" -gt 6 ] 2>/dev/null || ([ "$$SWIFT_MAJOR" -eq 6 ] && [ "$$SWIFT_MINOR" -ge 3 ]) 2>/dev/null; then \
-		${SWIFT} run -c release --package-path CompileTests/WeakImports && \
-		/usr/bin/env python3 CompileTests/WeakImports/check_symbols.py \
-		  --binary CompileTests/WeakImports/.build/release/Client \
-		  --check-file CompileTests/WeakImports/Sources/Client/Client.swift; \
+		SWIFT="${SWIFT}" SWIFTC="${SWIFT}c" ./CompileTests/WeakImports/run_test.sh; \
 	fi
 
 

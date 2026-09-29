@@ -44,8 +44,7 @@ extension MessageSchema {
         // TODO: Put a cache around this.
         #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
         guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
-        typealias Resolver = @convention(c) (UnsafeMutableRawPointer) -> Void
-        let resolver = unsafeBitCast(symbol, to: Resolver.self)
+        let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
         var schema: MessageSchema? = nil
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema
@@ -67,8 +66,7 @@ extension MessageSchema {
         // TODO: Put a cache around this.
         #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
         guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
-        typealias Resolver = @convention(c) (UInt8, UnsafeMutableRawPointer) -> Void
-        let resolver = unsafeBitCast(symbol, to: Resolver.self)
+        let resolver = unsafeBitCast(symbol, to: DynamicMapWitnessThunk.self)
         var witness: InvokeWitnessFunction? = nil
         withUnsafeMutablePointer(to: &witness) { witnessPointer in
             resolver(keyKind.rawValue, witnessPointer)
@@ -131,8 +129,7 @@ extension EnumSchema {
         // TODO: Put a cache around this.
         #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
         guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
-        typealias Resolver = @convention(c) (UnsafeMutableRawPointer) -> Void
-        let resolver = unsafeBitCast(symbol, to: Resolver.self)
+        let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
         var schema: EnumSchema? = nil
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema

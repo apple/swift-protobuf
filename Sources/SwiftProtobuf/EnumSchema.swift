@@ -45,11 +45,23 @@ public struct EnumSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public typealias InvokeWitnessFunction = (EnumWitnessOperation) -> Void
 
+    @_spi(ForGeneratedCodeOnly)
+    public typealias DynamicLookupThunk = @convention(thin) (UnsafeMutableRawPointer) -> Void
+
+    @_spi(ForGeneratedCodeOnly)
+    public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
+
     let invokeWitness: InvokeWitnessFunction
 
     /// Creates a new enum schema from the given values.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, reflection: StaticString, invokeWitness: @escaping InvokeWitnessFunction) {
+    public init(
+        schema: StaticString,
+        reflection: StaticString,
+        invokeWitness: @escaping InvokeWitnessFunction,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
+    ) {
         self.schema = schema.rawBufferPointer
         self.reflection = .init(
             compressed: reflection.rawBufferPointer,

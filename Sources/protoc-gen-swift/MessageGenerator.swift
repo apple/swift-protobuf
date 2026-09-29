@@ -243,12 +243,12 @@ class MessageGenerator {
             let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
             p.print(
                 "",
-                "\(spiSnippet)@_cdecl(\"\(getterSymbol)\") @used",
+                "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
                 "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = \(swiftFullName).messageSchema",
                 "}",
                 "",
-                "\(spiSnippet)@_cdecl(\"\(mapWitnessSymbol)\") @used",
+                "\(spiSnippet)@_silgen_name(\"\(mapWitnessSymbol)\")",
                 "\(visibility)func __\(mapWitnessSymbol)(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
@@ -277,13 +277,26 @@ class MessageGenerator {
             newlines: false
         )
 
-        if submessageOrEnumFields.isEmpty {
-            // If there are no submessage or enum fields, we can use the initialize that defaults it
-            // to a trapping closure.
-            p.print(")")
-        } else {
-            // Otherwise, generate the resolver.
-            p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum)")
+        if !submessageOrEnumFields.isEmpty {
+            p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum", newlines: false)
+        }
+        if generatorOptions.experimentalWeakImports {
+            let getterSymbol = namer.dynamicSymbolName(
+                forProtoFullName: descriptor.fullName,
+                suffix: "_getMessageSchema"
+            )
+            let mapWitnessSymbol = namer.dynamicSymbolName(
+                forProtoFullName: descriptor.fullName,
+                suffix: "_getMapWitness"
+            )
+            p.print(
+                ", dynamicLookupThunk: __\(getterSymbol), dynamicMapWitnessThunk: __\(mapWitnessSymbol)",
+                newlines: false
+            )
+        }
+        p.print(")")
+
+        if !submessageOrEnumFields.isEmpty {
             p.print(
                 "",
                 "private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {"
