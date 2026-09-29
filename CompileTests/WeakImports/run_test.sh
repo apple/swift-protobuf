@@ -122,11 +122,34 @@ elif [ "$OS" = "Linux" ]; then
   )
 fi
 
+SWIFT_PROTOBUF_LIB="${SWIFT_BIN_DIR}/libSwiftProtobuf.a"
+if [ ! -f "${SWIFT_PROTOBUF_LIB}" ]; then
+  # SwiftPM with llbuild (such as Swift 6.3 on Linux) does not package automatic
+  # library products into static archives; it leaves object files loose in the
+  # target build directory. Package them into a static archive manually.
+  SWIFT_PROTOBUF_LIB="${BUILD_DIR}/libSwiftProtobuf.a"
+  SWIFT_PROTOBUF_OBJECTS=()
+  while IFS= read -r -d '' obj; do
+    SWIFT_PROTOBUF_OBJECTS+=("${obj}")
+  done < <(find "${SWIFT_BIN_DIR}" -path "*/SwiftProtobuf.build/*.o" -print0)
+  if [ ${#SWIFT_PROTOBUF_OBJECTS[@]} -eq 0 ]; then
+    while IFS= read -r -d '' obj; do
+      SWIFT_PROTOBUF_OBJECTS+=("${obj}")
+    done < <(find "${REPO_ROOT}/.build" -not -path "*/index-build/*" -path "*/SwiftProtobuf.build/*.o" -print0)
+  fi
+  if [ ${#SWIFT_PROTOBUF_OBJECTS[@]} -eq 0 ]; then
+    echo "error: Could not find SwiftProtobuf object files to create archive" >&2
+    exit 1
+  fi
+  ar cr "${SWIFT_PROTOBUF_LIB}" "${SWIFT_PROTOBUF_OBJECTS[@]}"
+  ranlib "${SWIFT_PROTOBUF_LIB}"
+fi
+
 LINK_LIBS=(
   "${BUILD_DIR}/libModuleA.a"
   "${BUILD_DIR}/libModuleB.a"
   "${BUILD_DIR}/libModuleC.a"
-  "${SWIFT_BIN_DIR}/libSwiftProtobuf.a"
+  "${SWIFT_PROTOBUF_LIB}"
 )
 
 "${SWIFTC}" "${BUILD_DIR}/Client.o" \
