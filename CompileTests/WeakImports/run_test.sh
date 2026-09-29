@@ -53,11 +53,19 @@ if [ "${SKIP_BUILD_RUNTIME}" = false ]; then
 fi
 SWIFT_BIN_DIR="$("${SWIFT}" build --package-path "${REPO_ROOT}" -c release --show-bin-path)"
 
+# SwiftPM with llbuild (such as Swift 6.3 on Linux) places .swiftmodule files in
+# a `Modules` subdirectory of the bin path, whereas SwiftBuild (Swift 6.4+ on
+# Linux, and Xcode build system on Darwin) places them directly in the bin path.
+SWIFT_INCLUDES=(-I "${SWIFT_BIN_DIR}")
+if [ -d "${SWIFT_BIN_DIR}/Modules" ]; then
+  SWIFT_INCLUDES+=(-I "${SWIFT_BIN_DIR}/Modules")
+fi
+
 echo "==> Compiling ModuleB..."
 "${SWIFTC}" -O -parse-as-library \
   -module-name ModuleB \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleB.swiftmodule" \
-  -I "${SWIFT_BIN_DIR}" \
+  "${SWIFT_INCLUDES[@]}" \
   -Xfrontend -internalize-at-link \
   -c "${SCRIPT_DIR}/Sources/ModuleB/b.pb.swift" \
   -o "${BUILD_DIR}/ModuleB.o"
@@ -68,7 +76,7 @@ echo "==> Compiling ModuleC..."
 "${SWIFTC}" -O -parse-as-library \
   -module-name ModuleC \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleC.swiftmodule" \
-  -I "${SWIFT_BIN_DIR}" \
+  "${SWIFT_INCLUDES[@]}" \
   -Xfrontend -internalize-at-link \
   -c "${SCRIPT_DIR}/Sources/ModuleC/c.pb.swift" \
   -o "${BUILD_DIR}/ModuleC.o"
@@ -79,7 +87,7 @@ echo "==> Compiling ModuleA..."
 "${SWIFTC}" -O -parse-as-library \
   -module-name ModuleA \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleA.swiftmodule" \
-  -I "${SWIFT_BIN_DIR}" \
+  "${SWIFT_INCLUDES[@]}" \
   -I "${BUILD_DIR}" \
   -Xfrontend -internalize-at-link \
   -c "${SCRIPT_DIR}/Sources/ModuleA/a.pb.swift" \
@@ -90,7 +98,7 @@ ranlib "${BUILD_DIR}/libModuleA.a"
 echo "==> Compiling Client..."
 "${SWIFTC}" -O -parse-as-library \
   -module-name Client \
-  -I "${SWIFT_BIN_DIR}" \
+  "${SWIFT_INCLUDES[@]}" \
   -I "${BUILD_DIR}" \
   -Xfrontend -internalize-at-link \
   -c "${SCRIPT_DIR}/Sources/Client/Client.swift" \
