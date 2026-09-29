@@ -84,17 +84,17 @@ public nonisolated struct Test_MessageB: @unchecked Swift.Sendable {
 nonisolated extension Test_EnumB {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{a}\0test.EnumB"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKdQ_z\u{12}1cz@\\\u{1a}\t\u{e}^Y~vvl<\u{6}x\"D\u{6}\u{12}a\u{7f}\u{10}.\u{8}Ndege@\u{14} In*\u{1b}_9\0"
-  public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+  public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform, dynamicLookupThunk: __test_DEnumB_getEnumSchema, dynamicMapWitnessThunk: __test_DEnumB_getMapWitness)
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_DEnumB_getEnumSchema") @used
+@_silgen_name("test_DEnumB_getEnumSchema")
 public func __test_DEnumB_getEnumSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.EnumSchema?).self).pointee = Test_EnumB.enumSchema
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_DEnumB_getMapWitness") @used
+@_silgen_name("test_DEnumB_getMapWitness")
 public func __test_DEnumB_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_EnumB._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }
@@ -103,20 +103,20 @@ nonisolated extension Test_MessageB: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{d}\0test.MessageB"
   private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}P\u{4}\u{5}\u{1e}'\u{18}?\u{f}.\u{18}E\u{1}=\u{16}aL'\u{8}q\u{6}tz\u{17}P\u{1}\0"
 
-  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, dynamicLookupThunk: __test_DMessageB_getMessageSchema, dynamicMapWitnessThunk: __test_DMessageB_getMapWitness)
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_DMessageB_getMessageSchema") @used
+@_silgen_name("test_DMessageB_getMessageSchema")
 public func __test_DMessageB_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageB.messageSchema
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_cdecl("test_DMessageB_getMapWitness") @used
+@_silgen_name("test_DMessageB_getMapWitness")
 public func __test_DMessageB_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_MessageB._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }
