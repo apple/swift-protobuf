@@ -44,18 +44,15 @@ def compile_pattern(pattern_str):
 
 def detect_binary_format(binary_path):
   """Detects whether a binary is Mach-O or ELF based on magic bytes or OS fallback."""
-  try:
-    with open(binary_path, "rb") as f:
-      magic = f.read(4)
-      if magic == b"\x7fELF":
-        return "ELF"
-      # Mach-O 32-bit/64-bit (little-endian & big-endian) and Fat binary
-      if magic in (b"\xfe\xed\xfa\xce", b"\xce\xfa\xed\xfe",
-                   b"\xfe\xed\xfa\xcf", b"\xcf\xfa\xed\xfe",
-                   b"\xca\xfe\xba\xbe", b"\xbe\xba\xfe\xca"):
-        return "MachO"
-  except Exception:
-    pass
+  with open(binary_path, "rb") as f:
+    magic = f.read(4)
+    if magic == b"\x7fELF":
+      return "ELF"
+    # Mach-O 32-bit/64-bit (little-endian & big-endian) and Fat binary
+    if magic in (b"\xfe\xed\xfa\xce", b"\xce\xfa\xed\xfe",
+                  b"\xfe\xed\xfa\xcf", b"\xcf\xfa\xed\xfe",
+                  b"\xca\xfe\xba\xbe", b"\xbe\xba\xfe\xca"):
+      return "MachO"
 
   import platform
   system = platform.system()
@@ -74,7 +71,7 @@ def normalize_format(name):
     return "MachO"
   if n in ("elf", "linux"):
     return "ELF"
-  return name.strip()
+  raise ValueError(f"Unknown object file format: '{name.strip()}'")
 
 
 def parse_check_file(check_file_path, binary_format):
