@@ -42,18 +42,74 @@ def compile_pattern(pattern_str):
   return re.compile(regex_str)
 
 
-def parse_check_file(check_file_path):
+def detect_binary_format(binary_path):
+  """Detects whether a binary is Mach-O or ELF based on magic bytes or OS fallback."""
+  try:
+    with open(binary_path, "rb") as f:
+      magic = f.read(4)
+      if magic == b"\x7fELF":
+        return "ELF"
+      # Mach-O 32-bit/64-bit (little-endian & big-endian) and Fat binary
+      if magic in (b"\xfe\xed\xfa\xce", b"\xce\xfa\xed\xfe",
+                   b"\xfe\xed\xfa\xcf", b"\xcf\xfa\xed\xfe",
+                   b"\xca\xfe\xba\xbe", b"\xbe\xba\xfe\xca"):
+        return "MachO"
+  except Exception:
+    pass
+
+  import platform
+  system = platform.system()
+  if system == "Darwin":
+    return "MachO"
+  elif system == "Linux":
+    return "ELF"
+  return "Unknown"
+
+
+def normalize_format(name):
+  if not name:
+    return None
+  n = name.strip().lower().replace("-", "")
+  if n in ("macho", "darwin", "apple"):
+    return "MachO"
+  if n in ("elf", "linux"):
+    return "ELF"
+  return name.strip()
+
+
+def parse_check_file(check_file_path, binary_format):
   """Extracts symbol match directives from the given file."""
   directives = []
-  directive_re = re.compile(r"//\s*(HAS-SYMBOL(?:-NOT)?):\s*(.*)$")
+  directive_re = re.compile(
+      r"//\s*(HAS-SYMBOL(?:-NOT)?)(?:\s*\[\s*([a-zA-Z0-9_\-]+)\s+only\s*\])?\s*:\s*(.*)$"
+  )
   with open(check_file_path, "r", encoding="utf-8") as f:
     for line_num, line in enumerate(f, start=1):
       line = line.strip()
       m = directive_re.search(line)
       if m:
         directive_type = m.group(1)
-        pattern_str = m.group(2).strip()
-        directives.append((line_num, directive_type, pattern_str, compile_pattern(pattern_str)))
+        format_cond = m.group(2)
+        pattern_str = m.group(3).strip()
+
+        display_directive = directive_type
+        effective_type = directive_type
+
+        if format_cond:
+          display_directive = f"{directive_type} [{format_cond} only]"
+          norm_cond = normalize_format(format_cond)
+          if binary_format == norm_cond:
+            effective_type = directive_type
+          else:
+            effective_type = "HAS-SYMBOL-NOT" if directive_type == "HAS-SYMBOL" else "HAS-SYMBOL"
+
+        directives.append((
+            line_num,
+            effective_type,
+            display_directive,
+            pattern_str,
+            compile_pattern(pattern_str),
+        ))
   return directives
 
 
@@ -110,17 +166,22 @@ def extract_demangled_symbols(binary_path):
 
 def main():
   parser = argparse.ArgumentParser(
-    description="Verify symbol presence/absence in a compiled binary."
+      description="Verify symbol presence/absence in a compiled binary."
   )
   parser.add_argument(
-    "--binary",
-    required=True,
-    help="Path to the compiled executable binary",
+      "--binary",
+      required=True,
+      help="Path to the compiled executable binary",
   )
   parser.add_argument(
-    "--check-file",
-    required=True,
-    help="Path to the Swift source file containing directives",
+      "--check-file",
+      required=True,
+      help="Path to the Swift source file containing directives",
+  )
+  parser.add_argument(
+      "--format",
+      choices=["MachO", "ELF"],
+      help="Explicitly specify the binary format (default: auto-detected from binary)",
   )
   args = parser.parse_args()
 
@@ -132,7 +193,8 @@ def main():
     sys.stderr.write(f"Error: Check source file '{args.check_file}' does not exist.\n")
     sys.exit(1)
 
-  directives = parse_check_file(args.check_file)
+  binary_format = args.format or detect_binary_format(args.binary)
+  directives = parse_check_file(args.check_file, binary_format)
   if not directives:
     print(f"Warning: No HAS-SYMBOL or HAS-SYMBOL-NOT directives found in '{args.check_file}'.")
     sys.exit(0)
@@ -140,26 +202,30 @@ def main():
   symbols = extract_demangled_symbols(args.binary)
 
   failed = False
-  print(f"Checking symbols in {args.binary} against {args.check_file}...")
+  print(f"Checking symbols in {args.binary} ({binary_format}) against {args.check_file}...")
 
   GREEN = "\033[32m"
   RED = "\033[31m"
   RESET = "\033[0m"
 
-  for line_num, directive_type, pattern_str, regex in directives:
+  for line_num, effective_type, display_directive, pattern_str, regex in directives:
     matching_symbols = [s for s in symbols if regex.search(s)]
 
-    if directive_type == "HAS-SYMBOL":
+    eval_str = display_directive
+    if display_directive != effective_type:
+      eval_str = f"{display_directive} (evaluating as {effective_type})"
+
+    if effective_type == "HAS-SYMBOL":
       if matching_symbols:
-        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: HAS-SYMBOL: {pattern_str}")
+        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: {eval_str}: {pattern_str}")
       else:
-        print(f"  {RED}[FAIL]{RESET} Line {line_num}: HAS-SYMBOL: {pattern_str} (expected symbol not found)")
+        print(f"  {RED}[FAIL]{RESET} Line {line_num}: {eval_str}: {pattern_str} (expected symbol not found)")
         failed = True
-    elif directive_type == "HAS-SYMBOL-NOT":
+    elif effective_type == "HAS-SYMBOL-NOT":
       if not matching_symbols:
-        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: HAS-SYMBOL-NOT: {pattern_str}")
+        print(f"  {GREEN}[PASS]{RESET} Line {line_num}: {eval_str}: {pattern_str}")
       else:
-        print(f"  {RED}[FAIL]{RESET} Line {line_num}: HAS-SYMBOL-NOT: {pattern_str} (unwanted symbol found: '{matching_symbols[0].strip()}')")
+        print(f"  {RED}[FAIL]{RESET} Line {line_num}: {eval_str}: {pattern_str} (unwanted symbol found: '{matching_symbols[0].strip()}')")
         failed = True
 
   if failed:

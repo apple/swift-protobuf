@@ -201,109 +201,109 @@ struct Main {
         // them with regular expressions to ensure that no symbols matching a
         //
         // Properties and initializers:
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.getter : Swift.Int32
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.setter : Swift.Int32
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.id.modify : Swift.Int32
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.getter : Swift.String
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.setter : Swift.String
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.detail.modify : Swift.String
-        //   HAS-SYMBOL-NOT: ModuleB.Test_MessageB.init() -> ModuleB.Test_MessageB
-        //   HAS-SYMBOL-NOT: static ModuleB.Test_EnumB.allCases.getter : [ModuleB.Test_EnumB]
-        //   HAS-SYMBOL-NOT: ModuleB.Test_EnumB.init() -> ModuleB.Test_EnumB
-        //   HAS-SYMBOL-NOT: ModuleB.Test_EnumB.init(rawValue: Swift.Int) -> ModuleB.Test_EnumB?
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.id.getter : Swift.Int32
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.id.setter : Swift.Int32
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.id.modify : Swift.Int32
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.detail.getter : Swift.String
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.detail.setter : Swift.String
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_MessageB.detail.modify : Swift.String
+        //   HAS-SYMBOL [ELF only]:   ModuleB.Test_MessageB.init() -> ModuleB.Test_MessageB
+        //   HAS-SYMBOL-NOT:          static ModuleB.Test_EnumB.allCases.getter : [ModuleB.Test_EnumB]
+        //   HAS-SYMBOL-NOT:          ModuleB.Test_EnumB.init() -> ModuleB.Test_EnumB
+        //   HAS-SYMBOL [ELF only]:   ModuleB.Test_EnumB.init(rawValue: Swift.Int) -> ModuleB.Test_EnumB?
         //
         // Protobuf runtime support:
-        //   HAS-SYMBOL: {{_?}}test_DMessageB_getMessageSchema
-        //   HAS-SYMBOL: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
-        //   HAS-SYMBOL: {{_?}}test_DMessageB_getMapWitness
-        //   HAS-SYMBOL: {{_?}}test_DEnumB_getEnumSchema
-        //   HAS-SYMBOL: static ModuleB.Test_EnumB.enumSchema : SwiftProtobuf.EnumSchema
-        //   HAS-SYMBOL: {{_?}}test_DEnumB_getMapWitness
+        //   HAS-SYMBOL [MachO only]: {{_?}}test_DMessageB_getMessageSchema
+        //   HAS-SYMBOL [MachO only]: static ModuleB.Test_MessageB.messageSchema : SwiftProtobuf.MessageSchema
+        //   HAS-SYMBOL [MachO only]: {{_?}}test_DMessageB_getMapWitness
+        //   HAS-SYMBOL [MachO only]: {{_?}}test_DEnumB_getEnumSchema
+        //   HAS-SYMBOL [MachO only]: static ModuleB.Test_EnumB.enumSchema : SwiftProtobuf.EnumSchema
+        //   HAS-SYMBOL [MachO only]: {{_?}}test_DEnumB_getMapWitness
         //
         // Protocol conformance support:
-        //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
-        //   HAS-SYMBOL: protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for static SwiftProtobuf.GeneratedMessage.messageSchema.getter : SwiftProtobuf.MessageSchema in conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: protocol witness for static SwiftProtobuf.Message.protoMessageName.getter : Swift.String in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Message.messageSchema.getter : SwiftProtobuf.MessageSchema in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Message._protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Message._protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> () in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Message.isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Message.init() -> A in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
-        //   HAS-SYMBOL: base witness table accessor for Swift.Equatable in ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: instantiation function for generic protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness for static Swift.CaseIterable.allCases.getter : A.AllCases in conformance ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
-        //   HAS-SYMBOL: protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: protocol witness for static SwiftProtobuf.Enum.enumSchema.getter : SwiftProtobuf.EnumSchema in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.rawValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.init(rawValue: Swift.Int) -> A? in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness for SwiftProtobuf.Enum.init() -> A in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.RawRepresentable.rawValue.getter : A.RawValue in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: protocol witness for Swift.RawRepresentable.init(rawValue: A.RawValue) -> A? in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
-        //   HAS-SYMBOL: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: base witness table accessor for Swift.Equatable in ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: instantiation function for generic protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
+        //   HAS-SYMBOL:              protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness table for ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.CustomDebugStringConvertible.debugDescription.getter : Swift.String in conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static SwiftProtobuf.GeneratedMessage.messageSchema.getter : SwiftProtobuf.MessageSchema in conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static SwiftProtobuf.Message.protoMessageName.getter : Swift.String in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Message.messageSchema.getter : SwiftProtobuf.MessageSchema in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Message._protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Message._protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> () in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Message.isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Message.init() -> A in conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
+        //   HAS-SYMBOL:              lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL:              lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.CustomDebugStringConvertible in ModuleB
+        //   HAS-SYMBOL:              lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL:              lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.GeneratedMessage in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_MessageB and conformance ModuleB.Test_MessageB : SwiftProtobuf.Message in ModuleB
+        //   HAS-SYMBOL [MachO only]: base witness table accessor for Swift.Equatable in ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: instantiation function for generic protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: metadata instantiation cache for protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol conformance descriptor for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness table for ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static Swift.CaseIterable.allCases.getter : A.AllCases in conformance ModuleB.Test_EnumB : Swift.CaseIterable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static Swift.Equatable.== infix(A, A) -> Swift.Bool in conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable._rawHashValue(seed: Swift.Int) -> Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable.hash(into: inout Swift.Hasher) -> () in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.Hashable.hashValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for static SwiftProtobuf.Enum.enumSchema.getter : SwiftProtobuf.EnumSchema in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Enum.rawValue.getter : Swift.Int in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Enum.init(rawValue: Swift.Int) -> A? in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for SwiftProtobuf.Enum.init() -> A in conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.RawRepresentable.rawValue.getter : A.RawValue in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: protocol witness for Swift.RawRepresentable.init(rawValue: A.RawValue) -> A? in conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table accessor for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Equatable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.Hashable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : Swift.RawRepresentable in ModuleB
+        //   HAS-SYMBOL [MachO only]: lazy protocol witness table cache variable for type ModuleB.Test_EnumB and conformance ModuleB.Test_EnumB : SwiftProtobuf.Enum in ModuleB
         //
         // Type metadata:
-        //   HAS-SYMBOL: full type metadata for ModuleB.Test_MessageB
-        //   HAS-SYMBOL: nominal type descriptor for ModuleB.Test_MessageB
-        //   HAS-SYMBOL: type metadata accessor for ModuleB.Test_MessageB
-        //   HAS-SYMBOL: type metadata for ModuleB.Test_MessageB
-        //   HAS-SYMBOL: full type metadata for ModuleB.Test_EnumB
-        //   HAS-SYMBOL: nominal type descriptor for ModuleB.Test_EnumB
-        //   HAS-SYMBOL: type metadata accessor for ModuleB.Test_EnumB
-        //   HAS-SYMBOL: type metadata for ModuleB.Test_EnumB
-        //   HAS-SYMBOL: value witness table for ModuleB.Test_EnumB
+        //   HAS-SYMBOL [MachO only]: full type metadata for ModuleB.Test_MessageB
+        //   HAS-SYMBOL:              nominal type descriptor for ModuleB.Test_MessageB
+        //   HAS-SYMBOL [MachO only]: type metadata accessor for ModuleB.Test_MessageB
+        //   HAS-SYMBOL:              type metadata for ModuleB.Test_MessageB
+        //   HAS-SYMBOL [MachO only]: full type metadata for ModuleB.Test_EnumB
+        //   HAS-SYMBOL:              nominal type descriptor for ModuleB.Test_EnumB
+        //   HAS-SYMBOL [MachO only]: type metadata accessor for ModuleB.Test_EnumB
+        //   HAS-SYMBOL [MachO only]: type metadata for ModuleB.Test_EnumB
+        //   HAS-SYMBOL [MachO only]: value witness table for ModuleB.Test_EnumB
 
         print("✅ All tests passed!")
     }
