@@ -76,6 +76,45 @@ nonisolated enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, Sw
 
 }
 
+/// NOTE: This enum was marked as deprecated in the .proto file.
+nonisolated enum ProtobufTestMessages_Proto3_DeprecatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+  case unspecified // = 0
+  case value1 // = 1
+  case value2 // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .value1
+    case 2: self = .value2
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .value1: return 1
+    case .value2: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Proto3_DeprecatedEnum] = [
+    .unspecified,
+    .value1,
+    .value2,
+  ]
+
+}
+
 /// This proto includes every type of field in both singular and repeated
 /// forms.
 ///
@@ -1176,6 +1215,10 @@ fileprivate nonisolated let _protobuf_package = "protobuf_test_messages.proto3"
 
 nonisolated extension ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
+}
+
+nonisolated extension ProtobufTestMessages_Proto3_DeprecatedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0DEPRECATED_ENUM_UNSPECIFIED\0\u{1}DEPRECATED_ENUM_VALUE1\0\u{1}DEPRECATED_ENUM_VALUE2\0")
 }
 
 nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

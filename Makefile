@@ -569,6 +569,7 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Sources/Conformance \
+	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
 		`find Protos/Sources/Conformance -type f -name "*.proto"`
