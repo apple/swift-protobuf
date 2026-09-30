@@ -196,8 +196,6 @@ test-runtime: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
-# json options are no longer locked to "unstable".
 test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf _test && mkdir -p _test/upstream
 	for p in `find \
@@ -219,7 +217,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
-		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
@@ -281,8 +279,6 @@ check-traits-FieldMaskUtilities:
 # Note: Some of the upstream protos define the same package.(message|enum)s, so
 # they can't be done in a single protoc/proto-gen-swift invoke and have to be
 # done one at a time instead.
-# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
-# json options are no longer locked to "unstable".
 reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf Reference && mkdir -p Reference/upstream
 	for p in `find \
@@ -304,7 +300,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=Reference/$$d \
-		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p Reference/Tests/protoc-gen-swiftTests/NonExhaustive
