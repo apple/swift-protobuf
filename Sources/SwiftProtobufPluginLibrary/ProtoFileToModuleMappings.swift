@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Helper handling proto file to module mappings.
-///
+//
+// Helper handling proto file to module mappings.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -19,17 +19,17 @@ private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {
 
-    /// Errors raised from parsing mappings
+    /// Errors that occur while parsing mappings
     public enum LoadError: Error, Equatable {
-        /// Raised if the path wasn't found.
+        /// The path doesn't exist.
         case failToOpen(path: String)
-        /// Raised if an mapping entry in the protobuf doesn't have a module name.
+        /// A mapping entry in the protobuf doesn't have a module name.
         /// mappingIndex is the index (0-N) of the mapping.
         case entryMissingModuleName(mappingIndex: Int)
-        /// Raised if an mapping entry in the protobuf doesn't have any proto files listed.
+        /// A mapping entry in the protobuf doesn't list any proto files.
         /// mappingIndex is the index (0-N) of the mapping.
         case entryHasNoProtoPaths(mappingIndex: Int)
-        /// The given proto path was listed for both modules.
+        /// Both modules list the proto path you provided.
         case duplicateProtoPathMapping(path: String, firstModule: String, secondModule: String)
     }
 
@@ -41,22 +41,25 @@ public struct ProtoFileToModuleMappings {
     /// A Boolean value that indicates that there were developer provided
     /// mappings.
     ///
-    /// Since `mappings` will have the bundled proto files also, this is used
-    /// to track whether there are any provided mappings.
+    /// Since `mappings` also includes the bundled proto files, this flag
+    /// tracks whether the caller provided any additional mappings.
     public let hasMappings: Bool
 
     /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
+    ///
     /// We expect to find the WKTs in the module named here.
     public let swiftProtobufModuleName: String
 
-    /// Loads and parses the given module mapping from disk.  Raises LoadError
-    /// or TextFormatDecodingError.
+    /// Loads and parses the module mapping from disk.
+    ///
+    /// Raises LoadError or TextFormatDecodingError.
     public init(path: String) throws {
         try self.init(path: path, swiftProtobufModuleName: nil)
     }
 
-    /// Loads and parses the given module mapping from disk.  Raises LoadError
-    /// or TextFormatDecodingError.
+    /// Loads and parses the module mapping from disk.
+    ///
+    /// Raises LoadError or TextFormatDecodingError.
     public init(path: String, swiftProtobufModuleName: String?) throws {
         let content: String
         do {
@@ -69,12 +72,16 @@ public struct ProtoFileToModuleMappings {
         try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
-    /// Parses the given module mapping.  Raises LoadError.
+    /// Parses the module mapping you provide.
+    ///
+    /// Raises LoadError.
     public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
         try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
     }
 
-    /// Parses the given module mapping.  Raises LoadError.
+    /// Parses the module mapping you provide.
+    ///
+    /// Raises LoadError.
     public init(
         moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings,
         swiftProtobufModuleName: String?
@@ -108,10 +115,12 @@ public struct ProtoFileToModuleMappings {
         self.hasMappings = initialCount != builder.count
     }
 
+    /// Creates an empty set of module mappings.
     public init() {
         try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
     }
 
+    /// Creates an empty set of module mappings, using the SwiftProtobuf module name you provide.
     public init(swiftProtobufModuleName: String?) {
         try! self.init(
             moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(),
@@ -119,13 +128,13 @@ public struct ProtoFileToModuleMappings {
         )
     }
 
-    /// Looks up the module a given file is in.
+    /// Looks up the module for the file you provide.
     public func moduleName(forFile file: FileDescriptor) -> String? {
         mappings[file.name]
     }
 
-    /// Returns the list of modules that need to be imported for a given file based on
-    /// the dependencies it has.
+    /// Returns the list of modules that the file you provide needs to import,
+    /// based on its dependencies.
     public func neededModules(forFile file: FileDescriptor) -> [String]? {
         guard hasMappings else { return nil }
         if file.dependencies.isEmpty {

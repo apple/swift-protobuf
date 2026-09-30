@@ -7,9 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A base for Visitors that only expect a subset of things to called.
-///
+//
+// A base for Visitors that expect generated code to call only a subset of
+// visit methods.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -18,7 +19,8 @@ import FoundationEssentials
 import Foundation
 #endif
 
-/// A base for Visitors that only expects a subset of things to called.
+/// A base for Visitors that expect generated code to call only a subset of
+/// visit methods.
 internal protocol SelectiveVisitor: Visitor {
     // Adds nothing.
 }
@@ -28,7 +30,7 @@ internal protocol SelectiveVisitor: Visitor {
 /// nothing in release to keep code size small.
 ///
 /// NOTE: This is an impl for *everything*. This means the default impls
-/// provided by Visitor to bridge packed->repeated, repeated->singular, etc
+/// that Visitor provides to bridge packed->repeated, repeated->singular, etc
 /// won't kick in.
 extension SelectiveVisitor {
     internal mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {

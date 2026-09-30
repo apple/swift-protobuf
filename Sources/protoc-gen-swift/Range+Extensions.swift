@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `Range` that provide Swift-generation-specific
-/// functionality.
-///
+//
+// Extensions to `Range` that provide Swift-generation-specific
+// functionality.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -19,8 +19,8 @@ import SwiftProtobufPluginLibrary
 
 extension Range where Bound == Int32 {
 
-    /// A `String` containing the Swift expression that represents this range to
-    /// be used in a `case` statement.
+    /// A `String` containing the Swift expression that represents this range,
+    /// for use in a `case` statement.
     var swiftCaseExpression: String {
         if lowerBound == upperBound - 1 {
             return "\(lowerBound)"

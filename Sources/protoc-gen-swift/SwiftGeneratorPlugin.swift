@@ -7,13 +7,13 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A protoc plugin is a code generator that accepts a protobuf-encoded
-/// request on stdin and writes the protobuf-encoded response to stdout.
-/// When protoc sees a command-line option of the form `--foo_out=<path>`,
-/// it will run a program called `protoc-gen-foo` as the corresponding
-/// plugin.
-///
+//
+// A protoc plugin is a code generator that accepts a protobuf-encoded
+// request on stdin and writes the protobuf-encoded response to stdout.
+// When protoc sees a command-line option of the form `--foo_out=<path>`,
+// it will run a program called `protoc-gen-foo` as the corresponding
+// plugin.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation

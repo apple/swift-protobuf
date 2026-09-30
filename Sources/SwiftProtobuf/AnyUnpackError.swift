@@ -7,31 +7,34 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Errors that can be throw when unpacking a Google_Protobuf_Any.
-///
+//
+// Errors that can be throw when unpacking a Google_Protobuf_Any.
+//
 // -----------------------------------------------------------------------------
 
-/// Describes errors that can occur when unpacking an ``Google_Protobuf_Any``
-/// message.
+/// The errors that can occur when unpacking an Any message.
 ///
-/// ``Google_Protobuf_Any`` messages can be decoded from protobuf binary, text
-/// format, or JSON. The contents are not parsed immediately; the raw data is
-/// held in the ``Google_Protobuf_Any`` message until you `unpack()` it into a
-/// message.  At this time, any error can occur that might have occurred from a
-/// regular decoding operation.  There are also other errors that can occur due
+/// You can decode ``Google_Protobuf_Any`` messages from protobuf binary, text
+/// format, or JSON. SwiftProtobuf doesn't parse the contents immediately; it
+/// holds the raw data in the ``Google_Protobuf_Any`` message until you call
+/// `unpack()` to convert it into a message.  At that point, any error from a
+/// regular decoding operation can occur.  Other errors can also occur due
 /// to problems with the `Any` value's structure.
 public enum AnyUnpackError: Error {
+    /// The recorded message type doesn't match the type you're unpacking into.
+    ///
     /// The `type_url` field in the ``Google_Protobuf_Any`` message did not match
-    /// the message type provided to the `unpack()` method.
+    /// the message type you passed to the `unpack()` method.
     case typeMismatch
 
-    /// Well-known types being decoded from JSON must have only two fields: the
-    /// `@type` field and a `value` field containing the specialized JSON coding
-    /// of the well-known type.
+    /// The JSON encoding of a well-known type didn't have the fields it needs.
+    ///
+    /// When you decode a well-known type from JSON, it must have only two
+    /// fields: the `@type` field and a `value` field containing the
+    /// specialized JSON coding of the well-known type.
     case malformedWellKnownTypeJSON
 
-    /// The ``Google_Protobuf_Any`` message was malformed in some other way not
-    /// covered by the other error cases.
+    /// The Any message was malformed in some other way that the other error
+    /// cases don't cover.
     case malformedAnyField
 }

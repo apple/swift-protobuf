@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Core support for protobuf binary encoding.  Note that this is built
-/// on the general traversal machinery.
-///
+//
+// Core support for protobuf binary encoding.  Note that this builds
+// on the general traversal machinery.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

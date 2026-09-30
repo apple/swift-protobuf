@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Numeric parsing helper for float and double strings
-///
+//
+// Numeric parsing helper for float and double strings
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(Glibc)

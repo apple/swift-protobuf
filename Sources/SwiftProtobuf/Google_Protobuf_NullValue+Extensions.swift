@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// NullValue is a well-known message type that can be used to parse or encode
-/// JSON Null values.
-///
+//
+// NullValue is a well-known message type you can use to parse or encode
+// JSON Null values.
+//
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_NullValue: _CustomJSONCodable {

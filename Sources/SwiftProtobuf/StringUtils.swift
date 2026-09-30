@@ -7,15 +7,15 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Utility functions for converting UTF8 bytes into Strings.
-/// These functions must:
-///  * Accept any valid UTF8, including a zero byte (which is
-///    a valid UTF8 encoding of U+0000)
-///  * Return nil for any invalid UTF8
-///  * Be fast (since they're extensively used by all decoders
-///    and even some of the encoders)
-///
+//
+// Utility functions for converting UTF8 bytes into Strings.
+// These functions must:
+//  * Accept any valid UTF8, including a zero byte (which is
+//    a valid UTF8 encoding of U+0000)
+//  * Return nil for any invalid UTF8
+//  * Be fast (all decoders and even some of the encoders use them
+//    extensively)
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -108,7 +108,7 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
 }
 
 extension Unicode.Scalar {
-    /// Assuming the given scalar is ASCII, this is the uppercased equivalent (unchanged if it is
+    /// Assuming this scalar is ASCII, this is the uppercased equivalent (unchanged if it is
     /// not a lowercase alphabetic character).
     var uppercasedAssumingASCII: Unicode.Scalar {
         guard "a" <= self && self <= "z" else {

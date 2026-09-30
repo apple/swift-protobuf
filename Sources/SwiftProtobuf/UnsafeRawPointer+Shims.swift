@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Shims for UnsafeRawPointer and friends.
-///
+//
+// Shims for UnsafeRawPointer and friends.
+//
 // -----------------------------------------------------------------------------
 
 extension UnsafeRawPointer {

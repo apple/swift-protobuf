@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A helper that can generate SwiftProtobuf names from types.
-///
+//
+// A helper that can generate SwiftProtobuf names from types.
+//
 // -----------------------------------------------------------------------------
 
 import SwiftProtobufPluginLibrary
@@ -17,8 +17,8 @@ import SwiftProtobufPluginLibrary
 extension SwiftProtobufNamer {
 
     /// Filters the Enum's values to those that will have unique Swift
-    /// names. Only poorly named proto enum alias values get filtered
-    /// away, so the assumption is they aren't really needed from an
+    /// names. This filters away only poorly named proto enum alias values,
+    /// so the assumption is they aren't really needed from an
     /// api pov.
     package func uniquelyNamedValues(
         valueAliasInfo aliasInfo: EnumDescriptor.ValueAliasInfo

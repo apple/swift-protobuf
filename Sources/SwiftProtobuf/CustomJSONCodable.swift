@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Custom protocol for the WKTs to support their custom JSON encodings.
-///
+//
+// Custom protocol for the WKTs to support their custom JSON encodings.
+//
 // -----------------------------------------------------------------------------
 
 /// Allows WKTs to provide their custom JSON encodings.
@@ -17,14 +17,14 @@ internal protocol _CustomJSONCodable {
     func encodedJSONString(options: JSONEncodingOptions) throws -> String
     mutating func decodeJSON(from: inout JSONDecoder) throws
 
-    /// Called when the JSON `null` literal is encountered in a position where
-    /// a message of the conforming type is expected. The message type can then
+    /// Called when the decoder encounters the JSON `null` literal in a position where
+    /// it expects a message of the conforming type. The message type can then
     /// handle the `null` value differently, if needed; for example,
-    /// `Google_Protobuf_Value` returns a special instance whose `kind` is set to
+    /// `Google_Protobuf_Value` returns a special instance whose `kind` is
     /// `.nullValue(.nullValue)`.
     ///
-    /// The default behavior is to return `nil`, which indicates that `null`
-    /// should be treated as the absence of a message.
+    /// The default behavior is to return `nil`, which indicates that the decoder
+    /// should treat `null` as the absence of a message.
     static func decodedFromJSONNull() throws -> Self?
 }
 

@@ -2,145 +2,151 @@
 
 ---
 
-The `protoc-gen-swift` program is a _plugin_ to Google's protoc
-compiler that works with protoc to translate proto files into
+The `protoc-gen-swift` program is a _plugin_ to Google's `protoc`
+compiler that works with `protoc` to translate proto files into
 Swift code.
 
 ## Getting Started
 
-If you've worked with Protocol Buffers before, adding Swift support is
+If you've worked with Protocol Buffers in other programming
+languages before, adding Swift support is
 very simple: you just need to build the `protoc-gen-swift` program and
-copy it into any directory in your PATH.  The protoc program will find
-and use it automatically, allowing you to build Swift sources for your
-proto files.  You will also, of course, need to add the corresponding
+copy it into any directory in your `PATH`.  The `protoc` program finds
+and uses it automatically, allowing you to build Swift sources for your
+proto files.  You also, of course, need to add the corresponding
 Swift runtime library to your project.
 
 ### System Requirements
 
-To use Swift with Protocol buffers, you'll need:
+To use Swift with Protocol Buffers, you'll need:
 
-* A recent Swift compiler. We recommend using the latest release build
-  from [Swift.org](https://swift.org) or the command-line tools included
+* A recent Swift compiler that includes the Swift Package Manager.
+  We recommend using the latest release build from
+  [Swift.org](https://swift.org) or the command-line tools included
   with the latest version of Xcode.
 
-* Google's protoc compiler.  You can get recent versions from
-  [Google's github repository](https://github.com/protocolbuffers/protobuf).
+* Google's `protoc` compiler.  You can get recent versions from
+  [Google's GitHub repository](https://github.com/protocolbuffers/protobuf).
 
 ### Build and Install
 
 Building the plugin should be simple on any supported Swift platform:
 
-```
-git clone https://github.com/apple/swift-protobuf
-cd swift-protobuf
-swift build -c release
+```sh
+$ git clone https://github.com/apple/swift-protobuf
+$ cd swift-protobuf
+$ swift build -c release
 ```
 
-This will create a binary called `protoc-gen-swift` in the
+This creates a binary called `protoc-gen-swift` in the
 `.build/release` directory.  To install, just copy this one executable
-anywhere in your PATH.
+anywhere in your `PATH`.
 
 ### Converting .proto files into Swift
 
 To generate Swift output for your .proto files, you run the `protoc`
 command as usual, using the `--swift_out=<directory>` option:
 
-```
-protoc --swift_out=. my.proto
+```sh
+$ protoc --swift_out=. my.proto
 ```
 
-The `protoc` program will automatically look for `protoc-gen-swift` in your
-`PATH` and use it.
+The `protoc` program automatically looks for `protoc-gen-swift` in your
+`PATH` and uses it.
 
-Each `.proto` input file will get translated to a corresponding `.pb.swift` file
+The plugin translates each `.proto` input file to a corresponding `.pb.swift` file
 in the output directory.
 
 #### How to Specify Code-Generation Options
 
 The plugin tries to use reasonable default behaviors for the code it
-generates, but there are a few things that can be configured to
+generates, but you can configure a few things to
 specific needs.
 
 You can use the `--swift_opt` argument to `protoc` to pass options to the
 Swift code generator as follows:
-```
-protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
+```sh
+$ protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
 ```
 
 If you need to specify multiple options, you can use more than one
 `--swift_opt` argument:
 ```
-protoc \
+$ protoc \
     --swift_opt=[NAME1]=[VALUE1] \
     --swift_opt=[NAME2]=[VALUE2] \
     --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
-_NOTE:_ protoc 3.2.0 does not recognize `--swift_opt` if you rely on
-`protoc-gen-swift` being found on the `PATH`. To work around this, you need to
+_NOTE:_ `protoc` 3.2.0 does not recognize `--swift_opt` if you rely on
+`protoc` finding `protoc-gen-swift` on the `PATH`. To work around this, you need to
 explicitly add the argument `--plugin=[PATH-TO-protoc-gen-swift]` to the
-command line, then the `--swift_opt` argument will be understood.  If you are
-using protoc 3.2.1 or later, then this workaround is _not_ needed.
+command line; then `protoc` understands the `--swift_opt` argument.  If you are
+using `protoc` 3.2.1 or later, then this workaround is _not_ needed.
 
-##### Generation Option: `FileNaming` - Naming of Generated Sources
+##### Generation Option: FileNaming
 
-By default, the paths to the proto files are maintained on the
-generated files.  So if you pass `foo/bar/my.proto`, you will get
+This option controls the naming of generated Swift source files.
+
+By default, the plugin maintains the paths to the proto files on the
+generated files.  So if you pass `foo/bar/my.proto`, you get
 `foo/bar/my.pb.swift` in the output directory. The Swift plugin
-supports an option to control the generated file names, the option is
-given as part of the `--swift_opt` argument like this:
+supports an option to control the generated file names; you provide the
+option as part of the `--swift_opt` argument like this:
 
 ```
-protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `FileNaming` are:
 
 * `FullPath` (default): Like all other languages, "foo/bar/baz.proto" makes
-  "foo/bar/baz.pb.swift.
+  "foo/bar/baz.pb.swift".
 * `PathToUnderscores`: To help with things like the Swift Package
   Manager where someone might want all the files in one directory;
   "foo/bar/baz.proto" makes "foo_bar_baz.pb.swift".
 * `DropPath`: Drop the path from the input and just write all files
   into the output directory; "foo/bar/baz.proto" makes "baz.pb.swift".
 
-##### Generation Option: `Visibility` - Visibility of Generated Types
+##### Generation Option: Visibility
 
 By default, SwiftProtobuf does not specify a visibility for the
-generated types, methods, and properties.  As a result, these will end
+generated types, methods, and properties.  As a result, these end
 up with the default (`internal`) access.  You can change this with the
 `Visibility` option:
 
 ```
-protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `Visibility` are:
 
-* `Internal` (default): No visibility is set for the types, so they get the
+* `Internal` (default): The generator sets no visibility for the types, so they get the
   default internal visibility.
-* `Package`: The visibility on the types is set to`package` so the types
-  will be exposed across the whole Swift package they belong to.
-* `Public`: The visibility on the types is set to `public` so the types will
-  be exposed outside the module they are compiled into.
+* `Package`: The generator sets the visibility on the types to `package`, so they're
+  visible across the whole Swift package they belong to.
+* `Public`: The generator sets the visibility on the types to `public`, so they're
+  visible outside the module that contains them.
 
 
-##### Generation Option: `ProtoPathModuleMappings` - Swift Module names for proto paths
+##### Generation Option: ProtoPathModuleMappings
 
-By default, the code generator assumes all of the resulting Swift files will
-be put into the same module. However, since protos can reference types from
+This option specifies which Swift module each generated file belongs to, based on its proto file path.
+
+By default, the code generator assumes it puts all of the resulting Swift files
+into the same module. However, since protos can reference types from
 another proto file, those generated files might end up in different modules.
-This option allows you to specify that the code generated from the proto
-files will be distributed in multiple modules. This data is used during
+This option allows you to specify that you distribute the code generated from the proto
+files across multiple modules. The generator uses this data during
 generation to then `import` the module and scope the types. This option
 takes the path of a file providing the mapping:
 
 ```
-protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
+$ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
 ```
 
 The format of that mapping file is defined in
-[swift_protobuf_module_mappings.proto](../Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto),
+[swift_protobuf_module_mappings.proto](https://github.com/apple/swift-protobuf/blob/main/Protos/Sources/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto),
 and files would look something like:
 
 ```
@@ -159,30 +165,32 @@ The `proto_file_path` values here should match the paths used in the proto file
 `import` statements.
 
 
-##### Generation Option: `ImplementationOnlyImports` - `@_implementationOnly`-annotated imports
+##### Generation Option: ImplementationOnlyImports
 
-By default, SwiftProtobuf does not annotate any imports with `@_implementationOnly`.
-However, in some scenarios, such as when distributing an `XCFramework`, imports
-for types used only internally should be annotated as `@_implementationOnly` to
+By default, the code generator does not annotate any imports with `@_implementationOnly`.
+However, in some scenarios, such as when distributing an `XCFramework`, you should
+annotate imports for types used only internally as `@_implementationOnly` to
 avoid exposing internal symbols to clients.
 You can change this with the `ImplementationOnlyImports` option:
 
 ```
-protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `ImplementationOnlyImports` are:
 
-* `false` (default): The `@_implementationOnly` annotation will never be used.
-* `true`: Imports of internal dependencies and any modules defined in the module
-mappings will be annotated as `@_implementationOnly`.
+* `false` (default): The generator never uses the `@_implementationOnly` annotation.
+* `true`: The generator annotates imports of internal dependencies and any modules defined in the module
+mappings as `@_implementationOnly`.
 
-**Important:** Modules cannot be imported as implementation-only if they're
-exposed via public API, so even if `ImplementationOnlyImports` is set to `true`,
-this will only work if the `Visibility` is set to `internal`.
+**Important:** You can't import modules as implementation-only if they're
+exposed via public API, so even if you set `ImplementationOnlyImports` to `true`,
+this only works if you set `Visibility` to `internal`.
 
 
-##### Generation Option: `UseAccessLevelOnImports` - imports preceded by a visibility modifier (`public`, `package`, `internal`)
+##### Generation Option: UseAccessLevelOnImports
+
+This option controls whether the generator precedes generated `import` statements with a visibility modifier (`public`, `package`, or `internal`).
 
 The default behavior depends on the Swift version the plugin is compiled with. 
 For Swift versions below 6.0 the default is `false` and the code generator does not precede any imports with a visibility modifier. 
@@ -195,64 +203,67 @@ $ protoc --swift_opt=UseAccessLevelOnImports=[value] --swift_out=. foo/bar/*.pro
 The possible values for `UseAccessLevelOnImports` are:
 
 * `false`: Generates plain import directives without a visibility modifier.
-* `true`: Imports of internal dependencies and any modules defined in the module
-mappings will be preceded by a visibility modifier corresponding to the visibility of the generated types - see `Visibility` option. 
+* `true`: The generator precedes imports of internal dependencies and any modules defined in the module
+mappings with a visibility modifier corresponding to the visibility of the generated types - see the `Visibility` option.
 
-**Important:** It is strongly encouraged to use `internal` imports instead of `@_implementationOnly` imports.
-Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other.
+**Important:** We strongly encourage using `internal` imports instead of `@_implementationOnly` imports.
+Hence `UseAccessLevelOnImports` and `ImplementationOnlyImports` options exclude each other. 
 
 
-##### Generation Option: `EnumGeneration` - `@nonexhaustive` annotation on generated enums
+##### Generation Option: EnumGeneration
 
 By default, SwiftProtobuf does not annotate generated enums with `@nonexhaustive`.
-This option controls whether open proto enums and oneof enums are annotated with
+This option controls whether the generator annotates open proto enums and oneof enums with
 the `@nonexhaustive` attribute introduced in Swift SE-0487.
 
-Both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums
-are annotated, because adding a new case to either is wire-compatible and should not
+The generator annotates both open proto enums (proto3-style enums with an `UNRECOGNIZED` case) and oneof enums,
+because adding a new case to either is wire-compatible and shouldn't
 be a source-breaking Swift change.
 
 **Requires Swift 6.2.3 or later.**
 
 ```
-protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=EnumGeneration=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `EnumGeneration` are:
 
-* `None` (default): No `@nonexhaustive` attribute is emitted.
-* `Nonexhaustive`: Open proto enums and oneof enums are annotated with `@nonexhaustive`.
-* `NonexhaustiveWarn`: Open proto enums and oneof enums are annotated with `@nonexhaustive(warn)`,
+* `None` (default): The generator emits no `@nonexhaustive` attribute.
+* `Nonexhaustive`: The generator annotates open proto enums and oneof enums with `@nonexhaustive`.
+* `NonexhaustiveWarn`: The generator annotates open proto enums and oneof enums with `@nonexhaustive(warn)`,
   which causes the Swift compiler to emit a warning when a `switch` statement does not
   cover all known cases.
 
 
-##### Generation Option: `ExperimentalHiddenNames` - Omitting Metadata Names (Experimental)
+##### Generation Option: ExperimentalHiddenNames
+
+This option lets you omit metadata names that SwiftProtobuf normally includes to support JSON and TextFormat serialization.
 
 **IMPORTANT: This feature is experimental and subject to change or removal in future releases.**
 
 By default, SwiftProtobuf includes field names, enum case names, and message/package names to
 support JSON serialization, full TextFormat serialization, and the `Google_Protobuf_Any` registry.
-In environments where TextFormat/JSON serialization is not required, this option allows you to
+In environments where you don't need TextFormat/JSON serialization, this option allows you to
 selectively omit some or all of these strings.
 
 ```
-protoc --swift_opt=ExperimentalHiddenNames=[values] --swift_out=. foo/bar/*.proto
+$ protoc --swift_opt=ExperimentalHiddenNames=[values] --swift_out=. foo/bar/*.proto
 ```
 
 This option accepts a comma-delimited list of features to hide:
 
-*   `Fields`: Suppresses the runtime `_NameMap` for message fields. Serializing to JSON will fail.
+*   `Fields`: Suppresses the runtime `_NameMap` for message fields. Serializing to JSON fails.
     TextFormat serialization falls back to printing numeric field tags.
 *   `EnumValues`: Suppresses the runtime `_NameMap` for enum cases. Serializing to JSON or
     TextFormat falls back to outputting raw numeric integer values.
 *   `Types`: Sets the `protoMessageName` and `_protobuf_package` properties to empty strings.
-    Registering affected types in the `Google_Protobuf_Any` registry will safely fail.
+    Registering affected types in the `Google_Protobuf_Any` registry safely fails.
 *   `All`: A shorthand equivalent to enabling `Fields`, `EnumValues`, and `Types`.
+
 
 ### Building your project
 
-After copying the `.pb.swift` files into your project, you will need
+After copying the `.pb.swift` files into your project, you need
 to add the
 [SwiftProtobuf library](https://github.com/apple/swift-protobuf) to
 your project to support the generated code.  If you are using the
@@ -261,7 +272,7 @@ Swift Package Manager, you should first check what version of
 
 ```
 $ protoc-gen-swift --version
-protoc-gen-swift 1.0.1
+protoc-gen-swift 1.27.0
 ```
 
 And then add a dependency to your Package.swift file.  Adjust the
@@ -270,7 +281,7 @@ above:
 
 ```swift
 dependencies: [
-    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
 ]
 ```
 
@@ -280,3 +291,25 @@ If you are using Xcode, then you should:
   project.
 * Add this SwiftPM package as dependency of your Xcode project:
   [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)
+
+
+
+## Internals
+
+When you give `protoc` an option of the form `--XYZ-out`,
+it finds and runs a program called `protoc-gen-XYZ`.
+
+The `protoc` program then proceeds to read, parse, and validate
+all of your proto files.
+It feeds this information (as a set of "Descriptor" objects)
+to the `protoc-gen-XYZ` program and expects the program to
+produce one or more source code files
+that `protoc` then saves to the correct output location.
+
+The `protoc-gen-swift` program relies heavily
+on the `SwiftProtobuf` library to handle serializing and
+deserializing the protobuf-encoded data used to
+communicate with `protoc`.
+It also relies on another library called `SwiftProtobufPluginLibrary`
+that incorporates a lot of the key knowledge about how
+to produce Swift source code.

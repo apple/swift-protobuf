@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A interface for exposing the version of the runtime.
-///
+//
+// A interface for exposing the version of the runtime.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -18,7 +18,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
-// Expose version information about the library.
+/// Version information for the SwiftProtobuf runtime library.
 public struct Version {
     /// Major version.
     public static let major = 1

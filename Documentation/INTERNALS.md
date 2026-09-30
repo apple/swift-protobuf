@@ -41,7 +41,7 @@ When the minimum Swift version gets updated, update:
   `README.md` and we adopt the deployment minimums from the Xcode in
   `SwiftProtobuf.podspec`.
 
-  The deployment minimums for Xcode versions can be found on the [Developer
+  You can find the deployment minimums for Xcode versions on the [Developer
   Support: Xcode](https://developer.apple.com/support/xcode/) page.
 
 ## Field Storage
@@ -189,7 +189,7 @@ The generated `isInitialized` property is used in the following cases:
 * Just after decoding from binary format
 
 Each of these APIs supports a `partial` parameter; setting this
-parameter to `true` will suppress the check, allowing you to encode or
+parameter to `true` suppresses the check, allowing you to encode or
 decode a partial object that may be lacking required fields.
 
 **Proto2 and proto3 repeated and map fields:**
@@ -226,7 +226,7 @@ message Foo {
 
 The simple patterns above cannot correctly handle this because Swift does not
 permit recursive structs. To correctly model this, we need to store `fooField`
-in a separate storage class that will be allocated on the heap:
+in a separate storage class that is allocated on the heap:
 
 ```swift
 struct Foo {
@@ -271,7 +271,7 @@ This logic will doubtless change in the future.
 In particular, there are likely cases where it makes more sense
 to put some fields directly
 into the struct and others into the storage class, but the current
-implementation will put all fields into the storage class if it decides
+implementation puts all fields into the storage class if it decides
 to use a storage class.
 
 Whether a particular field is generated directly on the struct or on
@@ -306,7 +306,7 @@ The serialization support is based on a traversal mechanism (also known as
 "The Visitor Pattern").
 The various serialization systems in the runtime library construct objects
 that conform to the `SwiftProtobuf.Visitor` protocol and then invoke
-the `traverse()` method which will provide the visitor with a look at every
+the `traverse()` method which provides the visitor with a look at every
 non-empty field.
 
 As above, this varies slightly depending on the proto language dialect,

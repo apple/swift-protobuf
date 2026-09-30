@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// A 'Message Extension' is an immutable class object that describes
-/// a particular extension field, including string and number
-/// identifiers, serialization details, and the identity of the
-/// message that is being extended.
-///
+//
+// A 'Message Extension' is an immutable class object that describes
+// a particular extension field, including string and number
+// identifiers, serialization details, and the identity of the
+// message it extends.
+//
 // -----------------------------------------------------------------------------
 
 /// Type-erased MessageExtension field implementation.
@@ -24,18 +24,28 @@ public protocol AnyMessageExtension: Sendable {
     func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> (any AnyExtensionField)?
 }
 
-/// A "Message Extension" relates a particular extension field to
-/// a particular message.  The generic constraints allow
-/// compile-time compatibility checks.
+/// An association between a particular extension field and a particular message.
+///
+/// The generic constraints allow compile-time compatibility checks.
 public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {
+    /// The field number this extension occupies within the message it extends.
     public let fieldNumber: Int
+
+    /// The full proto (text-format) name of this extension field.
     public let fieldName: String
+
+    /// The message type this extension extends.
     public let messageType: any Message.Type
+
+    /// Creates an extension descriptor for the field number and name you provide.
     public init(_protobuf_fieldNumber: Int, fieldName: String) {
         self.fieldNumber = _protobuf_fieldNumber
         self.fieldName = fieldName
         self.messageType = MessageType.self
     }
+
+    /// Returns a decoded field for this extension by reading from the decoder you provide, or
+    /// `nil` if the decoder has no value for it.
     public func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> (any AnyExtensionField)? {
         try FieldType(protobufExtension: self, decoder: &decoder)
     }

@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Some basic utilities to handle writing to Stderr, Stdout, and reading/writing
-/// blocks of data from/to a file on disk.
-///
+//
+// Some basic utilities to handle writing to Stderr, Stdout, and reading/writing
+// blocks of data from/to a file on disk.
+//
 // -----------------------------------------------------------------------------
 import Foundation
 

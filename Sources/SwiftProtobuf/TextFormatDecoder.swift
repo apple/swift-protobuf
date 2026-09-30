@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Test format decoding engine.
-///
+//
+// Test format decoding engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

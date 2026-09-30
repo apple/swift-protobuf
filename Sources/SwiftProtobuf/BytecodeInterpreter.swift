@@ -11,18 +11,19 @@
 /// Interprets SwiftProtobuf bytecode that is a stream of "instructions" and "operands".
 ///
 /// Bytecode interpreters are generic over an `Instruction` type, which must be something (typically
-/// an `enum`) that has `UInt64` raw values. The only restriction on these values is that the raw
-/// value zero is reserved, so all instructions must have raw values of one or greater.
+/// an `enum`) that has `UInt64` raw values. The only restriction on these values is that the
+/// bytecode format reserves raw value zero, so all instructions must have raw values of one or
+/// greater.
 ///
-/// The current version of the bytecode stream (program format 0) is represented as a `StaticString`
-/// where non-textual information is binary-encoded in a way that is still guaranteed to be valid
+/// A `BytecodeWriter` represents the current version of the bytecode stream (program format 0) as
+/// a `StaticString`, binary-encoding non-textual information in a way that still guarantees valid
 /// UTF-8. Specifically,
 ///
-/// - Integers are encoded in a varint-like format similar to protobuf, except that only the low
-///   7 bits are used. The most-significant bit is always clear, and the second-most-significant
-///   bit is used as the continuation bit.
-/// - Strings are length-delimited, where the length is an integer (see above) that precedes the
-///   string content, which is standard UTF-8. There is no null termination.
+/// - The writer encodes integers in a varint-like format similar to protobuf, using only the low
+///   7 bits. The most-significant bit is always clear, and the second-most-significant bit serves
+///   as the continuation bit.
+/// - For strings, an integer length (see above) precedes the string content, which is standard
+///   UTF-8. There is no null termination.
 /// - The stream always begins with an integer that indicates the "program format" for the stream.
 ///   Currently, the only valid value is zero.
 package struct BytecodeInterpreter<Instruction: RawRepresentable>
@@ -30,18 +31,18 @@ where Instruction.RawValue == UInt64 {
     /// The bytecode program being executed.
     private let program: StaticString
 
-    /// Creates a new bytecode interpreter that will execute the given program.
+    /// Creates a new bytecode interpreter that will execute the program you provide.
     package init(program: StaticString) {
         self.program = program
     }
 
     /// Executes the program by translating its opcodes into instructions of the `Instruction` type,
-    /// invoking the given `handleInstruction` function on each instruction until the program has
-    /// been completely read.
+    /// invoking the `handleInstruction` function you provide on each instruction until the
+    /// interpreter has completely read the program.
     ///
-    /// - Parameter handleInstruction: The function that will be invoked for each instruction that
-    ///   is read from the bytecode stream. The function takes two arguments: the `Instruction` that
-    ///   was read, and an `inout BytecodeReader` that the function should use to read operands and
+    /// - Parameter handleInstruction: The function this method invokes for each instruction it
+    ///   reads from the bytecode stream. The function takes two arguments: the `Instruction` it
+    ///   read, and an `inout BytecodeReader` that the function should use to read operands and
     ///   advance the stream.
     package func execute(handleInstruction: (Instruction, inout BytecodeReader<Instruction>) -> Void) {
         guard program.hasPointerRepresentation else {

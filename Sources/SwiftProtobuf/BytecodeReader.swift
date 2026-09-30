@@ -10,16 +10,16 @@
 
 /// Reads values encoded in a SwiftProtobuf bytecode stream.
 package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.RawValue == UInt64 {
-    /// The remaining slice of the program that has not yet been read.
+    /// The remaining slice of the program that the reader has not yet read.
     private var remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence
 
-    /// Indicates whether or not there is still data that hasn't yet been read in the bytecode
+    /// Indicates whether the reader still has data left to read in the bytecode
     /// stream.
     package var hasData: Bool {
         !remainingProgram.isEmpty
     }
 
-    /// Creates a new bytecode reader that reads the given bytecode stream.
+    /// Creates a new bytecode reader that reads the bytecode stream you provide.
     package init(remainingProgram: UnsafeBufferPointer<UInt8>.SubSequence) {
         self.remainingProgram = remainingProgram
 
@@ -29,7 +29,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
         Self.checkProgramFormat(nextUInt64())
     }
 
-    /// Checks that the given program format is valid (i.e., not greater than the runtime supports),
+    /// Checks that the program format you provide is valid (i.e., not greater than the runtime supports),
     /// trapping if it is invalid.
     static func checkProgramFormat(_ programFormat: UInt64) {
         if programFormat > latestBytecodeProgramFormat {
@@ -42,7 +42,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     /// - Precondition: The reader must not be at the end of the bytecode stream, and the next
     ///   opcode must not be zero.
     ///
-    /// - Returns: The instruction that was read from the bytecode stream.
+    /// - Returns: The instruction the reader read from the bytecode stream.
     package mutating func nextInstruction() -> Instruction {
         precondition(hasData, "Unexpected end of bytecode stream")
 
@@ -56,14 +56,14 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
 
     /// Reads and returns the next signed 32-bit integer from the bytecode stream.
     ///
-    /// This is provided as its own primitive operation because 32-bit values are extremely common
+    /// This exists as its own primitive operation because 32-bit values are extremely common
     /// as field numbers (0 to 2^29-1) and enum cases (-2^31 to 2^31-1). In particular for enum
     /// cases, using this function specifically for those cases avoids making mistakes involving
     /// sign- vs. zero-extension between differently-sized integers.
     ///
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
-    /// - Returns: The signed 32-bit integer that was read from the bytecode stream.
+    /// - Returns: The signed 32-bit integer the reader read from the bytecode stream.
     package mutating func nextInt32() -> Int32 {
         // `Int32`s are stored by converting them bit-wise to a `UInt32` and then zero-extended to
         // `UInt64`, since this representation is smaller than sign-extending them to 64 bits.
@@ -76,7 +76,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     ///
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
-    /// - Returns: The unsigned 64-bit integer that was read from the bytecode stream.
+    /// - Returns: The unsigned 64-bit integer the reader read from the bytecode stream.
     package mutating func nextUInt64() -> UInt64 {
         precondition(hasData, "Unexpected end of bytecode stream")
 
@@ -112,10 +112,10 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     ///
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
-    /// - Returns: An `UnsafeBufferPointer` containing the string that was read from the bytecode
-    ///   stream. This pointer is rebased -- its base address is the start of the string that was
-    ///   just read, not the start of the entire stream -- but its lifetime is still tied to that of
-    ///   the original bytecode stream (which is immortal if it originated from a static string).
+    /// - Returns: An `UnsafeBufferPointer` containing the string the reader read from the bytecode
+    ///   stream. This method rebases the pointer -- its base address is the start of the string it
+    ///   just read, not the start of the entire stream -- but it shares its lifetime with the
+    ///   original bytecode stream (which is immortal if it originated from a static string).
     package mutating func nextNullTerminatedString() -> UnsafeBufferPointer<UInt8> {
         precondition(hasData, "Unexpected end of bytecode stream")
 
@@ -131,7 +131,7 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     ///
     /// - Precondition: The reader must not be at the end of the bytecode stream.
     ///
-    /// - Returns: An array of `UnsafeBufferPointer`s containing the strings that were read from the
+    /// - Returns: An array of `UnsafeBufferPointer`s containing the strings the reader read from the
     ///   bytecode stream. See the documentation of `nextString()` for details on the lifetimes of
     ///   these pointers.
     package mutating func nextNullTerminatedStringArray() -> [UnsafeBufferPointer<UInt8>] {
@@ -148,9 +148,9 @@ package struct BytecodeReader<Instruction: RawRepresentable> where Instruction.R
     }
 }
 
-/// Indicates the latest bytecode program format supported by `BytecodeReader`.
+/// Indicates the latest bytecode program format that `BytecodeReader` supports.
 ///
-/// Programs written by a `BytecodeWriter` (see protoc-gen-swift) should *only* support this
+/// Programs that a `BytecodeWriter` (see protoc-gen-swift) writes should *only* support this
 /// version; there is no reason to generate an older version than the latest that the runtime
 /// supports. Readers, on the other hand, must support the latest and all previous formats (unless
 /// making breaking changes).

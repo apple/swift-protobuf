@@ -12,13 +12,13 @@ import Foundation
 
 /// Protocol that all the Descriptors conform to provide deprecation comments
 public protocol ProvidesDeprecationComment {
-    /// Returns the deprecation comment to be used.
+    /// Returns the deprecation comment to include in generated code.
     func deprecationComment(commentPrefix: String) -> String
 }
 
 /// Protocol that a Descriptor can confirm to when only the Type controls depecation.
 public protocol SimpleProvidesDeprecationComment: ProvidesDeprecationComment {
-    /// Name used in the generated message.
+    /// Name the generator uses in the generated message.
     var typeName: String { get }
     /// If the type is deprecated.
     var isDeprecated: Bool { get }
@@ -34,7 +34,7 @@ extension SimpleProvidesDeprecationComment {
 
 /// Protocol that a Descriptor can confirm to when the Type or the File controls depecation.
 public protocol TypeOrFileProvidesDeprecationComment: ProvidesDeprecationComment {
-    /// Name used in the generated message.
+    /// Name the generator uses in the generated message.
     var typeName: String { get }
     /// If the type is deprecated.
     var isDeprecated: Bool { get }

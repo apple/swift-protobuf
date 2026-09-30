@@ -7,14 +7,14 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides some utilities for generating names.
-///
-/// NOTE: Only a very small subset of this is public. The intent is for this to
-/// expose a defined api within the PluginLib, but the the SwiftProtobufNamer
-/// to be what exposes the reusable parts at a much higher level. This reduces
-/// the changes of something being reimplemented but with minor differences.
-///
+//
+// This provides some utilities for generating names.
+//
+// NOTE: Only a very small subset of this is public. The intent is for this to
+// expose a defined api within the PluginLib, but the the SwiftProtobufNamer
+// to be what exposes the reusable parts at a much higher level. This reduces
+// the changes of something being reimplemented but with minor differences.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -81,7 +81,7 @@ private let reservedTypeNames: Set<String> = {
 }()
 
 ///
-/// Many Swift reserved words can be used as fields names if we put backticks
+/// We can use many Swift reserved words as field names if we put backticks
 /// around them:
 ///
 private let quotableFieldNames: Set<String> = {
@@ -129,7 +129,7 @@ private let reservedFieldNames: Set<String> = {
 }()
 
 ///
-/// Many Swift reserved words can be used as enum cases if we put quotes
+/// We can use many Swift reserved words as enum cases if we put quotes
 /// around them:
 ///
 private let quotableEnumCases: Set<String> = {
@@ -155,7 +155,7 @@ private let quotableEnumCases: Set<String> = {
 }()
 
 ///
-/// Some words cannot be used for enum cases, even if they are quoted with
+/// We can't use some words for enum cases, even if we quote them with
 /// backticks:
 ///
 private let reservedEnumCases: Set<String> = [
@@ -171,9 +171,9 @@ private let reservedEnumCases: Set<String> = [
 ]
 
 ///
-/// Message scoped extensions are scoped within the Message struct with `enum
-/// Extensions { ... }`, so we resuse the same sets for backticks and reserved
-/// words.
+/// The generator scopes message-scoped extensions within the Message struct
+/// with `enum Extensions { ... }`, so we reuse the same sets for backticks
+/// and reserved words.
 ///
 private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
 private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
@@ -273,18 +273,19 @@ private enum CamelCaser {
     }
 
     /// Transforms the input into a camelcase name that is a valid Swift
-    /// identifier. The input is assumed to be a protocol buffer identifier (or
-    /// something like that), meaning that it is a "snake_case_name" and the
-    /// underscores and be used to split into segements and then capitalize as
+    /// identifier. This assumes the input is a protocol buffer identifier
+    /// (or something like that), meaning it's a "snake_case_name", and
+    /// uses the underscores to split it into segments, then capitalizes as
     /// needed. The splits happen based on underscores and/or changes in case
-    /// and/or use of digits. If underscores are repeated, then the "extras"
-    /// (past the first) are carried over into the output.
+    /// and/or use of digits. If the input repeats underscores, this carries
+    /// the "extras" (past the first) over into the output.
     ///
-    /// NOTE: protoc validation of an _identifier_ is defined (in Tokenizer::Next()
-    /// as `[a-zA-Z_][a-zA-Z0-9_]*`, Since leading underscores are removed, it does
-    /// have to handle if things would have started with a digit. If that happens,
-    /// then an underscore is added before it (which matches what the proto file
-    /// would have had to have a valid identifier also).
+    /// NOTE: protoc defines _identifier_ validation (in Tokenizer::Next())
+    /// as `[a-zA-Z_][a-zA-Z0-9_]*`. Since this function removes leading
+    /// underscores, it does have to handle if things would have started with
+    /// a digit. If that happens, this adds an underscore before it (which
+    /// matches what the proto file would have had to have a valid
+    /// identifier also).
     static func transform(_ s: String, initialUpperCase: Bool) -> String {
         var result = String()
         var current = String.UnicodeScalarView()  // Collects in lowercase.
@@ -363,9 +364,13 @@ private enum CamelCaser {
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
+/// Utilities for generating Swift identifiers from proto names.
 public enum NamingUtils {
 
     // Returns the type prefix to use for a given
+
+    /// Returns the prefix to add to generated Swift type names for the proto package and file
+    /// options you provide.
     package static func typePrefix(protoPackage: String, fileOptions: Google_Protobuf_FileOptions) -> String {
         // Explicit option (including blank), wins.
         if fileOptions.hasSwiftPrefix {
@@ -414,21 +419,24 @@ public enum NamingUtils {
         return String(prefix) + "_"
     }
 
-    /// Helper a proto prefix from strings.  A proto prefix means underscores
-    /// and letter case are ignored.
+    /// Helper a proto prefix from strings.  A proto prefix means the
+    /// comparison ignores underscores and letter case.
     ///
     /// NOTE: Since this is acting on proto enum names and enum cases, we know
-    /// the values must be _identifier_s which is defined (in Tokenizer::Next() as
-    /// `[a-zA-Z_][a-zA-Z0-9_]*`, so this code is based on that limited input.
+    /// the values must be _identifier_s, which protoc defines (in
+    /// Tokenizer::Next()) as `[a-zA-Z_][a-zA-Z0-9_]*`, so this code is based
+    /// on that limited input.
     package struct PrefixStripper {
         private let prefixChars: String.UnicodeScalarView
 
+        /// Creates a prefix stripper that ignores underscores and letter case when comparing
+        /// against the prefix you provide.
         package init(prefix: String) {
             self.prefixChars = prefix.lowercased().replacingOccurrences(of: "_", with: "").unicodeScalars
         }
 
-        /// Strip the prefix and return the result, or return nil if it can't
-        /// be stripped.
+        /// Strip the prefix and return the result, or return nil if this
+        /// can't strip it.
         package func strip(from: String) -> String? {
             var prefixIndex = prefixChars.startIndex
             let prefixEnd = prefixChars.endIndex
@@ -483,18 +491,26 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a message type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(messageName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Message", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns an enum type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(enumName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Enum", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns a oneof type name adjusted to avoid colliding with a reserved or forbidden Swift
+    /// name.
     package static func sanitize(oneofName s: String, forbiddenTypeNames: Set<String>) -> String {
         sanitizeTypeName(s, disambiguator: "Oneof", forbiddenTypeNames: forbiddenTypeNames)
     }
 
+    /// Returns a field name adjusted to avoid colliding with Swift keywords or with the accessor
+    /// names generated for the field you name in `basedOn`.
     package static func sanitize(fieldName s: String, basedOn: String) -> String {
         if basedOn.hasPrefix("clear") && isCharacterUppercase(basedOn, index: 5) {
             return s + "_p"
@@ -513,10 +529,13 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a field name adjusted to avoid colliding with Swift keywords or with its own
+    /// generated accessor names.
     package static func sanitize(fieldName s: String) -> String {
         sanitize(fieldName: s, basedOn: s)
     }
 
+    /// Returns an enum case name adjusted to avoid colliding with Swift keywords.
     package static func sanitize(enumCaseName s: String) -> String {
         if reservedEnumCases.contains(s) {
             return "\(s)_"
@@ -529,6 +548,7 @@ public enum NamingUtils {
         }
     }
 
+    /// Returns a message-scoped extension name adjusted to avoid colliding with Swift keywords.
     package static func sanitize(messageScopedExtensionName s: String) -> String {
         if reservedMessageScopedExtensionNames.contains(s) {
             return "\(s)_"
@@ -558,20 +578,26 @@ public enum NamingUtils {
         }
     }
 
-    /// Accepts any inputs and tranforms form it into a leading
-    /// UpperCaseCamelCased Swift identifier. It follows the same conventions as
-    /// that are used for mapping field names into the Message property names.
+    /// Accepts any inputs and transforms it into a leading UpperCaseCamelCased
+    /// Swift identifier.
+    ///
+    /// It follows the same conventions SwiftProtobufNamer uses to map field
+    /// names into message property names.
     public static func toUpperCamelCase(_ s: String) -> String {
         CamelCaser.transform(s, initialUpperCase: true)
     }
 
-    /// Accepts any inputs and tranforms form it into a leading
-    /// lowerCaseCamelCased Swift identifier. It follows the same conventions as
-    /// that are used for mapping field names into the Message property names.
+    /// Accepts any inputs and transforms it into a leading lowerCaseCamelCased
+    /// Swift identifier.
+    ///
+    /// It follows the same conventions SwiftProtobufNamer uses to map field
+    /// names into message property names.
     public static func toLowerCamelCase(_ s: String) -> String {
         CamelCaser.transform(s, initialUpperCase: false)
     }
 
+    /// Returns the string you provide with a single pair of surrounding backticks removed, if
+    /// present.
     package static func trimBackticks(_ s: String) -> String {
         // This only has to deal with the backticks added when computing relative names, so
         // they are always matched and a single set.
@@ -591,8 +617,10 @@ public enum NamingUtils {
     }
 
     /// This must be exactly the same as the corresponding code in the
-    /// SwiftProtobuf library.  Changing it will break compatibility of
-    /// the generated code with old library version.
+    /// SwiftProtobuf library.
+    ///
+    /// Changing it will break compatibility of the generated code with older
+    /// library versions.
     public static func toJsonFieldName(_ s: String) -> String {
         var result = String.UnicodeScalarView()
         var capitalizeNext = false

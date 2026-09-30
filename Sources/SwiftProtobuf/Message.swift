@@ -8,12 +8,9 @@
 //
 
 /// The protocol which all generated protobuf messages implement.
-/// ``Message`` is the protocol type you should use whenever
-/// you need an argument or variable which holds "some message".
 ///
-/// Generated messages also implement `Hashable`, and thus `Equatable`.
-/// However, the protocol conformance is declared on a different protocol.
-/// This allows you to use ``Message`` as a type directly:
+/// Use this protocol type whenever you need an argument or variable that holds
+/// "some message":
 ///
 ///     func consume(message: Message) { ... }
 ///
@@ -33,7 +30,7 @@
 /// default implementations of the below methods and properties.
 @preconcurrency
 public protocol Message: Sendable, CustomDebugStringConvertible {
-    /// Creates a new message with all of its fields initialized to their default
+    /// Creates a message with all of its fields initialized to their default
     /// values.
     init()
 
@@ -50,24 +47,26 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     var isInitialized: Bool { get }
 
     /// Some formats include enough information to transport fields that were
-    /// not known at generation time. When encountered, they are stored here.
+    /// not known at generation time.
+    ///
+    /// The decoder stores them here when it encounters them.
     var unknownFields: UnknownStorage { get set }
 
     //
     // General serialization/deserialization machinery
     //
 
-    /// Decode all of the fields from the given decoder.
+    /// Decode all of the fields from the decoder you provide.
     ///
     /// This is a simple loop that repeatedly gets the next field number
-    /// from `decoder.nextFieldNumber()` and then uses the number returned
-    /// and the type information from the original .proto file to decide
-    /// what type of data should be decoded for that field.  The corresponding
-    /// method on the decoder is then called to get the field value.
+    /// from `decoder.nextFieldNumber()` and then uses that number and
+    /// the type information from the original .proto file to decide
+    /// what type of data to decode for that field.  It then calls the
+    /// corresponding method on the decoder to get the field value.
     ///
-    /// This is the core method used by the deserialization machinery. It is
+    /// The deserialization machinery uses this as its core method. It is
     /// `public` to enable users to implement their own encoding formats by
-    /// conforming to ``Decoder``; it should not be called otherwise.
+    /// conforming to ``Decoder``; you should not call it otherwise.
     ///
     /// Note that this is not specific to binary encodng; formats that use
     /// textual identifiers translate those to field numbers and also go
@@ -76,25 +75,25 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     /// - Parameters:
     ///   - decoder: a ``Decoder``; the ``Message`` will call the method
     ///     corresponding to the type of this field.
-    /// - Throws: an error on failure or type mismatch.  The type of error
-    ///     thrown depends on which decoder is used.
+    /// - Throws: an error on failure or type mismatch.  The decoder you use
+    ///     determines the kind of error it throws.
     mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
     /// Traverses the fields of the message, calling the appropriate methods
-    /// of the passed ``Visitor`` object.
+    /// of the passed visitor object.
     ///
-    /// This is used internally by:
+    /// Internally, the following features use this:
     ///
     /// * Protobuf binary serialization
     /// * JSON serialization (with some twists to account for specialty JSON)
     /// * Protobuf Text serialization
     /// * `Hashable` computation
     ///
-    /// Conceptually, serializers create visitor objects that are
-    /// then passed recursively to every message and field via generated
-    /// `traverse` methods.  The details get a little involved due to
-    /// the need to allow particular messages to override particular
-    /// behaviors for specific encodings, but the general idea is quite simple.
+    /// Conceptually, serializers create visitor objects and recursively pass
+    /// them to every message and field via generated `traverse` methods. The
+    /// details get a little involved due to the need to allow particular
+    /// messages to override particular behaviors for specific encodings, but
+    /// the general idea is quite simple.
     func traverse<V: Visitor>(visitor: inout V) throws
 
     // Standard utility properties and methods.
@@ -104,12 +103,14 @@ public protocol Message: Sendable, CustomDebugStringConvertible {
     // the generated struct.
 
     /// An implementation of hash(into:) to provide conformance with the
-    /// `Hashable` protocol.
+    /// Hashable protocol.
     func hash(into hasher: inout Hasher)
 
-    /// Helper to compare ``Message``s when not having a specific type to use
-    /// normal `Equatable`. `Equatable` is provided with specific generated
-    /// types.
+    /// A helper to compare messages when you don't have a specific type to
+    /// use the normal Equatable protocol.
+    ///
+    /// Generated code provides `Equatable` conformance for specific
+    /// generated types.
     func isEqualTo(message: any Message) -> Bool
 }
 
@@ -117,7 +118,9 @@ extension Message {
     /// Generated proto2 messages that contain required fields, nested messages
     /// that contain required fields, and/or extensions will provide their own
     /// implementation of this property that tests that all required fields are
-    /// set. Users of the generated code SHOULD NOT override this property.
+    /// set.
+    ///
+    /// Users of the generated code SHOULD NOT override this property.
     public var isInitialized: Bool {
         // The generated code will include a specialization as needed.
         true
@@ -130,8 +133,8 @@ extension Message {
         hasher = visitor.hasher
     }
 
-    /// A description generated by recursively visiting all fields in the message,
-    /// including messages.
+    /// Recursively visits all fields in the message, including nested
+    /// messages, to generate a description.
     public var debugDescription: String {
         #if DEBUG
         // TODO Ideally there would be something like serializeText() that can
@@ -147,19 +150,21 @@ extension Message {
         #endif
     }
 
-    /// Creates an instance of the message type on which this method is called,
-    /// executes the given block passing the message in as its sole `inout`
-    /// argument, and then returns the message.
+    /// Creates an instance of the message type, executes the block you provide on
+    /// it, and returns the result.
     ///
-    /// This method acts essentially as a "builder" in that the initialization of
-    /// the message is captured within the block, allowing the returned value to
-    /// be set in an immutable variable. For example,
+    /// The block receives the message as its sole `inout` argument, so it can
+    /// mutate the message directly.
+    /// This method acts essentially as a "builder" in that the block captures
+    /// the initialization of the message, allowing you to set the returned
+    /// value in an immutable variable. For example,
     ///
     ///     let msg = MyMessage.with { $0.myField = "foo" }
     ///     msg.myOtherField = 5  // error: msg is immutable
     ///
-    /// - Parameter populator: A block or function that populates the new message,
-    ///   which is passed into the block as an `inout` argument.
+    /// - Parameter populator: A block or function that populates the new
+    ///   message. This method passes the message into the block as an
+    ///   `inout` argument.
     /// - Returns: The message after execution of the block.
     public static func with(
         _ populator: (inout Self) throws -> Void
@@ -175,7 +180,7 @@ extension Message {
 /// In general, use ``Message`` instead when you need a variable or
 /// argument that can hold any type of message. Occasionally, you can use
 /// ``Message`` & `Equatable` or ``Message`` & `Hashable` as
-/// generic constraints if you need to write generic code that can be applied to
+/// generic constraints if you need to write generic code that applies to
 /// multiple message types that uses equality tests, puts messages in a `Set`,
 /// or uses them as `Dictionary` keys.
 @preconcurrency
@@ -186,6 +191,13 @@ public protocol _MessageImplementationBase: Message, Hashable {
 }
 
 extension _MessageImplementationBase {
+    /// Returns a Boolean value that indicates whether the message you provide is equal to this one.
+    ///
+    /// This method compares `message` to the receiver by first checking that it has the same
+    /// concrete type as `Self`, then delegating to the `==` operator.
+    ///
+    /// - Parameter message: The message to compare against the receiver.
+    /// - Returns: A Boolean value that indicates whether the two messages are equal.
     public func isEqualTo(message: any Message) -> Bool {
         guard let other = message as? Self else {
             return false
@@ -196,12 +208,18 @@ extension _MessageImplementationBase {
     // Legacy default implementation that is used by old generated code, current
     // versions of the plugin/generator provide this directly, but this is here
     // just to avoid breaking source compatibility.
+
+    /// Returns a Boolean value that indicates whether the two messages are equal.
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs._protobuf_generated_isEqualTo(other: rhs)
     }
 
     // Legacy function that is generated by old versions of the plugin/generator,
     // defaulted to keep things simple without changing the api surface.
+
+    /// SwiftProtobuf Internal: Legacy equality hook that old generated code overrides.
+    ///
+    /// Don't call this method directly.
     public func _protobuf_generated_isEqualTo(other: Self) -> Bool {
         self == other
     }

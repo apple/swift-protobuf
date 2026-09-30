@@ -7,11 +7,11 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the overall support for building Swift structs to represent
-/// a proto message.  In particular, this handles the copy-on-write deferred
-/// for messages that require it.
-///
+//
+// This provides the overall support for building Swift structs to represent
+// a proto message.  In particular, this handles the copy-on-write deferred
+// for messages that require it.
+//
 // -----------------------------------------------------------------------------
 
 import Foundation
@@ -506,16 +506,16 @@ class MessageGenerator {
     /// one.
     ///
     /// - Parameter p: The code printer.
-    /// - Parameter canThrow: Indicates whether the code that will be printed
-    ///   inside the block can throw; if so, the printed call to
-    ///   `withExtendedLifetime` will be preceded by `try`.
-    /// - Parameter returns: Indicates whether the code that will be printed
-    ///   inside the block returns a value; if so, the printed call to
-    ///   `withExtendedLifetime` will be preceded by `return`.
-    /// - Parameter capturedVariable: The name of another variable (which is
-    ///   assumed to be the same type as `self`) whose storage should also be
-    ///   captured (used for equality testing, where two messages are operated
-    ///   on simultaneously).
+    /// - Parameter canThrow: Indicates whether the code that the closure
+    ///   prints inside the block can throw; if so, this method precedes the
+    ///   printed call to `withExtendedLifetime` with `try`.
+    /// - Parameter returns: Indicates whether the code that the closure
+    ///   prints inside the block returns a value; if so, this method
+    ///   precedes the printed call to `withExtendedLifetime` with `return`.
+    /// - Parameter capturedVariable: The name of another variable (which
+    ///   must have the same type as `self`) whose storage this method should
+    ///   also capture (used for equality testing, where the code operates on
+    ///   two messages simultaneously).
     /// - Parameter body: A closure that takes the code printer as its sole
     ///   `inout` argument.
     private func generateWithLifetimeExtension(

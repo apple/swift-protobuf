@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Text format serialization engine.
-///
+//
+// Text format serialization engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)

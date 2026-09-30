@@ -8,11 +8,11 @@
 //
 // -----------------------------------------------------------------------------
 
-/// TODO: Right now, only the NameMap and the NameDescription enum
-/// (which are directly used by the generated code) are public.
-/// This means that code outside the library has no way to actually
-/// use this data.  We should develop and publicize a suitable API
-/// for that purpose.  (Which might be the same as the internal API.)
+// TODO: Right now, only the NameMap and the NameDescription enum
+// (which are directly used by the generated code) are public.
+// This means that code outside the library has no way to actually
+// use this data.  We should develop and publicize a suitable API
+// for that purpose.  (Which might be the same as the internal API.)
 
 /// This must produce exactly the same outputs as the corresponding
 /// code in the protoc-gen-swift code generator. Changing it will
@@ -100,13 +100,13 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
     case sameNext = 1
     case sameDelta = 2
 
-    /// The JSON name can be computed from the proto string.
+    /// The runtime computes the JSON name from the proto string.
     ///
     /// ## Operands
     /// * (Delta only) An integer representing the (delta from the previous) field or enum case
     ///   number.
-    /// * A string containing the single text format name, from which the JSON name will be
-    ///   dynamically computed.
+    /// * A string containing the single text format name, from which the runtime dynamically
+    ///   computes the JSON name.
     case standardNext = 3
     case standardDelta = 4
 
@@ -120,17 +120,18 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
     case uniqueNext = 5
     case uniqueDelta = 6
 
-    /// Used for group fields only to represent the message type name of a group.
+    /// Group fields use this exclusively to represent the message type name of a group.
     ///
     /// ## Operands
     /// * (Delta only) An integer representing the (delta from the previous) field number.
     /// * A string containing the (UpperCamelCase by convention) message type name, from which the
-    ///   text format and JSON names can be derived (lowercase).
+    ///   runtime derives the text format and JSON names (lowercase).
     case groupNext = 7
     case groupDelta = 8
 
-    /// Used for enum cases only to represent a value's primary proto name (the first defined case)
-    /// and its aliases. The JSON and text format names for enums are always the same.
+    /// Enum cases use this exclusively to represent a value's primary proto name (the first
+    /// defined case) and its aliases. The JSON and text format names for enums are always the
+    /// same.
     ///
     /// ## Operands
     /// * (Delta only) An integer representing the (delta from the previous) enum case number.
@@ -154,8 +155,8 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
     ///   of the reserved number range.
     case reservedNumbers = 12
 
-    /// Indicates whether the opcode represents an instruction that has an explicit delta encoded
-    /// as its first operand.
+    /// Indicates whether the opcode represents an instruction whose first operand encodes an
+    /// explicit delta.
     var hasExplicitDelta: Bool {
         switch self {
         case .sameDelta, .standardDelta, .uniqueDelta, .groupDelta, .aliasDelta: return true
@@ -165,21 +166,23 @@ package enum ProtoNameInstruction: UInt64, CaseIterable {
 }
 
 /// An immutable bidirectional mapping between field/enum-case names
-/// and numbers, used to record field names for text-based
-/// serialization (JSON and text).  These maps are lazily instantiated
-/// for each message as needed, so there is no run-time overhead for
-/// users who do not use text-based serialization formats.
+/// and numbers; generated code uses it to record field names for
+/// text-based serialization (JSON and text).
+///
+/// Swift instantiates each message's map lazily, on first use, so
+/// there is no run-time overhead for users who do not use text-based
+/// serialization formats.
 public struct _NameMap: ExpressibleByDictionaryLiteral {
 
     /// An immutable interned string container.  The `utf8Start` pointer
-    /// is guaranteed valid for the lifetime of the `NameMap` that you
-    /// fetched it from.  Since `NameMap`s are only instantiated as
-    /// immutable static values, that should be the lifetime of the
-    /// program.
+    /// remains valid for the lifetime of the `NameMap` that you
+    /// fetched it from.  Since generated code only instantiates
+    /// `NameMap`s as immutable static values, that should be the
+    /// lifetime of the program.
     ///
     /// Internally, this uses `StaticString` (which refers to a fixed
-    /// block of UTF-8 data) where possible.  In cases where the string
-    /// has to be computed, it caches the UTF-8 bytes in an
+    /// block of UTF-8 data) where possible.  In cases where it must
+    /// compute the string, it caches the UTF-8 bytes in an
     /// unmovable and immutable heap area.
     package struct Name: Hashable, CustomStringConvertible {
         #if !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
@@ -220,16 +223,19 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
         internal let utf8Buffer: UnsafeRawBufferPointer
 
+        /// The name's characters, decoded from its interned UTF-8 storage.
         public var description: String {
             String(decoding: self.utf8Buffer, as: UTF8.self)
         }
 
+        /// A hash based on this name's UTF-8 bytes, kept consistent with this type's equality.
         public func hash(into hasher: inout Hasher) {
             for byte in utf8Buffer {
                 hasher.combine(byte)
             }
         }
 
+        /// Returns a Boolean value that indicates whether two names contain the same UTF-8 bytes.
         public static func == (lhs: Name, rhs: Name) -> Bool {
             if lhs.utf8Buffer.count != rhs.utf8Buffer.count {
                 return false
@@ -247,24 +253,25 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     #if !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
     /// A description of the names for a particular field or enum case.
+    ///
     /// The different forms here let us minimize the amount of string
     /// data that we store in the binary.
     ///
-    /// These are only used in the generated code to initialize a NameMap.
+    /// Generated code uses these only to initialize a NameMap.
     public enum NameDescription {
 
         /// The proto (text format) name and the JSON name are the same string.
         case same(proto: StaticString)
 
-        /// The JSON name can be computed from the proto string
+        /// The runtime computes the JSON name from the proto string
         case standard(proto: StaticString)
 
         /// The JSON and text format names are just different.
         case unique(proto: StaticString, json: StaticString)
 
-        /// Used for enum cases only to represent a value's primary proto name (the
-        /// first defined case) and its aliases. The JSON and text format names for
-        /// enums are always the same.
+        /// Enum cases use this exclusively to represent a value's primary proto
+        /// name (the first defined case) and its aliases. The JSON and text
+        /// format names for enums are always the same.
         case aliased(proto: StaticString, aliases: [StaticString])
     }
 
@@ -291,12 +298,17 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// support TextFormat's requirement to skip these numbers in all cases.
     private var reservedRanges: [Range<Int32>] = []
 
-    /// Creates a new empty field/enum-case name/number mapping.
+    /// Creates an empty field/enum-case name/number mapping.
     public init() {}
 
     #if REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
     // Provide a dummy for ExpressibleByDictionaryLiteral conformance.
+
+    /// A placeholder that satisfies dictionary literal conformance when legacy initializer support
+    /// is compiled out.
+    ///
+    /// Calling it always traps.
     public init(dictionaryLiteral elements: (Int, Int)...) {
         fatalError("Support compiled out removed")
     }
@@ -380,6 +392,8 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
     #endif  // !REMOVE_LEGACY_NAMEMAP_INITIALIZERS
 
+    /// Creates a name map by executing the bytecode instructions the code generator embeds in
+    /// generated messages.
     public init(bytecode: StaticString) {
         var previousNumber = 0
         BytecodeInterpreter<ProtoNameInstruction>(program: bytecode).execute { instruction, reader in
@@ -469,31 +483,31 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         }
     }
 
-    /// Returns the name bundle for the field/enum-case with the given number, or
-    /// `nil` if there is no match.
+    /// Returns the name bundle for the field/enum-case with the number you
+    /// provide, or `nil` if there is no match.
     internal func names(for number: Int) -> Names? {
         numberToNameMap[number]
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
-    /// This is used by the Text format parser to look up field or enum
+    /// The Text format parser uses this to look up field or enum
     /// names using a direct reference to the un-decoded UTF8 bytes.
     internal func number(forProtoName raw: UnsafeRawBufferPointer) -> Int? {
         let n = Name(transientUtf8Buffer: raw)
         return protoToNumberMap[n]
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
-    /// This accepts a regular `String` and is used in JSON parsing
-    /// only when a field name or enum name was decoded from a string
-    /// containing backslash escapes.
+    /// This accepts a regular `String`; JSON parsing calls this only
+    /// when the JSON decoder decodes a field name or enum name from a
+    /// string containing backslash escapes.
     ///
-    /// JSON parsing must interpret *both* the JSON name of the
-    /// field/enum-case provided by the descriptor *as well as* its
+    /// JSON parsing must interpret *both* the JSON name that the
+    /// descriptor provides for the field/enum-case *as well as* its
     /// original proto/text name.
     internal func number(forJSONName name: String) -> Int? {
         let utf8 = Array(name.utf8)
@@ -503,11 +517,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         }
     }
 
-    /// Returns the field/enum-case number that has the given JSON name,
+    /// Returns the field/enum-case number that has the JSON name you provide,
     /// or `nil` if there is no match.
     ///
-    /// This is used by the JSON parser when a field name or enum name
-    /// required no special processing.  As a result, we can avoid
+    /// The JSON parser uses this when a field name or enum name
+    /// requires no special processing.  As a result, we can avoid
     /// copying the name and look up the number using a direct reference
     /// to the un-decoded UTF8 bytes.
     internal func number(forJSONName raw: UnsafeRawBufferPointer) -> Int? {
@@ -520,7 +534,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         numberToNameMap.map(\.value.proto)
     }
 
-    /// Returns if the given name was reserved.
+    /// Returns if the name you provide was reserved.
     internal func isReserved(name: UnsafeRawBufferPointer) -> Bool {
         guard !reservedNames.isEmpty,
             let baseAddress = name.baseAddress,
@@ -531,7 +545,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         return reservedNames.contains(s)
     }
 
-    /// Returns if the given number was reserved.
+    /// Returns if the number you provide was reserved.
     internal func isReserved(number: Int32) -> Bool {
         for range in reservedRanges {
             if range.contains(number) {

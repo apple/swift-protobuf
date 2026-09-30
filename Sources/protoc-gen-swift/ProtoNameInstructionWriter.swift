@@ -16,11 +16,12 @@ import SwiftProtobufPluginLibrary
 struct ProtoNameInstructionWriter {
     private(set) var bytecode = BytecodeWriter<ProtoNameInstruction>()
 
-    /// The previous field or case number written to the stream, which is used to compute deltas.
+    /// The previous field or case number this writer wrote to the stream,
+    /// which it uses to compute deltas.
     private var previousNumber: Int32? = nil
 
-    /// Indicates whether the parameterless `NameMap` initializer can be use because no instructions
-    /// were written to the bytecode stream.
+    /// Indicates whether the parameterless `NameMap` initializer can work
+    /// because this writer wrote no instructions to the bytecode stream.
     var shouldUseEmptyNameMapInitializer: Bool {
         !bytecode.hasData
     }
