@@ -94,91 +94,50 @@ extension ExtensionStorage {
     ///   - schema: The ``ExtensionSchema`` of the extension being scanned.
     ///   - reader: The ``JSONReader`` from which to scan the value.
     private func scanSingularValue(of schema: ExtensionSchema, from reader: inout JSONReader) throws {
-        let field = schema.field
         let isNull = try reader.consumeNullIfPresent()
+        if isNull {
+            clearValue(of: schema)
+            return
+        }
+
+        let field = schema.field
         switch field.rawFieldType {
         case .bool:
-            if isNull {
-                clearValue(of: schema, type: Bool.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeBool())
 
         case .bytes:
-            if isNull {
-                clearValue(of: schema, type: Data.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeBytes())
 
         case .double:
-            if isNull {
-                clearValue(of: schema, type: Double.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeDouble())
 
         case .enum:
-            if isNull {
-                // We don't have the concrete type information for the enum here, but that's
-                // fine because we store the raw value for singular enum fields.
-                clearValue(of: schema, type: Int32.self)
-                break
-            }
             guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
                 break
             }
             updateValue(of: schema, to: value)
 
         case .fixed32, .uint32:
-            if isNull {
-                clearValue(of: schema, type: UInt32.self)
-                break
-            }
             let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))
             updateValue(of: schema, to: UInt32(truncatingIfNeeded: n))
 
         case .fixed64, .uint64:
-            if isNull {
-                clearValue(of: schema, type: UInt64.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeUnsignedInteger(upperBound: UInt64.max))
 
         case .float:
-            if isNull {
-                clearValue(of: schema, type: Float.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeFloat())
 
         case .group, .message:
-            if isNull {
-                clearSingularMessageField(schema)
-                break
-            }
             try scanSingularMessageField(schema, from: &reader)
 
         case .int32, .sfixed32, .sint32:
-            if isNull {
-                clearValue(of: schema, type: Int32.self)
-                break
-            }
             let n = try reader.consumeSignedInteger(upperBound: Int64(Int32.max))
             updateValue(of: schema, to: Int32(truncatingIfNeeded: n))
 
         case .int64, .sfixed64, .sint64:
-            if isNull {
-                clearValue(of: schema, type: Int64.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeSignedInteger(upperBound: Int64.max))
 
         case .string:
-            if isNull {
-                clearValue(of: schema, type: String.self)
-                break
-            }
             updateValue(of: schema, to: try reader.consumeString())
 
         default:

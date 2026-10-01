@@ -25,6 +25,7 @@ extension MessageStorage {
     /// Returns the message schema for the given field.
     ///
     /// - Precondition: The field must be a message, group, or map field.
+    @usableFromInline
     func messageSchema(for field: MessageSchema.Field) -> MessageSchema {
         switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
         case nil:

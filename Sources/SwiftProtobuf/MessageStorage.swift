@@ -172,11 +172,7 @@ extension MessageStorage {
             switch field.rawFieldType {
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
-            case .group, .message:
-                let submessageSchema = messageSchema(for: field)
-                submessageSchema.invokeWitness(
-                    .messageDeinitialize(pointer: rawPointer(for: field))
-                )
+            case .group, .message: deinitializeSubmessage(field: field)
             default:
                 // Ignore trivial fields; no deinitialization is necessary.
                 break
@@ -185,6 +181,12 @@ extension MessageStorage {
         default:
             preconditionFailure("Unreachable")
         }
+    }
+
+    @usableFromInline @inline(__always)
+    func deinitializeSubmessage(field: MessageSchema.Field) {
+        let submessageSchema = messageSchema(for: field)
+        submessageSchema.invokeWitness(.messageDeinitialize(pointer: rawPointer(for: field)))
     }
 
     /// Deinitializes the field associated with the given concrete type information.
@@ -628,15 +630,14 @@ extension MessageStorage {
         zeroOut(at: offset, count: MemoryLayout<T>.stride)
     }
 
-    /// Clears the value at the given offset in the storage, along with its presence.
-    ///
-    /// This specialization is necessary since enums are stored as their raw values in memory.
+    /// Clears the protobuf enum value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func clearValue<T: Enum>(at offset: Int, type: T.Type, hasBit: HasBit) {
+    public func clearEnumValue(at offset: Int, hasBit: HasBit) {
         let pointer = typedPointer(at: offset, as: Int32.self)
         _ = updatePresence(hasBit: hasBit, willBeSet: false)
         pointer.pointee = 0
     }
+
 
     /// Clears the `String` value at the given zero-based index in the string bucket.
     @_alwaysEmitIntoClient @inline(__always)
@@ -664,6 +665,21 @@ extension MessageStorage {
     public func clearValue<Key, Value>(atIndex index: Int, type: [Key: Value].Type, hasBit: HasBit) {
         let offset = schema.byteOffset(ofMapFieldAtIndex: index)
         clearValue(at: offset, type: [Key: Value].self, hasBit: hasBit)
+    }
+
+    /// Clears the submessage value at the given zero-based index in the message bucket.
+    ///
+    /// This function is only used when weak imports are enabled, where it must delegate through
+    /// the message witness to deinitialize the message so that we don't pass a strong reference to
+    /// its type.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearMessageValue(atIndex index: Int, fieldNumber: Int, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: false)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            deinitializeSubmessage(field: field)
+        }
+        zeroOut(at: offset, count: MemoryLayout<SingularMessageFieldForLayout>.stride)
     }
 
     /// Clears the submessage value at the given zero-based index in the message bucket.

@@ -191,13 +191,13 @@ extension ExtensionStorage {
     /// Updates the value of the given message extension.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Value>(of ext: ExtensionSchema, to newValue: Value) {
-        clearValue(of: ext, type: Value.self)
+        clearValue(of: ext)
         values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: newValue)
     }
 
     /// Clears the value of the given message extension.
     @_alwaysEmitIntoClient @inline(__always)
-    public func clearValue<Value>(of ext: ExtensionSchema, type: Value.Type) {
+    public func clearValue(of ext: ExtensionSchema) {
         values.removeValue(forKey: ext.field.fieldNumber)?.release()
     }
 

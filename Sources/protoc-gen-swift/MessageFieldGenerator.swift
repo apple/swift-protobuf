@@ -191,8 +191,29 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print(
             "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value."
         )
+
+        let clearCall: String
+        switch storageBucket {
+        case .message:
+            // When weak imports are enabled, we generate different `clear`
+            // functions that delegate to a witness to deinitialize the value.
+            // Without weak imports, we prefer the more efficient approach of
+            // passing the metatype directly to the runtime.
+            if generatorOptions.experimentalWeakImports {
+                clearCall = "clearMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
+            } else {
+                clearCall = "clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument))"
+            }
+        case .stable where fieldDescriptor.type == .enum:
+            // All singular enum fields can use the same `clear` function
+            // because we store the raw value in memory; there's nothing to
+            // deinitialize.
+            clearCall = "clearEnumValue(at: \(storageOffsetOrIndex), \(hasBitArgument))"
+        default:
+            clearCall = "clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument))"
+        }
         p.print(
-            "\(visibility)mutating func \(swiftClearName)() { _uniqueStorage().clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument)) }"
+            "\(visibility)mutating func \(swiftClearName)() { _uniqueStorage().\(clearCall) }"
         )
     }
 }

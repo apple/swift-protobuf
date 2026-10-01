@@ -189,7 +189,7 @@ class ExtensionSetGenerator {
                 p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
-                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
+                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName)) }"
                 )
             }
         }
