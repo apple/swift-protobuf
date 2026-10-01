@@ -1079,7 +1079,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   /// groups
@@ -1247,7 +1247,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_Proto2_ForeignMessageProto2: Sendable {
@@ -1880,7 +1880,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: Swift
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   /// groups
@@ -1973,7 +1973,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: Swift
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_Proto2_TestLargeOneof: Sendable {

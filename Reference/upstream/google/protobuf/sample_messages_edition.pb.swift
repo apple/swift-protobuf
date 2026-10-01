@@ -1104,7 +1104,7 @@ nonisolated struct ProtobufTestMessages_Edition_TestAllTypesEdition: SwiftProtob
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   /// groups
@@ -1197,7 +1197,7 @@ nonisolated struct ProtobufTestMessages_Edition_TestAllTypesEdition: SwiftProtob
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_Edition_ForeignMessageEdition: Sendable {
@@ -1853,7 +1853,7 @@ nonisolated struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: Swi
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   /// groups
@@ -1946,7 +1946,7 @@ nonisolated struct ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: Swi
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in sample_messages_edition.proto.

@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
 // Package.swift
 //
@@ -17,9 +17,12 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "NonisolatedDeclarations",
+            name: "StrictMemorySafety",
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-strict-memory-safety", "-warnings-as-errors"])
             ],
             plugins: [
                 .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")

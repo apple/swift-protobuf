@@ -440,7 +440,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct SwiftProtoTesting_Proto3_TestPackedTypes: Sendable {
@@ -548,7 +548,7 @@ nonisolated struct SwiftProtoTesting_Proto3_NestedTestAllTypes: @unchecked Senda
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle

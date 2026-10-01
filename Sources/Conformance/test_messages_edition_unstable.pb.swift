@@ -200,7 +200,7 @@ nonisolated struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnsta
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable: Sendable {

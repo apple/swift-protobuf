@@ -534,7 +534,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_features.proto.

@@ -451,7 +451,7 @@ nonisolated struct Proto3ArenaLiteUnittest_TestAllTypes: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto3ArenaLiteUnittest_TestPackedTypes: Sendable {
@@ -559,7 +559,7 @@ nonisolated struct Proto3ArenaLiteUnittest_NestedTestAllTypes: @unchecked Sendab
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle

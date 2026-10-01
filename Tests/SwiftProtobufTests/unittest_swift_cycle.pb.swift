@@ -85,7 +85,7 @@ nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
@@ -124,7 +124,7 @@ nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
@@ -163,7 +163,7 @@ nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message StrictMemoryMessage {
+  string value = 1;
+  StrictMemoryMessage child = 2;
+}
