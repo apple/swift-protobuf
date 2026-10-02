@@ -264,11 +264,11 @@ class OneofGenerator {
         let oneofPresence = "(\(field.oneofOffset), \(field.number))"
 
         // Only generate a default value expression for the getter if the proto contained an
-        // explicitly written default value (or if it is a message field, since we don't have a
+        // explicitly written default value (or if it is an enum field, since we don't have a
         // suitable default value in that overload).
         let defaultValueArgument: String
         switch field.rawFieldType {
-        case .enum, .group, .message:
+        case .enum:
             defaultValueArgument = "default: \(field.swiftDefaultValue), "
         default:
             defaultValueArgument = field.hasExplicitDefaultValue ? "default: \(field.swiftDefaultValue), " : ""
@@ -280,8 +280,30 @@ class OneofGenerator {
             "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {"
         )
         let atLabel = field.storageBucket == .stable ? "at" : "atIndex"
+        let getCall: String
+        switch field.storageBucket {
+        case .message:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the default value (when
+            // the field is not set). Without weak imports, we prefer the more
+            // efficient approach of passing the metatype directly to the
+            // runtime.
+            //
+            // Unlike regular message fields, setters of oneof fields already
+            // delegate to the message witness to deinitialize the old value,
+            // because the type of the currently populated oneof case can only
+            // be known at runtime (it may be different than the field being
+            // set).
+            if generatorOptions.experimentalWeakImports {
+                getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), oneofPresence: \(oneofPresence))"
+            } else {
+                getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), oneofPresence: \(oneofPresence))"
+            }
+        default:
+            getCall = "value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+        }
         p.printIndented(
-            "get { return _storage.value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
+            "get { return _storage.\(getCall) }",
             "set { _uniqueStorage().updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence)) }"
         )
         p.print("}")

@@ -1252,6 +1252,49 @@ extension MessageStorage {
         return value(at: offset, default: defaultValue, oneofPresence: oneofPresence)
     }
 
+    /// Returns the submessage value at the given zero-based index in the message bucket if it is
+    /// the currently populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(atIndex index: Int, oneofPresence: OneofPresence) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return T()
+        }
+        return typedPointer(at: offset, as: T.self).pointee
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket if it is
+    /// the currently populated member of its containing oneof, or the default value otherwise.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the default submessage
+    /// using its field number rather than calling `T()` directly, avoiding strong references to
+    /// weakly imported message types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        oneofPresence: OneofPresence
+    ) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+                guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                    preconditionFailure("Missing schema for field \(fieldNumber)")
+                }
+                let submessageSchema = messageSchema(for: field)
+                var messageStorage: Unmanaged<MessageStorage>?
+                withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
+                    submessageSchema.invokeWitness(.messageInitialize(
+                        pointer: buffer.baseAddress!,
+                        result: storagePtr
+                    ))
+                }
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: T.self).pointee
+    }
+
     /// Returns the submessage value at the given zero-based index in the message bucket if it is the
     /// currently populated member of its containing oneof, or the default value otherwise.
     @_alwaysEmitIntoClient @inline(__always)
