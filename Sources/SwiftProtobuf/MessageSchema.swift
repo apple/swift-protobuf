@@ -143,7 +143,7 @@ public struct MessageSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
 
-    let invokeWitness: InvokeWitnessFunction
+    @_spi(ForGeneratedCodeOnly) public let invokeWitness: InvokeWitnessFunction
 
     let submessageOrEnumResolver: SubmessageOrEnumResolver
 

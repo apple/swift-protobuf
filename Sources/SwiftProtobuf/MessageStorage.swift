@@ -483,9 +483,42 @@ extension MessageStorage {
     /// Returns the submessage value at the given zero-based index in the message bucket,
     /// or the default value if it is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value<T: Message>(atIndex index: Int, default defaultValue: T, hasBit: HasBit) -> T {
+    public func messageValue<T: Message>(atIndex index: Int, hasBit: HasBit) -> T {
         let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
-        return value(at: offset, default: defaultValue, hasBit: hasBit)
+        guard isPresent(hasBit: hasBit) else { return T() }
+        return typedPointer(at: offset, as: T.self).pointee
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket,
+    /// or the default value if it is not present.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the default submessage
+    /// using its field number rather than calling `T()` directly, avoiding strong references to
+    /// weakly imported message types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        hasBit: HasBit
+    ) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard isPresent(hasBit: hasBit) else {
+            return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+                guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                    preconditionFailure("Missing schema for field \(fieldNumber)")
+                }
+                let submessageSchema = messageSchema(for: field)
+                var messageStorage: Unmanaged<MessageStorage>?
+                withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
+                    submessageSchema.invokeWitness(.messageInitialize(
+                        pointer: buffer.baseAddress!,
+                        result: storagePtr
+                    ))
+                }
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: T.self).pointee
     }
 
     /// Returns the value at the given offset in the storage, or the default value if the value is
@@ -602,6 +635,26 @@ extension MessageStorage {
     public func updateValue<T: Message>(atIndex index: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
         let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the submessage value at the given zero-based index in the message bucket.
+    ///
+    /// This function is only used when weak imports are enabled, where it must delegate through
+    /// the message witness to deinitialize any existing message so that we don't emit a strong
+    /// reference to its type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateMessageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: T,
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: true)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            deinitializeSubmessage(field: field)
+        }
+        typedPointer(at: offset, as: T.self).initialize(to: newValue)
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.

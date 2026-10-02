@@ -175,9 +175,29 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         }
 
         let atLabel = storageBucket == .stable ? "at" : "atIndex"
+        let getCall: String
+        let setCall: String
+        switch storageBucket {
+        case .message:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the default value (when
+            // the field is not set) and to deinitialize existing values.
+            // Without weak imports, we prefer the more efficient approach of
+            // passing the metatype directly to the runtime.
+            if generatorOptions.experimentalWeakImports {
+                getCall = "messageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
+                setCall = "updateMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+            } else {
+                getCall = "messageValue(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
+                setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
+            }
+        default:
+            getCall = "value(\(atLabel): \(storageOffsetOrIndex), \(defaultValueArgument)\(hasBitArgument))"
+            setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
+        }
         p.printIndented(
-            "get { _storage.value(\(atLabel): \(storageOffsetOrIndex), \(defaultValueArgument)\(hasBitArgument)) }",
-            "set { _uniqueStorage().updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument)) }"
+            "get { _storage.\(getCall) }",
+            "set { _uniqueStorage().\(setCall) }"
         )
         p.print("}")
 
