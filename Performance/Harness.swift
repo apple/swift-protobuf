@@ -58,8 +58,13 @@ class Harness: GeneratedHarnessMembers {
         self.resultsFile = resultsFile
     }
 
-    /// Measures the time it takes to execute the given block. The block is
-    /// executed five times and the mean/standard deviation are computed.
+    /// Measures the time it takes to execute the given block.
+    ///
+    /// The block is warmed up before any attempt is recorded, then executed
+    /// `measurementCount` times. Results are summarized per subtask as a median and
+    /// relative interquartile range rather than a mean: without a warmup the first
+    /// attempts run several times slower than the last, and averaging them in made
+    /// the old numbers swing by 25-35% between runs of the same code.
     func measure(block: () throws -> Void) {
         var timings = [TimeInterval]()
         subtaskTimings.removeAll()
@@ -68,18 +73,28 @@ class Harness: GeneratedHarnessMembers {
         var headingsDisplayed = false
 
         do {
-            // Do each measurement multiple times and collect the means and standard
-            // deviation to account for noise.
-            for attempt in 1...measurementCount {
-                currentSubtasks.removeAll()
+            // Warm up until a fixed budget is spent, so that codegen, the allocator,
+            // and any lazily-built decode tables have settled before the first
+            // recorded attempt.
+            let warmupStart = ContinuousClock.now
+            repeat {
                 taskNames.removeAll()
-                let start = Date()
                 for _ in 0..<runCount {
                     taskNames.removeAll()
                     try block()
                 }
-                let end = Date()
-                let diff = end.timeIntervalSince(start) * 1000
+            } while ContinuousClock.now - warmupStart < .milliseconds(200)
+            currentSubtasks.removeAll()
+
+            for attempt in 1...measurementCount {
+                currentSubtasks.removeAll()
+                taskNames.removeAll()
+                let start = ContinuousClock.now
+                for _ in 0..<runCount {
+                    taskNames.removeAll()
+                    try block()
+                }
+                let diff = Harness.milliseconds(ContinuousClock.now - start)
                 timings.append(diff)
 
                 if !headingsDisplayed {
@@ -119,10 +134,43 @@ class Harness: GeneratedHarnessMembers {
             writeToLog("\"\(name)\": \(times),\n")
         }
 
+        printSubtaskSummary()
+
         let (mean, stddev) = statistics(timings)
         let stats =
             String(format: "Relative stddev = %.1f%%\n", (stddev / mean) * 100.0)
         print(stats)
+    }
+
+    /// Converts a `Duration` to milliseconds.
+    private static func milliseconds(_ duration: Duration) -> TimeInterval {
+        let c = duration.components
+        return TimeInterval(c.seconds) * 1000 + TimeInterval(c.attoseconds) / 1e15
+    }
+
+    /// Prints the median, min and relative IQR for each subtask.
+    ///
+    /// The median is the number to compare between branches; the relative IQR says
+    /// whether the run is worth believing. Anything above a few percent means the
+    /// machine was contended.
+    private func printSubtaskSummary() {
+        print()
+        print(padded("subtask", to: 20) + padded("median", to: 12) + padded("min", to: 12) + "rel IQR")
+        for name in taskNames {
+            guard let times = subtaskTimings[name], !times.isEmpty else { continue }
+            let sorted = times.sorted()
+            let median = sorted[sorted.count / 2]
+            let q1 = sorted[sorted.count / 4]
+            let q3 = sorted[(sorted.count * 3) / 4]
+            let relativeIQR = median > 0 ? (q3 - q1) / median * 100 : 0
+            print(
+                padded(name, to: 20)
+                    + padded(String(format: "%.3f", median), to: 12)
+                    + padded(String(format: "%.3f", sorted[0]), to: 12)
+                    + String(format: "%.1f%%", relativeIQR)
+            )
+        }
+        print()
     }
 
     /// Measure an individual subtask whose timing will be printed separately
@@ -133,10 +181,9 @@ class Harness: GeneratedHarnessMembers {
     ) rethrows -> Result {
         try autoreleasepool { () -> Result in
             taskNames.append(name)
-            let start = Date()
+            let start = ContinuousClock.now
             let result = try block()
-            let end = Date()
-            let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
+            let diff = Harness.milliseconds(ContinuousClock.now - start) / Double(runCount) * 1000.0
             currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
             return result
         }
