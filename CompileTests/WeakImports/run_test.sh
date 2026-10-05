@@ -61,12 +61,18 @@ if [ -d "${SWIFT_BIN_DIR}/Modules" ]; then
   SWIFT_INCLUDES+=(-I "${SWIFT_BIN_DIR}/Modules")
 fi
 
+SWIFT_FRONTEND_FLAGS=(
+  -Xfrontend -internalize-at-link
+  -Xfrontend -disable-reflection-metadata
+  -Xfrontend -disable-reflection-names
+)
+
 echo "==> Compiling ModuleB..."
 "${SWIFTC}" -O -parse-as-library \
   -module-name ModuleB \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleB.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
-  -Xfrontend -internalize-at-link \
+  "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleB/b.pb.swift" \
   -o "${BUILD_DIR}/ModuleB.o"
 ar cr "${BUILD_DIR}/libModuleB.a" "${BUILD_DIR}/ModuleB.o"
@@ -77,7 +83,7 @@ echo "==> Compiling ModuleC..."
   -module-name ModuleC \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleC.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
-  -Xfrontend -internalize-at-link \
+  "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleC/c.pb.swift" \
   -o "${BUILD_DIR}/ModuleC.o"
 ar cr "${BUILD_DIR}/libModuleC.a" "${BUILD_DIR}/ModuleC.o"
@@ -89,7 +95,7 @@ echo "==> Compiling ModuleA..."
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleA.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
   -I "${BUILD_DIR}" \
-  -Xfrontend -internalize-at-link \
+  "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleA/a.pb.swift" \
   -o "${BUILD_DIR}/ModuleA.o"
 ar cr "${BUILD_DIR}/libModuleA.a" "${BUILD_DIR}/ModuleA.o"
@@ -100,7 +106,7 @@ echo "==> Compiling Client..."
   -module-name Client \
   "${SWIFT_INCLUDES[@]}" \
   -I "${BUILD_DIR}" \
-  -Xfrontend -internalize-at-link \
+  "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/Client/Client.swift" \
   -o "${BUILD_DIR}/Client.o"
 
