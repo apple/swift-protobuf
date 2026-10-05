@@ -52,6 +52,12 @@ public enum EnumWitnesses<T: Enum> {
             result.pointee =
                 lhs.bindMemory(to: T.self, capacity: 1).pointee
                 == rhs.bindMemory(to: T.self, capacity: 1).pointee
+
+        case .enumInitialize(let rawValue, let pointer):
+            pointer.bindMemory(to: T.self, capacity: 1).initialize(to: T(rawValue: Int(rawValue))!)
+
+        case .enumGetRawValue(let pointer, let result):
+            result.pointee = Int32(pointer.bindMemory(to: T.self, capacity: 1).pointee.rawValue)
         }
     }
 }
@@ -89,4 +95,10 @@ public enum EnumWitnessOperation {
 
     /// Compares the enum at `lhs` with the enum at `rhs` for equality and populates `result` with the result.
     case enumEqual(lhs: UnsafeRawPointer, rhs: UnsafeRawPointer, result: UnsafeMutablePointer<Bool>)
+
+    /// Initializes uninitialized memory at `pointer` with the enum corresponding to `rawValue`.
+    case enumInitialize(rawValue: Int32, pointer: UnsafeMutableRawPointer)
+
+    /// Populates `result` with the raw value of the enum located at `pointer`.
+    case enumGetRawValue(pointer: UnsafeRawPointer, result: UnsafeMutablePointer<Int32>)
 }

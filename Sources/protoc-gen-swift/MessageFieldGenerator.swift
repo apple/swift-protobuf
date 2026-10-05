@@ -191,6 +191,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 getCall = "messageValue(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
                 setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
             }
+        case .stable where fieldDescriptor.type == .enum && generatorOptions.experimentalWeakImports:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the enum from its raw
+            // value and to extract the raw value in the setter.
+            let hasPresenceArgument = hasFieldPresence ? "" : "hasPresence: false, "
+            getCall = "enumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), \(defaultValueArgument)\(hasBitArgument))"
+            setCall = "updateEnumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasPresenceArgument)\(hasBitArgument))"
         default:
             getCall = "value(\(atLabel): \(storageOffsetOrIndex), \(defaultValueArgument)\(hasBitArgument))"
             setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"

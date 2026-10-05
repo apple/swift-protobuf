@@ -318,6 +318,7 @@ class OneofGenerator {
         )
         let atLabel = field.storageBucket == .stable ? "at" : "atIndex"
         let getCall: String
+        let setCall: String
         switch field.storageBucket {
         case .message:
             // When weak imports are enabled, we generate different accessors
@@ -336,12 +337,20 @@ class OneofGenerator {
             } else {
                 getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), oneofPresence: \(oneofPresence))"
             }
+            setCall = "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
+        case .stable where field.rawFieldType == .enum && generatorOptions.experimentalWeakImports:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the enum from its raw
+            // value and to extract the raw value in the setter.
+            getCall = "enumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall = "updateEnumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), to: newValue, oneofPresence: \(oneofPresence))"
         default:
             getCall = "value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall = "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
         }
         p.printIndented(
             "get { return _storage.\(getCall) }",
-            "set { _uniqueStorage().updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence)) }"
+            "set { _uniqueStorage().\(setCall) }"
         )
         p.print("}")
     }

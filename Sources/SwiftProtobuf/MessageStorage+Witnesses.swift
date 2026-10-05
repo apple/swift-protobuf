@@ -33,6 +33,7 @@ extension MessageStorage {
     /// Returns the enum schema for the given field.
     ///
     /// - Precondition: The field must be an enum field.
+    @usableFromInline
     func enumSchema(for field: MessageSchema.Field) -> EnumSchema {
         schema.enumSchema(for: field)
     }
