@@ -193,13 +193,13 @@ public nonisolated struct Google_Protobuf_Value: @unchecked Swift.Sendable {
 
   /// Represents a JSON object.
   public var structValue: Google_Protobuf_Struct {
-    get { return _storage.value(atIndex: 0, default: Google_Protobuf_Struct(), oneofPresence: (4, 5)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 5)) }
   }
 
   /// Represents a JSON array.
   public var listValue: Google_Protobuf_ListValue {
-    get { return _storage.value(atIndex: 1, default: Google_Protobuf_ListValue(), oneofPresence: (4, 6)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 6)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 6)) }
   }
 

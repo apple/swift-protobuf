@@ -64,7 +64,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2Unittest_LateLoadedOption_ext: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_LateLoadedOption.Extensions.ext) }
   /// Clears the value of extension `Proto2Unittest_LateLoadedOption.Extensions.ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_LateLoadedOption_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_LateLoadedOption.Extensions.ext, type: Proto2Unittest_LateLoadedOption.self) }
+  mutating func clearProto2Unittest_LateLoadedOption_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_LateLoadedOption.Extensions.ext) }
 
 }
 

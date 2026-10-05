@@ -44,7 +44,7 @@ nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `feature1` has been explicitly set.
   var hasFeature1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `feature1`. Subsequent reads from it will return its default value.
-  mutating func clearFeature1() { _uniqueStorage().clearValue(at: 4, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 1)) }
+  mutating func clearFeature1() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var feature2: SwiftFeatureTest_TestFeatures.EnumFeature {
     get { _storage.value(at: 8, default: .unknown, hasBit: (0, 2)) }
@@ -53,7 +53,7 @@ nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `feature2` has been explicitly set.
   var hasFeature2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `feature2`. Subsequent reads from it will return its default value.
-  mutating func clearFeature2() { _uniqueStorage().clearValue(at: 8, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 2)) }
+  mutating func clearFeature2() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var feature3: SwiftFeatureTest_TestFeatures.EnumFeature {
     get { _storage.value(at: 12, default: .unknown, hasBit: (0, 4)) }
@@ -62,7 +62,7 @@ nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `feature3` has been explicitly set.
   var hasFeature3: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `feature3`. Subsequent reads from it will return its default value.
-  mutating func clearFeature3() { _uniqueStorage().clearValue(at: 12, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 4)) }
+  mutating func clearFeature3() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
 
   var feature4: SwiftFeatureTest_TestFeatures.EnumFeature {
     get { _storage.value(at: 16, default: .unknown, hasBit: (0, 8)) }
@@ -71,7 +71,7 @@ nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `feature4` has been explicitly set.
   var hasFeature4: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `feature4`. Subsequent reads from it will return its default value.
-  mutating func clearFeature4() { _uniqueStorage().clearValue(at: 16, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 8)) }
+  mutating func clearFeature4() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
 
   var feature5: SwiftFeatureTest_TestFeatures.EnumFeature {
     get { _storage.value(at: 20, default: .unknown, hasBit: (0, 16)) }
@@ -80,7 +80,7 @@ nonisolated struct SwiftFeatureTest_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `feature5` has been explicitly set.
   var hasFeature5: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `feature5`. Subsequent reads from it will return its default value.
-  mutating func clearFeature5() { _uniqueStorage().clearValue(at: 20, type: SwiftFeatureTest_TestFeatures.EnumFeature.self, hasBit: (0, 16)) }
+  mutating func clearFeature5() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 16)) }
 
   nonisolated enum EnumFeature: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
@@ -127,7 +127,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasSwiftFeatureTest_test: Bool { _protobuf_extensionStorage().hasValue(for: SwiftFeatureTest_Extensions_test) }
   /// Clears the value of extension `SwiftFeatureTest_Extensions_test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftFeatureTest_test() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftFeatureTest_Extensions_test, type: SwiftFeatureTest_TestFeatures.self) }
+  mutating func clearSwiftFeatureTest_test() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftFeatureTest_Extensions_test) }
 
 }
 

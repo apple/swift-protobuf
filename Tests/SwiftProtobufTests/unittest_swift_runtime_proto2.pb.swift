@@ -195,7 +195,7 @@ nonisolated struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: SwiftProtoTesting_Message2.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Message2.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -204,7 +204,7 @@ nonisolated struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Message2.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalMessage: SwiftProtoTesting_Message2 {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_Message2(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -219,7 +219,7 @@ nonisolated struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   /// Returns true if `optionalEnum` has been explicitly set.
   var hasOptionalEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 112, type: SwiftProtoTesting_Message2.Enum.self, hasBit: (2, 2)) }
+  mutating func clearOptionalEnum() { _uniqueStorage().clearEnumValue(at: 112, hasBit: (2, 2)) }
 
   var repeatedInt32: [Int32] {
     get { _storage.value(atIndex: 0, hasBit: (2, 4)) }
@@ -438,12 +438,12 @@ nonisolated struct SwiftProtoTesting_Message2: @unchecked Swift.Sendable {
   }
 
   var oneofGroup: SwiftProtoTesting_Message2.OneofGroup {
-    get { return _storage.value(atIndex: 2, default: SwiftProtoTesting_Message2.OneofGroup(), oneofPresence: (12, 66)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (12, 66)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (12, 66)) }
   }
 
   var oneofMessage: SwiftProtoTesting_Message2 {
-    get { return _storage.value(atIndex: 3, default: SwiftProtoTesting_Message2(), oneofPresence: (12, 68)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (12, 68)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (12, 68)) }
   }
 
@@ -694,7 +694,7 @@ nonisolated struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Swift.Sendable 
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: SwiftProtoTesting_Msg2UsesStorage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Msg2UsesStorage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `y` has been explicitly set.
@@ -781,7 +781,7 @@ nonisolated struct SwiftProtoTesting_Msg2NamesUsesStorage: @unchecked Swift.Send
 
   /// Recursive class, forces _StorageClass
   var value: SwiftProtoTesting_Msg2UsesStorage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Msg2UsesStorage(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `value` has been explicitly set.

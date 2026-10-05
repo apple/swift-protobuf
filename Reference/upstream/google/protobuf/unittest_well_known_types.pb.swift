@@ -36,7 +36,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `anyField` has been explicitly set.
@@ -45,7 +45,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearAnyField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (0, 1)) }
 
   var apiField: SwiftProtobuf.Google_Protobuf_Api {
-    get { _storage.value(atIndex: 1, default: SwiftProtobuf.Google_Protobuf_Api(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `apiField` has been explicitly set.
@@ -54,7 +54,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearApiField() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtobuf.Google_Protobuf_Api.self, hasBit: (0, 2)) }
 
   var durationField: SwiftProtobuf.Google_Protobuf_Duration {
-    get { _storage.value(atIndex: 2, default: SwiftProtobuf.Google_Protobuf_Duration(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `durationField` has been explicitly set.
@@ -63,7 +63,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearDurationField() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtobuf.Google_Protobuf_Duration.self, hasBit: (0, 4)) }
 
   var emptyField: SwiftProtobuf.Google_Protobuf_Empty {
-    get { _storage.value(atIndex: 3, default: SwiftProtobuf.Google_Protobuf_Empty(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `emptyField` has been explicitly set.
@@ -72,7 +72,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearEmptyField() { _uniqueStorage().clearValue(atIndex: 3, type: SwiftProtobuf.Google_Protobuf_Empty.self, hasBit: (0, 8)) }
 
   var fieldMaskField: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get { _storage.value(atIndex: 4, default: SwiftProtobuf.Google_Protobuf_FieldMask(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `fieldMaskField` has been explicitly set.
@@ -81,7 +81,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearFieldMaskField() { _uniqueStorage().clearValue(atIndex: 4, type: SwiftProtobuf.Google_Protobuf_FieldMask.self, hasBit: (0, 16)) }
 
   var sourceContextField: SwiftProtobuf.Google_Protobuf_SourceContext {
-    get { _storage.value(atIndex: 5, default: SwiftProtobuf.Google_Protobuf_SourceContext(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `sourceContextField` has been explicitly set.
@@ -90,7 +90,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearSourceContextField() { _uniqueStorage().clearValue(atIndex: 5, type: SwiftProtobuf.Google_Protobuf_SourceContext.self, hasBit: (0, 32)) }
 
   var structField: SwiftProtobuf.Google_Protobuf_Struct {
-    get { _storage.value(atIndex: 6, default: SwiftProtobuf.Google_Protobuf_Struct(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `structField` has been explicitly set.
@@ -99,7 +99,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearStructField() { _uniqueStorage().clearValue(atIndex: 6, type: SwiftProtobuf.Google_Protobuf_Struct.self, hasBit: (0, 64)) }
 
   var timestampField: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { _storage.value(atIndex: 7, default: SwiftProtobuf.Google_Protobuf_Timestamp(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `timestampField` has been explicitly set.
@@ -108,7 +108,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearTimestampField() { _uniqueStorage().clearValue(atIndex: 7, type: SwiftProtobuf.Google_Protobuf_Timestamp.self, hasBit: (0, 128)) }
 
   var typeField: SwiftProtobuf.Google_Protobuf_Type {
-    get { _storage.value(atIndex: 8, default: SwiftProtobuf.Google_Protobuf_Type(), hasBit: (1, 1)) }
+    get { _storage.messageValue(atIndex: 8, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `typeField` has been explicitly set.
@@ -117,7 +117,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearTypeField() { _uniqueStorage().clearValue(atIndex: 8, type: SwiftProtobuf.Google_Protobuf_Type.self, hasBit: (1, 1)) }
 
   var doubleField: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get { _storage.value(atIndex: 9, default: SwiftProtobuf.Google_Protobuf_DoubleValue(), hasBit: (1, 2)) }
+    get { _storage.messageValue(atIndex: 9, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `doubleField` has been explicitly set.
@@ -126,7 +126,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearDoubleField() { _uniqueStorage().clearValue(atIndex: 9, type: SwiftProtobuf.Google_Protobuf_DoubleValue.self, hasBit: (1, 2)) }
 
   var floatField: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get { _storage.value(atIndex: 10, default: SwiftProtobuf.Google_Protobuf_FloatValue(), hasBit: (1, 4)) }
+    get { _storage.messageValue(atIndex: 10, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `floatField` has been explicitly set.
@@ -135,7 +135,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearFloatField() { _uniqueStorage().clearValue(atIndex: 10, type: SwiftProtobuf.Google_Protobuf_FloatValue.self, hasBit: (1, 4)) }
 
   var int64Field: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get { _storage.value(atIndex: 11, default: SwiftProtobuf.Google_Protobuf_Int64Value(), hasBit: (1, 8)) }
+    get { _storage.messageValue(atIndex: 11, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `int64Field` has been explicitly set.
@@ -144,7 +144,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearInt64Field() { _uniqueStorage().clearValue(atIndex: 11, type: SwiftProtobuf.Google_Protobuf_Int64Value.self, hasBit: (1, 8)) }
 
   var uint64Field: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get { _storage.value(atIndex: 12, default: SwiftProtobuf.Google_Protobuf_UInt64Value(), hasBit: (1, 16)) }
+    get { _storage.messageValue(atIndex: 12, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `uint64Field` has been explicitly set.
@@ -153,7 +153,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearUint64Field() { _uniqueStorage().clearValue(atIndex: 12, type: SwiftProtobuf.Google_Protobuf_UInt64Value.self, hasBit: (1, 16)) }
 
   var int32Field: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get { _storage.value(atIndex: 13, default: SwiftProtobuf.Google_Protobuf_Int32Value(), hasBit: (1, 32)) }
+    get { _storage.messageValue(atIndex: 13, hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `int32Field` has been explicitly set.
@@ -162,7 +162,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearInt32Field() { _uniqueStorage().clearValue(atIndex: 13, type: SwiftProtobuf.Google_Protobuf_Int32Value.self, hasBit: (1, 32)) }
 
   var uint32Field: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get { _storage.value(atIndex: 14, default: SwiftProtobuf.Google_Protobuf_UInt32Value(), hasBit: (1, 64)) }
+    get { _storage.messageValue(atIndex: 14, hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `uint32Field` has been explicitly set.
@@ -171,7 +171,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearUint32Field() { _uniqueStorage().clearValue(atIndex: 14, type: SwiftProtobuf.Google_Protobuf_UInt32Value.self, hasBit: (1, 64)) }
 
   var boolField: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get { _storage.value(atIndex: 15, default: SwiftProtobuf.Google_Protobuf_BoolValue(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 15, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `boolField` has been explicitly set.
@@ -180,7 +180,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearBoolField() { _uniqueStorage().clearValue(atIndex: 15, type: SwiftProtobuf.Google_Protobuf_BoolValue.self, hasBit: (1, 128)) }
 
   var stringField: SwiftProtobuf.Google_Protobuf_StringValue {
-    get { _storage.value(atIndex: 16, default: SwiftProtobuf.Google_Protobuf_StringValue(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 16, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `stringField` has been explicitly set.
@@ -189,7 +189,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
   mutating func clearStringField() { _uniqueStorage().clearValue(atIndex: 16, type: SwiftProtobuf.Google_Protobuf_StringValue.self, hasBit: (2, 1)) }
 
   var bytesField: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get { _storage.value(atIndex: 17, default: SwiftProtobuf.Google_Protobuf_BytesValue(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 17, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `bytesField` has been explicitly set.
@@ -199,7 +199,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Swift.Sendable 
 
   /// Part of struct, but useful to be able to test separately
   var valueField: SwiftProtobuf.Google_Protobuf_Value {
-    get { _storage.value(atIndex: 18, default: SwiftProtobuf.Google_Protobuf_Value(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 18, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `valueField` has been explicitly set.
@@ -381,92 +381,92 @@ nonisolated struct Proto2Unittest_OneofWellKnownTypes: @unchecked Swift.Sendable
   }
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
-    get { return _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), oneofPresence: (4, 1)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var apiField: SwiftProtobuf.Google_Protobuf_Api {
-    get { return _storage.value(atIndex: 1, default: SwiftProtobuf.Google_Protobuf_Api(), oneofPresence: (4, 2)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 2)) }
   }
 
   var durationField: SwiftProtobuf.Google_Protobuf_Duration {
-    get { return _storage.value(atIndex: 2, default: SwiftProtobuf.Google_Protobuf_Duration(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var emptyField: SwiftProtobuf.Google_Protobuf_Empty {
-    get { return _storage.value(atIndex: 3, default: SwiftProtobuf.Google_Protobuf_Empty(), oneofPresence: (4, 4)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (4, 4)) }
   }
 
   var fieldMaskField: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get { return _storage.value(atIndex: 4, default: SwiftProtobuf.Google_Protobuf_FieldMask(), oneofPresence: (4, 5)) }
+    get { return _storage.messageValue(atIndex: 4, oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, oneofPresence: (4, 5)) }
   }
 
   var sourceContextField: SwiftProtobuf.Google_Protobuf_SourceContext {
-    get { return _storage.value(atIndex: 5, default: SwiftProtobuf.Google_Protobuf_SourceContext(), oneofPresence: (4, 6)) }
+    get { return _storage.messageValue(atIndex: 5, oneofPresence: (4, 6)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, oneofPresence: (4, 6)) }
   }
 
   var structField: SwiftProtobuf.Google_Protobuf_Struct {
-    get { return _storage.value(atIndex: 6, default: SwiftProtobuf.Google_Protobuf_Struct(), oneofPresence: (4, 7)) }
+    get { return _storage.messageValue(atIndex: 6, oneofPresence: (4, 7)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, oneofPresence: (4, 7)) }
   }
 
   var timestampField: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { return _storage.value(atIndex: 7, default: SwiftProtobuf.Google_Protobuf_Timestamp(), oneofPresence: (4, 8)) }
+    get { return _storage.messageValue(atIndex: 7, oneofPresence: (4, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, oneofPresence: (4, 8)) }
   }
 
   var typeField: SwiftProtobuf.Google_Protobuf_Type {
-    get { return _storage.value(atIndex: 8, default: SwiftProtobuf.Google_Protobuf_Type(), oneofPresence: (4, 9)) }
+    get { return _storage.messageValue(atIndex: 8, oneofPresence: (4, 9)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, oneofPresence: (4, 9)) }
   }
 
   var doubleField: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get { return _storage.value(atIndex: 9, default: SwiftProtobuf.Google_Protobuf_DoubleValue(), oneofPresence: (4, 10)) }
+    get { return _storage.messageValue(atIndex: 9, oneofPresence: (4, 10)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, oneofPresence: (4, 10)) }
   }
 
   var floatField: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get { return _storage.value(atIndex: 10, default: SwiftProtobuf.Google_Protobuf_FloatValue(), oneofPresence: (4, 11)) }
+    get { return _storage.messageValue(atIndex: 10, oneofPresence: (4, 11)) }
     set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, oneofPresence: (4, 11)) }
   }
 
   var int64Field: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get { return _storage.value(atIndex: 11, default: SwiftProtobuf.Google_Protobuf_Int64Value(), oneofPresence: (4, 12)) }
+    get { return _storage.messageValue(atIndex: 11, oneofPresence: (4, 12)) }
     set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, oneofPresence: (4, 12)) }
   }
 
   var uint64Field: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get { return _storage.value(atIndex: 12, default: SwiftProtobuf.Google_Protobuf_UInt64Value(), oneofPresence: (4, 13)) }
+    get { return _storage.messageValue(atIndex: 12, oneofPresence: (4, 13)) }
     set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, oneofPresence: (4, 13)) }
   }
 
   var int32Field: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get { return _storage.value(atIndex: 13, default: SwiftProtobuf.Google_Protobuf_Int32Value(), oneofPresence: (4, 14)) }
+    get { return _storage.messageValue(atIndex: 13, oneofPresence: (4, 14)) }
     set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, oneofPresence: (4, 14)) }
   }
 
   var uint32Field: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get { return _storage.value(atIndex: 14, default: SwiftProtobuf.Google_Protobuf_UInt32Value(), oneofPresence: (4, 15)) }
+    get { return _storage.messageValue(atIndex: 14, oneofPresence: (4, 15)) }
     set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, oneofPresence: (4, 15)) }
   }
 
   var boolField: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get { return _storage.value(atIndex: 15, default: SwiftProtobuf.Google_Protobuf_BoolValue(), oneofPresence: (4, 16)) }
+    get { return _storage.messageValue(atIndex: 15, oneofPresence: (4, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, oneofPresence: (4, 16)) }
   }
 
   var stringField: SwiftProtobuf.Google_Protobuf_StringValue {
-    get { return _storage.value(atIndex: 16, default: SwiftProtobuf.Google_Protobuf_StringValue(), oneofPresence: (4, 17)) }
+    get { return _storage.messageValue(atIndex: 16, oneofPresence: (4, 17)) }
     set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, oneofPresence: (4, 17)) }
   }
 
   var bytesField: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get { return _storage.value(atIndex: 17, default: SwiftProtobuf.Google_Protobuf_BytesValue(), oneofPresence: (4, 18)) }
+    get { return _storage.messageValue(atIndex: 17, oneofPresence: (4, 18)) }
     set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, oneofPresence: (4, 18)) }
   }
 

@@ -209,7 +209,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: Proto2Unittest_TestAllTypesLite.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -218,7 +218,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestAllTypesLite.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestAllTypesLite.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -227,7 +227,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self, hasBit: (2, 1)) }
 
   var optionalForeignMessage: Proto2Unittest_ForeignMessageLite {
-    get { _storage.value(atIndex: 2, default: Proto2Unittest_ForeignMessageLite(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -236,7 +236,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 2, type: Proto2Unittest_ForeignMessageLite.self, hasBit: (2, 2)) }
 
   var optionalImportMessage: Proto2UnittestImport_ImportMessageLite {
-    get { _storage.value(atIndex: 3, default: Proto2UnittestImport_ImportMessageLite(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -251,7 +251,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 64, type: Proto2Unittest_TestAllTypesLite.NestedEnum.self, hasBit: (2, 8)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 64, hasBit: (2, 8)) }
 
   var optionalForeignEnum: Proto2Unittest_ForeignEnumLite {
     get { _storage.value(at: 68, default: .foreignLiteFoo, hasBit: (2, 16)) }
@@ -260,7 +260,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 68, type: Proto2Unittest_ForeignEnumLite.self, hasBit: (2, 16)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 68, hasBit: (2, 16)) }
 
   var optionalImportEnum: Proto2UnittestImport_ImportEnumLite {
     get { _storage.value(at: 72, default: .importLiteFoo, hasBit: (2, 32)) }
@@ -269,7 +269,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `optionalImportEnum` has been explicitly set.
   var hasOptionalImportEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportEnum() { _uniqueStorage().clearValue(at: 72, type: Proto2UnittestImport_ImportEnumLite.self, hasBit: (2, 32)) }
+  mutating func clearOptionalImportEnum() { _uniqueStorage().clearEnumValue(at: 72, hasBit: (2, 32)) }
 
   var optionalStringPiece: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 64)) }
@@ -300,7 +300,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessageLite {
-    get { _storage.value(atIndex: 4, default: Proto2UnittestImport_PublicImportMessageLite(), hasBit: (3, 1)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -309,7 +309,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalPublicImportMessage() { _uniqueStorage().clearValue(atIndex: 4, type: Proto2UnittestImport_PublicImportMessageLite.self, hasBit: (3, 1)) }
 
   var optionalLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
-    get { _storage.value(atIndex: 5, default: Proto2Unittest_TestAllTypesLite.NestedMessage(), hasBit: (3, 2)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (3, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -318,7 +318,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   mutating func clearOptionalLazyMessage() { _uniqueStorage().clearValue(atIndex: 5, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self, hasBit: (3, 2)) }
 
   var optionalUnverifiedLazyMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
-    get { _storage.value(atIndex: 6, default: Proto2Unittest_TestAllTypesLite.NestedMessage(), hasBit: (3, 4)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (3, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
@@ -595,7 +595,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 4)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 100, type: Proto2Unittest_TestAllTypesLite.NestedEnum.self, hasBit: (5, 4)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearEnumValue(at: 100, hasBit: (5, 4)) }
 
   var defaultForeignEnum: Proto2Unittest_ForeignEnumLite {
     get { _storage.value(at: 104, default: .foreignLiteBar, hasBit: (5, 8)) }
@@ -604,7 +604,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 8)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 104, type: Proto2Unittest_ForeignEnumLite.self, hasBit: (5, 8)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearEnumValue(at: 104, hasBit: (5, 8)) }
 
   var defaultImportEnum: Proto2UnittestImport_ImportEnumLite {
     get { _storage.value(at: 108, default: .importLiteBar, hasBit: (5, 16)) }
@@ -613,7 +613,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 16)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 108, type: Proto2UnittestImport_ImportEnumLite.self, hasBit: (5, 16)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearEnumValue(at: 108, hasBit: (5, 16)) }
 
   var defaultStringPiece: String {
     get { _storage.value(atIndex: 4, default: "abc", hasBit: (5, 32)) }
@@ -667,7 +667,7 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   }
 
   var oneofNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
-    get { return _storage.value(atIndex: 7, default: Proto2Unittest_TestAllTypesLite.NestedMessage(), oneofPresence: (12, 112)) }
+    get { return _storage.messageValue(atIndex: 7, oneofPresence: (12, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, oneofPresence: (12, 112)) }
   }
 
@@ -682,12 +682,12 @@ nonisolated struct Proto2Unittest_TestAllTypesLite: @unchecked Swift.Sendable {
   }
 
   var oneofLazyNestedMessage: Proto2Unittest_TestAllTypesLite.NestedMessage {
-    get { return _storage.value(atIndex: 8, default: Proto2Unittest_TestAllTypesLite.NestedMessage(), oneofPresence: (12, 115)) }
+    get { return _storage.messageValue(atIndex: 8, oneofPresence: (12, 115)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, oneofPresence: (12, 115)) }
   }
 
   var oneofNestedMessage2: Proto2Unittest_TestAllTypesLite.NestedMessage2 {
-    get { return _storage.value(atIndex: 9, default: Proto2Unittest_TestAllTypesLite.NestedMessage2(), oneofPresence: (12, 117)) }
+    get { return _storage.messageValue(atIndex: 9, oneofPresence: (12, 117)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, oneofPresence: (12, 117)) }
   }
 
@@ -1083,7 +1083,7 @@ nonisolated struct Proto2Unittest_TestDeprecatedLite: @unchecked Swift.Sendable 
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedField4: Proto2Unittest_TestDeprecatedLite {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestDeprecatedLite(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `deprecatedField4` has been explicitly set.
@@ -1108,7 +1108,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
   // methods supported on all messages.
 
   var requiredAllTypes: Proto2Unittest_TestAllTypesLite {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredAllTypes` has been explicitly set.
@@ -1117,7 +1117,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
   mutating func clearRequiredAllTypes() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestAllTypesLite.self, hasBit: (0, 1)) }
 
   var optionalAllTypes: Proto2Unittest_TestAllTypesLite {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -1131,7 +1131,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
   }
 
   var optionalGroup: Proto2Unittest_TestParsingMergeLite.OptionalGroup {
-    get { _storage.value(atIndex: 2, default: Proto2Unittest_TestParsingMergeLite.OptionalGroup(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1190,7 +1190,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
       // methods supported on all messages.
 
       var field1: Proto2Unittest_TestAllTypesLite {
-        get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -1214,7 +1214,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
       // methods supported on all messages.
 
       var field1: Proto2Unittest_TestAllTypesLite {
-        get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -1248,7 +1248,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
     // methods supported on all messages.
 
     var optionalGroupAllTypes: Proto2Unittest_TestAllTypesLite {
-      get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
@@ -1272,7 +1272,7 @@ nonisolated struct Proto2Unittest_TestParsingMergeLite: @unchecked Swift.Sendabl
     // methods supported on all messages.
 
     var repeatedGroupAllTypes: Proto2Unittest_TestAllTypesLite {
-      get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
@@ -1308,7 +1308,7 @@ nonisolated struct Proto2Unittest_TestMergeExceptionLite: @unchecked Swift.Senda
   // methods supported on all messages.
 
   var allExtensions: Proto2Unittest_TestAllExtensionsLite {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllExtensionsLite(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `allExtensions` has been explicitly set.
@@ -1380,7 +1380,7 @@ nonisolated struct Proto2Unittest_V1MessageLite: @unchecked Swift.Sendable {
   /// Returns true if `enumField` has been explicitly set.
   var hasEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
-  mutating func clearEnumField() { _uniqueStorage().clearValue(at: 8, type: Proto2Unittest_V1EnumLite.self, hasBit: (0, 2)) }
+  mutating func clearEnumField() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1413,7 +1413,7 @@ nonisolated struct Proto2Unittest_V2MessageLite: @unchecked Swift.Sendable {
   /// Returns true if `enumField` has been explicitly set.
   var hasEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
-  mutating func clearEnumField() { _uniqueStorage().clearValue(at: 8, type: Proto2Unittest_V2EnumLite.self, hasBit: (0, 2)) }
+  mutating func clearEnumField() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -1465,7 +1465,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbersLite: @unchecked Swift.Sen
   /// Returns true if `optionalEnum` has been explicitly set.
   var hasOptionalEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 28, type: Proto2Unittest_ForeignEnumLite.self, hasBit: (0, 4)) }
+  mutating func clearOptionalEnum() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 4)) }
 
   var optionalString: String {
     get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 8)) }
@@ -1486,7 +1486,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbersLite: @unchecked Swift.Sen
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (0, 16)) }
 
   var optionalMessage: Proto2Unittest_ForeignMessageLite {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_ForeignMessageLite(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -1495,7 +1495,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbersLite: @unchecked Swift.Sen
   mutating func clearOptionalMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_ForeignMessageLite.self, hasBit: (0, 32)) }
 
   var optionalGroup: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestHugeFieldNumbersLite.OptionalGroup(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1537,7 +1537,7 @@ nonisolated struct Proto2Unittest_TestHugeFieldNumbersLite: @unchecked Swift.Sen
   }
 
   var oneofTestAllTypes: Proto2Unittest_TestAllTypesLite {
-    get { return _storage.value(atIndex: 2, default: Proto2Unittest_TestAllTypesLite(), oneofPresence: (4, 536870012)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 536870012)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 536870012)) }
   }
 
@@ -1636,7 +1636,7 @@ nonisolated struct Proto2Unittest_TestOneofParsingLite: @unchecked Swift.Sendabl
   }
 
   var oneofSubmessage: Proto2Unittest_TestAllTypesLite {
-    get { return _storage.value(atIndex: 0, default: Proto2Unittest_TestAllTypesLite(), oneofPresence: (4, 2)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 2)) }
   }
 
@@ -1830,7 +1830,7 @@ nonisolated struct Proto2Unittest_RecursiveMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var recurse: Proto2Unittest_RecursiveMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_RecursiveMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `recurse` has been explicitly set.
@@ -1863,7 +1863,7 @@ nonisolated struct Proto2Unittest_RecursiveGroup: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var recurse: Proto2Unittest_RecursiveGroup {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_RecursiveGroup(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `recurse` has been explicitly set.
@@ -1902,7 +1902,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalInt32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_int32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_int32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalInt32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_int32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_optionalInt32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_int32_extension_lite) }
 
   var Proto2Unittest_optionalInt64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_int64_extension_lite, default: 0) }
@@ -1913,7 +1913,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalInt64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_int64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_int64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalInt64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_int64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_optionalInt64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_int64_extension_lite) }
 
   var Proto2Unittest_optionalUint32ExtensionLite: UInt32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_uint32_extension_lite, default: 0) }
@@ -1924,7 +1924,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalUint32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_uint32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_uint32_extension_lite, type: UInt32.self) }
+  mutating func clearProto2Unittest_optionalUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_uint32_extension_lite) }
 
   var Proto2Unittest_optionalUint64ExtensionLite: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_uint64_extension_lite, default: 0) }
@@ -1935,7 +1935,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalUint64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_uint64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_uint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalUint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_uint64_extension_lite, type: UInt64.self) }
+  mutating func clearProto2Unittest_optionalUint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_uint64_extension_lite) }
 
   var Proto2Unittest_optionalSint32ExtensionLite: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_sint32_extension_lite, default: 0) }
@@ -1946,7 +1946,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalSint32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_sint32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_sint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalSint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sint32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_optionalSint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sint32_extension_lite) }
 
   var Proto2Unittest_optionalSint64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_sint64_extension_lite, default: 0) }
@@ -1957,7 +1957,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalSint64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_sint64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_sint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalSint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sint64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_optionalSint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sint64_extension_lite) }
 
   var Proto2Unittest_optionalFixed32ExtensionLite: UInt32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_fixed32_extension_lite, default: 0) }
@@ -1968,7 +1968,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalFixed32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_fixed32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_fixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalFixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_fixed32_extension_lite, type: UInt32.self) }
+  mutating func clearProto2Unittest_optionalFixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_fixed32_extension_lite) }
 
   var Proto2Unittest_optionalFixed64ExtensionLite: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_fixed64_extension_lite, default: 0) }
@@ -1979,7 +1979,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalFixed64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_fixed64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_fixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalFixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_fixed64_extension_lite, type: UInt64.self) }
+  mutating func clearProto2Unittest_optionalFixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_fixed64_extension_lite) }
 
   var Proto2Unittest_optionalSfixed32ExtensionLite: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_sfixed32_extension_lite, default: 0) }
@@ -1990,7 +1990,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalSfixed32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_sfixed32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_sfixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalSfixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sfixed32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_optionalSfixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sfixed32_extension_lite) }
 
   var Proto2Unittest_optionalSfixed64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_sfixed64_extension_lite, default: 0) }
@@ -2001,7 +2001,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalSfixed64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_sfixed64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_sfixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalSfixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sfixed64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_optionalSfixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_sfixed64_extension_lite) }
 
   var Proto2Unittest_optionalFloatExtensionLite: Float {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_float_extension_lite, default: 0) }
@@ -2012,7 +2012,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalFloatExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_float_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_float_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalFloatExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_float_extension_lite, type: Float.self) }
+  mutating func clearProto2Unittest_optionalFloatExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_float_extension_lite) }
 
   var Proto2Unittest_optionalDoubleExtensionLite: Double {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_double_extension_lite, default: 0) }
@@ -2023,7 +2023,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalDoubleExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_double_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_double_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalDoubleExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_double_extension_lite, type: Double.self) }
+  mutating func clearProto2Unittest_optionalDoubleExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_double_extension_lite) }
 
   var Proto2Unittest_optionalBoolExtensionLite: Bool {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_bool_extension_lite, default: false) }
@@ -2034,7 +2034,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalBoolExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_bool_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_bool_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalBoolExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bool_extension_lite, type: Bool.self) }
+  mutating func clearProto2Unittest_optionalBoolExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bool_extension_lite) }
 
   var Proto2Unittest_optionalStringExtensionLite: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_string_extension_lite, default: String()) }
@@ -2045,7 +2045,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalStringExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_string_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_string_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_optionalStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_string_extension_lite) }
 
   var Proto2Unittest_optionalBytesExtensionLite: Data {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_bytes_extension_lite, default: Data()) }
@@ -2056,7 +2056,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalBytesExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_bytes_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bytes_extension_lite, type: Data.self) }
+  mutating func clearProto2Unittest_optionalBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bytes_extension_lite) }
 
   var Proto2Unittest_optionalGroupExtensionLite: Proto2Unittest_OptionalGroup_extension_lite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_OptionalGroup_extension_lite, default: Proto2Unittest_OptionalGroup_extension_lite()) }
@@ -2067,7 +2067,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalGroupExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_OptionalGroup_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_OptionalGroup_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalGroupExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_OptionalGroup_extension_lite, type: Proto2Unittest_OptionalGroup_extension_lite.self) }
+  mutating func clearProto2Unittest_optionalGroupExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_OptionalGroup_extension_lite) }
 
   var Proto2Unittest_optionalNestedMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_nested_message_extension_lite, default: Proto2Unittest_TestAllTypesLite.NestedMessage()) }
@@ -2078,7 +2078,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalNestedMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_nested_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_nested_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalNestedMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_nested_message_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self) }
+  mutating func clearProto2Unittest_optionalNestedMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_nested_message_extension_lite) }
 
   var Proto2Unittest_optionalForeignMessageExtensionLite: Proto2Unittest_ForeignMessageLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_foreign_message_extension_lite, default: Proto2Unittest_ForeignMessageLite()) }
@@ -2089,7 +2089,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalForeignMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_foreign_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_foreign_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalForeignMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_foreign_message_extension_lite, type: Proto2Unittest_ForeignMessageLite.self) }
+  mutating func clearProto2Unittest_optionalForeignMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_foreign_message_extension_lite) }
 
   var Proto2Unittest_optionalImportMessageExtensionLite: Proto2UnittestImport_ImportMessageLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_import_message_extension_lite, default: Proto2UnittestImport_ImportMessageLite()) }
@@ -2100,7 +2100,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalImportMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_import_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_import_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalImportMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_import_message_extension_lite, type: Proto2UnittestImport_ImportMessageLite.self) }
+  mutating func clearProto2Unittest_optionalImportMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_import_message_extension_lite) }
 
   var Proto2Unittest_optionalNestedEnumExtensionLite: Proto2Unittest_TestAllTypesLite.NestedEnum {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_nested_enum_extension_lite, default: .foo) }
@@ -2111,7 +2111,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalNestedEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_nested_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_nested_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalNestedEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_nested_enum_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedEnum.self) }
+  mutating func clearProto2Unittest_optionalNestedEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_nested_enum_extension_lite) }
 
   var Proto2Unittest_optionalForeignEnumExtensionLite: Proto2Unittest_ForeignEnumLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite, default: .foreignLiteFoo) }
@@ -2122,7 +2122,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalForeignEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_foreign_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalForeignEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite, type: Proto2Unittest_ForeignEnumLite.self) }
+  mutating func clearProto2Unittest_optionalForeignEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_foreign_enum_extension_lite) }
 
   var Proto2Unittest_optionalImportEnumExtensionLite: Proto2UnittestImport_ImportEnumLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_import_enum_extension_lite, default: .importLiteFoo) }
@@ -2133,7 +2133,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalImportEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_import_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_import_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalImportEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_import_enum_extension_lite, type: Proto2UnittestImport_ImportEnumLite.self) }
+  mutating func clearProto2Unittest_optionalImportEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_import_enum_extension_lite) }
 
   var Proto2Unittest_optionalStringPieceExtensionLite: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_string_piece_extension_lite, default: String()) }
@@ -2144,7 +2144,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalStringPieceExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_string_piece_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_string_piece_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalStringPieceExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_string_piece_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_optionalStringPieceExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_string_piece_extension_lite) }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
@@ -2157,7 +2157,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalCordExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_cord_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_cord_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_optionalCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_cord_extension_lite) }
 
   var Proto2Unittest_optionalBytesCordExtensionLite: Data {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite, default: Data()) }
@@ -2168,7 +2168,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalBytesCordExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_bytes_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalBytesCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite, type: Data.self) }
+  mutating func clearProto2Unittest_optionalBytesCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_bytes_cord_extension_lite) }
 
   var Proto2Unittest_optionalPublicImportMessageExtensionLite: Proto2UnittestImport_PublicImportMessageLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_public_import_message_extension_lite, default: Proto2UnittestImport_PublicImportMessageLite()) }
@@ -2179,7 +2179,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalPublicImportMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_public_import_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_public_import_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalPublicImportMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_public_import_message_extension_lite, type: Proto2UnittestImport_PublicImportMessageLite.self) }
+  mutating func clearProto2Unittest_optionalPublicImportMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_public_import_message_extension_lite) }
 
   var Proto2Unittest_optionalLazyMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_optional_lazy_message_extension_lite, default: Proto2Unittest_TestAllTypesLite.NestedMessage()) }
@@ -2190,7 +2190,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalLazyMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_lazy_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_lazy_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalLazyMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_lazy_message_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self) }
+  mutating func clearProto2Unittest_optionalLazyMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_lazy_message_extension_lite) }
 
   /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
   /// An extension can't be labeled as "unverified_lazy".
@@ -2203,7 +2203,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_optionalUnverifiedLazyMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalUnverifiedLazyMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self) }
+  mutating func clearProto2Unittest_optionalUnverifiedLazyMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_unverified_lazy_message_extension_lite) }
 
   /// Repeated
   var Proto2Unittest_repeatedInt32ExtensionLite: [Int32] {
@@ -2343,7 +2343,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultInt32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_int32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_int32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultInt32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_int32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_defaultInt32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_int32_extension_lite) }
 
   var Proto2Unittest_defaultInt64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_int64_extension_lite, default: 42) }
@@ -2354,7 +2354,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultInt64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_int64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_int64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultInt64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_int64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_defaultInt64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_int64_extension_lite) }
 
   var Proto2Unittest_defaultUint32ExtensionLite: UInt32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_uint32_extension_lite, default: 43) }
@@ -2365,7 +2365,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultUint32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_uint32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_uint32_extension_lite, type: UInt32.self) }
+  mutating func clearProto2Unittest_defaultUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_uint32_extension_lite) }
 
   var Proto2Unittest_defaultUint64ExtensionLite: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_uint64_extension_lite, default: 44) }
@@ -2376,7 +2376,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultUint64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_uint64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_uint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultUint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_uint64_extension_lite, type: UInt64.self) }
+  mutating func clearProto2Unittest_defaultUint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_uint64_extension_lite) }
 
   var Proto2Unittest_defaultSint32ExtensionLite: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_sint32_extension_lite, default: -45) }
@@ -2387,7 +2387,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultSint32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_sint32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_sint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultSint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sint32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_defaultSint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sint32_extension_lite) }
 
   var Proto2Unittest_defaultSint64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_sint64_extension_lite, default: 46) }
@@ -2398,7 +2398,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultSint64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_sint64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_sint64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultSint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sint64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_defaultSint64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sint64_extension_lite) }
 
   var Proto2Unittest_defaultFixed32ExtensionLite: UInt32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_fixed32_extension_lite, default: 47) }
@@ -2409,7 +2409,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultFixed32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_fixed32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_fixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultFixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_fixed32_extension_lite, type: UInt32.self) }
+  mutating func clearProto2Unittest_defaultFixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_fixed32_extension_lite) }
 
   var Proto2Unittest_defaultFixed64ExtensionLite: UInt64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_fixed64_extension_lite, default: 48) }
@@ -2420,7 +2420,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultFixed64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_fixed64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_fixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultFixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_fixed64_extension_lite, type: UInt64.self) }
+  mutating func clearProto2Unittest_defaultFixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_fixed64_extension_lite) }
 
   var Proto2Unittest_defaultSfixed32ExtensionLite: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_sfixed32_extension_lite, default: 49) }
@@ -2431,7 +2431,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultSfixed32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_sfixed32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_sfixed32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultSfixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sfixed32_extension_lite, type: Int32.self) }
+  mutating func clearProto2Unittest_defaultSfixed32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sfixed32_extension_lite) }
 
   var Proto2Unittest_defaultSfixed64ExtensionLite: Int64 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_sfixed64_extension_lite, default: -50) }
@@ -2442,7 +2442,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultSfixed64ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_sfixed64_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_sfixed64_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultSfixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sfixed64_extension_lite, type: Int64.self) }
+  mutating func clearProto2Unittest_defaultSfixed64ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_sfixed64_extension_lite) }
 
   var Proto2Unittest_defaultFloatExtensionLite: Float {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_float_extension_lite, default: 51.5) }
@@ -2453,7 +2453,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultFloatExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_float_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_float_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultFloatExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_float_extension_lite, type: Float.self) }
+  mutating func clearProto2Unittest_defaultFloatExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_float_extension_lite) }
 
   var Proto2Unittest_defaultDoubleExtensionLite: Double {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_double_extension_lite, default: 52000) }
@@ -2464,7 +2464,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultDoubleExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_double_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_double_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultDoubleExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_double_extension_lite, type: Double.self) }
+  mutating func clearProto2Unittest_defaultDoubleExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_double_extension_lite) }
 
   var Proto2Unittest_defaultBoolExtensionLite: Bool {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_bool_extension_lite, default: true) }
@@ -2475,7 +2475,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultBoolExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_bool_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_bool_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultBoolExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_bool_extension_lite, type: Bool.self) }
+  mutating func clearProto2Unittest_defaultBoolExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_bool_extension_lite) }
 
   var Proto2Unittest_defaultStringExtensionLite: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_string_extension_lite, default: "hello") }
@@ -2486,7 +2486,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultStringExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_string_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_string_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_defaultStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_string_extension_lite) }
 
   var Proto2Unittest_defaultBytesExtensionLite: Data {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_bytes_extension_lite, default: Data([119, 111, 114, 108, 100])) }
@@ -2497,7 +2497,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultBytesExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_bytes_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_bytes_extension_lite, type: Data.self) }
+  mutating func clearProto2Unittest_defaultBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_bytes_extension_lite) }
 
   var Proto2Unittest_defaultNestedEnumExtensionLite: Proto2Unittest_TestAllTypesLite.NestedEnum {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_nested_enum_extension_lite, default: .bar) }
@@ -2508,7 +2508,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultNestedEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_nested_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_nested_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultNestedEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_nested_enum_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedEnum.self) }
+  mutating func clearProto2Unittest_defaultNestedEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_nested_enum_extension_lite) }
 
   var Proto2Unittest_defaultForeignEnumExtensionLite: Proto2Unittest_ForeignEnumLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_foreign_enum_extension_lite, default: .foreignLiteBar) }
@@ -2519,7 +2519,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultForeignEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_foreign_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_foreign_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultForeignEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_foreign_enum_extension_lite, type: Proto2Unittest_ForeignEnumLite.self) }
+  mutating func clearProto2Unittest_defaultForeignEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_foreign_enum_extension_lite) }
 
   var Proto2Unittest_defaultImportEnumExtensionLite: Proto2UnittestImport_ImportEnumLite {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_import_enum_extension_lite, default: .importLiteBar) }
@@ -2530,7 +2530,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultImportEnumExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_import_enum_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_import_enum_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultImportEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_import_enum_extension_lite, type: Proto2UnittestImport_ImportEnumLite.self) }
+  mutating func clearProto2Unittest_defaultImportEnumExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_import_enum_extension_lite) }
 
   var Proto2Unittest_defaultStringPieceExtensionLite: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_default_string_piece_extension_lite, default: "abc") }
@@ -2541,7 +2541,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultStringPieceExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_string_piece_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_string_piece_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultStringPieceExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_string_piece_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_defaultStringPieceExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_string_piece_extension_lite) }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
@@ -2554,7 +2554,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_defaultCordExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_default_cord_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_default_cord_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_defaultCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_cord_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_defaultCordExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_default_cord_extension_lite) }
 
   /// For oneof test
   var Proto2Unittest_oneofUint32ExtensionLite: UInt32 {
@@ -2566,7 +2566,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_oneofUint32ExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_oneof_uint32_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_oneof_uint32_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_oneofUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_uint32_extension_lite, type: UInt32.self) }
+  mutating func clearProto2Unittest_oneofUint32ExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_uint32_extension_lite) }
 
   var Proto2Unittest_oneofNestedMessageExtensionLite: Proto2Unittest_TestAllTypesLite.NestedMessage {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_oneof_nested_message_extension_lite, default: Proto2Unittest_TestAllTypesLite.NestedMessage()) }
@@ -2577,7 +2577,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_oneofNestedMessageExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_oneof_nested_message_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_oneof_nested_message_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_oneofNestedMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_nested_message_extension_lite, type: Proto2Unittest_TestAllTypesLite.NestedMessage.self) }
+  mutating func clearProto2Unittest_oneofNestedMessageExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_nested_message_extension_lite) }
 
   var Proto2Unittest_oneofStringExtensionLite: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_oneof_string_extension_lite, default: String()) }
@@ -2588,7 +2588,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_oneofStringExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_oneof_string_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_oneof_string_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_oneofStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_string_extension_lite, type: String.self) }
+  mutating func clearProto2Unittest_oneofStringExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_string_extension_lite) }
 
   var Proto2Unittest_oneofBytesExtensionLite: Data {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_oneof_bytes_extension_lite, default: Data()) }
@@ -2599,7 +2599,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_oneofBytesExtensionLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_oneof_bytes_extension_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_oneof_bytes_extension_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_oneofBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_bytes_extension_lite, type: Data.self) }
+  mutating func clearProto2Unittest_oneofBytesExtensionLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_bytes_extension_lite) }
 
   var Proto2Unittest_TestNestedExtensionLite_nestedExtension: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension, default: 0) }
@@ -2610,7 +2610,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_TestNestedExtensionLite_nestedExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension) }
   /// Clears the value of extension `Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestNestedExtensionLite_nestedExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension, type: Int32.self) }
+  mutating func clearProto2Unittest_TestNestedExtensionLite_nestedExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestNestedExtensionLite.Extensions.nested_extension) }
 }
 
 nonisolated extension Proto2Unittest_TestHugeFieldNumbersLite {
@@ -2624,7 +2624,7 @@ nonisolated extension Proto2Unittest_TestHugeFieldNumbersLite {
   var hasProto2Unittest_testAllTypesLite: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_test_all_types_lite) }
   /// Clears the value of extension `Proto2Unittest_Extensions_test_all_types_lite`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_testAllTypesLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_test_all_types_lite, type: Proto2Unittest_TestAllTypesLite.self) }
+  mutating func clearProto2Unittest_testAllTypesLite() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_test_all_types_lite) }
 }
 
 nonisolated extension Proto2Unittest_TestPackedExtensionsLite {
@@ -2711,7 +2711,7 @@ nonisolated extension Proto2Unittest_TestParsingMergeLite {
   var hasProto2Unittest_TestParsingMergeLite_optionalExt: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext) }
   /// Clears the value of extension `Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestParsingMergeLite_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext, type: Proto2Unittest_TestAllTypesLite.self) }
+  mutating func clearProto2Unittest_TestParsingMergeLite_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestParsingMergeLite.Extensions.optional_ext) }
 
   var Proto2Unittest_TestParsingMergeLite_repeatedExt: [Proto2Unittest_TestAllTypesLite] {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestParsingMergeLite.Extensions.repeated_ext, default: []) }

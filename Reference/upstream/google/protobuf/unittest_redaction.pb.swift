@@ -147,7 +147,7 @@ nonisolated struct Proto2Unittest_TestNestedMessageEnum: @unchecked Swift.Sendab
   }
 
   var nestedEnum: Proto2Unittest_TestMessageEnum {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestMessageEnum(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedEnum` has been explicitly set.
@@ -226,7 +226,7 @@ nonisolated struct Proto2Unittest_TestRedactedMessage: @unchecked Swift.Sendable
   mutating func clearUnreportedNonMetaDebugRedactField() { _uniqueStorage().clearValue(atIndex: 4, type: String.self, hasBit: (0, 16)) }
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `anyField` has been explicitly set.
@@ -300,7 +300,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   var hasProto2Unittest_metaAnnotatedEnum: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_meta_annotated_enum) }
   /// Clears the value of extension `Proto2Unittest_Extensions_meta_annotated_enum`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_metaAnnotatedEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_meta_annotated_enum, type: Proto2Unittest_MetaAnnotatedEnum.self) }
+  mutating func clearProto2Unittest_metaAnnotatedEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_meta_annotated_enum) }
 
   var Proto2Unittest_repeatedMetaAnnotatedEnum: [Proto2Unittest_MetaAnnotatedEnum] {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_repeated_meta_annotated_enum, default: []) }
@@ -316,7 +316,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   var hasProto2Unittest_testNestedMessageEnum: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_test_nested_message_enum) }
   /// Clears the value of extension `Proto2Unittest_Extensions_test_nested_message_enum`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_testNestedMessageEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_test_nested_message_enum, type: Proto2Unittest_TestNestedMessageEnum.self) }
+  mutating func clearProto2Unittest_testNestedMessageEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_test_nested_message_enum) }
 
 }
 

@@ -198,7 +198,7 @@ public nonisolated struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.
   }
 
   public var options: Google_Protobuf_FileOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FileOptions(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -211,7 +211,7 @@ public nonisolated struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.
   /// functionality of the descriptors -- the information is needed only by
   /// development tools.
   public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo {
-    get { _storage.value(atIndex: 1, default: Google_Protobuf_SourceCodeInfo(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `sourceCodeInfo` has been explicitly set.
@@ -246,7 +246,7 @@ public nonisolated struct Google_Protobuf_FileDescriptorProto: @unchecked Swift.
   /// Returns true if `edition` has been explicitly set.
   public var hasEdition: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-  public mutating func clearEdition() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_Edition.self, hasBit: (0, 32)) }
+  public mutating func clearEdition() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 32)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -304,7 +304,7 @@ public nonisolated struct Google_Protobuf_DescriptorProto: @unchecked Swift.Send
   }
 
   public var options: Google_Protobuf_MessageOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_MessageOptions(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -332,7 +332,7 @@ public nonisolated struct Google_Protobuf_DescriptorProto: @unchecked Swift.Send
   /// Returns true if `visibility` has been explicitly set.
   public var hasVisibility: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
-  public mutating func clearVisibility() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_SymbolVisibility.self, hasBit: (0, 4)) }
+  public mutating func clearVisibility() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 4)) }
 
   public nonisolated struct ExtensionRange: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -360,7 +360,7 @@ public nonisolated struct Google_Protobuf_DescriptorProto: @unchecked Swift.Send
     public mutating func clearEnd() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 2)) }
 
     public var options: Google_Protobuf_ExtensionRangeOptions {
-      get { _storage.value(atIndex: 0, default: Google_Protobuf_ExtensionRangeOptions(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `options` has been explicitly set.
@@ -447,7 +447,7 @@ public nonisolated struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swif
 
   /// Any features defined in the specific edition.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -465,7 +465,7 @@ public nonisolated struct Google_Protobuf_ExtensionRangeOptions: @unchecked Swif
   /// Returns true if `verification` has been explicitly set.
   public var hasVerification: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `verification`. Subsequent reads from it will return its default value.
-  public mutating func clearVerification() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_ExtensionRangeOptions.VerificationState.self, hasBit: (0, 1)) }
+  public mutating func clearVerification() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   /// The verification state of the extension range.
   public nonisolated enum VerificationState: Swift.Int, Enum, Swift.CaseIterable {
@@ -592,7 +592,7 @@ public nonisolated struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift
   /// Returns true if `label` has been explicitly set.
   public var hasLabel: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `label`. Subsequent reads from it will return its default value.
-  public mutating func clearLabel() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_FieldDescriptorProto.Label.self, hasBit: (0, 8)) }
+  public mutating func clearLabel() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 8)) }
 
   /// If type_name is set, this need not be set.  If both this and type_name
   /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
@@ -603,7 +603,7 @@ public nonisolated struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift
   /// Returns true if `type` has been explicitly set.
   public var hasType: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  public mutating func clearType() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_FieldDescriptorProto.TypeEnum.self, hasBit: (0, 16)) }
+  public mutating func clearType() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 16)) }
 
   /// For message and enum types, this is the name of the type.  If the name
   /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
@@ -668,7 +668,7 @@ public nonisolated struct Google_Protobuf_FieldDescriptorProto: @unchecked Swift
   public mutating func clearJsonName() { _uniqueStorage().clearValue(atIndex: 4, type: String.self, hasBit: (1, 2)) }
 
   public var options: Google_Protobuf_FieldOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FieldOptions(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -798,7 +798,7 @@ public nonisolated struct Google_Protobuf_OneofDescriptorProto: @unchecked Swift
   public mutating func clearName() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   public var options: Google_Protobuf_OneofOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_OneofOptions(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -837,7 +837,7 @@ public nonisolated struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.
   }
 
   public var options: Google_Protobuf_EnumOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_EnumOptions(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -868,7 +868,7 @@ public nonisolated struct Google_Protobuf_EnumDescriptorProto: @unchecked Swift.
   /// Returns true if `visibility` has been explicitly set.
   public var hasVisibility: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `visibility`. Subsequent reads from it will return its default value.
-  public mutating func clearVisibility() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_SymbolVisibility.self, hasBit: (0, 4)) }
+  public mutating func clearVisibility() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 4)) }
 
   /// Range of reserved numeric values. Reserved values may not be used by
   /// entries in the same enum. Reserved ranges may not overlap.
@@ -946,7 +946,7 @@ public nonisolated struct Google_Protobuf_EnumValueDescriptorProto: @unchecked S
   public mutating func clearNumber() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 2)) }
 
   public var options: Google_Protobuf_EnumValueOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_EnumValueOptions(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -985,7 +985,7 @@ public nonisolated struct Google_Protobuf_ServiceDescriptorProto: @unchecked Swi
   }
 
   public var options: Google_Protobuf_ServiceOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_ServiceOptions(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -1039,7 +1039,7 @@ public nonisolated struct Google_Protobuf_MethodDescriptorProto: @unchecked Swif
   public mutating func clearOutputType() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (0, 4)) }
 
   public var options: Google_Protobuf_MethodOptions {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_MethodOptions(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `options` has been explicitly set.
@@ -1162,7 +1162,7 @@ public nonisolated struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable
   /// Returns true if `optimizeFor` has been explicitly set.
   public var hasOptimizeFor: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optimizeFor`. Subsequent reads from it will return its default value.
-  public mutating func clearOptimizeFor() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_FileOptions.OptimizeMode.self, hasBit: (0, 4)) }
+  public mutating func clearOptimizeFor() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
 
   /// Sets the Go package where structs generated from this .proto will be
   /// placed. If omitted, the Go package will be derived from the following:
@@ -1325,7 +1325,7 @@ public nonisolated struct Google_Protobuf_FileOptions: @unchecked Swift.Sendable
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (2, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (2, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -1481,7 +1481,7 @@ public nonisolated struct Google_Protobuf_MessageOptions: @unchecked Swift.Senda
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -1524,7 +1524,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
   /// Returns true if `ctype` has been explicitly set.
   public var hasCtype: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `ctype`. Subsequent reads from it will return its default value.
-  public mutating func clearCtype() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_FieldOptions.CType.self, hasBit: (0, 1)) }
+  public mutating func clearCtype() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 1)) }
 
   /// The packed option can be enabled for repeated primitive fields to enable
   /// a more efficient representation on the wire. Rather than repeatedly
@@ -1560,7 +1560,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
   /// Returns true if `jstype` has been explicitly set.
   public var hasJstype: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `jstype`. Subsequent reads from it will return its default value.
-  public mutating func clearJstype() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_FieldOptions.JSType.self, hasBit: (0, 16)) }
+  public mutating func clearJstype() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 16)) }
 
   /// Should this field be parsed lazily?  Lazy applies only to message-type
   /// fields.  It means that when the outer message is initially parsed, the
@@ -1649,7 +1649,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
   /// Returns true if `retention` has been explicitly set.
   public var hasRetention: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `retention`. Subsequent reads from it will return its default value.
-  public mutating func clearRetention() { _uniqueStorage().clearValue(at: 16, type: Google_Protobuf_FieldOptions.OptionRetention.self, hasBit: (1, 1)) }
+  public mutating func clearRetention() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (1, 1)) }
 
   public var targets: [Google_Protobuf_FieldOptions.OptionTargetType] {
     get { _storage.value(atIndex: 0, hasBit: (1, 8)) }
@@ -1666,7 +1666,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (1, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -1675,7 +1675,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
   public mutating func clearFeatures() { _uniqueStorage().clearValue(atIndex: 0, type: Google_Protobuf_FeatureSet.self, hasBit: (1, 2)) }
 
   public var featureSupport: Google_Protobuf_FieldOptions.FeatureSupport {
-    get { _storage.value(atIndex: 1, default: Google_Protobuf_FieldOptions.FeatureSupport(), hasBit: (1, 4)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `featureSupport` has been explicitly set.
@@ -1771,7 +1771,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
     /// Returns true if `edition` has been explicitly set.
     public var hasEdition: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-    public mutating func clearEdition() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_Edition.self, hasBit: (0, 2)) }
+    public mutating func clearEdition() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
     /// Textproto value.
     public var value: String {
@@ -1809,7 +1809,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
     /// Returns true if `editionIntroduced` has been explicitly set.
     public var hasEditionIntroduced: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `editionIntroduced`. Subsequent reads from it will return its default value.
-    public mutating func clearEditionIntroduced() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_Edition.self, hasBit: (0, 1)) }
+    public mutating func clearEditionIntroduced() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
     /// The edition this feature becomes deprecated in.  Using this after this
     /// edition may trigger warnings.
@@ -1820,7 +1820,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
     /// Returns true if `editionDeprecated` has been explicitly set.
     public var hasEditionDeprecated: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `editionDeprecated`. Subsequent reads from it will return its default value.
-    public mutating func clearEditionDeprecated() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_Edition.self, hasBit: (0, 2)) }
+    public mutating func clearEditionDeprecated() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
     /// The deprecation warning text if this feature is used after the edition it
     /// was marked deprecated in.
@@ -1843,7 +1843,7 @@ public nonisolated struct Google_Protobuf_FieldOptions: @unchecked Swift.Sendabl
     /// Returns true if `editionRemoved` has been explicitly set.
     public var hasEditionRemoved: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
     /// Clears the value of `editionRemoved`. Subsequent reads from it will return its default value.
-    public mutating func clearEditionRemoved() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_Edition.self, hasBit: (0, 8)) }
+    public mutating func clearEditionRemoved() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 8)) }
 
     /// The removal error text if this feature is used after the edition it was
     /// removed in.
@@ -1886,7 +1886,7 @@ public nonisolated struct Google_Protobuf_OneofOptions: @unchecked Swift.Sendabl
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -1961,7 +1961,7 @@ public nonisolated struct Google_Protobuf_EnumOptions: @unchecked Swift.Sendable
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -2008,7 +2008,7 @@ public nonisolated struct Google_Protobuf_EnumValueOptions: @unchecked Swift.Sen
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -2030,7 +2030,7 @@ public nonisolated struct Google_Protobuf_EnumValueOptions: @unchecked Swift.Sen
 
   /// Information about the support window of a feature value.
   public var featureSupport: Google_Protobuf_FieldOptions.FeatureSupport {
-    get { _storage.value(atIndex: 1, default: Google_Protobuf_FieldOptions.FeatureSupport(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `featureSupport` has been explicitly set.
@@ -2064,7 +2064,7 @@ public nonisolated struct Google_Protobuf_ServiceOptions: @unchecked Swift.Senda
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -2126,14 +2126,14 @@ public nonisolated struct Google_Protobuf_MethodOptions: @unchecked Swift.Sendab
   /// Returns true if `idempotencyLevel` has been explicitly set.
   public var hasIdempotencyLevel: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `idempotencyLevel`. Subsequent reads from it will return its default value.
-  public mutating func clearIdempotencyLevel() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_MethodOptions.IdempotencyLevel.self, hasBit: (0, 2)) }
+  public mutating func clearIdempotencyLevel() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   /// Any features defined in the specific edition.
   /// WARNING: This field should only be used by protobuf plugins or special
   /// cases like the proto compiler. Other uses are discouraged and
   /// developers should rely on the protoreflect APIs for their client language.
   public var features: Google_Protobuf_FeatureSet {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `features` has been explicitly set.
@@ -2313,7 +2313,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `fieldPresence` has been explicitly set.
   public var hasFieldPresence: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `fieldPresence`. Subsequent reads from it will return its default value.
-  public mutating func clearFieldPresence() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_FeatureSet.FieldPresence.self, hasBit: (0, 1)) }
+  public mutating func clearFieldPresence() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   public var enumType: Google_Protobuf_FeatureSet.EnumType {
     get { _storage.value(at: 8, default: .unknown, hasBit: (0, 2)) }
@@ -2322,7 +2322,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `enumType` has been explicitly set.
   public var hasEnumType: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `enumType`. Subsequent reads from it will return its default value.
-  public mutating func clearEnumType() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_FeatureSet.EnumType.self, hasBit: (0, 2)) }
+  public mutating func clearEnumType() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   public var repeatedFieldEncoding: Google_Protobuf_FeatureSet.RepeatedFieldEncoding {
     get { _storage.value(at: 12, default: .unknown, hasBit: (0, 4)) }
@@ -2331,7 +2331,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `repeatedFieldEncoding` has been explicitly set.
   public var hasRepeatedFieldEncoding: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `repeatedFieldEncoding`. Subsequent reads from it will return its default value.
-  public mutating func clearRepeatedFieldEncoding() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_FeatureSet.RepeatedFieldEncoding.self, hasBit: (0, 4)) }
+  public mutating func clearRepeatedFieldEncoding() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
 
   public var utf8Validation: Google_Protobuf_FeatureSet.Utf8Validation {
     get { _storage.value(at: 16, default: .unknown, hasBit: (0, 8)) }
@@ -2340,7 +2340,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `utf8Validation` has been explicitly set.
   public var hasUtf8Validation: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
-  public mutating func clearUtf8Validation() { _uniqueStorage().clearValue(at: 16, type: Google_Protobuf_FeatureSet.Utf8Validation.self, hasBit: (0, 8)) }
+  public mutating func clearUtf8Validation() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
 
   public var messageEncoding: Google_Protobuf_FeatureSet.MessageEncoding {
     get { _storage.value(at: 20, default: .unknown, hasBit: (0, 16)) }
@@ -2349,7 +2349,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `messageEncoding` has been explicitly set.
   public var hasMessageEncoding: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `messageEncoding`. Subsequent reads from it will return its default value.
-  public mutating func clearMessageEncoding() { _uniqueStorage().clearValue(at: 20, type: Google_Protobuf_FeatureSet.MessageEncoding.self, hasBit: (0, 16)) }
+  public mutating func clearMessageEncoding() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 16)) }
 
   public var jsonFormat: Google_Protobuf_FeatureSet.JsonFormat {
     get { _storage.value(at: 24, default: .unknown, hasBit: (0, 32)) }
@@ -2358,7 +2358,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `jsonFormat` has been explicitly set.
   public var hasJsonFormat: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `jsonFormat`. Subsequent reads from it will return its default value.
-  public mutating func clearJsonFormat() { _uniqueStorage().clearValue(at: 24, type: Google_Protobuf_FeatureSet.JsonFormat.self, hasBit: (0, 32)) }
+  public mutating func clearJsonFormat() { _uniqueStorage().clearEnumValue(at: 24, hasBit: (0, 32)) }
 
   public var enforceNamingStyle: Google_Protobuf_FeatureSet.EnforceNamingStyle {
     get { _storage.value(at: 28, default: .unknown, hasBit: (0, 64)) }
@@ -2367,7 +2367,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `enforceNamingStyle` has been explicitly set.
   public var hasEnforceNamingStyle: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `enforceNamingStyle`. Subsequent reads from it will return its default value.
-  public mutating func clearEnforceNamingStyle() { _uniqueStorage().clearValue(at: 28, type: Google_Protobuf_FeatureSet.EnforceNamingStyle.self, hasBit: (0, 64)) }
+  public mutating func clearEnforceNamingStyle() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 64)) }
 
   public var defaultSymbolVisibility: Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
     get { _storage.value(at: 32, default: .unknown, hasBit: (0, 128)) }
@@ -2376,7 +2376,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `defaultSymbolVisibility` has been explicitly set.
   public var hasDefaultSymbolVisibility: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `defaultSymbolVisibility`. Subsequent reads from it will return its default value.
-  public mutating func clearDefaultSymbolVisibility() { _uniqueStorage().clearValue(at: 32, type: Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility.self, hasBit: (0, 128)) }
+  public mutating func clearDefaultSymbolVisibility() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 128)) }
 
   public var enforceProtoLimits: Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
     get { _storage.value(at: 36, default: .protoLimitsUnknown, hasBit: (1, 1)) }
@@ -2385,7 +2385,7 @@ public nonisolated struct Google_Protobuf_FeatureSet: @unchecked Swift.Sendable 
   /// Returns true if `enforceProtoLimits` has been explicitly set.
   public var hasEnforceProtoLimits: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `enforceProtoLimits`. Subsequent reads from it will return its default value.
-  public mutating func clearEnforceProtoLimits() { _uniqueStorage().clearValue(at: 36, type: Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits.self, hasBit: (1, 1)) }
+  public mutating func clearEnforceProtoLimits() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (1, 1)) }
 
   public nonisolated enum FieldPresence: Swift.Int, Enum, Swift.CaseIterable {
     case unknown = 0
@@ -2571,7 +2571,7 @@ public nonisolated struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.S
   /// Returns true if `minimumEdition` has been explicitly set.
   public var hasMinimumEdition: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `minimumEdition`. Subsequent reads from it will return its default value.
-  public mutating func clearMinimumEdition() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_Edition.self, hasBit: (0, 1)) }
+  public mutating func clearMinimumEdition() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   /// The maximum known edition (inclusive) when this was constructed. Editions
   /// after this will not have reliable defaults.
@@ -2582,7 +2582,7 @@ public nonisolated struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.S
   /// Returns true if `maximumEdition` has been explicitly set.
   public var hasMaximumEdition: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `maximumEdition`. Subsequent reads from it will return its default value.
-  public mutating func clearMaximumEdition() { _uniqueStorage().clearValue(at: 8, type: Google_Protobuf_Edition.self, hasBit: (0, 2)) }
+  public mutating func clearMaximumEdition() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   /// A map from every known edition with a unique set of defaults to its
   /// defaults. Not all editions may be contained here.  For a given edition,
@@ -2600,11 +2600,11 @@ public nonisolated struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.S
     /// Returns true if `edition` has been explicitly set.
     public var hasEdition: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
-    public mutating func clearEdition() { _uniqueStorage().clearValue(at: 4, type: Google_Protobuf_Edition.self, hasBit: (0, 1)) }
+    public mutating func clearEdition() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
     /// Defaults of features that can be overridden in this edition.
     public var overridableFeatures: Google_Protobuf_FeatureSet {
-      get { _storage.value(atIndex: 0, default: Google_Protobuf_FeatureSet(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `overridableFeatures` has been explicitly set.
@@ -2614,7 +2614,7 @@ public nonisolated struct Google_Protobuf_FeatureSetDefaults: @unchecked Swift.S
 
     /// Defaults of features that can't be overridden in this edition.
     public var fixedFeatures: Google_Protobuf_FeatureSet {
-      get { _storage.value(atIndex: 1, default: Google_Protobuf_FeatureSet(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `fixedFeatures` has been explicitly set.
@@ -2933,7 +2933,7 @@ public nonisolated struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Se
     /// Returns true if `semantic` has been explicitly set.
     public var hasSemantic: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
     /// Clears the value of `semantic`. Subsequent reads from it will return its default value.
-    public mutating func clearSemantic() { _uniqueStorage().clearValue(at: 12, type: Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic.self, hasBit: (0, 8)) }
+    public mutating func clearSemantic() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 8)) }
 
     /// Represents the identified object's effect on the element in the original
     /// .proto file.

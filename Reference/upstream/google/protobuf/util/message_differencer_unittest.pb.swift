@@ -72,7 +72,7 @@ nonisolated struct Proto2Unittest_TestField: @unchecked Swift.Sendable {
   }
 
   var m: Proto2Unittest_TestField {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestField(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `m` has been explicitly set.
@@ -125,7 +125,7 @@ nonisolated struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
   mutating func clearW() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var m: Proto2Unittest_TestField {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestField(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `m` has been explicitly set.
@@ -198,7 +198,7 @@ nonisolated struct Proto2Unittest_TestDiffMessage: @unchecked Swift.Sendable {
 
     /// Test TreatAsMap when key is a message
     var m: Proto2Unittest_TestField {
-      get { _storage.value(atIndex: 0, default: Proto2Unittest_TestField(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `m` has been explicitly set.
@@ -258,7 +258,7 @@ nonisolated extension Proto2Unittest_TestDiffMessage {
   var hasProto2Unittest_TestField_tf: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestField.Extensions.tf) }
   /// Clears the value of extension `Proto2Unittest_TestField.Extensions.tf`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestField_tf() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestField.Extensions.tf, type: Proto2Unittest_TestField.self) }
+  mutating func clearProto2Unittest_TestField_tf() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestField.Extensions.tf) }
 
 }
 

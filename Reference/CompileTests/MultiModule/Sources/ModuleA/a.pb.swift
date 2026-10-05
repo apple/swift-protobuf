@@ -43,7 +43,7 @@ public nonisolated struct A: @unchecked Swift.Sendable {
   /// Returns true if `e` has been explicitly set.
   public var hasE: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
-  public mutating func clearE() { _uniqueStorage().clearValue(at: 4, type: E.self, hasBit: (0, 1)) }
+  public mutating func clearE() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -75,7 +75,7 @@ nonisolated extension A {
   public var hasExtStr: Bool { _protobuf_extensionStorage().hasValue(for: Extensions_ext_str) }
   /// Clears the value of extension `Extensions_ext_str`.
   /// Subsequent reads from it will return its default value.
-  public mutating func clearExtStr() { _protobuf_uniqueExtensionStorage().clearValue(of: Extensions_ext_str, type: String.self) }
+  public mutating func clearExtStr() { _protobuf_uniqueExtensionStorage().clearValue(of: Extensions_ext_str) }
 
 }
 

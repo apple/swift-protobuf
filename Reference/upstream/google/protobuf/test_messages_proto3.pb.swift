@@ -166,7 +166,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   }
 
   var optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -175,7 +175,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto3_ForeignMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -209,7 +209,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   }
 
   var recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3 {
-    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Proto3_TestAllTypesProto3(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
@@ -602,7 +602,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage {
-    get { return _storage.value(atIndex: 3, default: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage(), oneofPresence: (20, 112)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (20, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (20, 112)) }
   }
 
@@ -648,7 +648,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
 
   /// Well-known types
   var optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get { _storage.value(atIndex: 4, default: SwiftProtobuf.Google_Protobuf_BoolValue(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalBoolWrapper` has been explicitly set.
@@ -657,7 +657,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalBoolWrapper() { _uniqueStorage().clearValue(atIndex: 4, type: SwiftProtobuf.Google_Protobuf_BoolValue.self, hasBit: (0, 8)) }
 
   var optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get { _storage.value(atIndex: 5, default: SwiftProtobuf.Google_Protobuf_Int32Value(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optionalInt32Wrapper` has been explicitly set.
@@ -666,7 +666,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalInt32Wrapper() { _uniqueStorage().clearValue(atIndex: 5, type: SwiftProtobuf.Google_Protobuf_Int32Value.self, hasBit: (0, 16)) }
 
   var optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get { _storage.value(atIndex: 6, default: SwiftProtobuf.Google_Protobuf_Int64Value(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `optionalInt64Wrapper` has been explicitly set.
@@ -675,7 +675,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalInt64Wrapper() { _uniqueStorage().clearValue(atIndex: 6, type: SwiftProtobuf.Google_Protobuf_Int64Value.self, hasBit: (0, 32)) }
 
   var optionalUint32Wrapper: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get { _storage.value(atIndex: 7, default: SwiftProtobuf.Google_Protobuf_UInt32Value(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `optionalUint32Wrapper` has been explicitly set.
@@ -684,7 +684,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalUint32Wrapper() { _uniqueStorage().clearValue(atIndex: 7, type: SwiftProtobuf.Google_Protobuf_UInt32Value.self, hasBit: (0, 64)) }
 
   var optionalUint64Wrapper: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get { _storage.value(atIndex: 8, default: SwiftProtobuf.Google_Protobuf_UInt64Value(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 8, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `optionalUint64Wrapper` has been explicitly set.
@@ -693,7 +693,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalUint64Wrapper() { _uniqueStorage().clearValue(atIndex: 8, type: SwiftProtobuf.Google_Protobuf_UInt64Value.self, hasBit: (0, 128)) }
 
   var optionalFloatWrapper: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get { _storage.value(atIndex: 9, default: SwiftProtobuf.Google_Protobuf_FloatValue(), hasBit: (1, 1)) }
+    get { _storage.messageValue(atIndex: 9, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `optionalFloatWrapper` has been explicitly set.
@@ -702,7 +702,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalFloatWrapper() { _uniqueStorage().clearValue(atIndex: 9, type: SwiftProtobuf.Google_Protobuf_FloatValue.self, hasBit: (1, 1)) }
 
   var optionalDoubleWrapper: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get { _storage.value(atIndex: 10, default: SwiftProtobuf.Google_Protobuf_DoubleValue(), hasBit: (1, 2)) }
+    get { _storage.messageValue(atIndex: 10, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `optionalDoubleWrapper` has been explicitly set.
@@ -711,7 +711,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalDoubleWrapper() { _uniqueStorage().clearValue(atIndex: 10, type: SwiftProtobuf.Google_Protobuf_DoubleValue.self, hasBit: (1, 2)) }
 
   var optionalStringWrapper: SwiftProtobuf.Google_Protobuf_StringValue {
-    get { _storage.value(atIndex: 11, default: SwiftProtobuf.Google_Protobuf_StringValue(), hasBit: (1, 4)) }
+    get { _storage.messageValue(atIndex: 11, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `optionalStringWrapper` has been explicitly set.
@@ -720,7 +720,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalStringWrapper() { _uniqueStorage().clearValue(atIndex: 11, type: SwiftProtobuf.Google_Protobuf_StringValue.self, hasBit: (1, 4)) }
 
   var optionalBytesWrapper: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get { _storage.value(atIndex: 12, default: SwiftProtobuf.Google_Protobuf_BytesValue(), hasBit: (1, 8)) }
+    get { _storage.messageValue(atIndex: 12, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `optionalBytesWrapper` has been explicitly set.
@@ -774,7 +774,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   }
 
   var optionalDuration: SwiftProtobuf.Google_Protobuf_Duration {
-    get { _storage.value(atIndex: 13, default: SwiftProtobuf.Google_Protobuf_Duration(), hasBit: (1, 16)) }
+    get { _storage.messageValue(atIndex: 13, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `optionalDuration` has been explicitly set.
@@ -783,7 +783,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalDuration() { _uniqueStorage().clearValue(atIndex: 13, type: SwiftProtobuf.Google_Protobuf_Duration.self, hasBit: (1, 16)) }
 
   var optionalTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { _storage.value(atIndex: 14, default: SwiftProtobuf.Google_Protobuf_Timestamp(), hasBit: (1, 32)) }
+    get { _storage.messageValue(atIndex: 14, hasBit: (1, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: true, hasBit: (1, 32)) }
   }
   /// Returns true if `optionalTimestamp` has been explicitly set.
@@ -792,7 +792,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalTimestamp() { _uniqueStorage().clearValue(atIndex: 14, type: SwiftProtobuf.Google_Protobuf_Timestamp.self, hasBit: (1, 32)) }
 
   var optionalFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get { _storage.value(atIndex: 15, default: SwiftProtobuf.Google_Protobuf_FieldMask(), hasBit: (1, 64)) }
+    get { _storage.messageValue(atIndex: 15, hasBit: (1, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: true, hasBit: (1, 64)) }
   }
   /// Returns true if `optionalFieldMask` has been explicitly set.
@@ -801,7 +801,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalFieldMask() { _uniqueStorage().clearValue(atIndex: 15, type: SwiftProtobuf.Google_Protobuf_FieldMask.self, hasBit: (1, 64)) }
 
   var optionalStruct: SwiftProtobuf.Google_Protobuf_Struct {
-    get { _storage.value(atIndex: 16, default: SwiftProtobuf.Google_Protobuf_Struct(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 16, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalStruct` has been explicitly set.
@@ -810,7 +810,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalStruct() { _uniqueStorage().clearValue(atIndex: 16, type: SwiftProtobuf.Google_Protobuf_Struct.self, hasBit: (1, 128)) }
 
   var optionalAny: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 17, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 17, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalAny` has been explicitly set.
@@ -819,7 +819,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   mutating func clearOptionalAny() { _uniqueStorage().clearValue(atIndex: 17, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (2, 1)) }
 
   var optionalValue: SwiftProtobuf.Google_Protobuf_Value {
-    get { _storage.value(atIndex: 18, default: SwiftProtobuf.Google_Protobuf_Value(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 18, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalValue` has been explicitly set.
@@ -833,7 +833,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
   }
 
   var optionalEmpty: SwiftProtobuf.Google_Protobuf_Empty {
-    get { _storage.value(atIndex: 19, default: SwiftProtobuf.Google_Protobuf_Empty(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 19, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalEmpty` has been explicitly set.
@@ -1081,7 +1081,7 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sw
     }
 
     var corecursive: ProtobufTestMessages_Proto3_TestAllTypesProto3 {
-      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto3_TestAllTypesProto3(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `corecursive` has been explicitly set.

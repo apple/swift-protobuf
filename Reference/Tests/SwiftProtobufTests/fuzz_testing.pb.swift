@@ -199,10 +199,10 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   /// Returns true if `singularEnum` has been explicitly set.
   var hasSingularEnum: Swift.Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `singularEnum`. Subsequent reads from it will return its default value.
-  mutating func clearSingularEnum() { _uniqueStorage().clearValue(at: 136, type: SwiftProtoTesting_Fuzz_AnEnum.self, hasBit: (1, 128)) }
+  mutating func clearSingularEnum() { _uniqueStorage().clearEnumValue(at: 136, hasBit: (1, 128)) }
 
   var singularGroup: SwiftProtoTesting_Fuzz_Message.SingularGroup {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Fuzz_Message.SingularGroup(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `singularGroup` has been explicitly set.
@@ -211,7 +211,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearSingularGroup() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Fuzz_Message.SingularGroup.self, hasBit: (2, 1)) }
 
   var singularMessage: SwiftProtoTesting_Fuzz_Message {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_Fuzz_Message(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `singularMessage` has been explicitly set.
@@ -443,12 +443,12 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   }
 
   var oneofGroup: SwiftProtoTesting_Fuzz_Message.OneofGroup {
-    get { return _storage.value(atIndex: 2, default: SwiftProtoTesting_Fuzz_Message.OneofGroup(), oneofPresence: (36, 77)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (36, 77)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (36, 77)) }
   }
 
   var oneofMessage: SwiftProtoTesting_Fuzz_Message {
-    get { return _storage.value(atIndex: 3, default: SwiftProtoTesting_Fuzz_Message(), oneofPresence: (36, 79)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (36, 79)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (36, 79)) }
   }
 
@@ -1461,7 +1461,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
 
   /// WKTs since some get special handing in JSON.
   var wktAny: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 4, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `wktAny` has been explicitly set.
@@ -1470,7 +1470,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktAny() { _uniqueStorage().clearValue(atIndex: 4, type: SwiftProtobuf.Google_Protobuf_Any.self, hasBit: (2, 4)) }
 
   var wktApi: SwiftProtobuf.Google_Protobuf_Api {
-    get { _storage.value(atIndex: 5, default: SwiftProtobuf.Google_Protobuf_Api(), hasBit: (2, 8)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (2, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (2, 8)) }
   }
   /// Returns true if `wktApi` has been explicitly set.
@@ -1479,7 +1479,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktApi() { _uniqueStorage().clearValue(atIndex: 5, type: SwiftProtobuf.Google_Protobuf_Api.self, hasBit: (2, 8)) }
 
   var wktDuration: SwiftProtobuf.Google_Protobuf_Duration {
-    get { _storage.value(atIndex: 6, default: SwiftProtobuf.Google_Protobuf_Duration(), hasBit: (2, 16)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (2, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (2, 16)) }
   }
   /// Returns true if `wktDuration` has been explicitly set.
@@ -1488,7 +1488,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktDuration() { _uniqueStorage().clearValue(atIndex: 6, type: SwiftProtobuf.Google_Protobuf_Duration.self, hasBit: (2, 16)) }
 
   var wktEmpty: SwiftProtobuf.Google_Protobuf_Empty {
-    get { _storage.value(atIndex: 7, default: SwiftProtobuf.Google_Protobuf_Empty(), hasBit: (2, 32)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `wktEmpty` has been explicitly set.
@@ -1497,7 +1497,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktEmpty() { _uniqueStorage().clearValue(atIndex: 7, type: SwiftProtobuf.Google_Protobuf_Empty.self, hasBit: (2, 32)) }
 
   var wktFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get { _storage.value(atIndex: 8, default: SwiftProtobuf.Google_Protobuf_FieldMask(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 8, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `wktFieldMask` has been explicitly set.
@@ -1506,7 +1506,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktFieldMask() { _uniqueStorage().clearValue(atIndex: 8, type: SwiftProtobuf.Google_Protobuf_FieldMask.self, hasBit: (2, 64)) }
 
   var wktSourceContext: SwiftProtobuf.Google_Protobuf_SourceContext {
-    get { _storage.value(atIndex: 9, default: SwiftProtobuf.Google_Protobuf_SourceContext(), hasBit: (2, 128)) }
+    get { _storage.messageValue(atIndex: 9, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `wktSourceContext` has been explicitly set.
@@ -1515,7 +1515,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktSourceContext() { _uniqueStorage().clearValue(atIndex: 9, type: SwiftProtobuf.Google_Protobuf_SourceContext.self, hasBit: (2, 128)) }
 
   var wktStruct: SwiftProtobuf.Google_Protobuf_Struct {
-    get { _storage.value(atIndex: 10, default: SwiftProtobuf.Google_Protobuf_Struct(), hasBit: (3, 1)) }
+    get { _storage.messageValue(atIndex: 10, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `wktStruct` has been explicitly set.
@@ -1524,7 +1524,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktStruct() { _uniqueStorage().clearValue(atIndex: 10, type: SwiftProtobuf.Google_Protobuf_Struct.self, hasBit: (3, 1)) }
 
   var wktTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { _storage.value(atIndex: 11, default: SwiftProtobuf.Google_Protobuf_Timestamp(), hasBit: (3, 2)) }
+    get { _storage.messageValue(atIndex: 11, hasBit: (3, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `wktTimestamp` has been explicitly set.
@@ -1533,7 +1533,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktTimestamp() { _uniqueStorage().clearValue(atIndex: 11, type: SwiftProtobuf.Google_Protobuf_Timestamp.self, hasBit: (3, 2)) }
 
   var wktType: SwiftProtobuf.Google_Protobuf_Type {
-    get { _storage.value(atIndex: 12, default: SwiftProtobuf.Google_Protobuf_Type(), hasBit: (3, 4)) }
+    get { _storage.messageValue(atIndex: 12, hasBit: (3, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `wktType` has been explicitly set.
@@ -1542,7 +1542,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktType() { _uniqueStorage().clearValue(atIndex: 12, type: SwiftProtobuf.Google_Protobuf_Type.self, hasBit: (3, 4)) }
 
   var wktDoubleValue: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get { _storage.value(atIndex: 13, default: SwiftProtobuf.Google_Protobuf_DoubleValue(), hasBit: (3, 8)) }
+    get { _storage.messageValue(atIndex: 13, hasBit: (3, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 13, to: newValue, willBeSet: true, hasBit: (3, 8)) }
   }
   /// Returns true if `wktDoubleValue` has been explicitly set.
@@ -1551,7 +1551,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktDoubleValue() { _uniqueStorage().clearValue(atIndex: 13, type: SwiftProtobuf.Google_Protobuf_DoubleValue.self, hasBit: (3, 8)) }
 
   var wktFloatValue: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get { _storage.value(atIndex: 14, default: SwiftProtobuf.Google_Protobuf_FloatValue(), hasBit: (3, 16)) }
+    get { _storage.messageValue(atIndex: 14, hasBit: (3, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 14, to: newValue, willBeSet: true, hasBit: (3, 16)) }
   }
   /// Returns true if `wktFloatValue` has been explicitly set.
@@ -1560,7 +1560,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktFloatValue() { _uniqueStorage().clearValue(atIndex: 14, type: SwiftProtobuf.Google_Protobuf_FloatValue.self, hasBit: (3, 16)) }
 
   var wktInt64Value: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get { _storage.value(atIndex: 15, default: SwiftProtobuf.Google_Protobuf_Int64Value(), hasBit: (3, 32)) }
+    get { _storage.messageValue(atIndex: 15, hasBit: (3, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 15, to: newValue, willBeSet: true, hasBit: (3, 32)) }
   }
   /// Returns true if `wktInt64Value` has been explicitly set.
@@ -1569,7 +1569,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktInt64Value() { _uniqueStorage().clearValue(atIndex: 15, type: SwiftProtobuf.Google_Protobuf_Int64Value.self, hasBit: (3, 32)) }
 
   var wktUint64Value: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get { _storage.value(atIndex: 16, default: SwiftProtobuf.Google_Protobuf_UInt64Value(), hasBit: (3, 64)) }
+    get { _storage.messageValue(atIndex: 16, hasBit: (3, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 16, to: newValue, willBeSet: true, hasBit: (3, 64)) }
   }
   /// Returns true if `wktUint64Value` has been explicitly set.
@@ -1578,7 +1578,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktUint64Value() { _uniqueStorage().clearValue(atIndex: 16, type: SwiftProtobuf.Google_Protobuf_UInt64Value.self, hasBit: (3, 64)) }
 
   var wktInt32Value: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get { _storage.value(atIndex: 17, default: SwiftProtobuf.Google_Protobuf_Int32Value(), hasBit: (3, 128)) }
+    get { _storage.messageValue(atIndex: 17, hasBit: (3, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 17, to: newValue, willBeSet: true, hasBit: (3, 128)) }
   }
   /// Returns true if `wktInt32Value` has been explicitly set.
@@ -1587,7 +1587,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktInt32Value() { _uniqueStorage().clearValue(atIndex: 17, type: SwiftProtobuf.Google_Protobuf_Int32Value.self, hasBit: (3, 128)) }
 
   var wktUint32Value: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get { _storage.value(atIndex: 18, default: SwiftProtobuf.Google_Protobuf_UInt32Value(), hasBit: (4, 1)) }
+    get { _storage.messageValue(atIndex: 18, hasBit: (4, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 18, to: newValue, willBeSet: true, hasBit: (4, 1)) }
   }
   /// Returns true if `wktUint32Value` has been explicitly set.
@@ -1596,7 +1596,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktUint32Value() { _uniqueStorage().clearValue(atIndex: 18, type: SwiftProtobuf.Google_Protobuf_UInt32Value.self, hasBit: (4, 1)) }
 
   var wktBoolValue: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get { _storage.value(atIndex: 19, default: SwiftProtobuf.Google_Protobuf_BoolValue(), hasBit: (4, 2)) }
+    get { _storage.messageValue(atIndex: 19, hasBit: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 19, to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `wktBoolValue` has been explicitly set.
@@ -1605,7 +1605,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktBoolValue() { _uniqueStorage().clearValue(atIndex: 19, type: SwiftProtobuf.Google_Protobuf_BoolValue.self, hasBit: (4, 2)) }
 
   var wktStringValue: SwiftProtobuf.Google_Protobuf_StringValue {
-    get { _storage.value(atIndex: 20, default: SwiftProtobuf.Google_Protobuf_StringValue(), hasBit: (4, 4)) }
+    get { _storage.messageValue(atIndex: 20, hasBit: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 20, to: newValue, willBeSet: true, hasBit: (4, 4)) }
   }
   /// Returns true if `wktStringValue` has been explicitly set.
@@ -1614,7 +1614,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
   mutating func clearWktStringValue() { _uniqueStorage().clearValue(atIndex: 20, type: SwiftProtobuf.Google_Protobuf_StringValue.self, hasBit: (4, 4)) }
 
   var wktBytesValue: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get { _storage.value(atIndex: 21, default: SwiftProtobuf.Google_Protobuf_BytesValue(), hasBit: (4, 8)) }
+    get { _storage.messageValue(atIndex: 21, hasBit: (4, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 21, to: newValue, willBeSet: true, hasBit: (4, 8)) }
   }
   /// Returns true if `wktBytesValue` has been explicitly set.
@@ -1624,7 +1624,7 @@ nonisolated struct SwiftProtoTesting_Fuzz_Message: @unchecked Swift.Sendable {
 
   /// Get some coverage for the special message_set_wire_format.
   var singularMessageSet: SwiftProtoTesting_Fuzz_AMessageSetMessage {
-    get { _storage.value(atIndex: 22, default: SwiftProtoTesting_Fuzz_AMessageSetMessage(), hasBit: (4, 16)) }
+    get { _storage.messageValue(atIndex: 22, hasBit: (4, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 22, to: newValue, willBeSet: true, hasBit: (4, 16)) }
   }
   /// Returns true if `singularMessageSet` has been explicitly set.
@@ -1874,7 +1874,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
   var hasSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension, type: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.Extensions.message_set_extension) }
 
   var SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension, default: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2()) }
@@ -1885,7 +1885,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessage {
   var hasSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension, type: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_AMessageSetMessageExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.Extensions.message_set_extension) }
 }
 
 nonisolated extension SwiftProtoTesting_Fuzz_Message {
@@ -1900,7 +1900,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularInt32Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularInt32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularInt32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext) }
 
   var SwiftProtoTesting_Fuzz_singularInt64Ext: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext, default: 0) }
@@ -1911,7 +1911,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularInt64Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularInt64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularInt64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext) }
 
   var SwiftProtoTesting_Fuzz_singularUint32Ext: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext, default: 0) }
@@ -1922,7 +1922,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularUint32Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularUint32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularUint32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext) }
 
   var SwiftProtoTesting_Fuzz_singularUint64Ext: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext, default: 0) }
@@ -1933,7 +1933,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularUint64Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularUint64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularUint64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext) }
 
   var SwiftProtoTesting_Fuzz_singularSint32Ext: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext, default: 0) }
@@ -1944,7 +1944,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularSint32Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularSint32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularSint32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext) }
 
   var SwiftProtoTesting_Fuzz_singularSint64Ext: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext, default: 0) }
@@ -1955,7 +1955,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularSint64Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularSint64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularSint64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext) }
 
   var SwiftProtoTesting_Fuzz_singularFixed32Ext: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext, default: 0) }
@@ -1966,7 +1966,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularFixed32Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularFixed32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularFixed32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext) }
 
   var SwiftProtoTesting_Fuzz_singularFixed64Ext: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext, default: 0) }
@@ -1977,7 +1977,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularFixed64Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularFixed64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularFixed64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext) }
 
   var SwiftProtoTesting_Fuzz_singularSfixed32Ext: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext, default: 0) }
@@ -1988,7 +1988,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularSfixed32Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularSfixed32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularSfixed32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext) }
 
   var SwiftProtoTesting_Fuzz_singularSfixed64Ext: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext, default: 0) }
@@ -1999,7 +1999,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularSfixed64Ext: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularSfixed64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularSfixed64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext) }
 
   var SwiftProtoTesting_Fuzz_singularFloatExt: Float {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_float_ext, default: 0) }
@@ -2010,7 +2010,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularFloatExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_float_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_float_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularFloatExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_float_ext, type: Float.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularFloatExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_float_ext) }
 
   var SwiftProtoTesting_Fuzz_singularDoubleExt: Double {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_double_ext, default: 0) }
@@ -2021,7 +2021,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularDoubleExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_double_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_double_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularDoubleExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_double_ext, type: Double.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularDoubleExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_double_ext) }
 
   var SwiftProtoTesting_Fuzz_singularBoolExt: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext, default: false) }
@@ -2032,7 +2032,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularBoolExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularBoolExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularBoolExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext) }
 
   var SwiftProtoTesting_Fuzz_singularStringExt: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_string_ext, default: String()) }
@@ -2043,7 +2043,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularStringExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_string_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_string_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularStringExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_string_ext, type: String.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularStringExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_string_ext) }
 
   var SwiftProtoTesting_Fuzz_singularBytesExt: Data {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext, default: Data()) }
@@ -2054,7 +2054,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularBytesExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularBytesExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext, type: Data.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularBytesExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext) }
 
   var SwiftProtoTesting_Fuzz_singularEnumExt: SwiftProtoTesting_Fuzz_AnEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext, default: .zero) }
@@ -2065,7 +2065,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularEnumExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularEnumExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext, type: SwiftProtoTesting_Fuzz_AnEnum.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularEnumExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext) }
 
   var SwiftProtoTesting_Fuzz_singularGroupExt: SwiftProtoTesting_Fuzz_SingularGroup_ext {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext, default: SwiftProtoTesting_Fuzz_SingularGroup_ext()) }
@@ -2076,7 +2076,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularGroupExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularGroupExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext, type: SwiftProtoTesting_Fuzz_SingularGroup_ext.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularGroupExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext) }
 
   var SwiftProtoTesting_Fuzz_singularMessageExt: SwiftProtoTesting_Fuzz_Message {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Fuzz_Extensions_singular_message_ext, default: SwiftProtoTesting_Fuzz_Message()) }
@@ -2087,7 +2087,7 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
   var hasSwiftProtoTesting_Fuzz_singularMessageExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Fuzz_Extensions_singular_message_ext) }
   /// Clears the value of extension `SwiftProtoTesting_Fuzz_Extensions_singular_message_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Fuzz_singularMessageExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_message_ext, type: SwiftProtoTesting_Fuzz_Message.self) }
+  mutating func clearSwiftProtoTesting_Fuzz_singularMessageExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Fuzz_Extensions_singular_message_ext) }
 
   /// Repeated
   var SwiftProtoTesting_Fuzz_repeatedInt32Ext: [Int32] {

@@ -74,7 +74,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasPb_File_cpp: Bool { _protobuf_extensionStorage().hasValue(for: Pb_File_Extensions_cpp) }
   /// Clears the value of extension `Pb_File_Extensions_cpp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_File_cpp() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_File_Extensions_cpp, type: Pb_File_CppFileOptions.self) }
+  mutating func clearPb_File_cpp() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_File_Extensions_cpp) }
 
 }
 

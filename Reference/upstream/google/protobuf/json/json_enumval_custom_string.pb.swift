@@ -106,7 +106,7 @@ nonisolated struct JsonEnumvalCustomString_Knight: @unchecked Swift.Sendable {
   /// Returns true if `armor` has been explicitly set.
   var hasArmor: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `armor`. Subsequent reads from it will return its default value.
-  mutating func clearArmor() { _uniqueStorage().clearValue(at: 4, type: JsonEnumvalCustomString_Armor.self, hasBit: (0, 1)) }
+  mutating func clearArmor() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var armors: [JsonEnumvalCustomString_Armor] {
     get { _storage.value(atIndex: 0, hasBit: (0, 2)) }

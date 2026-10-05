@@ -196,7 +196,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: FuzzUnittest_FuzzMostTypes.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: FuzzUnittest_FuzzMostTypes.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -205,7 +205,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 0, type: FuzzUnittest_FuzzMostTypes.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: FuzzUnittest_FuzzMostTypes.NestedMessage {
-    get { _storage.value(atIndex: 1, default: FuzzUnittest_FuzzMostTypes.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -214,7 +214,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: FuzzUnittest_FuzzMostTypes.NestedMessage.self, hasBit: (2, 1)) }
 
   var optionalForeignMessage: FuzzUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 2, default: FuzzUnittest_ForeignMessage(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -223,7 +223,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 2, type: FuzzUnittest_ForeignMessage.self, hasBit: (2, 2)) }
 
   var optionalImportMessage: Proto2UnittestImport_ImportMessage {
-    get { _storage.value(atIndex: 3, default: Proto2UnittestImport_ImportMessage(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -238,7 +238,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 36, type: FuzzUnittest_FuzzMostTypes.NestedEnum.self, hasBit: (2, 8)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (2, 8)) }
 
   var optionalForeignEnum: FuzzUnittest_ForeignEnum {
     get { _storage.value(at: 40, default: .foreignFoo, hasBit: (2, 16)) }
@@ -247,7 +247,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 40, type: FuzzUnittest_ForeignEnum.self, hasBit: (2, 16)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 40, hasBit: (2, 16)) }
 
   var optionalImportEnum: Proto2UnittestImport_ImportEnum {
     get { _storage.value(at: 44, default: .importFoo, hasBit: (2, 32)) }
@@ -256,7 +256,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalImportEnum` has been explicitly set.
   var hasOptionalImportEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportEnum() { _uniqueStorage().clearValue(at: 44, type: Proto2UnittestImport_ImportEnum.self, hasBit: (2, 32)) }
+  mutating func clearOptionalImportEnum() { _uniqueStorage().clearEnumValue(at: 44, hasBit: (2, 32)) }
 
   var optionalCord: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 64)) }
@@ -278,7 +278,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
-    get { _storage.value(atIndex: 4, default: Proto2UnittestImport_PublicImportMessage(), hasBit: (2, 128)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -287,7 +287,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalPublicImportMessage() { _uniqueStorage().clearValue(atIndex: 4, type: Proto2UnittestImport_PublicImportMessage.self, hasBit: (2, 128)) }
 
   var optionalLazyMessage: FuzzUnittest_FuzzMostTypes.NestedMessage {
-    get { _storage.value(atIndex: 5, default: FuzzUnittest_FuzzMostTypes.NestedMessage(), hasBit: (3, 1)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -554,7 +554,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 1)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 72, type: FuzzUnittest_FuzzMostTypes.NestedEnum.self, hasBit: (5, 1)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearEnumValue(at: 72, hasBit: (5, 1)) }
 
   var defaultForeignEnum: FuzzUnittest_ForeignEnum {
     get { _storage.value(at: 76, default: .foreignBar, hasBit: (5, 2)) }
@@ -563,7 +563,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 2)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 76, type: FuzzUnittest_ForeignEnum.self, hasBit: (5, 2)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearEnumValue(at: 76, hasBit: (5, 2)) }
 
   var defaultImportEnum: Proto2UnittestImport_ImportEnum {
     get { _storage.value(at: 80, default: .importBar, hasBit: (5, 4)) }
@@ -572,7 +572,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 4)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 80, type: Proto2UnittestImport_ImportEnum.self, hasBit: (5, 4)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearEnumValue(at: 80, hasBit: (5, 4)) }
 
   var defaultCord: String {
     get { _storage.value(atIndex: 3, default: "123", hasBit: (5, 8)) }
@@ -598,7 +598,7 @@ nonisolated struct FuzzUnittest_FuzzMostTypes: @unchecked Swift.Sendable {
   }
 
   var single: FuzzUnittest_TestRequired {
-    get { _storage.value(atIndex: 6, default: FuzzUnittest_TestRequired(), hasBit: (5, 64)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (5, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (5, 64)) }
   }
   /// Returns true if `single` has been explicitly set.
@@ -905,7 +905,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_int32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_int32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_int32_extension) }
 
   var FuzzUnittest_optionalInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_int64_extension, default: 0) }
@@ -916,7 +916,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_int64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_int64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_int64_extension) }
 
   var FuzzUnittest_optionalUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_uint32_extension, default: 0) }
@@ -927,7 +927,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_uint32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_uint32_extension, type: UInt32.self) }
+  mutating func clearFuzzUnittest_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_uint32_extension) }
 
   var FuzzUnittest_optionalUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_uint64_extension, default: 0) }
@@ -938,7 +938,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_uint64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_uint64_extension, type: UInt64.self) }
+  mutating func clearFuzzUnittest_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_uint64_extension) }
 
   var FuzzUnittest_optionalSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_sint32_extension, default: 0) }
@@ -949,7 +949,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_sint32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sint32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sint32_extension) }
 
   var FuzzUnittest_optionalSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_sint64_extension, default: 0) }
@@ -960,7 +960,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_sint64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sint64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sint64_extension) }
 
   var FuzzUnittest_optionalFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_fixed32_extension, default: 0) }
@@ -971,7 +971,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_fixed32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_fixed32_extension, type: UInt32.self) }
+  mutating func clearFuzzUnittest_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_fixed32_extension) }
 
   var FuzzUnittest_optionalFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_fixed64_extension, default: 0) }
@@ -982,7 +982,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_fixed64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_fixed64_extension, type: UInt64.self) }
+  mutating func clearFuzzUnittest_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_fixed64_extension) }
 
   var FuzzUnittest_optionalSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_sfixed32_extension, default: 0) }
@@ -993,7 +993,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_sfixed32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sfixed32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sfixed32_extension) }
 
   var FuzzUnittest_optionalSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_sfixed64_extension, default: 0) }
@@ -1004,7 +1004,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_sfixed64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sfixed64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_sfixed64_extension) }
 
   var FuzzUnittest_optionalFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_float_extension, default: 0) }
@@ -1015,7 +1015,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_float_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_float_extension, type: Float.self) }
+  mutating func clearFuzzUnittest_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_float_extension) }
 
   var FuzzUnittest_optionalDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_double_extension, default: 0) }
@@ -1026,7 +1026,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_double_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_double_extension, type: Double.self) }
+  mutating func clearFuzzUnittest_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_double_extension) }
 
   var FuzzUnittest_optionalBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_bool_extension, default: false) }
@@ -1037,7 +1037,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_bool_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bool_extension, type: Bool.self) }
+  mutating func clearFuzzUnittest_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bool_extension) }
 
   var FuzzUnittest_optionalStringExtension: String {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_string_extension, default: String()) }
@@ -1048,7 +1048,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_string_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_string_extension, type: String.self) }
+  mutating func clearFuzzUnittest_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_string_extension) }
 
   var FuzzUnittest_optionalBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_bytes_extension, default: Data()) }
@@ -1059,7 +1059,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_bytes_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bytes_extension, type: Data.self) }
+  mutating func clearFuzzUnittest_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bytes_extension) }
 
   var FuzzUnittest_optionalGroupExtension: FuzzUnittest_OptionalGroupExtension {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_group_extension, default: FuzzUnittest_OptionalGroupExtension()) }
@@ -1070,7 +1070,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalGroupExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_group_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_group_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_group_extension, type: FuzzUnittest_OptionalGroupExtension.self) }
+  mutating func clearFuzzUnittest_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_group_extension) }
 
   var FuzzUnittest_optionalNestedMessageExtension: FuzzUnittest_FuzzMostTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_nested_message_extension, default: FuzzUnittest_FuzzMostTypes.NestedMessage()) }
@@ -1081,7 +1081,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalNestedMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_nested_message_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_nested_message_extension, type: FuzzUnittest_FuzzMostTypes.NestedMessage.self) }
+  mutating func clearFuzzUnittest_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_nested_message_extension) }
 
   var FuzzUnittest_optionalForeignMessageExtension: FuzzUnittest_ForeignMessage {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_foreign_message_extension, default: FuzzUnittest_ForeignMessage()) }
@@ -1092,7 +1092,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalForeignMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_foreign_message_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_foreign_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_foreign_message_extension, type: FuzzUnittest_ForeignMessage.self) }
+  mutating func clearFuzzUnittest_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_foreign_message_extension) }
 
   var FuzzUnittest_optionalImportMessageExtension: Proto2UnittestImport_ImportMessage {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_import_message_extension, default: Proto2UnittestImport_ImportMessage()) }
@@ -1103,7 +1103,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_import_message_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_import_message_extension, type: Proto2UnittestImport_ImportMessage.self) }
+  mutating func clearFuzzUnittest_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_import_message_extension) }
 
   var FuzzUnittest_optionalNestedEnumExtension: FuzzUnittest_FuzzMostTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_nested_enum_extension, default: .foo) }
@@ -1114,7 +1114,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_nested_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_nested_enum_extension, type: FuzzUnittest_FuzzMostTypes.NestedEnum.self) }
+  mutating func clearFuzzUnittest_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_nested_enum_extension) }
 
   var FuzzUnittest_optionalForeignEnumExtension: FuzzUnittest_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_foreign_enum_extension, default: .foreignFoo) }
@@ -1125,7 +1125,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_foreign_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_foreign_enum_extension, type: FuzzUnittest_ForeignEnum.self) }
+  mutating func clearFuzzUnittest_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_foreign_enum_extension) }
 
   var FuzzUnittest_optionalImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_import_enum_extension, default: .importFoo) }
@@ -1136,7 +1136,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_import_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_import_enum_extension, type: Proto2UnittestImport_ImportEnum.self) }
+  mutating func clearFuzzUnittest_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_import_enum_extension) }
 
   /// TODO: features.(pb.cpp).string_type=CORD is not supported for
   /// extension. Add features.(pb.cpp).string_type=CORD option back after it is
@@ -1150,7 +1150,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_cord_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_cord_extension, type: String.self) }
+  mutating func clearFuzzUnittest_optionalCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_cord_extension) }
 
   var FuzzUnittest_optionalBytesCordExtension: Data {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_bytes_cord_extension, default: Data()) }
@@ -1161,7 +1161,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalBytesCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_bytes_cord_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_bytes_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalBytesCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bytes_cord_extension, type: Data.self) }
+  mutating func clearFuzzUnittest_optionalBytesCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_bytes_cord_extension) }
 
   var FuzzUnittest_optionalPublicImportMessageExtension: Proto2UnittestImport_PublicImportMessage {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_public_import_message_extension, default: Proto2UnittestImport_PublicImportMessage()) }
@@ -1172,7 +1172,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalPublicImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_public_import_message_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_public_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_public_import_message_extension, type: Proto2UnittestImport_PublicImportMessage.self) }
+  mutating func clearFuzzUnittest_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_public_import_message_extension) }
 
   var FuzzUnittest_optionalLazyMessageExtension: FuzzUnittest_FuzzMostTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_lazy_message_extension, default: FuzzUnittest_FuzzMostTypes.NestedMessage()) }
@@ -1183,7 +1183,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalLazyMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_lazy_message_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_lazy_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_lazy_message_extension, type: FuzzUnittest_FuzzMostTypes.NestedMessage.self) }
+  mutating func clearFuzzUnittest_optionalLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_lazy_message_extension) }
 
   /// Repeated
   var FuzzUnittest_repeatedInt32Extension: [Int32] {
@@ -1314,7 +1314,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_int32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_int32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_int32_extension) }
 
   var FuzzUnittest_defaultInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_int64_extension, default: 42) }
@@ -1325,7 +1325,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_int64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_int64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_int64_extension) }
 
   var FuzzUnittest_defaultUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_uint32_extension, default: 43) }
@@ -1336,7 +1336,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_uint32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_uint32_extension, type: UInt32.self) }
+  mutating func clearFuzzUnittest_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_uint32_extension) }
 
   var FuzzUnittest_defaultUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_uint64_extension, default: 44) }
@@ -1347,7 +1347,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_uint64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_uint64_extension, type: UInt64.self) }
+  mutating func clearFuzzUnittest_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_uint64_extension) }
 
   var FuzzUnittest_defaultSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_sint32_extension, default: -45) }
@@ -1358,7 +1358,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_sint32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sint32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sint32_extension) }
 
   var FuzzUnittest_defaultSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_sint64_extension, default: 46) }
@@ -1369,7 +1369,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_sint64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sint64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sint64_extension) }
 
   var FuzzUnittest_defaultFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_fixed32_extension, default: 47) }
@@ -1380,7 +1380,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_fixed32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_fixed32_extension, type: UInt32.self) }
+  mutating func clearFuzzUnittest_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_fixed32_extension) }
 
   var FuzzUnittest_defaultFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_fixed64_extension, default: 48) }
@@ -1391,7 +1391,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_fixed64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_fixed64_extension, type: UInt64.self) }
+  mutating func clearFuzzUnittest_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_fixed64_extension) }
 
   var FuzzUnittest_defaultSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_sfixed32_extension, default: 49) }
@@ -1402,7 +1402,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_sfixed32_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sfixed32_extension, type: Int32.self) }
+  mutating func clearFuzzUnittest_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sfixed32_extension) }
 
   var FuzzUnittest_defaultSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_sfixed64_extension, default: -50) }
@@ -1413,7 +1413,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_sfixed64_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sfixed64_extension, type: Int64.self) }
+  mutating func clearFuzzUnittest_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_sfixed64_extension) }
 
   var FuzzUnittest_defaultFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_float_extension, default: 51.5) }
@@ -1424,7 +1424,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_float_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_float_extension, type: Float.self) }
+  mutating func clearFuzzUnittest_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_float_extension) }
 
   var FuzzUnittest_defaultDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_double_extension, default: 52000) }
@@ -1435,7 +1435,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_double_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_double_extension, type: Double.self) }
+  mutating func clearFuzzUnittest_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_double_extension) }
 
   var FuzzUnittest_defaultBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_bool_extension, default: true) }
@@ -1446,7 +1446,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_bool_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_bool_extension, type: Bool.self) }
+  mutating func clearFuzzUnittest_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_bool_extension) }
 
   var FuzzUnittest_defaultStringExtension: String {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_string_extension, default: "hello") }
@@ -1457,7 +1457,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_string_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_string_extension, type: String.self) }
+  mutating func clearFuzzUnittest_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_string_extension) }
 
   var FuzzUnittest_defaultBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_bytes_extension, default: Data([119, 111, 114, 108, 100])) }
@@ -1468,7 +1468,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_bytes_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_bytes_extension, type: Data.self) }
+  mutating func clearFuzzUnittest_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_bytes_extension) }
 
   var FuzzUnittest_defaultNestedEnumExtension: FuzzUnittest_FuzzMostTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_nested_enum_extension, default: .bar) }
@@ -1479,7 +1479,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_nested_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_nested_enum_extension, type: FuzzUnittest_FuzzMostTypes.NestedEnum.self) }
+  mutating func clearFuzzUnittest_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_nested_enum_extension) }
 
   var FuzzUnittest_defaultForeignEnumExtension: FuzzUnittest_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_foreign_enum_extension, default: .foreignBar) }
@@ -1490,7 +1490,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_foreign_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_foreign_enum_extension, type: FuzzUnittest_ForeignEnum.self) }
+  mutating func clearFuzzUnittest_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_foreign_enum_extension) }
 
   var FuzzUnittest_defaultImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_default_import_enum_extension, default: .importBar) }
@@ -1501,7 +1501,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_import_enum_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_import_enum_extension, type: Proto2UnittestImport_ImportEnum.self) }
+  mutating func clearFuzzUnittest_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_import_enum_extension) }
 
   /// TODO: features.(pb.cpp).string_type=CORD is not supported for
   /// extension. Add features.(pb.cpp).string_type=CORD option back after it is
@@ -1515,7 +1515,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_defaultCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_default_cord_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_default_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_defaultCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_cord_extension, type: String.self) }
+  mutating func clearFuzzUnittest_defaultCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_default_cord_extension) }
 
   var FuzzUnittest_optionalUtf8StringExtension: String {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_optional_utf8_string_extension, default: String()) }
@@ -1526,7 +1526,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_optionalUtf8StringExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_Extensions_optional_utf8_string_extension) }
   /// Clears the value of extension `FuzzUnittest_Extensions_optional_utf8_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_optionalUtf8StringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_utf8_string_extension, type: String.self) }
+  mutating func clearFuzzUnittest_optionalUtf8StringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_Extensions_optional_utf8_string_extension) }
 
   var FuzzUnittest_repeatedUtf8StringExtension: [String] {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_Extensions_repeated_utf8_string_extension, default: []) }
@@ -1542,7 +1542,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_TestRequired_single: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_TestRequired.Extensions.single) }
   /// Clears the value of extension `FuzzUnittest_TestRequired.Extensions.single`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestRequired.Extensions.single, type: FuzzUnittest_TestRequired.self) }
+  mutating func clearFuzzUnittest_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestRequired.Extensions.single) }
 
   var FuzzUnittest_TestRequired_multi: [FuzzUnittest_TestRequired] {
     get { _protobuf_extensionStorage().value(of: FuzzUnittest_TestRequired.Extensions.multi, default: []) }
@@ -1560,7 +1560,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_TestNestedExtension_test: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_TestNestedExtension.Extensions.test) }
   /// Clears the value of extension `FuzzUnittest_TestNestedExtension.Extensions.test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestNestedExtension.Extensions.test, type: String.self) }
+  mutating func clearFuzzUnittest_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestNestedExtension.Extensions.test) }
 
   /// Used to test if generated extension name is correct when there are
   /// underscores.
@@ -1573,7 +1573,7 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
   var hasFuzzUnittest_TestNestedExtension_nestedStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: FuzzUnittest_TestNestedExtension.Extensions.nested_string_extension) }
   /// Clears the value of extension `FuzzUnittest_TestNestedExtension.Extensions.nested_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearFuzzUnittest_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestNestedExtension.Extensions.nested_string_extension, type: String.self) }
+  mutating func clearFuzzUnittest_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: FuzzUnittest_TestNestedExtension.Extensions.nested_string_extension) }
 
 }
 

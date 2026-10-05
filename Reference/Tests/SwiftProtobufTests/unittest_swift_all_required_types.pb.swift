@@ -199,7 +199,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   mutating func clearRequiredBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var requiredGroup: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `requiredGroup` has been explicitly set.
@@ -208,7 +208,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   mutating func clearRequiredGroup() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup.self, hasBit: (1, 128)) }
 
   var requiredNestedMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `requiredNestedMessage` has been explicitly set.
@@ -217,7 +217,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   mutating func clearRequiredNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage.self, hasBit: (2, 1)) }
 
   var requiredForeignMessage: SwiftProtoTesting_ForeignMessage {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_ForeignMessage(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `requiredForeignMessage` has been explicitly set.
@@ -226,7 +226,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   mutating func clearRequiredForeignMessage() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtoTesting_ForeignMessage.self, hasBit: (2, 2)) }
 
   var requiredImportMessage: SwiftProtoTesting_Import_ImportMessage {
-    get { _storage.value(atIndex: 3, default: SwiftProtoTesting_Import_ImportMessage(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `requiredImportMessage` has been explicitly set.
@@ -241,7 +241,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `requiredNestedEnum` has been explicitly set.
   var hasRequiredNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearValue(at: 52, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self, hasBit: (2, 8)) }
+  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearEnumValue(at: 52, hasBit: (2, 8)) }
 
   var requiredForeignEnum: SwiftProtoTesting_ForeignEnum {
     get { _storage.value(at: 56, default: .foreignFoo, hasBit: (2, 16)) }
@@ -250,7 +250,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `requiredForeignEnum` has been explicitly set.
   var hasRequiredForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `requiredForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredForeignEnum() { _uniqueStorage().clearValue(at: 56, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (2, 16)) }
+  mutating func clearRequiredForeignEnum() { _uniqueStorage().clearEnumValue(at: 56, hasBit: (2, 16)) }
 
   var requiredImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get { _storage.value(at: 60, default: .importFoo, hasBit: (2, 32)) }
@@ -259,11 +259,11 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `requiredImportEnum` has been explicitly set.
   var hasRequiredImportEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `requiredImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredImportEnum() { _uniqueStorage().clearValue(at: 60, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (2, 32)) }
+  mutating func clearRequiredImportEnum() { _uniqueStorage().clearEnumValue(at: 60, hasBit: (2, 32)) }
 
   /// Defined in unittest_import_public.proto
   var requiredPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
-    get { _storage.value(atIndex: 4, default: SwiftProtoTesting_Import_PublicImportMessage(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `requiredPublicImportMessage` has been explicitly set.
@@ -414,7 +414,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (4, 64)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 88, type: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum.self, hasBit: (4, 64)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearEnumValue(at: 88, hasBit: (4, 64)) }
 
   var defaultForeignEnum: SwiftProtoTesting_ForeignEnum {
     get { _storage.value(at: 92, default: .foreignBar, hasBit: (4, 128)) }
@@ -423,7 +423,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (4, 128)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 92, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (4, 128)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearEnumValue(at: 92, hasBit: (4, 128)) }
 
   var defaultImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get { _storage.value(at: 96, default: .importBar, hasBit: (5, 1)) }
@@ -432,7 +432,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 1)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 96, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (5, 1)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearEnumValue(at: 96, hasBit: (5, 1)) }
 
   /// For oneof test
   var oneofField: SwiftProtoTesting_TestAllRequiredTypes.OneOf_OneofField? {
@@ -464,7 +464,7 @@ nonisolated struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Swift.Send
   }
 
   var oneofNestedMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
-    get { return _storage.value(atIndex: 5, default: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage(), oneofPresence: (8, 112)) }
+    get { return _storage.messageValue(atIndex: 5, oneofPresence: (8, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, oneofPresence: (8, 112)) }
   }
 
@@ -619,7 +619,7 @@ nonisolated struct SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Swift.Sen
   /// Returns true if `requiredNestedEnum` has been explicitly set.
   var hasRequiredNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearValue(at: 12, type: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum.self, hasBit: (0, 32)) }
+  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 32)) }
 
   nonisolated enum NestedEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case foo = 1

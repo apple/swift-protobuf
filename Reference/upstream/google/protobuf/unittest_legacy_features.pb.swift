@@ -44,7 +44,7 @@ nonisolated struct LegacyFeaturesUnittest_TestEditionsMessage: @unchecked Swift.
   mutating func clearRequiredField() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var delimitedField: LegacyFeaturesUnittest_TestEditionsMessage {
-    get { _storage.value(atIndex: 0, default: LegacyFeaturesUnittest_TestEditionsMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.

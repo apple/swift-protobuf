@@ -82,7 +82,7 @@ nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage {
   var hasProto2Unittest_NoGenericServicesTest_testExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension) }
   /// Clears the value of extension `Proto2Unittest_NoGenericServicesTest_Extensions_test_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_NoGenericServicesTest_testExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension, type: Int32.self) }
+  mutating func clearProto2Unittest_NoGenericServicesTest_testExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_NoGenericServicesTest_Extensions_test_extension) }
 
 }
 

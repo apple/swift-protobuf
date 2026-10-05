@@ -448,7 +448,7 @@ nonisolated extension Proto2Unittest_TestAllExtensionsLite {
   var hasProto2Unittest_TestRequiredLite_single: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestRequiredLite.Extensions.single) }
   /// Clears the value of extension `Proto2Unittest_TestRequiredLite.Extensions.single`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestRequiredLite_single() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestRequiredLite.Extensions.single, type: Proto2Unittest_TestRequiredLite.self) }
+  mutating func clearProto2Unittest_TestRequiredLite_single() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestRequiredLite.Extensions.single) }
 
 }
 

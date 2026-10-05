@@ -79,7 +79,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
   var hasPb_Enumvalue_json: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Enumvalue_Extensions_json) }
   /// Clears the value of extension `Pb_Enumvalue_Extensions_json`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_Enumvalue_json() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Enumvalue_Extensions_json, type: Pb_Enumvalue_JsonEnumValueOptions.self) }
+  mutating func clearPb_Enumvalue_json() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Enumvalue_Extensions_json) }
 
 }
 

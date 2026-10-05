@@ -132,7 +132,7 @@ public nonisolated struct Google_Protobuf_Type: @unchecked Swift.Sendable {
 
   /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.
@@ -468,7 +468,7 @@ public nonisolated struct Google_Protobuf_Enum: @unchecked Swift.Sendable {
 
   /// The source context.
   public var sourceContext: Google_Protobuf_SourceContext {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.
@@ -562,7 +562,7 @@ public nonisolated struct Google_Protobuf_Option: @unchecked Swift.Sendable {
   /// should be used. If the value is an enum, it should be stored as an int32
   /// value using the google.protobuf.Int32Value type.
   public var value: Google_Protobuf_Any {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_Any(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.

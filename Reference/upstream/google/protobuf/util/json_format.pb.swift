@@ -347,7 +347,7 @@ nonisolated struct Proto2Unittest_TestNumbers: @unchecked Swift.Sendable {
   /// Returns true if `a` has been explicitly set.
   var hasA: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Proto2Unittest_TestNumbers.MyType.self, hasBit: (0, 1)) }
+  mutating func clearA() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var b: Int32 {
     get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }
@@ -492,7 +492,7 @@ nonisolated struct Proto2Unittest_TestRecursion: @unchecked Swift.Sendable {
   mutating func clearValue() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var child: Proto2Unittest_TestRecursion {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestRecursion(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -615,7 +615,7 @@ nonisolated struct Proto2Unittest_TestDefaultEnumValue: @unchecked Swift.Sendabl
   /// Returns true if `enumValue` has been explicitly set.
   var hasEnumValue: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `enumValue`. Subsequent reads from it will return its default value.
-  mutating func clearEnumValue() { _uniqueStorage().clearValue(at: 4, type: Proto2Unittest_EnumValue.self, hasBit: (0, 1)) }
+  mutating func clearEnumValue() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -687,7 +687,7 @@ nonisolated extension Proto2Unittest_TestMessageWithExtension {
   var hasProto2Unittest_TestExtension_ext: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestExtension.Extensions.ext) }
   /// Clears the value of extension `Proto2Unittest_TestExtension.Extensions.ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestExtension_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestExtension.Extensions.ext, type: Proto2Unittest_TestExtension.self) }
+  mutating func clearProto2Unittest_TestExtension_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestExtension.Extensions.ext) }
 
   var Proto2Unittest_TestExtension_enumExt: Proto2Unittest_EnumValue {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestExtension.Extensions.enum_ext, default: .protocol) }
@@ -698,7 +698,7 @@ nonisolated extension Proto2Unittest_TestMessageWithExtension {
   var hasProto2Unittest_TestExtension_enumExt: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestExtension.Extensions.enum_ext) }
   /// Clears the value of extension `Proto2Unittest_TestExtension.Extensions.enum_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestExtension_enumExt() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestExtension.Extensions.enum_ext, type: Proto2Unittest_EnumValue.self) }
+  mutating func clearProto2Unittest_TestExtension_enumExt() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestExtension.Extensions.enum_ext) }
 
 }
 

@@ -112,7 +112,7 @@ nonisolated struct SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Swift.
   }
 
   var optionalNestedMessage: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -361,7 +361,7 @@ nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings {
   var hasSwiftProtoTesting_Order_myExtensionString: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Order_Extensions_my_extension_string) }
   /// Clears the value of extension `SwiftProtoTesting_Order_Extensions_my_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Order_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Order_Extensions_my_extension_string, type: String.self) }
+  mutating func clearSwiftProtoTesting_Order_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Order_Extensions_my_extension_string) }
 
   var SwiftProtoTesting_Order_myExtensionInt: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Order_Extensions_my_extension_int, default: 0) }
@@ -372,7 +372,7 @@ nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings {
   var hasSwiftProtoTesting_Order_myExtensionInt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Order_Extensions_my_extension_int) }
   /// Clears the value of extension `SwiftProtoTesting_Order_Extensions_my_extension_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Order_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Order_Extensions_my_extension_int, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Order_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Order_Extensions_my_extension_int) }
 
 }
 

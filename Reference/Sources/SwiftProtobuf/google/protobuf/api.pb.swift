@@ -115,7 +115,7 @@ nonisolated struct Google_Protobuf_Api: @unchecked Swift.Sendable {
   /// Source context for the protocol buffer service represented by this
   /// message.
   var sourceContext: Google_Protobuf_SourceContext {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_SourceContext(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `sourceContext` has been explicitly set.

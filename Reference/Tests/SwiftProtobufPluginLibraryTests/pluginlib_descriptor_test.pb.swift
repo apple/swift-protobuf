@@ -104,12 +104,12 @@ nonisolated struct SDTTopLevelMessage: @unchecked Swift.Sendable {
   }
 
   var field5: SDTTopLevelMessage.SubMessage {
-    get { return _storage.value(atIndex: 0, default: SDTTopLevelMessage.SubMessage(), oneofPresence: (4, 5)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 5)) }
   }
 
   var field6: SDTTopLevelMessage2 {
-    get { return _storage.value(atIndex: 1, default: SDTTopLevelMessage2(), oneofPresence: (4, 6)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 6)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 6)) }
   }
 
@@ -155,7 +155,7 @@ nonisolated struct SDTTopLevelMessage: @unchecked Swift.Sendable {
     mutating func clearField2() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
     var field3: SDTTopLevelMessage.SubMessage {
-      get { _storage.value(atIndex: 0, default: SDTTopLevelMessage.SubMessage(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `field3` has been explicitly set.
@@ -189,7 +189,7 @@ nonisolated struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var left: SDTTopLevelMessage {
-    get { _storage.value(atIndex: 0, default: SDTTopLevelMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `left` has been explicitly set.
@@ -198,7 +198,7 @@ nonisolated struct SDTTopLevelMessage2: @unchecked Swift.Sendable {
   mutating func clearLeft() { _uniqueStorage().clearValue(atIndex: 0, type: SDTTopLevelMessage.self, hasBit: (0, 1)) }
 
   var right: SDTTopLevelMessage2 {
-    get { _storage.value(atIndex: 1, default: SDTTopLevelMessage2(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `right` has been explicitly set.
@@ -222,7 +222,7 @@ nonisolated struct SDTExternalRefs: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var one: SwiftDescriptorTest_Import_ExtendableOne {
-    get { _storage.value(atIndex: 0, default: SwiftDescriptorTest_Import_ExtendableOne(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `one` has been explicitly set.
@@ -231,7 +231,7 @@ nonisolated struct SDTExternalRefs: @unchecked Swift.Sendable {
   mutating func clearOne() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftDescriptorTest_Import_ExtendableOne.self, hasBit: (0, 1)) }
 
   var ver: SwiftDescriptorTest_Import_Version {
-    get { _storage.value(atIndex: 1, default: SwiftDescriptorTest_Import_Version(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `ver` has been explicitly set.
@@ -294,10 +294,10 @@ nonisolated struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   /// Returns true if `reqEnumField` has been explicitly set.
   var hasReqEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `reqEnumField`. Subsequent reads from it will return its default value.
-  mutating func clearReqEnumField() { _uniqueStorage().clearValue(at: 24, type: SDTTopLevelEnum.self, hasBit: (0, 4)) }
+  mutating func clearReqEnumField() { _uniqueStorage().clearEnumValue(at: 24, hasBit: (0, 4)) }
 
   var reqMessageField: SDTTopLevelMessage {
-    get { _storage.value(atIndex: 0, default: SDTTopLevelMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `reqMessageField` has been explicitly set.
@@ -330,10 +330,10 @@ nonisolated struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   /// Returns true if `optEnumField` has been explicitly set.
   var hasOptEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `optEnumField`. Subsequent reads from it will return its default value.
-  mutating func clearOptEnumField() { _uniqueStorage().clearValue(at: 32, type: SDTTopLevelEnum.self, hasBit: (0, 64)) }
+  mutating func clearOptEnumField() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 64)) }
 
   var optMessageField: SDTTopLevelMessage {
-    get { _storage.value(atIndex: 1, default: SDTTopLevelMessage(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `optMessageField` has been explicitly set.
@@ -400,7 +400,7 @@ nonisolated struct SDTProto2MessageForPresence: @unchecked Swift.Sendable {
   }
 
   var oneofMessageField: SDTTopLevelMessage {
-    get { return _storage.value(atIndex: 2, default: SDTTopLevelMessage(), oneofPresence: (4, 34)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 34)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 34)) }
   }
 
@@ -441,7 +441,7 @@ nonisolated extension SwiftDescriptorTest_Import_ExtendableOne {
   var hasSDTextStr: Bool { _protobuf_extensionStorage().hasValue(for: SDTExtensions_ext_str) }
   /// Clears the value of extension `SDTExtensions_ext_str`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSDTextStr() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTExtensions_ext_str, type: String.self) }
+  mutating func clearSDTextStr() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTExtensions_ext_str) }
 }
 
 nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
@@ -455,7 +455,7 @@ nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
   var hasSDTScoperForExt_extEnum: Bool { _protobuf_extensionStorage().hasValue(for: SDTScoperForExt.Extensions.ext_enum) }
   /// Clears the value of extension `SDTScoperForExt.Extensions.ext_enum`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSDTScoperForExt_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTScoperForExt.Extensions.ext_enum, type: SDTTopLevelEnum.self) }
+  mutating func clearSDTScoperForExt_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTScoperForExt.Extensions.ext_enum) }
 
   var SDTScoperForExt_extMsg: SDTTopLevelMessage2 {
     get { _protobuf_extensionStorage().value(of: SDTScoperForExt.Extensions.ext_msg, default: SDTTopLevelMessage2()) }
@@ -466,7 +466,7 @@ nonisolated extension SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo {
   var hasSDTScoperForExt_extMsg: Bool { _protobuf_extensionStorage().hasValue(for: SDTScoperForExt.Extensions.ext_msg) }
   /// Clears the value of extension `SDTScoperForExt.Extensions.ext_msg`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSDTScoperForExt_extMsg() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTScoperForExt.Extensions.ext_msg, type: SDTTopLevelMessage2.self) }
+  mutating func clearSDTScoperForExt_extMsg() { _protobuf_uniqueExtensionStorage().clearValue(of: SDTScoperForExt.Extensions.ext_msg) }
 
 }
 

@@ -263,7 +263,7 @@ nonisolated struct Pb_CustomOptionLifetimesMessage: @unchecked Swift.Sendable {
   /// Returns true if `customEnum` has been explicitly set.
   var hasCustomEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `customEnum`. Subsequent reads from it will return its default value.
-  mutating func clearCustomEnum() { _uniqueStorage().clearValue(at: 4, type: Pb_CustomOptionLifetimesEnum.self, hasBit: (0, 1)) }
+  mutating func clearCustomEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var repeatedCustomEnum: [Pb_CustomOptionLifetimesEnum] {
     get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
@@ -322,7 +322,7 @@ nonisolated struct Pb_TestMessageFeatures: @unchecked Swift.Sendable {
   /// Returns true if `fileFeature` has been explicitly set.
   var hasFileFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFileFeature() { _uniqueStorage().clearValue(at: 4, type: Pb_EnumFeature.self, hasBit: (0, 1)) }
+  mutating func clearFileFeature() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -346,7 +346,7 @@ nonisolated struct Pb_TestNestedFeatures: @unchecked Swift.Sendable {
   /// Returns true if `fileFeature` has been explicitly set.
   var hasFileFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFileFeature() { _uniqueStorage().clearValue(at: 4, type: Pb_EnumFeature.self, hasBit: (0, 1)) }
+  mutating func clearFileFeature() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -370,7 +370,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `fileFeature` has been explicitly set.
   var hasFileFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `fileFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFileFeature() { _uniqueStorage().clearValue(at: 4, type: Pb_EnumFeature.self, hasBit: (0, 1)) }
+  mutating func clearFileFeature() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var extensionRangeFeature: Pb_EnumFeature {
     get { _storage.value(at: 8, default: .testEnumFeatureUnknown, hasBit: (0, 2)) }
@@ -379,7 +379,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `extensionRangeFeature` has been explicitly set.
   var hasExtensionRangeFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `extensionRangeFeature`. Subsequent reads from it will return its default value.
-  mutating func clearExtensionRangeFeature() { _uniqueStorage().clearValue(at: 8, type: Pb_EnumFeature.self, hasBit: (0, 2)) }
+  mutating func clearExtensionRangeFeature() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var messageFeature: Pb_EnumFeature {
     get { _storage.value(at: 12, default: .testEnumFeatureUnknown, hasBit: (0, 4)) }
@@ -388,7 +388,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `messageFeature` has been explicitly set.
   var hasMessageFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `messageFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMessageFeature() { _uniqueStorage().clearValue(at: 12, type: Pb_EnumFeature.self, hasBit: (0, 4)) }
+  mutating func clearMessageFeature() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
 
   var fieldFeature: Pb_EnumFeature {
     get { _storage.value(at: 16, default: .testEnumFeatureUnknown, hasBit: (0, 8)) }
@@ -397,7 +397,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `fieldFeature` has been explicitly set.
   var hasFieldFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `fieldFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFieldFeature() { _uniqueStorage().clearValue(at: 16, type: Pb_EnumFeature.self, hasBit: (0, 8)) }
+  mutating func clearFieldFeature() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 8)) }
 
   var oneofFeature: Pb_EnumFeature {
     get { _storage.value(at: 20, default: .testEnumFeatureUnknown, hasBit: (0, 16)) }
@@ -406,7 +406,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `oneofFeature` has been explicitly set.
   var hasOneofFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `oneofFeature`. Subsequent reads from it will return its default value.
-  mutating func clearOneofFeature() { _uniqueStorage().clearValue(at: 20, type: Pb_EnumFeature.self, hasBit: (0, 16)) }
+  mutating func clearOneofFeature() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 16)) }
 
   var enumFeature: Pb_EnumFeature {
     get { _storage.value(at: 24, default: .testEnumFeatureUnknown, hasBit: (0, 32)) }
@@ -415,7 +415,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `enumFeature` has been explicitly set.
   var hasEnumFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `enumFeature`. Subsequent reads from it will return its default value.
-  mutating func clearEnumFeature() { _uniqueStorage().clearValue(at: 24, type: Pb_EnumFeature.self, hasBit: (0, 32)) }
+  mutating func clearEnumFeature() { _uniqueStorage().clearEnumValue(at: 24, hasBit: (0, 32)) }
 
   var enumEntryFeature: Pb_EnumFeature {
     get { _storage.value(at: 28, default: .testEnumFeatureUnknown, hasBit: (0, 64)) }
@@ -424,7 +424,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `enumEntryFeature` has been explicitly set.
   var hasEnumEntryFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `enumEntryFeature`. Subsequent reads from it will return its default value.
-  mutating func clearEnumEntryFeature() { _uniqueStorage().clearValue(at: 28, type: Pb_EnumFeature.self, hasBit: (0, 64)) }
+  mutating func clearEnumEntryFeature() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 64)) }
 
   var serviceFeature: Pb_EnumFeature {
     get { _storage.value(at: 32, default: .testEnumFeatureUnknown, hasBit: (0, 128)) }
@@ -433,7 +433,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `serviceFeature` has been explicitly set.
   var hasServiceFeature: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `serviceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearServiceFeature() { _uniqueStorage().clearValue(at: 32, type: Pb_EnumFeature.self, hasBit: (0, 128)) }
+  mutating func clearServiceFeature() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 128)) }
 
   var methodFeature: Pb_EnumFeature {
     get { _storage.value(at: 36, default: .testEnumFeatureUnknown, hasBit: (1, 1)) }
@@ -442,7 +442,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `methodFeature` has been explicitly set.
   var hasMethodFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `methodFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMethodFeature() { _uniqueStorage().clearValue(at: 36, type: Pb_EnumFeature.self, hasBit: (1, 1)) }
+  mutating func clearMethodFeature() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (1, 1)) }
 
   var multipleFeature: Pb_EnumFeature {
     get { _storage.value(at: 40, default: .testEnumFeatureUnknown, hasBit: (1, 2)) }
@@ -451,7 +451,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `multipleFeature` has been explicitly set.
   var hasMultipleFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `multipleFeature`. Subsequent reads from it will return its default value.
-  mutating func clearMultipleFeature() { _uniqueStorage().clearValue(at: 40, type: Pb_EnumFeature.self, hasBit: (1, 2)) }
+  mutating func clearMultipleFeature() { _uniqueStorage().clearEnumValue(at: 40, hasBit: (1, 2)) }
 
   var boolFieldFeature: Bool {
     get { _storage.value(at: 3, default: false, hasBit: (1, 4)) }
@@ -469,7 +469,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `sourceFeature` has been explicitly set.
   var hasSourceFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 8)) }
   /// Clears the value of `sourceFeature`. Subsequent reads from it will return its default value.
-  mutating func clearSourceFeature() { _uniqueStorage().clearValue(at: 44, type: Pb_EnumFeature.self, hasBit: (1, 8)) }
+  mutating func clearSourceFeature() { _uniqueStorage().clearEnumValue(at: 44, hasBit: (1, 8)) }
 
   var sourceFeature2: Pb_EnumFeature {
     get { _storage.value(at: 48, default: .testEnumFeatureUnknown, hasBit: (1, 16)) }
@@ -478,7 +478,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `sourceFeature2` has been explicitly set.
   var hasSourceFeature2: Swift.Bool { _storage.isPresent(hasBit: (1, 16)) }
   /// Clears the value of `sourceFeature2`. Subsequent reads from it will return its default value.
-  mutating func clearSourceFeature2() { _uniqueStorage().clearValue(at: 48, type: Pb_EnumFeature.self, hasBit: (1, 16)) }
+  mutating func clearSourceFeature2() { _uniqueStorage().clearEnumValue(at: 48, hasBit: (1, 16)) }
 
   var removedFeature: Pb_EnumFeature {
     get { _storage.value(at: 52, default: .testEnumFeatureUnknown, hasBit: (1, 32)) }
@@ -487,7 +487,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `removedFeature` has been explicitly set.
   var hasRemovedFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 32)) }
   /// Clears the value of `removedFeature`. Subsequent reads from it will return its default value.
-  mutating func clearRemovedFeature() { _uniqueStorage().clearValue(at: 52, type: Pb_EnumFeature.self, hasBit: (1, 32)) }
+  mutating func clearRemovedFeature() { _uniqueStorage().clearEnumValue(at: 52, hasBit: (1, 32)) }
 
   var sameEditionRemovedFeature: Pb_EnumFeature {
     get { _storage.value(at: 68, default: .testEnumFeatureUnknown, hasBit: (2, 2)) }
@@ -496,7 +496,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `sameEditionRemovedFeature` has been explicitly set.
   var hasSameEditionRemovedFeature: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `sameEditionRemovedFeature`. Subsequent reads from it will return its default value.
-  mutating func clearSameEditionRemovedFeature() { _uniqueStorage().clearValue(at: 68, type: Pb_EnumFeature.self, hasBit: (2, 2)) }
+  mutating func clearSameEditionRemovedFeature() { _uniqueStorage().clearEnumValue(at: 68, hasBit: (2, 2)) }
 
   var futureFeature: Pb_EnumFeature {
     get { _storage.value(at: 56, default: .testEnumFeatureUnknown, hasBit: (1, 64)) }
@@ -505,7 +505,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `futureFeature` has been explicitly set.
   var hasFutureFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 64)) }
   /// Clears the value of `futureFeature`. Subsequent reads from it will return its default value.
-  mutating func clearFutureFeature() { _uniqueStorage().clearValue(at: 56, type: Pb_EnumFeature.self, hasBit: (1, 64)) }
+  mutating func clearFutureFeature() { _uniqueStorage().clearEnumValue(at: 56, hasBit: (1, 64)) }
 
   var legacyFeature: Pb_EnumFeature {
     get { _storage.value(at: 60, default: .testEnumFeatureUnknown, hasBit: (1, 128)) }
@@ -514,7 +514,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `legacyFeature` has been explicitly set.
   var hasLegacyFeature: Swift.Bool { _storage.isPresent(hasBit: (1, 128)) }
   /// Clears the value of `legacyFeature`. Subsequent reads from it will return its default value.
-  mutating func clearLegacyFeature() { _uniqueStorage().clearValue(at: 60, type: Pb_EnumFeature.self, hasBit: (1, 128)) }
+  mutating func clearLegacyFeature() { _uniqueStorage().clearEnumValue(at: 60, hasBit: (1, 128)) }
 
   var valueLifetimeFeature: Pb_ValueLifetimeFeature {
     get { _storage.value(at: 64, default: .testValueLifetimeUnknown, hasBit: (2, 1)) }
@@ -523,7 +523,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `valueLifetimeFeature` has been explicitly set.
   var hasValueLifetimeFeature: Swift.Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `valueLifetimeFeature`. Subsequent reads from it will return its default value.
-  mutating func clearValueLifetimeFeature() { _uniqueStorage().clearValue(at: 64, type: Pb_ValueLifetimeFeature.self, hasBit: (2, 1)) }
+  mutating func clearValueLifetimeFeature() { _uniqueStorage().clearEnumValue(at: 64, hasBit: (2, 1)) }
 
   var newUnstableFeature: Pb_UnstableEnumFeature {
     get { _storage.value(at: 72, default: .testUnstableEnumFeatureUnknown, hasBit: (2, 4)) }
@@ -532,7 +532,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `newUnstableFeature` has been explicitly set.
   var hasNewUnstableFeature: Swift.Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `newUnstableFeature`. Subsequent reads from it will return its default value.
-  mutating func clearNewUnstableFeature() { _uniqueStorage().clearValue(at: 72, type: Pb_UnstableEnumFeature.self, hasBit: (2, 4)) }
+  mutating func clearNewUnstableFeature() { _uniqueStorage().clearEnumValue(at: 72, hasBit: (2, 4)) }
 
   var unstableExistingFeature: Pb_UnstableEnumFeature {
     get { _storage.value(at: 76, default: .testUnstableEnumFeatureUnknown, hasBit: (2, 8)) }
@@ -541,7 +541,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `unstableExistingFeature` has been explicitly set.
   var hasUnstableExistingFeature: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `unstableExistingFeature`. Subsequent reads from it will return its default value.
-  mutating func clearUnstableExistingFeature() { _uniqueStorage().clearValue(at: 76, type: Pb_UnstableEnumFeature.self, hasBit: (2, 8)) }
+  mutating func clearUnstableExistingFeature() { _uniqueStorage().clearEnumValue(at: 76, hasBit: (2, 8)) }
 
   var removedUnstableFeature: Pb_UnstableEnumFeature {
     get { _storage.value(at: 80, default: .testUnstableEnumFeatureUnknown, hasBit: (2, 16)) }
@@ -550,7 +550,7 @@ nonisolated struct Pb_TestFeatures: @unchecked Swift.Sendable {
   /// Returns true if `removedUnstableFeature` has been explicitly set.
   var hasRemovedUnstableFeature: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `removedUnstableFeature`. Subsequent reads from it will return its default value.
-  mutating func clearRemovedUnstableFeature() { _uniqueStorage().clearValue(at: 80, type: Pb_UnstableEnumFeature.self, hasBit: (2, 16)) }
+  mutating func clearRemovedUnstableFeature() { _uniqueStorage().clearEnumValue(at: 80, hasBit: (2, 16)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -582,7 +582,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_test: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_test) }
   /// Clears the value of extension `Pb_Extensions_test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_test() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_test, type: Pb_TestFeatures.self) }
+  mutating func clearPb_test() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_test) }
 
   var Pb_TestMessage_testMessage: Pb_TestMessageFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_TestMessage.Extensions.test_message, default: Pb_TestMessageFeatures()) }
@@ -593,7 +593,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_TestMessage_testMessage: Bool { _protobuf_extensionStorage().hasValue(for: Pb_TestMessage.Extensions.test_message) }
   /// Clears the value of extension `Pb_TestMessage.Extensions.test_message`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_TestMessage_testMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_TestMessage.Extensions.test_message, type: Pb_TestMessageFeatures.self) }
+  mutating func clearPb_TestMessage_testMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_TestMessage.Extensions.test_message) }
 
   var Pb_TestMessage_Nested_testNested: Pb_TestNestedFeatures {
     get { _protobuf_extensionStorage().value(of: Pb_TestMessage.Nested.Extensions.test_nested, default: Pb_TestNestedFeatures()) }
@@ -604,7 +604,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_TestMessage_Nested_testNested: Bool { _protobuf_extensionStorage().hasValue(for: Pb_TestMessage.Nested.Extensions.test_nested) }
   /// Clears the value of extension `Pb_TestMessage.Nested.Extensions.test_nested`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_TestMessage_Nested_testNested() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_TestMessage.Nested.Extensions.test_nested, type: Pb_TestNestedFeatures.self) }
+  mutating func clearPb_TestMessage_Nested_testNested() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_TestMessage.Nested.Extensions.test_nested) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
@@ -618,7 +618,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasPb_customOptionLifetimesMessage: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_custom_option_lifetimes_message) }
   /// Clears the value of extension `Pb_Extensions_custom_option_lifetimes_message`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_customOptionLifetimesMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_custom_option_lifetimes_message, type: Pb_CustomOptionLifetimesMessage.self) }
+  mutating func clearPb_customOptionLifetimesMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_custom_option_lifetimes_message) }
 
 }
 

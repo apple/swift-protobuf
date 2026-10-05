@@ -50,7 +50,7 @@ nonisolated struct Proto2PreserveUnknownEnumUnittest_MyMessage: @unchecked Swift
   /// Returns true if `e` has been explicitly set.
   var hasE: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
-  mutating func clearE() { _uniqueStorage().clearValue(at: 12, type: Proto2PreserveUnknownEnumUnittest_MyEnum.self, hasBit: (0, 1)) }
+  mutating func clearE() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 1)) }
 
   var repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] {
     get { _storage.value(atIndex: 0, hasBit: (0, 2)) }

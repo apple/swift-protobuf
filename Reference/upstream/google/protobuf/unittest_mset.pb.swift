@@ -45,7 +45,7 @@ nonisolated struct Proto2Unittest_TestMessageSetContainer: @unchecked Swift.Send
   // methods supported on all messages.
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
-    get { _storage.value(atIndex: 0, default: Proto2WireformatUnittest_TestMessageSet(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageSet` has been explicitly set.
@@ -69,7 +69,7 @@ nonisolated struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swif
   // methods supported on all messages.
 
   var container: Proto2Unittest_TestMessageSetContainer {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestMessageSetContainer(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `container` has been explicitly set.
@@ -78,7 +78,7 @@ nonisolated struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swif
   mutating func clearContainer() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestMessageSetContainer.self, hasBit: (0, 1)) }
 
   var child: Proto2Unittest_NestedTestMessageSetContainer {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_NestedTestMessageSetContainer(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -87,7 +87,7 @@ nonisolated struct Proto2Unittest_NestedTestMessageSetContainer: @unchecked Swif
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2Unittest_NestedTestMessageSetContainer.self, hasBit: (0, 2)) }
 
   var lazyChild: Proto2Unittest_NestedTestMessageSetContainer {
-    get { _storage.value(atIndex: 2, default: Proto2Unittest_NestedTestMessageSetContainer(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lazyChild` has been explicitly set.
@@ -129,7 +129,7 @@ nonisolated struct Proto2Unittest_NestedTestInt: @unchecked Swift.Sendable {
   mutating func clearB() { _uniqueStorage().clearValue(at: 8, type: Int32.self, hasBit: (0, 4)) }
 
   var child: Proto2Unittest_NestedTestInt {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_NestedTestInt(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -162,7 +162,7 @@ nonisolated struct Proto2Unittest_TestMessageSetExtension1: @unchecked Swift.Sen
   mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var recursive: Proto2WireformatUnittest_TestMessageSet {
-    get { _storage.value(atIndex: 0, default: Proto2WireformatUnittest_TestMessageSet(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `recursive` has been explicitly set.
@@ -219,7 +219,7 @@ nonisolated struct Proto2Unittest_TestMessageSetExtension3: @unchecked Swift.Sen
   // methods supported on all messages.
 
   var msg: Proto2Unittest_NestedTestInt {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_NestedTestInt(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `msg` has been explicitly set.
@@ -320,7 +320,7 @@ nonisolated extension Proto2WireformatUnittest_TestMessageSet {
   var hasProto2Unittest_TestMessageSetExtension1_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension) }
   /// Clears the value of extension `Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestMessageSetExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension, type: Proto2Unittest_TestMessageSetExtension1.self) }
+  mutating func clearProto2Unittest_TestMessageSetExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension1.Extensions.message_set_extension) }
 
   var Proto2Unittest_TestMessageSetExtension2_messageSetExtension: Proto2Unittest_TestMessageSetExtension2 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension, default: Proto2Unittest_TestMessageSetExtension2()) }
@@ -331,7 +331,7 @@ nonisolated extension Proto2WireformatUnittest_TestMessageSet {
   var hasProto2Unittest_TestMessageSetExtension2_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension) }
   /// Clears the value of extension `Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestMessageSetExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension, type: Proto2Unittest_TestMessageSetExtension2.self) }
+  mutating func clearProto2Unittest_TestMessageSetExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension2.Extensions.message_set_extension) }
 
   var Proto2Unittest_TestMessageSetExtension3_messageSetExtension: Proto2Unittest_TestMessageSetExtension3 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension, default: Proto2Unittest_TestMessageSetExtension3()) }
@@ -342,7 +342,7 @@ nonisolated extension Proto2WireformatUnittest_TestMessageSet {
   var hasProto2Unittest_TestMessageSetExtension3_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension) }
   /// Clears the value of extension `Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestMessageSetExtension3_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension, type: Proto2Unittest_TestMessageSetExtension3.self) }
+  mutating func clearProto2Unittest_TestMessageSetExtension3_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestMessageSetExtension3.Extensions.message_set_extension) }
 
 }
 

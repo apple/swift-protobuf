@@ -121,7 +121,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend2_b: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend2_Extensions_b) }
   /// Clears the value of extension `SwiftProtoTesting_Extend2_Extensions_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend2_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_Extensions_b, type: String.self) }
+  mutating func clearSwiftProtoTesting_Extend2_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_Extensions_b) }
 
   var SwiftProtoTesting_Extend2_c: SwiftProtoTesting_Extend2_C {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend2_Extensions_C, default: SwiftProtoTesting_Extend2_C()) }
@@ -132,7 +132,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend2_c: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend2_Extensions_C) }
   /// Clears the value of extension `SwiftProtoTesting_Extend2_Extensions_C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend2_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_Extensions_C, type: SwiftProtoTesting_Extend2_C.self) }
+  mutating func clearSwiftProtoTesting_Extend2_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_Extensions_C) }
 
   var SwiftProtoTesting_Extend2_MyMessage_b: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.b, default: String()) }
@@ -143,7 +143,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend2_MyMessage_b: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend2_MyMessage.Extensions.b) }
   /// Clears the value of extension `SwiftProtoTesting_Extend2_MyMessage.Extensions.b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend2_MyMessage_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.b, type: String.self) }
+  mutating func clearSwiftProtoTesting_Extend2_MyMessage_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.b) }
 
   var SwiftProtoTesting_Extend2_MyMessage_c: SwiftProtoTesting_Extend2_MyMessage.C {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.C, default: SwiftProtoTesting_Extend2_MyMessage.C()) }
@@ -154,7 +154,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend2_MyMessage_c: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend2_MyMessage.Extensions.C) }
   /// Clears the value of extension `SwiftProtoTesting_Extend2_MyMessage.Extensions.C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend2_MyMessage_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.C, type: SwiftProtoTesting_Extend2_MyMessage.C.self) }
+  mutating func clearSwiftProtoTesting_Extend2_MyMessage_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend2_MyMessage.Extensions.C) }
 
 }
 

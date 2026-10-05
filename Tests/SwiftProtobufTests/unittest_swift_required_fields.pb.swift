@@ -404,7 +404,7 @@ nonisolated struct SwiftProtoTesting_RequiredWithNested: @unchecked Swift.Sendab
   // methods supported on all messages.
 
   var nested: SwiftProtoTesting_NestedRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nested` has been explicitly set.
@@ -482,7 +482,7 @@ nonisolated struct SwiftProtoTesting_NoneRequired: @unchecked Swift.Sendable {
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: SwiftProtoTesting_NestedNoneRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestedNoneRequired(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.
@@ -539,7 +539,7 @@ nonisolated struct SwiftProtoTesting_NoneRequiredButNestedRequired: @unchecked S
   mutating func clearOpt1() { _uniqueStorage().clearValue(at: 8, type: Int64.self, hasBit: (0, 1)) }
 
   var opt2: SwiftProtoTesting_NestedRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestedRequired(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `opt2` has been explicitly set.

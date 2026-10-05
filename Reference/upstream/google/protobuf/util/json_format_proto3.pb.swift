@@ -166,7 +166,7 @@ nonisolated struct Proto3_TestMessage: @unchecked Swift.Sendable {
   }
 
   var messageValue: Proto3_MessageType {
-    get { _storage.value(atIndex: 0, default: Proto3_MessageType(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageValue` has been explicitly set.
@@ -317,10 +317,10 @@ nonisolated struct Proto3_TestMessage: @unchecked Swift.Sendable {
   /// Returns true if `optionalEnumValue` has been explicitly set.
   var hasOptionalEnumValue: Swift.Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `optionalEnumValue`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalEnumValue() { _uniqueStorage().clearValue(at: 36, type: Proto3_EnumType.self, hasBit: (1, 4)) }
+  mutating func clearOptionalEnumValue() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (1, 4)) }
 
   var optionalMessageValue: Proto3_MessageType {
-    get { _storage.value(atIndex: 1, default: Proto3_MessageType(), hasBit: (1, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `optionalMessageValue` has been explicitly set.
@@ -334,7 +334,7 @@ nonisolated struct Proto3_TestMessage: @unchecked Swift.Sendable {
   }
 
   var timestampValue: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { _storage.value(atIndex: 2, default: SwiftProtobuf.Google_Protobuf_Timestamp(), hasBit: (1, 16)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `timestampValue` has been explicitly set.
@@ -411,7 +411,7 @@ nonisolated struct Proto3_TestOneof: @unchecked Swift.Sendable {
   }
 
   var oneofMessageValue: Proto3_MessageType {
-    get { return _storage.value(atIndex: 0, default: Proto3_MessageType(), oneofPresence: (4, 5)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 5)) }
   }
 
@@ -613,7 +613,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var boolValue: SwiftProtobuf.Google_Protobuf_BoolValue {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_BoolValue(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `boolValue` has been explicitly set.
@@ -622,7 +622,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearBoolValue() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtobuf.Google_Protobuf_BoolValue.self, hasBit: (0, 1)) }
 
   var int32Value: SwiftProtobuf.Google_Protobuf_Int32Value {
-    get { _storage.value(atIndex: 1, default: SwiftProtobuf.Google_Protobuf_Int32Value(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `int32Value` has been explicitly set.
@@ -631,7 +631,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearInt32Value() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtobuf.Google_Protobuf_Int32Value.self, hasBit: (0, 2)) }
 
   var int64Value: SwiftProtobuf.Google_Protobuf_Int64Value {
-    get { _storage.value(atIndex: 2, default: SwiftProtobuf.Google_Protobuf_Int64Value(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `int64Value` has been explicitly set.
@@ -640,7 +640,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearInt64Value() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtobuf.Google_Protobuf_Int64Value.self, hasBit: (0, 4)) }
 
   var uint32Value: SwiftProtobuf.Google_Protobuf_UInt32Value {
-    get { _storage.value(atIndex: 3, default: SwiftProtobuf.Google_Protobuf_UInt32Value(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `uint32Value` has been explicitly set.
@@ -649,7 +649,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearUint32Value() { _uniqueStorage().clearValue(atIndex: 3, type: SwiftProtobuf.Google_Protobuf_UInt32Value.self, hasBit: (0, 8)) }
 
   var uint64Value: SwiftProtobuf.Google_Protobuf_UInt64Value {
-    get { _storage.value(atIndex: 4, default: SwiftProtobuf.Google_Protobuf_UInt64Value(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `uint64Value` has been explicitly set.
@@ -658,7 +658,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearUint64Value() { _uniqueStorage().clearValue(atIndex: 4, type: SwiftProtobuf.Google_Protobuf_UInt64Value.self, hasBit: (0, 16)) }
 
   var floatValue: SwiftProtobuf.Google_Protobuf_FloatValue {
-    get { _storage.value(atIndex: 5, default: SwiftProtobuf.Google_Protobuf_FloatValue(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `floatValue` has been explicitly set.
@@ -667,7 +667,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearFloatValue() { _uniqueStorage().clearValue(atIndex: 5, type: SwiftProtobuf.Google_Protobuf_FloatValue.self, hasBit: (0, 32)) }
 
   var doubleValue: SwiftProtobuf.Google_Protobuf_DoubleValue {
-    get { _storage.value(atIndex: 6, default: SwiftProtobuf.Google_Protobuf_DoubleValue(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `doubleValue` has been explicitly set.
@@ -676,7 +676,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearDoubleValue() { _uniqueStorage().clearValue(atIndex: 6, type: SwiftProtobuf.Google_Protobuf_DoubleValue.self, hasBit: (0, 64)) }
 
   var stringValue: SwiftProtobuf.Google_Protobuf_StringValue {
-    get { _storage.value(atIndex: 7, default: SwiftProtobuf.Google_Protobuf_StringValue(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `stringValue` has been explicitly set.
@@ -685,7 +685,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Swift.Sendable {
   mutating func clearStringValue() { _uniqueStorage().clearValue(atIndex: 7, type: SwiftProtobuf.Google_Protobuf_StringValue.self, hasBit: (0, 128)) }
 
   var bytesValue: SwiftProtobuf.Google_Protobuf_BytesValue {
-    get { _storage.value(atIndex: 8, default: SwiftProtobuf.Google_Protobuf_BytesValue(), hasBit: (1, 1)) }
+    get { _storage.messageValue(atIndex: 8, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `bytesValue` has been explicitly set.
@@ -754,7 +754,7 @@ nonisolated struct Proto3_TestTimestamp: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Timestamp(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -783,7 +783,7 @@ nonisolated struct Proto3_TestDuration: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_Duration {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Duration(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -812,7 +812,7 @@ nonisolated struct Proto3_TestFieldMask: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_FieldMask(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -836,7 +836,7 @@ nonisolated struct Proto3_TestStruct: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_Struct {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Struct(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -865,7 +865,7 @@ nonisolated struct Proto3_TestAny: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -894,7 +894,7 @@ nonisolated struct Proto3_TestValue: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_Value {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Value(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -923,7 +923,7 @@ nonisolated struct Proto3_TestListValue: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var value: SwiftProtobuf.Google_Protobuf_ListValue {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_ListValue(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.
@@ -1072,7 +1072,7 @@ nonisolated struct Proto3_TestExtensions: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var extensions: Proto2Unittest_TestAllExtensions {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestAllExtensions(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `extensions` has been explicitly set.
@@ -1126,7 +1126,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var emptyMap: Proto3_EmptyMap {
-    get { _storage.value(atIndex: 0, default: Proto3_EmptyMap(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `emptyMap` has been explicitly set.
@@ -1135,7 +1135,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyMap() { _uniqueStorage().clearValue(atIndex: 0, type: Proto3_EmptyMap.self, hasBit: (0, 1)) }
 
   var stringToInt: Proto3_StringtoInt {
-    get { _storage.value(atIndex: 1, default: Proto3_StringtoInt(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `stringToInt` has been explicitly set.
@@ -1144,7 +1144,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearStringToInt() { _uniqueStorage().clearValue(atIndex: 1, type: Proto3_StringtoInt.self, hasBit: (0, 2)) }
 
   var intToString: Proto3_IntToString {
-    get { _storage.value(atIndex: 2, default: Proto3_IntToString(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `intToString` has been explicitly set.
@@ -1153,7 +1153,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearIntToString() { _uniqueStorage().clearValue(atIndex: 2, type: Proto3_IntToString.self, hasBit: (0, 4)) }
 
   var mixed1: Proto3_Mixed1 {
-    get { _storage.value(atIndex: 3, default: Proto3_Mixed1(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `mixed1` has been explicitly set.
@@ -1162,7 +1162,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearMixed1() { _uniqueStorage().clearValue(atIndex: 3, type: Proto3_Mixed1.self, hasBit: (0, 8)) }
 
   var mixed2: Proto3_Mixed2 {
-    get { _storage.value(atIndex: 4, default: Proto3_Mixed2(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `mixed2` has been explicitly set.
@@ -1171,7 +1171,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearMixed2() { _uniqueStorage().clearValue(atIndex: 4, type: Proto3_Mixed2.self, hasBit: (0, 16)) }
 
   var mapOfObjects: Proto3_MapOfObjects {
-    get { _storage.value(atIndex: 5, default: Proto3_MapOfObjects(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `mapOfObjects` has been explicitly set.
@@ -1181,7 +1181,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
 
   /// Empty key tests
   var emptyKeyStringToInt1: Proto3_StringtoInt {
-    get { _storage.value(atIndex: 6, default: Proto3_StringtoInt(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `emptyKeyStringToInt1` has been explicitly set.
@@ -1190,7 +1190,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyStringToInt1() { _uniqueStorage().clearValue(atIndex: 6, type: Proto3_StringtoInt.self, hasBit: (0, 64)) }
 
   var emptyKeyStringToInt2: Proto3_StringtoInt {
-    get { _storage.value(atIndex: 7, default: Proto3_StringtoInt(), hasBit: (0, 128)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (0, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (0, 128)) }
   }
   /// Returns true if `emptyKeyStringToInt2` has been explicitly set.
@@ -1199,7 +1199,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyStringToInt2() { _uniqueStorage().clearValue(atIndex: 7, type: Proto3_StringtoInt.self, hasBit: (0, 128)) }
 
   var emptyKeyStringToInt3: Proto3_StringtoInt {
-    get { _storage.value(atIndex: 8, default: Proto3_StringtoInt(), hasBit: (1, 1)) }
+    get { _storage.messageValue(atIndex: 8, hasBit: (1, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, willBeSet: true, hasBit: (1, 1)) }
   }
   /// Returns true if `emptyKeyStringToInt3` has been explicitly set.
@@ -1208,7 +1208,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyStringToInt3() { _uniqueStorage().clearValue(atIndex: 8, type: Proto3_StringtoInt.self, hasBit: (1, 1)) }
 
   var emptyKeyBoolToString: Proto3_BoolToString {
-    get { _storage.value(atIndex: 9, default: Proto3_BoolToString(), hasBit: (1, 2)) }
+    get { _storage.messageValue(atIndex: 9, hasBit: (1, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 9, to: newValue, willBeSet: true, hasBit: (1, 2)) }
   }
   /// Returns true if `emptyKeyBoolToString` has been explicitly set.
@@ -1217,7 +1217,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyBoolToString() { _uniqueStorage().clearValue(atIndex: 9, type: Proto3_BoolToString.self, hasBit: (1, 2)) }
 
   var emptyKeyIntToString: Proto3_IntToString {
-    get { _storage.value(atIndex: 10, default: Proto3_IntToString(), hasBit: (1, 4)) }
+    get { _storage.messageValue(atIndex: 10, hasBit: (1, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 10, to: newValue, willBeSet: true, hasBit: (1, 4)) }
   }
   /// Returns true if `emptyKeyIntToString` has been explicitly set.
@@ -1226,7 +1226,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyIntToString() { _uniqueStorage().clearValue(atIndex: 10, type: Proto3_IntToString.self, hasBit: (1, 4)) }
 
   var emptyKeyMixed: Proto3_Mixed1 {
-    get { _storage.value(atIndex: 11, default: Proto3_Mixed1(), hasBit: (1, 8)) }
+    get { _storage.messageValue(atIndex: 11, hasBit: (1, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 11, to: newValue, willBeSet: true, hasBit: (1, 8)) }
   }
   /// Returns true if `emptyKeyMixed` has been explicitly set.
@@ -1235,7 +1235,7 @@ nonisolated struct Proto3_MapsTestCases: @unchecked Swift.Sendable {
   mutating func clearEmptyKeyMixed() { _uniqueStorage().clearValue(atIndex: 11, type: Proto3_Mixed1.self, hasBit: (1, 8)) }
 
   var emptyKeyMapObjects: Proto3_MapOfObjects {
-    get { _storage.value(atIndex: 12, default: Proto3_MapOfObjects(), hasBit: (1, 16)) }
+    get { _storage.messageValue(atIndex: 12, hasBit: (1, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 12, to: newValue, willBeSet: true, hasBit: (1, 16)) }
   }
   /// Returns true if `emptyKeyMapObjects` has been explicitly set.
@@ -1605,7 +1605,7 @@ nonisolated struct Proto3_MapOutWireFormat: @unchecked Swift.Sendable {
     }
 
     var value: Proto3_MapM {
-      get { _storage.value(atIndex: 0, default: Proto3_MapM(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `value` has been explicitly set.
@@ -1634,7 +1634,7 @@ nonisolated struct Proto3_MapOutWireFormat: @unchecked Swift.Sendable {
     }
 
     var value: Proto3_MapOut {
-      get { _storage.value(atIndex: 0, default: Proto3_MapOut(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `value` has been explicitly set.

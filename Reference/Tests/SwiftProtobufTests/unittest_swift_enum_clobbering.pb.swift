@@ -90,7 +90,7 @@ nonisolated struct SwiftProtoTesting_EnumClobbering_EnumHolder: @unchecked Swift
   /// Returns true if `foo` has been explicitly set.
   var hasFoo: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
-  mutating func clearFoo() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_EnumClobbering_Foo.self, hasBit: (0, 1)) }
+  mutating func clearFoo() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   var bar: Int64 {
     get { _storage.value(at: 8, default: 0, hasBit: (0, 2)) }

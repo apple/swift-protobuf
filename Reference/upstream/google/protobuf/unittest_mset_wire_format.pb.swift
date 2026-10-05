@@ -55,7 +55,7 @@ nonisolated struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: @
   // methods supported on all messages.
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
-    get { _storage.value(atIndex: 0, default: Proto2WireformatUnittest_TestMessageSet(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageSet` has been explicitly set.

@@ -67,7 +67,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_testInvalid: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_test_invalid) }
   /// Clears the value of extension `Pb_Extensions_test_invalid`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_testInvalid() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_test_invalid, type: Pb_TestInvalidFeatures.self) }
+  mutating func clearPb_testInvalid() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_test_invalid) }
 
 }
 

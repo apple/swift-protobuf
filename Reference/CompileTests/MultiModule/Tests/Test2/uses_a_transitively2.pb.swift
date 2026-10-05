@@ -28,7 +28,7 @@ public nonisolated struct UsesATransitively2: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   public var a: ModuleA.A {
-    get { _storage.value(atIndex: 0, default: ModuleA.A(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
@@ -43,7 +43,7 @@ public nonisolated struct UsesATransitively2: @unchecked Swift.Sendable {
   /// Returns true if `e` has been explicitly set.
   public var hasE: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
-  public mutating func clearE() { _uniqueStorage().clearValue(at: 4, type: ModuleA.E.self, hasBit: (0, 2)) }
+  public mutating func clearE() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 

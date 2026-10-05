@@ -26,7 +26,7 @@ nonisolated struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: @uncheck
   // methods supported on all messages.
 
   var nestedMessage: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage {
-    get { _storage.value(atIndex: 0, default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
@@ -40,7 +40,7 @@ nonisolated struct ThirdPartyProtobufUtil_TestTrimMessageRepeatedField: @uncheck
   }
 
   var nestedMessage2: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage {
-    get { _storage.value(atIndex: 1, default: ThirdPartyProtobufUtil_TestTrimMessageRepeatedField.NestedMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nestedMessage2` has been explicitly set.

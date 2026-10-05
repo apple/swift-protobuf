@@ -39,13 +39,13 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
 
   /// Fields for ModuleB
   public var nestedB: ModuleB.Test_MessageB {
-    get { _storage.value(atIndex: 0, default: ModuleB.Test_MessageB(), hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, fieldNumber: 2, hasBit: (0, 2)) }
+    set { _uniqueStorage().updateMessageValue(atIndex: 0, fieldNumber: 2, to: newValue, hasBit: (0, 2)) }
   }
   /// Returns true if `nestedB` has been explicitly set.
   public var hasNestedB: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `nestedB`. Subsequent reads from it will return its default value.
-  public mutating func clearNestedB() { _uniqueStorage().clearValue(atIndex: 0, type: ModuleB.Test_MessageB.self, hasBit: (0, 2)) }
+  public mutating func clearNestedB() { _uniqueStorage().clearMessageValue(atIndex: 0, fieldNumber: 2, hasBit: (0, 2)) }
 
   public var nestedEnum: ModuleB.Test_EnumB {
     get { _storage.value(at: 20, default: .unspecified, hasBit: (0, 4)) }
@@ -54,7 +54,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   /// Returns true if `nestedEnum` has been explicitly set.
   public var hasNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `nestedEnum`. Subsequent reads from it will return its default value.
-  public mutating func clearNestedEnum() { _uniqueStorage().clearValue(at: 20, type: ModuleB.Test_EnumB.self, hasBit: (0, 4)) }
+  public mutating func clearNestedEnum() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 4)) }
 
   public var mapB: [String: ModuleB.Test_MessageB] {
     get { _storage.value(atIndex: 0, hasBit: (0, 32)) }
@@ -91,7 +91,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   }
 
   public var oneofMessageB: ModuleB.Test_MessageB {
-    get { return _storage.value(atIndex: 1, default: ModuleB.Test_MessageB(), oneofPresence: (4, 7)) }
+    get { return _storage.messageValue(atIndex: 1, fieldNumber: 7, oneofPresence: (4, 7)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 7)) }
   }
 
@@ -102,13 +102,13 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
 
   /// Fields for ModuleC
   public var nestedC: ModuleC.Test_MessageC {
-    get { _storage.value(atIndex: 2, default: ModuleC.Test_MessageC(), hasBit: (0, 8)) }
-    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 2, fieldNumber: 10, hasBit: (0, 8)) }
+    set { _uniqueStorage().updateMessageValue(atIndex: 2, fieldNumber: 10, to: newValue, hasBit: (0, 8)) }
   }
   /// Returns true if `nestedC` has been explicitly set.
   public var hasNestedC: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `nestedC`. Subsequent reads from it will return its default value.
-  public mutating func clearNestedC() { _uniqueStorage().clearValue(atIndex: 2, type: ModuleC.Test_MessageC.self, hasBit: (0, 8)) }
+  public mutating func clearNestedC() { _uniqueStorage().clearMessageValue(atIndex: 2, fieldNumber: 10, hasBit: (0, 8)) }
 
   public var nestedEnumC: ModuleC.Test_EnumC {
     get { _storage.value(at: 28, default: .unspecified, hasBit: (0, 16)) }
@@ -117,7 +117,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   /// Returns true if `nestedEnumC` has been explicitly set.
   public var hasNestedEnumC: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `nestedEnumC`. Subsequent reads from it will return its default value.
-  public mutating func clearNestedEnumC() { _uniqueStorage().clearValue(at: 28, type: ModuleC.Test_EnumC.self, hasBit: (0, 16)) }
+  public mutating func clearNestedEnumC() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 16)) }
 
   public var mapC: [String: ModuleC.Test_MessageC] {
     get { _storage.value(atIndex: 1, hasBit: (1, 1)) }
@@ -154,7 +154,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   }
 
   public var oneofMessageC: ModuleC.Test_MessageC {
-    get { return _storage.value(atIndex: 3, default: ModuleC.Test_MessageC(), oneofPresence: (8, 15)) }
+    get { return _storage.messageValue(atIndex: 3, fieldNumber: 15, oneofPresence: (8, 15)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (8, 15)) }
   }
 
@@ -203,7 +203,7 @@ nonisolated extension Test_MessageA {
   public var hasTest_extMessage: Bool { _protobuf_extensionStorage().hasValue(for: Test_Extensions_ext_message) }
   /// Clears the value of extension `Test_Extensions_ext_message`.
   /// Subsequent reads from it will return its default value.
-  public mutating func clearTest_extMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message, type: ModuleB.Test_MessageB.self) }
+  public mutating func clearTest_extMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message) }
 
   public var Test_extEnum: ModuleB.Test_EnumB {
     get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_enum, default: .unspecified) }
@@ -214,7 +214,7 @@ nonisolated extension Test_MessageA {
   public var hasTest_extEnum: Bool { _protobuf_extensionStorage().hasValue(for: Test_Extensions_ext_enum) }
   /// Clears the value of extension `Test_Extensions_ext_enum`.
   /// Subsequent reads from it will return its default value.
-  public mutating func clearTest_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum, type: ModuleB.Test_EnumB.self) }
+  public mutating func clearTest_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum) }
 
   public var Test_extMessageC: ModuleC.Test_MessageC {
     get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_message_c, default: ModuleC.Test_MessageC()) }
@@ -225,7 +225,7 @@ nonisolated extension Test_MessageA {
   public var hasTest_extMessageC: Bool { _protobuf_extensionStorage().hasValue(for: Test_Extensions_ext_message_c) }
   /// Clears the value of extension `Test_Extensions_ext_message_c`.
   /// Subsequent reads from it will return its default value.
-  public mutating func clearTest_extMessageC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message_c, type: ModuleC.Test_MessageC.self) }
+  public mutating func clearTest_extMessageC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message_c) }
 
   public var Test_extEnumC: ModuleC.Test_EnumC {
     get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_enum_c, default: .unspecified) }
@@ -236,7 +236,7 @@ nonisolated extension Test_MessageA {
   public var hasTest_extEnumC: Bool { _protobuf_extensionStorage().hasValue(for: Test_Extensions_ext_enum_c) }
   /// Clears the value of extension `Test_Extensions_ext_enum_c`.
   /// Subsequent reads from it will return its default value.
-  public mutating func clearTest_extEnumC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum_c, type: ModuleC.Test_EnumC.self) }
+  public mutating func clearTest_extEnumC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum_c) }
 
 }
 

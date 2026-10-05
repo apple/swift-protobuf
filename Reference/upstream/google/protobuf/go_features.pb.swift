@@ -51,7 +51,7 @@ nonisolated struct Pb_GoFeatures: @unchecked Swift.Sendable {
   /// Returns true if `apiLevel` has been explicitly set.
   var hasApiLevel: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `apiLevel`. Subsequent reads from it will return its default value.
-  mutating func clearApiLevel() { _uniqueStorage().clearValue(at: 4, type: Pb_GoFeatures.APILevel.self, hasBit: (0, 2)) }
+  mutating func clearApiLevel() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   var stripEnumPrefix: Pb_GoFeatures.StripEnumPrefix {
     get { _storage.value(at: 8, default: .unspecified, hasBit: (0, 4)) }
@@ -60,7 +60,7 @@ nonisolated struct Pb_GoFeatures: @unchecked Swift.Sendable {
   /// Returns true if `stripEnumPrefix` has been explicitly set.
   var hasStripEnumPrefix: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `stripEnumPrefix`. Subsequent reads from it will return its default value.
-  mutating func clearStripEnumPrefix() { _uniqueStorage().clearValue(at: 8, type: Pb_GoFeatures.StripEnumPrefix.self, hasBit: (0, 4)) }
+  mutating func clearStripEnumPrefix() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 4)) }
 
   var optimizeMode: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
     get { _storage.value(at: 12, default: .unspecified, hasBit: (0, 8)) }
@@ -69,7 +69,7 @@ nonisolated struct Pb_GoFeatures: @unchecked Swift.Sendable {
   /// Returns true if `optimizeMode` has been explicitly set.
   var hasOptimizeMode: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optimizeMode`. Subsequent reads from it will return its default value.
-  mutating func clearOptimizeMode() { _uniqueStorage().clearValue(at: 12, type: Pb_GoFeatures.OptimizeModeFeature.OptimizeMode.self, hasBit: (0, 8)) }
+  mutating func clearOptimizeMode() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 8)) }
 
   nonisolated enum APILevel: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
 
@@ -165,7 +165,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_go: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_go) }
   /// Clears the value of extension `Pb_Extensions_go`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_go() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_go, type: Pb_GoFeatures.self) }
+  mutating func clearPb_go() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_go) }
 
 }
 

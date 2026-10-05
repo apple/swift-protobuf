@@ -127,17 +127,17 @@ nonisolated struct SwiftProtoTesting_OneOfContainer: @unchecked Swift.Sendable {
   }
 
   var option1: SwiftProtoTesting_OneOfOptionMessage1 {
-    get { return _storage.value(atIndex: 0, default: SwiftProtoTesting_OneOfOptionMessage1(), oneofPresence: (4, 1)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var option2: SwiftProtoTesting_OneOfOptionMessage2 {
-    get { return _storage.value(atIndex: 1, default: SwiftProtoTesting_OneOfOptionMessage2(), oneofPresence: (4, 2)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 2)) }
   }
 
   var option3: SwiftProtoTesting_OneOfContainer.Option3 {
-    get { return _storage.value(atIndex: 2, default: SwiftProtoTesting_OneOfContainer.Option3(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 3)) }
   }
 

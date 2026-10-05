@@ -197,7 +197,7 @@ nonisolated struct SwiftProtoTesting_TestProto3Optional: @unchecked Swift.Sendab
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestProto3Optional.NestedMessage(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -212,7 +212,7 @@ nonisolated struct SwiftProtoTesting_TestProto3Optional: @unchecked Swift.Sendab
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 1)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 28, type: SwiftProtoTesting_TestProto3Optional.NestedEnum.self, hasBit: (2, 1)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (2, 1)) }
 
   /// Add some non-optional fields to verify we can mix them.
   var singularInt32: Int32 {

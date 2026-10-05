@@ -198,7 +198,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalNestedMessage: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -207,7 +207,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage.self, hasBit: (1, 128)) }
 
   var optionalForeignMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto2_ForeignMessageProto2(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -222,7 +222,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 84, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum.self, hasBit: (2, 2)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 84, hasBit: (2, 2)) }
 
   var optionalForeignEnum: ProtobufTestMessages_Proto2_ForeignEnumProto2 {
     get { _storage.value(at: 88, default: .foreignFoo, hasBit: (2, 4)) }
@@ -231,7 +231,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 88, type: ProtobufTestMessages_Proto2_ForeignEnumProto2.self, hasBit: (2, 4)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 88, hasBit: (2, 4)) }
 
   var optionalStringPiece: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 8)) }
@@ -252,7 +252,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   mutating func clearOptionalCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (2, 16)) }
 
   var recursiveMessage: ProtobufTestMessages_Proto2_TestAllTypesProto2 {
-    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Proto2_TestAllTypesProto2(), hasBit: (2, 32)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
@@ -653,7 +653,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage {
-    get { return _storage.value(atIndex: 3, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage(), oneofPresence: (20, 112)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (20, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (20, 112)) }
   }
 
@@ -693,7 +693,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   }
 
   var data: ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage {
-    get { _storage.value(atIndex: 4, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `data` has been explicitly set.
@@ -702,7 +702,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   mutating func clearData() { _uniqueStorage().clearValue(atIndex: 4, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage.self, hasBit: (2, 64)) }
 
   var multiWordGroupField: ProtobufTestMessages_Proto2_TestAllTypesProto2.MultiWordGroupField {
-    get { _storage.value(atIndex: 5, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.MultiWordGroupField(), hasBit: (2, 128)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `multiWordGroupField` has been explicitly set.
@@ -1011,7 +1011,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
   mutating func clearFieldName18__() { _uniqueStorage().clearValue(at: 196, type: Int32.self, hasBit: (7, 1)) }
 
   var messageSetCorrect: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
-    get { _storage.value(atIndex: 6, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect(), hasBit: (7, 2)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (7, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (7, 2)) }
   }
   /// Returns true if `messageSetCorrect` has been explicitly set.
@@ -1060,7 +1060,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var corecursive: ProtobufTestMessages_Proto2_TestAllTypesProto2 {
-      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestAllTypesProto2(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `corecursive` has been explicitly set.
@@ -1200,7 +1200,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sw
     mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var subMsg: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
-      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `subMsg` has been explicitly set.
@@ -1358,7 +1358,7 @@ nonisolated struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes: @unchecked
   mutating func clearOptionalString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_ForeignMessageProto2(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
@@ -1367,7 +1367,7 @@ nonisolated struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes: @unchecked
   mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Proto2_ForeignMessageProto2.self, hasBit: (0, 4)) }
 
   var optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1667,7 +1667,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   mutating func clearRequiredBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var requiredNestedMessage: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedMessage {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedMessage(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `requiredNestedMessage` has been explicitly set.
@@ -1676,7 +1676,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   mutating func clearRequiredNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedMessage.self, hasBit: (1, 128)) }
 
   var requiredForeignMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto2_ForeignMessageProto2(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `requiredForeignMessage` has been explicitly set.
@@ -1691,7 +1691,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   /// Returns true if `requiredNestedEnum` has been explicitly set.
   var hasRequiredNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearValue(at: 32, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedEnum.self, hasBit: (2, 2)) }
+  mutating func clearRequiredNestedEnum() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (2, 2)) }
 
   var requiredForeignEnum: ProtobufTestMessages_Proto2_ForeignEnumProto2 {
     get { _storage.value(at: 36, default: .foreignFoo, hasBit: (2, 4)) }
@@ -1700,7 +1700,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   /// Returns true if `requiredForeignEnum` has been explicitly set.
   var hasRequiredForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `requiredForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredForeignEnum() { _uniqueStorage().clearValue(at: 36, type: ProtobufTestMessages_Proto2_ForeignEnumProto2.self, hasBit: (2, 4)) }
+  mutating func clearRequiredForeignEnum() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (2, 4)) }
 
   var requiredStringPiece: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 8)) }
@@ -1721,7 +1721,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   mutating func clearRequiredCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (2, 16)) }
 
   var recursiveMessage: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2 {
-    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2(), hasBit: (2, 32)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
@@ -1730,7 +1730,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   mutating func clearRecursiveMessage() { _uniqueStorage().clearValue(atIndex: 2, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.self, hasBit: (2, 32)) }
 
   var optionalRecursiveMessage: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2 {
-    get { _storage.value(atIndex: 3, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2(), hasBit: (4, 64)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (4, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (4, 64)) }
   }
   /// Returns true if `optionalRecursiveMessage` has been explicitly set.
@@ -1739,7 +1739,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
   mutating func clearOptionalRecursiveMessage() { _uniqueStorage().clearValue(atIndex: 3, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.self, hasBit: (4, 64)) }
 
   var data: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.DataMessage {
-    get { _storage.value(atIndex: 4, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.DataMessage(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `data` has been explicitly set.
@@ -1912,7 +1912,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var corecursive: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2 {
-      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `corecursive` has been explicitly set.
@@ -1921,7 +1921,7 @@ nonisolated struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unch
     mutating func clearCorecursive() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.self, hasBit: (0, 2)) }
 
     var optionalCorecursive: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2 {
-      get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `optionalCorecursive` has been explicitly set.
@@ -2078,27 +2078,27 @@ nonisolated struct ProtobufTestMessages_Proto2_TestLargeOneof: @unchecked Swift.
   }
 
   var a1: ProtobufTestMessages_Proto2_TestLargeOneof.A1 {
-    get { return _storage.value(atIndex: 0, default: ProtobufTestMessages_Proto2_TestLargeOneof.A1(), oneofPresence: (4, 1)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 1)) }
   }
 
   var a2: ProtobufTestMessages_Proto2_TestLargeOneof.A2 {
-    get { return _storage.value(atIndex: 1, default: ProtobufTestMessages_Proto2_TestLargeOneof.A2(), oneofPresence: (4, 2)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 2)) }
   }
 
   var a3: ProtobufTestMessages_Proto2_TestLargeOneof.A3 {
-    get { return _storage.value(atIndex: 2, default: ProtobufTestMessages_Proto2_TestLargeOneof.A3(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var a4: ProtobufTestMessages_Proto2_TestLargeOneof.A4 {
-    get { return _storage.value(atIndex: 3, default: ProtobufTestMessages_Proto2_TestLargeOneof.A4(), oneofPresence: (4, 4)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (4, 4)) }
   }
 
   var a5: ProtobufTestMessages_Proto2_TestLargeOneof.A5 {
-    get { return _storage.value(atIndex: 4, default: ProtobufTestMessages_Proto2_TestLargeOneof.A5(), oneofPresence: (4, 5)) }
+    get { return _storage.messageValue(atIndex: 4, oneofPresence: (4, 5)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, oneofPresence: (4, 5)) }
   }
 
@@ -2215,7 +2215,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.Mes
   var hasProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension1_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.self) }
+  mutating func clearProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension) }
 
   var ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension2_messageSetExtension: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2 {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension, default: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2()) }
@@ -2226,7 +2226,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.Mes
   var hasProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension2_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension, type: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.self) }
+  mutating func clearProtobufTestMessages_Proto2_TestAllRequiredTypesProto2_MessageSetCorrectExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension) }
 }
 
 nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
@@ -2240,7 +2240,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
   var hasProtobufTestMessages_Proto2_extensionInt32: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_extension_int32) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_extension_int32`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_int32, type: Int32.self) }
+  mutating func clearProtobufTestMessages_Proto2_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_int32) }
 
   var ProtobufTestMessages_Proto2_extensionString: String {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_extension_string, default: String()) }
@@ -2251,7 +2251,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
   var hasProtobufTestMessages_Proto2_extensionString: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_extension_string) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_extensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_string, type: String.self) }
+  mutating func clearProtobufTestMessages_Proto2_extensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_string) }
 
   var ProtobufTestMessages_Proto2_extensionBytes: Data {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes, default: Data()) }
@@ -2262,7 +2262,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
   var hasProtobufTestMessages_Proto2_extensionBytes: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_extension_bytes) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_extension_bytes`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_extensionBytes() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes, type: Data.self) }
+  mutating func clearProtobufTestMessages_Proto2_extensionBytes() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_extension_bytes) }
 
   var ProtobufTestMessages_Proto2_groupField: ProtobufTestMessages_Proto2_GroupField {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_Extensions_GroupField, default: ProtobufTestMessages_Proto2_GroupField()) }
@@ -2273,7 +2273,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2 {
   var hasProtobufTestMessages_Proto2_groupField: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_Extensions_GroupField) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_Extensions_GroupField`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_groupField() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_GroupField, type: ProtobufTestMessages_Proto2_GroupField.self) }
+  mutating func clearProtobufTestMessages_Proto2_groupField() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_Extensions_GroupField) }
 }
 
 nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect {
@@ -2287,7 +2287,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetC
   var hasProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension1_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.self) }
+  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.Extensions.message_set_extension) }
 
   var ProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension2_messageSetExtension: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2 {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2()) }
@@ -2298,7 +2298,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetC
   var hasProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension2_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.self) }
+  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_MessageSetCorrectExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.Extensions.message_set_extension) }
 
   var ProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof, default: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof()) }
@@ -2309,7 +2309,7 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetC
   var hasProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof) }
   /// Clears the value of extension `ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof, type: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.self) }
+  mutating func clearProtobufTestMessages_Proto2_TestAllTypesProto2_ExtensionWithOneof_extensionWithOneof() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.Extensions.extension_with_oneof) }
 
 }
 

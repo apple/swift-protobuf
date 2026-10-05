@@ -41,7 +41,7 @@ nonisolated struct Proto3Unittest_TestNoPresenceField: @unchecked Swift.Sendable
   }
 
   var noPresenceNested: Proto3Unittest_TestNoPresenceField {
-    get { _storage.value(atIndex: 0, default: Proto3Unittest_TestNoPresenceField(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `noPresenceNested` has been explicitly set.

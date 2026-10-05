@@ -289,7 +289,7 @@ nonisolated struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
 
   /// Specify details for how to encode jspb.
   var jspbEncodingOptions: Conformance_JspbEncodingConfig {
-    get { _storage.value(atIndex: 0, default: Conformance_JspbEncodingConfig(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `jspbEncodingOptions` has been explicitly set.

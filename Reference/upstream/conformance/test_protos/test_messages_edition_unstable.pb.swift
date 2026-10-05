@@ -110,7 +110,7 @@ nonisolated struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnsta
   mutating func clearOptionalInt32() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var optionalForeignMessage: ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_EditionUnstable_ForeignMessageEditionUnstable(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -125,10 +125,10 @@ nonisolated struct ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnsta
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 8, type: ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable.self, hasBit: (0, 4)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 4)) }
 
   var recursiveMessage: ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
@@ -252,7 +252,7 @@ nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUn
   var hasProtobufTestMessages_EditionUnstable_extensionInt32: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_EditionUnstable_Extensions_extension_int32) }
   /// Clears the value of extension `ProtobufTestMessages_EditionUnstable_Extensions_extension_int32`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_EditionUnstable_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_EditionUnstable_Extensions_extension_int32, type: Int32.self) }
+  mutating func clearProtobufTestMessages_EditionUnstable_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_EditionUnstable_Extensions_extension_int32) }
 
 }
 

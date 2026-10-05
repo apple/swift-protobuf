@@ -61,7 +61,7 @@ nonisolated struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked S
   }
 
   var delimitedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get { _storage.value(atIndex: 0, default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.
@@ -70,7 +70,7 @@ nonisolated struct SwiftDescriptorTest_EditionsMessageForDelimited: @unchecked S
   mutating func clearDelimitedField() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftDescriptorTest_EditionsMessageForDelimited.self, hasBit: (0, 2)) }
 
   var lengthPrefixedField: SwiftDescriptorTest_EditionsMessageForDelimited {
-    get { _storage.value(atIndex: 1, default: SwiftDescriptorTest_EditionsMessageForDelimited(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lengthPrefixedField` has been explicitly set.

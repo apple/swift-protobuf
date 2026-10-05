@@ -57,7 +57,7 @@ nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swif
   }
 
   var messageField: SwiftDescriptorTest_OtherMessage {
-    get { _storage.value(atIndex: 0, default: SwiftDescriptorTest_OtherMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageField` has been explicitly set.
@@ -90,10 +90,10 @@ nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swif
   /// Returns true if `optEnumField` has been explicitly set.
   var hasOptEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optEnumField`. Subsequent reads from it will return its default value.
-  mutating func clearOptEnumField() { _uniqueStorage().clearValue(at: 32, type: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum.self, hasBit: (0, 8)) }
+  mutating func clearOptEnumField() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 8)) }
 
   var optMessageField: SwiftDescriptorTest_OtherMessage {
-    get { _storage.value(atIndex: 1, default: SwiftDescriptorTest_OtherMessage(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optMessageField` has been explicitly set.
@@ -160,7 +160,7 @@ nonisolated struct SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Swif
   }
 
   var oneofMessageField: SwiftDescriptorTest_OtherMessage {
-    get { return _storage.value(atIndex: 2, default: SwiftDescriptorTest_OtherMessage(), oneofPresence: (4, 34)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 34)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 34)) }
   }
 
