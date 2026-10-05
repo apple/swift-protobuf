@@ -679,12 +679,113 @@ extension MessageStorage {
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
     }
 
+    /// Updates the repeated submessage value at the given zero-based index in the repeated bucket.
+    ///
+    /// This function is only used when weak imports are enabled; it delegates through the message
+    /// witness to deinitialize any existing array so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateRepeatedMessageValue<Element: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Element],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let submessageSchema = messageSchema(for: field)
+            submessageSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Element].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Element]>.stride)
+        }
+    }
+
+    /// Updates the repeated enum value at the given zero-based index in the repeated bucket.
+    ///
+    /// This function is only used when weak imports are enabled; it delegates through the enum
+    /// witness to deinitialize any existing array so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateRepeatedEnumValue<Element: Enum>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Element],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let resolvedEnumSchema = enumSchema(for: field)
+            resolvedEnumSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Element].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Element]>.stride)
+        }
+    }
+
     /// Updates the `Dictionary` value at the given zero-based index in the map bucket.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Key, Value>(atIndex index: Int, to newValue: [Key: Value], willBeSet: Bool, hasBit: HasBit)
     {
         let offset = schema.byteOffset(ofMapFieldAtIndex: index)
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Returns the `Dictionary` value at the given zero-based index in the map bucket, or an empty
+    /// dictionary if the value is not present.
+    ///
+    /// This function is used when weak imports are enabled; if the field is not present, it initializes
+    /// an empty dictionary via the map witness rather than constructing `[:]` directly, avoiding
+    /// emitting strong references to type metadata for weakly imported map value types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func mapValue<Key, Value>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        hasBit: HasBit
+    ) -> [Key: Value] {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        guard isPresent(hasBit: hasBit) else {
+            guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                preconditionFailure("invalid map field number")
+            }
+            let submessageSchema = messageSchema(for: field)
+            return withUnsafeTemporaryAllocation(of: [Key: Value].self, capacity: 1) { buffer in
+                submessageSchema.invokeWitness(.mapInitialize(pointer: buffer.baseAddress!))
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: [Key: Value].self).pointee
+    }
+
+    /// Updates the `Dictionary` value at the given zero-based index in the map bucket.
+    ///
+    /// This function is used when weak imports are enabled; it delegates through the map witness
+    /// to deinitialize any existing dictionary so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateMapValue<Key, Value>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Key: Value],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let submessageSchema = messageSchema(for: field)
+            submessageSchema.invokeWitness(.mapDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Key: Value].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Key: Value]>.stride)
+        }
     }
 
     /// Updates the submessage value at the given zero-based index in the message bucket.

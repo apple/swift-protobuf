@@ -191,6 +191,15 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 getCall = "messageValue(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
                 setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
             }
+        case .repeated where generatorOptions.experimentalWeakImports && (fieldDescriptor.type == .message || fieldDescriptor.type == .group):
+            getCall = "value(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
+            setCall = "updateRepeatedMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+        case .repeated where generatorOptions.experimentalWeakImports && fieldDescriptor.type == .enum:
+            getCall = "value(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
+            setCall = "updateRepeatedEnumValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+        case .map where generatorOptions.experimentalWeakImports:
+            getCall = "mapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
+            setCall = "updateMapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
         case .stable where fieldDescriptor.type == .enum && generatorOptions.experimentalWeakImports:
             // When weak imports are enabled, we generate different accessors
             // that delegate to a witness to initialize the enum from its raw
