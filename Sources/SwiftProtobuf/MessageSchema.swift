@@ -696,6 +696,81 @@ extension MessageSchema {
         }
         return nil
     }
+
+    /// Returns the message schema for the given field.
+    ///
+    /// - Precondition: The field must be a message, group, or map field.
+    @usableFromInline
+    func messageSchema(for field: Field) -> MessageSchema {
+        switch submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
+        case nil:
+            // If the resolver returned nil, then the protos must have been
+            // generated with weak imports and the schema was dropped by the
+            // linker. Substitute the placeholder message, which will correctly
+            // handle all fields during binary decoding and encoding (by using
+            // unknown fields).
+            return SwiftProtobuf_ImplicitWeakMessage.messageSchema
+        case .message(let subSchema)?:
+            return subSchema
+        case .enum?:
+            preconditionFailure("Field should have a message schema; this is a generator bug")
+        }
+    }
+
+    /// Returns the enum schema for the given field.
+    ///
+    /// - Precondition: The field must be an enum field.
+    @usableFromInline
+    func enumSchema(for field: Field) -> EnumSchema {
+        switch submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
+        case nil:
+            // If the resolver returned nil, then the protos must have been
+            // generated with weak imports and the schema was dropped by the
+            // linker. Substitute the placeholder enum, which will correctly
+            // handle all operations.
+            return SwiftProtobuf_ImplicitWeakEnum.enumSchema
+        case .enum(let enumSchema)?:
+            return enumSchema
+        case .message?:
+            preconditionFailure("Field should have an enum schema; this is a generator bug")
+        }
+    }
+
+    /// Returns the submessage schema for the field with the given field number.
+    ///
+    /// - Precondition: The field number must exist and be a message, group, or map field.
+    @_spi(ForGeneratedCodeOnly)
+    public func submessageSchema(for fieldNumber: Int) -> MessageSchema {
+        guard let field = self[fieldNumber: UInt32(fieldNumber)] else {
+            preconditionFailure("Missing schema for field \(fieldNumber)")
+        }
+        return messageSchema(for: field)
+    }
+
+    /// Returns the enum schema for the field with the given field number.
+    ///
+    /// - Precondition: The field number must exist and be an enum field.
+    @_spi(ForGeneratedCodeOnly)
+    public func enumSchema(for fieldNumber: Int) -> EnumSchema {
+        guard let field = self[fieldNumber: UInt32(fieldNumber)] else {
+            preconditionFailure("Missing schema for field \(fieldNumber)")
+        }
+        return enumSchema(for: field)
+    }
+
+    /// Compares two messages of this schema for equality.
+    ///
+    /// This method is used when weak imports are enabled; it accesses the message storage of
+    /// the operands via message witnesses rather than calling `==` directly on the messages,
+    /// avoiding strong references to weakly imported message types and their `Equatable` conformance.
+    @_spi(ForGeneratedCodeOnly)
+    public func areEqual(_ lhs: UnsafeRawPointer, _ rhs: UnsafeRawPointer) -> Bool {
+        var isEqual = false
+        withUnsafeMutablePointer(to: &isEqual) { resultPtr in
+            invokeWitness(.messageEqual(lhs: lhs, rhs: rhs, result: resultPtr))
+        }
+        return isEqual
+    }
 }
 
 /// An opaque token that is used to ask a message for the metatype of one of its submessage

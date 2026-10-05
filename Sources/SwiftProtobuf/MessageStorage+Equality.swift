@@ -41,6 +41,7 @@ extension MessageStorage {
     /// Message equality in SwiftProtobuf includes presence. That is, a message with an integer
     /// field set to 100 is not considered equal to one where that field is not present but has a
     /// default defined to be 100.
+    @usableFromInline
     @inline(never)
     func isEqual(to other: MessageStorage) -> Bool {
         if self === other {

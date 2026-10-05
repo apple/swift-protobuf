@@ -51,7 +51,8 @@ public struct EnumSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
 
-    let invokeWitness: InvokeWitnessFunction
+    @_spi(ForGeneratedCodeOnly)
+    public let invokeWitness: InvokeWitnessFunction
 
     /// Creates a new enum schema from the given values.
     @_spi(ForGeneratedCodeOnly)
@@ -132,4 +133,15 @@ extension EnumSchema {
     func enumCase(forJSONName name: String) -> Int32? {
         reflection.withTable { $0.enumCase(forJSONName: name) }
     }
+
+    /// Compares two enums of this schema for equality.
+    @_spi(ForGeneratedCodeOnly)
+    public func areEqual(_ lhs: UnsafeRawPointer, _ rhs: UnsafeRawPointer) -> Bool {
+        var isEqual = false
+        withUnsafeMutablePointer(to: &isEqual) { resultPtr in
+            invokeWitness(.enumEqual(lhs: lhs, rhs: rhs, result: resultPtr))
+        }
+        return isEqual
+    }
 }
+

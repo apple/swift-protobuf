@@ -27,37 +27,14 @@ extension MessageStorage {
     /// - Precondition: The field must be a message, group, or map field.
     @usableFromInline
     func messageSchema(for field: MessageSchema.Field) -> MessageSchema {
-        switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
-        case nil:
-            // If the resolver returned nil, then the protos must have been
-            // generated with weak imports and the schema was dropped by the
-            // linker. Substitute the placeholder message, which will correctly
-            // handle all fields during binary decoding and encoding (by using
-            // unknown fields).
-            return SwiftProtobuf_ImplicitWeakMessage.messageSchema
-        case .message(let subSchema)?:
-            return subSchema
-        case .enum?:
-            preconditionFailure("Field should have a message schema; this is a generator bug")
-        }
+        schema.messageSchema(for: field)
     }
 
     /// Returns the enum schema for the given field.
     ///
     /// - Precondition: The field must be an enum field.
     func enumSchema(for field: MessageSchema.Field) -> EnumSchema {
-        switch schema.submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
-        case nil:
-            // If the resolver returned nil, then the protos must have been
-            // generated with weak imports and the schema was dropped by the
-            // linker. Substitute the placeholder enum, which will correctly
-            // handle all operations.
-            return SwiftProtobuf_ImplicitWeakEnum.enumSchema
-        case .enum(let enumSchema)?:
-            return enumSchema
-        case .message?:
-            preconditionFailure("Field should have an enum schema; this is a generator bug")
-        }
+        schema.enumSchema(for: field)
     }
 }
 

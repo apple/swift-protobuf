@@ -211,6 +211,43 @@ class OneofGenerator {
             for f in fields {
                 p.print("\(f.comments)case \(f.swiftName)(\(f.swiftType))")
             }
+
+            if generatorOptions.experimentalWeakImports {
+                generateWeakImportEquality(printer: &p)
+            }
+        }
+        p.print("}")
+    }
+
+    private func generateWeakImportEquality(printer p: inout CodePrinter) {
+        let parentMessage = namer.fullName(message: oneofDescriptor.containingType)
+        let visibility = generatorOptions.visibilitySourceSnippet
+        p.print(
+            "",
+            "\(visibility)static func == (lhs: \(swiftRelativeName), rhs: \(swiftRelativeName)) -> Bool {"
+        )
+        p.withIndentation { p in
+            if fields.isEmpty {
+                p.print("return true")
+            } else {
+                p.print("switch (lhs, rhs) {")
+                for f in fields {
+                    let comparison: String
+                    switch f.rawFieldType {
+                    case .group, .message:
+                        comparison = "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.submessageSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                    case .enum:
+                        comparison = "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.enumSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                    default:
+                        comparison = "l == r"
+                    }
+                    p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return \(comparison)")
+                }
+                if fields.count > 1 {
+                    p.print("default: return false")
+                }
+                p.print("}")
+            }
         }
         p.print("}")
     }

@@ -47,6 +47,11 @@ public enum EnumWitnesses<T: Enum> {
             // The validity of the raw value has already been checked by the caller.
             let value = T(rawValue: Int(rawValue))!
             pointer.bindMemory(to: [T].self, capacity: 1).pointee.append(value)
+
+        case .enumEqual(let lhs, let rhs, let result):
+            result.pointee =
+                lhs.bindMemory(to: T.self, capacity: 1).pointee
+                == rhs.bindMemory(to: T.self, capacity: 1).pointee
         }
     }
 }
@@ -81,4 +86,7 @@ public enum EnumWitnessOperation {
 
     /// Appends an enum value (by its raw value) to the array located at `pointer`.
     case arrayAppendRawValue(pointer: UnsafeMutableRawPointer, rawValue: Int32)
+
+    /// Compares the enum at `lhs` with the enum at `rhs` for equality and populates `result` with the result.
+    case enumEqual(lhs: UnsafeRawPointer, rhs: UnsafeRawPointer, result: UnsafeMutablePointer<Bool>)
 }
