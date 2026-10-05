@@ -128,6 +128,7 @@ extension ExtensionSchema {
     /// The message schema for this extension field, if it is a message or group.
     ///
     /// - Precondition: The extension field must be a message or group field.
+    @usableFromInline
     var messageSchema: MessageSchema {
         switch submessageOrEnumResolver() {
         case nil:
@@ -142,6 +143,7 @@ extension ExtensionSchema {
     /// The enum schema for this extension field, if it is an enum.
     ///
     /// - Precondition: The extension field must be an enum field.
+    @usableFromInline
     var enumSchema: EnumSchema {
         switch submessageOrEnumResolver() {
         case nil:

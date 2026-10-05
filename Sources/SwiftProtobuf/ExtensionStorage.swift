@@ -176,6 +176,30 @@ extension ExtensionStorage {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
     }
 
+    /// Returns the submessage value of the given message extension, or the default value if it is
+    /// not set.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the default submessage
+    /// using its extension schema rather than calling `Value()` directly, avoiding strong references to
+    /// weakly imported message types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<Value: Message>(of ext: ExtensionSchema) -> Value {
+        if let stored = values[ext.field.fieldNumber] {
+            return stored.value(as: Value.self)
+        }
+        return withUnsafeTemporaryAllocation(of: Value.self, capacity: 1) { buffer in
+            let submessageSchema = ext.messageSchema
+            var messageStorage: Unmanaged<MessageStorage>?
+            withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
+                submessageSchema.invokeWitness(.messageInitialize(
+                    pointer: buffer.baseAddress!,
+                    result: storagePtr
+                ))
+            }
+            return buffer.baseAddress!.move()
+        }
+    }
+
     /// Returns a value indicating whether the given message extension is set.
     @_alwaysEmitIntoClient @inline(__always)
     public func hasValue(for ext: ExtensionSchema) -> Bool {
