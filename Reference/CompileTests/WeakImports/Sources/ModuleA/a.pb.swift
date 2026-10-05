@@ -48,8 +48,8 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   public mutating func clearNestedB() { _uniqueStorage().clearMessageValue(atIndex: 0, fieldNumber: 2, hasBit: (0, 2)) }
 
   public var nestedEnum: ModuleB.Test_EnumB {
-    get { _storage.value(at: 20, default: .unspecified, hasBit: (0, 4)) }
-    set { _uniqueStorage().updateValue(at: 20, to: newValue, willBeSet: true, hasBit: (0, 4)) }
+    get { _storage.enumValue(at: 20, fieldNumber: 3, default: .unspecified, hasBit: (0, 4)) }
+    set { _uniqueStorage().updateEnumValue(at: 20, fieldNumber: 3, to: newValue, hasBit: (0, 4)) }
   }
   /// Returns true if `nestedEnum` has been explicitly set.
   public var hasNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
@@ -57,18 +57,18 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   public mutating func clearNestedEnum() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 4)) }
 
   public var mapB: [String: ModuleB.Test_MessageB] {
-    get { _storage.value(atIndex: 0, hasBit: (0, 32)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 32)) }
+    get { _storage.mapValue(atIndex: 0, fieldNumber: 4, hasBit: (0, 32)) }
+    set { _uniqueStorage().updateMapValue(atIndex: 0, fieldNumber: 4, to: newValue, hasBit: (0, 32)) }
   }
 
   public var repeatedB: [ModuleB.Test_MessageB] {
     get { _storage.value(atIndex: 0, hasBit: (0, 64)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 64)) }
+    set { _uniqueStorage().updateRepeatedMessageValue(atIndex: 0, fieldNumber: 5, to: newValue, hasBit: (0, 64)) }
   }
 
   public var repeatedEnumB: [ModuleB.Test_EnumB] {
     get { _storage.value(atIndex: 1, hasBit: (0, 128)) }
-    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 128)) }
+    set { _uniqueStorage().updateRepeatedEnumValue(atIndex: 1, fieldNumber: 6, to: newValue, hasBit: (0, 128)) }
   }
 
   public var oneofB: Test_MessageA.OneOf_OneofB? {
@@ -96,8 +96,8 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   }
 
   public var oneofEnumB: ModuleB.Test_EnumB {
-    get { return _storage.value(at: 24, default: .unspecified, oneofPresence: (4, 8)) }
-    set { _uniqueStorage().updateValue(at: 24, to: newValue, oneofPresence: (4, 8)) }
+    get { return _storage.enumValue(at: 24, fieldNumber: 8, default: .unspecified, oneofPresence: (4, 8)) }
+    set { _uniqueStorage().updateEnumValue(at: 24, fieldNumber: 8, to: newValue, oneofPresence: (4, 8)) }
   }
 
   /// Fields for ModuleC
@@ -111,8 +111,8 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   public mutating func clearNestedC() { _uniqueStorage().clearMessageValue(atIndex: 2, fieldNumber: 10, hasBit: (0, 8)) }
 
   public var nestedEnumC: ModuleC.Test_EnumC {
-    get { _storage.value(at: 28, default: .unspecified, hasBit: (0, 16)) }
-    set { _uniqueStorage().updateValue(at: 28, to: newValue, willBeSet: true, hasBit: (0, 16)) }
+    get { _storage.enumValue(at: 28, fieldNumber: 11, default: .unspecified, hasBit: (0, 16)) }
+    set { _uniqueStorage().updateEnumValue(at: 28, fieldNumber: 11, to: newValue, hasBit: (0, 16)) }
   }
   /// Returns true if `nestedEnumC` has been explicitly set.
   public var hasNestedEnumC: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
@@ -120,18 +120,18 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   public mutating func clearNestedEnumC() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 16)) }
 
   public var mapC: [String: ModuleC.Test_MessageC] {
-    get { _storage.value(atIndex: 1, hasBit: (1, 1)) }
-    set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 1)) }
+    get { _storage.mapValue(atIndex: 1, fieldNumber: 12, hasBit: (1, 1)) }
+    set { _uniqueStorage().updateMapValue(atIndex: 1, fieldNumber: 12, to: newValue, hasBit: (1, 1)) }
   }
 
   public var repeatedC: [ModuleC.Test_MessageC] {
     get { _storage.value(atIndex: 2, hasBit: (1, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 2)) }
+    set { _uniqueStorage().updateRepeatedMessageValue(atIndex: 2, fieldNumber: 13, to: newValue, hasBit: (1, 2)) }
   }
 
   public var repeatedEnumC: [ModuleC.Test_EnumC] {
     get { _storage.value(atIndex: 3, hasBit: (1, 4)) }
-    set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (1, 4)) }
+    set { _uniqueStorage().updateRepeatedEnumValue(atIndex: 3, fieldNumber: 14, to: newValue, hasBit: (1, 4)) }
   }
 
   public var oneofC: Test_MessageA.OneOf_OneofC? {
@@ -159,18 +159,34 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
   }
 
   public var oneofEnumC: ModuleC.Test_EnumC {
-    get { return _storage.value(at: 32, default: .unspecified, oneofPresence: (8, 16)) }
-    set { _uniqueStorage().updateValue(at: 32, to: newValue, oneofPresence: (8, 16)) }
+    get { return _storage.enumValue(at: 32, fieldNumber: 16, default: .unspecified, oneofPresence: (8, 16)) }
+    set { _uniqueStorage().updateEnumValue(at: 32, fieldNumber: 16, to: newValue, oneofPresence: (8, 16)) }
   }
 
   public nonisolated enum OneOf_OneofB: Swift.Equatable, Swift.Sendable {
     case oneofMessageB(ModuleB.Test_MessageB)
     case oneofEnumB(ModuleB.Test_EnumB)
+
+    public static func == (lhs: OneOf_OneofB, rhs: OneOf_OneofB) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofMessageB(let l), .oneofMessageB(let r)): return withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in Test_MessageA.messageSchema.submessageSchema(for: 7).areEqual(lPtr, rPtr) } }
+      case (.oneofEnumB(let l), .oneofEnumB(let r)): return withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in Test_MessageA.messageSchema.enumSchema(for: 8).areEqual(lPtr, rPtr) } }
+      default: return false
+      }
+    }
   }
 
   public nonisolated enum OneOf_OneofC: Swift.Equatable, Swift.Sendable {
     case oneofMessageC(ModuleC.Test_MessageC)
     case oneofEnumC(ModuleC.Test_EnumC)
+
+    public static func == (lhs: OneOf_OneofC, rhs: OneOf_OneofC) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofMessageC(let l), .oneofMessageC(let r)): return withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in Test_MessageA.messageSchema.submessageSchema(for: 15).areEqual(lPtr, rPtr) } }
+      case (.oneofEnumC(let l), .oneofEnumC(let r)): return withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in Test_MessageA.messageSchema.enumSchema(for: 16).areEqual(lPtr, rPtr) } }
+      default: return false
+      }
+    }
   }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
@@ -195,7 +211,7 @@ public nonisolated struct Test_MessageA: @unchecked Swift.Sendable {
 nonisolated extension Test_MessageA {
 
   public var Test_extMessage: ModuleB.Test_MessageB {
-    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_message, default: ModuleB.Test_MessageB()) }
+    get { _protobuf_extensionStorage().messageValue(of: Test_Extensions_ext_message) }
     set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_message, to: newValue) }
   }
   /// Returns true if extension `Test_Extensions_ext_message`
@@ -217,7 +233,7 @@ nonisolated extension Test_MessageA {
   public mutating func clearTest_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum) }
 
   public var Test_extMessageC: ModuleC.Test_MessageC {
-    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_message_c, default: ModuleC.Test_MessageC()) }
+    get { _protobuf_extensionStorage().messageValue(of: Test_Extensions_ext_message_c) }
     set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_message_c, to: newValue) }
   }
   /// Returns true if extension `Test_Extensions_ext_message_c`

@@ -14529,6 +14529,26 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: @
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
+  nonisolated struct mapValue: @unchecked Swift.Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var mapValue: Int32 {
+      get { _storage.value(at: 4, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+    }
+
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+    private var _storage: SwiftProtobuf.MessageStorage
+    private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+      if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+      return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  }
+
   nonisolated struct mask: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -22429,6 +22449,26 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: @
     mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
   }
 
+  nonisolated struct updateMapValue: @unchecked Swift.Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var updateMapValue: Int32 {
+      get { _storage.value(at: 4, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+    }
+
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+    private var _storage: SwiftProtobuf.MessageStorage
+    private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+      if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+      return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  }
+
   nonisolated struct updateMessageValue: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -22475,6 +22515,46 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: @
     // methods supported on all messages.
 
     var updatePresence: Int32 {
+      get { _storage.value(at: 4, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+    }
+
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+    private var _storage: SwiftProtobuf.MessageStorage
+    private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+      if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+      return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  }
+
+  nonisolated struct updateRepeatedEnumValue: @unchecked Swift.Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var updateRepeatedEnumValue: Int32 {
+      get { _storage.value(at: 4, hasBit: (0, 1)) }
+      set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+    }
+
+    init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+
+    private var _storage: SwiftProtobuf.MessageStorage
+    private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {
+      if !isKnownUniquelyReferenced(&_storage) { _storage = _storage.copy() }
+      return _storage
+    }
+    mutating func _protobuf_ensureUniqueStorage(accessToken: SwiftProtobuf.MessageStorageToken) { _ = _uniqueStorage() }
+  }
+
+  nonisolated struct updateRepeatedMessageValue: @unchecked Swift.Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var updateRepeatedMessageValue: Int32 {
       get { _storage.value(at: 4, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
     }
@@ -30961,6 +31041,16 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapValue: SwiftProtobuf.GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}E\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.mapValue"
+  private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp3,=\u{18}YM8[\ry\"_;OM\0\0\0"
+
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mask: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}A\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.mask"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp34-!\u{11}Mpb\u{f}W\u{4}\u{11}\0\0"
@@ -34911,6 +35001,16 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updateMapValue: SwiftProtobuf.GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.updateMapValue"
+  private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{5}15~E`e\u{7}ajT`q\u{1a}Nzj\n\0\0"
+
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updateMessageValue: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}O\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.updateMessageValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}\u{16}#{.HZ\u{c}\u{8}\u{f}K_\u{14}\u{1a}5\u{8}Q0\u{12}07:\u{b}\0\0\0"
@@ -34934,6 +35034,26 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updatePresence: SwiftProtobuf.GeneratedMessage {
   private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}K\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.updatePresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&p\u{1d}-`\u{15}Wp\u{3}\u{5}15>F\u{e}Da|\u{1c}qZ\u{8}Z*m\u{19}@\u{4}\0"
+
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updateRepeatedEnumValue: SwiftProtobuf.GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}T\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.updateRepeatedEnumValue"
+  private static let _protobuf_reflectionData: Swift.StaticString = "8\0\0\0@<_)1J\0qW6M]\u{7}\u{16}#{.H\u{1a}\u{1e}\u{1}\u{1b}_;c2#<r#V\u{19}^\u{17}vX%N\u{1}\0\0"
+
+  static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
+
+  func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
+
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updateRepeatedMessageValue: SwiftProtobuf.GeneratedMessage {
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0\u{8}\0\0\u{1}\0\0\0\0\0\0\0\0\u{2}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}W\0swift_proto_testing.generated.GeneratedSwiftReservedMessages.updateRepeatedMessageValue"
+  private static let _protobuf_reflectionData: Swift.StaticString = "<\0\0\0@^O'=J\0qW6M]\u{7}\u{16}#{.H\u{1a}\u{1e}\u{1}\u{1b}_;s\u{13}}T]\u{e}K>W^et\r]St\u{19}\u{6}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 

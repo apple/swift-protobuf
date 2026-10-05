@@ -31,6 +31,7 @@ message GeneratedSwiftReservedMessages {
   message appendUnknown { int32 appendUnknown = 1; }
   message appendValue { int32 appendValue = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
+  message areEqual { int32 areEqual = 1; }
   message Array { int32 Array = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
@@ -120,6 +121,7 @@ message GeneratedSwiftReservedMessages {
   message clearEnforceNamingStyle { int32 clearEnforceNamingStyle = 1; }
   message clearEnforceProtoLimits { int32 clearEnforceProtoLimits = 1; }
   message clearEnumType { int32 clearEnumType = 1; }
+  message clearEnumValue { int32 clearEnumValue = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearFeatures { int32 clearFeatures = 1; }
   message clearFeatureSupport { int32 clearFeatureSupport = 1; }
@@ -147,6 +149,7 @@ message GeneratedSwiftReservedMessages {
   message clearMaximumEdition { int32 clearMaximumEdition = 1; }
   message clearMessageEncoding { int32 clearMessageEncoding = 1; }
   message clearMessageSetWireFormat { int32 clearMessageSetWireFormat = 1; }
+  message clearMessageValue { int32 clearMessageValue = 1; }
   message clearMinimumEdition { int32 clearMinimumEdition = 1; }
   message clearName { int32 clearName = 1; }
   message clearNamePart { int32 clearNamePart = 1; }
@@ -227,6 +230,7 @@ message GeneratedSwiftReservedMessages {
   message contains { int32 contains = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message ContiguousBytes { int32 ContiguousBytes = 1; }
+  message convention { int32 convention = 1; }
   message copy { int32 copy = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
@@ -260,6 +264,7 @@ message GeneratedSwiftReservedMessages {
   message defaultValue { int32 defaultValue = 1; }
   message deinitializeField { int32 deinitializeField = 1; }
   message deinitializeFieldForced { int32 deinitializeFieldForced = 1; }
+  message deinitializeSubmessage { int32 deinitializeSubmessage = 1; }
   message delimiter { int32 delimiter = 1; }
   message denseBelow { int32 denseBelow = 1; }
   message dependency { int32 dependency = 1; }
@@ -282,6 +287,8 @@ message GeneratedSwiftReservedMessages {
   message duration { int32 duration = 1; }
   message durationNanos { int32 durationNanos = 1; }
   message durationSeconds { int32 durationSeconds = 1; }
+  message DynamicLookupThunk { int32 DynamicLookupThunk = 1; }
+  message DynamicMapWitnessThunk { int32 DynamicMapWitnessThunk = 1; }
   message E { int32 E = 1; }
   message edition { int32 edition = 1; }
   message EditionDefault { int32 EditionDefault = 1; }
@@ -315,7 +322,7 @@ message GeneratedSwiftReservedMessages {
   message EnumReservedRange { int32 EnumReservedRange = 1; }
   message enumSchema { int32 enumSchema = 1; }
   message enumType { int32 enumType = 1; }
-  message enumvalue { int32 enumvalue = 1; }
+  message enumValue { int32 enumValue = 1; }
   message EnumWitnesses { int32 EnumWitnesses = 1; }
   message EnumWitnessOperation { int32 EnumWitnessOperation = 1; }
   message equalSoFar { int32 equalSoFar = 1; }
@@ -722,6 +729,7 @@ message GeneratedSwiftReservedMessages {
   message mapEntryValue { int32 mapEntryValue = 1; }
   message MapEntryWitnesses { int32 MapEntryWitnesses = 1; }
   message mapEntryWorkingSpace { int32 mapEntryWorkingSpace = 1; }
+  message mapValue { int32 mapValue = 1; }
   message mask { int32 mask = 1; }
   message matchCode { int32 matchCode = 1; }
   message maximumEdition { int32 maximumEdition = 1; }
@@ -745,6 +753,7 @@ message GeneratedSwiftReservedMessages {
   message messageStorage { int32 messageStorage = 1; }
   message MessageStorageToken { int32 MessageStorageToken = 1; }
   message messageType { int32 messageType = 1; }
+  message messageValue { int32 messageValue = 1; }
   message MessageWitnesses { int32 MessageWitnesses = 1; }
   message MessageWitnessOperation { int32 MessageWitnessOperation = 1; }
   message method { int32 method = 1; }
@@ -1022,6 +1031,7 @@ message GeneratedSwiftReservedMessages {
   message SubmessageOrEnumResolver { int32 SubmessageOrEnumResolver = 1; }
   message SubmessageOrEnumSchema { int32 SubmessageOrEnumSchema = 1; }
   message SubmessageOrEnumToken { int32 SubmessageOrEnumToken = 1; }
+  message submessageSchema { int32 submessageSchema = 1; }
   message submessageStorage { int32 submessageStorage = 1; }
   message subOptions { int32 subOptions = 1; }
   message subPaths { int32 subPaths = 1; }
@@ -1056,6 +1066,7 @@ message GeneratedSwiftReservedMessages {
   message TextFormatReader { int32 TextFormatReader = 1; }
   message textFormatString { int32 textFormatString = 1; }
   message textName { int32 textName = 1; }
+  message thin { int32 thin = 1; }
   message throws { int32 throws = 1; }
   message timeInterval { int32 timeInterval = 1; }
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
@@ -1109,12 +1120,17 @@ message GeneratedSwiftReservedMessages {
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message unsafeMutablePointerToValue { int32 unsafeMutablePointerToValue = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
-  message unsafeMutableRawPointer { int32 unsafeMutableRawPointer = 1; }
+  message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
-  message unsafeRawPointer { int32 unsafeRawPointer = 1; }
+  message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
   message unverifiedLazy { int32 unverifiedLazy = 1; }
+  message updateEnumValue { int32 updateEnumValue = 1; }
+  message updateMapValue { int32 updateMapValue = 1; }
+  message updateMessageValue { int32 updateMessageValue = 1; }
   message updatePopulatedOneofMember { int32 updatePopulatedOneofMember = 1; }
   message updatePresence { int32 updatePresence = 1; }
+  message updateRepeatedEnumValue { int32 updateRepeatedEnumValue = 1; }
+  message updateRepeatedMessageValue { int32 updateRepeatedMessageValue = 1; }
   message updateValue { int32 updateValue = 1; }
   message upperBound { int32 upperBound = 1; }
   message uppercasedAssumingASCII { int32 uppercasedAssumingASCII = 1; }
