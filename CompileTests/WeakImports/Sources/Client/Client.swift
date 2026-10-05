@@ -221,7 +221,15 @@ struct Main {
         // ModuleB symbols should all be stripped since they're never referenced
         // by this source file:
         //
-        //   HAS-SYMBOL-NOT: {{.*ModuleB.*}}
+        //   HAS-SYMBOL-NOT: {{(static )?ModuleB\..*}}
+        //   HAS-SYMBOL-NOT: {{.* in ModuleB}}
+        //   HAS-SYMBOL-NOT: {{.* for ModuleB\..*}}
+        //   HAS-SYMBOL-NOT: {{.* type ModuleB\..*}}
+        //
+        // C functions exported via @_cdecl for dynamic schema and witness lookup
+        // of types in ModuleB (in proto package "test", matching functions such as
+        // `test_DMessageB_getMessageSchema` and `test_DEnumB_getMapWitness`):
+        //   HAS-SYMBOL-NOT: {{_?test_D.*B_.*}}
 
         print("✅ All tests passed!")
     }
