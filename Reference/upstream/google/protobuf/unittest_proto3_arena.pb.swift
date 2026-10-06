@@ -164,7 +164,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   }
 
   var optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 0, default: Proto3ArenaUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -173,7 +173,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto3ArenaUnittest_TestAllTypes.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 1, default: Proto3ArenaUnittest_ForeignMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -182,7 +182,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 1, type: Proto3ArenaUnittest_ForeignMessage.self, hasBit: (0, 2)) }
 
   var optionalImportMessage: Proto2UnittestImport_ImportMessage {
-    get { _storage.value(atIndex: 2, default: Proto2UnittestImport_ImportMessage(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -217,7 +217,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
-    get { _storage.value(atIndex: 3, default: Proto2UnittestImport_PublicImportMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -226,7 +226,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalPublicImportMessage() { _uniqueStorage().clearValue(atIndex: 3, type: Proto2UnittestImport_PublicImportMessage.self, hasBit: (0, 8)) }
 
   var optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 4, default: Proto3ArenaUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -235,7 +235,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalLazyMessage() { _uniqueStorage().clearValue(atIndex: 4, type: Proto3ArenaUnittest_TestAllTypes.NestedMessage.self, hasBit: (0, 16)) }
 
   var optionalUnverifiedLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 5, default: Proto3ArenaUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
@@ -244,7 +244,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalUnverifiedLazyMessage() { _uniqueStorage().clearValue(atIndex: 5, type: Proto3ArenaUnittest_TestAllTypes.NestedMessage.self, hasBit: (0, 32)) }
 
   var optionalLazyImportMessage: Proto2UnittestImport_ImportMessage {
-    get { _storage.value(atIndex: 7, default: Proto2UnittestImport_ImportMessage(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 7, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `optionalLazyImportMessage` has been explicitly set.
@@ -533,7 +533,7 @@ nonisolated struct Proto3ArenaUnittest_TestAllTypes: @unchecked Swift.Sendable {
   }
 
   var oneofNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 6, default: Proto3ArenaUnittest_TestAllTypes.NestedMessage(), oneofPresence: (12, 112)) }
+    get { return _storage.messageValue(atIndex: 6, oneofPresence: (12, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, oneofPresence: (12, 112)) }
   }
 
@@ -813,7 +813,7 @@ nonisolated struct Proto3ArenaUnittest_NestedTestAllTypes: @unchecked Swift.Send
   // methods supported on all messages.
 
   var child: Proto3ArenaUnittest_NestedTestAllTypes {
-    get { _storage.value(atIndex: 0, default: Proto3ArenaUnittest_NestedTestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -822,7 +822,7 @@ nonisolated struct Proto3ArenaUnittest_NestedTestAllTypes: @unchecked Swift.Send
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: Proto3ArenaUnittest_NestedTestAllTypes.self, hasBit: (0, 1)) }
 
   var payload: Proto3ArenaUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: Proto3ArenaUnittest_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
@@ -836,7 +836,7 @@ nonisolated struct Proto3ArenaUnittest_NestedTestAllTypes: @unchecked Swift.Send
   }
 
   var lazyPayload: Proto3ArenaUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 2, default: Proto3ArenaUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lazyPayload` has been explicitly set.

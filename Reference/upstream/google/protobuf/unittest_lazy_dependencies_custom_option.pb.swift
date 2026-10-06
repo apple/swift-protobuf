@@ -77,7 +77,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2Unittest_LazyImports_lazyEnumOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_LazyImports_Extensions_lazy_enum_option) }
   /// Clears the value of extension `Proto2Unittest_LazyImports_Extensions_lazy_enum_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_LazyImports_lazyEnumOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_LazyImports_Extensions_lazy_enum_option, type: Proto2Unittest_LazyImports_LazyEnum.self) }
+  mutating func clearProto2Unittest_LazyImports_lazyEnumOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_LazyImports_Extensions_lazy_enum_option) }
 
 }
 

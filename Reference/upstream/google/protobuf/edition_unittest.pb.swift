@@ -349,7 +349,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: EditionUnittest_TestAllTypes.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -358,7 +358,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestAllTypes.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestAllTypes.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -367,7 +367,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: EditionUnittest_TestAllTypes.NestedMessage.self, hasBit: (2, 1)) }
 
   var optionalForeignMessage: EditionUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 2, default: EditionUnittest_ForeignMessage(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -376,7 +376,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 2, type: EditionUnittest_ForeignMessage.self, hasBit: (2, 2)) }
 
   var optionalImportMessage: Proto2UnittestImport_ImportMessage {
-    get { _storage.value(atIndex: 3, default: Proto2UnittestImport_ImportMessage(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -391,7 +391,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 68, type: EditionUnittest_TestAllTypes.NestedEnum.self, hasBit: (2, 8)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 68, hasBit: (2, 8)) }
 
   var optionalForeignEnum: EditionUnittest_ForeignEnum {
     get { _storage.value(at: 72, default: .foreignFoo, hasBit: (2, 16)) }
@@ -400,7 +400,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 72, type: EditionUnittest_ForeignEnum.self, hasBit: (2, 16)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 72, hasBit: (2, 16)) }
 
   var optionalImportEnum: Proto2UnittestImport_ImportEnum {
     get { _storage.value(at: 76, default: .importFoo, hasBit: (2, 32)) }
@@ -409,7 +409,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalImportEnum` has been explicitly set.
   var hasOptionalImportEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportEnum() { _uniqueStorage().clearValue(at: 76, type: Proto2UnittestImport_ImportEnum.self, hasBit: (2, 32)) }
+  mutating func clearOptionalImportEnum() { _uniqueStorage().clearEnumValue(at: 76, hasBit: (2, 32)) }
 
   var optionalStringPiece: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 64)) }
@@ -440,7 +440,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: Proto2UnittestImport_PublicImportMessage {
-    get { _storage.value(atIndex: 4, default: Proto2UnittestImport_PublicImportMessage(), hasBit: (3, 1)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (3, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (3, 1)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -449,7 +449,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalPublicImportMessage() { _uniqueStorage().clearValue(atIndex: 4, type: Proto2UnittestImport_PublicImportMessage.self, hasBit: (3, 1)) }
 
   var optionalLazyMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 5, default: EditionUnittest_TestAllTypes.NestedMessage(), hasBit: (3, 2)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (3, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (3, 2)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -458,7 +458,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalLazyMessage() { _uniqueStorage().clearValue(atIndex: 5, type: EditionUnittest_TestAllTypes.NestedMessage.self, hasBit: (3, 2)) }
 
   var optionalUnverifiedLazyMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 6, default: EditionUnittest_TestAllTypes.NestedMessage(), hasBit: (3, 4)) }
+    get { _storage.messageValue(atIndex: 6, hasBit: (3, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 6, to: newValue, willBeSet: true, hasBit: (3, 4)) }
   }
   /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
@@ -735,7 +735,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 4)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 104, type: EditionUnittest_TestAllTypes.NestedEnum.self, hasBit: (5, 4)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearEnumValue(at: 104, hasBit: (5, 4)) }
 
   var defaultForeignEnum: EditionUnittest_ForeignEnum {
     get { _storage.value(at: 108, default: .foreignBar, hasBit: (5, 8)) }
@@ -744,7 +744,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 8)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 108, type: EditionUnittest_ForeignEnum.self, hasBit: (5, 8)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearEnumValue(at: 108, hasBit: (5, 8)) }
 
   var defaultImportEnum: Proto2UnittestImport_ImportEnum {
     get { _storage.value(at: 112, default: .importBar, hasBit: (5, 16)) }
@@ -753,7 +753,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 16)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 112, type: Proto2UnittestImport_ImportEnum.self, hasBit: (5, 16)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearEnumValue(at: 112, hasBit: (5, 16)) }
 
   var defaultStringPiece: String {
     get { _storage.value(atIndex: 4, default: "abc", hasBit: (5, 32)) }
@@ -809,7 +809,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   }
 
   var oneofNestedMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 7, default: EditionUnittest_TestAllTypes.NestedMessage(), oneofPresence: (12, 112)) }
+    get { return _storage.messageValue(atIndex: 7, oneofPresence: (12, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 7, to: newValue, oneofPresence: (12, 112)) }
   }
 
@@ -834,7 +834,7 @@ nonisolated struct EditionUnittest_TestAllTypes: @unchecked Swift.Sendable {
   }
 
   var oneofLazyNestedMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 8, default: EditionUnittest_TestAllTypes.NestedMessage(), oneofPresence: (12, 117)) }
+    get { return _storage.messageValue(atIndex: 8, oneofPresence: (12, 117)) }
     set { _uniqueStorage().updateValue(atIndex: 8, to: newValue, oneofPresence: (12, 117)) }
   }
 
@@ -955,7 +955,7 @@ nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var child: EditionUnittest_NestedTestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_NestedTestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -964,7 +964,7 @@ nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Swift.Sendable
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_NestedTestAllTypes.self, hasBit: (0, 1)) }
 
   var payload: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
@@ -978,7 +978,7 @@ nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Swift.Sendable
   }
 
   var lazyChild: EditionUnittest_NestedTestAllTypes {
-    get { _storage.value(atIndex: 2, default: EditionUnittest_NestedTestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `lazyChild` has been explicitly set.
@@ -987,7 +987,7 @@ nonisolated struct EditionUnittest_NestedTestAllTypes: @unchecked Swift.Sendable
   mutating func clearLazyChild() { _uniqueStorage().clearValue(atIndex: 2, type: EditionUnittest_NestedTestAllTypes.self, hasBit: (0, 4)) }
 
   var eagerChild: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 3, default: EditionUnittest_TestAllTypes(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `eagerChild` has been explicitly set.
@@ -1028,7 +1028,7 @@ nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Swift.Sendab
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedMessage: EditionUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `deprecatedMessage` has been explicitly set.
@@ -1060,7 +1060,7 @@ nonisolated struct EditionUnittest_TestDeprecatedFields: @unchecked Swift.Sendab
   }
 
   var nested: EditionUnittest_TestDeprecatedFields {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestDeprecatedFields(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `nested` has been explicitly set.
@@ -1246,7 +1246,7 @@ nonisolated struct EditionUnittest_TestGroup: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var optionalGroup: EditionUnittest_TestGroup.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestGroup.OptionalGroup(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -1261,7 +1261,7 @@ nonisolated struct EditionUnittest_TestGroup: @unchecked Swift.Sendable {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 2)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   nonisolated struct OptionalGroup: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1385,7 +1385,7 @@ nonisolated struct EditionUnittest_TestChildExtension: @unchecked Swift.Sendable
   mutating func clearB() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (0, 2)) }
 
   var optionalExtension: EditionUnittest_TestAllExtensions {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllExtensions(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalExtension` has been explicitly set.
@@ -1429,7 +1429,7 @@ nonisolated struct EditionUnittest_TestChildExtensionData: @unchecked Swift.Send
   mutating func clearB() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (0, 2)) }
 
   var optionalExtension: EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalExtension` has been explicitly set.
@@ -1443,7 +1443,7 @@ nonisolated struct EditionUnittest_TestChildExtensionData: @unchecked Swift.Send
     // methods supported on all messages.
 
     var dynamic: EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `dynamic` has been explicitly set.
@@ -1519,7 +1519,7 @@ nonisolated struct EditionUnittest_TestNestedChildExtension: @unchecked Swift.Se
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var child: EditionUnittest_TestChildExtension {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestChildExtension(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -1554,7 +1554,7 @@ nonisolated struct EditionUnittest_TestNestedChildExtensionData: @unchecked Swif
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var child: EditionUnittest_TestChildExtensionData {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestChildExtensionData(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -1586,7 +1586,7 @@ nonisolated struct EditionUnittest_TestRequiredEnum: @unchecked Swift.Sendable {
   /// Returns true if `requiredEnum` has been explicitly set.
   var hasRequiredEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 1)) }
+  mutating func clearRequiredEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   /// A dummy optional field.
   var a: Int32 {
@@ -1621,7 +1621,7 @@ nonisolated struct EditionUnittest_TestRequiredEnumNoMask: @unchecked Swift.Send
   /// Returns true if `requiredEnum` has been explicitly set.
   var hasRequiredEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_TestRequiredEnumNoMask.NestedEnum.self, hasBit: (0, 1)) }
+  mutating func clearRequiredEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   /// A dummy optional field.
   var a: Int32 {
@@ -1671,7 +1671,7 @@ nonisolated struct EditionUnittest_TestRequiredEnumMulti: @unchecked Swift.Senda
   /// Returns true if `requiredEnum4` has been explicitly set.
   var hasRequiredEnum4: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `requiredEnum4`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum4() { _uniqueStorage().clearValue(at: 16, type: EditionUnittest_TestRequiredEnumMulti.NestedEnum.self, hasBit: (0, 4)) }
+  mutating func clearRequiredEnum4() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 4)) }
 
   var a3: Int32 {
     get { _storage.value(at: 12, default: 0, hasBit: (0, 8)) }
@@ -1689,7 +1689,7 @@ nonisolated struct EditionUnittest_TestRequiredEnumMulti: @unchecked Swift.Senda
   /// Returns true if `requiredEnum2` has been explicitly set.
   var hasRequiredEnum2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `requiredEnum2`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum2() { _uniqueStorage().clearValue(at: 8, type: EditionUnittest_TestRequiredEnumMulti.NestedEnum.self, hasBit: (0, 2)) }
+  mutating func clearRequiredEnum2() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var requiredEnum1: EditionUnittest_ForeignEnum {
     get { _storage.value(at: 4, default: .foreignFoo, hasBit: (0, 1)) }
@@ -1698,7 +1698,7 @@ nonisolated struct EditionUnittest_TestRequiredEnumMulti: @unchecked Swift.Senda
   /// Returns true if `requiredEnum1` has been explicitly set.
   var hasRequiredEnum1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredEnum1`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum1() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 1)) }
+  mutating func clearRequiredEnum1() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   nonisolated enum NestedEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
@@ -1755,7 +1755,7 @@ nonisolated struct EditionUnittest_TestRequiredNoMaskMulti: @unchecked Swift.Sen
   /// Returns true if `requiredEnum64` has been explicitly set.
   var hasRequiredEnum64: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `requiredEnum64`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum64() { _uniqueStorage().clearValue(at: 20, type: EditionUnittest_TestRequiredNoMaskMulti.NestedEnum.self, hasBit: (0, 8)) }
+  mutating func clearRequiredEnum64() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 8)) }
 
   var requiredEnum4: EditionUnittest_TestRequiredNoMaskMulti.NestedEnum {
     get { _storage.value(at: 16, default: .unspecified, hasBit: (0, 4)) }
@@ -1764,7 +1764,7 @@ nonisolated struct EditionUnittest_TestRequiredNoMaskMulti: @unchecked Swift.Sen
   /// Returns true if `requiredEnum4` has been explicitly set.
   var hasRequiredEnum4: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `requiredEnum4`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum4() { _uniqueStorage().clearValue(at: 16, type: EditionUnittest_TestRequiredNoMaskMulti.NestedEnum.self, hasBit: (0, 4)) }
+  mutating func clearRequiredEnum4() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 4)) }
 
   var a3: Int32 {
     get { _storage.value(at: 12, default: 0, hasBit: (0, 64)) }
@@ -1782,7 +1782,7 @@ nonisolated struct EditionUnittest_TestRequiredNoMaskMulti: @unchecked Swift.Sen
   /// Returns true if `requiredEnum2` has been explicitly set.
   var hasRequiredEnum2: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `requiredEnum2`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum2() { _uniqueStorage().clearValue(at: 8, type: EditionUnittest_TestRequiredNoMaskMulti.NestedEnum.self, hasBit: (0, 2)) }
+  mutating func clearRequiredEnum2() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var requiredEnum1: EditionUnittest_ForeignEnum {
     get { _storage.value(at: 4, default: .foreignFoo, hasBit: (0, 1)) }
@@ -1791,7 +1791,7 @@ nonisolated struct EditionUnittest_TestRequiredNoMaskMulti: @unchecked Swift.Sen
   /// Returns true if `requiredEnum1` has been explicitly set.
   var hasRequiredEnum1: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `requiredEnum1`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredEnum1() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 1)) }
+  mutating func clearRequiredEnum1() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   nonisolated enum NestedEnum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unspecified = 0
@@ -2126,7 +2126,7 @@ nonisolated struct EditionUnittest_TestRequired: @unchecked Swift.Sendable {
 
   /// Add an optional child message to make this non-trivial for go/pdlazy.
   var optionalForeign: EditionUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_ForeignMessage(), hasBit: (4, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `optionalForeign` has been explicitly set.
@@ -2150,7 +2150,7 @@ nonisolated struct EditionUnittest_TestRequiredForeign: @unchecked Swift.Sendabl
   // methods supported on all messages.
 
   var optionalMessage: EditionUnittest_TestRequired {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -2174,7 +2174,7 @@ nonisolated struct EditionUnittest_TestRequiredForeign: @unchecked Swift.Sendabl
 
   /// Missing fields must not affect verification of child messages.
   var optionalLazyMessage: EditionUnittest_NestedTestAllTypes {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_NestedTestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -2198,7 +2198,7 @@ nonisolated struct EditionUnittest_TestRequiredMessage: @unchecked Swift.Sendabl
   // methods supported on all messages.
 
   var optionalMessage: EditionUnittest_TestRequired {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestRequired(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -2212,7 +2212,7 @@ nonisolated struct EditionUnittest_TestRequiredMessage: @unchecked Swift.Sendabl
   }
 
   var requiredMessage: EditionUnittest_TestRequired {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredMessage` has been explicitly set.
@@ -2236,7 +2236,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
   // methods supported on all messages.
 
   var child: EditionUnittest_TestNestedRequiredForeign {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestNestedRequiredForeign(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -2245,7 +2245,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestNestedRequiredForeign.self, hasBit: (0, 1)) }
 
   var payload: EditionUnittest_TestRequiredForeign {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestRequiredForeign(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
@@ -2264,7 +2264,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
 
   /// optional message to test closed enum.
   var requiredEnum: EditionUnittest_TestRequiredEnum {
-    get { _storage.value(atIndex: 2, default: EditionUnittest_TestRequiredEnum(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `requiredEnum` has been explicitly set.
@@ -2273,7 +2273,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
   mutating func clearRequiredEnum() { _uniqueStorage().clearValue(atIndex: 2, type: EditionUnittest_TestRequiredEnum.self, hasBit: (0, 8)) }
 
   var requiredEnumNoMask: EditionUnittest_TestRequiredEnumNoMask {
-    get { _storage.value(atIndex: 3, default: EditionUnittest_TestRequiredEnumNoMask(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `requiredEnumNoMask` has been explicitly set.
@@ -2282,7 +2282,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
   mutating func clearRequiredEnumNoMask() { _uniqueStorage().clearValue(atIndex: 3, type: EditionUnittest_TestRequiredEnumNoMask.self, hasBit: (0, 16)) }
 
   var requiredEnumMulti: EditionUnittest_TestRequiredEnumMulti {
-    get { _storage.value(atIndex: 4, default: EditionUnittest_TestRequiredEnumMulti(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `requiredEnumMulti` has been explicitly set.
@@ -2291,7 +2291,7 @@ nonisolated struct EditionUnittest_TestNestedRequiredForeign: @unchecked Swift.S
   mutating func clearRequiredEnumMulti() { _uniqueStorage().clearValue(atIndex: 4, type: EditionUnittest_TestRequiredEnumMulti.self, hasBit: (0, 32)) }
 
   var requiredNoMask: EditionUnittest_TestRequiredNoMaskMulti {
-    get { _storage.value(atIndex: 5, default: EditionUnittest_TestRequiredNoMaskMulti(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `requiredNoMask` has been explicitly set.
@@ -2316,7 +2316,7 @@ nonisolated struct EditionUnittest_TestForeignNested: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   var foreignNested: EditionUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `foreignNested` has been explicitly set.
@@ -2488,7 +2488,7 @@ nonisolated struct EditionUnittest_TestRecursiveMessage: @unchecked Swift.Sendab
   // methods supported on all messages.
 
   var a: EditionUnittest_TestRecursiveMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestRecursiveMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
@@ -2522,7 +2522,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
   // methods supported on all messages.
 
   var bb: EditionUnittest_TestMutualRecursionB {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestMutualRecursionB(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `bb` has been explicitly set.
@@ -2531,7 +2531,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
   mutating func clearBb() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestMutualRecursionB.self, hasBit: (0, 1)) }
 
   var subGroup: EditionUnittest_TestMutualRecursionA.SubGroup {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestMutualRecursionA.SubGroup(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `subGroup` has been explicitly set.
@@ -2550,7 +2550,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
     // methods supported on all messages.
 
     var b: EditionUnittest_TestMutualRecursionB {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestMutualRecursionB(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `b` has been explicitly set.
@@ -2575,7 +2575,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
 
     /// Needed because of bug in javatest
     var subMessage: EditionUnittest_TestMutualRecursionA.SubMessage {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestMutualRecursionA.SubMessage(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `subMessage` has been explicitly set.
@@ -2584,7 +2584,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
     mutating func clearSubMessage() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestMutualRecursionA.SubMessage.self, hasBit: (0, 1)) }
 
     var notInThisScc: EditionUnittest_TestAllTypes {
-      get { _storage.value(atIndex: 1, default: EditionUnittest_TestAllTypes(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `notInThisScc` has been explicitly set.
@@ -2608,7 +2608,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionA: @unchecked Swift.Sendab
     // methods supported on all messages.
 
     var payload: EditionUnittest_TestAllTypes {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `payload` has been explicitly set.
@@ -2642,7 +2642,7 @@ nonisolated struct EditionUnittest_TestMutualRecursionB: @unchecked Swift.Sendab
   // methods supported on all messages.
 
   var a: EditionUnittest_TestMutualRecursionA {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestMutualRecursionA(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
@@ -2675,7 +2675,7 @@ nonisolated struct EditionUnittest_TestIsInitialized: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   var subMessage: EditionUnittest_TestIsInitialized.SubMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestIsInitialized.SubMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `subMessage` has been explicitly set.
@@ -2689,7 +2689,7 @@ nonisolated struct EditionUnittest_TestIsInitialized: @unchecked Swift.Sendable 
     // methods supported on all messages.
 
     var subGroup: EditionUnittest_TestIsInitialized.SubMessage.SubGroup {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestIsInitialized.SubMessage.SubGroup(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `subGroup` has been explicitly set.
@@ -2761,7 +2761,7 @@ nonisolated struct EditionUnittest_TestDupFieldNumber: @unchecked Swift.Sendable
   mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var foo: EditionUnittest_TestDupFieldNumber.Foo {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestDupFieldNumber.Foo(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `foo` has been explicitly set.
@@ -2770,7 +2770,7 @@ nonisolated struct EditionUnittest_TestDupFieldNumber: @unchecked Swift.Sendable
   mutating func clearFoo() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestDupFieldNumber.Foo.self, hasBit: (0, 2)) }
 
   var bar: EditionUnittest_TestDupFieldNumber.Bar {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestDupFieldNumber.Bar(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `bar` has been explicitly set.
@@ -2843,7 +2843,7 @@ nonisolated struct EditionUnittest_TestEagerMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var subMessage: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `subMessage` has been explicitly set.
@@ -2867,7 +2867,7 @@ nonisolated struct EditionUnittest_TestLazyMessage: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var subMessage: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `subMessage` has been explicitly set.
@@ -2911,7 +2911,7 @@ nonisolated struct EditionUnittest_TestEagerMaybeLazy: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var messageFoo: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageFoo` has been explicitly set.
@@ -2920,7 +2920,7 @@ nonisolated struct EditionUnittest_TestEagerMaybeLazy: @unchecked Swift.Sendable
   mutating func clearMessageFoo() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestAllTypes.self, hasBit: (0, 1)) }
 
   var messageBar: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `messageBar` has been explicitly set.
@@ -2929,7 +2929,7 @@ nonisolated struct EditionUnittest_TestEagerMaybeLazy: @unchecked Swift.Sendable
   mutating func clearMessageBar() { _uniqueStorage().clearValue(atIndex: 1, type: EditionUnittest_TestAllTypes.self, hasBit: (0, 2)) }
 
   var messageBaz: EditionUnittest_TestEagerMaybeLazy.NestedMessage {
-    get { _storage.value(atIndex: 2, default: EditionUnittest_TestEagerMaybeLazy.NestedMessage(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `messageBaz` has been explicitly set.
@@ -2943,7 +2943,7 @@ nonisolated struct EditionUnittest_TestEagerMaybeLazy: @unchecked Swift.Sendable
     // methods supported on all messages.
 
     var packed: EditionUnittest_TestPackedTypes {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestPackedTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `packed` has been explicitly set.
@@ -2978,7 +2978,7 @@ nonisolated struct EditionUnittest_TestNestedMessageHasBits: @unchecked Swift.Se
   // methods supported on all messages.
 
   var optionalNestedMessage: EditionUnittest_TestNestedMessageHasBits.NestedMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestNestedMessageHasBits.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -3053,10 +3053,10 @@ nonisolated struct EditionUnittest_TestCamelCaseFieldNames: @unchecked Swift.Sen
   /// Returns true if `enumField` has been explicitly set.
   var hasEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
-  mutating func clearEnumField() { _uniqueStorage().clearValue(at: 8, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 4)) }
+  mutating func clearEnumField() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 4)) }
 
   var messageField: EditionUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_ForeignMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `messageField` has been explicitly set.
@@ -3157,7 +3157,7 @@ nonisolated struct EditionUnittest_TestFieldOrderings: @unchecked Swift.Sendable
   mutating func clearMyFloat() { _uniqueStorage().clearValue(at: 4, type: Float.self, hasBit: (0, 4)) }
 
   var optionalNestedMessage: EditionUnittest_TestFieldOrderings.NestedMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -3565,7 +3565,7 @@ nonisolated struct EditionUnittest_SparseEnumMessage: @unchecked Swift.Sendable 
   /// Returns true if `sparseEnum` has been explicitly set.
   var hasSparseEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `sparseEnum`. Subsequent reads from it will return its default value.
-  mutating func clearSparseEnum() { _uniqueStorage().clearValue(at: 4, type: EditionUnittest_TestSparseEnum.self, hasBit: (0, 1)) }
+  mutating func clearSparseEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -4130,12 +4130,12 @@ nonisolated struct EditionUnittest_TestOneof: @unchecked Swift.Sendable {
   }
 
   var fooMessage: EditionUnittest_TestAllTypes {
-    get { return _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var fooGroup: EditionUnittest_TestOneof.FooGroup {
-    get { return _storage.value(atIndex: 1, default: EditionUnittest_TestOneof.FooGroup(), oneofPresence: (4, 4)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 4)) }
   }
 
@@ -4213,7 +4213,7 @@ nonisolated struct EditionUnittest_TestOneofBackwardsCompatible: @unchecked Swif
   mutating func clearFooString() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   var fooMessage: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `fooMessage` has been explicitly set.
@@ -4222,7 +4222,7 @@ nonisolated struct EditionUnittest_TestOneofBackwardsCompatible: @unchecked Swif
   mutating func clearFooMessage() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestAllTypes.self, hasBit: (0, 4)) }
 
   var fooGroup: EditionUnittest_TestOneofBackwardsCompatible.FooGroup {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestOneofBackwardsCompatible.FooGroup(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `fooGroup` has been explicitly set.
@@ -4344,17 +4344,17 @@ nonisolated struct EditionUnittest_TestOneof2: @unchecked Swift.Sendable {
   }
 
   var fooMessage: EditionUnittest_TestOneof2.NestedMessage {
-    get { return _storage.value(atIndex: 0, default: EditionUnittest_TestOneof2.NestedMessage(), oneofPresence: (4, 7)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 7)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 7)) }
   }
 
   var fooGroup: EditionUnittest_TestOneof2.FooGroup {
-    get { return _storage.value(atIndex: 1, default: EditionUnittest_TestOneof2.FooGroup(), oneofPresence: (4, 8)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 8)) }
   }
 
   var fooLazyMessage: EditionUnittest_TestOneof2.NestedMessage {
-    get { return _storage.value(atIndex: 2, default: EditionUnittest_TestOneof2.NestedMessage(), oneofPresence: (4, 11)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 11)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 11)) }
   }
 
@@ -4615,12 +4615,12 @@ nonisolated struct EditionUnittest_TestRequiredOneof: @unchecked Swift.Sendable 
   }
 
   var fooMessage: EditionUnittest_TestRequiredOneof.NestedMessage {
-    get { return _storage.value(atIndex: 0, default: EditionUnittest_TestRequiredOneof.NestedMessage(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var fooLazyMessage: EditionUnittest_TestRequiredOneof.NestedMessage {
-    get { return _storage.value(atIndex: 1, default: EditionUnittest_TestRequiredOneof.NestedMessage(), oneofPresence: (4, 4)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 4)) }
   }
 
@@ -4891,7 +4891,7 @@ nonisolated struct EditionUnittest_TestDynamicExtensions: @unchecked Swift.Senda
   /// Returns true if `enumExtension` has been explicitly set.
   var hasEnumExtension: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `enumExtension`. Subsequent reads from it will return its default value.
-  mutating func clearEnumExtension() { _uniqueStorage().clearValue(at: 8, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 2)) }
+  mutating func clearEnumExtension() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   var dynamicEnumExtension: EditionUnittest_TestDynamicExtensions.DynamicEnumType {
     get { _storage.value(at: 12, default: .dynamicUnknown, hasBit: (0, 4)) }
@@ -4900,10 +4900,10 @@ nonisolated struct EditionUnittest_TestDynamicExtensions: @unchecked Swift.Senda
   /// Returns true if `dynamicEnumExtension` has been explicitly set.
   var hasDynamicEnumExtension: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `dynamicEnumExtension`. Subsequent reads from it will return its default value.
-  mutating func clearDynamicEnumExtension() { _uniqueStorage().clearValue(at: 12, type: EditionUnittest_TestDynamicExtensions.DynamicEnumType.self, hasBit: (0, 4)) }
+  mutating func clearDynamicEnumExtension() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 4)) }
 
   var messageExtension: EditionUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_ForeignMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `messageExtension` has been explicitly set.
@@ -4912,7 +4912,7 @@ nonisolated struct EditionUnittest_TestDynamicExtensions: @unchecked Swift.Senda
   mutating func clearMessageExtension() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_ForeignMessage.self, hasBit: (0, 8)) }
 
   var dynamicMessageExtension: EditionUnittest_TestDynamicExtensions.DynamicMessageType {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestDynamicExtensions.DynamicMessageType(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `dynamicMessageExtension` has been explicitly set.
@@ -5070,7 +5070,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var requiredAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredAllTypes` has been explicitly set.
@@ -5079,7 +5079,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
   mutating func clearRequiredAllTypes() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestAllTypes.self, hasBit: (0, 1)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -5093,7 +5093,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
   }
 
   var optionalGroup: EditionUnittest_TestParsingMerge.OptionalGroup {
-    get { _storage.value(atIndex: 2, default: EditionUnittest_TestParsingMerge.OptionalGroup(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -5157,7 +5157,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
       // methods supported on all messages.
 
       var field1: EditionUnittest_TestAllTypes {
-        get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -5181,7 +5181,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
       // methods supported on all messages.
 
       var field1: EditionUnittest_TestAllTypes {
-        get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -5215,7 +5215,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var optionalGroupAllTypes: EditionUnittest_TestAllTypes {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
@@ -5239,7 +5239,7 @@ nonisolated struct EditionUnittest_TestParsingMerge: @unchecked Swift.Sendable {
     // methods supported on all messages.
 
     var repeatedGroupAllTypes: EditionUnittest_TestAllTypes {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
@@ -5275,7 +5275,7 @@ nonisolated struct EditionUnittest_TestMergeException: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var allExtensions: EditionUnittest_TestAllExtensions {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllExtensions(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `allExtensions` has been explicitly set.
@@ -5396,7 +5396,7 @@ nonisolated struct EditionUnittest_TestEagerlyVerifiedLazyMessage: @unchecked Sw
   // methods supported on all messages.
 
   var lazyMessage: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestEagerlyVerifiedLazyMessage.LazyMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lazyMessage` has been explicitly set.
@@ -5647,7 +5647,7 @@ nonisolated struct EditionUnittest_TestHugeFieldNumbers: @unchecked Swift.Sendab
   /// Returns true if `optionalEnum` has been explicitly set.
   var hasOptionalEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 28, type: EditionUnittest_ForeignEnum.self, hasBit: (0, 4)) }
+  mutating func clearOptionalEnum() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 4)) }
 
   var optionalString: String {
     get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 8)) }
@@ -5668,7 +5668,7 @@ nonisolated struct EditionUnittest_TestHugeFieldNumbers: @unchecked Swift.Sendab
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (0, 16)) }
 
   var optionalMessage: EditionUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_ForeignMessage(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -5677,7 +5677,7 @@ nonisolated struct EditionUnittest_TestHugeFieldNumbers: @unchecked Swift.Sendab
   mutating func clearOptionalMessage() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_ForeignMessage.self, hasBit: (0, 32)) }
 
   var optionalGroup: EditionUnittest_TestHugeFieldNumbers.OptionalGroup {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestHugeFieldNumbers.OptionalGroup(), hasBit: (0, 64)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 64)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -5719,7 +5719,7 @@ nonisolated struct EditionUnittest_TestHugeFieldNumbers: @unchecked Swift.Sendab
   }
 
   var oneofTestAllTypes: EditionUnittest_TestAllTypes {
-    get { return _storage.value(atIndex: 2, default: EditionUnittest_TestAllTypes(), oneofPresence: (4, 536870012)) }
+    get { return _storage.messageValue(atIndex: 2, oneofPresence: (4, 536870012)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, oneofPresence: (4, 536870012)) }
   }
 
@@ -5877,7 +5877,7 @@ nonisolated struct EditionUnittest_TestNestedGroupExtensionOuter: @unchecked Swi
   // methods supported on all messages.
 
   var lay1Optionalgroup: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lay1Optionalgroup` has been explicitly set.
@@ -6136,7 +6136,7 @@ nonisolated struct EditionUnittest_TestVerifyInt32: @unchecked Swift.Sendable {
   mutating func clearOptionalInt3264() { _uniqueStorage().clearValue(at: 16, type: Int32.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6228,7 +6228,7 @@ nonisolated struct EditionUnittest_TestVerifyMostlyInt32: @unchecked Swift.Senda
   mutating func clearOptionalInt3264() { _uniqueStorage().clearValue(at: 24, type: Int32.self, hasBit: (0, 128)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6329,7 +6329,7 @@ nonisolated struct EditionUnittest_TestVerifyMostlyInt32BigFieldNumber: @uncheck
   mutating func clearOptionalInt3264() { _uniqueStorage().clearValue(at: 24, type: Int32.self, hasBit: (0, 128)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6445,7 +6445,7 @@ nonisolated struct EditionUnittest_TestVerifyUint32: @unchecked Swift.Sendable {
   mutating func clearOptionalUint3264() { _uniqueStorage().clearValue(at: 16, type: UInt32.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6510,7 +6510,7 @@ nonisolated struct EditionUnittest_TestVerifyOneUint32: @unchecked Swift.Sendabl
   mutating func clearOptionalInt3264() { _uniqueStorage().clearValue(at: 16, type: Int32.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6584,7 +6584,7 @@ nonisolated struct EditionUnittest_TestVerifyOneInt32BigFieldNumber: @unchecked 
   mutating func clearOptionalInt6464() { _uniqueStorage().clearValue(at: 32, type: Int64.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6667,7 +6667,7 @@ nonisolated struct EditionUnittest_TestVerifyInt32BigFieldNumber: @unchecked Swi
   mutating func clearOptionalInt3264() { _uniqueStorage().clearValue(at: 16, type: Int32.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6750,7 +6750,7 @@ nonisolated struct EditionUnittest_TestVerifyUint32BigFieldNumber: @unchecked Sw
   mutating func clearOptionalUint3264() { _uniqueStorage().clearValue(at: 16, type: UInt32.self, hasBit: (0, 16)) }
 
   var optionalAllTypes: EditionUnittest_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -6779,7 +6779,7 @@ nonisolated struct EditionUnittest_TestVerifyBigFieldNumberUint32: @unchecked Sw
   // methods supported on all messages.
 
   var optionalNested: EditionUnittest_TestVerifyBigFieldNumberUint32.Nested {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestVerifyBigFieldNumberUint32.Nested(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNested` has been explicitly set.
@@ -6865,7 +6865,7 @@ nonisolated struct EditionUnittest_TestVerifyBigFieldNumberUint32: @unchecked Sw
     mutating func clearOptionalUint3264() { _uniqueStorage().clearValue(at: 16, type: UInt32.self, hasBit: (0, 16)) }
 
     var optionalNested: EditionUnittest_TestVerifyBigFieldNumberUint32.Nested {
-      get { _storage.value(atIndex: 0, default: EditionUnittest_TestVerifyBigFieldNumberUint32.Nested(), hasBit: (0, 4)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
     }
     /// Returns true if `optionalNested` has been explicitly set.
@@ -6912,7 +6912,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall0Lowfield` has been explicitly set.
   var hasOptionalSeqSmall0Lowfield: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `optionalSeqSmall0Lowfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall0Lowfield() { _uniqueStorage().clearValue(at: 8, type: EditionUnittest_EnumParseTester.SeqSmall0.self, hasBit: (0, 1)) }
+  mutating func clearOptionalSeqSmall0Lowfield() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 1)) }
 
   var optionalSeqSmall0Midfield: EditionUnittest_EnumParseTester.SeqSmall0 {
     get { _storage.value(at: 28, default: .default, hasBit: (0, 32)) }
@@ -6921,7 +6921,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall0Midfield` has been explicitly set.
   var hasOptionalSeqSmall0Midfield: Swift.Bool { _storage.isPresent(hasBit: (0, 32)) }
   /// Clears the value of `optionalSeqSmall0Midfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall0Midfield() { _uniqueStorage().clearValue(at: 28, type: EditionUnittest_EnumParseTester.SeqSmall0.self, hasBit: (0, 32)) }
+  mutating func clearOptionalSeqSmall0Midfield() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (0, 32)) }
 
   var optionalSeqSmall0Hifield: EditionUnittest_EnumParseTester.SeqSmall0 {
     get { _storage.value(at: 44, default: .default, hasBit: (1, 2)) }
@@ -6930,7 +6930,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall0Hifield` has been explicitly set.
   var hasOptionalSeqSmall0Hifield: Swift.Bool { _storage.isPresent(hasBit: (1, 2)) }
   /// Clears the value of `optionalSeqSmall0Hifield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall0Hifield() { _uniqueStorage().clearValue(at: 44, type: EditionUnittest_EnumParseTester.SeqSmall0.self, hasBit: (1, 2)) }
+  mutating func clearOptionalSeqSmall0Hifield() { _uniqueStorage().clearEnumValue(at: 44, hasBit: (1, 2)) }
 
   var repeatedSeqSmall0Lowfield: [EditionUnittest_EnumParseTester.SeqSmall0] {
     get { _storage.value(atIndex: 0, hasBit: (1, 32)) }
@@ -6969,7 +6969,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall1Lowfield` has been explicitly set.
   var hasOptionalSeqSmall1Lowfield: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `optionalSeqSmall1Lowfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall1Lowfield() { _uniqueStorage().clearValue(at: 12, type: EditionUnittest_EnumParseTester.SeqSmall1.self, hasBit: (0, 2)) }
+  mutating func clearOptionalSeqSmall1Lowfield() { _uniqueStorage().clearEnumValue(at: 12, hasBit: (0, 2)) }
 
   var optionalSeqSmall1Midfield: EditionUnittest_EnumParseTester.SeqSmall1 {
     get { _storage.value(at: 32, default: .unknown, hasBit: (0, 64)) }
@@ -6978,7 +6978,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall1Midfield` has been explicitly set.
   var hasOptionalSeqSmall1Midfield: Swift.Bool { _storage.isPresent(hasBit: (0, 64)) }
   /// Clears the value of `optionalSeqSmall1Midfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall1Midfield() { _uniqueStorage().clearValue(at: 32, type: EditionUnittest_EnumParseTester.SeqSmall1.self, hasBit: (0, 64)) }
+  mutating func clearOptionalSeqSmall1Midfield() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 64)) }
 
   var optionalSeqSmall1Hifield: EditionUnittest_EnumParseTester.SeqSmall1 {
     get { _storage.value(at: 48, default: .unknown, hasBit: (1, 4)) }
@@ -6987,7 +6987,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqSmall1Hifield` has been explicitly set.
   var hasOptionalSeqSmall1Hifield: Swift.Bool { _storage.isPresent(hasBit: (1, 4)) }
   /// Clears the value of `optionalSeqSmall1Hifield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqSmall1Hifield() { _uniqueStorage().clearValue(at: 48, type: EditionUnittest_EnumParseTester.SeqSmall1.self, hasBit: (1, 4)) }
+  mutating func clearOptionalSeqSmall1Hifield() { _uniqueStorage().clearEnumValue(at: 48, hasBit: (1, 4)) }
 
   var repeatedSeqSmall1Lowfield: [EditionUnittest_EnumParseTester.SeqSmall1] {
     get { _storage.value(atIndex: 2, hasBit: (1, 128)) }
@@ -7026,7 +7026,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqLargeLowfield` has been explicitly set.
   var hasOptionalSeqLargeLowfield: Swift.Bool { _storage.isPresent(hasBit: (0, 4)) }
   /// Clears the value of `optionalSeqLargeLowfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqLargeLowfield() { _uniqueStorage().clearValue(at: 16, type: EditionUnittest_EnumParseTester.SeqLarge.self, hasBit: (0, 4)) }
+  mutating func clearOptionalSeqLargeLowfield() { _uniqueStorage().clearEnumValue(at: 16, hasBit: (0, 4)) }
 
   var optionalSeqLargeMidfield: EditionUnittest_EnumParseTester.SeqLarge {
     get { _storage.value(at: 36, default: .default, hasBit: (0, 128)) }
@@ -7035,7 +7035,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqLargeMidfield` has been explicitly set.
   var hasOptionalSeqLargeMidfield: Swift.Bool { _storage.isPresent(hasBit: (0, 128)) }
   /// Clears the value of `optionalSeqLargeMidfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqLargeMidfield() { _uniqueStorage().clearValue(at: 36, type: EditionUnittest_EnumParseTester.SeqLarge.self, hasBit: (0, 128)) }
+  mutating func clearOptionalSeqLargeMidfield() { _uniqueStorage().clearEnumValue(at: 36, hasBit: (0, 128)) }
 
   var optionalSeqLargeHifield: EditionUnittest_EnumParseTester.SeqLarge {
     get { _storage.value(at: 52, default: .default, hasBit: (1, 8)) }
@@ -7044,7 +7044,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalSeqLargeHifield` has been explicitly set.
   var hasOptionalSeqLargeHifield: Swift.Bool { _storage.isPresent(hasBit: (1, 8)) }
   /// Clears the value of `optionalSeqLargeHifield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSeqLargeHifield() { _uniqueStorage().clearValue(at: 52, type: EditionUnittest_EnumParseTester.SeqLarge.self, hasBit: (1, 8)) }
+  mutating func clearOptionalSeqLargeHifield() { _uniqueStorage().clearEnumValue(at: 52, hasBit: (1, 8)) }
 
   var repeatedSeqLargeLowfield: [EditionUnittest_EnumParseTester.SeqLarge] {
     get { _storage.value(atIndex: 4, hasBit: (2, 2)) }
@@ -7083,7 +7083,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalArbitraryLowfield` has been explicitly set.
   var hasOptionalArbitraryLowfield: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `optionalArbitraryLowfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalArbitraryLowfield() { _uniqueStorage().clearValue(at: 20, type: EditionUnittest_EnumParseTester.Arbitrary.self, hasBit: (0, 8)) }
+  mutating func clearOptionalArbitraryLowfield() { _uniqueStorage().clearEnumValue(at: 20, hasBit: (0, 8)) }
 
   var optionalArbitraryMidfield: EditionUnittest_EnumParseTester.Arbitrary {
     get { _storage.value(at: 40, default: .default, hasBit: (1, 1)) }
@@ -7092,7 +7092,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalArbitraryMidfield` has been explicitly set.
   var hasOptionalArbitraryMidfield: Swift.Bool { _storage.isPresent(hasBit: (1, 1)) }
   /// Clears the value of `optionalArbitraryMidfield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalArbitraryMidfield() { _uniqueStorage().clearValue(at: 40, type: EditionUnittest_EnumParseTester.Arbitrary.self, hasBit: (1, 1)) }
+  mutating func clearOptionalArbitraryMidfield() { _uniqueStorage().clearEnumValue(at: 40, hasBit: (1, 1)) }
 
   var optionalArbitraryHifield: EditionUnittest_EnumParseTester.Arbitrary {
     get { _storage.value(at: 56, default: .default, hasBit: (1, 16)) }
@@ -7101,7 +7101,7 @@ nonisolated struct EditionUnittest_EnumParseTester: @unchecked Swift.Sendable {
   /// Returns true if `optionalArbitraryHifield` has been explicitly set.
   var hasOptionalArbitraryHifield: Swift.Bool { _storage.isPresent(hasBit: (1, 16)) }
   /// Clears the value of `optionalArbitraryHifield`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalArbitraryHifield() { _uniqueStorage().clearValue(at: 56, type: EditionUnittest_EnumParseTester.Arbitrary.self, hasBit: (1, 16)) }
+  mutating func clearOptionalArbitraryHifield() { _uniqueStorage().clearEnumValue(at: 56, hasBit: (1, 16)) }
 
   var repeatedArbitraryLowfield: [EditionUnittest_EnumParseTester.Arbitrary] {
     get { _storage.value(atIndex: 6, hasBit: (2, 8)) }
@@ -7499,7 +7499,7 @@ nonisolated struct EditionUnittest_InlinedStringIdxRegressionProto: @unchecked S
 
   /// aux_idx == 2
   var sub: EditionUnittest_InlinedStringIdxRegressionProto {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_InlinedStringIdxRegressionProto(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `sub` has been explicitly set.
@@ -7694,7 +7694,7 @@ nonisolated struct EditionUnittest_RedactedFields: @unchecked Swift.Sendable {
   }
 
   var optionalRedactedMessage: EditionUnittest_TestNestedMessageRedaction {
-    get { _storage.value(atIndex: 0, default: EditionUnittest_TestNestedMessageRedaction(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalRedactedMessage` has been explicitly set.
@@ -7703,7 +7703,7 @@ nonisolated struct EditionUnittest_RedactedFields: @unchecked Swift.Sendable {
   mutating func clearOptionalRedactedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: EditionUnittest_TestNestedMessageRedaction.self, hasBit: (0, 4)) }
 
   var optionalUnredactedMessage: EditionUnittest_TestNestedMessageRedaction {
-    get { _storage.value(atIndex: 1, default: EditionUnittest_TestNestedMessageRedaction(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalUnredactedMessage` has been explicitly set.
@@ -8090,7 +8090,7 @@ nonisolated extension EditionUnittest_BoolParseTester {
   var hasEditionUnittest_BoolParseTester_optionalBoolExt: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_BoolParseTester.Extensions.optional_bool_ext) }
   /// Clears the value of extension `EditionUnittest_BoolParseTester.Extensions.optional_bool_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_BoolParseTester_optionalBoolExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_BoolParseTester.Extensions.optional_bool_ext, type: Bool.self) }
+  mutating func clearEditionUnittest_BoolParseTester_optionalBoolExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_BoolParseTester.Extensions.optional_bool_ext) }
 
   var EditionUnittest_BoolParseTester_repeatedBoolExt: [Bool] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_BoolParseTester.Extensions.repeated_bool_ext, default: []) }
@@ -8114,7 +8114,7 @@ nonisolated extension EditionUnittest_EnumParseTester {
   var hasEditionUnittest_EnumParseTester_optionalArbitraryExt: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_EnumParseTester.Extensions.optional_arbitrary_ext) }
   /// Clears the value of extension `EditionUnittest_EnumParseTester.Extensions.optional_arbitrary_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_EnumParseTester_optionalArbitraryExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_EnumParseTester.Extensions.optional_arbitrary_ext, type: EditionUnittest_EnumParseTester.Arbitrary.self) }
+  mutating func clearEditionUnittest_EnumParseTester_optionalArbitraryExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_EnumParseTester.Extensions.optional_arbitrary_ext) }
 
   var EditionUnittest_EnumParseTester_repeatedArbitraryExt: [EditionUnittest_EnumParseTester.Arbitrary] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_EnumParseTester.Extensions.repeated_arbitrary_ext, default: []) }
@@ -8138,7 +8138,7 @@ nonisolated extension EditionUnittest_Int32ParseTester {
   var hasEditionUnittest_Int32ParseTester_optionalInt32Ext: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Int32ParseTester.Extensions.optional_int32_ext) }
   /// Clears the value of extension `EditionUnittest_Int32ParseTester.Extensions.optional_int32_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_Int32ParseTester_optionalInt32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Int32ParseTester.Extensions.optional_int32_ext, type: Int32.self) }
+  mutating func clearEditionUnittest_Int32ParseTester_optionalInt32Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Int32ParseTester.Extensions.optional_int32_ext) }
 
   var EditionUnittest_Int32ParseTester_repeatedInt32Ext: [Int32] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Int32ParseTester.Extensions.repeated_int32_ext, default: []) }
@@ -8162,7 +8162,7 @@ nonisolated extension EditionUnittest_Int64ParseTester {
   var hasEditionUnittest_Int64ParseTester_optionalInt64Ext: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Int64ParseTester.Extensions.optional_int64_ext) }
   /// Clears the value of extension `EditionUnittest_Int64ParseTester.Extensions.optional_int64_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_Int64ParseTester_optionalInt64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Int64ParseTester.Extensions.optional_int64_ext, type: Int64.self) }
+  mutating func clearEditionUnittest_Int64ParseTester_optionalInt64Ext() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Int64ParseTester.Extensions.optional_int64_ext) }
 
   var EditionUnittest_Int64ParseTester_repeatedInt64Ext: [Int64] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Int64ParseTester.Extensions.repeated_int64_ext, default: []) }
@@ -8186,7 +8186,7 @@ nonisolated extension EditionUnittest_StringParseTester {
   var hasEditionUnittest_StringParseTester_optionalStringExt: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_StringParseTester.Extensions.optional_string_ext) }
   /// Clears the value of extension `EditionUnittest_StringParseTester.Extensions.optional_string_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_StringParseTester_optionalStringExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_StringParseTester.Extensions.optional_string_ext, type: String.self) }
+  mutating func clearEditionUnittest_StringParseTester_optionalStringExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_StringParseTester.Extensions.optional_string_ext) }
 
   var EditionUnittest_StringParseTester_repeatedStringExt: [String] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_StringParseTester.Extensions.repeated_string_ext, default: []) }
@@ -8206,7 +8206,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_int32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_int32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_int32_extension) }
 
   var EditionUnittest_optionalInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_int64_extension, default: 0) }
@@ -8217,7 +8217,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_int64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_int64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_int64_extension) }
 
   var EditionUnittest_optionalUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_uint32_extension, default: 0) }
@@ -8228,7 +8228,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_uint32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_uint32_extension, type: UInt32.self) }
+  mutating func clearEditionUnittest_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_uint32_extension) }
 
   var EditionUnittest_optionalUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_uint64_extension, default: 0) }
@@ -8239,7 +8239,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_uint64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_uint64_extension, type: UInt64.self) }
+  mutating func clearEditionUnittest_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_uint64_extension) }
 
   var EditionUnittest_optionalSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_sint32_extension, default: 0) }
@@ -8250,7 +8250,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_sint32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sint32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sint32_extension) }
 
   var EditionUnittest_optionalSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_sint64_extension, default: 0) }
@@ -8261,7 +8261,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_sint64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sint64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sint64_extension) }
 
   var EditionUnittest_optionalFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_fixed32_extension, default: 0) }
@@ -8272,7 +8272,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_fixed32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_fixed32_extension, type: UInt32.self) }
+  mutating func clearEditionUnittest_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_fixed32_extension) }
 
   var EditionUnittest_optionalFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_fixed64_extension, default: 0) }
@@ -8283,7 +8283,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_fixed64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_fixed64_extension, type: UInt64.self) }
+  mutating func clearEditionUnittest_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_fixed64_extension) }
 
   var EditionUnittest_optionalSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_sfixed32_extension, default: 0) }
@@ -8294,7 +8294,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_sfixed32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sfixed32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sfixed32_extension) }
 
   var EditionUnittest_optionalSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_sfixed64_extension, default: 0) }
@@ -8305,7 +8305,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_sfixed64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sfixed64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_sfixed64_extension) }
 
   var EditionUnittest_optionalFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_float_extension, default: 0) }
@@ -8316,7 +8316,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_float_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_float_extension, type: Float.self) }
+  mutating func clearEditionUnittest_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_float_extension) }
 
   var EditionUnittest_optionalDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_double_extension, default: 0) }
@@ -8327,7 +8327,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_double_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_double_extension, type: Double.self) }
+  mutating func clearEditionUnittest_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_double_extension) }
 
   var EditionUnittest_optionalBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_bool_extension, default: false) }
@@ -8338,7 +8338,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_bool_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bool_extension, type: Bool.self) }
+  mutating func clearEditionUnittest_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bool_extension) }
 
   var EditionUnittest_optionalStringExtension: String {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_string_extension, default: String()) }
@@ -8349,7 +8349,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_string_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_string_extension, type: String.self) }
+  mutating func clearEditionUnittest_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_string_extension) }
 
   var EditionUnittest_optionalBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_bytes_extension, default: Data()) }
@@ -8360,7 +8360,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_bytes_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bytes_extension, type: Data.self) }
+  mutating func clearEditionUnittest_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bytes_extension) }
 
   var EditionUnittest_optionalGroupExtension: EditionUnittest_OptionalGroup_extension {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_OptionalGroup_extension, default: EditionUnittest_OptionalGroup_extension()) }
@@ -8371,7 +8371,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalGroupExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_OptionalGroup_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_OptionalGroup_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_OptionalGroup_extension, type: EditionUnittest_OptionalGroup_extension.self) }
+  mutating func clearEditionUnittest_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_OptionalGroup_extension) }
 
   var EditionUnittest_optionalNestedMessageExtension: EditionUnittest_TestAllTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_nested_message_extension, default: EditionUnittest_TestAllTypes.NestedMessage()) }
@@ -8382,7 +8382,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalNestedMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_nested_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_nested_message_extension, type: EditionUnittest_TestAllTypes.NestedMessage.self) }
+  mutating func clearEditionUnittest_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_nested_message_extension) }
 
   var EditionUnittest_optionalForeignMessageExtension: EditionUnittest_ForeignMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_foreign_message_extension, default: EditionUnittest_ForeignMessage()) }
@@ -8393,7 +8393,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalForeignMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_foreign_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_foreign_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_foreign_message_extension, type: EditionUnittest_ForeignMessage.self) }
+  mutating func clearEditionUnittest_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_foreign_message_extension) }
 
   var EditionUnittest_optionalImportMessageExtension: Proto2UnittestImport_ImportMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_import_message_extension, default: Proto2UnittestImport_ImportMessage()) }
@@ -8404,7 +8404,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_import_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_import_message_extension, type: Proto2UnittestImport_ImportMessage.self) }
+  mutating func clearEditionUnittest_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_import_message_extension) }
 
   var EditionUnittest_optionalNestedEnumExtension: EditionUnittest_TestAllTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_nested_enum_extension, default: .foo) }
@@ -8415,7 +8415,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_nested_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_nested_enum_extension, type: EditionUnittest_TestAllTypes.NestedEnum.self) }
+  mutating func clearEditionUnittest_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_nested_enum_extension) }
 
   var EditionUnittest_optionalForeignEnumExtension: EditionUnittest_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_foreign_enum_extension, default: .foreignFoo) }
@@ -8426,7 +8426,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_foreign_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_foreign_enum_extension, type: EditionUnittest_ForeignEnum.self) }
+  mutating func clearEditionUnittest_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_foreign_enum_extension) }
 
   var EditionUnittest_optionalImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_import_enum_extension, default: .importFoo) }
@@ -8437,7 +8437,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_import_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_import_enum_extension, type: Proto2UnittestImport_ImportEnum.self) }
+  mutating func clearEditionUnittest_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_import_enum_extension) }
 
   var EditionUnittest_optionalStringPieceExtension: String {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_string_piece_extension, default: String()) }
@@ -8448,7 +8448,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalStringPieceExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_string_piece_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_string_piece_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalStringPieceExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_string_piece_extension, type: String.self) }
+  mutating func clearEditionUnittest_optionalStringPieceExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_string_piece_extension) }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
@@ -8461,7 +8461,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_cord_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_cord_extension, type: String.self) }
+  mutating func clearEditionUnittest_optionalCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_cord_extension) }
 
   var EditionUnittest_optionalBytesCordExtension: Data {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_bytes_cord_extension, default: Data()) }
@@ -8472,7 +8472,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalBytesCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_bytes_cord_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_bytes_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalBytesCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bytes_cord_extension, type: Data.self) }
+  mutating func clearEditionUnittest_optionalBytesCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_bytes_cord_extension) }
 
   var EditionUnittest_optionalPublicImportMessageExtension: Proto2UnittestImport_PublicImportMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_public_import_message_extension, default: Proto2UnittestImport_PublicImportMessage()) }
@@ -8483,7 +8483,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalPublicImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_public_import_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_public_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_public_import_message_extension, type: Proto2UnittestImport_PublicImportMessage.self) }
+  mutating func clearEditionUnittest_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_public_import_message_extension) }
 
   var EditionUnittest_optionalLazyMessageExtension: EditionUnittest_TestAllTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_optional_lazy_message_extension, default: EditionUnittest_TestAllTypes.NestedMessage()) }
@@ -8494,7 +8494,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalLazyMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_lazy_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_lazy_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_lazy_message_extension, type: EditionUnittest_TestAllTypes.NestedMessage.self) }
+  mutating func clearEditionUnittest_optionalLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_lazy_message_extension) }
 
   /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
   /// An extension can't be labeled as "unverified_lazy".
@@ -8507,7 +8507,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_optionalUnverifiedLazyMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_optional_unverified_lazy_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_optional_unverified_lazy_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_optionalUnverifiedLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_unverified_lazy_message_extension, type: EditionUnittest_TestAllTypes.NestedMessage.self) }
+  mutating func clearEditionUnittest_optionalUnverifiedLazyMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_optional_unverified_lazy_message_extension) }
 
   /// Repeated
   var EditionUnittest_repeatedInt32Extension: [Int32] {
@@ -8647,7 +8647,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_int32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_int32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_int32_extension) }
 
   var EditionUnittest_defaultInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_int64_extension, default: 42) }
@@ -8658,7 +8658,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_int64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_int64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_int64_extension) }
 
   var EditionUnittest_defaultUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_uint32_extension, default: 43) }
@@ -8669,7 +8669,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_uint32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_uint32_extension, type: UInt32.self) }
+  mutating func clearEditionUnittest_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_uint32_extension) }
 
   var EditionUnittest_defaultUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_uint64_extension, default: 44) }
@@ -8680,7 +8680,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_uint64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_uint64_extension, type: UInt64.self) }
+  mutating func clearEditionUnittest_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_uint64_extension) }
 
   var EditionUnittest_defaultSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_sint32_extension, default: -45) }
@@ -8691,7 +8691,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_sint32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sint32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sint32_extension) }
 
   var EditionUnittest_defaultSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_sint64_extension, default: 46) }
@@ -8702,7 +8702,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_sint64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sint64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sint64_extension) }
 
   var EditionUnittest_defaultFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_fixed32_extension, default: 47) }
@@ -8713,7 +8713,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_fixed32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_fixed32_extension, type: UInt32.self) }
+  mutating func clearEditionUnittest_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_fixed32_extension) }
 
   var EditionUnittest_defaultFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_fixed64_extension, default: 48) }
@@ -8724,7 +8724,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_fixed64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_fixed64_extension, type: UInt64.self) }
+  mutating func clearEditionUnittest_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_fixed64_extension) }
 
   var EditionUnittest_defaultSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_sfixed32_extension, default: 49) }
@@ -8735,7 +8735,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_sfixed32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sfixed32_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sfixed32_extension) }
 
   var EditionUnittest_defaultSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_sfixed64_extension, default: -50) }
@@ -8746,7 +8746,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_sfixed64_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sfixed64_extension, type: Int64.self) }
+  mutating func clearEditionUnittest_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_sfixed64_extension) }
 
   var EditionUnittest_defaultFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_float_extension, default: 51.5) }
@@ -8757,7 +8757,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_float_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_float_extension, type: Float.self) }
+  mutating func clearEditionUnittest_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_float_extension) }
 
   var EditionUnittest_defaultDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_double_extension, default: 52000) }
@@ -8768,7 +8768,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_double_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_double_extension, type: Double.self) }
+  mutating func clearEditionUnittest_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_double_extension) }
 
   var EditionUnittest_defaultBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_bool_extension, default: true) }
@@ -8779,7 +8779,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_bool_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_bool_extension, type: Bool.self) }
+  mutating func clearEditionUnittest_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_bool_extension) }
 
   var EditionUnittest_defaultStringExtension: String {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_string_extension, default: "hello") }
@@ -8790,7 +8790,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_string_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_string_extension, type: String.self) }
+  mutating func clearEditionUnittest_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_string_extension) }
 
   var EditionUnittest_defaultBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_bytes_extension, default: Data([119, 111, 114, 108, 100])) }
@@ -8801,7 +8801,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_bytes_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_bytes_extension, type: Data.self) }
+  mutating func clearEditionUnittest_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_bytes_extension) }
 
   var EditionUnittest_defaultNestedEnumExtension: EditionUnittest_TestAllTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_nested_enum_extension, default: .bar) }
@@ -8812,7 +8812,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_nested_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_nested_enum_extension, type: EditionUnittest_TestAllTypes.NestedEnum.self) }
+  mutating func clearEditionUnittest_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_nested_enum_extension) }
 
   var EditionUnittest_defaultForeignEnumExtension: EditionUnittest_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_foreign_enum_extension, default: .foreignBar) }
@@ -8823,7 +8823,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_foreign_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_foreign_enum_extension, type: EditionUnittest_ForeignEnum.self) }
+  mutating func clearEditionUnittest_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_foreign_enum_extension) }
 
   var EditionUnittest_defaultImportEnumExtension: Proto2UnittestImport_ImportEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_import_enum_extension, default: .importBar) }
@@ -8834,7 +8834,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_import_enum_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_import_enum_extension, type: Proto2UnittestImport_ImportEnum.self) }
+  mutating func clearEditionUnittest_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_import_enum_extension) }
 
   var EditionUnittest_defaultStringPieceExtension: String {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_default_string_piece_extension, default: "abc") }
@@ -8845,7 +8845,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultStringPieceExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_string_piece_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_string_piece_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultStringPieceExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_string_piece_extension, type: String.self) }
+  mutating func clearEditionUnittest_defaultStringPieceExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_string_piece_extension) }
 
   /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
@@ -8858,7 +8858,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_defaultCordExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_default_cord_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_default_cord_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_defaultCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_cord_extension, type: String.self) }
+  mutating func clearEditionUnittest_defaultCordExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_default_cord_extension) }
 
   /// For oneof test
   var EditionUnittest_oneofUint32Extension: UInt32 {
@@ -8870,7 +8870,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_oneofUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_oneof_uint32_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_oneof_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_oneofUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_uint32_extension, type: UInt32.self) }
+  mutating func clearEditionUnittest_oneofUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_uint32_extension) }
 
   var EditionUnittest_oneofNestedMessageExtension: EditionUnittest_TestAllTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_oneof_nested_message_extension, default: EditionUnittest_TestAllTypes.NestedMessage()) }
@@ -8881,7 +8881,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_oneofNestedMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_oneof_nested_message_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_oneof_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_oneofNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_nested_message_extension, type: EditionUnittest_TestAllTypes.NestedMessage.self) }
+  mutating func clearEditionUnittest_oneofNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_nested_message_extension) }
 
   var EditionUnittest_oneofStringExtension: String {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_oneof_string_extension, default: String()) }
@@ -8892,7 +8892,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_oneofStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_oneof_string_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_oneof_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_oneofStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_string_extension, type: String.self) }
+  mutating func clearEditionUnittest_oneofStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_string_extension) }
 
   var EditionUnittest_oneofBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_oneof_bytes_extension, default: Data()) }
@@ -8903,7 +8903,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_oneofBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_oneof_bytes_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_oneof_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_oneofBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_bytes_extension, type: Data.self) }
+  mutating func clearEditionUnittest_oneofBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_oneof_bytes_extension) }
 
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.
@@ -8916,7 +8916,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_TestNestedExtension_test: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestNestedExtension.Extensions.test) }
   /// Clears the value of extension `EditionUnittest_TestNestedExtension.Extensions.test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.test, type: String.self) }
+  mutating func clearEditionUnittest_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.test) }
 
   /// Used to test if generated extension name is correct when there are
   /// underscores.
@@ -8929,7 +8929,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_TestNestedExtension_nestedStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestNestedExtension.Extensions.nested_string_extension) }
   /// Clears the value of extension `EditionUnittest_TestNestedExtension.Extensions.nested_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.nested_string_extension, type: String.self) }
+  mutating func clearEditionUnittest_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.nested_string_extension) }
 
   var EditionUnittest_TestRequired_single: EditionUnittest_TestRequired {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestRequired.Extensions.single, default: EditionUnittest_TestRequired()) }
@@ -8940,7 +8940,7 @@ nonisolated extension EditionUnittest_TestAllExtensions {
   var hasEditionUnittest_TestRequired_single: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestRequired.Extensions.single) }
   /// Clears the value of extension `EditionUnittest_TestRequired.Extensions.single`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestRequired.Extensions.single, type: EditionUnittest_TestRequired.self) }
+  mutating func clearEditionUnittest_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestRequired.Extensions.single) }
 
   var EditionUnittest_TestRequired_multi: [EditionUnittest_TestRequired] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestRequired.Extensions.multi, default: []) }
@@ -8959,7 +8959,7 @@ nonisolated extension EditionUnittest_TestExtensionInsideTable {
   var hasEditionUnittest_testExtensionInsideTableExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_test_extension_inside_table_extension) }
   /// Clears the value of extension `EditionUnittest_Extensions_test_extension_inside_table_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_testExtensionInsideTableExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_test_extension_inside_table_extension, type: Int32.self) }
+  mutating func clearEditionUnittest_testExtensionInsideTableExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_test_extension_inside_table_extension) }
 }
 
 nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
@@ -8973,7 +8973,7 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   var hasEditionUnittest_TestExtensionRangeSerialize_barOne: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_one) }
   /// Clears the value of extension `EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_one`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barOne() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_one, type: Int32.self) }
+  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barOne() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_one) }
 
   var EditionUnittest_TestExtensionRangeSerialize_barTwo: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_two, default: 0) }
@@ -8984,7 +8984,7 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   var hasEditionUnittest_TestExtensionRangeSerialize_barTwo: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_two) }
   /// Clears the value of extension `EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_two`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barTwo() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_two, type: Int32.self) }
+  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barTwo() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_two) }
 
   var EditionUnittest_TestExtensionRangeSerialize_barThree: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_three, default: 0) }
@@ -8995,7 +8995,7 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   var hasEditionUnittest_TestExtensionRangeSerialize_barThree: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_three) }
   /// Clears the value of extension `EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_three`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barThree() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_three, type: Int32.self) }
+  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barThree() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_three) }
 
   var EditionUnittest_TestExtensionRangeSerialize_barFour: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_four, default: 0) }
@@ -9006,7 +9006,7 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   var hasEditionUnittest_TestExtensionRangeSerialize_barFour: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_four) }
   /// Clears the value of extension `EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_four`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barFour() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_four, type: Int32.self) }
+  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barFour() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_four) }
 
   var EditionUnittest_TestExtensionRangeSerialize_barFive: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_five, default: 0) }
@@ -9017,7 +9017,7 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
   var hasEditionUnittest_TestExtensionRangeSerialize_barFive: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_five) }
   /// Clears the value of extension `EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_five`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barFive() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_five, type: Int32.self) }
+  mutating func clearEditionUnittest_TestExtensionRangeSerialize_barFive() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionRangeSerialize.Extensions.bar_five) }
 }
 
 nonisolated extension EditionUnittest_TestFieldOrderings {
@@ -9031,7 +9031,7 @@ nonisolated extension EditionUnittest_TestFieldOrderings {
   var hasEditionUnittest_myExtensionString: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_my_extension_string) }
   /// Clears the value of extension `EditionUnittest_Extensions_my_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_my_extension_string, type: String.self) }
+  mutating func clearEditionUnittest_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_my_extension_string) }
 
   var EditionUnittest_myExtensionInt: Int32 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_Extensions_my_extension_int, default: 0) }
@@ -9042,7 +9042,7 @@ nonisolated extension EditionUnittest_TestFieldOrderings {
   var hasEditionUnittest_myExtensionInt: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_my_extension_int) }
   /// Clears the value of extension `EditionUnittest_Extensions_my_extension_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_my_extension_int, type: Int32.self) }
+  mutating func clearEditionUnittest_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_my_extension_int) }
 
   var EditionUnittest_TestExtensionOrderings1_testExtOrderings1: EditionUnittest_TestExtensionOrderings1 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionOrderings1.Extensions.test_ext_orderings1, default: EditionUnittest_TestExtensionOrderings1()) }
@@ -9053,7 +9053,7 @@ nonisolated extension EditionUnittest_TestFieldOrderings {
   var hasEditionUnittest_TestExtensionOrderings1_testExtOrderings1: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionOrderings1.Extensions.test_ext_orderings1) }
   /// Clears the value of extension `EditionUnittest_TestExtensionOrderings1.Extensions.test_ext_orderings1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionOrderings1_testExtOrderings1() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings1.Extensions.test_ext_orderings1, type: EditionUnittest_TestExtensionOrderings1.self) }
+  mutating func clearEditionUnittest_TestExtensionOrderings1_testExtOrderings1() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings1.Extensions.test_ext_orderings1) }
 
   var EditionUnittest_TestExtensionOrderings2_testExtOrderings2: EditionUnittest_TestExtensionOrderings2 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2, default: EditionUnittest_TestExtensionOrderings2()) }
@@ -9064,7 +9064,7 @@ nonisolated extension EditionUnittest_TestFieldOrderings {
   var hasEditionUnittest_TestExtensionOrderings2_testExtOrderings2: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2) }
   /// Clears the value of extension `EditionUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionOrderings2_testExtOrderings2() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2, type: EditionUnittest_TestExtensionOrderings2.self) }
+  mutating func clearEditionUnittest_TestExtensionOrderings2_testExtOrderings2() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2) }
 
   var EditionUnittest_TestExtensionOrderings2_TestExtensionOrderings3_testExtOrderings3: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3 {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3, default: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3()) }
@@ -9075,7 +9075,7 @@ nonisolated extension EditionUnittest_TestFieldOrderings {
   var hasEditionUnittest_TestExtensionOrderings2_TestExtensionOrderings3_testExtOrderings3: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3) }
   /// Clears the value of extension `EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestExtensionOrderings2_TestExtensionOrderings3_testExtOrderings3() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3, type: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.self) }
+  mutating func clearEditionUnittest_TestExtensionOrderings2_TestExtensionOrderings3_testExtOrderings3() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3) }
 }
 
 nonisolated extension EditionUnittest_TestGroupExtension {
@@ -9089,7 +9089,7 @@ nonisolated extension EditionUnittest_TestGroupExtension {
   var hasEditionUnittest_TestNestedExtension_optionalGroupExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestNestedExtension.Extensions.OptionalGroup_extension) }
   /// Clears the value of extension `EditionUnittest_TestNestedExtension.Extensions.OptionalGroup_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestNestedExtension_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.OptionalGroup_extension, type: EditionUnittest_TestNestedExtension.OptionalGroup_extension.self) }
+  mutating func clearEditionUnittest_TestNestedExtension_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.OptionalGroup_extension) }
 
   var EditionUnittest_TestNestedExtension_optionalForeignEnumExtension: EditionUnittest_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestNestedExtension.Extensions.optional_foreign_enum_extension, default: .foreignFoo) }
@@ -9100,7 +9100,7 @@ nonisolated extension EditionUnittest_TestGroupExtension {
   var hasEditionUnittest_TestNestedExtension_optionalForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestNestedExtension.Extensions.optional_foreign_enum_extension) }
   /// Clears the value of extension `EditionUnittest_TestNestedExtension.Extensions.optional_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestNestedExtension_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.optional_foreign_enum_extension, type: EditionUnittest_ForeignEnum.self) }
+  mutating func clearEditionUnittest_TestNestedExtension_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestNestedExtension.Extensions.optional_foreign_enum_extension) }
 }
 
 nonisolated extension EditionUnittest_TestHugeFieldNumbers {
@@ -9114,7 +9114,7 @@ nonisolated extension EditionUnittest_TestHugeFieldNumbers {
   var hasEditionUnittest_testAllTypes: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_test_all_types) }
   /// Clears the value of extension `EditionUnittest_Extensions_test_all_types`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_testAllTypes() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_test_all_types, type: EditionUnittest_TestAllTypes.self) }
+  mutating func clearEditionUnittest_testAllTypes() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_test_all_types) }
 }
 
 nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions {
@@ -9128,7 +9128,7 @@ nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions {
   var hasEditionUnittest_TestMixedFieldsAndExtensions_c: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestMixedFieldsAndExtensions.Extensions.c) }
   /// Clears the value of extension `EditionUnittest_TestMixedFieldsAndExtensions.Extensions.c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestMixedFieldsAndExtensions_c() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestMixedFieldsAndExtensions.Extensions.c, type: Int32.self) }
+  mutating func clearEditionUnittest_TestMixedFieldsAndExtensions_c() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestMixedFieldsAndExtensions.Extensions.c) }
 
   var EditionUnittest_TestMixedFieldsAndExtensions_d: [UInt32] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestMixedFieldsAndExtensions.Extensions.d, default: []) }
@@ -9147,7 +9147,7 @@ nonisolated extension EditionUnittest_TestNestedGroupExtensionOuter.Layer1Option
   var hasEditionUnittest_inner: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_Extensions_inner) }
   /// Clears the value of extension `EditionUnittest_Extensions_inner`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_inner() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_inner, type: EditionUnittest_TestNestedGroupExtensionInnerExtension.self) }
+  mutating func clearEditionUnittest_inner() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_Extensions_inner) }
 }
 
 nonisolated extension EditionUnittest_TestPackedExtensions {
@@ -9234,7 +9234,7 @@ nonisolated extension EditionUnittest_TestParsingMerge {
   var hasEditionUnittest_TestParsingMerge_optionalExt: Bool { _protobuf_extensionStorage().hasValue(for: EditionUnittest_TestParsingMerge.Extensions.optional_ext) }
   /// Clears the value of extension `EditionUnittest_TestParsingMerge.Extensions.optional_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionUnittest_TestParsingMerge_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestParsingMerge.Extensions.optional_ext, type: EditionUnittest_TestAllTypes.self) }
+  mutating func clearEditionUnittest_TestParsingMerge_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionUnittest_TestParsingMerge.Extensions.optional_ext) }
 
   var EditionUnittest_TestParsingMerge_repeatedExt: [EditionUnittest_TestAllTypes] {
     get { _protobuf_extensionStorage().value(of: EditionUnittest_TestParsingMerge.Extensions.repeated_ext, default: []) }

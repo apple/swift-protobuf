@@ -73,6 +73,11 @@ public enum MessageWitnesses<T: Message> {
             // Since this is a brand new element, it's guaranteed to have unique storage.
             result.pointee = Unmanaged.passUnretained(arrayPointer.pointee.last!.storageForRuntime)
 
+        case .messageEqual(let lhs, let rhs, let result):
+            let lStorage = lhs.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime
+            let rStorage = rhs.bindMemory(to: T.self, capacity: 1).pointee.storageForRuntime
+            result.pointee = lStorage.isEqual(to: rStorage)
+
         default:
             preconditionFailure("Unreachable")
         }
@@ -183,4 +188,7 @@ public enum MessageWitnessOperation {
     /// Since map equality is order-independent, this would be more complex to implement in terms of
     /// the other iterator witnesses, so we just delegate to the underlying Swift `Dictionary`.
     case mapCheckEquality(lhs: UnsafeRawPointer, rhs: UnsafeRawPointer, result: UnsafeMutablePointer<Bool>)
+
+    /// Compares the message at `lhs` with the message at `rhs` for equality and populates `result` with the result.
+    case messageEqual(lhs: UnsafeRawPointer, rhs: UnsafeRawPointer, result: UnsafeMutablePointer<Bool>)
 }

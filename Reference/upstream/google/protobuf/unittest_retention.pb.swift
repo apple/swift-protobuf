@@ -188,7 +188,7 @@ nonisolated extension Proto2Unittest_Extendee {
   var hasProto2Unittest_i: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_i) }
   /// Clears the value of extension `Proto2Unittest_Extensions_i`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_i() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_i, type: Int32.self) }
+  mutating func clearProto2Unittest_i() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_i) }
 
   var Proto2Unittest_TopLevelMessage_s: String {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TopLevelMessage.Extensions.s, default: String()) }
@@ -199,7 +199,7 @@ nonisolated extension Proto2Unittest_Extendee {
   var hasProto2Unittest_TopLevelMessage_s: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TopLevelMessage.Extensions.s) }
   /// Clears the value of extension `Proto2Unittest_TopLevelMessage.Extensions.s`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TopLevelMessage_s() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TopLevelMessage.Extensions.s, type: String.self) }
+  mutating func clearProto2Unittest_TopLevelMessage_s() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TopLevelMessage.Extensions.s) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_EnumOptions {
@@ -213,7 +213,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_EnumOptions {
   var hasProto2Unittest_enumOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_enum_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_enum_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_enumOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_enum_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_enumOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_enum_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
@@ -227,7 +227,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_EnumValueOptions {
   var hasProto2Unittest_enumEntryOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_enum_entry_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_enum_entry_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_enumEntryOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_enum_entry_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_enumEntryOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_enum_entry_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
@@ -241,7 +241,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions {
   var hasProto2Unittest_extensionRangeOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_extension_range_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_extension_range_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_extensionRangeOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_extension_range_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_extensionRangeOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_extension_range_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
@@ -255,7 +255,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   var hasProto2Unittest_fieldOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_field_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_field_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_fieldOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_field_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_fieldOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_field_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
@@ -269,7 +269,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProto2Unittest_plainOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_plain_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_plain_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_plainOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_plain_option, type: Int32.self) }
+  mutating func clearProto2Unittest_plainOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_plain_option) }
 
   var Proto2Unittest_runtimeRetentionOption: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_runtime_retention_option, default: 0) }
@@ -280,7 +280,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProto2Unittest_runtimeRetentionOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_runtime_retention_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_runtime_retention_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_runtimeRetentionOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_runtime_retention_option, type: Int32.self) }
+  mutating func clearProto2Unittest_runtimeRetentionOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_runtime_retention_option) }
 
   var Proto2Unittest_sourceRetentionOption: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_source_retention_option, default: 0) }
@@ -291,7 +291,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProto2Unittest_sourceRetentionOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_source_retention_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_source_retention_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_sourceRetentionOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_source_retention_option, type: Int32.self) }
+  mutating func clearProto2Unittest_sourceRetentionOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_source_retention_option) }
 
   var Proto2Unittest_fileOption: Proto2Unittest_OptionsMessage {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_file_option, default: Proto2Unittest_OptionsMessage()) }
@@ -302,7 +302,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProto2Unittest_fileOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_file_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_file_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_fileOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_file_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_fileOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_file_option) }
 
   var Proto2Unittest_repeatedOptions: [Proto2Unittest_OptionsMessage] {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_repeated_options, default: []) }
@@ -321,7 +321,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2Unittest_messageOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_message_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_message_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_messageOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_message_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_messageOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_message_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_MethodOptions {
@@ -335,7 +335,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MethodOptions {
   var hasProto2Unittest_methodOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_method_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_method_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_methodOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_method_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_methodOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_method_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_OneofOptions {
@@ -349,7 +349,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_OneofOptions {
   var hasProto2Unittest_oneofOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_oneof_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_oneof_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_oneofOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_oneofOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_oneof_option) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
@@ -363,7 +363,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
   var hasProto2Unittest_serviceOption: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_service_option) }
   /// Clears the value of extension `Proto2Unittest_Extensions_service_option`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_serviceOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_service_option, type: Proto2Unittest_OptionsMessage.self) }
+  mutating func clearProto2Unittest_serviceOption() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_service_option) }
 
 }
 

@@ -109,7 +109,7 @@ nonisolated extension Proto2Unittest_TestStringViewExtension {
   var hasProto2Unittest_singularStringViewExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_singular_string_view_extension) }
   /// Clears the value of extension `Proto2Unittest_Extensions_singular_string_view_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_singularStringViewExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_singular_string_view_extension, type: String.self) }
+  mutating func clearProto2Unittest_singularStringViewExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_singular_string_view_extension) }
 
   var Proto2Unittest_singularBytesViewExtension: Data {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_singular_bytes_view_extension, default: Data()) }
@@ -120,7 +120,7 @@ nonisolated extension Proto2Unittest_TestStringViewExtension {
   var hasProto2Unittest_singularBytesViewExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_singular_bytes_view_extension) }
   /// Clears the value of extension `Proto2Unittest_Extensions_singular_bytes_view_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_singularBytesViewExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_singular_bytes_view_extension, type: Data.self) }
+  mutating func clearProto2Unittest_singularBytesViewExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_singular_bytes_view_extension) }
 
   var Proto2Unittest_repeatedStringViewExtension: [String] {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_repeated_string_view_extension, default: []) }

@@ -77,7 +77,7 @@ nonisolated struct SwiftProtoTesting_Merging_TestMessage: @unchecked Swift.Senda
   }
 
   var oneofNestedMessage: SwiftProtoTesting_Merging_TestMessage.NestedMessage {
-    get { return _storage.value(atIndex: 0, default: SwiftProtoTesting_Merging_TestMessage.NestedMessage(), oneofPresence: (4, 112)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 112)) }
   }
 
@@ -156,7 +156,7 @@ nonisolated struct SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Swift.
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_Merging_TestMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Merging_TestMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.

@@ -52,7 +52,7 @@ nonisolated struct Pb_CppFeatures: @unchecked Swift.Sendable {
   /// Returns true if `stringType` has been explicitly set.
   var hasStringType: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `stringType`. Subsequent reads from it will return its default value.
-  mutating func clearStringType() { _uniqueStorage().clearValue(at: 4, type: Pb_CppFeatures.StringType.self, hasBit: (0, 2)) }
+  mutating func clearStringType() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   var enumNameUsesStringView: Bool {
     get { _storage.value(at: 2, default: false, hasBit: (0, 4)) }
@@ -70,7 +70,7 @@ nonisolated struct Pb_CppFeatures: @unchecked Swift.Sendable {
   /// Returns true if `repeatedType` has been explicitly set.
   var hasRepeatedType: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `repeatedType`. Subsequent reads from it will return its default value.
-  mutating func clearRepeatedType() { _uniqueStorage().clearValue(at: 8, type: Pb_CppFeatures.RepeatedType.self, hasBit: (0, 8)) }
+  mutating func clearRepeatedType() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 8)) }
 
   nonisolated enum StringType: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
     case unknown = 0
@@ -131,7 +131,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_cpp: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_cpp) }
   /// Clears the value of extension `Pb_Extensions_cpp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_cpp() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_cpp, type: Pb_CppFeatures.self) }
+  mutating func clearPb_cpp() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_cpp) }
 
 }
 

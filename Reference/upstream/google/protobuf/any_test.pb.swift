@@ -38,7 +38,7 @@ nonisolated struct Proto2Unittest_TestAny: @unchecked Swift.Sendable {
   }
 
   var anyValue: SwiftProtobuf.Google_Protobuf_Any {
-    get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_Any(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `anyValue` has been explicitly set.

@@ -68,7 +68,7 @@ nonisolated struct SwiftProtoTesting_TestMessageSetContainer: @unchecked Swift.S
   // methods supported on all messages.
 
   var messageSet: SwiftProtoTesting_WireFormat_TestMessageSet {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_WireFormat_TestMessageSet(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `messageSet` has been explicitly set.
@@ -118,7 +118,7 @@ nonisolated struct SwiftProtoTesting_TestMessageSetExtension1: @unchecked Swift.
   mutating func clearI() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var recursive: SwiftProtoTesting_WireFormat_TestMessageSet {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_WireFormat_TestMessageSet(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `recursive` has been explicitly set.
@@ -307,7 +307,7 @@ nonisolated extension SwiftProtoTesting_MessageEx {
   var hasSwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension, type: SwiftProtoTesting_TestMessageSetExtension1.self) }
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension1_doppelgangerMessageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension) }
 
   var SwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension: SwiftProtoTesting_TestMessageSetExtension3 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension, default: SwiftProtoTesting_TestMessageSetExtension3()) }
@@ -318,7 +318,7 @@ nonisolated extension SwiftProtoTesting_MessageEx {
   var hasSwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension, type: SwiftProtoTesting_TestMessageSetExtension3.self) }
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension3_doppelgangerMessageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension3.Extensions.doppelganger_message_set_extension) }
 }
 
 nonisolated extension SwiftProtoTesting_WireFormat_TestMessageSet {
@@ -332,7 +332,7 @@ nonisolated extension SwiftProtoTesting_WireFormat_TestMessageSet {
   var hasSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension, type: SwiftProtoTesting_TestMessageSetExtension1.self) }
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension1_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension) }
 
   var SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension: SwiftProtoTesting_TestMessageSetExtension2 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension, default: SwiftProtoTesting_TestMessageSetExtension2()) }
@@ -343,7 +343,7 @@ nonisolated extension SwiftProtoTesting_WireFormat_TestMessageSet {
   var hasSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension, type: SwiftProtoTesting_TestMessageSetExtension2.self) }
+  mutating func clearSwiftProtoTesting_TestMessageSetExtension2_messageSetExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension) }
 
 }
 

@@ -53,7 +53,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   var hasProto2UnittestUnlinked_fieldOpt1: Bool { _protobuf_extensionStorage().hasValue(for: Proto2UnittestUnlinked_Extensions_field_opt1) }
   /// Clears the value of extension `Proto2UnittestUnlinked_Extensions_field_opt1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2UnittestUnlinked_fieldOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_field_opt1, type: UInt64.self) }
+  mutating func clearProto2UnittestUnlinked_fieldOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_field_opt1) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
@@ -67,7 +67,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProto2UnittestUnlinked_fileOpt1: Bool { _protobuf_extensionStorage().hasValue(for: Proto2UnittestUnlinked_Extensions_file_opt1) }
   /// Clears the value of extension `Proto2UnittestUnlinked_Extensions_file_opt1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2UnittestUnlinked_fileOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_file_opt1, type: UInt64.self) }
+  mutating func clearProto2UnittestUnlinked_fileOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_file_opt1) }
 }
 
 nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
@@ -81,7 +81,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2UnittestUnlinked_messageOpt1: Bool { _protobuf_extensionStorage().hasValue(for: Proto2UnittestUnlinked_Extensions_message_opt1) }
   /// Clears the value of extension `Proto2UnittestUnlinked_Extensions_message_opt1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2UnittestUnlinked_messageOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_message_opt1, type: Int32.self) }
+  mutating func clearProto2UnittestUnlinked_messageOpt1() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2UnittestUnlinked_Extensions_message_opt1) }
 
 }
 

@@ -230,7 +230,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_debugDescription: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_debug_description) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_debug_description`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_debugDescription() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_debug_description, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_debugDescription() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_debug_description) }
 
   /// These are scoped to the file, so the package prefix (or a Swift prefix)
   /// will get added to them to they aren't going to get renamed.
@@ -243,7 +243,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_as: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_as) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_as`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_as() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_as, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_as() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_as) }
 
   var SwiftProtoTesting_var: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_var, default: false) }
@@ -254,7 +254,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_var: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_var) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_var`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_var() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_var, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_var() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_var) }
 
   var SwiftProtoTesting_try: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_try, default: false) }
@@ -265,7 +265,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_try: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_try) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_try`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_try() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_try, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_try() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_try) }
 
   var SwiftProtoTesting_do: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_do, default: false) }
@@ -276,7 +276,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_do: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_do) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_do`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_do() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_do, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_do() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_do) }
 
   var SwiftProtoTesting_nil: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_nil, default: false) }
@@ -287,7 +287,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_nil: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_nil) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_nil`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_nil() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_nil, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_nil() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_nil) }
 
   /// This will end up in the "enum Extensions" to scope it, but there
   /// the raw form is used ("hash_value", not the Swift one "hashValue"),
@@ -301,7 +301,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_hashValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.hash_value) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.hash_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_hashValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.hash_value, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_hashValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.hash_value) }
 
   /// Reserved words, since these end up in the "struct Extensions", they
   /// can't just be get their names, and sanitation kicks.
@@ -314,7 +314,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_as: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.as) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.as`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_as() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.as, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_as() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.as) }
 
   var SwiftProtoTesting_SwiftReservedTestExt_var: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.var, default: false) }
@@ -325,7 +325,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_var: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.var) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.var`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_var() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.var, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_var() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.var) }
 
   var SwiftProtoTesting_SwiftReservedTestExt_try: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.try, default: false) }
@@ -336,7 +336,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_try: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.try) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.try`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_try() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.try, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_try() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.try) }
 
   var SwiftProtoTesting_SwiftReservedTestExt_do: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.do, default: false) }
@@ -347,7 +347,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_do: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.do) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.do`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_do() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.do, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_do() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.do) }
 
   var SwiftProtoTesting_SwiftReservedTestExt_nil: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.nil, default: false) }
@@ -358,7 +358,7 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage {
   var hasSwiftProtoTesting_SwiftReservedTestExt_nil: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_SwiftReservedTestExt.Extensions.nil) }
   /// Clears the value of extension `SwiftProtoTesting_SwiftReservedTestExt.Extensions.nil`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_nil() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.nil, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_SwiftReservedTestExt_nil() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_SwiftReservedTestExt.Extensions.nil) }
 
 }
 

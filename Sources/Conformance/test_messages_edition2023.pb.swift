@@ -236,7 +236,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalNestedMessage: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage {
-    get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -245,7 +245,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage.self, hasBit: (1, 128)) }
 
   var optionalForeignMessage: ProtobufTestMessages_Editions_ForeignMessageEdition2023 {
-    get { _storage.value(atIndex: 1, default: ProtobufTestMessages_Editions_ForeignMessageEdition2023(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -260,7 +260,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 2)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 80, type: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum.self, hasBit: (2, 2)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 80, hasBit: (2, 2)) }
 
   var optionalForeignEnum: ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
     get { _storage.value(at: 84, default: .foreignFoo, hasBit: (2, 4)) }
@@ -269,7 +269,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 84, type: ProtobufTestMessages_Editions_ForeignEnumEdition2023.self, hasBit: (2, 4)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 84, hasBit: (2, 4)) }
 
   var optionalStringPiece: String {
     get { _storage.value(atIndex: 1, default: String(), hasBit: (2, 8)) }
@@ -290,7 +290,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   mutating func clearOptionalCord() { _uniqueStorage().clearValue(atIndex: 2, type: String.self, hasBit: (2, 16)) }
 
   var recursiveMessage: ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
-    get { _storage.value(atIndex: 2, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023(), hasBit: (2, 32)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 32)) }
   }
   /// Returns true if `recursiveMessage` has been explicitly set.
@@ -681,7 +681,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage {
-    get { return _storage.value(atIndex: 3, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage(), oneofPresence: (16, 112)) }
+    get { return _storage.messageValue(atIndex: 3, oneofPresence: (16, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, oneofPresence: (16, 112)) }
   }
 
@@ -721,7 +721,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   }
 
   var groupLikeType: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType {
-    get { _storage.value(atIndex: 4, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `groupLikeType` has been explicitly set.
@@ -730,7 +730,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
   mutating func clearGroupLikeType() { _uniqueStorage().clearValue(atIndex: 4, type: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType.self, hasBit: (2, 64)) }
 
   var delimitedField: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType {
-    get { _storage.value(atIndex: 5, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023.GroupLikeType(), hasBit: (2, 128)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (2, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (2, 128)) }
   }
   /// Returns true if `delimitedField` has been explicitly set.
@@ -815,7 +815,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2023: @unche
     mutating func clearA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var corecursive: ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
-      get { _storage.value(atIndex: 0, default: ProtobufTestMessages_Editions_TestAllTypesEdition2023(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `corecursive` has been explicitly set.
@@ -945,7 +945,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
   var hasProtobufTestMessages_Editions_extensionInt32: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Editions_Extensions_extension_int32) }
   /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_extension_int32`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Editions_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_int32, type: Int32.self) }
+  mutating func clearProtobufTestMessages_Editions_extensionInt32() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_int32) }
 
   var ProtobufTestMessages_Editions_extensionString: String {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Editions_Extensions_extension_string, default: String()) }
@@ -956,7 +956,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
   var hasProtobufTestMessages_Editions_extensionString: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Editions_Extensions_extension_string) }
   /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Editions_extensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_string, type: String.self) }
+  mutating func clearProtobufTestMessages_Editions_extensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_string) }
 
   var ProtobufTestMessages_Editions_extensionBytes: Data {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Editions_Extensions_extension_bytes, default: Data()) }
@@ -967,7 +967,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
   var hasProtobufTestMessages_Editions_extensionBytes: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Editions_Extensions_extension_bytes) }
   /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_extension_bytes`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Editions_extensionBytes() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_bytes, type: Data.self) }
+  mutating func clearProtobufTestMessages_Editions_extensionBytes() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_extension_bytes) }
 
   var ProtobufTestMessages_Editions_groupLikeType: ProtobufTestMessages_Editions_GroupLikeType {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Editions_Extensions_GroupLikeType, default: ProtobufTestMessages_Editions_GroupLikeType()) }
@@ -978,7 +978,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
   var hasProtobufTestMessages_Editions_groupLikeType: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Editions_Extensions_GroupLikeType) }
   /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_GroupLikeType`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Editions_groupLikeType() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_GroupLikeType, type: ProtobufTestMessages_Editions_GroupLikeType.self) }
+  mutating func clearProtobufTestMessages_Editions_groupLikeType() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_GroupLikeType) }
 
   var ProtobufTestMessages_Editions_delimitedExt: ProtobufTestMessages_Editions_GroupLikeType {
     get { _protobuf_extensionStorage().value(of: ProtobufTestMessages_Editions_Extensions_delimited_ext, default: ProtobufTestMessages_Editions_GroupLikeType()) }
@@ -989,7 +989,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
   var hasProtobufTestMessages_Editions_delimitedExt: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufTestMessages_Editions_Extensions_delimited_ext) }
   /// Clears the value of extension `ProtobufTestMessages_Editions_Extensions_delimited_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufTestMessages_Editions_delimitedExt() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_delimited_ext, type: ProtobufTestMessages_Editions_GroupLikeType.self) }
+  mutating func clearProtobufTestMessages_Editions_delimitedExt() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufTestMessages_Editions_Extensions_delimited_ext) }
 
 }
 

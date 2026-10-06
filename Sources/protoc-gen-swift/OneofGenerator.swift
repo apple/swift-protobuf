@@ -211,6 +211,45 @@ class OneofGenerator {
             for f in fields {
                 p.print("\(f.comments)case \(f.swiftName)(\(f.swiftType))")
             }
+
+            if generatorOptions.experimentalWeakImports {
+                generateWeakImportEquality(printer: &p)
+            }
+        }
+        p.print("}")
+    }
+
+    private func generateWeakImportEquality(printer p: inout CodePrinter) {
+        let parentMessage = namer.fullName(message: oneofDescriptor.containingType)
+        let visibility = generatorOptions.visibilitySourceSnippet
+        p.print(
+            "",
+            "\(visibility)static func == (lhs: \(swiftRelativeName), rhs: \(swiftRelativeName)) -> Bool {"
+        )
+        p.withIndentation { p in
+            if fields.isEmpty {
+                p.print("return true")
+            } else {
+                p.print("switch (lhs, rhs) {")
+                for f in fields {
+                    let comparison: String
+                    switch f.rawFieldType {
+                    case .group, .message:
+                        comparison =
+                            "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.submessageSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                    case .enum:
+                        comparison =
+                            "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.enumSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                    default:
+                        comparison = "l == r"
+                    }
+                    p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return \(comparison)")
+                }
+                if fields.count > 1 {
+                    p.print("default: return false")
+                }
+                p.print("}")
+            }
         }
         p.print("}")
     }
@@ -264,11 +303,11 @@ class OneofGenerator {
         let oneofPresence = "(\(field.oneofOffset), \(field.number))"
 
         // Only generate a default value expression for the getter if the proto contained an
-        // explicitly written default value (or if it is a message field, since we don't have a
+        // explicitly written default value (or if it is an enum field, since we don't have a
         // suitable default value in that overload).
         let defaultValueArgument: String
         switch field.rawFieldType {
-        case .enum, .group, .message:
+        case .enum:
             defaultValueArgument = "default: \(field.swiftDefaultValue), "
         default:
             defaultValueArgument = field.hasExplicitDefaultValue ? "default: \(field.swiftDefaultValue), " : ""
@@ -280,9 +319,46 @@ class OneofGenerator {
             "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {"
         )
         let atLabel = field.storageBucket == .stable ? "at" : "atIndex"
+        let getCall: String
+        let setCall: String
+        switch field.storageBucket {
+        case .message:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the default value (when
+            // the field is not set). Without weak imports, we prefer the more
+            // efficient approach of passing the metatype directly to the
+            // runtime.
+            //
+            // Unlike regular message fields, setters of oneof fields already
+            // delegate to the message witness to deinitialize the old value,
+            // because the type of the currently populated oneof case can only
+            // be known at runtime (it may be different than the field being
+            // set).
+            if generatorOptions.experimentalWeakImports {
+                getCall =
+                    "messageValue(atIndex: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), oneofPresence: \(oneofPresence))"
+            } else {
+                getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), oneofPresence: \(oneofPresence))"
+            }
+            setCall =
+                "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
+        case .stable where field.rawFieldType == .enum && generatorOptions.experimentalWeakImports:
+            // When weak imports are enabled, we generate different accessors
+            // that delegate to a witness to initialize the enum from its raw
+            // value and to extract the raw value in the setter.
+            getCall =
+                "enumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall =
+                "updateEnumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), to: newValue, oneofPresence: \(oneofPresence))"
+        default:
+            getCall =
+                "value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall =
+                "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
+        }
         p.printIndented(
-            "get { return _storage.value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence)) }",
-            "set { _uniqueStorage().updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence)) }"
+            "get { return _storage.\(getCall) }",
+            "set { _uniqueStorage().\(setCall) }"
         )
         p.print("}")
     }

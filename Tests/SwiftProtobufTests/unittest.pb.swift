@@ -232,7 +232,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalBytes() { _uniqueStorage().clearValue(atIndex: 0, type: Data.self, hasBit: (1, 64)) }
 
   var optionalGroup: SwiftProtoTesting_TestAllTypes.OptionalGroup {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes.OptionalGroup(), hasBit: (1, 128)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (1, 128)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (1, 128)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -241,7 +241,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalGroup() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_TestAllTypes.OptionalGroup.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_TestAllTypes.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -250,7 +250,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self, hasBit: (2, 1)) }
 
   var optionalForeignMessage: SwiftProtoTesting_ForeignMessage {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_ForeignMessage(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -259,7 +259,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 2, type: SwiftProtoTesting_ForeignMessage.self, hasBit: (2, 2)) }
 
   var optionalImportMessage: SwiftProtoTesting_Import_ImportMessage {
-    get { _storage.value(atIndex: 3, default: SwiftProtoTesting_Import_ImportMessage(), hasBit: (2, 4)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (2, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (2, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -274,7 +274,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 8)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 56, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (2, 8)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 56, hasBit: (2, 8)) }
 
   var optionalForeignEnum: SwiftProtoTesting_ForeignEnum {
     get { _storage.value(at: 60, default: .foreignFoo, hasBit: (2, 16)) }
@@ -283,7 +283,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 16)) }
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearValue(at: 60, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (2, 16)) }
+  mutating func clearOptionalForeignEnum() { _uniqueStorage().clearEnumValue(at: 60, hasBit: (2, 16)) }
 
   var optionalImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get { _storage.value(at: 64, default: .importFoo, hasBit: (2, 32)) }
@@ -292,11 +292,11 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `optionalImportEnum` has been explicitly set.
   var hasOptionalImportEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 32)) }
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportEnum() { _uniqueStorage().clearValue(at: 64, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (2, 32)) }
+  mutating func clearOptionalImportEnum() { _uniqueStorage().clearEnumValue(at: 64, hasBit: (2, 32)) }
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
-    get { _storage.value(atIndex: 4, default: SwiftProtoTesting_Import_PublicImportMessage(), hasBit: (2, 64)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (2, 64)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (2, 64)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -558,7 +558,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (4, 64)) }
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearValue(at: 92, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self, hasBit: (4, 64)) }
+  mutating func clearDefaultNestedEnum() { _uniqueStorage().clearEnumValue(at: 92, hasBit: (4, 64)) }
 
   var defaultForeignEnum: SwiftProtoTesting_ForeignEnum {
     get { _storage.value(at: 96, default: .foreignBar, hasBit: (4, 128)) }
@@ -567,7 +567,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Swift.Bool { _storage.isPresent(hasBit: (4, 128)) }
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearValue(at: 96, type: SwiftProtoTesting_ForeignEnum.self, hasBit: (4, 128)) }
+  mutating func clearDefaultForeignEnum() { _uniqueStorage().clearEnumValue(at: 96, hasBit: (4, 128)) }
 
   var defaultImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get { _storage.value(at: 100, default: .importBar, hasBit: (5, 1)) }
@@ -576,7 +576,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Swift.Bool { _storage.isPresent(hasBit: (5, 1)) }
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() { _uniqueStorage().clearValue(at: 100, type: SwiftProtoTesting_Import_ImportEnum.self, hasBit: (5, 1)) }
+  mutating func clearDefaultImportEnum() { _uniqueStorage().clearEnumValue(at: 100, hasBit: (5, 1)) }
 
   /// For oneof test
   var oneofField: SwiftProtoTesting_TestAllTypes.OneOf_OneofField? {
@@ -608,7 +608,7 @@ nonisolated struct SwiftProtoTesting_TestAllTypes: @unchecked Swift.Sendable {
   }
 
   var oneofNestedMessage: SwiftProtoTesting_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 5, default: SwiftProtoTesting_TestAllTypes.NestedMessage(), oneofPresence: (12, 112)) }
+    get { return _storage.messageValue(atIndex: 5, oneofPresence: (12, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, oneofPresence: (12, 112)) }
   }
 
@@ -736,7 +736,7 @@ nonisolated struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Swift.Sendab
   // methods supported on all messages.
 
   var child: SwiftProtoTesting_NestedTestAllTypes {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestedTestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -745,7 +745,7 @@ nonisolated struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Swift.Sendab
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_NestedTestAllTypes.self, hasBit: (0, 1)) }
 
   var payload: SwiftProtoTesting_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
@@ -1191,7 +1191,7 @@ nonisolated struct SwiftProtoTesting_TestRequired: @unchecked Swift.Sendable {
   mutating func clearC() { _uniqueStorage().clearValue(at: 136, type: Int32.self, hasBit: (0, 4)) }
 
   var optionalForeign: SwiftProtoTesting_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_ForeignMessage(), hasBit: (4, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (4, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (4, 2)) }
   }
   /// Returns true if `optionalForeign` has been explicitly set.
@@ -1215,7 +1215,7 @@ nonisolated struct SwiftProtoTesting_TestRequiredForeign: @unchecked Swift.Senda
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_TestRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -1253,7 +1253,7 @@ nonisolated struct SwiftProtoTesting_TestRequiredMessage: @unchecked Swift.Senda
   // methods supported on all messages.
 
   var optionalMessage: SwiftProtoTesting_TestRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -1267,7 +1267,7 @@ nonisolated struct SwiftProtoTesting_TestRequiredMessage: @unchecked Swift.Senda
   }
 
   var requiredMessage: SwiftProtoTesting_TestRequired {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredMessage` has been explicitly set.
@@ -1343,7 +1343,7 @@ nonisolated struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Swift.Send
   // methods supported on all messages.
 
   var a: SwiftProtoTesting_TestRecursiveMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestRecursiveMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `a` has been explicitly set.
@@ -1405,7 +1405,7 @@ nonisolated struct SwiftProtoTesting_TestFieldOrderings: @unchecked Swift.Sendab
   mutating func clearMyFloat() { _uniqueStorage().clearValue(at: 4, type: Float.self, hasBit: (0, 4)) }
 
   var optionalNestedMessage: SwiftProtoTesting_TestFieldOrderings.NestedMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestFieldOrderings.NestedMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -1751,12 +1751,12 @@ nonisolated struct SwiftProtoTesting_TestOneof: @unchecked Swift.Sendable {
   }
 
   var fooMessage: SwiftProtoTesting_TestAllTypes {
-    get { return _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
   var fooGroup: SwiftProtoTesting_TestOneof.FooGroup {
-    get { return _storage.value(atIndex: 1, default: SwiftProtoTesting_TestOneof.FooGroup(), oneofPresence: (4, 4)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (4, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (4, 4)) }
   }
 
@@ -1847,7 +1847,7 @@ nonisolated struct SwiftProtoTesting_TestRequiredOneof: @unchecked Swift.Sendabl
   }
 
   var fooMessage: SwiftProtoTesting_TestRequiredOneof.NestedMessage {
-    get { return _storage.value(atIndex: 0, default: SwiftProtoTesting_TestRequiredOneof.NestedMessage(), oneofPresence: (4, 3)) }
+    get { return _storage.messageValue(atIndex: 0, oneofPresence: (4, 3)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, oneofPresence: (4, 3)) }
   }
 
@@ -2086,7 +2086,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
   // methods supported on all messages.
 
   var requiredAllTypes: SwiftProtoTesting_TestAllTypes {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `requiredAllTypes` has been explicitly set.
@@ -2095,7 +2095,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
   mutating func clearRequiredAllTypes() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_TestAllTypes.self, hasBit: (0, 1)) }
 
   var optionalAllTypes: SwiftProtoTesting_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalAllTypes` has been explicitly set.
@@ -2109,7 +2109,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
   }
 
   var optionalGroup: SwiftProtoTesting_TestParsingMerge.OptionalGroup {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_TestParsingMerge.OptionalGroup(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalGroup` has been explicitly set.
@@ -2173,7 +2173,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
       // methods supported on all messages.
 
       var field1: SwiftProtoTesting_TestAllTypes {
-        get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -2197,7 +2197,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
       // methods supported on all messages.
 
       var field1: SwiftProtoTesting_TestAllTypes {
-        get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+        get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
         set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
       }
       /// Returns true if `field1` has been explicitly set.
@@ -2231,7 +2231,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
     // methods supported on all messages.
 
     var optionalGroupAllTypes: SwiftProtoTesting_TestAllTypes {
-      get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
@@ -2255,7 +2255,7 @@ nonisolated struct SwiftProtoTesting_TestParsingMerge: @unchecked Swift.Sendable
     // methods supported on all messages.
 
     var repeatedGroupAllTypes: SwiftProtoTesting_TestAllTypes {
-      get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestAllTypes(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
@@ -2304,7 +2304,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_int32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_int32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_optionalInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_int32_extension) }
 
   var SwiftProtoTesting_optionalInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_int64_extension, default: 0) }
@@ -2315,7 +2315,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_int64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_int64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_optionalInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_int64_extension) }
 
   var SwiftProtoTesting_optionalUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_uint32_extension, default: 0) }
@@ -2326,7 +2326,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_uint32_extension, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_optionalUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_uint32_extension) }
 
   var SwiftProtoTesting_optionalUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_uint64_extension, default: 0) }
@@ -2337,7 +2337,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_uint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_uint64_extension, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_optionalUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_uint64_extension) }
 
   var SwiftProtoTesting_optionalSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_sint32_extension, default: 0) }
@@ -2348,7 +2348,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_sint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sint32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_optionalSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sint32_extension) }
 
   var SwiftProtoTesting_optionalSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_sint64_extension, default: 0) }
@@ -2359,7 +2359,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_sint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sint64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_optionalSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sint64_extension) }
 
   var SwiftProtoTesting_optionalFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_fixed32_extension, default: 0) }
@@ -2370,7 +2370,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_fixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_fixed32_extension, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_optionalFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_fixed32_extension) }
 
   var SwiftProtoTesting_optionalFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_fixed64_extension, default: 0) }
@@ -2381,7 +2381,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_fixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_fixed64_extension, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_optionalFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_fixed64_extension) }
 
   var SwiftProtoTesting_optionalSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension, default: 0) }
@@ -2392,7 +2392,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_sfixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_optionalSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed32_extension) }
 
   var SwiftProtoTesting_optionalSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension, default: 0) }
@@ -2403,7 +2403,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_sfixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_optionalSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_sfixed64_extension) }
 
   var SwiftProtoTesting_optionalFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_float_extension, default: 0) }
@@ -2414,7 +2414,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_float_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_float_extension, type: Float.self) }
+  mutating func clearSwiftProtoTesting_optionalFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_float_extension) }
 
   var SwiftProtoTesting_optionalDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_double_extension, default: 0) }
@@ -2425,7 +2425,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_double_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_double_extension, type: Double.self) }
+  mutating func clearSwiftProtoTesting_optionalDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_double_extension) }
 
   var SwiftProtoTesting_optionalBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_bool_extension, default: false) }
@@ -2436,7 +2436,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_bool_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_bool_extension, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_optionalBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_bool_extension) }
 
   var SwiftProtoTesting_optionalStringExtension: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_string_extension, default: String()) }
@@ -2447,7 +2447,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_string_extension, type: String.self) }
+  mutating func clearSwiftProtoTesting_optionalStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_string_extension) }
 
   var SwiftProtoTesting_optionalBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_bytes_extension, default: Data()) }
@@ -2458,7 +2458,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_bytes_extension, type: Data.self) }
+  mutating func clearSwiftProtoTesting_optionalBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_bytes_extension) }
 
   var SwiftProtoTesting_optionalGroupExtension: SwiftProtoTesting_OptionalGroup_extension {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_OptionalGroup_extension, default: SwiftProtoTesting_OptionalGroup_extension()) }
@@ -2469,7 +2469,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalGroupExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_OptionalGroup_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_OptionalGroup_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_OptionalGroup_extension, type: SwiftProtoTesting_OptionalGroup_extension.self) }
+  mutating func clearSwiftProtoTesting_optionalGroupExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_OptionalGroup_extension) }
 
   var SwiftProtoTesting_optionalNestedMessageExtension: SwiftProtoTesting_TestAllTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_nested_message_extension, default: SwiftProtoTesting_TestAllTypes.NestedMessage()) }
@@ -2480,7 +2480,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalNestedMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_nested_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_nested_message_extension, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self) }
+  mutating func clearSwiftProtoTesting_optionalNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_nested_message_extension) }
 
   var SwiftProtoTesting_optionalForeignMessageExtension: SwiftProtoTesting_ForeignMessage {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension, default: SwiftProtoTesting_ForeignMessage()) }
@@ -2491,7 +2491,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalForeignMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_foreign_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_foreign_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension, type: SwiftProtoTesting_ForeignMessage.self) }
+  mutating func clearSwiftProtoTesting_optionalForeignMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_message_extension) }
 
   var SwiftProtoTesting_optionalImportMessageExtension: SwiftProtoTesting_Import_ImportMessage {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_import_message_extension, default: SwiftProtoTesting_Import_ImportMessage()) }
@@ -2502,7 +2502,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_import_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_import_message_extension, type: SwiftProtoTesting_Import_ImportMessage.self) }
+  mutating func clearSwiftProtoTesting_optionalImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_import_message_extension) }
 
   var SwiftProtoTesting_optionalNestedEnumExtension: SwiftProtoTesting_TestAllTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension, default: .foo) }
@@ -2513,7 +2513,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_nested_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self) }
+  mutating func clearSwiftProtoTesting_optionalNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_nested_enum_extension) }
 
   var SwiftProtoTesting_optionalForeignEnumExtension: SwiftProtoTesting_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, default: .foreignFoo) }
@@ -2524,7 +2524,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_foreign_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension, type: SwiftProtoTesting_ForeignEnum.self) }
+  mutating func clearSwiftProtoTesting_optionalForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_foreign_enum_extension) }
 
   var SwiftProtoTesting_optionalImportEnumExtension: SwiftProtoTesting_Import_ImportEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_import_enum_extension, default: .importFoo) }
@@ -2535,7 +2535,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_import_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_import_enum_extension, type: SwiftProtoTesting_Import_ImportEnum.self) }
+  mutating func clearSwiftProtoTesting_optionalImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_import_enum_extension) }
 
   var SwiftProtoTesting_optionalPublicImportMessageExtension: SwiftProtoTesting_Import_PublicImportMessage {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension, default: SwiftProtoTesting_Import_PublicImportMessage()) }
@@ -2546,7 +2546,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_optionalPublicImportMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_optional_public_import_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_optional_public_import_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension, type: SwiftProtoTesting_Import_PublicImportMessage.self) }
+  mutating func clearSwiftProtoTesting_optionalPublicImportMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_optional_public_import_message_extension) }
 
   /// Repeated
   var SwiftProtoTesting_repeatedInt32Extension: [Int32] {
@@ -2669,7 +2669,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultInt32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_int32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_int32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_int32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_defaultInt32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_int32_extension) }
 
   var SwiftProtoTesting_defaultInt64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_int64_extension, default: 42) }
@@ -2680,7 +2680,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultInt64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_int64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_int64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_int64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_defaultInt64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_int64_extension) }
 
   var SwiftProtoTesting_defaultUint32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_uint32_extension, default: 43) }
@@ -2691,7 +2691,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_uint32_extension, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_defaultUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_uint32_extension) }
 
   var SwiftProtoTesting_defaultUint64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_uint64_extension, default: 44) }
@@ -2702,7 +2702,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultUint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_uint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_uint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_uint64_extension, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_defaultUint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_uint64_extension) }
 
   var SwiftProtoTesting_defaultSint32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_sint32_extension, default: -45) }
@@ -2713,7 +2713,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultSint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_sint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sint32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_defaultSint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sint32_extension) }
 
   var SwiftProtoTesting_defaultSint64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_sint64_extension, default: 46) }
@@ -2724,7 +2724,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultSint64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_sint64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sint64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sint64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_defaultSint64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sint64_extension) }
 
   var SwiftProtoTesting_defaultFixed32Extension: UInt32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_fixed32_extension, default: 47) }
@@ -2735,7 +2735,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultFixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_fixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_fixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_fixed32_extension, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_defaultFixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_fixed32_extension) }
 
   var SwiftProtoTesting_defaultFixed64Extension: UInt64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_fixed64_extension, default: 48) }
@@ -2746,7 +2746,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultFixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_fixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_fixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_fixed64_extension, type: UInt64.self) }
+  mutating func clearSwiftProtoTesting_defaultFixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_fixed64_extension) }
 
   var SwiftProtoTesting_defaultSfixed32Extension: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_sfixed32_extension, default: 49) }
@@ -2757,7 +2757,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultSfixed32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_sfixed32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sfixed32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sfixed32_extension, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_defaultSfixed32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sfixed32_extension) }
 
   var SwiftProtoTesting_defaultSfixed64Extension: Int64 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_sfixed64_extension, default: -50) }
@@ -2768,7 +2768,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultSfixed64Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_sfixed64_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_sfixed64_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sfixed64_extension, type: Int64.self) }
+  mutating func clearSwiftProtoTesting_defaultSfixed64Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_sfixed64_extension) }
 
   var SwiftProtoTesting_defaultFloatExtension: Float {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_float_extension, default: 51.5) }
@@ -2779,7 +2779,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultFloatExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_float_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_float_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_float_extension, type: Float.self) }
+  mutating func clearSwiftProtoTesting_defaultFloatExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_float_extension) }
 
   var SwiftProtoTesting_defaultDoubleExtension: Double {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_double_extension, default: 52000) }
@@ -2790,7 +2790,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultDoubleExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_double_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_double_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_double_extension, type: Double.self) }
+  mutating func clearSwiftProtoTesting_defaultDoubleExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_double_extension) }
 
   var SwiftProtoTesting_defaultBoolExtension: Bool {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_bool_extension, default: true) }
@@ -2801,7 +2801,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultBoolExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_bool_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_bool_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_bool_extension, type: Bool.self) }
+  mutating func clearSwiftProtoTesting_defaultBoolExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_bool_extension) }
 
   var SwiftProtoTesting_defaultStringExtension: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_string_extension, default: "hello") }
@@ -2812,7 +2812,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_string_extension, type: String.self) }
+  mutating func clearSwiftProtoTesting_defaultStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_string_extension) }
 
   var SwiftProtoTesting_defaultBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_bytes_extension, default: Data([119, 111, 114, 108, 100])) }
@@ -2823,7 +2823,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_bytes_extension, type: Data.self) }
+  mutating func clearSwiftProtoTesting_defaultBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_bytes_extension) }
 
   var SwiftProtoTesting_defaultNestedEnumExtension: SwiftProtoTesting_TestAllTypes.NestedEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_nested_enum_extension, default: .bar) }
@@ -2834,7 +2834,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultNestedEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_nested_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_nested_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_nested_enum_extension, type: SwiftProtoTesting_TestAllTypes.NestedEnum.self) }
+  mutating func clearSwiftProtoTesting_defaultNestedEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_nested_enum_extension) }
 
   var SwiftProtoTesting_defaultForeignEnumExtension: SwiftProtoTesting_ForeignEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension, default: .foreignBar) }
@@ -2845,7 +2845,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultForeignEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_foreign_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_foreign_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension, type: SwiftProtoTesting_ForeignEnum.self) }
+  mutating func clearSwiftProtoTesting_defaultForeignEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_foreign_enum_extension) }
 
   var SwiftProtoTesting_defaultImportEnumExtension: SwiftProtoTesting_Import_ImportEnum {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_default_import_enum_extension, default: .importBar) }
@@ -2856,7 +2856,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_defaultImportEnumExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_default_import_enum_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_default_import_enum_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_import_enum_extension, type: SwiftProtoTesting_Import_ImportEnum.self) }
+  mutating func clearSwiftProtoTesting_defaultImportEnumExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_default_import_enum_extension) }
 
   /// For oneof test
   var SwiftProtoTesting_oneofUint32Extension: UInt32 {
@@ -2868,7 +2868,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_oneofUint32Extension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_oneof_uint32_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_uint32_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_uint32_extension, type: UInt32.self) }
+  mutating func clearSwiftProtoTesting_oneofUint32Extension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_uint32_extension) }
 
   var SwiftProtoTesting_oneofNestedMessageExtension: SwiftProtoTesting_TestAllTypes.NestedMessage {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension, default: SwiftProtoTesting_TestAllTypes.NestedMessage()) }
@@ -2879,7 +2879,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_oneofNestedMessageExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_oneof_nested_message_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_nested_message_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension, type: SwiftProtoTesting_TestAllTypes.NestedMessage.self) }
+  mutating func clearSwiftProtoTesting_oneofNestedMessageExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_nested_message_extension) }
 
   var SwiftProtoTesting_oneofStringExtension: String {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_oneof_string_extension, default: String()) }
@@ -2890,7 +2890,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_oneofStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_oneof_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_string_extension, type: String.self) }
+  mutating func clearSwiftProtoTesting_oneofStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_string_extension) }
 
   var SwiftProtoTesting_oneofBytesExtension: Data {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_oneof_bytes_extension, default: Data()) }
@@ -2901,7 +2901,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_oneofBytesExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_oneof_bytes_extension) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_oneof_bytes_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_oneofBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_bytes_extension, type: Data.self) }
+  mutating func clearSwiftProtoTesting_oneofBytesExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_oneof_bytes_extension) }
 
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.
@@ -2914,7 +2914,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_TestNestedExtension_test: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestNestedExtension.Extensions.test) }
   /// Clears the value of extension `SwiftProtoTesting_TestNestedExtension.Extensions.test`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.test, type: String.self) }
+  mutating func clearSwiftProtoTesting_TestNestedExtension_test() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.test) }
 
   /// Used to test if generated extension name is correct when there are
   /// underscores.
@@ -2927,7 +2927,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_TestNestedExtension_nestedStringExtension: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension) }
   /// Clears the value of extension `SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension, type: String.self) }
+  mutating func clearSwiftProtoTesting_TestNestedExtension_nestedStringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestNestedExtension.Extensions.nested_string_extension) }
 
   var SwiftProtoTesting_TestRequired_single: SwiftProtoTesting_TestRequired {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_TestRequired.Extensions.single, default: SwiftProtoTesting_TestRequired()) }
@@ -2938,7 +2938,7 @@ nonisolated extension SwiftProtoTesting_TestAllExtensions {
   var hasSwiftProtoTesting_TestRequired_single: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestRequired.Extensions.single) }
   /// Clears the value of extension `SwiftProtoTesting_TestRequired.Extensions.single`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestRequired.Extensions.single, type: SwiftProtoTesting_TestRequired.self) }
+  mutating func clearSwiftProtoTesting_TestRequired_single() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestRequired.Extensions.single) }
 
   var SwiftProtoTesting_TestRequired_multi: [SwiftProtoTesting_TestRequired] {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_TestRequired.Extensions.multi, default: []) }
@@ -2957,7 +2957,7 @@ nonisolated extension SwiftProtoTesting_TestFieldOrderings {
   var hasSwiftProtoTesting_myExtensionString: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_my_extension_string) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_my_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_my_extension_string, type: String.self) }
+  mutating func clearSwiftProtoTesting_myExtensionString() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_my_extension_string) }
 
   var SwiftProtoTesting_myExtensionInt: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_my_extension_int, default: 0) }
@@ -2968,7 +2968,7 @@ nonisolated extension SwiftProtoTesting_TestFieldOrderings {
   var hasSwiftProtoTesting_myExtensionInt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_my_extension_int) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_my_extension_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_my_extension_int, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_myExtensionInt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_my_extension_int) }
 }
 
 nonisolated extension SwiftProtoTesting_TestPackedExtensions {
@@ -3055,7 +3055,7 @@ nonisolated extension SwiftProtoTesting_TestParsingMerge {
   var hasSwiftProtoTesting_TestParsingMerge_optionalExt: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext) }
   /// Clears the value of extension `SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_TestParsingMerge_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext, type: SwiftProtoTesting_TestAllTypes.self) }
+  mutating func clearSwiftProtoTesting_TestParsingMerge_optionalExt() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_TestParsingMerge.Extensions.optional_ext) }
 
   var SwiftProtoTesting_TestParsingMerge_repeatedExt: [SwiftProtoTesting_TestAllTypes] {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_TestParsingMerge.Extensions.repeated_ext, default: []) }

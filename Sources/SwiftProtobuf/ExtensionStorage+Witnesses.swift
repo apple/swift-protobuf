@@ -134,18 +134,6 @@ extension ExtensionStorage {
         }
         return submessageStorage!.takeUnretainedValue()
     }
-
-    /// Clears the singular message or group field.
-    ///
-    /// If the field is not present, this method does nothing.
-    ///
-    /// - Precondition: The field must be a singular message or group field.
-    func clearSingularMessageField(_ ext: ExtensionSchema) {
-        guard let value = values.removeValue(forKey: ext.field.fieldNumber) else {
-            return
-        }
-        value.release()
-    }
 }
 
 // MARK: - Enum witness helpers

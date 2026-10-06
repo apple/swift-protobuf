@@ -126,7 +126,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Non-delimited field that otherwise looks group-like.
   var lengthprefixed: EditionsUnittest_TestDelimited.LengthPrefixed {
-    get { _storage.value(atIndex: 0, default: EditionsUnittest_TestDelimited.LengthPrefixed(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lengthprefixed` has been explicitly set.
@@ -136,7 +136,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Nested field for nested tests.
   var nested: EditionsUnittest_TestDelimited {
-    get { _storage.value(atIndex: 1, default: EditionsUnittest_TestDelimited(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nested` has been explicitly set.
@@ -146,7 +146,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Truly group-like field.
   var groupLike: EditionsUnittest_TestDelimited.GroupLike {
-    get { _storage.value(atIndex: 2, default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `groupLike` has been explicitly set.
@@ -156,7 +156,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Delimited field that isn't group-like solely because of its name.
   var notgrouplike: EditionsUnittest_TestDelimited.GroupLike {
-    get { _storage.value(atIndex: 3, default: EditionsUnittest_TestDelimited.GroupLike(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `notgrouplike` has been explicitly set.
@@ -166,7 +166,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Delimited field that isn't group-like because of the scope of its type.
   var notgrouplikescope: EditionsUnittest_NotGroupLikeScope {
-    get { _storage.value(atIndex: 4, default: EditionsUnittest_NotGroupLikeScope(), hasBit: (0, 16)) }
+    get { _storage.messageValue(atIndex: 4, hasBit: (0, 16)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, willBeSet: true, hasBit: (0, 16)) }
   }
   /// Returns true if `notgrouplikescope` has been explicitly set.
@@ -176,7 +176,7 @@ nonisolated struct EditionsUnittest_TestDelimited: @unchecked Swift.Sendable {
 
   /// Delimited field that's grouplike except that it's an imported type.
   var messageimport: EditionsUnittest_MessageImport {
-    get { _storage.value(atIndex: 5, default: EditionsUnittest_MessageImport(), hasBit: (0, 32)) }
+    get { _storage.messageValue(atIndex: 5, hasBit: (0, 32)) }
     set { _uniqueStorage().updateValue(atIndex: 5, to: newValue, willBeSet: true, hasBit: (0, 32)) }
   }
   /// Returns true if `messageimport` has been explicitly set.
@@ -281,7 +281,7 @@ nonisolated extension EditionsUnittest_TestDelimited {
   var hasEditionsUnittest_lengthprefixed: Bool { _protobuf_extensionStorage().hasValue(for: EditionsUnittest_Extensions_lengthprefixed) }
   /// Clears the value of extension `EditionsUnittest_Extensions_lengthprefixed`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_lengthprefixed() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_lengthprefixed, type: EditionsUnittest_LengthPrefixed.self) }
+  mutating func clearEditionsUnittest_lengthprefixed() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_lengthprefixed) }
 
   /// Truly group-like extension.
   var EditionsUnittest_groupLikeFileScope: EditionsUnittest_GroupLikeFileScope {
@@ -293,7 +293,7 @@ nonisolated extension EditionsUnittest_TestDelimited {
   var hasEditionsUnittest_groupLikeFileScope: Bool { _protobuf_extensionStorage().hasValue(for: EditionsUnittest_Extensions_GroupLikeFileScope) }
   /// Clears the value of extension `EditionsUnittest_Extensions_GroupLikeFileScope`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_groupLikeFileScope() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_GroupLikeFileScope, type: EditionsUnittest_GroupLikeFileScope.self) }
+  mutating func clearEditionsUnittest_groupLikeFileScope() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_GroupLikeFileScope) }
 
   /// Delimited extension that isn't group-like because of its name.
   var EditionsUnittest_notGroupLikeScope: EditionsUnittest_NotGroupLikeScope {
@@ -305,7 +305,7 @@ nonisolated extension EditionsUnittest_TestDelimited {
   var hasEditionsUnittest_notGroupLikeScope: Bool { _protobuf_extensionStorage().hasValue(for: EditionsUnittest_Extensions_not_group_like_scope) }
   /// Clears the value of extension `EditionsUnittest_Extensions_not_group_like_scope`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_notGroupLikeScope() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_not_group_like_scope, type: EditionsUnittest_NotGroupLikeScope.self) }
+  mutating func clearEditionsUnittest_notGroupLikeScope() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_not_group_like_scope) }
 
   /// Delimited extension that isn't group-like because of the scope of its type.
   var EditionsUnittest_grouplike: EditionsUnittest_TestDelimited.GroupLike {
@@ -317,7 +317,7 @@ nonisolated extension EditionsUnittest_TestDelimited {
   var hasEditionsUnittest_grouplike: Bool { _protobuf_extensionStorage().hasValue(for: EditionsUnittest_Extensions_grouplike) }
   /// Clears the value of extension `EditionsUnittest_Extensions_grouplike`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_grouplike() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_grouplike, type: EditionsUnittest_TestDelimited.GroupLike.self) }
+  mutating func clearEditionsUnittest_grouplike() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_grouplike) }
 
   /// Delimited extension that's grouplike except that it's an imported type.
   var EditionsUnittest_messageimport: EditionsUnittest_MessageImport {
@@ -329,7 +329,7 @@ nonisolated extension EditionsUnittest_TestDelimited {
   var hasEditionsUnittest_messageimport: Bool { _protobuf_extensionStorage().hasValue(for: EditionsUnittest_Extensions_messageimport) }
   /// Clears the value of extension `EditionsUnittest_Extensions_messageimport`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearEditionsUnittest_messageimport() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_messageimport, type: EditionsUnittest_MessageImport.self) }
+  mutating func clearEditionsUnittest_messageimport() { _protobuf_uniqueExtensionStorage().clearValue(of: EditionsUnittest_Extensions_messageimport) }
 
 }
 

@@ -55,7 +55,7 @@ nonisolated struct Proto2Unittest_TestExtensionSetContainer: @unchecked Swift.Se
   // methods supported on all messages.
 
   var `extension`: Proto2Unittest_TestExtensionSet {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestExtensionSet(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if ``extension`` has been explicitly set.

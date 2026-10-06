@@ -52,7 +52,7 @@ nonisolated struct Pb_JavaFeatures: @unchecked Swift.Sendable {
   /// Returns true if `utf8Validation` has been explicitly set.
   var hasUtf8Validation: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
-  mutating func clearUtf8Validation() { _uniqueStorage().clearValue(at: 4, type: Pb_JavaFeatures.Utf8Validation.self, hasBit: (0, 2)) }
+  mutating func clearUtf8Validation() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
   /// Allows creation of large Java enums, extending beyond the standard
   /// constant limits imposed by the Java language.
@@ -89,7 +89,7 @@ nonisolated struct Pb_JavaFeatures: @unchecked Swift.Sendable {
   /// Returns true if `nestInFileClass` has been explicitly set.
   var hasNestInFileClass: Swift.Bool { _storage.isPresent(hasBit: (0, 16)) }
   /// Clears the value of `nestInFileClass`. Subsequent reads from it will return its default value.
-  mutating func clearNestInFileClass() { _uniqueStorage().clearValue(at: 8, type: Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass.self, hasBit: (0, 16)) }
+  mutating func clearNestInFileClass() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 16)) }
 
   /// The UTF8 validation strategy to use.
   nonisolated enum Utf8Validation: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
@@ -177,7 +177,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_java: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_java) }
   /// Clears the value of extension `Pb_Extensions_java`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_java() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_java, type: Pb_JavaFeatures.self) }
+  mutating func clearPb_java() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_java) }
 
 }
 

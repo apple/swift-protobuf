@@ -10041,7 +10041,7 @@ nonisolated struct SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Swift.Se
   /// Returns true if `enumField` has been explicitly set.
   var hasEnumField: Swift.Bool { _storage.isPresent(hasBit: (0, 8)) }
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
-  mutating func clearEnumField() { _uniqueStorage().clearValue(at: 32, type: SwiftProtoTesting_Names_ValidIdentifiers.TestEnum.self, hasBit: (0, 8)) }
+  mutating func clearEnumField() { _uniqueStorage().clearEnumValue(at: 32, hasBit: (0, 8)) }
 
   nonisolated enum OneOf__2Of: Swift.Equatable, Swift.Sendable {
     case _4(Int32)
@@ -10176,7 +10176,7 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Swift.Senda
   }
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames3 {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Names_SpecialNames3(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `forcesStorage` has been explicitly set.
@@ -10214,7 +10214,7 @@ nonisolated struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Swift.Senda
   mutating func clearNewValue() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 1)) }
 
   var forcesStorage: SwiftProtoTesting_Names_SpecialNames4 {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Names_SpecialNames4(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `forcesStorage` has been explicitly set.
@@ -10252,7 +10252,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.http) }
 
   var SwiftProtoTesting_Names_Lowers_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.http_request, default: 0) }
@@ -10263,7 +10263,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.http_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.http_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.http_request) }
 
   var SwiftProtoTesting_Names_Lowers_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request, default: 0) }
@@ -10274,7 +10274,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request) }
 
   var SwiftProtoTesting_Names_Lowers_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http, default: 0) }
@@ -10285,7 +10285,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_http) }
 
   var SwiftProtoTesting_Names_Lowers_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.https, default: 0) }
@@ -10296,7 +10296,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.https) }
 
   var SwiftProtoTesting_Names_Lowers_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.https_request, default: 0) }
@@ -10307,7 +10307,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.https_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.https_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.https_request) }
 
   var SwiftProtoTesting_Names_Lowers_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request, default: 0) }
@@ -10318,7 +10318,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request) }
 
   var SwiftProtoTesting_Names_Lowers_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https, default: 0) }
@@ -10329,7 +10329,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_https) }
 
   var SwiftProtoTesting_Names_Lowers_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.url, default: 0) }
@@ -10340,7 +10340,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.url) }
 
   var SwiftProtoTesting_Names_Lowers_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.url_value, default: 0) }
@@ -10351,7 +10351,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.url_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.url_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.url_value) }
 
   var SwiftProtoTesting_Names_Lowers_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value, default: 0) }
@@ -10362,7 +10362,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value) }
 
   var SwiftProtoTesting_Names_Lowers_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url, default: 0) }
@@ -10373,7 +10373,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_url) }
 
   var SwiftProtoTesting_Names_Lowers_aBC: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c, default: 0) }
@@ -10384,7 +10384,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_aBC: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.a_b_c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_aBC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_aBC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c) }
 
   var SwiftProtoTesting_Names_Lowers_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.id, default: 0) }
@@ -10395,7 +10395,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.id) }
 
   var SwiftProtoTesting_Names_Lowers_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.id_number, default: 0) }
@@ -10406,7 +10406,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.id_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.id_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.id_number) }
 
   var SwiftProtoTesting_Names_Lowers_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number, default: 0) }
@@ -10417,7 +10417,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number) }
 
   var SwiftProtoTesting_Names_Lowers_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Lowers.Extensions.request_id, default: 0) }
@@ -10428,7 +10428,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Lowers_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Lowers.Extensions.request_id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.request_id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Lowers_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.request_id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Lowers_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Lowers.Extensions.request_id) }
 
   var SwiftProtoTesting_Names_Uppers_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP, default: 0) }
@@ -10439,7 +10439,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.HTTP) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP) }
 
   var SwiftProtoTesting_Names_Uppers_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request, default: 0) }
@@ -10450,7 +10450,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request) }
 
   var SwiftProtoTesting_Names_Uppers_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request, default: 0) }
@@ -10461,7 +10461,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request) }
 
   var SwiftProtoTesting_Names_Uppers_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP, default: 0) }
@@ -10472,7 +10472,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP) }
 
   var SwiftProtoTesting_Names_Uppers_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS, default: 0) }
@@ -10483,7 +10483,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS) }
 
   var SwiftProtoTesting_Names_Uppers_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request, default: 0) }
@@ -10494,7 +10494,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request) }
 
   var SwiftProtoTesting_Names_Uppers_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request, default: 0) }
@@ -10505,7 +10505,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request) }
 
   var SwiftProtoTesting_Names_Uppers_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS, default: 0) }
@@ -10516,7 +10516,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS) }
 
   var SwiftProtoTesting_Names_Uppers_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.URL, default: 0) }
@@ -10527,7 +10527,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.URL) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.URL, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.URL) }
 
   var SwiftProtoTesting_Names_Uppers_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.URL_value, default: 0) }
@@ -10538,7 +10538,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.URL_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.URL_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.URL_value) }
 
   var SwiftProtoTesting_Names_Uppers_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value, default: 0) }
@@ -10549,7 +10549,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value) }
 
   var SwiftProtoTesting_Names_Uppers_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL, default: 0) }
@@ -10560,7 +10560,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_URL) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_URL) }
 
   var SwiftProtoTesting_Names_Uppers_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.ID, default: 0) }
@@ -10571,7 +10571,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.ID) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.ID, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.ID) }
 
   var SwiftProtoTesting_Names_Uppers_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.ID_number, default: 0) }
@@ -10582,7 +10582,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.ID_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.ID_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.ID_number) }
 
   var SwiftProtoTesting_Names_Uppers_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number, default: 0) }
@@ -10593,7 +10593,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number) }
 
   var SwiftProtoTesting_Names_Uppers_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Uppers.Extensions.request_ID, default: 0) }
@@ -10604,7 +10604,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_Uppers_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Uppers.Extensions.request_ID) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.request_ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_Uppers_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.request_ID, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_Uppers_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Uppers.Extensions.request_ID) }
 
   var SwiftProtoTesting_Names_WordCase_http: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.Http, default: 0) }
@@ -10615,7 +10615,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.Http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Http) }
 
   var SwiftProtoTesting_Names_WordCase_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest, default: 0) }
@@ -10626,7 +10626,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest) }
 
   var SwiftProtoTesting_Names_WordCase_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest, default: 0) }
@@ -10637,7 +10637,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest) }
 
   var SwiftProtoTesting_Names_WordCase_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp, default: 0) }
@@ -10648,7 +10648,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp) }
 
   var SwiftProtoTesting_Names_WordCase_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.Https, default: 0) }
@@ -10659,7 +10659,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.Https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Https) }
 
   var SwiftProtoTesting_Names_WordCase_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest, default: 0) }
@@ -10670,7 +10670,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest) }
 
   var SwiftProtoTesting_Names_WordCase_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest, default: 0) }
@@ -10681,7 +10681,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest) }
 
   var SwiftProtoTesting_Names_WordCase_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps, default: 0) }
@@ -10692,7 +10692,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttps`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps) }
 
   var SwiftProtoTesting_Names_WordCase_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.Url, default: 0) }
@@ -10703,7 +10703,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.Url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Url) }
 
   var SwiftProtoTesting_Names_WordCase_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue, default: 0) }
@@ -10714,7 +10714,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.UrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue) }
 
   var SwiftProtoTesting_Names_WordCase_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue, default: 0) }
@@ -10725,7 +10725,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue) }
 
   var SwiftProtoTesting_Names_WordCase_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl, default: 0) }
@@ -10736,7 +10736,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrl`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl) }
 
   var SwiftProtoTesting_Names_WordCase_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.Id, default: 0) }
@@ -10747,7 +10747,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.Id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.Id) }
 
   var SwiftProtoTesting_Names_WordCase_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber, default: 0) }
@@ -10758,7 +10758,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.IdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber) }
 
   var SwiftProtoTesting_Names_WordCase_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber, default: 0) }
@@ -10769,7 +10769,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber) }
 
   var SwiftProtoTesting_Names_WordCase_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_WordCase.Extensions.RequestId, default: 0) }
@@ -10780,7 +10780,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitials {
   var hasSwiftProtoTesting_Names_WordCase_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_WordCase.Extensions.RequestId) }
   /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.RequestId`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_WordCase_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.RequestId, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_WordCase_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_WordCase.Extensions.RequestId) }
 }
 
 nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
@@ -10794,7 +10794,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_http) }
 
   var SwiftProtoTesting_Names_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_http_request, default: 0) }
@@ -10805,7 +10805,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_http_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_http_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_http_request) }
 
   var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_http_request, default: 0) }
@@ -10816,7 +10816,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_http_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_http_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_http_request) }
 
   var SwiftProtoTesting_Names_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_http, default: 0) }
@@ -10827,7 +10827,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_http) }
 
   var SwiftProtoTesting_Names_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_https, default: 0) }
@@ -10838,7 +10838,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_https) }
 
   var SwiftProtoTesting_Names_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_https_request, default: 0) }
@@ -10849,7 +10849,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_https_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_https_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_https_request) }
 
   var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_https_request, default: 0) }
@@ -10860,7 +10860,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_https_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_https_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_https_request) }
 
   var SwiftProtoTesting_Names_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_https, default: 0) }
@@ -10871,7 +10871,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_https) }
 
   var SwiftProtoTesting_Names_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_url, default: 0) }
@@ -10882,7 +10882,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_url) }
 
   var SwiftProtoTesting_Names_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_url_value, default: 0) }
@@ -10893,7 +10893,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_url_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_url_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_url_value) }
 
   var SwiftProtoTesting_Names_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_url_value, default: 0) }
@@ -10904,7 +10904,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_url_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_url_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_url_value) }
 
   var SwiftProtoTesting_Names_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_url, default: 0) }
@@ -10915,7 +10915,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_url) }
 
   var SwiftProtoTesting_Names_aBC: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_a_b_c, default: 0) }
@@ -10926,7 +10926,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_aBC: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_a_b_c) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_a_b_c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_aBC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_a_b_c, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_aBC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_a_b_c) }
 
   var SwiftProtoTesting_Names_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_id, default: 0) }
@@ -10937,7 +10937,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_id) }
 
   var SwiftProtoTesting_Names_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_id_number, default: 0) }
@@ -10948,7 +10948,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_id_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_id_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_id_number) }
 
   var SwiftProtoTesting_Names_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_id_number, default: 0) }
@@ -10959,7 +10959,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_id_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_id_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_id_number) }
 
   var SwiftProtoTesting_Names_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_request_id, default: 0) }
@@ -10970,7 +10970,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
   var hasSwiftProtoTesting_Names_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_request_id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_request_id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_id) }
 }
 
 nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
@@ -10984,7 +10984,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HTTP) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTP, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTP) }
 
   var SwiftProtoTesting_Names_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HTTP_request, default: 0) }
@@ -10995,7 +10995,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HTTP_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTP_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTP_request) }
 
   var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_HTTP_request, default: 0) }
@@ -11006,7 +11006,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_HTTP_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTP_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTP_request) }
 
   var SwiftProtoTesting_Names_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_HTTP, default: 0) }
@@ -11017,7 +11017,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_HTTP) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTP, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTP) }
 
   var SwiftProtoTesting_Names_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HTTPS, default: 0) }
@@ -11028,7 +11028,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HTTPS) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTPS, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTPS) }
 
   var SwiftProtoTesting_Names_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HTTPS_request, default: 0) }
@@ -11039,7 +11039,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HTTPS_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTPS_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HTTPS_request) }
 
   var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_HTTPS_request, default: 0) }
@@ -11050,7 +11050,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_HTTPS_request) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTPS_request, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTPS_request) }
 
   var SwiftProtoTesting_Names_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_HTTPS, default: 0) }
@@ -11061,7 +11061,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_HTTPS) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTPS, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_HTTPS) }
 
   var SwiftProtoTesting_Names_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_URL, default: 0) }
@@ -11072,7 +11072,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_URL) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_URL, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_URL) }
 
   var SwiftProtoTesting_Names_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_URL_value, default: 0) }
@@ -11083,7 +11083,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_URL_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_URL_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_URL_value) }
 
   var SwiftProtoTesting_Names_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_URL_value, default: 0) }
@@ -11094,7 +11094,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_URL_value) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_URL_value, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_URL_value) }
 
   var SwiftProtoTesting_Names_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_URL, default: 0) }
@@ -11105,7 +11105,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_URL) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_URL, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_URL) }
 
   var SwiftProtoTesting_Names_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_ID, default: 0) }
@@ -11116,7 +11116,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_ID) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_ID, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_ID) }
 
   var SwiftProtoTesting_Names_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_ID_number, default: 0) }
@@ -11127,7 +11127,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_ID_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_ID_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_ID_number) }
 
   var SwiftProtoTesting_Names_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_the_ID_number, default: 0) }
@@ -11138,7 +11138,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_the_ID_number) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_ID_number, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_the_ID_number) }
 
   var SwiftProtoTesting_Names_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_request_ID, default: 0) }
@@ -11149,7 +11149,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
   var hasSwiftProtoTesting_Names_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_request_ID) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_request_ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_ID, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_request_ID) }
 }
 
 nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
@@ -11163,7 +11163,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_http: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_Http) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Http, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_http() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Http) }
 
   var SwiftProtoTesting_Names_httpRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HttpRequest, default: 0) }
@@ -11174,7 +11174,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_httpRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HttpRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HttpRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HttpRequest) }
 
   var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheHttpRequest, default: 0) }
@@ -11185,7 +11185,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theHTTPRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheHttpRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttpRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttpRequest) }
 
   var SwiftProtoTesting_Names_theHTTP: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheHttp, default: 0) }
@@ -11196,7 +11196,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theHTTP: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheHttp) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttp, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTP() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttp) }
 
   var SwiftProtoTesting_Names_https: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_Https, default: 0) }
@@ -11207,7 +11207,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_https: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_Https) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Https, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_https() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Https) }
 
   var SwiftProtoTesting_Names_httpsRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_HttpsRequest, default: 0) }
@@ -11218,7 +11218,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_httpsRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_HttpsRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HttpsRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_HttpsRequest) }
 
   var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheHttpsRequest, default: 0) }
@@ -11229,7 +11229,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheHttpsRequest) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttpsRequest, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttpsRequest) }
 
   var SwiftProtoTesting_Names_theHTTPS: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheHttps, default: 0) }
@@ -11240,7 +11240,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theHTTPS: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheHttps) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttps`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttps, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheHttps) }
 
   var SwiftProtoTesting_Names_url: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_Url, default: 0) }
@@ -11251,7 +11251,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_url: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_Url) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Url, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_url() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Url) }
 
   var SwiftProtoTesting_Names_urlValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_UrlValue, default: 0) }
@@ -11262,7 +11262,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_urlValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_UrlValue) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_UrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_UrlValue, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_urlValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_UrlValue) }
 
   var SwiftProtoTesting_Names_theURLValue: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheUrlValue, default: 0) }
@@ -11273,7 +11273,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theURLValue: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheUrlValue) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheUrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheUrlValue, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURLValue() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheUrlValue) }
 
   var SwiftProtoTesting_Names_theURL: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheUrl, default: 0) }
@@ -11284,7 +11284,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theURL: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheUrl) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheUrl`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheUrl, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theURL() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheUrl) }
 
   var SwiftProtoTesting_Names_id: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_Id, default: 0) }
@@ -11295,7 +11295,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_id: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_Id) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Id, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_id() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_Id) }
 
   var SwiftProtoTesting_Names_idNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_IdNumber, default: 0) }
@@ -11306,7 +11306,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_idNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_IdNumber) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_IdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_IdNumber, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_idNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_IdNumber) }
 
   var SwiftProtoTesting_Names_theIDNumber: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_TheIdNumber, default: 0) }
@@ -11317,7 +11317,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_theIDNumber: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_TheIdNumber) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheIdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheIdNumber, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_TheIdNumber) }
 
   var SwiftProtoTesting_Names_requestID: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_Extensions_RequestId, default: 0) }
@@ -11328,7 +11328,7 @@ nonisolated extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
   var hasSwiftProtoTesting_Names_requestID: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_Extensions_RequestId) }
   /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_RequestId`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_RequestId, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_requestID() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_Extensions_RequestId) }
 }
 
 nonisolated extension SwiftProtoTesting_Names_Foo {
@@ -11342,7 +11342,7 @@ nonisolated extension SwiftProtoTesting_Names_Foo {
   var hasSwiftProtoTesting_Names_FieldNames_foo1: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_FieldNames.Extensions.foo1) }
   /// Clears the value of extension `SwiftProtoTesting_Names_FieldNames.Extensions.foo1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_FieldNames_foo1() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_FieldNames.Extensions.foo1, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_FieldNames_foo1() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_FieldNames.Extensions.foo1) }
 
   var SwiftProtoTesting_Names_MessageNames_foo2: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo2, default: 0) }
@@ -11353,7 +11353,7 @@ nonisolated extension SwiftProtoTesting_Names_Foo {
   var hasSwiftProtoTesting_Names_MessageNames_foo2: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_MessageNames.Extensions.foo2) }
   /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_MessageNames_foo2() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo2, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_MessageNames_foo2() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo2) }
 
   var SwiftProtoTesting_Names_MessageNames_foo4: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo4, default: 0) }
@@ -11364,7 +11364,7 @@ nonisolated extension SwiftProtoTesting_Names_Foo {
   var hasSwiftProtoTesting_Names_MessageNames_foo4: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_MessageNames.Extensions.foo4) }
   /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo4`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_MessageNames_foo4() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo4, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_MessageNames_foo4() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.Extensions.foo4) }
 
   var SwiftProtoTesting_Names_MessageNames_StringMessage_foo3: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3, default: 0) }
@@ -11375,7 +11375,7 @@ nonisolated extension SwiftProtoTesting_Names_Foo {
   var hasSwiftProtoTesting_Names_MessageNames_StringMessage_foo3: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3) }
   /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Names_MessageNames_StringMessage_foo3() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Names_MessageNames_StringMessage_foo3() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3) }
 
 }
 

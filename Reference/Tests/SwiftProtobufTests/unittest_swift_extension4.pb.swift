@@ -121,7 +121,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasExt4b: Bool { _protobuf_extensionStorage().hasValue(for: Ext4Extensions_b) }
   /// Clears the value of extension `Ext4Extensions_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearExt4b() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4Extensions_b, type: String.self) }
+  mutating func clearExt4b() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4Extensions_b) }
 
   var Ext4c: Ext4C {
     get { _protobuf_extensionStorage().value(of: Ext4Extensions_C, default: Ext4C()) }
@@ -132,7 +132,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasExt4c: Bool { _protobuf_extensionStorage().hasValue(for: Ext4Extensions_C) }
   /// Clears the value of extension `Ext4Extensions_C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearExt4c() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4Extensions_C, type: Ext4C.self) }
+  mutating func clearExt4c() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4Extensions_C) }
 
   var Ext4MyMessage_b: String {
     get { _protobuf_extensionStorage().value(of: Ext4MyMessage.Extensions.b, default: String()) }
@@ -143,7 +143,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasExt4MyMessage_b: Bool { _protobuf_extensionStorage().hasValue(for: Ext4MyMessage.Extensions.b) }
   /// Clears the value of extension `Ext4MyMessage.Extensions.b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearExt4MyMessage_b() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4MyMessage.Extensions.b, type: String.self) }
+  mutating func clearExt4MyMessage_b() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4MyMessage.Extensions.b) }
 
   var Ext4MyMessage_c: Ext4MyMessage.C {
     get { _protobuf_extensionStorage().value(of: Ext4MyMessage.Extensions.C, default: Ext4MyMessage.C()) }
@@ -154,7 +154,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasExt4MyMessage_c: Bool { _protobuf_extensionStorage().hasValue(for: Ext4MyMessage.Extensions.C) }
   /// Clears the value of extension `Ext4MyMessage.Extensions.C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearExt4MyMessage_c() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4MyMessage.Extensions.C, type: Ext4MyMessage.C.self) }
+  mutating func clearExt4MyMessage_c() { _protobuf_uniqueExtensionStorage().clearValue(of: Ext4MyMessage.Extensions.C) }
 
 }
 

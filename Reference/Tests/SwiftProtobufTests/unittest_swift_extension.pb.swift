@@ -185,7 +185,7 @@ nonisolated struct SwiftProtoTesting_Extend_MsgUsesStorage: @unchecked Swift.Sen
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: SwiftProtoTesting_Extend_MsgUsesStorage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Extend_MsgUsesStorage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `y` has been explicitly set.
@@ -223,7 +223,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend_b: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_b) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_b, type: String.self) }
+  mutating func clearSwiftProtoTesting_Extend_b() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_b) }
 
   var SwiftProtoTesting_Extend_c: SwiftProtoTesting_Extend_C {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend_Extensions_C, default: SwiftProtoTesting_Extend_C()) }
@@ -234,7 +234,7 @@ nonisolated extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
   var hasSwiftProtoTesting_Extend_c: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_C) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_C, type: SwiftProtoTesting_Extend_C.self) }
+  mutating func clearSwiftProtoTesting_Extend_c() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_C) }
 }
 
 nonisolated extension SwiftProtoTesting_Extend_Msg1 {
@@ -248,7 +248,7 @@ nonisolated extension SwiftProtoTesting_Extend_Msg1 {
   var hasSwiftProtoTesting_Extend_aB: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_a_b) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_a_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_aB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_a_b, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_aB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_a_b) }
 
   var SwiftProtoTesting_Extend_m2: SwiftProtoTesting_Extend_Msg2 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend_Extensions_m2, default: SwiftProtoTesting_Extend_Msg2()) }
@@ -259,7 +259,7 @@ nonisolated extension SwiftProtoTesting_Extend_Msg1 {
   var hasSwiftProtoTesting_Extend_m2: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_m2) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_m2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_m2() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_m2, type: SwiftProtoTesting_Extend_Msg2.self) }
+  mutating func clearSwiftProtoTesting_Extend_m2() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_m2) }
 }
 
 nonisolated extension SwiftProtoTesting_Extend_Msg2 {
@@ -273,7 +273,7 @@ nonisolated extension SwiftProtoTesting_Extend_Msg2 {
   var hasSwiftProtoTesting_Extend_aB: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_aB) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_aB`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_aB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_aB, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_aB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_aB) }
 }
 
 nonisolated extension SwiftProtoTesting_Extend_MsgNoStorage {
@@ -287,7 +287,7 @@ nonisolated extension SwiftProtoTesting_Extend_MsgNoStorage {
   var hasSwiftProtoTesting_Extend_extA: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_ext_a) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_ext_a`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_extA() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_a, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_extA() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_a) }
 
   var SwiftProtoTesting_Extend_extB: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend_Extensions_ext_b, default: 0) }
@@ -298,7 +298,7 @@ nonisolated extension SwiftProtoTesting_Extend_MsgNoStorage {
   var hasSwiftProtoTesting_Extend_extB: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_ext_b) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_ext_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_extB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_b, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_extB() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_b) }
 }
 
 nonisolated extension SwiftProtoTesting_Extend_MsgUsesStorage {
@@ -312,7 +312,7 @@ nonisolated extension SwiftProtoTesting_Extend_MsgUsesStorage {
   var hasSwiftProtoTesting_Extend_extC: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_ext_c) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_ext_c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_extC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_c, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_extC() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_c) }
 
   var SwiftProtoTesting_Extend_extD: Int32 {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extend_Extensions_ext_d, default: 0) }
@@ -323,7 +323,7 @@ nonisolated extension SwiftProtoTesting_Extend_MsgUsesStorage {
   var hasSwiftProtoTesting_Extend_extD: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extend_Extensions_ext_d) }
   /// Clears the value of extension `SwiftProtoTesting_Extend_Extensions_ext_d`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Extend_extD() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_d, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Extend_extD() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extend_Extensions_ext_d) }
 
 }
 

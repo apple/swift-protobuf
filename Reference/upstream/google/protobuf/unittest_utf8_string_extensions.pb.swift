@@ -55,7 +55,7 @@ nonisolated extension Proto2Unittest_TestUtf8ValidationOfExtensions {
   var hasProto2Unittest_optionalUtf8StringExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Extensions_optional_utf8_string_extension) }
   /// Clears the value of extension `Proto2Unittest_Extensions_optional_utf8_string_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_optionalUtf8StringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_utf8_string_extension, type: String.self) }
+  mutating func clearProto2Unittest_optionalUtf8StringExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Extensions_optional_utf8_string_extension) }
 
   var Proto2Unittest_repeatedUtf8StringExtension: [String] {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Extensions_repeated_utf8_string_extension, default: []) }

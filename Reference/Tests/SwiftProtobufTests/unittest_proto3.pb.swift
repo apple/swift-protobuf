@@ -181,7 +181,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Swift.Senda
   }
 
   var optionalNestedMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -190,7 +190,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Swift.Senda
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalForeignMessage: SwiftProtoTesting_Proto3_ForeignMessage {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_Proto3_ForeignMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -199,7 +199,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Swift.Senda
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_Proto3_ForeignMessage.self, hasBit: (0, 2)) }
 
   var optionalImportMessage: SwiftProtoTesting_Import_ImportMessage {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_Import_ImportMessage(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalImportMessage` has been explicitly set.
@@ -219,7 +219,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Swift.Senda
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
-    get { _storage.value(atIndex: 3, default: SwiftProtoTesting_Import_PublicImportMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
@@ -357,7 +357,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Swift.Senda
   }
 
   var oneofNestedMessage: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 4, default: SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage(), oneofPresence: (8, 112)) }
+    get { return _storage.messageValue(atIndex: 4, oneofPresence: (8, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, oneofPresence: (8, 112)) }
   }
 
@@ -637,7 +637,7 @@ nonisolated struct SwiftProtoTesting_Proto3_NestedTestAllTypes: @unchecked Swift
   // methods supported on all messages.
 
   var child: SwiftProtoTesting_Proto3_NestedTestAllTypes {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Proto3_NestedTestAllTypes(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `child` has been explicitly set.
@@ -646,7 +646,7 @@ nonisolated struct SwiftProtoTesting_Proto3_NestedTestAllTypes: @unchecked Swift
   mutating func clearChild() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_Proto3_NestedTestAllTypes.self, hasBit: (0, 1)) }
 
   var payload: SwiftProtoTesting_Proto3_TestAllTypes {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_Proto3_TestAllTypes(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `payload` has been explicitly set.
@@ -709,7 +709,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestProto2Required: @unchecked Swift
   // methods supported on all messages.
 
   var proto2: SwiftProtoTesting_TestRequired {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `proto2` has been explicitly set.

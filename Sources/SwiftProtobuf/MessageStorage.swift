@@ -172,11 +172,7 @@ extension MessageStorage {
             switch field.rawFieldType {
             case .bytes: deinitializeField(field, type: Data.self)
             case .string: deinitializeField(field, type: String.self)
-            case .group, .message:
-                let submessageSchema = messageSchema(for: field)
-                submessageSchema.invokeWitness(
-                    .messageDeinitialize(pointer: rawPointer(for: field))
-                )
+            case .group, .message: deinitializeSubmessage(field: field)
             default:
                 // Ignore trivial fields; no deinitialization is necessary.
                 break
@@ -185,6 +181,12 @@ extension MessageStorage {
         default:
             preconditionFailure("Unreachable")
         }
+    }
+
+    @usableFromInline @inline(__always)
+    func deinitializeSubmessage(field: MessageSchema.Field) {
+        let submessageSchema = messageSchema(for: field)
+        submessageSchema.invokeWitness(.messageDeinitialize(pointer: rawPointer(for: field)))
     }
 
     /// Deinitializes the field associated with the given concrete type information.
@@ -446,6 +448,33 @@ extension MessageStorage {
         return T(rawValue: Int(typedPointer(at: offset, as: Int32.self).pointee))!
     }
 
+    /// Returns the protobuf enum value at the given offset in the storage, or the default value if
+    /// the value is not present.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the enum using its
+    /// witness table rather than calling `T(rawValue:)` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func enumValue<T: Enum>(
+        at offset: Int,
+        fieldNumber: Int,
+        default defaultValue: T,
+        hasBit: HasBit
+    ) -> T {
+        guard isPresent(hasBit: hasBit) else { return defaultValue }
+        let rawValue = typedPointer(at: offset, as: Int32.self).pointee
+        return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+            guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                preconditionFailure("Missing schema for field \(fieldNumber)")
+            }
+            let resolvedEnumSchema = enumSchema(for: field)
+            resolvedEnumSchema.invokeWitness(
+                .enumInitialize(rawValue: rawValue, pointer: buffer.baseAddress!)
+            )
+            return buffer.baseAddress!.move()
+        }
+    }
+
     /// Returns the `String` value at the given zero-based index in the string bucket,
     /// or the default value if it is not present.
     @_alwaysEmitIntoClient @inline(__always)
@@ -481,9 +510,44 @@ extension MessageStorage {
     /// Returns the submessage value at the given zero-based index in the message bucket,
     /// or the default value if it is not present.
     @_alwaysEmitIntoClient @inline(__always)
-    public func value<T: Message>(atIndex index: Int, default defaultValue: T, hasBit: HasBit) -> T {
+    public func messageValue<T: Message>(atIndex index: Int, hasBit: HasBit) -> T {
         let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
-        return value(at: offset, default: defaultValue, hasBit: hasBit)
+        guard isPresent(hasBit: hasBit) else { return T() }
+        return typedPointer(at: offset, as: T.self).pointee
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket,
+    /// or the default value if it is not present.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the default submessage
+    /// using its field number rather than calling `T()` directly, avoiding strong references to
+    /// weakly imported message types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        hasBit: HasBit
+    ) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard isPresent(hasBit: hasBit) else {
+            return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+                guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                    preconditionFailure("Missing schema for field \(fieldNumber)")
+                }
+                let submessageSchema = messageSchema(for: field)
+                var messageStorage: Unmanaged<MessageStorage>?
+                withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
+                    submessageSchema.invokeWitness(
+                        .messageInitialize(
+                            pointer: buffer.baseAddress!,
+                            result: storagePtr
+                        )
+                    )
+                }
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: T.self).pointee
     }
 
     /// Returns the value at the given offset in the storage, or the default value if the value is
@@ -566,6 +630,36 @@ extension MessageStorage {
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
     }
 
+    /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
+    ///
+    /// This function is used when weak imports are enabled; it extracts the raw value using its
+    /// witness table rather than calling `newValue.rawValue` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateEnumValue<T: Enum>(
+        at offset: Int,
+        fieldNumber: Int,
+        to newValue: T,
+        hasPresence: Bool = true,
+        hasBit: HasBit
+    ) {
+        guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+            preconditionFailure("Missing schema for field \(fieldNumber)")
+        }
+        let resolvedEnumSchema = enumSchema(for: field)
+        var rawValue: Int32 = 0
+        withUnsafePointer(to: newValue) { pointer in
+            withUnsafeMutablePointer(to: &rawValue) { result in
+                resolvedEnumSchema.invokeWitness(
+                    .enumGetRawValue(pointer: pointer, result: result)
+                )
+            }
+        }
+        typedPointer(at: offset, as: Int32.self).pointee = rawValue
+        let willBeSet = hasPresence ? true : rawValue != 0
+        _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
+    }
+
     /// Updates the `String` value at the given zero-based index in the string bucket.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue(atIndex index: Int, to newValue: String, willBeSet: Bool, hasBit: HasBit) {
@@ -587,6 +681,56 @@ extension MessageStorage {
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
     }
 
+    /// Updates the repeated submessage value at the given zero-based index in the repeated bucket.
+    ///
+    /// This function is only used when weak imports are enabled; it delegates through the message
+    /// witness to deinitialize any existing array so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateRepeatedMessageValue<Element: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Element],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let submessageSchema = messageSchema(for: field)
+            submessageSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Element].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Element]>.stride)
+        }
+    }
+
+    /// Updates the repeated enum value at the given zero-based index in the repeated bucket.
+    ///
+    /// This function is only used when weak imports are enabled; it delegates through the enum
+    /// witness to deinitialize any existing array so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateRepeatedEnumValue<Element: Enum>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Element],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofRepeatedFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let resolvedEnumSchema = enumSchema(for: field)
+            resolvedEnumSchema.invokeWitness(.arrayDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Element].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Element]>.stride)
+        }
+    }
+
     /// Updates the `Dictionary` value at the given zero-based index in the map bucket.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Key, Value>(atIndex index: Int, to newValue: [Key: Value], willBeSet: Bool, hasBit: HasBit)
@@ -595,11 +739,82 @@ extension MessageStorage {
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
     }
 
+    /// Returns the `Dictionary` value at the given zero-based index in the map bucket, or an empty
+    /// dictionary if the value is not present.
+    ///
+    /// This function is used when weak imports are enabled; if the field is not present, it initializes
+    /// an empty dictionary via the map witness rather than constructing `[:]` directly, avoiding
+    /// emitting strong references to type metadata for weakly imported map value types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func mapValue<Key, Value>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        hasBit: HasBit
+    ) -> [Key: Value] {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        guard isPresent(hasBit: hasBit) else {
+            guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                preconditionFailure("invalid map field number")
+            }
+            let submessageSchema = messageSchema(for: field)
+            return withUnsafeTemporaryAllocation(of: [Key: Value].self, capacity: 1) { buffer in
+                submessageSchema.invokeWitness(.mapInitialize(pointer: buffer.baseAddress!))
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: [Key: Value].self).pointee
+    }
+
+    /// Updates the `Dictionary` value at the given zero-based index in the map bucket.
+    ///
+    /// This function is used when weak imports are enabled; it delegates through the map witness
+    /// to deinitialize any existing dictionary so that we don't emit a strong reference to its
+    /// type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateMapValue<Key, Value>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: [Key: Value],
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofMapFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: !newValue.isEmpty)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            let submessageSchema = messageSchema(for: field)
+            submessageSchema.invokeWitness(.mapDeinitialize(pointer: rawPointer(at: offset)))
+        }
+        if !newValue.isEmpty {
+            typedPointer(at: offset, as: [Key: Value].self).initialize(to: newValue)
+        } else {
+            zeroOut(at: offset, count: MemoryLayout<[Key: Value]>.stride)
+        }
+    }
+
     /// Updates the submessage value at the given zero-based index in the message bucket.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T: Message>(atIndex index: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
         let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
         updateValue(at: offset, to: newValue, willBeSet: willBeSet, hasBit: hasBit)
+    }
+
+    /// Updates the submessage value at the given zero-based index in the message bucket.
+    ///
+    /// This function is only used when weak imports are enabled, where it must delegate through
+    /// the message witness to deinitialize any existing message so that we don't emit a strong
+    /// reference to its type metadata via `UnsafeMutablePointer.deinitialize`.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateMessageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        to newValue: T,
+        hasBit: HasBit
+    ) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: true)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            deinitializeSubmessage(field: field)
+        }
+        typedPointer(at: offset, as: T.self).initialize(to: newValue)
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.
@@ -628,11 +843,9 @@ extension MessageStorage {
         zeroOut(at: offset, count: MemoryLayout<T>.stride)
     }
 
-    /// Clears the value at the given offset in the storage, along with its presence.
-    ///
-    /// This specialization is necessary since enums are stored as their raw values in memory.
+    /// Clears the protobuf enum value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
-    public func clearValue<T: Enum>(at offset: Int, type: T.Type, hasBit: HasBit) {
+    public func clearEnumValue(at offset: Int, hasBit: HasBit) {
         let pointer = typedPointer(at: offset, as: Int32.self)
         _ = updatePresence(hasBit: hasBit, willBeSet: false)
         pointer.pointee = 0
@@ -664,6 +877,21 @@ extension MessageStorage {
     public func clearValue<Key, Value>(atIndex index: Int, type: [Key: Value].Type, hasBit: HasBit) {
         let offset = schema.byteOffset(ofMapFieldAtIndex: index)
         clearValue(at: offset, type: [Key: Value].self, hasBit: hasBit)
+    }
+
+    /// Clears the submessage value at the given zero-based index in the message bucket.
+    ///
+    /// This function is only used when weak imports are enabled, where it must delegate through
+    /// the message witness to deinitialize the message so that we don't pass a strong reference to
+    /// its type.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func clearMessageValue(atIndex index: Int, fieldNumber: Int, hasBit: HasBit) {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        let wasSet = updatePresence(hasBit: hasBit, willBeSet: false)
+        if wasSet, let field = schema[fieldNumber: UInt32(fieldNumber)] {
+            deinitializeSubmessage(field: field)
+        }
+        zeroOut(at: offset, count: MemoryLayout<SingularMessageFieldForLayout>.stride)
     }
 
     /// Clears the submessage value at the given zero-based index in the message bucket.
@@ -1157,6 +1385,35 @@ extension MessageStorage {
         return T(rawValue: Int(typedPointer(at: offset, as: Int32.self).pointee))!
     }
 
+    /// Returns the protobuf enum value at the given offset in the storage if it is the currently
+    /// populated member of its containing oneof, or the default value otherwise.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the enum using its
+    /// witness table rather than calling `T(rawValue:)` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func enumValue<T: Enum>(
+        at offset: Int,
+        fieldNumber: Int,
+        default defaultValue: T,
+        oneofPresence: OneofPresence
+    ) -> T {
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return defaultValue
+        }
+        let rawValue = typedPointer(at: offset, as: Int32.self).pointee
+        return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+            guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                preconditionFailure("Missing schema for field \(fieldNumber)")
+            }
+            let resolvedEnumSchema = enumSchema(for: field)
+            resolvedEnumSchema.invokeWitness(
+                .enumInitialize(rawValue: rawValue, pointer: buffer.baseAddress!)
+            )
+            return buffer.baseAddress!.move()
+        }
+    }
+
     /// Returns the value at the given offset in the storage if it is the currently populated
     /// member of its containing oneof, or the default value otherwise.
     @_alwaysEmitIntoClient @inline(__always)
@@ -1181,6 +1438,51 @@ extension MessageStorage {
     public func value(atIndex index: Int, default defaultValue: Data = Data(), oneofPresence: OneofPresence) -> Data {
         let offset = schema.byteOffset(ofBytesFieldAtIndex: index)
         return value(at: offset, default: defaultValue, oneofPresence: oneofPresence)
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket if it is
+    /// the currently populated member of its containing oneof, or the default value otherwise.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(atIndex index: Int, oneofPresence: OneofPresence) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return T()
+        }
+        return typedPointer(at: offset, as: T.self).pointee
+    }
+
+    /// Returns the submessage value at the given zero-based index in the message bucket if it is
+    /// the currently populated member of its containing oneof, or the default value otherwise.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the default submessage
+    /// using its field number rather than calling `T()` directly, avoiding strong references to
+    /// weakly imported message types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func messageValue<T: Message>(
+        atIndex index: Int,
+        fieldNumber: Int,
+        oneofPresence: OneofPresence
+    ) -> T {
+        let offset = schema.byteOffset(ofMessageFieldAtIndex: index)
+        guard populatedOneofMember(at: oneofPresence.offset) == oneofPresence.fieldNumber else {
+            return withUnsafeTemporaryAllocation(of: T.self, capacity: 1) { buffer in
+                guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+                    preconditionFailure("Missing schema for field \(fieldNumber)")
+                }
+                let submessageSchema = messageSchema(for: field)
+                var messageStorage: Unmanaged<MessageStorage>?
+                withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
+                    submessageSchema.invokeWitness(
+                        .messageInitialize(
+                            pointer: buffer.baseAddress!,
+                            result: storagePtr
+                        )
+                    )
+                }
+                return buffer.baseAddress!.move()
+            }
+        }
+        return typedPointer(at: offset, as: T.self).pointee
     }
 
     /// Returns the submessage value at the given zero-based index in the message bucket if it is the
@@ -1277,6 +1579,38 @@ extension MessageStorage {
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
         typedPointer(at: offset, as: Int32.self).initialize(to: Int32(newValue.rawValue))
+    }
+
+    /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
+    ///
+    /// This function is used when weak imports are enabled; it extracts the raw value using its
+    /// witness table rather than calling `newValue.rawValue` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateEnumValue<T: Enum>(
+        at offset: Int,
+        fieldNumber: Int,
+        to newValue: T,
+        oneofPresence: OneofPresence
+    ) {
+        let oldFieldNumber = updatePopulatedOneofMember(oneofPresence)
+        if oldFieldNumber != 0 {
+            // We can force-unwrap this because the field must exist or it would be a generator bug.
+            deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
+        }
+        guard let field = schema[fieldNumber: UInt32(fieldNumber)] else {
+            preconditionFailure("Missing schema for field \(fieldNumber)")
+        }
+        let resolvedEnumSchema = enumSchema(for: field)
+        var rawValue: Int32 = 0
+        withUnsafePointer(to: newValue) { pointer in
+            withUnsafeMutablePointer(to: &rawValue) { result in
+                resolvedEnumSchema.invokeWitness(
+                    .enumGetRawValue(pointer: pointer, result: result)
+                )
+            }
+        }
+        typedPointer(at: offset, as: Int32.self).initialize(to: rawValue)
     }
 
     /// Updates the value at the given offset in the storage, along with its presence.

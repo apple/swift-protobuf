@@ -86,7 +86,7 @@ nonisolated struct Pb_InternalFieldOptionsCpp: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var microString: Pb_InternalFieldOptionsCpp.MicroString {
-    get { _storage.value(atIndex: 0, default: Pb_InternalFieldOptionsCpp.MicroString(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `microString` has been explicitly set.
@@ -106,7 +106,7 @@ nonisolated struct Pb_InternalFieldOptionsCpp: @unchecked Swift.Sendable {
     /// Returns true if `force` has been explicitly set.
     var hasForce: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `force`. Subsequent reads from it will return its default value.
-    mutating func clearForce() { _uniqueStorage().clearValue(at: 4, type: Pb_InternalOptionsForce.Enum.self, hasBit: (0, 1)) }
+    mutating func clearForce() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
     /// If set, we force the SSO size of the field.
     var ssoSize: Int32 {
@@ -144,7 +144,7 @@ nonisolated struct Pb_InternalFieldOptions: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var cpp: Pb_InternalFieldOptionsCpp {
-    get { _storage.value(atIndex: 0, default: Pb_InternalFieldOptionsCpp(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `cpp` has been explicitly set.
@@ -182,7 +182,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   var hasPb_internalFieldOptions: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_internal_field_options) }
   /// Clears the value of extension `Pb_Extensions_internal_field_options`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_internalFieldOptions() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_internal_field_options, type: Pb_InternalFieldOptions.self) }
+  mutating func clearPb_internalFieldOptions() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_internal_field_options) }
 
 }
 

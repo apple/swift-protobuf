@@ -162,7 +162,7 @@ nonisolated struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Send
   mutating func clearOuterA() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var subGroup1: SwiftProtoTesting_NestingGroupsMessage.SubGroup1 {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestingGroupsMessage.SubGroup1(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `subGroup1` has been explicitly set.
@@ -190,7 +190,7 @@ nonisolated struct SwiftProtoTesting_NestingGroupsMessage: @unchecked Swift.Send
     mutating func clearSub1A() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
     var subGroup2: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2 {
-      get { _storage.value(atIndex: 0, default: SwiftProtoTesting_NestingGroupsMessage.SubGroup1.SubGroup2(), hasBit: (0, 2)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
     }
     /// Returns true if `subGroup2` has been explicitly set.
@@ -315,7 +315,7 @@ nonisolated extension SwiftProtoTesting_GroupExtensions {
   var hasSwiftProtoTesting_extensionGroup: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Extensions_ExtensionGroup) }
   /// Clears the value of extension `SwiftProtoTesting_Extensions_ExtensionGroup`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_extensionGroup() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_ExtensionGroup, type: SwiftProtoTesting_ExtensionGroup.self) }
+  mutating func clearSwiftProtoTesting_extensionGroup() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Extensions_ExtensionGroup) }
 
   var SwiftProtoTesting_repeatedExtensionGroup: [SwiftProtoTesting_RepeatedExtensionGroup] {
     get { _protobuf_extensionStorage().value(of: SwiftProtoTesting_Extensions_RepeatedExtensionGroup, default: []) }

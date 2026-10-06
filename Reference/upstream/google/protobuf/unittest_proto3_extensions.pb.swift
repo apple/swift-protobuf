@@ -56,7 +56,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
   var hasProtobufUnittest_Proto3FileExtensions_singularInt: Bool { _protobuf_extensionStorage().hasValue(for: ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int) }
   /// Clears the value of extension `ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Proto3FileExtensions_singularInt() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int, type: Int32.self) }
+  mutating func clearProtobufUnittest_Proto3FileExtensions_singularInt() { _protobuf_uniqueExtensionStorage().clearValue(of: ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int) }
 
   var ProtobufUnittest_Proto3FileExtensions_repeatedInt: [Int32] {
     get { _protobuf_extensionStorage().value(of: ProtobufUnittest_Proto3FileExtensions.Extensions.repeated_int, default: []) }

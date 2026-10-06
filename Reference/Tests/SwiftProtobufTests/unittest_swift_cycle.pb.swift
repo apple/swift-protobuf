@@ -55,7 +55,7 @@ nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -64,7 +64,7 @@ nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   mutating func clearAFoo() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 1)) }
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aBar` has been explicitly set.
@@ -73,7 +73,7 @@ nonisolated struct SwiftProtoTesting_CycleFoo: @unchecked Swift.Sendable {
   mutating func clearABar() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 2)) }
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -97,7 +97,7 @@ nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aBar` has been explicitly set.
@@ -106,7 +106,7 @@ nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   mutating func clearABar() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleBar.self, hasBit: (0, 1)) }
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -115,7 +115,7 @@ nonisolated struct SwiftProtoTesting_CycleBar: @unchecked Swift.Sendable {
   mutating func clearABaz() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 2)) }
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -139,7 +139,7 @@ nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   var aBaz: SwiftProtoTesting_CycleBaz {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_CycleBaz(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -148,7 +148,7 @@ nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
   mutating func clearABaz() { _uniqueStorage().clearValue(atIndex: 0, type: SwiftProtoTesting_CycleBaz.self, hasBit: (0, 1)) }
 
   var aFoo: SwiftProtoTesting_CycleFoo {
-    get { _storage.value(atIndex: 1, default: SwiftProtoTesting_CycleFoo(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -157,7 +157,7 @@ nonisolated struct SwiftProtoTesting_CycleBaz: @unchecked Swift.Sendable {
   mutating func clearAFoo() { _uniqueStorage().clearValue(atIndex: 1, type: SwiftProtoTesting_CycleFoo.self, hasBit: (0, 2)) }
 
   var aBar: SwiftProtoTesting_CycleBar {
-    get { _storage.value(atIndex: 2, default: SwiftProtoTesting_CycleBar(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `aBar` has been explicitly set.

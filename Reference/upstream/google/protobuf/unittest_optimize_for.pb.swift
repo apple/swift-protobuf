@@ -48,7 +48,7 @@ nonisolated struct Proto2Unittest_TestOptimizedForSize: @unchecked Swift.Sendabl
   mutating func clearI() { _uniqueStorage().clearValue(at: 12, type: Int32.self, hasBit: (0, 1)) }
 
   var msg: Proto2Unittest_ForeignMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_ForeignMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `msg` has been explicitly set.
@@ -130,7 +130,7 @@ nonisolated struct Proto2Unittest_TestOptionalOptimizedForSize: @unchecked Swift
   // methods supported on all messages.
 
   var o: Proto2Unittest_TestRequiredOptimizedForSize {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestRequiredOptimizedForSize(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `o` has been explicitly set.
@@ -168,7 +168,7 @@ nonisolated extension Proto2Unittest_TestOptimizedForSize {
   var hasProto2Unittest_TestOptimizedForSize_testExtension: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension) }
   /// Clears the value of extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension, type: Int32.self) }
+  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension) }
 
   var Proto2Unittest_TestOptimizedForSize_testExtension2: Proto2Unittest_TestRequiredOptimizedForSize {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2, default: Proto2Unittest_TestRequiredOptimizedForSize()) }
@@ -179,7 +179,7 @@ nonisolated extension Proto2Unittest_TestOptimizedForSize {
   var hasProto2Unittest_TestOptimizedForSize_testExtension2: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2) }
   /// Clears the value of extension `Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension2() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2, type: Proto2Unittest_TestRequiredOptimizedForSize.self) }
+  mutating func clearProto2Unittest_TestOptimizedForSize_testExtension2() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2) }
 
 }
 

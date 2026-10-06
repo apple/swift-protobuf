@@ -49,7 +49,7 @@ nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swif
     /// The circular reference here forces the generator to
     /// implement heap-backed storage.
     var message: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage {
-      get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage(), hasBit: (0, 1)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
     }
     /// Returns true if `message` has been explicitly set.
@@ -64,7 +64,7 @@ nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swif
     /// Returns true if `optionalEnum` has been explicitly set.
     var hasOptionalEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-    mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum.self, hasBit: (0, 2)) }
+    mutating func clearOptionalEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 2)) }
 
     nonisolated enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0
@@ -97,7 +97,7 @@ nonisolated struct SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Swif
     /// Returns true if `optionalEnum` has been explicitly set.
     var hasOptionalEnum: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
     /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-    mutating func clearOptionalEnum() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum.self, hasBit: (0, 1)) }
+    mutating func clearOptionalEnum() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
     nonisolated enum Enum: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
       case foo = 0

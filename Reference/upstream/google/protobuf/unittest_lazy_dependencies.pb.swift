@@ -39,7 +39,7 @@ nonisolated struct Proto2Unittest_LazyImports_ImportedMessage: @unchecked Swift.
   // methods supported on all messages.
 
   var lazyMessage: Proto2Unittest_LazyImports_LazyMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_LazyImports_LazyMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `lazyMessage` has been explicitly set.

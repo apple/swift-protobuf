@@ -152,7 +152,7 @@ nonisolated struct Google_Protobuf_Compiler_CodeGeneratorRequest: @unchecked Swi
 
   /// The version number of protocol compiler.
   var compilerVersion: Google_Protobuf_Compiler_Version {
-    get { _storage.value(atIndex: 0, default: Google_Protobuf_Compiler_Version(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `compilerVersion` has been explicitly set.
@@ -333,7 +333,7 @@ nonisolated struct Google_Protobuf_Compiler_CodeGeneratorResponse: @unchecked Sw
     /// point is used, this information will be appropriately offset and inserted
     /// into the code generation metadata for the generated files.
     var generatedCodeInfo: SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo {
-      get { _storage.value(atIndex: 0, default: SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo(), hasBit: (0, 8)) }
+      get { _storage.messageValue(atIndex: 0, hasBit: (0, 8)) }
       set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 8)) }
     }
     /// Returns true if `generatedCodeInfo` has been explicitly set.

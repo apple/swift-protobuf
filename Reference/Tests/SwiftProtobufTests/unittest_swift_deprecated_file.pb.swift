@@ -114,7 +114,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_stringExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_stringExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field, type: String.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_stringExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field) }
 
   /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
   var SwiftProtoTesting_DeprecatedFile_intExtField: Int32 {
@@ -126,7 +126,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_intExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_intExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_intExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field) }
 
   /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
   var SwiftProtoTesting_DeprecatedFile_fixedExtField: [UInt32] {
@@ -144,7 +144,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_msgExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_msgExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_msgExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field) }
 
   /// Another extension field comment
   ///
@@ -158,7 +158,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_MsgScope_stringExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.string_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.string_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_stringExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.string_ext2_field, type: String.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_stringExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.string_ext2_field) }
 
   /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
   var SwiftProtoTesting_DeprecatedFile_MsgScope_intExt2Field: Int32 {
@@ -170,7 +170,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_MsgScope_intExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.int_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.int_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_intExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.int_ext2_field, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_intExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.int_ext2_field) }
 
   /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
   var SwiftProtoTesting_DeprecatedFile_MsgScope_fixedExt2Field: [UInt32] {
@@ -188,7 +188,7 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg {
   var hasSwiftProtoTesting_DeprecatedFile_MsgScope_msgExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.msg_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.msg_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_msgExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.msg_ext2_field, type: SwiftProtoTesting_DeprecatedFile_MyMsg.self) }
+  mutating func clearSwiftProtoTesting_DeprecatedFile_MsgScope_msgExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_DeprecatedFile_MsgScope.Extensions.msg_ext2_field) }
 
 }
 

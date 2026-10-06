@@ -34,7 +34,7 @@ nonisolated struct Pb_JavaMutableFeatures: @unchecked Swift.Sendable {
   /// Returns true if `nestInFileClass` has been explicitly set.
   var hasNestInFileClass: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `nestInFileClass`. Subsequent reads from it will return its default value.
-  mutating func clearNestInFileClass() { _uniqueStorage().clearValue(at: 4, type: Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass.self, hasBit: (0, 1)) }
+  mutating func clearNestInFileClass() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   nonisolated struct NestInFileClassFeature: @unchecked Swift.Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -103,7 +103,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
   var hasPb_javaMutable: Bool { _protobuf_extensionStorage().hasValue(for: Pb_Extensions_java_mutable) }
   /// Clears the value of extension `Pb_Extensions_java_mutable`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearPb_javaMutable() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_java_mutable, type: Pb_JavaMutableFeatures.self) }
+  mutating func clearPb_javaMutable() { _protobuf_uniqueExtensionStorage().clearValue(of: Pb_Extensions_java_mutable) }
 
 }
 

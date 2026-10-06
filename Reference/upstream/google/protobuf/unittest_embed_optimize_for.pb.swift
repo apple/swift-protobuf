@@ -41,7 +41,7 @@ nonisolated struct Proto2Unittest_TestEmbedOptimizedForSize: @unchecked Swift.Se
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
   var optionalMessage: Proto2Unittest_TestOptimizedForSize {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestOptimizedForSize(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.

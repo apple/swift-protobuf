@@ -35,7 +35,7 @@ nonisolated struct Proto2Unittest_RepeatedFieldProxyTestSimpleMessage: @unchecke
   mutating func clearValue() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   var nested: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_RepeatedFieldProxyTestSimpleMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `nested` has been explicitly set.

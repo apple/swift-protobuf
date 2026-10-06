@@ -183,7 +183,7 @@ nonisolated struct Proto2Unittest_TestProto3Optional: @unchecked Swift.Sendable 
   mutating func clearOptionalCord() { _uniqueStorage().clearValue(atIndex: 1, type: String.self, hasBit: (1, 128)) }
 
   var optionalNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (2, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (2, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -192,7 +192,7 @@ nonisolated struct Proto2Unittest_TestProto3Optional: @unchecked Swift.Sendable 
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestProto3Optional.NestedMessage.self, hasBit: (2, 1)) }
 
   var lazyNestedMessage: Proto2Unittest_TestProto3Optional.NestedMessage {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestProto3Optional.NestedMessage(), hasBit: (2, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (2, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (2, 2)) }
   }
   /// Returns true if `lazyNestedMessage` has been explicitly set.
@@ -207,7 +207,7 @@ nonisolated struct Proto2Unittest_TestProto3Optional: @unchecked Swift.Sendable 
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Swift.Bool { _storage.isPresent(hasBit: (2, 4)) }
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearValue(at: 28, type: Proto2Unittest_TestProto3Optional.NestedEnum.self, hasBit: (2, 4)) }
+  mutating func clearOptionalNestedEnum() { _uniqueStorage().clearEnumValue(at: 28, hasBit: (2, 4)) }
 
   /// Add some non-optional fields to verify we can mix them.
   var singularInt32: Int32 {
@@ -311,7 +311,7 @@ nonisolated struct Proto2Unittest_TestProto3OptionalMessage: @unchecked Swift.Se
   // methods supported on all messages.
 
   var nestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `nestedMessage` has been explicitly set.
@@ -320,7 +320,7 @@ nonisolated struct Proto2Unittest_TestProto3OptionalMessage: @unchecked Swift.Se
   mutating func clearNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2Unittest_TestProto3OptionalMessage.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalNestedMessage: Proto2Unittest_TestProto3OptionalMessage.NestedMessage {
-    get { _storage.value(atIndex: 1, default: Proto2Unittest_TestProto3OptionalMessage.NestedMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -393,7 +393,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2Unittest_Proto3OptionalExtensions_extNoOptional: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional) }
   /// Clears the value of extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_Proto3OptionalExtensions_extNoOptional() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional, type: Int32.self) }
+  mutating func clearProto2Unittest_Proto3OptionalExtensions_extNoOptional() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_no_optional) }
 
   var Proto2Unittest_Proto3OptionalExtensions_extWithOptional: Int32 {
     get { _protobuf_extensionStorage().value(of: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional, default: 0) }
@@ -404,7 +404,7 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   var hasProto2Unittest_Proto3OptionalExtensions_extWithOptional: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional) }
   /// Clears the value of extension `Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_Proto3OptionalExtensions_extWithOptional() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional, type: Int32.self) }
+  mutating func clearProto2Unittest_Proto3OptionalExtensions_extWithOptional() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_Proto3OptionalExtensions.Extensions.ext_with_optional) }
 
 }
 

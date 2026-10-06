@@ -103,7 +103,7 @@ nonisolated struct SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMe
   /// Returns true if `testCase` has been explicitly set.
   var hasTestCase: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
   /// Clears the value of `testCase`. Subsequent reads from it will return its default value.
-  mutating func clearTestCase() { _uniqueStorage().clearValue(at: 4, type: SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString.self, hasBit: (0, 1)) }
+  mutating func clearTestCase() { _uniqueStorage().clearEnumValue(at: 4, hasBit: (0, 1)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 

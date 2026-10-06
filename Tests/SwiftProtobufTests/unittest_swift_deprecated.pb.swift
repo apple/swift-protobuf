@@ -104,7 +104,7 @@ nonisolated struct SwiftProtoTesting_Deprecated_MyMsg: @unchecked Swift.Sendable
 
   /// NOTE: This field was marked as deprecated in the .proto file.
   var msgField: SwiftProtoTesting_Deprecated_MyMsg {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Deprecated_MyMsg(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `msgField` has been explicitly set.
@@ -170,7 +170,7 @@ nonisolated struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Swift.Sendabl
   }
 
   var msgField: SwiftProtoTesting_Deprecated_MyMsg2 {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Deprecated_MyMsg2(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `msgField` has been explicitly set.
@@ -211,7 +211,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_stringExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_Extensions_string_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_Extensions_string_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_stringExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_string_ext_field, type: String.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_stringExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_string_ext_field) }
 
   /// NOTE: This extension field was marked as deprecated in the .proto file.
   var SwiftProtoTesting_Deprecated_intExtField: Int32 {
@@ -223,7 +223,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_intExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_Extensions_int_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_Extensions_int_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_intExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_int_ext_field, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_intExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_int_ext_field) }
 
   /// NOTE: This extension field was marked as deprecated in the .proto file.
   var SwiftProtoTesting_Deprecated_fixedExtField: [UInt32] {
@@ -241,7 +241,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_msgExtField: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_Extensions_msg_ext_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_Extensions_msg_ext_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_msgExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_msg_ext_field, type: SwiftProtoTesting_Deprecated_MyMsg.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_msgExtField() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_Extensions_msg_ext_field) }
 
   /// Another extension field comment
   ///
@@ -255,7 +255,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_MsgScope_stringExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_MsgScope.Extensions.string_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_MsgScope.Extensions.string_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_stringExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.string_ext2_field, type: String.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_stringExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.string_ext2_field) }
 
   /// NOTE: This extension field was marked as deprecated in the .proto file.
   var SwiftProtoTesting_Deprecated_MsgScope_intExt2Field: Int32 {
@@ -267,7 +267,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_MsgScope_intExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_MsgScope.Extensions.int_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_MsgScope.Extensions.int_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_intExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.int_ext2_field, type: Int32.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_intExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.int_ext2_field) }
 
   /// NOTE: This extension field was marked as deprecated in the .proto file.
   var SwiftProtoTesting_Deprecated_MsgScope_fixedExt2Field: [UInt32] {
@@ -285,7 +285,7 @@ nonisolated extension SwiftProtoTesting_Deprecated_MyMsg {
   var hasSwiftProtoTesting_Deprecated_MsgScope_msgExt2Field: Bool { _protobuf_extensionStorage().hasValue(for: SwiftProtoTesting_Deprecated_MsgScope.Extensions.msg_ext2_field) }
   /// Clears the value of extension `SwiftProtoTesting_Deprecated_MsgScope.Extensions.msg_ext2_field`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_msgExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.msg_ext2_field, type: SwiftProtoTesting_Deprecated_MyMsg.self) }
+  mutating func clearSwiftProtoTesting_Deprecated_MsgScope_msgExt2Field() { _protobuf_uniqueExtensionStorage().clearValue(of: SwiftProtoTesting_Deprecated_MsgScope.Extensions.msg_ext2_field) }
 
 }
 

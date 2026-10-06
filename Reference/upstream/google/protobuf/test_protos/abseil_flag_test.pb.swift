@@ -71,7 +71,7 @@ nonisolated struct Proto2Unittest_AbseilFlagTestProto: @unchecked Swift.Sendable
   /// Returns true if `e` has been explicitly set.
   var hasE: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
   /// Clears the value of `e`. Subsequent reads from it will return its default value.
-  mutating func clearE() { _uniqueStorage().clearValue(at: 8, type: Proto2Unittest_OpenEnumForFlagTest.self, hasBit: (0, 2)) }
+  mutating func clearE() { _uniqueStorage().clearEnumValue(at: 8, hasBit: (0, 2)) }
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
@@ -145,7 +145,7 @@ nonisolated extension Proto2Unittest_AbseilFlagTestProto {
   var hasProto2Unittest_AbseilFlagTestProto_ext: Bool { _protobuf_extensionStorage().hasValue(for: Proto2Unittest_AbseilFlagTestProto.Extensions.ext) }
   /// Clears the value of extension `Proto2Unittest_AbseilFlagTestProto.Extensions.ext`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProto2Unittest_AbseilFlagTestProto_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_AbseilFlagTestProto.Extensions.ext, type: Int32.self) }
+  mutating func clearProto2Unittest_AbseilFlagTestProto_ext() { _protobuf_uniqueExtensionStorage().clearValue(of: Proto2Unittest_AbseilFlagTestProto.Extensions.ext) }
 
 }
 

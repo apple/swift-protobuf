@@ -136,7 +136,7 @@ nonisolated struct SwiftProtoTesting_Message3: @unchecked Swift.Sendable {
 
   /// No 'group' in proto3.
   var optionalMessage: SwiftProtoTesting_Message3 {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Message3(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -361,7 +361,7 @@ nonisolated struct SwiftProtoTesting_Message3: @unchecked Swift.Sendable {
 
   /// No 'group' in proto3.
   var oneofMessage: SwiftProtoTesting_Message3 {
-    get { return _storage.value(atIndex: 1, default: SwiftProtoTesting_Message3(), oneofPresence: (12, 68)) }
+    get { return _storage.messageValue(atIndex: 1, oneofPresence: (12, 68)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, oneofPresence: (12, 68)) }
   }
 
@@ -561,7 +561,7 @@ nonisolated struct SwiftProtoTesting_Msg3UsesStorage: @unchecked Swift.Sendable 
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: SwiftProtoTesting_Msg3UsesStorage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Msg3UsesStorage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `y` has been explicitly set.
@@ -628,7 +628,7 @@ nonisolated struct SwiftProtoTesting_Msg3NamesUsesStorage: @unchecked Swift.Send
 
   /// Recursive class, forces _StorageClass
   var value: SwiftProtoTesting_Msg3UsesStorage {
-    get { _storage.value(atIndex: 0, default: SwiftProtoTesting_Msg3UsesStorage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `value` has been explicitly set.

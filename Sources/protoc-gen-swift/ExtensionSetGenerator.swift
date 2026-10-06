@@ -173,8 +173,16 @@ class ExtensionSetGenerator {
                 "",
                 "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {"
             )
+            let isSingularMessage =
+                !fieldDescriptor.isRepeated && (fieldDescriptor.type == .message || fieldDescriptor.type == .group)
+            let getCall: String
+            if isSingularMessage && generatorOptions.experimentalWeakImports {
+                getCall = "messageValue(of: \(swiftFullExtensionName))"
+            } else {
+                getCall = "value(of: \(swiftFullExtensionName), default: \(defaultValue))"
+            }
             p.printIndented(
-                "get { _protobuf_extensionStorage().value(of: \(swiftFullExtensionName), default: \(defaultValue)) }",
+                "get { _protobuf_extensionStorage().\(getCall) }",
                 "set { _protobuf_uniqueExtensionStorage().updateValue(of: \(swiftFullExtensionName), to: newValue) }"
             )
             p.print("}")
@@ -189,7 +197,7 @@ class ExtensionSetGenerator {
                 p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
-                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName), type: \(apiType).self) }"
+                    "\(visibility)mutating func \(extensionNames.clear)() { _protobuf_uniqueExtensionStorage().clearValue(of: \(swiftFullExtensionName)) }"
                 )
             }
         }

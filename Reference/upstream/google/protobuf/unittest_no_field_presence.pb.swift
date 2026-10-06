@@ -158,7 +158,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Swift.
   }
 
   var optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 0, default: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -167,7 +167,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Swift.
   mutating func clearOptionalNestedMessage() { _uniqueStorage().clearValue(atIndex: 0, type: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage.self, hasBit: (0, 1)) }
 
   var optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage {
-    get { _storage.value(atIndex: 1, default: Proto2NofieldpresenceUnittest_ForeignMessage(), hasBit: (0, 2)) }
+    get { _storage.messageValue(atIndex: 1, hasBit: (0, 2)) }
     set { _uniqueStorage().updateValue(atIndex: 1, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -176,7 +176,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Swift.
   mutating func clearOptionalForeignMessage() { _uniqueStorage().clearValue(atIndex: 1, type: Proto2NofieldpresenceUnittest_ForeignMessage.self, hasBit: (0, 2)) }
 
   var optionalProto2Message: Proto2Unittest_TestAllTypes {
-    get { _storage.value(atIndex: 2, default: Proto2Unittest_TestAllTypes(), hasBit: (0, 4)) }
+    get { _storage.messageValue(atIndex: 2, hasBit: (0, 4)) }
     set { _uniqueStorage().updateValue(atIndex: 2, to: newValue, willBeSet: true, hasBit: (0, 4)) }
   }
   /// Returns true if `optionalProto2Message` has been explicitly set.
@@ -209,7 +209,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Swift.
   }
 
   var optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
-    get { _storage.value(atIndex: 3, default: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage(), hasBit: (0, 8)) }
+    get { _storage.messageValue(atIndex: 3, hasBit: (0, 8)) }
     set { _uniqueStorage().updateValue(atIndex: 3, to: newValue, willBeSet: true, hasBit: (0, 8)) }
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -362,7 +362,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Swift.
   }
 
   var oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
-    get { return _storage.value(atIndex: 4, default: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage(), oneofPresence: (8, 112)) }
+    get { return _storage.messageValue(atIndex: 4, oneofPresence: (8, 112)) }
     set { _uniqueStorage().updateValue(atIndex: 4, to: newValue, oneofPresence: (8, 112)) }
   }
 
@@ -492,7 +492,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_TestProto2Required: @unchecked 
   // methods supported on all messages.
 
   var proto2: Proto2Unittest_TestRequired {
-    get { _storage.value(atIndex: 0, default: Proto2Unittest_TestRequired(), hasBit: (0, 1)) }
+    get { _storage.messageValue(atIndex: 0, hasBit: (0, 1)) }
     set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
   /// Returns true if `proto2` has been explicitly set.
