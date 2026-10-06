@@ -95,7 +95,6 @@ struct Main {
             expect(msg1.oneofC != msg2.oneofC)
         }
 
-
         do {
             // This test ensures that when a map field whose value type is from
             // an unlinked module (MessageB) is encountered in the payload,
