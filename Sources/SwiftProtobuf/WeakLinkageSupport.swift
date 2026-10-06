@@ -33,6 +33,55 @@ private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: UInt(0xFFF
 private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: 0) }
 #endif
 
+/// A thread-safe cache for dynamic symbol lookups using `dlsym`.
+final class DynamicSymbolCache: @unchecked Sendable {
+    private enum SymbolResult {
+        case resolved(UnsafeMutableRawPointer)
+        case missing
+    }
+
+    private let lock = Lock()
+    private var cache = [String: SymbolResult]()
+
+    static let shared = DynamicSymbolCache()
+
+    func lookup(named symbolName: String) -> UnsafeMutableRawPointer? {
+        lock.withLock {
+            if let result = cache[symbolName] {
+                switch result {
+                case .resolved(let ptr):
+                    return ptr
+                case .missing:
+                    return nil
+                }
+            }
+
+            #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
+            if let symbol = dlsym(rtldDefault, symbolName) {
+                cache[symbolName] = .resolved(symbol)
+                return symbol
+            } else {
+                cache[symbolName] = .missing
+                return nil
+            }
+            #else
+            cache[symbolName] = .missing
+            return nil
+            #endif
+        }
+    }
+
+    #if DEBUG
+    var countForTesting: Int {
+        lock.withLock { cache.count }
+    }
+
+    func resetForTesting() {
+        lock.withLock { cache.removeAll() }
+    }
+    #endif
+}
+
 extension MessageSchema {
     /// Dynamically looks up a message schema based on the name of a generated
     /// accessor function.
@@ -41,16 +90,11 @@ extension MessageSchema {
     /// linker).
     @_spi(ForGeneratedCodeOnly)
     public static func resolveLazy(named symbolName: String) -> MessageSchema? {
-        // TODO: Put a cache around this.
-        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
+        guard let symbol = DynamicSymbolCache.shared.lookup(named: symbolName) else { return nil }
         let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
         var schema: MessageSchema? = nil
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema
-        #else
-        return nil
-        #endif
     }
 
     /// Dynamically looks up a map witness function based on the name of a generated
@@ -63,18 +107,13 @@ extension MessageSchema {
         named symbolName: String,
         keyKind: ProtobufMapKeyKind
     ) -> InvokeWitnessFunction? {
-        // TODO: Put a cache around this.
-        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
+        guard let symbol = DynamicSymbolCache.shared.lookup(named: symbolName) else { return nil }
         let resolver = unsafeBitCast(symbol, to: DynamicMapWitnessThunk.self)
         var witness: InvokeWitnessFunction? = nil
         withUnsafeMutablePointer(to: &witness) { witnessPointer in
             resolver(keyKind.rawValue, witnessPointer)
         }
         return witness
-        #else
-        return nil
-        #endif
     }
 
     /// Creates a message schema for a map entry with a lazily-resolved submessage value.
@@ -126,15 +165,10 @@ extension EnumSchema {
     /// linker).
     @_spi(ForGeneratedCodeOnly)
     public static func resolveLazy(named symbolName: String) -> EnumSchema? {
-        // TODO: Put a cache around this.
-        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-        guard let symbol = dlsym(rtldDefault, symbolName) else { return nil }
+        guard let symbol = DynamicSymbolCache.shared.lookup(named: symbolName) else { return nil }
         let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
         var schema: EnumSchema? = nil
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema
-        #else
-        return nil
-        #endif
     }
 }
