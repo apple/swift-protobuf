@@ -235,9 +235,11 @@ class OneofGenerator {
                     let comparison: String
                     switch f.rawFieldType {
                     case .group, .message:
-                        comparison = "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.submessageSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                        comparison =
+                            "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.submessageSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
                     case .enum:
-                        comparison = "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.enumSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
+                        comparison =
+                            "withUnsafePointer(to: l) { lPtr in withUnsafePointer(to: r) { rPtr in \(parentMessage).messageSchema.enumSchema(for: \(f.number)).areEqual(lPtr, rPtr) } }"
                     default:
                         comparison = "l == r"
                     }
@@ -333,20 +335,26 @@ class OneofGenerator {
             // be known at runtime (it may be different than the field being
             // set).
             if generatorOptions.experimentalWeakImports {
-                getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), oneofPresence: \(oneofPresence))"
+                getCall =
+                    "messageValue(atIndex: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), oneofPresence: \(oneofPresence))"
             } else {
                 getCall = "messageValue(atIndex: \(field.storageOffsetOrIndex), oneofPresence: \(oneofPresence))"
             }
-            setCall = "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
+            setCall =
+                "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
         case .stable where field.rawFieldType == .enum && generatorOptions.experimentalWeakImports:
             // When weak imports are enabled, we generate different accessors
             // that delegate to a witness to initialize the enum from its raw
             // value and to extract the raw value in the setter.
-            getCall = "enumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
-            setCall = "updateEnumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), to: newValue, oneofPresence: \(oneofPresence))"
+            getCall =
+                "enumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall =
+                "updateEnumValue(at: \(field.storageOffsetOrIndex), fieldNumber: \(field.number), to: newValue, oneofPresence: \(oneofPresence))"
         default:
-            getCall = "value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
-            setCall = "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
+            getCall =
+                "value(\(atLabel): \(field.storageOffsetOrIndex), \(defaultValueArgument)oneofPresence: \(oneofPresence))"
+            setCall =
+                "updateValue(\(atLabel): \(field.storageOffsetOrIndex), to: newValue, oneofPresence: \(oneofPresence))"
         }
         p.printIndented(
             "get { return _storage.\(getCall) }",

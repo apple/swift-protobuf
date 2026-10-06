@@ -173,7 +173,8 @@ class ExtensionSetGenerator {
                 "",
                 "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {"
             )
-            let isSingularMessage = !fieldDescriptor.isRepeated && (fieldDescriptor.type == .message || fieldDescriptor.type == .group)
+            let isSingularMessage =
+                !fieldDescriptor.isRepeated && (fieldDescriptor.type == .message || fieldDescriptor.type == .group)
             let getCall: String
             if isSingularMessage && generatorOptions.experimentalWeakImports {
                 getCall = "messageValue(of: \(swiftFullExtensionName))"

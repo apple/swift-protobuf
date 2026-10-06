@@ -191,10 +191,12 @@ extension ExtensionStorage {
             let submessageSchema = ext.messageSchema
             var messageStorage: Unmanaged<MessageStorage>?
             withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
-                submessageSchema.invokeWitness(.messageInitialize(
-                    pointer: buffer.baseAddress!,
-                    result: storagePtr
-                ))
+                submessageSchema.invokeWitness(
+                    .messageInitialize(
+                        pointer: buffer.baseAddress!,
+                        result: storagePtr
+                    )
+                )
             }
             return buffer.baseAddress!.move()
         }

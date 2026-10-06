@@ -144,4 +144,3 @@ extension EnumSchema {
         return isEqual
     }
 }
-

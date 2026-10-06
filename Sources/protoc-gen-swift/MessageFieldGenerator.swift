@@ -186,30 +186,40 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             // passing the metatype directly to the runtime.
             if generatorOptions.experimentalWeakImports {
                 getCall = "messageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
-                setCall = "updateMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+                setCall =
+                    "updateMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
             } else {
                 getCall = "messageValue(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
-                setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
+                setCall =
+                    "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
             }
-        case .repeated where generatorOptions.experimentalWeakImports && (fieldDescriptor.type == .message || fieldDescriptor.type == .group):
+        case .repeated
+        where generatorOptions.experimentalWeakImports
+            && (fieldDescriptor.type == .message || fieldDescriptor.type == .group):
             getCall = "value(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
-            setCall = "updateRepeatedMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+            setCall =
+                "updateRepeatedMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
         case .repeated where generatorOptions.experimentalWeakImports && fieldDescriptor.type == .enum:
             getCall = "value(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
-            setCall = "updateRepeatedEnumValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+            setCall =
+                "updateRepeatedEnumValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
         case .map where generatorOptions.experimentalWeakImports:
             getCall = "mapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
-            setCall = "updateMapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
+            setCall =
+                "updateMapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
         case .stable where fieldDescriptor.type == .enum && generatorOptions.experimentalWeakImports:
             // When weak imports are enabled, we generate different accessors
             // that delegate to a witness to initialize the enum from its raw
             // value and to extract the raw value in the setter.
             let hasPresenceArgument = hasFieldPresence ? "" : "hasPresence: false, "
-            getCall = "enumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), \(defaultValueArgument)\(hasBitArgument))"
-            setCall = "updateEnumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasPresenceArgument)\(hasBitArgument))"
+            getCall =
+                "enumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), \(defaultValueArgument)\(hasBitArgument))"
+            setCall =
+                "updateEnumValue(at: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasPresenceArgument)\(hasBitArgument))"
         default:
             getCall = "value(\(atLabel): \(storageOffsetOrIndex), \(defaultValueArgument)\(hasBitArgument))"
-            setCall = "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
+            setCall =
+                "updateValue(\(atLabel): \(storageOffsetOrIndex), to: newValue, \(willBeSetArgument)\(hasBitArgument))"
         }
         p.printIndented(
             "get { _storage.\(getCall) }",
@@ -236,9 +246,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             // Without weak imports, we prefer the more efficient approach of
             // passing the metatype directly to the runtime.
             if generatorOptions.experimentalWeakImports {
-                clearCall = "clearMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
+                clearCall =
+                    "clearMessageValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
             } else {
-                clearCall = "clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument))"
+                clearCall =
+                    "clearValue(\(atLabel): \(storageOffsetOrIndex), type: \(swiftType).self, \(hasBitArgument))"
             }
         case .stable where fieldDescriptor.type == .enum:
             // All singular enum fields can use the same `clear` function

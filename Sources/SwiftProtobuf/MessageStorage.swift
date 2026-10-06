@@ -537,10 +537,12 @@ extension MessageStorage {
                 let submessageSchema = messageSchema(for: field)
                 var messageStorage: Unmanaged<MessageStorage>?
                 withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
-                    submessageSchema.invokeWitness(.messageInitialize(
-                        pointer: buffer.baseAddress!,
-                        result: storagePtr
-                    ))
+                    submessageSchema.invokeWitness(
+                        .messageInitialize(
+                            pointer: buffer.baseAddress!,
+                            result: storagePtr
+                        )
+                    )
                 }
                 return buffer.baseAddress!.move()
             }
@@ -848,7 +850,6 @@ extension MessageStorage {
         _ = updatePresence(hasBit: hasBit, willBeSet: false)
         pointer.pointee = 0
     }
-
 
     /// Clears the `String` value at the given zero-based index in the string bucket.
     @_alwaysEmitIntoClient @inline(__always)
@@ -1471,10 +1472,12 @@ extension MessageStorage {
                 let submessageSchema = messageSchema(for: field)
                 var messageStorage: Unmanaged<MessageStorage>?
                 withUnsafeMutablePointer(to: &messageStorage) { storagePtr in
-                    submessageSchema.invokeWitness(.messageInitialize(
-                        pointer: buffer.baseAddress!,
-                        result: storagePtr
-                    ))
+                    submessageSchema.invokeWitness(
+                        .messageInitialize(
+                            pointer: buffer.baseAddress!,
+                            result: storagePtr
+                        )
+                    )
                 }
                 return buffer.baseAddress!.move()
             }
