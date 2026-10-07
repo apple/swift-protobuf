@@ -221,6 +221,10 @@ nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{4}\u{11}optional_enum\0")
@@ -258,3 +262,7 @@ nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage
 nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum: Swift.BitwiseCopyable {}
+#endif

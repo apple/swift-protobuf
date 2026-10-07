@@ -642,6 +642,10 @@ nonisolated extension Proto2Unittest_TestProto3Optional.NestedEnum: SwiftProtobu
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_TestProto3Optional.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestProto3Optional.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")

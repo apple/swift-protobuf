@@ -3332,13 +3332,25 @@ nonisolated extension Proto2Unittest_ForeignEnumLite: SwiftProtobuf._ProtoNamePr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_LITE_FOO\0\u{1}FOREIGN_LITE_BAR\0\u{1}FOREIGN_LITE_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_ForeignEnumLite: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_V1EnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}V1_FIRST\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_V1EnumLite: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_V2EnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}V2_FIRST\0\u{1}V2_SECOND\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_V2EnumLite: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesLite"
@@ -4016,6 +4028,10 @@ nonisolated extension Proto2Unittest_TestAllTypesLite: SwiftProtobuf.Message, Sw
 nonisolated extension Proto2Unittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_TestAllTypesLite.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TestAllTypesLite.protoMessageName + ".NestedMessage"
@@ -5463,6 +5479,10 @@ nonisolated extension Proto2Unittest_DupEnum: SwiftProtobuf.Message, SwiftProtob
 nonisolated extension Proto2Unittest_DupEnum.TestEnumWithDupValueLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_DupEnum.TestEnumWithDupValueLite: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RecursiveMessage"

@@ -462,6 +462,10 @@ nonisolated extension Proto2Unittest_MapEnum: SwiftProtobuf._ProtoNameProviding 
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MAP_ENUM_FOO\0\u{1}MAP_ENUM_BAR\0\u{1}MAP_ENUM_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_MapEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_int32_bytes\0\u{3}map_int32_enum\0\u{3}map_int32_foreign_message\0\u{3}map_string_foreign_message\0\u{3}map_int32_all_types\0")
@@ -1084,6 +1088,10 @@ nonisolated extension Proto2Unittest_MessageContainingEnumCalledType: SwiftProto
 nonisolated extension Proto2Unittest_MessageContainingEnumCalledType.TypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TYPE_FOO\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_MessageContainingEnumCalledType.TypeEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageContainingMapCalledEntry"

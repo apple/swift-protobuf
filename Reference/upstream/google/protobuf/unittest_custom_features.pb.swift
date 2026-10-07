@@ -473,13 +473,25 @@ nonisolated extension CustomFeatures_EnumFeature: SwiftProtobuf._ProtoNameProvid
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
 }
 
+#if compiler(>=6.0)
+extension CustomFeatures_EnumFeature: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension CustomFeatures_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_UNSTABLE_ENUM_FEATURE_UNKNOWN\0\u{1}UNSTABLE1\0\u{1}UNSTABLE2\0\u{1}UNSTABLE3\0\u{1}UNSTABLE4\0")
 }
 
+#if compiler(>=6.0)
+extension CustomFeatures_UnstableEnumFeature: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension CustomFeatures_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_VALUE_LIFETIME_UNKNOWN\0\u{1}VALUE_LIFETIME_INHERITED\0\u{1}VALUE_LIFETIME_SUPPORT\0\u{1}VALUE_LIFETIME_EMPTY_SUPPORT\0\u{1}VALUE_LIFETIME_FUTURE\0\u{1}VALUE_LIFETIME_DEPRECATED\0\u{1}VALUE_LIFETIME_REMOVED\0")
 }
+
+#if compiler(>=6.0)
+extension CustomFeatures_ValueLifetimeFeature: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension CustomFeatures_TestCustomFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCustomFeatures"

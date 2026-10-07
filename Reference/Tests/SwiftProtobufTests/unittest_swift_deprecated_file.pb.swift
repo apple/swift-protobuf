@@ -294,6 +294,10 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MyEnum: SwiftProtobuf._Pr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}MYENUM_ONE\0\u{1}MYENUM_TWO\0\u{1}MYENUM_THREE\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_DeprecatedFile_MyEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMsg"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}string_field\0")

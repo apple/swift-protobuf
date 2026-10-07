@@ -1475,6 +1475,10 @@ nonisolated extension SwiftProtoTesting_Message2.Enum: SwiftProtobuf._ProtoNameP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0\u{2}\u{12}EXTRA_2\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Message2.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Message2.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Message2.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{11}a\0")

@@ -1362,6 +1362,10 @@ nonisolated extension Proto3_EnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}TLSv1_2\0")
 }
 
+#if compiler(>=6.0)
+extension Proto3_EnumType: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto3_MessageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageType"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0\u{3}optional_int32_value\0\u{3}optional_string_value\0")
@@ -3017,6 +3021,10 @@ nonisolated extension Proto3_Mixed2: SwiftProtobuf.Message, SwiftProtobuf._Messa
 nonisolated extension Proto3_Mixed2.E: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E0\0\u{1}E1\0\u{1}E2\0\u{1}E3\0")
 }
+
+#if compiler(>=6.0)
+extension Proto3_Mixed2.E: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto3_MapOfObjects: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MapOfObjects"

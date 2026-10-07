@@ -439,13 +439,25 @@ nonisolated extension Proto2Unittest_Proto2MapEnumLite: SwiftProtobuf._ProtoName
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTO2_MAP_ENUM_FOO_LITE\0\u{1}PROTO2_MAP_ENUM_BAR_LITE\0\u{1}PROTO2_MAP_ENUM_BAZ_LITE\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_Proto2MapEnumLite: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_PROTO2_MAP_ENUM_FOO_LITE\0\u{1}E_PROTO2_MAP_ENUM_BAR_LITE\0\u{1}E_PROTO2_MAP_ENUM_BAZ_LITE\0\u{1}E_PROTO2_MAP_ENUM_EXTRA_LITE\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_Proto2MapEnumPlusExtraLite: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_MapEnumLite: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0MAP_ENUM_FOO_LITE\0\u{1}MAP_ENUM_BAR_LITE\0\u{1}MAP_ENUM_BAZ_LITE\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_MapEnumLite: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMapLite"

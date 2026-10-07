@@ -1100,6 +1100,10 @@ nonisolated extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum: SwiftPr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}bb\0")
@@ -1250,3 +1254,7 @@ nonisolated extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Mes
 nonisolated extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FOO\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum: Swift.BitwiseCopyable {}
+#endif

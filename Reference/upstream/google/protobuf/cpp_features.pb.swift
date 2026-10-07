@@ -215,6 +215,14 @@ nonisolated extension Pb_CppFeatures.StringType: SwiftProtobuf._ProtoNameProvidi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRING_TYPE_UNKNOWN\0\u{1}VIEW\0\u{1}CORD\0\u{1}STRING\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_CppFeatures.StringType: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_CppFeatures.RepeatedType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0REPEATED_TYPE_UNKNOWN\0\u{1}LEGACY\0\u{1}PROXY\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_CppFeatures.RepeatedType: Swift.BitwiseCopyable {}
+#endif

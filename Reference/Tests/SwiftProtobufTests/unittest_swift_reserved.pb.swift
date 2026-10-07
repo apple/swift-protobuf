@@ -577,9 +577,17 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest.Enum: SwiftProtobuf._P
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}DOUBLE\0\u{1}JSON\0\u{1}CLASS\0\u{1}_\0\u{1}SELF\0\u{1}TYPE\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_SwiftReservedTest.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_SwiftReservedTest.protoMessageName + ".class"

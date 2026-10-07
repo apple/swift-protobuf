@@ -244,9 +244,17 @@ nonisolated extension Pb_GoFeatures.APILevel: SwiftProtobuf._ProtoNameProviding 
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0API_LEVEL_UNSPECIFIED\0\u{1}API_OPEN\0\u{1}API_HYBRID\0\u{1}API_OPAQUE\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_GoFeatures.APILevel: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_GoFeatures.StripEnumPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0STRIP_ENUM_PREFIX_UNSPECIFIED\0\u{1}STRIP_ENUM_PREFIX_KEEP\0\u{1}STRIP_ENUM_PREFIX_GENERATE_BOTH\0\u{1}STRIP_ENUM_PREFIX_STRIP\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_GoFeatures.StripEnumPrefix: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_GoFeatures.protoMessageName + ".OptimizeModeFeature"
@@ -270,3 +278,7 @@ nonisolated extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Message, 
 nonisolated extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPTIMIZE_MODE_UNSPECIFIED\0\u{1}SPEED\0\u{1}CODE_SIZE\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode: Swift.BitwiseCopyable {}
+#endif

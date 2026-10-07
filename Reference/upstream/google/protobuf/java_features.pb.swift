@@ -262,6 +262,10 @@ nonisolated extension Pb_JavaFeatures.Utf8Validation: SwiftProtobuf._ProtoNamePr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UTF8_VALIDATION_UNKNOWN\0\u{1}DEFAULT\0\u{1}VERIFY\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_JavaFeatures.Utf8Validation: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Pb_JavaFeatures.protoMessageName + ".NestInFileClassFeature"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{c}\u{1}\u{7f}\u{7f}\u{7f}\u{7f}\u{1f}")
@@ -284,3 +288,7 @@ nonisolated extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.Mess
 nonisolated extension Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NEST_IN_FILE_CLASS_UNKNOWN\0\u{1}NO\0\u{1}YES\0\u{1}LEGACY\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass: Swift.BitwiseCopyable {}
+#endif

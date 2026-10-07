@@ -1727,6 +1727,10 @@ nonisolated extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum: Swi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}corecursive\0")

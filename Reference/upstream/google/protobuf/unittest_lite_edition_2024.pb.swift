@@ -59,3 +59,7 @@ nonisolated enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.Ca
 nonisolated extension Proto2Unittest_EnumNameStringView: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_NAME_STRING_VIEW_DEFAULT\0\u{1}ENUM_NAME_STRING_VIEW_ANOTHER_VALUE\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_EnumNameStringView: Swift.BitwiseCopyable {}
+#endif

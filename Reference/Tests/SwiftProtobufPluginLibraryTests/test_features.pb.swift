@@ -216,3 +216,7 @@ nonisolated extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.Message, Swif
 nonisolated extension SwiftFeatureTest_TestFeatures.EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_FEATURE_UNKNOWN\0\u{1}ENUM_FEATURE_VALUE1\0\u{1}ENUM_FEATURE_VALUE2\0\u{1}ENUM_FEATURE_VALUE3\0\u{1}ENUM_FEATURE_VALUE4\0\u{1}ENUM_FEATURE_VALUE5\0\u{1}ENUM_FEATURE_VALUE6\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftFeatureTest_TestFeatures.EnumFeature: Swift.BitwiseCopyable {}
+#endif

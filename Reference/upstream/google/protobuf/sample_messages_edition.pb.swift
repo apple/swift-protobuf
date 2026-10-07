@@ -2110,6 +2110,10 @@ nonisolated extension ProtobufTestMessages_Edition_ForeignEnumEdition: SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Edition_ForeignEnumEdition: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufTestMessages_Edition_TestAllTypesEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesEdition"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}optional_int32\0\u{3}optional_int64\0\u{3}optional_uint32\0\u{3}optional_uint64\0\u{3}optional_sint32\0\u{3}optional_sint64\0\u{3}optional_fixed32\0\u{3}optional_fixed64\0\u{3}optional_sfixed32\0\u{3}optional_sfixed64\0\u{3}optional_float\0\u{3}optional_double\0\u{3}optional_bool\0\u{3}optional_string\0\u{3}optional_bytes\0\u{4}\u{3}optional_nested_message\0\u{3}optional_foreign_message\0\u{4}\u{2}optional_nested_enum\0\u{3}optional_foreign_enum\0\u{4}\u{2}optional_string_piece\0\u{3}optional_cord\0\u{4}\u{2}recursive_message\0\u{4}\u{4}repeated_int32\0\u{3}repeated_int64\0\u{3}repeated_uint32\0\u{3}repeated_uint64\0\u{3}repeated_sint32\0\u{3}repeated_sint64\0\u{3}repeated_fixed32\0\u{3}repeated_fixed64\0\u{3}repeated_sfixed32\0\u{3}repeated_sfixed64\0\u{3}repeated_float\0\u{3}repeated_double\0\u{3}repeated_bool\0\u{3}repeated_string\0\u{3}repeated_bytes\0\u{4}\u{3}repeated_nested_message\0\u{3}repeated_foreign_message\0\u{4}\u{2}repeated_nested_enum\0\u{3}repeated_foreign_enum\0\u{4}\u{2}repeated_string_piece\0\u{3}repeated_cord\0\u{3}map_int32_int32\0\u{3}map_int64_int64\0\u{3}map_uint32_uint32\0\u{3}map_uint64_uint64\0\u{3}map_sint32_sint32\0\u{3}map_sint64_sint64\0\u{3}map_fixed32_fixed32\0\u{3}map_fixed64_fixed64\0\u{3}map_sfixed32_sfixed32\0\u{3}map_sfixed64_sfixed64\0\u{3}map_int32_float\0\u{3}map_int32_double\0\u{3}map_bool_bool\0\u{3}map_string_string\0\u{3}map_string_bytes\0\u{3}map_string_nested_message\0\u{3}map_string_foreign_message\0\u{3}map_string_nested_enum\0\u{3}map_string_foreign_enum\0\u{3}packed_int32\0\u{3}packed_int64\0\u{3}packed_uint32\0\u{3}packed_uint64\0\u{3}packed_sint32\0\u{3}packed_sint64\0\u{3}packed_fixed32\0\u{3}packed_fixed64\0\u{3}packed_sfixed32\0\u{3}packed_sfixed64\0\u{3}packed_float\0\u{3}packed_double\0\u{3}packed_bool\0\u{3}packed_nested_enum\0\u{3}unpacked_int32\0\u{3}unpacked_int64\0\u{3}unpacked_uint32\0\u{3}unpacked_uint64\0\u{3}unpacked_sint32\0\u{3}unpacked_sint64\0\u{3}unpacked_fixed32\0\u{3}unpacked_fixed64\0\u{3}unpacked_sfixed32\0\u{3}unpacked_sfixed64\0\u{3}unpacked_float\0\u{3}unpacked_double\0\u{3}unpacked_bool\0\u{3}unpacked_nested_enum\0\u{4}\u{9}oneof_uint32\0\u{3}oneof_nested_message\0\u{3}oneof_string\0\u{3}oneof_bytes\0\u{3}oneof_bool\0\u{3}oneof_uint64\0\u{3}oneof_float\0\u{3}oneof_double\0\u{3}oneof_enum\0\u{8}R\u{1}Data\0\u{4}(default_int32\0\u{3}default_int64\0\u{3}default_uint32\0\u{3}default_uint64\0\u{3}default_sint32\0\u{3}default_sint64\0\u{3}default_fixed32\0\u{3}default_fixed64\0\u{3}default_sfixed32\0\u{3}default_sfixed64\0\u{3}default_float\0\u{3}default_double\0\u{3}default_bool\0\u{3}default_string\0\u{3}default_bytes\0\u{2}R\u{2}fieldname1\0\u{3}field_name2\0\u{3}_field_name3\0\u{3}field__name4_\0\u{1}field0name5\0\u{3}field_0_name6\0\u{1}fieldName7\0\u{1}FieldName8\0\u{3}field_Name9\0\u{3}Field_Name10\0\u{3}FIELD_NAME11\0\u{3}FIELD_name12\0\u{3}__field_name13\0\u{3}__Field_name14\0\u{3}field__name15\0\u{3}field__Name16\0\u{3}field_name17__\0\u{3}Field_name18__\0\u{c}h\u{f}hL\u{2}")
@@ -3180,6 +3184,10 @@ nonisolated extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnu
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufTestMessages_Edition_TestAllTypesEdition.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Edition_TestAllTypesEdition.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0\u{1}corecursive\0")
@@ -3564,6 +3572,10 @@ nonisolated extension ProtobufTestMessages_Edition_EnumOnlyEdition: SwiftProtobu
 nonisolated extension ProtobufTestMessages_Edition_EnumOnlyEdition.BoolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0kFalse\0\u{1}kTrue\0")
 }
+
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Edition_EnumOnlyEdition.BoolEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension ProtobufTestMessages_Edition_OneStringEdition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneStringEdition"
@@ -4033,6 +4045,10 @@ nonisolated extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition: 
 nonisolated extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Edition_TestAllRequiredTypesEdition.protoMessageName + ".NestedMessage"

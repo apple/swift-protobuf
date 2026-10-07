@@ -462,6 +462,10 @@ nonisolated extension Proto2Unittest_TestRepeatedEnumProxy.Enum: SwiftProtobuf._
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_TestRepeatedEnumProxy.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_TestRepeatedImportEnumProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedImportEnumProxy"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}enums_proxy\0")

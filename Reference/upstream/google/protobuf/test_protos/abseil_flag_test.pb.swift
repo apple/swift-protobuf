@@ -182,6 +182,10 @@ nonisolated extension Proto2Unittest_OpenEnumForFlagTest: SwiftProtobuf._ProtoNa
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPEN_ENUM_FOR_FLAG_TEST_DEFAULT\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_OpenEnumForFlagTest: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_AbseilFlagTestProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AbseilFlagTestProto"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}i\0\u{2}c\u{1}e\0")

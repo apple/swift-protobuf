@@ -3612,9 +3612,17 @@ nonisolated extension SwiftProtoTesting_ForeignEnum: SwiftProtobuf._ProtoNamePro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_ForeignEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_TestEnumWithDupValue: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
@@ -4182,6 +4190,10 @@ nonisolated extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, Swi
 nonisolated extension SwiftProtoTesting_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_TestAllTypes.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_TestAllTypes.protoMessageName + ".NestedMessage"

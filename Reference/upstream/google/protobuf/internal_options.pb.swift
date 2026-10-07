@@ -223,6 +223,10 @@ nonisolated extension Pb_InternalOptionsForce.Enum: SwiftProtobuf._ProtoNameProv
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FORCE_ON\0\u{1}FORCE_OFF\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_InternalOptionsForce.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_InternalFieldOptionsCpp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".InternalFieldOptionsCpp"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}micro_string\0")

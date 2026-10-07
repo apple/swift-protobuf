@@ -2850,9 +2850,17 @@ nonisolated extension Google_Protobuf_Edition: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0EDITION_UNKNOWN\0\u{1}EDITION_1_TEST_ONLY\0\u{1}EDITION_2_TEST_ONLY\0\u{2}B\u{e}EDITION_LEGACY\0\u{2}b\u{1}EDITION_PROTO2\0\u{1}EDITION_PROTO3\0\u{1}EDITION_2023\0\u{1}EDITION_2024\0\u{1}EDITION_2026\0\u{2}eL\u{2}EDITION_UNSTABLE\0\u{2}N~\u{15}EDITION_99997_TEST_ONLY\0\u{1}EDITION_99998_TEST_ONLY\0\u{1}EDITION_99999_TEST_ONLY\0\u{2}`eg\u{7f}\u{7f}\u{1}EDITION_MAX\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_Edition: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_SymbolVisibility: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0VISIBILITY_UNSET\0\u{1}VISIBILITY_LOCAL\0\u{1}VISIBILITY_EXPORT\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_SymbolVisibility: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FileDescriptorSet: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
@@ -3309,6 +3317,10 @@ nonisolated extension Google_Protobuf_ExtensionRangeOptions.VerificationState: _
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0DECLARATION\0\u{1}UNVERIFIED\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_ExtensionRangeOptions.VerificationState: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_ExtensionRangeOptions.Declaration: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}number\0\u{3}full_name\0\u{1}type\0\u{2}\u{2}reserved\0\u{1}repeated\0\u{c}\u{4}\u{1}")
@@ -3456,9 +3468,17 @@ nonisolated extension Google_Protobuf_FieldDescriptorProto.TypeEnum: _ProtoNameP
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}TYPE_DOUBLE\0\u{1}TYPE_FLOAT\0\u{1}TYPE_INT64\0\u{1}TYPE_UINT64\0\u{1}TYPE_INT32\0\u{1}TYPE_FIXED64\0\u{1}TYPE_FIXED32\0\u{1}TYPE_BOOL\0\u{1}TYPE_STRING\0\u{1}TYPE_GROUP\0\u{1}TYPE_MESSAGE\0\u{1}TYPE_BYTES\0\u{1}TYPE_UINT32\0\u{1}TYPE_ENUM\0\u{1}TYPE_SFIXED32\0\u{1}TYPE_SFIXED64\0\u{1}TYPE_SINT32\0\u{1}TYPE_SINT64\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldDescriptorProto.TypeEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FieldDescriptorProto.Label: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}LABEL_OPTIONAL\0\u{1}LABEL_REQUIRED\0\u{1}LABEL_REPEATED\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldDescriptorProto.Label: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
@@ -4095,6 +4115,10 @@ nonisolated extension Google_Protobuf_FileOptions.OptimizeMode: _ProtoNameProvid
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}SPEED\0\u{1}CODE_SIZE\0\u{1}LITE_RUNTIME\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FileOptions.OptimizeMode: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageOptions"
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{3}message_set_wire_format\0\u{3}no_standard_descriptor_accessor\0\u{1}deprecated\0\u{4}\u{4}map_entry\0\u{4}\u{4}deprecated_legacy_json_field_conflicts\0\u{1}features\0\u{4}[\u{f}uninterpreted_option\0\u{c}\u{4}\u{1}\u{c}\u{5}\u{1}\u{c}\u{6}\u{1}\u{c}\u{8}\u{1}\u{c}\u{9}\u{1}")
@@ -4350,17 +4374,33 @@ nonisolated extension Google_Protobuf_FieldOptions.CType: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0STRING\0\u{1}CORD\0\u{1}STRING_PIECE\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldOptions.CType: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FieldOptions.JSType: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0JS_NORMAL\0\u{1}JS_STRING\0\u{1}JS_NUMBER\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldOptions.JSType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FieldOptions.OptionRetention: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0RETENTION_UNKNOWN\0\u{1}RETENTION_RUNTIME\0\u{1}RETENTION_SOURCE\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldOptions.OptionRetention: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FieldOptions.OptionTargetType: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0TARGET_TYPE_UNKNOWN\0\u{1}TARGET_TYPE_FILE\0\u{1}TARGET_TYPE_EXTENSION_RANGE\0\u{1}TARGET_TYPE_MESSAGE\0\u{1}TARGET_TYPE_FIELD\0\u{1}TARGET_TYPE_ONEOF\0\u{1}TARGET_TYPE_ENUM\0\u{1}TARGET_TYPE_ENUM_ENTRY\0\u{1}TARGET_TYPE_SERVICE\0\u{1}TARGET_TYPE_METHOD\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FieldOptions.OptionTargetType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FieldOptions.EditionDefault: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".EditionDefault"
@@ -4805,6 +4845,10 @@ nonisolated extension Google_Protobuf_MethodOptions.IdempotencyLevel: _ProtoName
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0IDEMPOTENCY_UNKNOWN\0\u{1}NO_SIDE_EFFECTS\0\u{1}IDEMPOTENT\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_MethodOptions.IdempotencyLevel: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_UninterpretedOption: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\u{2}name\0\u{3}identifier_value\0\u{3}positive_int_value\0\u{3}negative_int_value\0\u{3}double_value\0\u{3}string_value\0\u{3}aggregate_value\0")
@@ -5006,29 +5050,57 @@ nonisolated extension Google_Protobuf_FeatureSet.FieldPresence: _ProtoNameProvid
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0FIELD_PRESENCE_UNKNOWN\0\u{1}EXPLICIT\0\u{1}IMPLICIT\0\u{1}LEGACY_REQUIRED\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.FieldPresence: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FeatureSet.EnumType: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENUM_TYPE_UNKNOWN\0\u{1}OPEN\0\u{1}CLOSED\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.EnumType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0REPEATED_FIELD_ENCODING_UNKNOWN\0\u{1}PACKED\0\u{1}EXPANDED\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FeatureSet.Utf8Validation: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0UTF8_VALIDATION_UNKNOWN\0\u{2}\u{2}VERIFY\0\u{1}NONE\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.Utf8Validation: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FeatureSet.MessageEncoding: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0MESSAGE_ENCODING_UNKNOWN\0\u{1}LENGTH_PREFIXED\0\u{1}DELIMITED\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.MessageEncoding: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FeatureSet.JsonFormat: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0JSON_FORMAT_UNKNOWN\0\u{1}ALLOW\0\u{1}LEGACY_BEST_EFFORT\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.JsonFormat: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FeatureSet.EnforceNamingStyle: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0ENFORCE_NAMING_STYLE_UNKNOWN\0\u{1}STYLE2024\0\u{1}STYLE_LEGACY\0\u{1}STYLE2026\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.EnforceNamingStyle: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".VisibilityFeature"
@@ -5053,6 +5125,10 @@ nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbol
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0DEFAULT_SYMBOL_VISIBILITY_UNKNOWN\0\u{1}EXPORT_ALL\0\u{1}EXPORT_TOP_LEVEL\0\u{1}LOCAL_ALL\0\u{1}STRICT\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSet.protoMessageName + ".ProtoLimitsFeature"
   static let _protobuf_nameMap = _NameMap()
@@ -5075,6 +5151,10 @@ nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: Message, _M
 nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0PROTO_LIMITS_UNKNOWN\0\u{1}LEGACY_NO_EXPLICIT_LIMITS\0\u{1}PROTO_LIMITS2026\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_FeatureSetDefaults: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FeatureSetDefaults"
@@ -5397,3 +5477,7 @@ nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation: Message, _Me
 nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0NONE\0\u{1}SET\0\u{1}ALIAS\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: Swift.BitwiseCopyable {}
+#endif

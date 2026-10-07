@@ -666,17 +666,33 @@ nonisolated extension Pb_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProv
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_CUSTOM_OPTION\0\u{1}CUSTOM_OPTION1\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_CustomOptionLifetimesEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_EnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_FEATURE_UNKNOWN\0\u{1}VALUE1\0\u{1}VALUE2\0\u{1}VALUE3\0\u{1}VALUE4\0\u{1}VALUE5\0\u{1}VALUE6\0\u{1}VALUE7\0\u{1}VALUE8\0\u{1}VALUE9\0\u{1}VALUE10\0\u{1}VALUE11\0\u{1}VALUE12\0\u{1}VALUE13\0\u{1}VALUE14\0\u{1}VALUE15\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_EnumFeature: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Pb_UnstableEnumFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_UNSTABLE_ENUM_FEATURE_UNKNOWN\0\u{1}UNSTABLE1\0\u{1}UNSTABLE2\0\u{1}UNSTABLE3\0\u{1}UNSTABLE4\0")
 }
 
+#if compiler(>=6.0)
+extension Pb_UnstableEnumFeature: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Pb_ValueLifetimeFeature: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_VALUE_LIFETIME_UNKNOWN\0\u{1}VALUE_LIFETIME_INHERITED\0\u{1}VALUE_LIFETIME_SUPPORT\0\u{1}VALUE_LIFETIME_EMPTY_SUPPORT\0\u{1}VALUE_LIFETIME_FUTURE\0\u{1}VALUE_LIFETIME_DEPRECATED\0\u{1}VALUE_LIFETIME_REMOVED\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_ValueLifetimeFeature: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Pb_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CustomOptionLifetimesMessage"

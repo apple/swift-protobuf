@@ -115,6 +115,10 @@ nonisolated extension Proto2Unittest_NoGenericServicesTest_TestEnum: SwiftProtob
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}FOO\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_NoGenericServicesTest_TestEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}a\0")

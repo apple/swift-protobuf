@@ -188,17 +188,33 @@ nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_1_FIRST_VALUE\0\u{1}ENUM_TEST_1_SECOND_VALUE\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest1: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_2_FIRST_VALUE\0\u{1}SECOND_VALUE\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTest2: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_NO_STEM_1\0\u{1}ENUM_TEST_NO_STEM_2\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestNoStem: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ENUM_TEST_RESERVED_WORD_VAR\0\u{1}ENUM_TEST_RESERVED_WORD_NOT_RESERVED\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Enum2_SwiftEnumTest.EnumTestReservedWord: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
@@ -233,3 +249,7 @@ nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProto
 nonisolated extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{9}FOO1\0\u{1}FOO2\0\u{9}BAR1\0\u{1}BAR2\0\u{1}BAZ1\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest.EnumWithAlias: Swift.BitwiseCopyable {}
+#endif

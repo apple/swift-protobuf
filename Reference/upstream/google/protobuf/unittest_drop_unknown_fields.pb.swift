@@ -180,6 +180,10 @@ nonisolated extension UnittestDropUnknownFields_Foo.NestedEnum: SwiftProtobuf._P
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension UnittestDropUnknownFields_Foo.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}int32_value\0\u{3}enum_value\0\u{3}extra_int32_value\0")
@@ -223,3 +227,7 @@ nonisolated extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobu
 nonisolated extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0\u{1}MOO\0")
 }
+
+#if compiler(>=6.0)
+extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: Swift.BitwiseCopyable {}
+#endif

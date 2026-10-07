@@ -1952,13 +1952,25 @@ nonisolated extension Proto2Unittest_MethodOpt1: SwiftProtobuf._ProtoNameProvidi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}METHODOPT1_VAL1\0\u{1}METHODOPT1_VAL2\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_MethodOpt1: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_CustomOptionLifetimesEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0CUSTOM_OPTION_ENUM_DEFAULT\0\u{1}CUSTOM_OPTION_ENUM_REMOVED_EDITION2023\0\u{1}CUSTOM_OPTION_ENUM_REMOVED_PROTO3\0\u{1}CUSTOM_OPTION_ENUM_VALUE3\0\u{1}CUSTOM_OPTION_ENUM_VALUE4\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_CustomOptionLifetimesEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_AggregateEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}VALUE\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_AggregateEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_CustomOptionLifetimesMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CustomOptionLifetimesMessage"
@@ -2107,6 +2119,10 @@ nonisolated extension Proto2Unittest_TestMessageWithCustomOptions.AnEnum: SwiftP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}ANENUM_VAL1\0\u{1}ANENUM_VAL2\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_TestMessageWithCustomOptions.AnEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_CustomOptionFooRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CustomOptionFooRequest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -2205,6 +2221,10 @@ nonisolated extension Proto2Unittest_DummyMessageContainingEnum: SwiftProtobuf.M
 nonisolated extension Proto2Unittest_DummyMessageContainingEnum.TestEnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}i\u{7f}\u{7f}\u{7f}\u{7f}\u{3}TEST_OPTION_ENUM_TYPE2\0\u{2}-TEST_OPTION_ENUM_TYPE1\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_DummyMessageContainingEnum.TestEnumType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DummyMessageInvalidAsOptionType"
@@ -2908,6 +2928,10 @@ nonisolated extension Proto2Unittest_NestedOptionType.NestedEnum: SwiftProtobuf.
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}NESTED_ENUM_VALUE\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_NestedOptionType.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_NestedOptionType.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_NestedOptionType.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}nested_field\0")
@@ -2985,6 +3009,10 @@ nonisolated extension Proto2Unittest_OldOptionType.TestEnum: SwiftProtobuf._Prot
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OLD_VALUE\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_OldOptionType.TestEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".NewOptionType"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0")
@@ -3027,6 +3055,10 @@ nonisolated extension Proto2Unittest_NewOptionType: SwiftProtobuf.Message, Swift
 nonisolated extension Proto2Unittest_NewOptionType.TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OLD_VALUE\0\u{1}NEW_VALUE\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_NewOptionType.TestEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithRequiredEnumOption"

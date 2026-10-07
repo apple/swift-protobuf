@@ -235,6 +235,10 @@ nonisolated extension Google_Protobuf_NullValue: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0NULL_VALUE\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_NullValue: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Struct"
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}fields\0")

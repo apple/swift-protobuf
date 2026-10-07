@@ -133,6 +133,13 @@ class EnumGenerator {
             generateProtoNameProviding(printer: &p)
         }
         p.print("}")
+
+        p.print(
+            "",
+            "#if compiler(>=6.0)",
+            "extension \(swiftFullName): Swift.BitwiseCopyable {}",
+            "#endif"
+        )
     }
 
     /// Generates the cases or statics (for alias) for the values.

@@ -279,6 +279,10 @@ nonisolated extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUns
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufTestMessages_EditionUnstable_ForeignEnumEditionUnstable: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufTestMessages_EditionUnstable_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")

@@ -11732,9 +11732,17 @@ nonisolated extension SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf._Pro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0A\0\u{1}String\0\u{1}Int\0\u{1}Double\0\u{1}Float\0\u{1}UInt\0\u{1}hashValue\0\u{1}description\0\u{1}debugDescription\0\u{1}Swift\0\u{1}UNRECOGNIZED\0\u{1}class\0\u{1}deinit\0\u{1}enum\0\u{1}extension\0\u{1}func\0\u{1}import\0\u{1}init\0\u{1}inout\0\u{1}internal\0\u{1}let\0\u{1}operator\0\u{1}private\0\u{1}protocol\0\u{1}public\0\u{1}static\0\u{1}struct\0\u{1}subscript\0\u{1}typealias\0\u{1}var\0\u{1}break\0\u{1}case\0\u{1}continue\0\u{1}default\0\u{1}defer\0\u{1}do\0\u{1}else\0\u{1}fallthrough\0\u{1}for\0\u{1}guard\0\u{1}if\0\u{1}in\0\u{1}repeat\0\u{1}return\0\u{1}switch\0\u{1}where\0\u{1}while\0\u{1}as\0\u{1}catch\0\u{1}dynamicType\0\u{1}false\0\u{1}is\0\u{1}nil\0\u{1}rethrows\0\u{1}super\0\u{1}self\0\u{2}\u{2}throw\0\u{1}throws\0\u{1}true\0\u{1}try\0\u{1}__COLUMN__\0\u{1}__FILE__\0\u{1}__FUNCTION__\0\u{1}__LINE__\0\u{1}_\0\u{1}associativity\0\u{1}convenience\0\u{1}dynamic\0\u{1}didSet\0\u{1}final\0\u{1}get\0\u{1}infix\0\u{1}indirect\0\u{1}lazy\0\u{1}left\0\u{1}mutating\0\u{1}none\0\u{1}nonmutating\0\u{1}optional\0\u{1}override\0\u{1}postfix\0\u{1}precedence\0\u{1}prefix\0\u{2}\u{2}required\0\u{1}right\0\u{1}set\0\u{1}Type\0\u{1}unowned\0\u{1}weak\0\u{1}willSet\0\u{2}\u{2}_cmd\0\u{2}\u{3}out\0\u{2}\u{2}bycopy\0\u{1}byref\0\u{1}oneway\0\u{2}\u{2}and\0\u{1}and_eq\0\u{1}alignas\0\u{1}alignof\0\u{1}asm\0\u{1}auto\0\u{1}bitand\0\u{1}bitor\0\u{1}bool\0\u{2}\u{4}char\0\u{1}char16_t\0\u{1}char32_t\0\u{2}\u{2}compl\0\u{1}const\0\u{1}constexpr\0\u{1}const_cast\0\u{2}\u{2}decltype\0\u{2}\u{2}delete\0\u{2}\u{2}dynamic_cast\0\u{2}\u{3}explicit\0\u{1}export\0\u{1}extern\0\u{2}\u{4}friend\0\u{1}goto\0\u{2}\u{2}inline\0\u{2}\u{2}long\0\u{1}mutable\0\u{1}namespace\0\u{1}new\0\u{1}noexcept\0\u{1}not\0\u{1}not_eq\0\u{1}nullptr\0\u{2}\u{2}or\0\u{1}or_eq\0\u{2}\u{2}protected\0\u{2}\u{2}register\0\u{1}reinterpret_cast\0\u{2}\u{2}short\0\u{1}signed\0\u{1}sizeof\0\u{2}\u{2}static_assert\0\u{1}static_cast\0\u{2}\u{3}template\0\u{1}this\0\u{1}thread_local\0\u{2}\u{4}typedef\0\u{1}typeid\0\u{1}typename\0\u{1}union\0\u{1}unsigned\0\u{1}using\0\u{1}virtual\0\u{1}void\0\u{1}volatile\0\u{1}wchar_t\0\u{2}\u{2}xor\0\u{1}xor_eq\0\u{1}restrict\0\u{1}Category\0\u{1}Ivar\0\u{1}Method\0\u{2}\u{4}finalize\0\u{1}hash\0\u{1}dealloc\0\u{2}\u{3}superclass\0\u{1}retain\0\u{1}release\0\u{1}autorelease\0\u{1}retainCount\0\u{1}zone\0\u{1}isProxy\0\u{1}copy\0\u{1}mutableCopy\0\u{1}classForCoder\0\u{1}clear\0\u{1}data\0\u{1}delimitedData\0\u{1}descriptor\0\u{1}extensionRegistry\0\u{1}extensionsCurrentlySet\0\u{1}isInitialized\0\u{1}serializedSize\0\u{1}sortedExtensionsInUse\0\u{1}unknownFields\0\u{1}Fixed\0\u{1}Fract\0\u{1}Size\0\u{1}LogicalAddress\0\u{1}PhysicalAddress\0\u{1}ByteCount\0\u{1}ByteOffset\0\u{1}Duration\0\u{1}AbsoluteTime\0\u{1}OptionBits\0\u{1}ItemCount\0\u{1}PBVersion\0\u{1}ScriptCode\0\u{1}LangCode\0\u{1}RegionCode\0\u{1}OSType\0\u{1}ProcessSerialNumber\0\u{1}Point\0\u{1}Rect\0\u{1}FixedPoint\0\u{1}FixedRect\0\u{1}Style\0\u{1}StyleParameter\0\u{1}StyleField\0\u{1}TimeScale\0\u{1}TimeBase\0\u{1}TimeRecord\0\u{1}Extensions\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumFieldNames: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AA\0\u{2}i\u{10}__\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumFieldNames2: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Foo"
@@ -20700,845 +20708,1689 @@ nonisolated extension SwiftProtoTesting_Names_EnumNames.StringEnum: SwiftProtobu
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aString\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.StringEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aProtocol\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.IntEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aInt\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.IntEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.DoubleEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aDouble\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.DoubleEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.FloatEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aFloat\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.FloatEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.UIntEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aUInt\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.UIntEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ahashValue\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.hashValueEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adescription\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.descriptionEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adebugDescription\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aSwift\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.SwiftEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aUNRECOGNIZED\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.classEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aclass\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.classEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.deinitEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adeinit\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.deinitEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.enumEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aenum\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.enumEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aextension\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.extensionEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.funcEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afunc\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.funcEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.importEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aimport\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.importEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.initEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ainit\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.initEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.inoutEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ainout\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.inoutEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.internalEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ainternal\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.internalEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.letEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0alet\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.letEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.operatorEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aoperator\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.operatorEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.privateEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aprivate\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.privateEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.protocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aprotocol\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.protocolEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.publicEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0apublic\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.publicEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.staticEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0astatic\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.staticEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.structEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0astruct\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.structEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asubscript\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.subscriptEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atypealias\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.typealiasEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.varEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0avar\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.varEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.breakEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abreak\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.breakEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.caseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0acase\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.caseEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.continueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0acontinue\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.continueEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.defaultEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adefault\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.defaultEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.deferEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adefer\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.deferEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.doEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ado\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.doEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.elseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aelse\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.elseEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afallthrough\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.forEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afor\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.forEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.guardEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aguard\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.guardEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ifEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aif\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ifEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.inEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ain\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.inEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.repeatEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0arepeat\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.repeatEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.returnEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0areturn\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.returnEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.switchEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aswitch\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.switchEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.whereEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0awhere\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.whereEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0awhile\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.whileEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.asEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aas\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.asEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.catchEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0acatch\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.catchEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamicTypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adynamicType\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.dynamicTypeEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.falseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afalse\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.falseEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.isEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ais\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.isEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.nilEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anil\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.nilEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0arethrows\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.superEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asuper\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.superEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.selfEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aself\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.selfEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.throwEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0athrow\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.throwEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.throwsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0athrows\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.throwsEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.trueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atrue\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.trueEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.tryEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atry\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.tryEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a__COLUMN__\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a__FILE__\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a__FUNCTION__\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a__LINE__\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames._Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a_\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames._Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a__\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.__Enum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.associativity: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aassociativity\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.associativity: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.convenience: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aconvenience\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.convenience: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamic: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adynamic\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.dynamic: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.didSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adidSet\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.didSet: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.final: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afinal\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.final: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.get: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aget\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.get: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.infix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ainfix\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.infix: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.indirect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aindirect\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.indirect: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.lazy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0alazy\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.lazy: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.left: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aleft\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.left: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.mutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0amutating\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.mutating: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.none: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anone\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.none: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.nonmutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anonmutating\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.nonmutating: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.optional: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aoptional\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.optional: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.override: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aoverride\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.override: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.postfix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0apostfix\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.postfix: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.precedence: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aprecedence\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.precedence: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.prefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aprefix\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.prefix: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.required: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0arequired\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.required: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.right: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aright\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.right: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.set: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aset\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.set: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.TypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aType\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.TypeEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.unowned: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aunowned\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.unowned: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.weak: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aweak\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.weak: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.willSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0awillSet\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.willSet: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.id: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aid\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.id: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames._cmd: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0a_cmd\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames._cmd: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.out: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aout\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.out: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.bycopy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abycopy\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.bycopy: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.byref: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abyref\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.byref: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.oneway: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aoneway\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.oneway: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.and: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aand\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.and: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.and_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aand_eq\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.and_eq: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.alignas: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aalignas\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.alignas: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.alignof: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aalignof\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.alignof: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.asm: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aasm\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.asm: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.auto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aauto\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.auto: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.bitand: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abitand\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.bitand: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.bitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abitor\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.bitor: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.bool: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0abool\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.bool: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.char: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0achar\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.char: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.char16_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0achar16_t\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.char16_t: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.char32_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0achar32_t\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.char32_t: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.compl: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0acompl\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.compl: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.const: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aconst\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.const: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.constexpr: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aconstexpr\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.constexpr: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.const_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aconst_cast\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.const_cast: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.decltype: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adecltype\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.decltype: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.delete: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adelete\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.delete: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.dynamic_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adynamic_cast\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.dynamic_cast: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.explicit: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aexplicit\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.explicit: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.export: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aexport\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.export: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.extern: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aextern\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.extern: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.friend: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afriend\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.friend: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.goto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0agoto\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.goto: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.inline: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ainline\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.inline: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.long: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0along\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.long: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.mutable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0amutable\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.mutable: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.namespace: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anamespace\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.namespace: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.new: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anew\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.new: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.noexcept: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anoexcept\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.noexcept: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.not: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anot\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.not: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.not_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anot_eq\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.not_eq: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.nullptr: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0anullptr\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.nullptr: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.or: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aor\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.or: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.or_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aor_eq\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.or_eq: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.protected: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aprotected\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.protected: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.register: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aregister\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.register: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0areinterpret_cast\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.short: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ashort\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.short: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.signed: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asigned\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.signed: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.sizeof: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asizeof\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.sizeof: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.static_assert: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0astatic_assert\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.static_assert: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.static_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0astatic_cast\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.static_cast: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.template: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atemplate\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.template: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.this: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0athis\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.this: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.thread_local: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0athread_local\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.thread_local: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.typedef: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atypedef\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.typedef: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.typeid: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atypeid\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.typeid: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.typename: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0atypename\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.typename: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.union: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aunion\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.union: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.unsigned: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aunsigned\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.unsigned: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.using: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ausing\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.using: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.virtual: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0avirtual\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.virtual: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.void: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0avoid\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.void: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.volatile: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0avolatile\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.volatile: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.wchar_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0awchar_t\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.wchar_t: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.xor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0axor\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.xor: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.xor_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0axor_eq\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.xor_eq: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.restrict: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0arestrict\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.restrict: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Category: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aCategory\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Category: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Ivar: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aIvar\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Ivar: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Method: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aMethod\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Method: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.finalize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0afinalize\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.finalize: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.hash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ahash\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.hash: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.dealloc: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adealloc\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.dealloc: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.superclass: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asuperclass\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.superclass: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.retain: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aretain\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.retain: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.release: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0arelease\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.release: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.autorelease: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aautorelease\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.autorelease: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.retainCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aretainCount\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.retainCount: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.zone: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0azone\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.zone: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.isProxy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aisProxy\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.isProxy: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.copy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0acopy\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.copy: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.mutableCopy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0amutableCopy\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.mutableCopy: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.classForCoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aclassForCoder\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.classForCoder: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.clear: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aclear\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.clear: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.data: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adata\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.data: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.delimitedData: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adelimitedData\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.delimitedData: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.descriptor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0adescriptor\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.descriptor: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionRegistry: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aextensionRegistry\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.extensionRegistry: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aextensionsCurrentlySet\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aisInitialized\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.serializedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aserializedSize\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.serializedSize: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0asortedExtensionsInUse\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aunknownFields\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Fixed: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aFixed\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Fixed: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Fract: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aFract\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Fract: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Size: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aSize\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Size: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.LogicalAddress: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aLogicalAddress\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.LogicalAddress: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aPhysicalAddress\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ByteCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aByteCount\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ByteCount: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ByteOffset: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aByteOffset\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ByteOffset: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Duration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aDuration\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Duration: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aAbsoluteTime\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.OptionBits: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aOptionBits\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.OptionBits: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ItemCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aItemCount\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ItemCount: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.PBVersion: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aPBVersion\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.PBVersion: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ScriptCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aScriptCode\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ScriptCode: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.LangCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aLangCode\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.LangCode: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.RegionCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aRegionCode\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.RegionCode: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.OSType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aOSType\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.OSType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aProcessSerialNumber\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Point: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aPoint\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Point: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Rect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aRect\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Rect: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.FixedPoint: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aFixedPoint\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.FixedPoint: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.FixedRect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aFixedRect\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.FixedRect: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Style: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aStyle\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Style: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.StyleParameter: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aStyleParameter\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.StyleParameter: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.StyleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aStyleField\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.StyleField: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeScale: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aTimeScale\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.TimeScale: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aTimeBase\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.TimeBase: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aTimeRecord\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.TimeRecord: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aExtension\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.Extension: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0aExtensions\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
@@ -22212,6 +23064,10 @@ nonisolated extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Me
 nonisolated extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_ENUM_0\0\u{1}TEST_ENUM_FIRST\0\u{1}_2\0\u{1}_3_VALUE\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames1"

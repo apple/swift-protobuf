@@ -354,6 +354,10 @@ nonisolated extension Proto2Unittest_MetaAnnotatedEnum: SwiftProtobuf._ProtoName
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TEST_NULL\0\u{1}TEST_REDACTABLE\0\u{1}TEST_NO_REDACT\0\u{1}TEST_NO_REDACT_AGAIN\0\u{1}TEST_REDACTABLE_FALSE\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_MetaAnnotatedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_TestRedactedNestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRedactedNestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}foo\0")

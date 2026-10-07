@@ -357,6 +357,10 @@ nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: Swif
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SUB_VALUE_0\0\u{1}SUB_VALUE_1\0\u{1}SUB_VALUE_2\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OtherMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field\0")

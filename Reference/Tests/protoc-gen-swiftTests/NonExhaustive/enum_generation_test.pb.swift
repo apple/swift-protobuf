@@ -123,6 +123,10 @@ nonisolated extension OpenEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OPEN_ENUM_UNKNOWN\0\u{1}OPEN_ENUM_VALUE_A\0\u{1}OPEN_ENUM_VALUE_B\0")
 }
 
+#if compiler(>=6.0)
+extension OpenEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EnumGenerationTestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumGenerationTestMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{2}text\0\u{1}data\0")

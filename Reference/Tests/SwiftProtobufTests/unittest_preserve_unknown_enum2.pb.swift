@@ -121,6 +121,10 @@ nonisolated extension SwiftProtoTesting_UnknownEnum_Proto2_MyEnum: SwiftProtobuf
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_UnknownEnum_Proto2_MyEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}e\0\u{3}repeated_e\0\u{3}repeated_packed_e\0\u{3}repeated_packed_unexpected_e\0\u{3}oneof_e_1\0\u{3}oneof_e_2\0")

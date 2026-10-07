@@ -1053,6 +1053,10 @@ nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2023: Swif
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Editions_ForeignEnumEdition2023: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufTestMessages_Editions_ComplexMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")
@@ -1940,6 +1944,10 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: Swi
 nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufTestMessages_Editions_TestAllTypesEdition2023.protoMessageName + ".NestedMessage"

@@ -450,9 +450,17 @@ nonisolated extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding 
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}PROTOBUF\0\u{1}JSON\0\u{1}JSPB\0\u{1}TEXT_FORMAT\0")
 }
 
+#if compiler(>=6.0)
+extension Conformance_WireFormat: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED_TEST\0\u{1}BINARY_TEST\0\u{1}JSON_TEST\0\u{1}JSON_IGNORE_UNKNOWN_PARSING_TEST\0\u{1}JSPB_TEST\0\u{1}TEXT_FORMAT_TEST\0")
 }
+
+#if compiler(>=6.0)
+extension Conformance_TestCategory: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Conformance_TestStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestStatus"

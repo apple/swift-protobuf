@@ -48,3 +48,7 @@ nonisolated enum Proto2Unittest_LazyImports_LazyEnum: Int, SwiftProtobuf.Enum, S
 nonisolated extension Proto2Unittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0LAZY_ENUM_0\0\u{1}LAZY_ENUM_1\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_LazyImports_LazyEnum: Swift.BitwiseCopyable {}
+#endif

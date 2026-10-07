@@ -159,9 +159,17 @@ nonisolated extension SwiftProtoTesting_Proto2MapEnum: SwiftProtobuf._ProtoNameP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTO2_MAP_ENUM_FOO\0\u{1}PROTO2_MAP_ENUM_BAR\0\u{1}PROTO2_MAP_ENUM_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Proto2MapEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0E_PROTO2_MAP_ENUM_FOO\0\u{1}E_PROTO2_MAP_ENUM_BAR\0\u{1}E_PROTO2_MAP_ENUM_BAZ\0\u{1}E_PROTO2_MAP_ENUM_EXTRA\0")
 }
+
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Proto2MapEnumPlusExtra: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SwiftProtoTesting_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"

@@ -182,3 +182,7 @@ nonisolated extension Pb_JavaMutableFeatures.NestInFileClassFeature: SwiftProtob
 nonisolated extension Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NEST_IN_FILE_CLASS_UNKNOWN\0\u{1}NO\0\u{1}YES\0\u{1}LEGACY\0")
 }
+
+#if compiler(>=6.0)
+extension Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass: Swift.BitwiseCopyable {}
+#endif

@@ -488,6 +488,10 @@ nonisolated extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0VALUE_ZERO\0\u{1}VALUE_ONE\0\u{1}VALUE_TWO\0")
 }
 
+#if compiler(>=6.0)
+extension SDTTopLevelEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}field1\0\u{1}field2\0\u{1}field3\0\u{1}field4\0\u{1}field5\0\u{1}field6\0")
@@ -632,6 +636,10 @@ nonisolated extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._
 nonisolated extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SUB_VALUE_0\0\u{1}SUB_VALUE_1\0\u{1}SUB_VALUE_2\0")
 }
+
+#if compiler(>=6.0)
+extension SDTTopLevelMessage.SubEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"

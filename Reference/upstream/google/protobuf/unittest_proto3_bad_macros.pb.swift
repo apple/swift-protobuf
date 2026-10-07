@@ -268,10 +268,22 @@ nonisolated extension ProtobufUnittest_GID: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0GID_UNUSED\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufUnittest_GID: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufUnittest_UID: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UID_UNUSED\0")
 }
 
+#if compiler(>=6.0)
+extension ProtobufUnittest_UID: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension ProtobufUnittest_BadNames: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PACKAGE\0\u{1}PACKED\0\u{1}linux\0\u{1}DOMAIN\0\u{1}TRUE\0\u{1}FALSE\0\u{1}CREATE_NEW\0\u{1}DELETE\0\u{1}DOUBLE_CLICK\0\u{1}ERROR\0\u{1}ERROR_BUSY\0\u{1}ERROR_INSTALL_FAILED\0\u{1}ERROR_NOT_FOUND\0\u{1}GetClassName\0\u{1}GetCurrentTime\0\u{1}GetMessage\0\u{1}GetObject\0\u{1}IGNORE\0\u{1}IN\0\u{1}INPUT_KEYBOARD\0\u{1}NO_ERROR\0\u{1}OUT\0\u{1}OPTIONAL\0\u{1}NEAR\0\u{1}NO_DATA\0\u{1}REASON_UNKNOWN\0\u{1}SERVICE_DISABLED\0\u{1}SEVERITY_ERROR\0\u{1}STATUS_PENDING\0\u{1}STRICT\0\u{1}TYPE_BOOL\0\u{1}DEBUG\0")
 }
+
+#if compiler(>=6.0)
+extension ProtobufUnittest_BadNames: Swift.BitwiseCopyable {}
+#endif

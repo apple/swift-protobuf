@@ -71,6 +71,10 @@ nonisolated extension Proto2UnittestImport_ImportEnumLite: SwiftProtobuf._ProtoN
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7}IMPORT_LITE_FOO\0\u{1}IMPORT_LITE_BAR\0\u{1}IMPORT_LITE_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2UnittestImport_ImportEnumLite: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2UnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}d\0")

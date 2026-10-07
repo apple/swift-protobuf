@@ -494,6 +494,10 @@ nonisolated extension Google_Protobuf_Syntax: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0SYNTAX_PROTO2\0\u{1}SYNTAX_PROTO3\0\u{1}SYNTAX_EDITIONS\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_Syntax: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Type"
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{1}name\0\u{1}fields\0\u{1}oneofs\0\u{1}options\0\u{3}source_context\0\u{1}syntax\0\u{1}edition\0")
@@ -637,9 +641,17 @@ nonisolated extension Google_Protobuf_Field.Kind: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0TYPE_UNKNOWN\0\u{1}TYPE_DOUBLE\0\u{1}TYPE_FLOAT\0\u{1}TYPE_INT64\0\u{1}TYPE_UINT64\0\u{1}TYPE_INT32\0\u{1}TYPE_FIXED64\0\u{1}TYPE_FIXED32\0\u{1}TYPE_BOOL\0\u{1}TYPE_STRING\0\u{1}TYPE_GROUP\0\u{1}TYPE_MESSAGE\0\u{1}TYPE_BYTES\0\u{1}TYPE_UINT32\0\u{1}TYPE_ENUM\0\u{1}TYPE_SFIXED32\0\u{1}TYPE_SFIXED64\0\u{1}TYPE_SINT32\0\u{1}TYPE_SINT64\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_Field.Kind: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_Field.Cardinality: _ProtoNameProviding {
   static let _protobuf_nameMap = _NameMap(bytecode: "\0\u{2}\0CARDINALITY_UNKNOWN\0\u{1}CARDINALITY_OPTIONAL\0\u{1}CARDINALITY_REQUIRED\0\u{1}CARDINALITY_REPEATED\0")
 }
+
+#if compiler(>=6.0)
+extension Google_Protobuf_Field.Cardinality: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Enum"

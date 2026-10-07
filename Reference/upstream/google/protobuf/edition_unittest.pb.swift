@@ -9899,21 +9899,41 @@ nonisolated extension EditionUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProvi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{4}FOREIGN_FOO\0\u{1}FOREIGN_BAR\0\u{1}FOREIGN_BAZ\0\u{2}\u{1a}FOREIGN_BAX\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_ForeignEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_TestReservedEnumFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_TestReservedEnumFields: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{a}\0DUP_UNKNOWN1\0\u{1}DUP_UNKNOWN2\0\u{9}DUP_FOO1\0\u{1}DUP_FOO2\0\u{9}DUP_BAR1\0\u{1}DUP_BAR2\0\u{1}DUP_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_TestEnumWithDupValue: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}t|r\u{7f}\u{7f}\u{3}SPARSE_E\0\u{2}}B\u{d}SPARSE_D\0\u{2}\u{f}SPARSE_F\0\u{2}\u{2}SPARSE_G\0\u{2}y\u{1}SPARSE_A\0\u{2}kL\u{f}SPARSE_B\0\u{2}LTr/SPARSE_C\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_TestSparseEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_VeryLargeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_LABEL_DEFAULT\0\u{1}ENUM_LABEL_1\0\u{1}ENUM_LABEL_2\0\u{1}ENUM_LABEL_3\0\u{1}ENUM_LABEL_4\0\u{1}ENUM_LABEL_5\0\u{1}ENUM_LABEL_6\0\u{1}ENUM_LABEL_7\0\u{1}ENUM_LABEL_8\0\u{1}ENUM_LABEL_9\0\u{1}ENUM_LABEL_10\0\u{1}ENUM_LABEL_11\0\u{1}ENUM_LABEL_12\0\u{1}ENUM_LABEL_13\0\u{1}ENUM_LABEL_14\0\u{1}ENUM_LABEL_15\0\u{1}ENUM_LABEL_16\0\u{1}ENUM_LABEL_17\0\u{1}ENUM_LABEL_18\0\u{1}ENUM_LABEL_19\0\u{1}ENUM_LABEL_20\0\u{1}ENUM_LABEL_21\0\u{1}ENUM_LABEL_22\0\u{1}ENUM_LABEL_23\0\u{1}ENUM_LABEL_24\0\u{1}ENUM_LABEL_25\0\u{1}ENUM_LABEL_26\0\u{1}ENUM_LABEL_27\0\u{1}ENUM_LABEL_28\0\u{1}ENUM_LABEL_29\0\u{1}ENUM_LABEL_30\0\u{1}ENUM_LABEL_31\0\u{1}ENUM_LABEL_32\0\u{1}ENUM_LABEL_33\0\u{1}ENUM_LABEL_34\0\u{1}ENUM_LABEL_35\0\u{1}ENUM_LABEL_36\0\u{1}ENUM_LABEL_37\0\u{1}ENUM_LABEL_38\0\u{1}ENUM_LABEL_39\0\u{1}ENUM_LABEL_40\0\u{1}ENUM_LABEL_41\0\u{1}ENUM_LABEL_42\0\u{1}ENUM_LABEL_43\0\u{1}ENUM_LABEL_44\0\u{1}ENUM_LABEL_45\0\u{1}ENUM_LABEL_46\0\u{1}ENUM_LABEL_47\0\u{1}ENUM_LABEL_48\0\u{1}ENUM_LABEL_49\0\u{1}ENUM_LABEL_50\0\u{1}ENUM_LABEL_51\0\u{1}ENUM_LABEL_52\0\u{1}ENUM_LABEL_53\0\u{1}ENUM_LABEL_54\0\u{1}ENUM_LABEL_55\0\u{1}ENUM_LABEL_56\0\u{1}ENUM_LABEL_57\0\u{1}ENUM_LABEL_58\0\u{1}ENUM_LABEL_59\0\u{1}ENUM_LABEL_60\0\u{1}ENUM_LABEL_61\0\u{1}ENUM_LABEL_62\0\u{1}ENUM_LABEL_63\0\u{1}ENUM_LABEL_64\0\u{1}ENUM_LABEL_65\0\u{1}ENUM_LABEL_66\0\u{1}ENUM_LABEL_67\0\u{1}ENUM_LABEL_68\0\u{1}ENUM_LABEL_69\0\u{1}ENUM_LABEL_70\0\u{1}ENUM_LABEL_71\0\u{1}ENUM_LABEL_72\0\u{1}ENUM_LABEL_73\0\u{1}ENUM_LABEL_74\0\u{1}ENUM_LABEL_75\0\u{1}ENUM_LABEL_76\0\u{1}ENUM_LABEL_77\0\u{1}ENUM_LABEL_78\0\u{1}ENUM_LABEL_79\0\u{1}ENUM_LABEL_80\0\u{1}ENUM_LABEL_81\0\u{1}ENUM_LABEL_82\0\u{1}ENUM_LABEL_83\0\u{1}ENUM_LABEL_84\0\u{1}ENUM_LABEL_85\0\u{1}ENUM_LABEL_86\0\u{1}ENUM_LABEL_87\0\u{1}ENUM_LABEL_88\0\u{1}ENUM_LABEL_89\0\u{1}ENUM_LABEL_90\0\u{1}ENUM_LABEL_91\0\u{1}ENUM_LABEL_92\0\u{1}ENUM_LABEL_93\0\u{1}ENUM_LABEL_94\0\u{1}ENUM_LABEL_95\0\u{1}ENUM_LABEL_96\0\u{1}ENUM_LABEL_97\0\u{1}ENUM_LABEL_98\0\u{1}ENUM_LABEL_99\0\u{1}ENUM_LABEL_100\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_VeryLargeEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
@@ -10592,6 +10612,10 @@ nonisolated extension EditionUnittest_TestAllTypes: SwiftProtobuf.Message, Swift
 nonisolated extension EditionUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}NEG\0\u{2}\u{2}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_TestAllTypes.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
@@ -11622,6 +11646,10 @@ nonisolated extension EditionUnittest_TestRequiredEnumNoMask.NestedEnum: SwiftPr
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}BAZ\0\u{1}UNSPECIFIED\0\u{2}\u{2}FOO\0\u{2}b\u{1}BAR\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_TestRequiredEnumNoMask.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_TestRequiredEnumMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredEnumMulti"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}required_enum_1\0\u{3}required_enum_2\0\u{3}a_3\0\u{3}required_enum_4\0")
@@ -11681,6 +11709,10 @@ nonisolated extension EditionUnittest_TestRequiredEnumMulti: SwiftProtobuf.Messa
 nonisolated extension EditionUnittest_TestRequiredEnumMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{2}b\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_TestRequiredEnumMulti.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredNoMaskMulti"
@@ -11759,6 +11791,10 @@ nonisolated extension EditionUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Mes
 nonisolated extension EditionUnittest_TestRequiredNoMaskMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{2}b\u{1}BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_TestRequiredNoMaskMulti.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
@@ -15117,6 +15153,10 @@ nonisolated extension EditionUnittest_TestOneof2.NestedEnum: SwiftProtobuf._Prot
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_TestOneof2.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_TestOneof2.FooGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestOneof2.protoMessageName + ".FooGroup"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{9}a\0\u{1}b\0")
@@ -15645,6 +15685,10 @@ nonisolated extension EditionUnittest_TestDynamicExtensions: SwiftProtobuf.Messa
 nonisolated extension EditionUnittest_TestDynamicExtensions.DynamicEnumType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0DYNAMIC_UNKNOWN\0\u{2}X\"DYNAMIC_FOO\0\u{1}DYNAMIC_BAR\0\u{1}DYNAMIC_BAZ\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_TestDynamicExtensions.DynamicEnumType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = EditionUnittest_TestDynamicExtensions.protoMessageName + ".DynamicMessageType"
@@ -18062,17 +18106,33 @@ nonisolated extension EditionUnittest_EnumParseTester.SeqSmall0: SwiftProtobuf._
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0SEQ_SMALL_0_DEFAULT\0\u{1}SEQ_SMALL_0_1\0\u{1}SEQ_SMALL_0_2\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_EnumParseTester.SeqSmall0: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_EnumParseTester.SeqSmall1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNKNOWN\0\u{1}SEQ_SMALL_1_DEFAULT\0\u{1}SEQ_SMALL_1_2\0\u{1}SEQ_SMALL_1_3\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_EnumParseTester.SeqSmall1: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_EnumParseTester.SeqLarge: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\u{7f}\u{7f}\u{7f}\u{7f}\u{7f}\u{3}SEQ_LARGE_DEFAULT\0\u{1}SEQ_LARGE_0\0\u{1}SEQ_LARGE_1\0\u{1}SEQ_LARGE_2\0\u{1}SEQ_LARGE_3\0\u{1}SEQ_LARGE_4\0\u{1}SEQ_LARGE_5\0\u{1}SEQ_LARGE_6\0\u{1}SEQ_LARGE_7\0\u{1}SEQ_LARGE_8\0\u{1}SEQ_LARGE_9\0\u{1}SEQ_LARGE_10\0\u{1}SEQ_LARGE_11\0\u{1}SEQ_LARGE_12\0\u{1}SEQ_LARGE_13\0\u{1}SEQ_LARGE_14\0\u{1}SEQ_LARGE_15\0\u{1}SEQ_LARGE_16\0\u{1}SEQ_LARGE_17\0\u{1}SEQ_LARGE_18\0\u{1}SEQ_LARGE_19\0\u{1}SEQ_LARGE_20\0\u{1}SEQ_LARGE_21\0\u{1}SEQ_LARGE_22\0\u{1}SEQ_LARGE_23\0\u{1}SEQ_LARGE_24\0\u{1}SEQ_LARGE_25\0\u{1}SEQ_LARGE_26\0\u{1}SEQ_LARGE_27\0\u{1}SEQ_LARGE_28\0\u{1}SEQ_LARGE_29\0\u{1}SEQ_LARGE_30\0\u{1}SEQ_LARGE_31\0\u{1}SEQ_LARGE_32\0\u{1}SEQ_LARGE_33\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_EnumParseTester.SeqLarge: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_EnumParseTester.Arbitrary: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}@@@@@\u{2}ARBITRARY_MIN\0\u{2}M|a\u{7f}\u{7f}\u{1}ARBITRARY_DEFAULT\0\u{2}xA\u{1e}ARBITRARY_1\0\u{2}P\u{5}ARBITRARY_2\0\u{2}H@4ARBITRARY_3\0\u{2}b|K\u{7f}\u{7f}\u{1}ARBITRARY_MAX\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_EnumParseTester.Arbitrary: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_BoolParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BoolParseTester"
@@ -18727,6 +18787,10 @@ nonisolated extension EditionUnittest_TestPackedEnumSmallRange.NestedEnum: Swift
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0UNSPECIFIED\0\u{1}FOO\0\u{1}BAR\0\u{1}BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_TestPackedEnumSmallRange.NestedEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_EnumsForBenchmark: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumsForBenchmark"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -18750,13 +18814,25 @@ nonisolated extension EditionUnittest_EnumsForBenchmark.Flat: SwiftProtobuf._Pro
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0A0\0\u{1}A1\0\u{1}A2\0\u{1}A3\0\u{1}A4\0\u{1}A5\0\u{1}A6\0\u{1}A7\0\u{1}A8\0\u{1}A9\0\u{1}A10\0\u{1}A11\0\u{1}A12\0\u{1}A13\0\u{1}A14\0\u{1}A15\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_EnumsForBenchmark.Flat: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_EnumsForBenchmark.AlmostFlat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0B0\0\u{1}B1\0\u{1}B2\0\u{1}B3\0\u{2}\u{2}B5\0\u{1}B6\0\u{1}B7\0\u{1}B8\0\u{1}B9\0\u{2}\u{2}B11\0\u{1}B12\0\u{1}B13\0\u{1}B14\0\u{1}B15\0\u{2}\u{2}B17\0\u{2}\u{2}B19\0")
 }
 
+#if compiler(>=6.0)
+extension EditionUnittest_EnumsForBenchmark.AlmostFlat: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension EditionUnittest_EnumsForBenchmark.Sparse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0C0\0\u{2}X\u{8}C536\0\u{2}kz\u{1}C8387\0\u{2}F\u{14}C9673\0\u{2}d\u{9}C10285\0\u{2}Y/C13318\0\u{2}U)C15963\0\u{2}\\\u{7}C16439\0\u{2}^\u{1b}C18197\0\u{2}Q\u{13}C19430\0\u{2}c\u{e}C20361\0\u{2}Y\u{5}C20706\0\u{2}X\u{5}C21050\0\u{2}X\u{d}C21906\0\u{2}oS\u{1}C27265\0\u{2}\\,C30109\0\u{2}Y\u{18}C31670\0")
 }
+
+#if compiler(>=6.0)
+extension EditionUnittest_EnumsForBenchmark.Sparse: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension EditionUnittest_TestMessageWithManyRepeatedPtrFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithManyRepeatedPtrFields"

@@ -120,6 +120,10 @@ nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ENUM_CUSTOM_JSON_STRING_UNKNOWN\0\u{9}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0\u{1}ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL_ALIAS\0\u{6}\0ENUM_CUSTOM_JSON_STRING_SOMETHING_SPECIAL\0something special\0\u{1}ENUM_CUSTOM_JSON_STRING_NORMAL\0\u{5}ENUM_CUSTOM_JSON_STRING_QUOTED\0\"testing\"\0\u{5}ENUM_CUSTOM_JSON_STRING_BLANK\0\0\u{5}ENUM_CUSTOM_JSON_STRING_ESCAPES\0tab\u{9}newline\u{a}quote\"done\0\u{5}ENUM_CUSTOM_JSON_STRING_SIX\06\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONString: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_EnumValueJsonString_EnumCustomJSONStringsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumCustomJSONStringsMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}test_case\0")

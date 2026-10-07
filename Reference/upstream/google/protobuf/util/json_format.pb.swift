@@ -680,6 +680,10 @@ nonisolated extension Proto2Unittest_EnumValue: SwiftProtobuf._ProtoNameProvidin
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0PROTOCOL\0\u{1}BUFFER\0\u{1}DEFAULT\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_EnumValue: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_TestFlagsAndStrings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFlagsAndStrings"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}A\0\u{7}RepeatedGroup\0")
@@ -1072,6 +1076,10 @@ nonisolated extension Proto2Unittest_TestNumbers: SwiftProtobuf.Message, SwiftPr
 nonisolated extension Proto2Unittest_TestNumbers.MyType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0OK\0\u{1}WARNING\0\u{1}ERROR\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_TestNumbers.MyType: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TestCamelCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCase"

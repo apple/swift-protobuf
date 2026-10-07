@@ -91,6 +91,10 @@ nonisolated extension Proto2Unittest_RepeatedFieldProxyTestImportEnum: SwiftProt
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0REPEATED_FIELD_PROXY_TEST_IMPORT_ENUM_UNKNOWN\0\u{1}REPEATED_FIELD_PROXY_TEST_IMPORT_FOO\0\u{1}REPEATED_FIELD_PROXY_TEST_IMPORT_BAR\0\u{1}REPEATED_FIELD_PROXY_TEST_IMPORT_BAZ\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_RepeatedFieldProxyTestImportEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_RepeatedFieldProxyTestImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RepeatedFieldProxyTestImportMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0")

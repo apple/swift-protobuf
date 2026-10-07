@@ -59,3 +59,7 @@ nonisolated enum Proto2Unittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseItera
 nonisolated extension Proto2Unittest_OnlyOneEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ONLY_ONE_ENUM_DEFAULT\0\u{2}\u{a}ONLY_ONE_ENUM_VALID\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_OnlyOneEnum: Swift.BitwiseCopyable {}
+#endif

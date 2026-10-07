@@ -518,6 +518,10 @@ nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: Sw
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FEATURE_NONE\0\u{1}FEATURE_PROTO3_OPTIONAL\0\u{1}FEATURE_SUPPORTS_EDITIONS\0")
 }
 
+#if compiler(>=6.0)
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}name\0\u{3}insertion_point\0\u{2}\u{d}content\0\u{3}generated_code_info\0")

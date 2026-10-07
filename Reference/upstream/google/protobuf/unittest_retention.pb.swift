@@ -516,6 +516,10 @@ nonisolated extension Proto2Unittest_TopLevelEnum: SwiftProtobuf._ProtoNameProvi
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0TOP_LEVEL_UNKNOWN\0")
 }
 
+#if compiler(>=6.0)
+extension Proto2Unittest_TopLevelEnum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension Proto2Unittest_OptionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OptionsMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}plain_field\0\u{3}runtime_retention_field\0\u{3}source_retention_field\0")
@@ -647,6 +651,10 @@ nonisolated extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.Message, Swi
 nonisolated extension Proto2Unittest_TopLevelMessage.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NESTED_UNKNOWN\0")
 }
+
+#if compiler(>=6.0)
+extension Proto2Unittest_TopLevelMessage.NestedEnum: Swift.BitwiseCopyable {}
+#endif
 
 nonisolated extension Proto2Unittest_TopLevelMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Proto2Unittest_TopLevelMessage.protoMessageName + ".NestedMessage"

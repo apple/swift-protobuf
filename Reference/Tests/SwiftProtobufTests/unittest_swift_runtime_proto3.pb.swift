@@ -1277,6 +1277,10 @@ nonisolated extension SwiftProtoTesting_Message3.Enum: SwiftProtobuf._ProtoNameP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0FOO\0\u{1}BAR\0\u{1}BAZ\0\u{2}\u{1c}EXTRA_3\0")
 }
 
+#if compiler(>=6.0)
+extension SwiftProtoTesting_Message3.Enum: Swift.BitwiseCopyable {}
+#endif
+
 nonisolated extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
