@@ -13,17 +13,17 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-@testable @_spi(ForGeneratedCodeOnly) import SwiftProtobuf
+@_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 import XCTest
 
 @_silgen_name("test_weak_linkage_message_schema")
 func testWeakLinkageMessageSchemaThunk(_ out: UnsafeMutableRawPointer) {
-    out.assumingMemoryBound(to: (MessageSchema?).self).pointee = SwiftProtobuf_ImplicitWeakMessage.messageSchema
+    out.assumingMemoryBound(to: (MessageSchema?).self).pointee = Google_Protobuf_Empty.messageSchema
 }
 
 @_silgen_name("test_weak_linkage_enum_schema")
 func testWeakLinkageEnumSchemaThunk(_ out: UnsafeMutableRawPointer) {
-    out.assumingMemoryBound(to: (EnumSchema?).self).pointee = SwiftProtobuf_ImplicitWeakEnum.enumSchema
+    out.assumingMemoryBound(to: (EnumSchema?).self).pointee = Google_Protobuf_Syntax.enumSchema
 }
 
 final class Test_WeakLinkageSupport: XCTestCase {

@@ -34,7 +34,7 @@ private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: 0) }
 #endif
 
 /// A thread-safe cache for dynamic symbol lookups using `dlsym`.
-final class DynamicSymbolCache: @unchecked Sendable {
+package final class DynamicSymbolCache: @unchecked Sendable {
     private enum SymbolResult {
         case resolved(UnsafeMutableRawPointer)
         case missing
@@ -43,7 +43,7 @@ final class DynamicSymbolCache: @unchecked Sendable {
     private let lock = Lock()
     private var cache = [String: SymbolResult]()
 
-    static let shared = DynamicSymbolCache()
+    package static let shared = DynamicSymbolCache()
 
     func lookup(named symbolName: String) -> UnsafeMutableRawPointer? {
         lock.withLock {
@@ -71,15 +71,13 @@ final class DynamicSymbolCache: @unchecked Sendable {
         }
     }
 
-    #if DEBUG
-    var countForTesting: Int {
+    package var countForTesting: Int {
         lock.withLock { cache.count }
     }
 
-    func resetForTesting() {
+    package func resetForTesting() {
         lock.withLock { cache.removeAll() }
     }
-    #endif
 }
 
 extension MessageSchema {
