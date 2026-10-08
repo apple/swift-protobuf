@@ -61,8 +61,12 @@ PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 # Need to provide paths to find the language specific editions features files
 # also. If we used a released protoc distro, they would be bundled like the WKTs.
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
-# Search 'Protos/Sources/SwiftProtobuf/' so the WKTs can be found (google/protobuf/*).
-GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/Sources/SwiftProtobuf
+# Search the core Protos directories so the WKTs, compiler/plugin.proto, and
+# json options can be found.
+GENERATE_SRCS=${GENERATE_SRCS_BASE} \
+	-I Protos/Sources/SwiftProtobuf \
+	-I Protos/Sources/SwiftProtobufPluginLibrary \
+	-I Protos/Sources/protoc-gen-swift
 
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
@@ -211,10 +215,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	done
 	for d in ${PROTOS_DIRS}; do \
 	    mkdir -p _test/$$d ; \
-		${GENERATE_SRCS_BASE} \
-		  -I Protos/Sources/SwiftProtobuf \
-		  -I Protos/Sources/SwiftProtobufPluginLibrary \
-		  -I Protos/Sources/protoc-gen-swift \
+		${GENERATE_SRCS} \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
@@ -294,10 +295,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	done
 	for d in ${PROTOS_DIRS}; do \
 	    mkdir -p Reference/$$d ; \
-		${GENERATE_SRCS_BASE} \
-		  -I Protos/Sources/SwiftProtobuf \
-		  -I Protos/Sources/SwiftProtobufPluginLibrary \
-		  -I Protos/Sources/protoc-gen-swift \
+		${GENERATE_SRCS} \
 		  -I Protos/$$d \
 		  --tfiws_out=Reference/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
@@ -348,14 +346,12 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
-	    -I Protos/Sources/SwiftProtobufPluginLibrary \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
 	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
-	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/protoc-gen-swift \
 		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
@@ -397,13 +393,10 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
-# TODO(tvl): Revisit "-I Protos/Sources/protoc-gen-swift" once we the files is in a
-# protobuf release, but they may be complex when using a different protoc binary (head).
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
-	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
@@ -565,7 +558,6 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Sources/Conformance \
-	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
 		`find Protos/Sources/Conformance -type f -name "*.proto"`
