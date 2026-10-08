@@ -72,6 +72,23 @@ GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
 	-I Protos/Sources/SwiftProtobufPluginLibrary \
 	-I Protos/Sources/protoc-gen-swift
 
+# Helper to remove existing generated .pb.swift files from a directory:
+#   $(call clean_pb_swift,<dir>)
+define clean_pb_swift
+find $(1) -name "*.pb.swift" -exec rm -f {} \;
+endef
+
+# Helper to clean and regenerate .pb.swift files for a directory:
+#   $(call regenerate_protos,<dir>[,<extra_protoc_flags>])
+define regenerate_protos
+$(call clean_pb_swift,$(1))
+${GENERATE_PROTOS_SRCS} \
+	-I Protos/$(1) \
+	--tfiws_opt=FileNaming=DropPath $(2) \
+	--tfiws_out=$(1) \
+	`find Protos/$(1) -type f -name "*.proto"`
+endef
+
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 
@@ -109,14 +126,17 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
 	compile-tests-nonisolateddeclarations \
+	compile-tests-experimentalhiddennames \
 	default \
 	docs \
 	install \
 	pod-lib-lint \
 	reference \
 	regenerate \
+	regenerate-compiletests-experimentalhiddennames-protos \
 	regenerate-compiletests-multimodule-protos \
 	copy-compiletests-internalimportsbydefault-protos \
+	copy-compiletests-nonisolateddeclarations-protos \
 	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	regenerate-fuzz-protos \
@@ -312,28 +332,14 @@ regenerate: \
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobuf \
-		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/SwiftProtobuf,--tfiws_opt=Visibility=Public)
 
 # Rebuild just the protos used by the plugin
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
-		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
-	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Sources/protoc-gen-swift \
-		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/SwiftProtobufPluginLibrary,--tfiws_opt=Visibility=Public)
+	$(call regenerate_protos,Sources/protoc-gen-swift)
 
 # Is this based on the upstream bazel rules `compile_edition_defaults` and
 # `embed_edition_defaults`.
@@ -373,23 +379,13 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
-	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/Tests/SwiftProtobufTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/SwiftProtobufTests \
-		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
-	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
-		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
+	$(call regenerate_protos,Tests/SwiftProtobufTests)
+	$(call regenerate_protos,Tests/SwiftProtobufPluginLibraryTests)
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,FuzzTesting/Sources/FuzzCommon)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
@@ -534,12 +530,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/Sources/Conformance \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Sources/Conformance \
-		`find Protos/Sources/Conformance -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/Conformance)
 
 # Rebuild just the protos used by the CompileTests.
 regenerate-compiletests-protos: \
@@ -553,13 +544,13 @@ regenerate-compiletests-protos: \
 # Most of the CompileTests use the plugin, but this feature is Experimental and not
 # currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,CompileTests/MultiModule)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/MultiModule \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+		`find Protos/CompileTests/MultiModule -type f -name "*.proto"`
 
 # We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
@@ -578,28 +569,20 @@ copy-compiletests-nonisolateddeclarations-protos:
 # Most of the CompileTests use the plugin, but this feature is Experimental and not
 # currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find CompileTests/ExperimentalHiddenNames -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,CompileTests/ExperimentalHiddenNames)
 	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Fields \
-		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
-		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=Types \
-		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/types.proto
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/CompileTests/ExperimentalHiddenNames \
-		--tfiws_opt=ExperimentalHiddenNames=All \
-		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
-		Protos/CompileTests/ExperimentalHiddenNames/all.proto
+	@for p in \
+	    Fields:fields.proto \
+	    EnumValues:enum_values.proto \
+	    Types:types.proto \
+	    All:all.proto ; do \
+		opt=$${p%%:*}; file=$${p#*:}; \
+		${GENERATE_PROTOS_SRCS} \
+		    -I Protos/CompileTests/ExperimentalHiddenNames \
+			--tfiws_opt=ExperimentalHiddenNames=$$opt \
+			--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+			Protos/CompileTests/ExperimentalHiddenNames/$$file || exit 1; \
+	done
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
