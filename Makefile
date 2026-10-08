@@ -196,8 +196,6 @@ test-runtime: build
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
-# json options are no longer locked to "unstable".
 test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf _test && mkdir -p _test/upstream
 	for p in `find \
@@ -219,7 +217,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
-		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
@@ -281,8 +279,6 @@ check-traits-FieldMaskUtilities:
 # Note: Some of the upstream protos define the same package.(message|enum)s, so
 # they can't be done in a single protoc/proto-gen-swift invoke and have to be
 # done one at a time instead.
-# TODO(tvl): Remove '! -name "unittest_json_enumvalue_custom_string.proto"' when the
-# json options are no longer locked to "unstable".
 reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf Reference && mkdir -p Reference/upstream
 	for p in `find \
@@ -304,7 +300,7 @@ reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		  -I Protos/Sources/protoc-gen-swift \
 		  -I Protos/$$d \
 		  --tfiws_out=Reference/$$d \
-		  `find Protos/$$d -type f -name "*.proto" ! -name "unittest_json_enumvalue_custom_string.proto"` || exit 1; \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p Reference/Tests/protoc-gen-swiftTests/NonExhaustive
@@ -569,6 +565,7 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 	    -I Protos/Sources/Conformance \
+	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
 		`find Protos/Sources/Conformance -type f -name "*.proto"`
@@ -730,7 +727,7 @@ test-conformance: check-for-conformance-runner build Sources/Conformance/failure
 	  --enforce_recommended \
 	  --failure_list Sources/Conformance/failure_list_swift.txt \
 	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt \
-	  --maximum_edition 2024 \
+	  --maximum_edition 2026 \
 	  $(SWIFT_CONFORMANCE_PLUGIN)
 
 # Validate the CocoaPods podspec file against the current tree state.
