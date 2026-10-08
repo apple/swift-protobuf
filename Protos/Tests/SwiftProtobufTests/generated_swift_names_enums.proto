@@ -230,9 +230,11 @@ message GeneratedSwiftReservedEnums {
   enum contains { NONE_contains = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum ContiguousBytes { NONE_ContiguousBytes = 0; }
+  enum convenience { NONE_convenience = 0; }
   enum convention { NONE_convention = 0; }
   enum copy { NONE_copy = 0; }
   enum count { NONE_count = 0; }
+  enum countForTesting { NONE_countForTesting = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum create { NONE_create = 0; }
   enum csharpNamespace { NONE_csharpNamespace = 0; }
@@ -256,6 +258,7 @@ message GeneratedSwiftReservedEnums {
   enum decodeNextExtension { NONE_decodeNextExtension = 0; }
   enum decodingOptions { NONE_decodingOptions = 0; }
   enum decompress { NONE_decompress = 0; }
+  enum decompressingIfNeeded { NONE_decompressingIfNeeded = 0; }
   enum decrementRecursionBudget { NONE_decrementRecursionBudget = 0; }
   enum default { NONE_default = 0; }
   enum defaultAnyTypeURLPrefix { NONE_defaultAnyTypeURLPrefix = 0; }
@@ -714,6 +717,7 @@ message GeneratedSwiftReservedEnums {
   enum location { NONE_location = 0; }
   enum lock { NONE_lock = 0; }
   enum LockPrimitive { NONE_LockPrimitive = 0; }
+  enum lookup { NONE_lookup = 0; }
   enum low { NONE_low = 0; }
   enum M { NONE_M = 0; }
   enum mainModel { NONE_mainModel = 0; }
@@ -931,6 +935,7 @@ message GeneratedSwiftReservedEnums {
   enum requestTypeURL { NONE_requestTypeURL = 0; }
   enum requiredCount { NONE_requiredCount = 0; }
   enum requiredSize { NONE_requiredSize = 0; }
+  enum resetForTesting { NONE_resetForTesting = 0; }
   enum resolveLazy { NONE_resolveLazy = 0; }
   enum resolveLazyMapWitness { NONE_resolveLazyMapWitness = 0; }
   enum responseStreaming { NONE_responseStreaming = 0; }
@@ -1181,7 +1186,7 @@ message GeneratedSwiftReservedEnums {
   enum withReaderForNextGroup { NONE_withReaderForNextGroup = 0; }
   enum withReaderForNextLengthDelimitedSlice { NONE_withReaderForNextLengthDelimitedSlice = 0; }
   enum withReaderForNextObject { NONE_withReaderForNextObject = 0; }
-  enum withTable { NONE_withTable = 0; }
+  enum withReflectionTable { NONE_withReflectionTable = 0; }
   enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
   enum witness { NONE_witness = 0; }
