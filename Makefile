@@ -60,10 +60,14 @@ LOCAL_PROTOBUF=Sources/protobuf/protobuf
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 # Need to provide paths to find the language specific editions features files
 # also. If we used a released protoc distro, they would be bundled like the WKTs.
-GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
-# Search the core Protos directories so the WKTs, compiler/plugin.proto, and
-# json options can be found.
-GENERATE_SRCS=${GENERATE_SRCS_BASE} \
+PROTOC_INVOKE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
+# Used when generating directly from the vendored upstream protobuf tree.
+GENERATE_UPSTREAM_SRCS=${PROTOC_INVOKE} \
+	-I "${LOCAL_PROTOBUF}/src" \
+	-I "${LOCAL_PROTOBUF}"
+# Used when generating from Protos/, searching the core Protos directories so
+# the WKTs, compiler/plugin.proto, and json options can be found.
+GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
 	-I Protos/Sources/SwiftProtobuf \
 	-I Protos/Sources/SwiftProtobufPluginLibrary \
 	-I Protos/Sources/protoc-gen-swift
@@ -198,21 +202,19 @@ _test: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
 	            "${LOCAL_PROTOBUF}/src" \
 	            -type f -name '*.proto'`; do \
-		${GENERATE_SRCS_BASE} \
-		  -I "${LOCAL_PROTOBUF}/src" \
-		  -I "${LOCAL_PROTOBUF}" \
+		${GENERATE_UPSTREAM_SRCS} \
 		  --tfiws_out=_test/upstream $$p || exit 1; \
 	done
 	for d in ${PROTOS_DIRS}; do \
 	    mkdir -p _test/$$d ; \
-		${GENERATE_SRCS} \
+		${GENERATE_PROTOS_SRCS} \
 		  -I Protos/$$d \
 		  --tfiws_out=_test/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	# Specific test of `EnumGeneration=NonExhaustive` in Reference
 	@mkdir -p _test/Tests/protoc-gen-swiftTests/NonExhaustive
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/protoc-gen-swiftTests \
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
@@ -311,7 +313,7 @@ regenerate: \
 # would also need to list all the outputs.
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobuf \
@@ -322,13 +324,13 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 # would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
 	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/protoc-gen-swift \
 		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
@@ -372,13 +374,13 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # would also need to list all the outputs.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
@@ -388,7 +390,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftPr
 # Protos/Tests/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
@@ -533,7 +535,7 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Sources/Conformance \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
@@ -552,7 +554,7 @@ regenerate-compiletests-protos: \
 # currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/MultiModule \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
@@ -578,22 +580,22 @@ copy-compiletests-nonisolateddeclarations-protos:
 regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/ExperimentalHiddenNames -name "*.pb.swift" -exec rm -f {} \;
 	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
 		--tfiws_opt=ExperimentalHiddenNames=Fields \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/fields.proto
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
 		--tfiws_opt=ExperimentalHiddenNames=EnumValues \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/enum_values.proto
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
 		--tfiws_opt=ExperimentalHiddenNames=Types \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 		Protos/CompileTests/ExperimentalHiddenNames/types.proto
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/ExperimentalHiddenNames \
 		--tfiws_opt=ExperimentalHiddenNames=All \
 		--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
