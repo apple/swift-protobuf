@@ -88,6 +88,7 @@ SWIFT_BUILD_TEST_HOOK?=
 PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/protoc-gen-swift Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
 
 .PHONY: \
+	_test \
 	all \
 	build \
 	check \
@@ -182,25 +183,14 @@ check-version-numbers:
 test-runtime: build
 	${SWIFT} test ${SWIFT_BUILD_TEST_HOOK}
 
-#
-# Test the plugin by itself:
-#   * Translate every proto in Protos into Swift using local protoc-gen-swift
+# Shared helper target for `test-plugin` and `reference`:
+#   * Translate every proto in upstream and Protos into Swift using local protoc-gen-swift
 #   * Put result in _test directory
-#   * Compare output with reference output in Reference directory
-#   * If generated output and reference output don't match exactly, fail.
 #
-# Of course, this will fail if you've made any changes to the generated output.
-# In that case, you'll need to do the following before committing:
-#   * `make regenerate` to rebuild the protos used by the runtime and plugin
-#   * `make test-runtime` to verify that the runtime works correctly with the new changes
-#   * `make reference` to update the Reference directory
-#   * MANUALLY go through `git diff Reference` to verify that the generated Swift changed in the way you expect
-#   * `make clean build test` to do a final check
-#
-# Note: Some of these protos define the same package.(message|enum)s, so they
-# can't be done in a single protoc/proto-gen-swift invoke and have to be done
-# one at a time instead.
-test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
+# Note: Some of the upstream protos define the same package.(message|enum)s, so
+# they can't be done in a single protoc/proto-gen-swift invoke and have to be
+# done one at a time instead.
+_test: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	@rm -rf _test && mkdir -p _test/upstream
 	for p in `find \
 	            "${LOCAL_PROTOBUF}/conformance" \
@@ -227,6 +217,22 @@ test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		--tfiws_opt=EnumGeneration=NonExhaustive \
 		--tfiws_out=_test/Tests/protoc-gen-swiftTests/NonExhaustive \
 		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
+
+#
+# Test the plugin by itself:
+#   * Generate output into _test directory
+#   * Compare output with reference output in Reference directory
+#   * If generated output and reference output don't match exactly, fail.
+#
+# Of course, this will fail if you've made any changes to the generated output.
+# In that case, you'll need to do the following before committing:
+#   * `make regenerate` to rebuild the protos used by the runtime and plugin
+#   * `make test-runtime` to verify that the runtime works correctly with the new changes
+#   * `make reference` to update the Reference directory
+#   * MANUALLY go through `git diff Reference` to verify that the generated Swift changed in the way you expect
+#   * `make clean build test` to do a final check
+#
+test-plugin: _test
 	diff -ru Reference _test
 
 # Test the SPM plugin.
@@ -276,37 +282,8 @@ check-traits-FieldMaskUtilities:
 #
 # If you do this, you MUST MANUALLY verify these files before checking them in,
 # since the new checkin will become the new main reference.
-#
-# Note: Some of the upstream protos define the same package.(message|enum)s, so
-# they can't be done in a single protoc/proto-gen-swift invoke and have to be
-# done one at a time instead.
-reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	@rm -rf Reference && mkdir -p Reference/upstream
-	for p in `find \
-	            "${LOCAL_PROTOBUF}/conformance" \
-	            "${LOCAL_PROTOBUF}/go" \
-	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
-	            "${LOCAL_PROTOBUF}/src" \
-	            -type f -name '*.proto' `; do \
-		${GENERATE_SRCS_BASE} \
-		  -I "${LOCAL_PROTOBUF}/src" \
-		  -I "${LOCAL_PROTOBUF}" \
-		  --tfiws_out=Reference/upstream $$p || exit 1; \
-	done
-	for d in ${PROTOS_DIRS}; do \
-	    mkdir -p Reference/$$d ; \
-		${GENERATE_SRCS} \
-		  -I Protos/$$d \
-		  --tfiws_out=Reference/$$d \
-		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
-	done
-	# Specific test of `EnumGeneration=NonExhaustive` in Reference
-	@mkdir -p Reference/Tests/protoc-gen-swiftTests/NonExhaustive
-	${GENERATE_SRCS} \
-	    -I Protos/Tests/protoc-gen-swiftTests \
-		--tfiws_opt=EnumGeneration=NonExhaustive \
-		--tfiws_out=Reference/Tests/protoc-gen-swiftTests/NonExhaustive \
-		Protos/Tests/protoc-gen-swiftTests/enum_generation_test.proto
+reference: _test
+	@rm -rf Reference && cp -R _test Reference
 
 #
 # Rebuild the generated .pb.swift test files by running
