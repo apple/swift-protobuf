@@ -89,6 +89,18 @@ ${GENERATE_PROTOS_SRCS} \
 	`find Protos/$(1) -type f -name "*.proto"`
 endef
 
+# Helper to embed a binary file as a [UInt8] array in a Swift source file:
+#   $(call embed_bytes_in_swift,<bin_file>,<swift_var_name>,<output_swift_file>)
+define embed_bytes_in_swift
+@rm -f $(3)
+@echo '// See Makefile how this is generated.' >> $(3)
+@echo '// swift-format-ignore-file' >> $(3)
+@echo 'import Foundation' >> $(3)
+@echo 'let $(2): [UInt8] = [' >> $(3)
+@xxd -i < $(1) >> $(3)
+@echo ']' >> $(3)
+endef
+
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 
@@ -172,7 +184,7 @@ install: build
 
 clean:
 	${SWIFT} package clean
-	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin \
+	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin *EditionDefaults.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build
 	find . -name '*~' | xargs rm -f
@@ -350,13 +362,7 @@ Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift: build ${PROTO
 		--edition_defaults_maximum=2026 \
 		-I Protos/Sources/SwiftProtobuf \
 		Protos/Sources/SwiftProtobuf/google/protobuf/descriptor.proto
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let bundledFeatureSetDefaultBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibEditionDefaults.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibEditionDefaults.bin,bundledFeatureSetDefaultBytes,$@)
 
 # Some defaults for the testing of custom features
 Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto
@@ -367,13 +373,7 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 		-I Protos/Sources/SwiftProtobuf \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let testFeatureSetDefaultBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibTestingEditionDefaults.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibTestingEditionDefaults.bin,testFeatureSetDefaultBytes,$@)
 
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
@@ -410,13 +410,7 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 		-I Protos/Sources/SwiftProtobufPluginLibrary \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibDescriptorTestData.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibDescriptorTestData.bin,fileDescriptorSetBytes,$@)
 
 SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
        Protos/Tests/protoc-gen-swiftTests/plugin_descriptor_test.proto
@@ -426,13 +420,7 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 		--descriptor_set_out=PluginDescriptorTestData.bin \
 		-I Protos/Tests/protoc-gen-swiftTests \
 		${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginDescriptorTestData.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginDescriptorTestData.bin,fileDescriptorSetBytes,$@)
 
 #
 # Collect a list of words that appear in the SwiftProtobuf library
