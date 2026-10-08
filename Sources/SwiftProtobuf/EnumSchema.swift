@@ -35,12 +35,14 @@ import Foundation
 /// *   Bytes 1-5: The number of defined cases (aliases are not included), as a base-128 integer.
 /// *   Bytes 6-7: The length of the enum's fully-qualified name, as a base-128 integer.
 /// *   Bytes 8...: The fully-qualified name of the enum, as UTF-8 encoded bytes.
-public struct EnumSchema: @unchecked Sendable {
+public final class EnumSchema: @unchecked Sendable {
     /// The encoded schema of the values of this enum.
     private let schema: UnsafeRawBufferPointer
 
-    /// The reference to the reflection table for the enum.
-    private let reflection: ReflectionTableReference
+    /// The reflection table state for the enum.
+    ///
+    /// All access to this field is guarded by `ReflectionTable.decompressionLock`.
+    private var reflection: ReflectionTable.State
 
     @_spi(ForGeneratedCodeOnly)
     public typealias InvokeWitnessFunction = (EnumWitnessOperation) -> Void
@@ -63,12 +65,23 @@ public struct EnumSchema: @unchecked Sendable {
         dynamicLookupThunk: DynamicLookupThunk? = nil,
         dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
     ) {
-        self.schema = schema.rawBufferPointer
-        self.reflection = .init(
-            compressed: reflection.rawBufferPointer,
-            fieldCount: Self.valueCount(from: schema.rawBufferPointer)
+        precondition(
+            schema.hasPointerRepresentation,
+            "The schema string should have a pointer-based representation; this is a generator bug"
         )
+        precondition(
+            reflection.hasPointerRepresentation,
+            "The reflection string should have a pointer-based representation; this is a generator bug"
+        )
+        let schemaBuffer = schema.rawBufferPointer
+        self.schema = schemaBuffer
+        self.reflection = .compressed(reflection.rawBufferPointer)
         self.invokeWitness = invokeWitness
+
+        // Referencing the thunks forces them to be retained by the compiler if the schema
+        // itself is retained; see the comments in `WeakLinkageSupport.swift` for more details.
+        _ = dynamicLookupThunk
+        _ = dynamicMapWitnessThunk
     }
 }
 
@@ -114,24 +127,33 @@ extension EnumSchema {
         return isValid
     }
 
+    /// Calls the given body with the reflection table, decompressing it on the
+    /// first call if needed.
+    func withReflectionTable<R>(_ body: (borrowing ReflectionTable) throws -> R) rethrows -> R {
+        let table = ReflectionTable.decompressionLock.withLock {
+            reflection.decompressingIfNeeded(fieldCount: valueCount)
+        }
+        return try body(table)
+    }
+
     /// The text name for the given enum case value.
     func textName(forEnumCase value: Int32) -> UTF8Name? {
-        reflection.withTable { $0.textName(forEnumCase: value) }
+        withReflectionTable { $0.textName(forEnumCase: value) }
     }
 
     /// The JSON name for the given enum case value.
     func jsonName(forEnumCase value: Int32) -> UTF8Name? {
-        reflection.withTable { $0.jsonName(forEnumCase: value) }
+        withReflectionTable { $0.jsonName(forEnumCase: value) }
     }
 
     /// The enum case value for the given text name.
     func enumCase(forTextName name: String) -> Int32? {
-        reflection.withTable { $0.enumCase(forTextName: name) }
+        withReflectionTable { $0.enumCase(forTextName: name) }
     }
 
     /// The enum case value for the given JSON name.
     func enumCase(forJSONName name: String) -> Int32? {
-        reflection.withTable { $0.enumCase(forJSONName: name) }
+        withReflectionTable { $0.enumCase(forJSONName: name) }
     }
 
     /// Compares two enums of this schema for equality.
