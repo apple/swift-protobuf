@@ -60,9 +60,17 @@ LOCAL_PROTOBUF=Sources/protobuf/protobuf
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 # Need to provide paths to find the language specific editions features files
 # also. If we used a released protoc distro, they would be bundled like the WKTs.
-GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
-# Search 'Protos/Sources/SwiftProtobuf/' so the WKTs can be found (google/protobuf/*).
-GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/Sources/SwiftProtobuf
+PROTOC_INVOKE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT} -I ${GOOGLE_PROTOBUF_CHECKOUT}/go -I ${GOOGLE_PROTOBUF_CHECKOUT}/java/core/src/main/resources
+# Used when generating directly from the vendored upstream protobuf tree.
+GENERATE_UPSTREAM_SRCS=${PROTOC_INVOKE} \
+	-I "${LOCAL_PROTOBUF}/src" \
+	-I "${LOCAL_PROTOBUF}"
+# Used when generating from Protos/, searching the core Protos directories so
+# the WKTs, compiler/plugin.proto, and json options can be found.
+GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
+	-I Protos/Sources/SwiftProtobuf \
+	-I Protos/Sources/SwiftProtobufPluginLibrary \
+	-I Protos/Sources/protoc-gen-swift
 
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
@@ -84,6 +92,7 @@ SWIFT_BUILD_TEST_HOOK?=
 PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/protoc-gen-swift Tests/protoc-gen-swiftTests Tests/SwiftProtobufPluginLibraryTests Tests/SwiftProtobufTests
 
 .PHONY: \
+	_test \
 	all \
 	build \
 	check \
@@ -175,10 +184,57 @@ check-version-numbers:
 test-runtime: build
 	${SWIFT} test ${SWIFT_BUILD_TEST_HOOK}
 
+# Shared helper target for `test-plugin` and `reference`:
+#   * Translate every proto in upstream and Protos into Swift using local protoc-gen-swift
+#   * Put result in _test directory
+#
+# Note: Some of the upstream protos define the same package.(message|enum)s, so
+# they can't be done in a single protoc/proto-gen-swift invoke and have to be
+# done one at a time instead.
+_test: build ${PROTOC_GEN_SWIFT} ${PROTOC}
+	@rm -rf _test && mkdir -p _test/upstream
+	for p in `find \
+	            "${LOCAL_PROTOBUF}/conformance" \
+	            "${LOCAL_PROTOBUF}/go" \
+	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
+	            "${LOCAL_PROTOBUF}/src" \
+	            -type f -name '*.proto'`; do \
+		${GENERATE_UPSTREAM_SRCS} \
+		  --tfiws_out=_test/upstream $$p || exit 1; \
+	done
+	for d in ${PROTOS_DIRS}; do \
+	    mkdir -p _test/$$d ; \
+		${GENERATE_PROTOS_SRCS} \
+		  -I Protos/$$d \
+		  --tfiws_out=_test/$$d \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
+	done
+	@mkdir -p _test/CompileTests/MultiModule
+	${GENERATE_PROTOS_SRCS} \
+	    -I Protos/CompileTests/MultiModule \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
+		--tfiws_out=_test/CompileTests/MultiModule \
+		`find Protos/CompileTests/MultiModule -type f -name "*.proto"`
+	@mkdir -p _test/CompileTests/InternalImportsByDefault
+	${GENERATE_PROTOS_SRCS} \
+	    -I Protos/CompileTests/InternalImportsByDefault \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=UseAccessLevelOnImports=true \
+		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
+		`find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto"`
+	@mkdir -p _test/CompileTests/WeakImports
+	${GENERATE_PROTOS_SRCS} \
+	    -I Protos/CompileTests/WeakImports \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ExperimentalWeakImports=true \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
+		--tfiws_out=_test/CompileTests/WeakImports \
+		`find Protos/CompileTests/WeakImports -type f -name "*.proto"`
+
 #
 # Test the plugin by itself:
-#   * Translate every proto in Protos into Swift using local protoc-gen-swift
-#   * Put result in _test directory
+#   * Generate output into _test directory
 #   * Compare output with reference output in Reference directory
 #   * If generated output and reference output don't match exactly, fail.
 #
@@ -190,55 +246,8 @@ test-runtime: build
 #   * MANUALLY go through `git diff Reference` to verify that the generated Swift changed in the way you expect
 #   * `make clean build test` to do a final check
 #
-# Note: Some of these protos define the same package.(message|enum)s, so they
-# can't be done in a single protoc/proto-gen-swift invoke and have to be done
-# one at a time instead.
-test-plugin: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	@rm -rf _test && mkdir -p _test/upstream
-	for p in `find \
-	            "${LOCAL_PROTOBUF}/conformance" \
-	            "${LOCAL_PROTOBUF}/go" \
-	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
-	            "${LOCAL_PROTOBUF}/src" \
-	            -type f -name '*.proto'`; do \
-		${GENERATE_SRCS_BASE} \
-		  -I "${LOCAL_PROTOBUF}/src" \
-		  -I "${LOCAL_PROTOBUF}" \
-		  --tfiws_out=_test/upstream $$p || exit 1; \
-	done
-	for d in ${PROTOS_DIRS}; do \
-	    mkdir -p _test/$$d ; \
-		${GENERATE_SRCS_BASE} \
-		  -I Protos/Sources/SwiftProtobuf \
-		  -I Protos/Sources/SwiftProtobufPluginLibrary \
-		  -I Protos/Sources/protoc-gen-swift \
-		  -I Protos/$$d \
-		  --tfiws_out=_test/$$d \
-		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
-	done
-	@mkdir -p _test/CompileTests/MultiModule
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/MultiModule \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
-		--tfiws_out=_test/CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
-	@mkdir -p _test/CompileTests/InternalImportsByDefault
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/InternalImportsByDefault \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=UseAccessLevelOnImports=true \
-		--tfiws_out=_test/CompileTests/InternalImportsByDefault \
-		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
-	@mkdir -p _test/CompileTests/WeakImports
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/WeakImports \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ExperimentalWeakImports=true \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
-		--tfiws_out=_test/CompileTests/WeakImports \
-		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
-	diff -ru _test Reference
+test-plugin: _test
+	diff -ru Reference _test
 
 # Test the SPM plugin.
 # TODO: simplify this when swift 5.10 support is dropped.
@@ -296,55 +305,8 @@ compile-tests-weakimports:
 #
 # If you do this, you MUST MANUALLY verify these files before checking them in,
 # since the new checkin will become the new main reference.
-#
-# Note: Some of the upstream protos define the same package.(message|enum)s, so
-# they can't be done in a single protoc/proto-gen-swift invoke and have to be
-# done one at a time instead.
-reference: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	@rm -rf Reference && mkdir -p Reference/upstream
-	for p in `find \
-	            "${LOCAL_PROTOBUF}/conformance" \
-	            "${LOCAL_PROTOBUF}/go" \
-	            "${LOCAL_PROTOBUF}/java/core/src/main/resources" \
-	            "${LOCAL_PROTOBUF}/src" \
-	            -type f -name '*.proto' `; do \
-		${GENERATE_SRCS_BASE} \
-		  -I "${LOCAL_PROTOBUF}/src" \
-		  -I "${LOCAL_PROTOBUF}" \
-		  --tfiws_out=Reference/upstream $$p || exit 1; \
-	done
-	for d in ${PROTOS_DIRS}; do \
-	    mkdir -p Reference/$$d ; \
-		${GENERATE_SRCS_BASE} \
-		  -I Protos/Sources/SwiftProtobuf \
-		  -I Protos/Sources/SwiftProtobufPluginLibrary \
-		  -I Protos/Sources/protoc-gen-swift \
-		  -I Protos/$$d \
-		  --tfiws_out=Reference/$$d \
-		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
-	done
-	@mkdir -p Reference/CompileTests/MultiModule
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/MultiModule \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
-		--tfiws_out=Reference/CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
-	@mkdir -p Reference/CompileTests/InternalImportsByDefault
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/InternalImportsByDefault \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=UseAccessLevelOnImports=true \
-		--tfiws_out=Reference/CompileTests/InternalImportsByDefault \
-		`(find Protos/CompileTests/InternalImportsByDefault -type f -name "*.proto")`
-	@mkdir -p Reference/CompileTests/WeakImports
-	${GENERATE_SRCS} \
-	    -I Protos/CompileTests/WeakImports \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_opt=ExperimentalWeakImports=true \
-		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
-		--tfiws_out=Reference/CompileTests/WeakImports \
-		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
+reference: _test
+	@rm -rf Reference && cp -R _test Reference
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -372,7 +334,7 @@ regenerate: \
 # would also need to list all the outputs.
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobuf \
@@ -383,15 +345,13 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 # would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
-	    -I Protos/Sources/SwiftProtobufPluginLibrary \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
 	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
-	    -I Protos/Sources/protoc-gen-swift \
+	${GENERATE_PROTOS_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/protoc-gen-swift \
 		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
@@ -433,18 +393,15 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
-# TODO(tvl): Revisit "-I Protos/Sources/protoc-gen-swift" once we the files is in a
-# protobuf release, but they may be complex when using a different protoc binary (head).
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
-	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
 		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
 	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
@@ -454,7 +411,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftPr
 # Protos/Tests/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
@@ -599,9 +556,8 @@ Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Sources/Conformance \
-	    -I Protos/Sources/protoc-gen-swift \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
 		`find Protos/Sources/Conformance -type f -name "*.proto"`
@@ -614,11 +570,11 @@ regenerate-compiletests-protos: \
 	regenerate-compiletests-weakimports-protos
 
 # Update the CompileTests/MultiModule files.
-# NOTE: Any changes here must also be done on the "test-plugin" target so it
+# NOTE: Any changes here must also be done on the "_test" target so it
 # generates in the same way.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/MultiModule \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
@@ -626,11 +582,11 @@ regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
 
 # Update the CompileTests/WeakImports files.
-# NOTE: Any changes here must also be done on the "test-plugin" target so it
+# NOTE: Any changes here must also be done on the "_test" target so it
 # generates in the same way.
 regenerate-compiletests-weakimports-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
 	find CompileTests/WeakImports -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_SRCS} \
+	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/WeakImports \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ExperimentalWeakImports=true \
