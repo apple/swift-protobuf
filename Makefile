@@ -467,54 +467,31 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 # might cause problems.  Failures compiling this indicate weaknesses
 # in protoc-gen-swift's name sanitization logic.
 #
+# Helper: $(call generate_swift_names_proto,<decl_header>,<awk_script>,<output_proto_file>)
+define generate_swift_names_proto
+@echo Building $(3)
+@rm -f $(3)
+@echo '// See Makefile for the logic that generates this' >> $(3)
+@echo '// Protoc errors imply this file is being generated incorrectly' >> $(3)
+@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $(3)
+@echo 'syntax = "proto3";' >> $(3)
+@echo 'package swift_proto_testing.generated;' >> $(3)
+@echo '$(1)' >> $(3)
+@cat Protos/mined_words.txt | ${AWK} '$(2)' >> $(3)
+@echo '}' >> $(3)
+endef
+
 Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedFields {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedFields {,BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 },$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'enum GeneratedSwiftReservedEnum {' >> $@
-	@echo '  NONE = 0;' >> $@
-	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,enum GeneratedSwiftReservedEnum {,BEGIN{n = 1; print "  NONE = 0;"} {print "  " $$1 " = " n ";"; n += 1 },$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedMessages {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedMessages {,{print "  message " $$1 " { int32 " $$1 " = 1; }"},$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedEnums {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedEnums {,{print "  enum " $$1 " { NONE_" $$1 " = 0; }"},$@)
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
