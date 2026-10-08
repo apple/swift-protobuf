@@ -77,6 +77,45 @@ nonisolated enum ProtobufTestMessages_Editions_Proto3_ForeignEnum: SwiftProtobuf
 
 }
 
+/// NOTE: This enum was marked as deprecated in the .proto file.
+nonisolated enum ProtobufTestMessages_Editions_Proto3_DeprecatedEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Swift.Int
+  case unspecified // = 0
+  case value1 // = 1
+  case value2 // = 2
+  case UNRECOGNIZED(Swift.Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Swift.Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .value1
+    case 2: self = .value2
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Swift.Int {
+    switch self {
+    case .unspecified: return 0
+    case .value1: return 1
+    case .value2: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufTestMessages_Editions_Proto3_DeprecatedEnum] = [
+    .unspecified,
+    .value1,
+    .value2,
+  ]
+
+}
+
 /// This proto includes every type of field in both singular and repeated
 /// forms.
 ///
@@ -1199,6 +1238,12 @@ nonisolated struct ProtobufTestMessages_Editions_Proto3_EnumOnlyProto3: @uncheck
 nonisolated extension ProtobufTestMessages_Editions_Proto3_ForeignEnum {
   private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\02\0protobuf_test_messages.editions.proto3.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
+  static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
+}
+
+nonisolated extension ProtobufTestMessages_Editions_Proto3_DeprecatedEnum {
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\05\0protobuf_test_messages.editions.proto3.DeprecatedEnum"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*Xt\\=6'\u{b}k\u{1d}^$s:+!cGTm\u{3}\u{f}\taP|OF\u{e}\u{14}'X_wCz;\u{8}d)Z\\| '[DTH:t\u{3}lDAgi\rC\t8Q\u{16}gy=\u{b}u\rp\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 

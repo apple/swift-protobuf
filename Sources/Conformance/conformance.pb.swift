@@ -273,6 +273,7 @@ nonisolated struct Conformance_ConformanceRequest: @unchecked Swift.Sendable {
   /// protobuf_test_messages.editions.proto2.TestAllTypesProto2 or
   /// protobuf_test_messages.editions.proto3.TestAllTypesProto3 or
   /// protobuf_test_messages.editions.TestAllTypesEdition2023 or
+  /// protobuf_test_messages.editions.TestAllTypesEdition2026 or
   /// protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.
   var messageType: String {
     get { _storage.value(atIndex: 1, hasBit: (0, 4)) }
