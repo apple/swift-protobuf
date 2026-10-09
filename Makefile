@@ -72,6 +72,35 @@ GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
 	-I Protos/Sources/SwiftProtobufPluginLibrary \
 	-I Protos/Sources/protoc-gen-swift
 
+# Helper to remove existing generated .pb.swift files from a directory:
+#   $(call clean_pb_swift,<dir>)
+define clean_pb_swift
+find $(1) -name "*.pb.swift" -exec rm -f {} \;
+endef
+
+# Helper to clean and regenerate .pb.swift files for a directory:
+#   $(call regenerate_protos,<dir>[,<extra_protoc_flags>])
+define regenerate_protos
+$(call clean_pb_swift,$(1))
+${GENERATE_PROTOS_SRCS} \
+	-I Protos/$(1) \
+	--tfiws_opt=FileNaming=DropPath $(2) \
+	--tfiws_out=$(1) \
+	`find Protos/$(1) -type f -name "*.proto"`
+endef
+
+# Helper to embed a binary file as a [UInt8] array in a Swift source file:
+#   $(call embed_bytes_in_swift,<bin_file>,<swift_var_name>,<output_swift_file>)
+define embed_bytes_in_swift
+@rm -f $(3)
+@echo '// See Makefile how this is generated.' >> $(3)
+@echo '// swift-format-ignore-file' >> $(3)
+@echo 'import Foundation' >> $(3)
+@echo 'let $(2): [UInt8] = [' >> $(3)
+@xxd -i < $(1) >> $(3)
+@echo ']' >> $(3)
+endef
+
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 
@@ -105,6 +134,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	compile-tests-multimodule \
 	compile-tests-internalimportsbydefault \
 	compile-tests-nonisolateddeclarations \
+	compile-tests-weakimports \
 	default \
 	docs \
 	install \
@@ -112,6 +142,7 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	reference \
 	regenerate \
 	regenerate-compiletests-multimodule-protos \
+	regenerate-compiletests-weakimports-protos \
 	copy-compiletests-internalimportsbydefault-protos \
 	copy-compiletests-nonisolateddeclarations-protos \
 	regenerate-compiletests-protos \
@@ -149,7 +180,7 @@ install: build
 
 clean:
 	${SWIFT} package clean
-	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin \
+	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin *EditionDefaults.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build
 	find . -name '*~' | xargs rm -f
@@ -333,28 +364,14 @@ regenerate: \
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobuf \
-		`find Protos/Sources/SwiftProtobuf -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/SwiftProtobuf,--tfiws_opt=Visibility=Public)
 
 # Rebuild just the protos used by the plugin
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
-		`find Protos/Sources/SwiftProtobufPluginLibrary -type f -name "*.proto"`
-	find Sources/protoc-gen-swift -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Sources/protoc-gen-swift \
-		`find Protos/Sources/protoc-gen-swift -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/SwiftProtobufPluginLibrary,--tfiws_opt=Visibility=Public)
+	$(call regenerate_protos,Sources/protoc-gen-swift)
 
 # Is this based on the upstream bazel rules `compile_edition_defaults` and
 # `embed_edition_defaults`.
@@ -365,13 +382,7 @@ Sources/SwiftProtobufPluginLibrary/PluginLibEditionDefaults.swift: build ${PROTO
 		--edition_defaults_maximum=2026 \
 		-I Protos/Sources/SwiftProtobuf \
 		Protos/Sources/SwiftProtobuf/google/protobuf/descriptor.proto
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let bundledFeatureSetDefaultBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibEditionDefaults.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibEditionDefaults.bin,bundledFeatureSetDefaultBytes,$@)
 
 # Some defaults for the testing of custom features
 Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto
@@ -382,35 +393,19 @@ Tests/SwiftProtobufPluginLibraryTests/PluginLibTestingEditionDefaults.swift: bui
 		-I Protos/Sources/SwiftProtobuf \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		Protos/Tests/SwiftProtobufPluginLibraryTests/test_features.proto
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let testFeatureSetDefaultBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibTestingEditionDefaults.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibTestingEditionDefaults.bin,testFeatureSetDefaultBytes,$@)
 
 # Rebuild just the protos used by the tests
 # NOTE: dependencies doesn't include the source .proto files, should fix that;
 # would also need to list all the outputs.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto
-	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/Tests/SwiftProtobufTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/SwiftProtobufTests \
-		`find Protos/Tests/SwiftProtobufTests -type f -name "*.proto"`
-	find Tests/SwiftProtobufPluginLibraryTests -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Tests/SwiftProtobufPluginLibraryTests \
-		`find Protos/Tests/SwiftProtobufPluginLibraryTests -type f -name "*.proto"`
+	$(call regenerate_protos,Tests/SwiftProtobufTests)
+	$(call regenerate_protos,Tests/SwiftProtobufPluginLibraryTests)
 
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,FuzzTesting/Sources/FuzzCommon)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
@@ -435,13 +430,7 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 		-I Protos/Sources/SwiftProtobufPluginLibrary \
 		-I Protos/Tests/SwiftProtobufPluginLibraryTests \
 		${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginLibDescriptorTestData.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginLibDescriptorTestData.bin,fileDescriptorSetBytes,$@)
 
 SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
        Protos/Tests/protoc-gen-swiftTests/plugin_descriptor_test.proto
@@ -451,13 +440,7 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 		--descriptor_set_out=PluginDescriptorTestData.bin \
 		-I Protos/Tests/protoc-gen-swiftTests \
 		${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
-	@rm -f $@
-	@echo '// See Makefile how this is generated.' >> $@
-	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
-	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
-	@xxd -i < PluginDescriptorTestData.bin >> $@
-	@echo ']' >> $@
+	$(call embed_bytes_in_swift,PluginDescriptorTestData.bin,fileDescriptorSetBytes,$@)
 
 #
 # Collect a list of words that appear in the SwiftProtobuf library
@@ -504,63 +487,35 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 # might cause problems.  Failures compiling this indicate weaknesses
 # in protoc-gen-swift's name sanitization logic.
 #
+# Helper: $(call generate_swift_names_proto,<decl_header>,<awk_script>,<output_proto_file>)
+define generate_swift_names_proto
+@echo Building $(3)
+@rm -f $(3)
+@echo '// See Makefile for the logic that generates this' >> $(3)
+@echo '// Protoc errors imply this file is being generated incorrectly' >> $(3)
+@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $(3)
+@echo 'syntax = "proto3";' >> $(3)
+@echo 'package swift_proto_testing.generated;' >> $(3)
+@echo '$(1)' >> $(3)
+@cat Protos/mined_words.txt | ${AWK} '$(2)' >> $(3)
+@echo '}' >> $(3)
+endef
+
 Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedFields {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedFields {,BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 },$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'enum GeneratedSwiftReservedEnum {' >> $@
-	@echo '  NONE = 0;' >> $@
-	@cat Protos/mined_words.txt | ${AWK} 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,enum GeneratedSwiftReservedEnum {,BEGIN{n = 1; print "  NONE = 0;"} {print "  " $$1 " = " n ";"; n += 1 },$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_messages.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedMessages {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedMessages {,{print "  message " $$1 " { int32 " $$1 " = 1; }"},$@)
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_words.txt
-	@echo Building $@
-	@rm $@
-	@echo '// See Makefile for the logic that generates this' >> $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
-	@echo 'syntax = "proto3";' >> $@
-	@echo 'package swift_proto_testing.generated;' >> $@
-	@echo 'message GeneratedSwiftReservedEnums {' >> $@
-	@cat Protos/mined_words.txt | ${AWK} '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@
-	@echo '}' >> $@
+	$(call generate_swift_names_proto,message GeneratedSwiftReservedEnums {,{print "  enum " $$1 " { NONE_" $$1 " = 0; }"},$@)
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
-	${GENERATE_PROTOS_SRCS} \
-	    -I Protos/Sources/Conformance \
-		--tfiws_opt=FileNaming=DropPath \
-		--tfiws_out=Sources/Conformance \
-		`find Protos/Sources/Conformance -type f -name "*.proto"`
+	$(call regenerate_protos,Sources/Conformance)
 
 # Rebuild just the protos used by the CompileTests.
 regenerate-compiletests-protos: \
@@ -573,26 +528,26 @@ regenerate-compiletests-protos: \
 # NOTE: Any changes here must also be done on the "_test" target so it
 # generates in the same way.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,CompileTests/MultiModule)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/MultiModule \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
 		--tfiws_out=CompileTests/MultiModule \
-		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
+		`find Protos/CompileTests/MultiModule -type f -name "*.proto"`
 
 # Update the CompileTests/WeakImports files.
 # NOTE: Any changes here must also be done on the "_test" target so it
 # generates in the same way.
 regenerate-compiletests-weakimports-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	find CompileTests/WeakImports -name "*.pb.swift" -exec rm -f {} \;
+	$(call clean_pb_swift,CompileTests/WeakImports)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/WeakImports \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ExperimentalWeakImports=true \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/WeakImports/module_mappings.pbascii \
 		--tfiws_out=CompileTests/WeakImports \
-		`(find Protos/CompileTests/WeakImports -type f -name "*.proto")`
+		`find Protos/CompileTests/WeakImports -type f -name "*.proto"`
 
 # We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
