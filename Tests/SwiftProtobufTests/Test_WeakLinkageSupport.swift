@@ -16,16 +16,6 @@ import Foundation
 @_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 import XCTest
 
-@_silgen_name("test_weak_linkage_message_schema")
-func testWeakLinkageMessageSchemaThunk(_ out: UnsafeMutableRawPointer) {
-    out.assumingMemoryBound(to: (MessageSchema?).self).pointee = Google_Protobuf_Empty.messageSchema
-}
-
-@_silgen_name("test_weak_linkage_enum_schema")
-func testWeakLinkageEnumSchemaThunk(_ out: UnsafeMutableRawPointer) {
-    out.assumingMemoryBound(to: (EnumSchema?).self).pointee = Google_Protobuf_Syntax.enumSchema
-}
-
 final class Test_WeakLinkageSupport: XCTestCase {
 
     override func setUp() {
@@ -40,50 +30,79 @@ final class Test_WeakLinkageSupport: XCTestCase {
 
     func testNegativeCaching() {
         let missingSymbol = "symbol_that_definitely_does_not_exist_\(UUID().uuidString)"
+        nonisolated(unsafe) var providerCallCount = 0
+        DynamicSymbolCache.shared.resetForTesting { _ in
+            providerCallCount += 1
+            return nil
+        }
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 0)
 
-        // First resolution: misses in dlsym and caches nil
+        // First resolution: misses and caches nil
         let result1 = MessageSchema.resolveLazy(named: missingSymbol)
         XCTAssertNil(result1)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
 
-        // Second resolution: hits cache directly
+        // Second resolution: hits cache directly without calling provider
         let result2 = MessageSchema.resolveLazy(named: missingSymbol)
         XCTAssertNil(result2)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
 
         // Enum resolution for the same symbol hits cache
         let result3 = EnumSchema.resolveLazy(named: missingSymbol)
         XCTAssertNil(result3)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
 
         // Map witness resolution for the same symbol hits cache
         let result4 = MessageSchema.resolveLazyMapWitness(named: missingSymbol, keyKind: .int32)
         XCTAssertNil(result4)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
     }
 
     func testPositiveCaching() {
-        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
+        let messageThunk: MessageSchema.DynamicLookupThunk = { out in
+            out.assumingMemoryBound(to: (MessageSchema?).self).pointee = Google_Protobuf_Empty.messageSchema
+        }
+        let enumThunk: EnumSchema.DynamicLookupThunk = { out in
+            out.assumingMemoryBound(to: (EnumSchema?).self).pointee = Google_Protobuf_Syntax.enumSchema
+        }
+        nonisolated(unsafe) var providerCallCount = 0
+        DynamicSymbolCache.shared.resetForTesting { symbolName in
+            providerCallCount += 1
+            switch symbolName {
+            case "test_weak_linkage_message_schema":
+                return unsafeBitCast(messageThunk, to: UnsafeMutableRawPointer.self)
+            case "test_weak_linkage_enum_schema":
+                return unsafeBitCast(enumThunk, to: UnsafeMutableRawPointer.self)
+            default:
+                return nil
+            }
+        }
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 0)
 
         let schema1 = MessageSchema.resolveLazy(named: "test_weak_linkage_message_schema")
         XCTAssertNotNil(schema1)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
 
-        // Subsequent resolution hits cache
+        // Subsequent resolution hits cache without calling provider
         let schema2 = MessageSchema.resolveLazy(named: "test_weak_linkage_message_schema")
         XCTAssertNotNil(schema2)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 1)
+        XCTAssertEqual(providerCallCount, 1)
 
         let enumSchema1 = EnumSchema.resolveLazy(named: "test_weak_linkage_enum_schema")
         XCTAssertNotNil(enumSchema1)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 2)
+        XCTAssertEqual(providerCallCount, 2)
 
         let enumSchema2 = EnumSchema.resolveLazy(named: "test_weak_linkage_enum_schema")
         XCTAssertNotNil(enumSchema2)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 2)
-        #endif
+        XCTAssertEqual(providerCallCount, 2)
     }
 
     func testConcurrentAccess() {

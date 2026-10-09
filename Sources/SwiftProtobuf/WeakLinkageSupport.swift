@@ -35,13 +35,24 @@ private var rtldDefault: UnsafeMutableRawPointer? { .init(bitPattern: 0) }
 
 /// A thread-safe cache for dynamic symbol lookups using `dlsym`.
 package final class DynamicSymbolCache: @unchecked Sendable {
+    package typealias SymbolProvider = @Sendable (String) -> UnsafeMutableRawPointer?
+
     private enum SymbolResult {
         case resolved(UnsafeMutableRawPointer)
         case missing
     }
 
+    private static let defaultSymbolProvider: SymbolProvider = { symbolName in
+        #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
+        return dlsym(rtldDefault, symbolName)
+        #else
+        return nil
+        #endif
+    }
+
     private let lock = Lock()
     private var cache = [String: SymbolResult]()
+    private var symbolProvider: SymbolProvider = defaultSymbolProvider
 
     package static let shared = DynamicSymbolCache()
 
@@ -56,18 +67,13 @@ package final class DynamicSymbolCache: @unchecked Sendable {
                 }
             }
 
-            #if canImport(Darwin) || canImport(Glibc) || canImport(Musl) || canImport(Bionic)
-            if let symbol = dlsym(rtldDefault, symbolName) {
+            if let symbol = symbolProvider(symbolName) {
                 cache[symbolName] = .resolved(symbol)
                 return symbol
             } else {
                 cache[symbolName] = .missing
                 return nil
             }
-            #else
-            cache[symbolName] = .missing
-            return nil
-            #endif
         }
     }
 
@@ -75,8 +81,11 @@ package final class DynamicSymbolCache: @unchecked Sendable {
         lock.withLock { cache.count }
     }
 
-    package func resetForTesting() {
-        lock.withLock { cache.removeAll() }
+    package func resetForTesting(symbolProvider: SymbolProvider? = nil) {
+        lock.withLock {
+            cache.removeAll()
+            self.symbolProvider = symbolProvider ?? Self.defaultSymbolProvider
+        }
     }
 }
 
