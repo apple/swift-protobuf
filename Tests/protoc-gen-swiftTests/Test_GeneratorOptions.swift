@@ -52,4 +52,36 @@ final class Test_GeneratorOptions: XCTestCase {
             try GeneratorOptions(parameter: FakeParameter(pairs: [("ExperimentalHiddenNames", "unknownFeature")]))
         )
     }
+
+    func testProtoPathModuleMappings() throws {
+        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
+        defer {
+            try? FileManager.default.removeItem(at: tempDir)
+        }
+
+        let path1 = tempDir.appendingPathComponent("map1.asciipb").path
+        let path2 = tempDir.appendingPathComponent("map2.asciipb").path
+
+        let config1Text = """
+        mapping { module_name: "Core", proto_file_path: "core.proto" }
+        """
+        let config2Text = """
+        mapping { module_name: "Auth", proto_file_path: "auth.proto" }
+        """
+
+        try config1Text.write(toFile: path1, atomically: true, encoding: .utf8)
+        try config2Text.write(toFile: path2, atomically: true, encoding: .utf8)
+
+        let options = try GeneratorOptions(
+            parameter: FakeParameter(pairs: [
+                ("ProtoPathModuleMappings", path1),
+                ("ProtoPathModuleMappings", path2),
+            ])
+        )
+        XCTAssertTrue(options.protoToModuleMappings.hasMappings)
+        XCTAssertEqual(options.protoToModuleMappings.mappings["core.proto"], "Core")
+        XCTAssertEqual(options.protoToModuleMappings.mappings["auth.proto"], "Auth")
+    }
 }
+
