@@ -20,7 +20,7 @@ import Foundation
 
 /// Describes the layout of a message with enough detail that the runtime library can serialize and
 /// parse the message in all the required formats and manage its internal storage.
-public struct MessageSchema: @unchecked Sendable {
+public final class MessageSchema: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
     // immortal compile-time constant and we only read from it, and because the resolver/witness
@@ -128,8 +128,10 @@ public struct MessageSchema: @unchecked Sendable {
     /// *   Bytes 2...: The fully-qualified name of the message, as UTF-8 encoded bytes.
     private let schema: UnsafeRawBufferPointer
 
-    /// The reference to the reflection table for the message.
-    private let reflection: ReflectionTableReference
+    /// The reflection table state for the message.
+    ///
+    /// All access to this field is guarded by `ReflectionTable.decompressionLock`.
+    private var reflection: ReflectionTable.State
 
     @_spi(ForGeneratedCodeOnly)
     public typealias InvokeWitnessFunction = (MessageWitnessOperation) -> Void
@@ -199,7 +201,7 @@ public struct MessageSchema: @unchecked Sendable {
 
     /// Creates a new message schema and submessage operations from the given values.
     @_spi(ForGeneratedCodeOnly)
-    public init(
+    public convenience init(
         schema: StaticString,
         reflection: StaticString,
         invokeWitness: @escaping InvokeWitnessFunction,
@@ -209,10 +211,7 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .init(
-                compressed: reflection.rawBufferPointer,
-                fieldCount: Self.fieldCount(from: schema.rawBufferPointer)
-            ),
+            reflection: .compressed(reflection.rawBufferPointer),
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: submessageOrEnumResolver,
             dynamicLookupThunk: dynamicLookupThunk,
@@ -225,7 +224,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Schemas created with this initalizer must have no submessage fields because the invalid
     /// submessage operation placeholder will be used.
     @_spi(ForGeneratedCodeOnly)
-    public init(
+    public convenience init(
         schema: StaticString,
         reflection: StaticString,
         invokeWitness: @escaping InvokeWitnessFunction,
@@ -234,10 +233,7 @@ public struct MessageSchema: @unchecked Sendable {
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .init(
-                compressed: reflection.rawBufferPointer,
-                fieldCount: Self.fieldCount(from: schema.rawBufferPointer)
-            ),
+            reflection: .compressed(reflection.rawBufferPointer),
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -250,14 +246,14 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is neither a message nor an enum.
     @_spi(ForGeneratedCodeOnly)
-    public init<K: ProtobufMapKey, V: ProtobufMapParticipant>(
+    public convenience init<K: ProtobufMapKey, V: ProtobufMapParticipant>(
         schema: StaticString,
         forMapEntryWithKeyType keyType: K.Type,
         valueType: V.Type
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .mapEntry,
+            reflection: .uncompressed(.mapEntry),
             invokeWitness: MapEntryWitnesses<K, V>.perform,
             submessageOrEnumResolver: { _ in
                 preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -275,7 +271,7 @@ public struct MessageSchema: @unchecked Sendable {
         guard let invokeWitness else { return nil }
         return MessageSchema(
             schema: schema,
-            reflectionReference: .mapEntry,
+            reflection: .uncompressed(.mapEntry),
             invokeWitness: invokeWitness,
             submessageOrEnumResolver: submessageOrEnumResolver
         )
@@ -284,14 +280,14 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is a message.
     @_spi(ForGeneratedCodeOnly)
-    public init<K: ProtobufMapKey, M: GeneratedMessage>(
+    public convenience init<K: ProtobufMapKey, M: GeneratedMessage>(
         schema: StaticString,
         forMapEntryWithKeyType keyType: K.Type,
         valueType: ProtobufMapMessageField<M>.Type
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .mapEntry,
+            reflection: .uncompressed(.mapEntry),
             invokeWitness: MapEntryWitnesses<K, ProtobufMapMessageField<M>>.perform,
             submessageOrEnumResolver: { token in
                 guard token.index == 1 else {
@@ -305,14 +301,14 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is an enum.
     @_spi(ForGeneratedCodeOnly)
-    public init<K: ProtobufMapKey, E: Enum>(
+    public convenience init<K: ProtobufMapKey, E: Enum>(
         schema: StaticString,
         forMapEntryWithKeyType keyType: K.Type,
         valueType: ProtobufMapEnumField<E>.Type
     ) {
         self.init(
             schema: schema,
-            reflectionReference: .mapEntry,
+            reflection: .uncompressed(.mapEntry),
             invokeWitness: MapEntryWitnesses<K, ProtobufMapEnumField<E>>.perform,
             submessageOrEnumResolver: { token in
                 switch token.index {
@@ -326,7 +322,7 @@ public struct MessageSchema: @unchecked Sendable {
     /// Creates a new message schema and submessage operations from the given values.
     private init(
         schema: StaticString,
-        reflectionReference: ReflectionTableReference,
+        reflection: ReflectionTable.State,
         invokeWitness: @escaping InvokeWitnessFunction,
         submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
         dynamicLookupThunk: DynamicLookupThunk? = nil,
@@ -338,7 +334,7 @@ public struct MessageSchema: @unchecked Sendable {
         )
         let schemaBuffer = schema.rawBufferPointer
         self.schema = schemaBuffer
-        self.reflection = reflectionReference
+        self.reflection = reflection
         self.invokeWitness = invokeWitness
         self.submessageOrEnumResolver = submessageOrEnumResolver
 
@@ -586,19 +582,28 @@ extension MessageSchema {
 }
 
 extension MessageSchema {
+    /// Calls the given body with the reflection table, decompressing it on the
+    /// first call if needed.
+    func withReflectionTable<R>(_ body: (borrowing ReflectionTable) throws -> R) rethrows -> R {
+        let table = ReflectionTable.decompressionLock.withLock {
+            reflection.decompressingIfNeeded(fieldCount: fieldCount)
+        }
+        return try body(table)
+    }
+
     /// Returns the text name for the given field number.
     func textName(forFieldNumber number: UInt32) -> UTF8Name? {
-        reflection.withTable { $0.textName(forFieldNumber: number) }
+        withReflectionTable { $0.textName(forFieldNumber: number) }
     }
 
     /// Returns the JSON name for the given field number.
     func jsonName(forFieldNumber number: UInt32) -> UTF8Name? {
-        reflection.withTable { $0.jsonName(forFieldNumber: number) }
+        withReflectionTable { $0.jsonName(forFieldNumber: number) }
     }
 
     /// Returns the field number for the given text name.
     func fieldNumber(forTextName name: String) -> UInt32? {
-        reflection.withTable { reflectionTable in
+        withReflectionTable { reflectionTable in
             // Fast path: Binary search in the reflection table.
             if let number = reflectionTable.fieldNumber(forTextName: name) {
                 return number
@@ -619,17 +624,17 @@ extension MessageSchema {
 
     /// Returns the field number for the given JSON name.
     func fieldNumber(forJSONName name: String) -> UInt32? {
-        reflection.withTable { $0.fieldNumber(forJSONName: name) }
+        withReflectionTable { $0.fieldNumber(forJSONName: name) }
     }
 
     /// Returns a value indicating whether or not the given field name is reserved.
     func isFieldNameReserved(_ name: String) -> Bool {
-        reflection.withTable { $0.isNameReserved(name) }
+        withReflectionTable { $0.isNameReserved(name) }
     }
 
     /// Returns a value indicating whether or not the given field number is reserved.
     func isFieldNumberReserved(_ number: UInt32) -> Bool {
-        reflection.withTable { $0.isNumberReserved(number) }
+        withReflectionTable { $0.isNumberReserved(number) }
     }
 }
 

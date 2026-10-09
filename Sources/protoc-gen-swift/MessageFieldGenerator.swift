@@ -45,6 +45,18 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     }
 
     private var isMap: Bool { fieldDescriptor.isMap }
+
+    private var isMapValueNonNativeType: Bool {
+        guard let valueDescriptor = fieldDescriptor.messageType?.mapKeyAndValue?.value else {
+            return false
+        }
+        switch valueDescriptor.type {
+        case .group, .message, .enum:
+            return true
+        default:
+            return false
+        }
+    }
     private var isPacked: Bool { fieldDescriptor.isPacked }
 
     // Note: this could still be a map (since those are repeated message fields
@@ -203,7 +215,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             getCall = "value(atIndex: \(storageOffsetOrIndex), \(hasBitArgument))"
             setCall =
                 "updateRepeatedEnumValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"
-        case .map where generatorOptions.experimentalWeakImports:
+        case .map where generatorOptions.experimentalWeakImports && isMapValueNonNativeType:
             getCall = "mapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), \(hasBitArgument))"
             setCall =
                 "updateMapValue(atIndex: \(storageOffsetOrIndex), fieldNumber: \(number), to: newValue, \(hasBitArgument))"

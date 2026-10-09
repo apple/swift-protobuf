@@ -423,6 +423,32 @@ extension ReflectionTable {
 }
 
 extension ReflectionTable {
+    /// Guards decompression of reflection tables across all message and enum schemas.
+    static let decompressionLock = Lock()
+
+    /// The state of a reflection table reference, which is either a pointer to compressed
+    /// data that will be decompressed on demand, or an uncompressed `ReflectionTable`.
+    enum State: @unchecked Sendable {
+        case compressed(UnsafeRawBufferPointer)
+        case uncompressed(ReflectionTable)
+
+        /// Returns the uncompressed reflection table, decompressing it if necessary and mutating
+        /// self to hold the uncompressed table for future calls.
+        mutating func decompressingIfNeeded(fieldCount: Int) -> ReflectionTable {
+            switch self {
+            case .uncompressed(let table):
+                return table
+            case .compressed(let buffer):
+                let decompressed = ReflectionTable(
+                    fieldCount: fieldCount,
+                    data: Compression.decompress(buffer)
+                )
+                self = .uncompressed(decompressed)
+                return decompressed
+            }
+        }
+    }
+
     /// The fixed reflection table for the pseudo-message used to represent map entries.
     package static let mapEntry = ReflectionTable(
         fieldCount: 2,

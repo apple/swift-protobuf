@@ -230,9 +230,11 @@ message GeneratedSwiftReservedMessages {
   message contains { int32 contains = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message ContiguousBytes { int32 ContiguousBytes = 1; }
+  message convenience { int32 convenience = 1; }
   message convention { int32 convention = 1; }
   message copy { int32 copy = 1; }
   message count { int32 count = 1; }
+  message countForTesting { int32 countForTesting = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message create { int32 create = 1; }
   message csharpNamespace { int32 csharpNamespace = 1; }
@@ -256,6 +258,7 @@ message GeneratedSwiftReservedMessages {
   message decodeNextExtension { int32 decodeNextExtension = 1; }
   message decodingOptions { int32 decodingOptions = 1; }
   message decompress { int32 decompress = 1; }
+  message decompressingIfNeeded { int32 decompressingIfNeeded = 1; }
   message decrementRecursionBudget { int32 decrementRecursionBudget = 1; }
   message default { int32 default = 1; }
   message defaultAnyTypeURLPrefix { int32 defaultAnyTypeURLPrefix = 1; }
@@ -714,6 +717,7 @@ message GeneratedSwiftReservedMessages {
   message location { int32 location = 1; }
   message lock { int32 lock = 1; }
   message LockPrimitive { int32 LockPrimitive = 1; }
+  message lookup { int32 lookup = 1; }
   message low { int32 low = 1; }
   message M { int32 M = 1; }
   message mainModel { int32 mainModel = 1; }
@@ -931,6 +935,7 @@ message GeneratedSwiftReservedMessages {
   message requestTypeURL { int32 requestTypeURL = 1; }
   message requiredCount { int32 requiredCount = 1; }
   message requiredSize { int32 requiredSize = 1; }
+  message resetForTesting { int32 resetForTesting = 1; }
   message resolveLazy { int32 resolveLazy = 1; }
   message resolveLazyMapWitness { int32 resolveLazyMapWitness = 1; }
   message responseStreaming { int32 responseStreaming = 1; }
@@ -1181,7 +1186,7 @@ message GeneratedSwiftReservedMessages {
   message withReaderForNextGroup { int32 withReaderForNextGroup = 1; }
   message withReaderForNextLengthDelimitedSlice { int32 withReaderForNextLengthDelimitedSlice = 1; }
   message withReaderForNextObject { int32 withReaderForNextObject = 1; }
-  message withTable { int32 withTable = 1; }
+  message withReflectionTable { int32 withReflectionTable = 1; }
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message witness { int32 witness = 1; }
