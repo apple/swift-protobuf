@@ -10,6 +10,8 @@ add_executable(protoc-gen-swift
   GenerationError.swift
   GeneratorOptions.swift
   Google_Protobuf_FileDescriptorProto+Extensions.swift
+  json_enumvalue_options.pb.swift
+  json_options.pb.swift
   MessageFieldGenerator.swift
   MessageGenerator.swift
   MessageStorageClassGenerator.swift
