@@ -494,7 +494,10 @@ extension ExtensionStorage {
 extension ExtensionStorage {
     @inline(never)
     func hash(into hasher: inout Hasher) {
-        for (_, value) in values {
+        var hash = 16_777_619
+        for (fieldNumber, value) in values {
+            var localHasher = hasher
+            localHasher.combine(fieldNumber)
             let ext = value.schema
             let field = ext.field
             switch field.fieldMode.cardinality {
@@ -503,50 +506,52 @@ extension ExtensionStorage {
 
             case .array:
                 switch field.rawFieldType {
-                case .bool: hasher.combine(value.value(as: [Bool].self))
-                case .bytes: hasher.combine(value.value(as: [Data].self))
-                case .double: hasher.combine(value.value(as: [Double].self))
+                case .bool: localHasher.combine(value.value(as: [Bool].self))
+                case .bytes: localHasher.combine(value.value(as: [Data].self))
+                case .double: localHasher.combine(value.value(as: [Double].self))
                 case .enum:
                     forEachRawValue(inAssumedPresentRepeatedEnumField: ext) {
-                        $0.hash(into: &hasher)
+                        $0.hash(into: &localHasher)
                         return .continue
                     }
                 case .group, .message:
                     forEachMessage(inAssumedPresentRepeatedMessageField: ext) {
-                        $0.hash(into: &hasher)
+                        $0.hash(into: &localHasher)
                         return .continue
                     }
-                case .fixed32, .uint32: hasher.combine(value.value(as: [UInt32].self))
-                case .fixed64, .uint64: hasher.combine(value.value(as: [UInt64].self))
-                case .float: hasher.combine(value.value(as: [Float].self))
-                case .int32, .sfixed32, .sint32: hasher.combine(value.value(as: [Int32].self))
-                case .int64, .sfixed64, .sint64: hasher.combine(value.value(as: [Int64].self))
-                case .string: hasher.combine(value.value(as: [String].self))
+                case .fixed32, .uint32: localHasher.combine(value.value(as: [UInt32].self))
+                case .fixed64, .uint64: localHasher.combine(value.value(as: [UInt64].self))
+                case .float: localHasher.combine(value.value(as: [Float].self))
+                case .int32, .sfixed32, .sint32: localHasher.combine(value.value(as: [Int32].self))
+                case .int64, .sfixed64, .sint64: localHasher.combine(value.value(as: [Int64].self))
+                case .string: localHasher.combine(value.value(as: [String].self))
                 default: preconditionFailure("Unreachable")
                 }
 
             case .scalar:
                 switch field.rawFieldType {
-                case .bool: hasher.combine(value.value(as: Bool.self))
-                case .bytes: hasher.combine(value.value(as: Data.self))
-                case .double: hasher.combine(value.value(as: Double.self))
+                case .bool: localHasher.combine(value.value(as: Bool.self))
+                case .bytes: localHasher.combine(value.value(as: Data.self))
+                case .double: localHasher.combine(value.value(as: Double.self))
                 case .enum:
                     // Singular enum fields are stored as their raw value.
-                    hasher.combine(value.value(as: Int32.self))
+                    localHasher.combine(value.value(as: Int32.self))
                 case .group, .message:
-                    messageStorage(forAssumedPresentSingularMessageField: ext).hash(into: &hasher)
-                case .fixed32, .uint32: hasher.combine(value.value(as: UInt32.self))
-                case .fixed64, .uint64: hasher.combine(value.value(as: UInt64.self))
-                case .float: hasher.combine(value.value(as: Float.self))
-                case .int32, .sfixed32, .sint32: hasher.combine(value.value(as: Int32.self))
-                case .int64, .sfixed64, .sint64: hasher.combine(value.value(as: Int64.self))
-                case .string: hasher.combine(value.value(as: String.self))
+                    messageStorage(forAssumedPresentSingularMessageField: ext).hash(into: &localHasher)
+                case .fixed32, .uint32: localHasher.combine(value.value(as: UInt32.self))
+                case .fixed64, .uint64: localHasher.combine(value.value(as: UInt64.self))
+                case .float: localHasher.combine(value.value(as: Float.self))
+                case .int32, .sfixed32, .sint32: localHasher.combine(value.value(as: Int32.self))
+                case .int64, .sfixed64, .sint64: localHasher.combine(value.value(as: Int64.self))
+                case .string: localHasher.combine(value.value(as: String.self))
                 default: preconditionFailure("Unreachable")
                 }
 
             default:
                 preconditionFailure("Unreachable")
             }
+            hash = hash &+ localHasher.finalize()
         }
+        hasher.combine(hash)
     }
 }
