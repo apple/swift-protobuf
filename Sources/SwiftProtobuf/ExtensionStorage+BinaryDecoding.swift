@@ -477,6 +477,11 @@ extension ExtensionStorage {
     ) throws {
         // TODO: Constrain `T` to `BitwiseCopyable` if we decide to drop Swift 5.x support.
 
+        let elementsBuffer = try reader.nextLengthDelimitedSlice()
+        guard let elementsPointer = elementsBuffer.baseAddress, elementsBuffer.count > 0 else {
+            return
+        }
+
         // We don't use `appendValue` here because it's more efficient to check for presence and
         // get the pointer to the array once and do multiple appends to it.
         let arrayValue: ExtensionValueStorage
@@ -488,11 +493,6 @@ extension ExtensionStorage {
             values[ext.field.fieldNumber] = arrayValue
         }
         let pointer = arrayValue.unsafeMutablePointerToValue(as: [T].self)
-
-        let elementsBuffer = try reader.nextLengthDelimitedSlice()
-        guard let elementsPointer = elementsBuffer.baseAddress, elementsBuffer.count > 0 else {
-            return
-        }
 
         // Reserve additional capacity for the number of values in the buffer. In the varint case,
         // it's still likely cheaper to do a quick pre-scan than to potentially reallocate multiple

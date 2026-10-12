@@ -49,7 +49,7 @@ extension ExtensionStorage {
                     guard let value = try reader.consumeEnumValue(schema: schema.enumSchema) else {
                         break
                     }
-                    appendValue(value, to: schema)
+                    appendEnumValue(withRawValue: value, toRepeatedEnumField: schema)
 
                 case .fixed32, .uint32:
                     let n = try reader.consumeUnsignedInteger(upperBound: UInt64(UInt32.max))

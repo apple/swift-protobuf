@@ -170,10 +170,50 @@ extension ExtensionStorage {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
     }
 
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: Enum>(of ext: ExtensionSchema, default: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return `default`
+        }
+        return Value(rawValue: Int(stored.value(as: Int32.self)))!
+    }
+
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: Enum & BitwiseCopyable>(of ext: ExtensionSchema, default: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return `default`
+        }
+        return Value(rawValue: Int(stored.value(as: Int32.self)))!
+    }
+
     /// Returns the value of the given message extension, or the default value if it is not set.
     @_alwaysEmitIntoClient @inline(__always)
     public func value<Value>(of ext: ExtensionSchema, default: Value) -> Value {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
+    }
+
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the enum using its
+    /// witness table rather than calling `Value(rawValue:)` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func enumValue<Value: Enum>(of ext: ExtensionSchema, default defaultValue: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return defaultValue
+        }
+        let rawValue = stored.value(as: Int32.self)
+        return withUnsafeTemporaryAllocation(of: Value.self, capacity: 1) { buffer in
+            ext.enumSchema.invokeWitness(
+                .enumInitialize(rawValue: rawValue, pointer: buffer.baseAddress!)
+            )
+            return buffer.baseAddress!.move()
+        }
     }
 
     /// Returns the submessage value of the given message extension, or the default value if it is
@@ -212,6 +252,46 @@ extension ExtensionStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Value: BitwiseCopyable>(of ext: ExtensionSchema, to newValue: Value) {
         values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: newValue)
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: Enum>(of ext: ExtensionSchema, to newValue: Value) {
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: Enum & BitwiseCopyable>(of ext: ExtensionSchema, to newValue: Value) {
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    ///
+    /// This function is used when weak imports are enabled; it extracts the raw value using its
+    /// witness table rather than calling `newValue.rawValue` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateEnumValue<Value: Enum>(of ext: ExtensionSchema, to newValue: Value) {
+        var rawValue: Int32 = 0
+        withUnsafePointer(to: newValue) { pointer in
+            withUnsafeMutablePointer(to: &rawValue) { result in
+                ext.enumSchema.invokeWitness(
+                    .enumGetRawValue(pointer: pointer, result: result)
+                )
+            }
+        }
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: rawValue)
+    }
+
+    /// Updates the array value of the given repeated message extension, or clears it if the new
+    /// array is empty.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Element>(of ext: ExtensionSchema, to newValue: [Element]) {
+        clearValue(of: ext)
+        if !newValue.isEmpty {
+            values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: newValue)
+        }
     }
 
     /// Updates the value of the given message extension.
@@ -407,7 +487,10 @@ extension ExtensionStorage {
 extension ExtensionStorage {
     @inline(never)
     func hash(into hasher: inout Hasher) {
-        for (_, value) in values {
+        var hash = 16_777_619
+        for (fieldNumber, value) in values {
+            var localHasher = hasher
+            localHasher.combine(fieldNumber)
             let ext = value.schema
             let field = ext.field
             switch field.fieldMode.cardinality {
@@ -416,50 +499,52 @@ extension ExtensionStorage {
 
             case .array:
                 switch field.rawFieldType {
-                case .bool: hasher.combine(value.value(as: [Bool].self))
-                case .bytes: hasher.combine(value.value(as: [Data].self))
-                case .double: hasher.combine(value.value(as: [Double].self))
+                case .bool: localHasher.combine(value.value(as: [Bool].self))
+                case .bytes: localHasher.combine(value.value(as: [Data].self))
+                case .double: localHasher.combine(value.value(as: [Double].self))
                 case .enum:
                     forEachRawValue(inAssumedPresentRepeatedEnumField: ext) {
-                        $0.hash(into: &hasher)
+                        $0.hash(into: &localHasher)
                         return .continue
                     }
                 case .group, .message:
                     forEachMessage(inAssumedPresentRepeatedMessageField: ext) {
-                        $0.hash(into: &hasher)
+                        $0.hash(into: &localHasher)
                         return .continue
                     }
-                case .fixed32, .uint32: hasher.combine(value.value(as: [UInt32].self))
-                case .fixed64, .uint64: hasher.combine(value.value(as: [UInt64].self))
-                case .float: hasher.combine(value.value(as: [Float].self))
-                case .int32, .sfixed32, .sint32: hasher.combine(value.value(as: [Int32].self))
-                case .int64, .sfixed64, .sint64: hasher.combine(value.value(as: [Int64].self))
-                case .string: hasher.combine(value.value(as: [String].self))
+                case .fixed32, .uint32: localHasher.combine(value.value(as: [UInt32].self))
+                case .fixed64, .uint64: localHasher.combine(value.value(as: [UInt64].self))
+                case .float: localHasher.combine(value.value(as: [Float].self))
+                case .int32, .sfixed32, .sint32: localHasher.combine(value.value(as: [Int32].self))
+                case .int64, .sfixed64, .sint64: localHasher.combine(value.value(as: [Int64].self))
+                case .string: localHasher.combine(value.value(as: [String].self))
                 default: preconditionFailure("Unreachable")
                 }
 
             case .scalar:
                 switch field.rawFieldType {
-                case .bool: hasher.combine(value.value(as: Bool.self))
-                case .bytes: hasher.combine(value.value(as: Data.self))
-                case .double: hasher.combine(value.value(as: Double.self))
+                case .bool: localHasher.combine(value.value(as: Bool.self))
+                case .bytes: localHasher.combine(value.value(as: Data.self))
+                case .double: localHasher.combine(value.value(as: Double.self))
                 case .enum:
                     // Singular enum fields are stored as their raw value.
-                    hasher.combine(value.value(as: Int32.self))
+                    localHasher.combine(value.value(as: Int32.self))
                 case .group, .message:
-                    messageStorage(forAssumedPresentSingularMessageField: ext).hash(into: &hasher)
-                case .fixed32, .uint32: hasher.combine(value.value(as: UInt32.self))
-                case .fixed64, .uint64: hasher.combine(value.value(as: UInt64.self))
-                case .float: hasher.combine(value.value(as: Float.self))
-                case .int32, .sfixed32, .sint32: hasher.combine(value.value(as: Int32.self))
-                case .int64, .sfixed64, .sint64: hasher.combine(value.value(as: Int64.self))
-                case .string: hasher.combine(value.value(as: String.self))
+                    messageStorage(forAssumedPresentSingularMessageField: ext).hash(into: &localHasher)
+                case .fixed32, .uint32: localHasher.combine(value.value(as: UInt32.self))
+                case .fixed64, .uint64: localHasher.combine(value.value(as: UInt64.self))
+                case .float: localHasher.combine(value.value(as: Float.self))
+                case .int32, .sfixed32, .sint32: localHasher.combine(value.value(as: Int32.self))
+                case .int64, .sfixed64, .sint64: localHasher.combine(value.value(as: Int64.self))
+                case .string: localHasher.combine(value.value(as: String.self))
                 default: preconditionFailure("Unreachable")
                 }
 
             default:
                 preconditionFailure("Unreachable")
             }
+            hash = hash &+ localHasher.finalize()
         }
+        hasher.combine(hash)
     }
 }

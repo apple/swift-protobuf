@@ -117,6 +117,50 @@ final class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
+    func test_optionalEnumExtension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.optional_nested_enum_extension]\":\"BAZ\"}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalNestedEnumExtension = .baz
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"[swift_proto_testing.optional_nested_enum_extension]\":3}",
+            extensions: extensions
+        ) {
+            $0.SwiftProtoTesting_optionalNestedEnumExtension == .baz
+        }
+
+        assertJSONDecodeFails(
+            "{\"[swift_proto_testing.optional_nested_enum_extension]\":\"UNKNOWN\"}",
+            extensions: extensions
+        )
+    }
+
+    func test_repeatedEnumExtension() throws {
+        assertJSONEncode(
+            "{\"[swift_proto_testing.repeated_nested_enum_extension]\":[\"FOO\",\"BAR\",\"NEG\"]}",
+            extensions: extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_repeatedNestedEnumExtension = [.foo, .bar, .neg]
+        }
+
+        assertJSONDecodeSucceeds(
+            "{\"[swift_proto_testing.repeated_nested_enum_extension]\":[1,\"BAR\",-1]}",
+            extensions: extensions
+        ) {
+            $0.SwiftProtoTesting_repeatedNestedEnumExtension == [.foo, .bar, .neg]
+        }
+
+        assertJSONDecodeFails(
+            "{\"[swift_proto_testing.repeated_nested_enum_extension]\":[\"FOO\",\"UNKNOWN\"]}",
+            extensions: extensions
+        )
+    }
+
     func test_optionalStringExtensionWithDefault() throws {
         assertJSONEncode("{\"[swift_proto_testing.default_string_extension]\":\"hi\"}", extensions: extensions) {
             (o: inout MessageTestType) in

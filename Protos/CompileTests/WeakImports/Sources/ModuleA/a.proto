@@ -36,6 +36,10 @@ message MessageA {
 extend MessageA {
     optional MessageB ext_message = 100;
     optional EnumB ext_enum = 101;
-    optional MessageC ext_message_c = 102;
-    optional EnumC ext_enum_c = 103;
+    repeated MessageB ext_repeated_message = 102;
+    repeated EnumB ext_repeated_enum = 103;
+    optional MessageC ext_message_c = 104;
+    optional EnumC ext_enum_c = 105;
+    repeated MessageC ext_repeated_message_c = 106;
+    repeated EnumC ext_repeated_enum_c = 107;
 }
