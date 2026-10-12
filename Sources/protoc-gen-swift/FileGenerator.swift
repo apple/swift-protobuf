@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// This provides the logic for each file that is stored in the plugin request.
-/// In particular, generateOutputFile() actually builds a Swift source file
-/// to represent a single .proto input.  Note that requests typically contain
-/// a number of proto files that are not to be generated.
-///
+//
+// This provides the logic for each file in the plugin request.
+// In particular, generateOutputFile() actually builds a Swift source file
+// to represent a single .proto input.  Note that requests typically contain
+// a number of proto files the plugin doesn't need to generate.
+//
 // -----------------------------------------------------------------------------
 import Foundation
 import SwiftProtobuf
@@ -50,8 +50,9 @@ class FileGenerator {
         )
     }
 
-    /// Generate, if `errorString` gets filled in, then report error instead of using
-    /// what written into `printer`.
+    /// Generates the output file for a single .proto input. If this fills in
+    /// `errorString`, the caller should report that error instead of using
+    /// what this wrote into `printer`.
     func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
         guard
             fileDescriptor.options.swiftPrefix.isEmpty

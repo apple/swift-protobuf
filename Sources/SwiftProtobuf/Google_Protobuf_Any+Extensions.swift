@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
-///
+//
+// Extends the ``Google_Protobuf_Any`` type with various custom behaviors.
+//
 // -----------------------------------------------------------------------------
 
 // Explicit import of Foundation is necessary on Linux,
@@ -20,6 +20,7 @@ import FoundationEssentials
 import Foundation
 #endif
 
+/// The default prefix used when building a type URL for an Any value.
 public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 
 extension Google_Protobuf_Any {
@@ -27,10 +28,10 @@ extension Google_Protobuf_Any {
     ///
     /// This corresponds to the `pack` operation in the C++ API.
     ///
-    /// Unlike the C++ implementation, the message is not immediately
-    /// serialized; it is merely stored until the Any object itself
-    /// needs to be serialized.  This design avoids unnecessary
-    /// decoding/recoding when writing JSON format.
+    /// Unlike the C++ implementation, this initializer doesn't serialize the
+    /// message immediately; it stores the message and serializes it only
+    /// when you serialize the Any object itself. This design avoids
+    /// unnecessary decoding/recoding when writing JSON format.
     ///
     /// - Parameters:
     ///   - message: The ``Message`` to serialized into this Any.
@@ -38,10 +39,10 @@ extension Google_Protobuf_Any {
     ///     ``Message/isInitialized-6abgi`` before encoding to verify that all required
     ///     fields are present. If any are missing, this method throws
     ///     ``BinaryEncodingError/missingRequiredFields``.
-    ///   - typePrefix: The prefix to be used when building the `type_url`.
+    ///   - typePrefix: The prefix to use when building the `type_url`.
     ///     Defaults to "type.googleapis.com".
     /// - Throws: ``BinaryEncodingError/missingRequiredFields`` if
-    /// `partial` is false and `message` wasn't fully initialized.
+    /// `partial` is false and you didn't fully initialize `message`.
     public init(
         message: any Message,
         partial: Bool = false,
@@ -55,14 +56,13 @@ extension Google_Protobuf_Any {
         _storage.state = .message(message)
     }
 
-    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
-    /// containing a serialized message in Protocol Buffer text format.
+    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - extensions: An ``ExtensionMap`` the decoder uses to look up and
+    ///     decode any extensions in this message or messages nested within
+    ///     this message's fields.
     /// - Throws: an instance of ``TextFormatDecodingError`` on failure.
     @_disfavoredOverload
     public init(
@@ -77,15 +77,14 @@ extension Google_Protobuf_Any {
         )
     }
 
-    /// Creates a new ``Google_Protobuf_Any`` by decoding the given string
-    /// containing a serialized message in Protocol Buffer text format.
+    /// Creates an Any message by decoding a serialized Protocol Buffer text-format string, using the decoding options you provide.
     ///
     /// - Parameters:
     ///   - textFormatString: The text format string to decode.
     ///   - options: The ``TextFormatDecodingOptions`` to use.
-    ///   - extensions: An ``ExtensionMap`` used to look up and decode any
-    ///     extensions in this message or messages nested within this message's
-    ///     fields.
+    ///   - extensions: An ``ExtensionMap`` the decoder uses to look up and
+    ///     decode any extensions in this message or messages nested within
+    ///     this message's fields.
     /// - Throws: ``TextFormatDecodingError`` on failure.
     public init(
         textFormatString: String,
@@ -114,18 +113,18 @@ extension Google_Protobuf_Any {
         }
     }
 
-    /// Returns true if this ``Google_Protobuf_Any`` message contains the given
-    /// message type.
+    /// Returns a Boolean value that indicates whether this message contains the message type you provide.
     ///
-    /// The check is performed by looking at the passed ``Message`` type and the
+    /// This method compares the ``Message`` type you provide to the
     /// `typeURL` of this message.
     ///
     /// - Parameter type: The concrete message type.
-    /// - Returns: True if the receiver contains the given message type.
+    /// - Returns: A Boolean value that indicates whether the receiver contains the message type you provide.
     public func isA<M: Message>(_ type: M.Type) -> Bool {
         _storage.isA(type)
     }
 
+    /// A hash based on the type URL, kept consistent with this type's best-effort equality.
     public func hash(into hasher: inout Hasher) {
         _storage.hash(into: &hasher)
     }

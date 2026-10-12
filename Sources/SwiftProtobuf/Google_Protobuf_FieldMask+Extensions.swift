@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extend the generated FieldMask message with customized JSON coding and
-/// convenience methods.
-///
+//
+// Extend the generated FieldMask message with customized JSON coding and
+// convenience methods.
+//
 // -----------------------------------------------------------------------------
 
 // True if the string only contains printable (non-control)
@@ -134,36 +134,36 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
 
 #if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given array of paths.
+    /// Creates a field mask from the array of proto-formatted paths you provide.
     ///
-    /// The paths should match the names used in the .proto file, which may be
+    /// The paths should match the names the .proto file uses, which may be
     /// different than the corresponding Swift property names.
     ///
     /// - Parameter protoPaths: The paths from which to create the field mask,
-    ///   defined using the .proto names for the fields.
+    ///   using the .proto names for the fields.
     public init(protoPaths: [String]) {
         self.init()
         paths = protoPaths
     }
 
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
+    /// Creates a field mask from the proto-formatted paths you provide.
     ///
-    /// The paths should match the names used in the .proto file, which may be
+    /// The paths should match the names the .proto file uses, which may be
     /// different than the corresponding Swift property names.
     ///
     /// - Parameter protoPaths: The paths from which to create the field mask,
-    ///   defined using the .proto names for the fields.
+    ///   using the .proto names for the fields.
     public init(protoPaths: String...) {
         self.init(protoPaths: protoPaths)
     }
 
-    /// Creates a new ``Google_Protobuf_FieldMask`` from the given paths.
+    /// Creates a field mask from the JSON-formatted paths you provide.
     ///
     /// The paths should match the JSON names of the fields, which may be
     /// different than the corresponding Swift property names.
     ///
     /// - Parameter jsonPaths: The paths from which to create the field mask,
-    ///   defined using the JSON names for the fields.
+    ///   using the JSON names for the fields.
     public init?(jsonPaths: String...) {
         // TODO: This should fail if any of the conversions from JSON fails
         self.init(protoPaths: jsonPaths.compactMap(JSONToProto))
@@ -191,7 +191,7 @@ extension Google_Protobuf_FieldMask {
     ///
     /// - Parameters:
     ///   - messageType: Message type to get all paths from.
-    ///   - fieldNumbers: Field numbers of paths to be included.
+    ///   - fieldNumbers: Field numbers of paths to include.
     /// - Returns: Field mask that include paths of corresponding field numbers.
     /// - Throws: ``FieldMaskError/invalidFieldNumber`` if the field number
     ///  is not on the message
@@ -214,11 +214,12 @@ extension Google_Protobuf_FieldMask {
 
 extension Google_Protobuf_FieldMask {
 
-    /// Adds a path to FieldMask after checking whether the given path is valid.
-    /// This method check-fails if the path is not a valid path for Message type.
+    /// Adds a path to the field mask after checking whether the path you provide is valid.
+    ///
+    /// This method throws an error if the path is not a valid path for the message type you provide.
     ///
     /// - Parameters:
-    ///   - path: Path to be added to FieldMask.
+    ///   - path: Path to add to the FieldMask.
     ///   - messageType: Message type to check validity.
     public mutating func addPath<M: Message>(
         _ path: String,
@@ -230,10 +231,12 @@ extension Google_Protobuf_FieldMask {
         paths.append(path)
     }
 
-    /// Converts a FieldMask to the canonical form. It will:
-    ///   1. Remove paths that are covered by another path. For example,
-    ///      "foo.bar" is covered by "foo" and will be removed if "foo"
-    ///      is also in the FieldMask.
+    /// Converts a FieldMask to the canonical form.
+    ///
+    /// It will:
+    ///   1. Remove paths that another path covers. For example, "foo" covers
+    ///      "foo.bar", so this removes "foo.bar" if "foo" is also in the
+    ///      FieldMask.
     ///   2. Sort all paths in alphabetical order.
     public var canonical: Google_Protobuf_FieldMask {
         var mask = Google_Protobuf_FieldMask()
@@ -288,11 +291,12 @@ extension Google_Protobuf_FieldMask {
         }
     }
 
-    /// Creates a FieldMasks with paths of the original FieldMask
-    /// that does not included in mask.
+    /// Creates a FieldMask with paths from the original FieldMask that are
+    /// not in mask.
     ///
-    /// - Parameter mask: FieldMask with paths should be substracted.
-    /// - Returns: FieldMask with all paths does not included in mask.
+    /// - Parameter mask: FieldMask whose paths this method subtracts.
+    /// - Returns: FieldMask with paths from the original FieldMask that are
+    ///   not in mask.
     public func subtract(
         _ mask: Google_Protobuf_FieldMask
     ) -> Google_Protobuf_FieldMask {
@@ -308,13 +312,14 @@ extension Google_Protobuf_FieldMask {
         }
     }
 
-    /// Returns true if path is covered by the given FieldMask. Note that path
-    /// "foo.bar" covers all paths like "foo.bar.baz", "foo.bar.quz.x", etc.
-    /// Also note that parent paths are not covered by explicit child path, i.e.
-    /// "foo.bar" does NOT cover "foo", even if "bar" is the only child.
+    /// Returns a Boolean value that indicates whether the field mask covers the path you provide.
     ///
-    /// - Parameter path: Path to be checked.
-    /// - Returns: Boolean determines is path covered.
+    /// For example, path "foo.bar" covers all paths like "foo.bar.baz" and "foo.bar.quz.x".
+    /// An explicit child path does not cover its parent paths: "foo.bar" does
+    /// not cover "foo", even if "bar" is the only child.
+    ///
+    /// - Parameter path: Path to check.
+    /// - Returns: A Boolean value that indicates whether the field mask covers the path.
     public func contains(_ path: String) -> Bool {
         for fieldMaskPath in paths {
             if path.hasPrefix("\(fieldMaskPath).") || fieldMaskPath == path {
@@ -327,7 +332,7 @@ extension Google_Protobuf_FieldMask {
 
 extension Google_Protobuf_FieldMask {
 
-    /// Checks whether the given FieldMask is valid for type M.
+    /// Checks whether the field mask you provide is valid for type M.
     ///
     /// - Parameter messageType: Message type to paths check with.
     /// - Returns: Boolean determines FieldMask is valid.
@@ -341,7 +346,7 @@ extension Google_Protobuf_FieldMask {
     }
 }
 
-/// Describes errors could happen during FieldMask utilities.
+/// The errors that can occur when using field mask utilities.
 public enum FieldMaskError: Error {
 
     /// Describes a path is invalid for a Message type.

@@ -7,12 +7,12 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Types related to binary wire formats of encoded values.
-///
+//
+// Types related to binary wire formats of encoded values.
+//
 // -----------------------------------------------------------------------------
 
-/// Denotes the wire format by which a value is encoded in binary form.
+/// Denotes the wire format an encoder uses to represent a value in binary form.
 package enum WireFormat: UInt8 {
     case varint = 0
     case fixed64 = 1
@@ -23,29 +23,31 @@ package enum WireFormat: UInt8 {
 }
 
 extension WireFormat {
-    /// Information about the "MessageSet" format. Used when a Message has
-    /// the message_set_wire_format option enabled.
+    /// Information about the "MessageSet" format, which applies when a
+    /// message has the message_set_wire_format option enabled.
     ///
-    /// Writing in MessageSet form means instead of writing the Extesions
-    /// normally as a simple fields, each gets written wrapped in a group:
+    /// Writing in MessageSet form means the encoder wraps each extension in a
+    /// group instead of writing it as a plain field:
     ///   repeated group Item = 1 {
     ///     required int32 type_id = 2;
     ///     required bytes message = 3;
     ///   }
-    ///  Where the field number is the type_id, and the message is serilaized
-    ///  into the bytes.
+    ///  Where the field number is the type_id, and the encoder serializes the
+    ///  message into the bytes.
     ///
-    /// The handling of unknown fields is ill defined. In proto1, they were
-    /// dropped. In the C++ for proto2, since it stores them in the unknowns
-    /// storage, if preserves any that are length delimited data (since that's
-    /// how the message also goes out). While the C++ is parsing, where the
-    /// unknowns fall in the flow of the group, sorta decides what happens.
-    /// Since it is ill defined, currently SwiftProtobuf will reflect out
-    /// anything set in the unknownStorage.  During parsing, unknowns on the
-    /// message are preserved, but unknowns within the group are dropped (like
-    /// map items).  Any extension in the MessageSet that isn't in the Regisry
-    /// being used at parse time will remain in a group and go into the
-    /// Messages's unknown fields (this way it reflects back out correctly).
+    /// The handling of unknown fields is ill defined. In proto1, the
+    /// implementation dropped them. In the C++ for proto2, since it stores
+    /// them in the unknowns storage, it preserves any that are length
+    /// delimited data (since that's how the message also goes out). While the
+    /// C++ is parsing, where the unknowns fall in the flow of the group,
+    /// sorta decides what happens. Since it is ill defined, SwiftProtobuf
+    /// currently reflects out anything the parser has set in the
+    /// unknownStorage. During parsing, the parser preserves unknowns on the
+    /// message, but drops unknowns within the group (like map items). Any
+    /// extension in
+    /// the MessageSet that isn't in the registry the parser uses at parse
+    /// time will remain in a group and go into the message's unknown fields
+    /// (this way it reflects back out correctly).
     internal enum MessageSet {
 
         enum FieldNumbers {

@@ -29,6 +29,7 @@ extension Google_Protobuf_MethodOptions: ProvidesFeatureSets {}
 /// `feature_resolver.cpp`.
 package class FeatureResolver {
 
+    /// The errors that feature resolution can throw.
     package enum Error: Swift.Error, Equatable, CustomStringConvertible {
         case unsupported(
             edition: Google_Protobuf_Edition,
@@ -37,6 +38,7 @@ package class FeatureResolver {
         case noDefault(edition: Google_Protobuf_Edition)
         case invalidExtension(type: String)
 
+        /// A human-readable description of what caused this error.
         package var description: String {
             switch self {
             case .unsupported(let edition, let supported):
@@ -56,20 +58,19 @@ package class FeatureResolver {
 
     private let extensionMap: (any ExtensionMap)?
 
-    /// Construct a resolver for a given edition with the correct defaults.
+    /// Construct a resolver for the edition you provide with the correct defaults.
     ///
     /// - Parameters:
-    ///   - edition: The edition of defaults desired.
-    ///   - defaults: A `Google_Protobuf_FeatureSetDefaults` created by protoc
+    ///   - edition: The edition you want defaults for.
+    ///   - defaults: A `Google_Protobuf_FeatureSetDefaults` that protoc creates
     ///     from one or more proto files that define `Google_Protobuf_FeatureSet`
     ///     and any extensions.
     ///   - extensions: A list of Protobuf Extension extensions to
-    ///     `google.protobuf.FeatureSet` that define custom features. If used, the
-    ///     `defaults` should have been parsed with the extensions being
-    ///     supported.
-    /// - Returns: A configured resolver for the given edition/defaults.
-    /// - Throws: `FeatureResolver.Error` if there edition requested can't be
-    ///           supported by the given defaults.
+    ///     `google.protobuf.FeatureSet` that define custom features. If used,
+    ///     parse `defaults` with these extensions supported beforehand.
+    /// - Returns: A configured resolver for the edition and defaults you provide.
+    /// - Throws: `FeatureResolver.Error` if the defaults you provide don't
+    ///           support the requested edition.
     package init(
         edition: Google_Protobuf_Edition,
         featureSetDefaults defaults: Google_Protobuf_FeatureSetDefaults,
@@ -116,7 +117,7 @@ package class FeatureResolver {
 
     /// Resolve the Features for a File.
     func resolve(_ options: Google_Protobuf_FileOptions) -> Google_Protobuf_FeatureSet {
-        /// There is no parent, so the default options are used.
+        /// There is no parent, so use the default options.
         resolve(
             features: options.hasFeatures ? options.features : nil,
             resolvedParent: defaultFeatureSet
@@ -159,8 +160,8 @@ package class FeatureResolver {
         return resolve(features: features, resolvedParent: defaultFeatureSet)
     }
 
-    /// Resolve the Features for a given descriptor's options, the resolvedParent
-    /// values used to inherrit from.
+    /// Resolve the Features for the descriptor's options you provide,
+    /// inheriting from the values in resolvedParent.
     func resolve<T: ProvidesFeatureSets>(
         _ options: T,
         resolvedParent: Google_Protobuf_FeatureSet

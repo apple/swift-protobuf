@@ -2,7 +2,7 @@ version: 1
 builder:
   configs:
   - platform: ios
-    documentation_targets: [SwiftProtobuf]
+    documentation_targets: [SwiftProtobuf, SwiftProtobufPluginLibrary, protoc-gen-swift]
     scheme: SwiftProtobuf
   - platform: tvos
     scheme: SwiftProtobuf

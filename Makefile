@@ -140,7 +140,6 @@ PROTOS_DIRS=Sources/SwiftProtobuf Sources/SwiftProtobufPluginLibrary Sources/pro
 	compile-tests-nonisolateddeclarations \
 	compile-tests-experimentalhiddennames \
 	default \
-	docs \
 	install \
 	pod-lib-lint \
 	reference \
@@ -186,17 +185,8 @@ clean:
 	${SWIFT} package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin *EditionDefaults.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
-	  docs build
+	  build
 	find . -name '*~' | xargs rm -f
-
-# Build a local copy of the API documentation, using the same process used
-# by cocoadocs.org.
-docs:
-	@if which jazzy >/dev/null; then \
-		jazzy; \
-	else \
-		echo "Jazzy not installed, use 'gem install jazzy' or download from https://github.com/realm/jazzy"; \
-	fi
 
 #
 # Test the runtime and the plugin

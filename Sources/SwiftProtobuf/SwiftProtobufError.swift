@@ -15,7 +15,7 @@
 /// ``SwiftProtobufError/Code-swift.struct/binaryDecodingError`` error code.
 /// Errors also include a message describing what went wrong and how to remedy it (if applicable). The
 /// message is not static and may include dynamic information such as the
-/// type URL for a type that could not be decoded, for example.
+/// type URL for a type the decoder could not decode, for example.
 public struct SwiftProtobufError: Error, @unchecked Sendable {
     // Note: @unchecked because we use a backing class for storage.
 
@@ -59,7 +59,7 @@ public struct SwiftProtobufError: Error, @unchecked Sendable {
         }
     }
 
-    /// A message describing what went wrong and how it may be remedied.
+    /// A message describing what went wrong and how to remedy it.
     package var message: String {
         get { self.storage.message }
         set {
@@ -76,6 +76,12 @@ public struct SwiftProtobufError: Error, @unchecked Sendable {
         }
     }
 
+    /// Creates a new error using the code, message, and location you provide.
+    ///
+    /// - Parameters:
+    ///   - code: A high-level ``SwiftProtobufError/Code-swift.struct`` that classifies the error.
+    ///   - message: A message describing what went wrong and how to remedy it.
+    ///   - location: The location in source code that threw the error.
     public init(
         code: Code,
         message: String,
@@ -108,7 +114,7 @@ extension SwiftProtobufError {
             }
         }
 
-        /// This Code's description.
+        /// A short, human-readable label for the kind of error this code represents.
         public var description: String {
             String(describing: self.code)
         }
@@ -123,8 +129,9 @@ extension SwiftProtobufError {
             Self(.binaryDecodingError)
         }
 
-        /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
-        /// of the messages in the stream, or the stream as a whole.
+        /// Errors arising from decoding streams of binary messages.
+        ///
+        /// These errors have to do with the framing of the messages in the stream, or the stream as a whole.
         public static var binaryStreamDecodingError: Self {
             Self(.binaryStreamDecodingError)
         }
@@ -142,15 +149,21 @@ extension SwiftProtobufError {
 
     /// A location within source code.
     public struct SourceLocation: Sendable, Hashable {
-        /// The function in which the error was thrown.
+        /// The function that threw the error.
         public var function: String
 
-        /// The file in which the error was thrown.
+        /// The file that threw the error.
         public var file: String
 
-        /// The line on which the error was thrown.
+        /// The line that threw the error.
         public var line: Int
 
+        /// Creates a new location within source code.
+        ///
+        /// - Parameters:
+        ///   - function: The function that threw the error.
+        ///   - file: The file that threw the error.
+        ///   - line: The line that threw the error.
         public init(function: String, file: String, line: Int) {
             self.function = function
             self.file = file
@@ -169,12 +182,14 @@ extension SwiftProtobufError {
 }
 
 extension SwiftProtobufError: CustomStringConvertible {
+    /// A human-readable summary that combines the error's code, location, and message.
     public var description: String {
         "\(self.code) (at \(self.location)): \(self.message)"
     }
 }
 
 extension SwiftProtobufError: CustomDebugStringConvertible {
+    /// A more detailed summary that reflects the full code, location, and message for debugging.
     public var debugDescription: String {
         "\(String(reflecting: self.code)) (at \(String(reflecting: self.location))): \(String(reflecting: self.message))"
     }
@@ -185,7 +200,9 @@ extension SwiftProtobufError: CustomDebugStringConvertible {
 extension SwiftProtobufError {
     /// Errors arising from binary decoding of data into protobufs.
     public enum BinaryDecoding {
-        /// Message is too large. Bytes and Strings have a max size of 2GB.
+        /// Message is too large.
+        ///
+        /// Bytes and strings have a max size of 2GB.
         public static func tooLarge(
             function: String = #function,
             file: String = #fileID,
@@ -199,10 +216,14 @@ extension SwiftProtobufError {
         }
     }
 
-    /// Errors arising from decoding streams of binary messages. These errors have to do with the framing
+    /// Errors arising from decoding streams of binary messages.
+    ///
+    /// These errors have to do with the framing
     /// of the messages in the stream, or the stream as a whole.
     public enum BinaryStreamDecoding {
-        /// Message is too large. Bytes and Strings have a max size of 2GB.
+        /// Message is too large.
+        ///
+        /// Bytes and strings have a max size of 2GB.
         public static func tooLarge(
             function: String = #function,
             file: String = #fileID,
@@ -232,13 +253,14 @@ extension SwiftProtobufError {
             )
         }
 
-        /// This isn't really an error. `InputStream` documents that
-        /// `hasBytesAvailable` _may_ return `True` if a read is needed to
-        /// determine if there really are bytes available. So this "error" is thrown
-        /// when a `parse` or `merge` fails because there were no bytes available.
-        /// If this is raised, the callers should decide via what ever other means
-        /// are correct if the stream has completely ended or if more bytes might
-        /// eventually show up.
+        /// Indicates that no bytes were available when reading from the stream.
+        ///
+        /// This isn't really an error: `InputStream` documents that `hasBytesAvailable`
+        /// may return `true` if a read is needed to determine if there really are
+        /// bytes available. `parse` or `merge` throws this when it fails because
+        /// there were no bytes available. If you encounter this, use other means
+        /// to determine whether the stream has completely ended
+        /// or more bytes might eventually show up.
         public static func noBytesAvailable(
             function: String = #function,
             file: String = #fileID,
@@ -257,8 +279,9 @@ extension SwiftProtobufError {
 
     /// Errors arising from JSON decoding of data into protobufs.
     public enum JSONDecoding {
-        /// While decoding a `google.protobuf.Any` encountered a malformed `@type` key for
-        /// the `type_url` field.
+        /// While decoding an Any message, the type URL was malformed.
+        ///
+        /// The JSON representation stores the type URL under the `@type` key.
         public static func invalidAnyTypeURL(
             type_url: String,
             function: String = #function,
@@ -272,7 +295,7 @@ extension SwiftProtobufError {
             )
         }
 
-        /// While decoding a `google.protobuf.Any` no `@type` field but the message had other fields.
+        /// While decoding an Any message, the type URL was missing even though the message had other fields.
         public static func emptyAnyTypeURL(
             function: String = #function,
             file: String = #fileID,
@@ -288,7 +311,7 @@ extension SwiftProtobufError {
 
     /// Errors arising from JSON encoding of messages.
     public enum JSONEncoding {
-        /// While encoding a `google.protobuf.Any` encountered a malformed `type_url` field.
+        /// While encoding an Any message, the type URL was malformed.
         public static func invalidAnyTypeURL(
             type_url: String,
             function: String = #function,
@@ -302,7 +325,7 @@ extension SwiftProtobufError {
             )
         }
 
-        /// While encoding a `google.protobuf.Any` encountered an empty `type_url` field.
+        /// While encoding an Any message, the type URL was empty.
         public static func emptyAnyTypeURL(
             function: String = #function,
             file: String = #fileID,

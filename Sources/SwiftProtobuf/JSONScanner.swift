@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON format decoding engine.
-///
+//
+// JSON format decoding engine.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -109,12 +109,12 @@ let base64Values: [Int] = [
     /* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 ]
 
-/// Returns a `Data` value containing bytes equivalent to the given
-/// Base64-encoded string, or nil if the conversion fails.
+/// Returns a `Data` value containing bytes equivalent to the Base64-encoded
+/// string you provide, or nil if the conversion fails.
 ///
 /// Notes on Google's implementation (Base64Unescape() in strutil.cc):
 ///  * Google's C++ implementation accepts arbitrary whitespace
-///    mixed in with the base-64 characters
+///    among the base-64 characters
 ///  * Google's C++ implementation ignores missing '=' characters
 ///    but if present, there must be the exact correct number of them.
 ///  * The conformance test requires us to accept both standard RFC4648
@@ -385,8 +385,8 @@ internal struct JSONScanner {
     internal var recursionBudget: Int
 
     /// True if the scanner has read all of the data from the source, with the
-    /// exception of any trailing whitespace (which is consumed by reading this
-    /// property).
+    /// exception of any trailing whitespace (reading this property consumes
+    /// any trailing whitespace).
     internal var complete: Bool {
         mutating get {
             skipWhitespace()
@@ -451,7 +451,7 @@ internal struct JSONScanner {
     }
 
     /// Returns (but does not consume) the next non-whitespace
-    /// character.  This is used by google.protobuf.Value, for
+    /// character.  `Google_Protobuf_Value` uses this, for
     /// example, for custom JSON parsing.
     internal mutating func peekOneCharacter() throws -> Character {
         skipWhitespace()
@@ -786,10 +786,10 @@ internal struct JSONScanner {
         }
     }
 
-    /// Returns a fully-parsed string with all backslash escapes
-    /// correctly processed, or nil if next token is not a string.
+    /// Returns a string after correctly processing all backslash escapes,
+    /// or nil if the next token is not a string.
     ///
-    /// Assumes the leading quote has been verified (but not consumed)
+    /// Assumes the caller has verified (but not consumed) the leading quote.
     private mutating func parseOptionalQuotedString() -> String? {
         // Caller has already asserted that currentByte == quote here
         var sawBackslash = false
@@ -832,8 +832,8 @@ internal struct JSONScanner {
     /// backslash escapes in them.
     ///
     /// This supports the full range of UInt64 (whether quoted or not)
-    /// unless the number is written in floating-point format.  In that
-    /// case, we decode it with only Double precision.
+    /// unless the input represents the number in floating-point format.
+    /// In that case, we decode it with only Double precision.
     internal mutating func nextUInt() throws -> UInt64 {
         skipWhitespace()
         guard hasMoreContent else {
@@ -898,8 +898,8 @@ internal struct JSONScanner {
     /// backslash escapes for quoted values.
     ///
     /// This supports the full range of Int64 (whether quoted or not)
-    /// unless the number is written in floating-point format.  In that
-    /// case, we decode it with only Double precision.
+    /// unless the input represents the number in floating-point format.
+    /// In that case, we decode it with only Double precision.
     internal mutating func nextSInt() throws -> Int64 {
         skipWhitespace()
         guard hasMoreContent else {
@@ -1159,12 +1159,12 @@ internal struct JSONScanner {
     ///
     /// Notes on Google's implementation:
     ///  * Google's C++ implementation accepts arbitrary whitespace
-    ///    mixed in with the base-64 characters
+    ///    among the base-64 characters
     ///  * Google's C++ implementation ignores missing '=' characters
     ///    but if present, there must be the exact correct number of them.
     ///  * Google's C++ implementation accepts both "regular" and
     ///    "web-safe" base-64 variants (it seems to prefer the
-    ///    web-safe version as defined in RFC 4648
+    ///    web-safe version that RFC 4648 defines
     internal mutating func nextBytesValue() throws -> Data {
         skipWhitespace()
         guard hasMoreContent else {
@@ -1295,10 +1295,10 @@ internal struct JSONScanner {
     /// Parse a field name, look it up in the provided field name map,
     /// and return the corresponding field number.
     ///
-    /// Throws if field name cannot be parsed.
+    /// Throws if it cannot parse the field name.
     /// If it encounters an unknown field name, it throws
-    /// unless `options.ignoreUnknownFields` is set, in which case
-    /// it silently skips it.
+    /// unless the caller sets `options.ignoreUnknownFields`, in which
+    /// case it silently skips the field.
     internal mutating func nextFieldNumber(
         names: _NameMap,
         messageType: any Message.Type
@@ -1460,7 +1460,7 @@ internal struct JSONScanner {
     /// For example, this might return "true", or "123.456",
     /// or "{\"foo\": 7, \"bar\": [8, 9]}"
     ///
-    /// Used by Any to get the upcoming JSON value as a string.
+    /// `Any` uses this to get the upcoming JSON value as a string.
     /// Note: The value might be an object or array.
     internal mutating func skip() throws -> String {
         skipWhitespace()
@@ -1473,11 +1473,11 @@ internal struct JSONScanner {
         }
     }
 
-    /// Advance index past the next value.  This is used
-    /// by skip() and by unknown field handling.
+    /// Advance index past the next value.  `skip()` and unknown field
+    /// handling use this.
     /// Note: This handles objects {...} recursively but arrays [...] non-recursively
-    /// This avoids us requiring excessive stack space for deeply nested
-    /// arrays (which are not included in the recursion budget check).
+    /// This avoids requiring excessive stack space for deeply nested
+    /// arrays (the recursion budget check does not include arrays).
     private mutating func skipValue() throws {
         skipWhitespace()
         var totalArrayDepth = 0

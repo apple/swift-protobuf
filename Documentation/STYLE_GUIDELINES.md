@@ -1,7 +1,7 @@
 # Style Guidelines
 
 If you're interested in contributing to the Swift Protobuf project, welcome!
-Please make sure that your APIs are named and code is formatted according to
+Please name your APIs and format your code according to
 these guidelines so that we can ensure a consistent look-and-feel across the
 entire codebase.
 
@@ -21,14 +21,14 @@ two pieces of advice:
    for guidance.
 1. Don't fight Xcode's auto-indenting unless doing so would make the
    formatting look horrible. Xcode has some baked-in assumptions about how
-   Swift code should be formatted and fighting it will make your life harder
+   Swift code should be formatted and fighting it makes your life harder
    and the lives of anyone who has to update that code in the future.
 
 ## File organization
 
 * For the most part, each Swift source file should contain only one type, and
   the name of the file should match that of the type (for example, `Foo.swift`
-  would contain a type named `Foo`).
+  contains a type named `Foo`).
   * In some cases, however, many small related types may be combined into a
     single .swift file for convenience. In that case, name the file based on a
     plural noun that describes the grouping. For example, the
@@ -46,8 +46,8 @@ two pieces of advice:
 * All public APIs should have documentation comments. Use `- Parameter foo:`
   and `- Returns:` tags when the meanings of parameters and return values are
   not obvious from the other documentation. Use `- Throws:` tags to describe
-  which errors are thrown and under which circumstances.
-* Internal/private APIs should also be documented unless it is unambiguously
+  which errors the method throws and under which circumstances.
+* You should also document internal/private APIs unless it is unambiguously
   clear from its name and signature what it does.
 
 ## API naming conventions
@@ -60,7 +60,7 @@ Some points of emphasis:
 
 * Method and property names should make use sites form grammatical English
   sentences. For example,
-  * Methods without side-effects (i.e., which return something) should be named
+  * Methods without side-effects (that is, which return something) should be named
     with a noun or noun phrase; for example, `serializedSize()`.
   * Methods with side-effects that return `Void` should be named with
     imperative verbs or verb phrases; for example, `encode(value:)`.
@@ -78,7 +78,7 @@ Some points of emphasis:
 
 At the time of this writing, some of the code in this project does not conform
 to these guidelines (as it was written before the guidelines were adopted). As
-changes are made, old code will be opportunistically brought in line with these
+changes are made, old code is opportunistically brought in line with these
 guidelines.
 
 Eventually, it is our hope that the `swift-format` tool that is in Swift's

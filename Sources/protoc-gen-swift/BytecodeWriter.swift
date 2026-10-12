@@ -28,8 +28,8 @@ package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.R
         }
     }
 
-    /// Indicates whether any data other than the program format identifier has been written to the
-    /// bytecode stream.
+    /// Indicates whether the writer has written any data other than the program format
+    /// identifier to the bytecode stream.
     package var hasData: Bool = false
 
     /// Creates a new bytecode writer, writing the program format as the first value in the stream.
@@ -48,7 +48,7 @@ package struct BytecodeWriter<Instruction: RawRepresentable> where Instruction.R
 
     /// Writes a signed 32-bit integer to the bytecode stream.
     ///
-    /// This is provided as its own primitive operation because 32-bit values are extremely common
+    /// This exists as its own primitive operation because 32-bit values are extremely common
     /// as field numbers (0 to 2^29-1) and enum cases (-2^31 to 2^31-1). In particular for enum
     /// cases, using this function specifically for those cases avoids making mistakes involving
     /// sign- vs. zero-extension between differently-sized integers.

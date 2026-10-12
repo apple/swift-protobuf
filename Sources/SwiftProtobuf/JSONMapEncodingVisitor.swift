@@ -7,9 +7,9 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Visitor that writes out the key/value pairs for a JSON map.
-///
+//
+// Visitor that writes out the key/value pairs for a JSON map.
+//
 // -----------------------------------------------------------------------------
 
 #if canImport(FoundationEssentials)
@@ -21,8 +21,8 @@ import Foundation
 /// Visitor that serializes a message into JSON map format.
 ///
 /// This expects to alternately visit the keys and values for a JSON
-/// map.  It only accepts singular values.  Keys should be identified
-/// as `fieldNumber:1`, values should be identified as `fieldNumber:2`
+/// map.  It only accepts singular values.  Callers should identify keys
+/// as `fieldNumber:1` and values as `fieldNumber:2`
 ///
 internal struct JSONMapEncodingVisitor: SelectiveVisitor {
     private var separator: StaticString?

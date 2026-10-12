@@ -9,13 +9,13 @@
 // -----------------------------------------------------------------------------
 
 enum GenerationError: Error, CustomStringConvertible {
-    /// Raised when parsing the parameter string and found an unknown key.
+    /// Indicates that the parameter string contains a key that isn't recognized.
     case unknownParameter(name: String)
-    /// Raised when a parameter was given an invalid value.
+    /// Indicates that a parameter has an invalid value.
     case invalidParameterValue(name: String, value: String)
-    /// Raised to wrap another error but provide a context message.
+    /// Wraps another error and adds a context message.
     case wrappedError(message: String, error: any Error)
-    /// Raised with an specific message
+    /// Carries a specific message with no additional context.
     case message(message: String)
 
     var description: String {

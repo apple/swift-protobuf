@@ -7,10 +7,10 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// Extensions to `FileDescriptorProto` that provide Swift-generation-specific
-/// functionality.
-///
+//
+// Extensions to `FileDescriptorProto` that provide Swift-generation-specific
+// functionality.
+//
 // -----------------------------------------------------------------------------
 
 import SwiftProtobuf

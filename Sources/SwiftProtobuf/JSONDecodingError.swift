@@ -7,21 +7,22 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
-///
-/// JSON decoding errors
-///
+//
+// JSON decoding errors
+//
 // -----------------------------------------------------------------------------
 
+/// The errors that can occur when decoding a message from JSON format.
 public enum JSONDecodingError: Error {
     /// Something was wrong
     case failure
-    /// A number could not be parsed
+    /// A number failed to parse
     case malformedNumber
-    /// Numeric value was out of range or was not an integer value when expected
+    /// A numeric value was out of range, or wasn't an integer where the decoder expected one
     case numberRange
-    /// A map could not be parsed
+    /// A map failed to parse
     case malformedMap
-    /// A bool could not be parsed
+    /// A bool failed to parse
     case malformedBool
     /// We expected a quoted string, or a quoted string has a malformed backslash sequence
     case malformedString
@@ -31,32 +32,34 @@ public enum JSONDecodingError: Error {
     case missingFieldNames
     /// The data type does not match the schema description
     case schemaMismatch
-    /// A value (text or numeric) for an enum was not found on the enum
+    /// A value (text or numeric) for an enum didn't match any of the enum's cases
     case unrecognizedEnumValue
     /// A 'null' token appeared in an illegal location.
+    ///
     /// For example, Protobuf JSON does not allow 'null' tokens to appear
     /// in lists.
     case illegalNull
-    /// A map key was not quoted
+    /// A map key lacked quotes
     case unquotedMapKey
     /// JSON RFC 7519 does not allow numbers to have extra leading zeros
     case leadingZero
     /// We hit the end of the JSON string and expected something more...
     case truncated
-    /// A JSON Duration could not be parsed
+    /// A JSON Duration failed to parse
     case malformedDuration
-    /// A JSON Timestamp could not be parsed
+    /// A JSON Timestamp failed to parse
     case malformedTimestamp
-    /// A FieldMask could not be parsed
+    /// A FieldMask failed to parse
     case malformedFieldMask
     /// Extraneous data remained after decoding should have been complete
     case trailingGarbage
-    /// More than one value was specified for the same oneof field
+    /// The JSON specified more than one value for the same oneof field
     case conflictingOneOf
     /// Reached the nesting limit for messages within messages while decoding.
     case messageDepthLimit
-    /// Encountered an unknown field with the given name. When parsing JSON, you
-    /// can instead instruct the library to ignore this via
-    /// JSONDecodingOptions.ignoreUnknownFields.
+    /// Encountered an unknown field with the given name.
+    ///
+    /// When parsing JSON, you can instead instruct the library to ignore this
+    /// via `JSONDecodingOptions.ignoreUnknownFields`.
     case unknownField(String)
 }

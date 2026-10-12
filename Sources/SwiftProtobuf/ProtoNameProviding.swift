@@ -11,12 +11,12 @@
 /// SwiftProtobuf Internal: Common support looking up field names.
 ///
 /// Messages conform to this protocol to provide the proto/text and JSON field
-/// names for their fields. This allows these names to be pulled out into
+/// names for their fields. This lets the generator pull these names out into
 /// extensions in separate files so that users can omit them in release builds
 /// (reducing bloat and minimizing leaks of field names).
 public protocol _ProtoNameProviding {
 
-    /// The mapping between field numbers and proto/JSON field names defined in
-    /// the conforming message type.
+    /// The mapping between field numbers and the proto/JSON field names that
+    /// the conforming message type defines.
     static var _protobuf_nameMap: _NameMap { get }
 }
