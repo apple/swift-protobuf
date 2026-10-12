@@ -194,6 +194,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertFalse(m.SwiftProtoTesting_repeatedInt32Extension.isEmpty)
         m.SwiftProtoTesting_repeatedInt32Extension = []
         XCTAssertTrue(m.SwiftProtoTesting_repeatedInt32Extension.isEmpty)
+        XCTAssertEqual(m, SwiftProtoTesting_TestAllExtensions())
+        XCTAssertEqual(try m.serializedBytes(), [])
     }
 
     func test_defaultInt32Extension() throws {
@@ -240,6 +242,7 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
             extensions: extensions
         )
         XCTAssertEqual(decodedFromBytes, m)
+        XCTAssertEqual(decodedFromBytes.hashValue, m.hashValue)
         XCTAssertEqual(decodedFromBytes.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
         XCTAssertEqual(decodedFromBytes.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
 
@@ -260,6 +263,75 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertEqual(decodedFromJSON, m)
         XCTAssertEqual(decodedFromJSON.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
         XCTAssertEqual(decodedFromJSON.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+
+        // Verify CoW and array mutation on repeated enum extensions.
+        var copy = m
+        copy.SwiftProtoTesting_repeatedNestedEnumExtension.append(.baz)
+        XCTAssertNotEqual(copy, m)
+        XCTAssertNotEqual(copy.hashValue, m.hashValue)
+        XCTAssertEqual(m.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+        XCTAssertEqual(copy.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg, .baz])
+
+        // Clearing all extensions (including setting repeated enum extensions to `[]`)
+        // should produce a message equal to a freshly initialized empty message.
+        m.clearSwiftProtoTesting_optionalNestedEnumExtension()
+        m.SwiftProtoTesting_repeatedNestedEnumExtension = []
+        XCTAssertEqual(m, SwiftProtoTesting_TestAllExtensions())
+        XCTAssertEqual(m.hashValue, SwiftProtoTesting_TestAllExtensions().hashValue)
+        XCTAssertEqual(try m.serializedBytes(), [])
+        XCTAssertEqual(m.textFormatString(), "")
+        XCTAssertEqual(try m.jsonString(), "{}")
+
+        // Unpacked repeated enum extension (field 51): accepts both unpacked (tag [152, 3])
+        // and packed (tag [154, 3]) wire formats, and preserves unknown enum values in unknownFields.
+        assertEncode([152, 3, 1, 152, 3, 2]) { (o: inout MessageTestType) in
+            o.SwiftProtoTesting_repeatedNestedEnumExtension = [.foo, .bar]
+        }
+        assertDecodeSucceeds([154, 3, 2, 1, 2]) {
+            $0.SwiftProtoTesting_repeatedNestedEnumExtension == [.foo, .bar]
+        }
+        let unpackedWithUnknown = try SwiftProtoTesting_TestAllExtensions(
+            serializedBytes: [152, 3, 1, 152, 3, 99, 152, 3, 2],
+            extensions: extensions
+        )
+        XCTAssertEqual(unpackedWithUnknown.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar])
+        XCTAssertEqual([UInt8](unpackedWithUnknown.unknownFields.data), [152, 3, 99])
+
+        // Packed repeated enum extension (field 103 on TestPackedExtensions): accepts both packed
+        // (tag [186, 6]) and unpacked (tag [184, 6]) wire formats, round-trips through TextFormat
+        // and JSON, and preserves unknown enum values in unknownFields.
+        var packed = SwiftProtoTesting_TestPackedExtensions()
+        packed.SwiftProtoTesting_packedEnumExtension = [.foreignFoo, .foreignBar]
+        XCTAssertEqual(try packed.serializedBytes(), [186, 6, 2, 4, 5])
+        XCTAssertEqual(
+            packed.textFormatString(),
+            "[swift_proto_testing.packed_enum_extension]: [FOREIGN_FOO, FOREIGN_BAR]\n"
+        )
+        XCTAssertEqual(
+            try packed.jsonString(),
+            "{\"[swift_proto_testing.packed_enum_extension]\":[\"FOREIGN_FOO\",\"FOREIGN_BAR\"]}"
+        )
+
+        let packedFromUnpackedBytes = try SwiftProtoTesting_TestPackedExtensions(
+            serializedBytes: [184, 6, 4, 184, 6, 5],
+            extensions: extensions
+        )
+        XCTAssertEqual(packedFromUnpackedBytes, packed)
+        XCTAssertEqual(packedFromUnpackedBytes.hashValue, packed.hashValue)
+
+        let packedWithUnknown = try SwiftProtoTesting_TestPackedExtensions(
+            serializedBytes: [186, 6, 3, 4, 99, 5],
+            extensions: extensions
+        )
+        XCTAssertEqual(packedWithUnknown.SwiftProtoTesting_packedEnumExtension, [.foreignFoo, .foreignBar])
+        XCTAssertEqual([UInt8](packedWithUnknown.unknownFields.data), [186, 6, 1, 99])
+
+        packed.SwiftProtoTesting_packedEnumExtension = []
+        XCTAssertEqual(packed, SwiftProtoTesting_TestPackedExtensions())
+        XCTAssertEqual(packed.hashValue, SwiftProtoTesting_TestPackedExtensions().hashValue)
+        XCTAssertEqual(try packed.serializedBytes(), [])
+        XCTAssertEqual(packed.textFormatString(), "")
+        XCTAssertEqual(try packed.jsonString(), "{}")
     }
 
     ///
@@ -325,6 +397,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertFalse(m.SwiftProtoTesting_repeatedExtensionGroup.isEmpty)
         m.SwiftProtoTesting_repeatedExtensionGroup = []
         XCTAssertTrue(m.SwiftProtoTesting_repeatedExtensionGroup.isEmpty)
+        XCTAssertEqual(m, SwiftProtoTesting_GroupExtensions())
+        XCTAssertEqual(try m.serializedBytes(), [])
     }
 
     func test_MessageNoStorageClass() {

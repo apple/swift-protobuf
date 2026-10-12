@@ -39,6 +39,22 @@ final class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
         }
         // Fails if we don't provide the extensions to the decoder:
         assertTextFormatDecodeFails("[swift_proto_testing.optionalgroup_extension] {\n  a: 789\n}\n")
+
+        assertTextFormatEncode(
+            "[swift_proto_testing.optional_nested_enum_extension]: BAZ\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_optionalNestedEnumExtension = .baz
+        }
+
+        assertTextFormatEncode(
+            "[swift_proto_testing.repeated_nested_enum_extension]: FOO\n[swift_proto_testing.repeated_nested_enum_extension]: BAR\n",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        ) {
+            (o: inout MessageTestType) in
+            o.SwiftProtoTesting_repeatedNestedEnumExtension = [.foo, .bar]
+        }
     }
 
     func test_nested_extension() {

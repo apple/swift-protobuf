@@ -72,11 +72,19 @@ struct Main {
             msg.Test_extEnumC = .first
             expect(msg.hasTest_extEnumC)
             expect(msg.Test_extEnumC == .first)
+            msg.Test_extRepeatedMessageC = [msg.nestedC]
+            expect(msg.Test_extRepeatedMessageC.count == 1)
+            expect(msg.Test_extRepeatedMessageC[0].id == 12345)
+            msg.Test_extRepeatedEnumC = [.first, .unspecified]
+            expect(msg.Test_extRepeatedEnumC == [.first, .unspecified])
             let bytes = try! msg.serializedData()
             let decoded = try! Test_MessageA(serializedBytes: bytes, extensions: Test_A_Extensions)
             expect(decoded.mapC["key"]?.id == 12345)
             expect(decoded.Test_extMessageC.id == 67890)
             expect(decoded.Test_extEnumC == .first)
+            expect(decoded.Test_extRepeatedMessageC.count == 1)
+            expect(decoded.Test_extRepeatedMessageC[0].id == 12345)
+            expect(decoded.Test_extRepeatedEnumC == [.first, .unspecified])
 
             // Test oneof equality
             var msg1 = Test_MessageA()
@@ -144,64 +152,86 @@ struct Main {
 
         do {
             // This test ensures that even without `MessageB` being linked into
-            // the binary, decoding, hazzer behavior, and encoding all
-            // round-trip correctly.
+            // the binary, decoding, hazzer behavior, and encoding for singular
+            // and repeated message fields and extensions all round-trip correctly.
 
             // Field 1 (title): "Hello" (tag 0x0A, len 5, "Hello")
             // Field 2 (nested_b): tag 0x12, len 2, payload [0x08, 0x64] (id: 100)
-            let rawBytes = Data([0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x12, 0x02, 0x08, 0x64])
-            let decoded = try! Test_MessageA(serializedBytes: rawBytes)
+            // Field 100 (ext_message): tag [0xA2, 0x06], len 2, payload [0x08, 0x64] (id: 100)
+            // Field 102 (ext_repeated_message): tag [0xB2, 0x06], len 2, payload [0x08, 0x65] (id: 101)
+            let rawBytes = Data([
+                0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F,
+                0x12, 0x02, 0x08, 0x64,
+                0xA2, 0x06, 0x02, 0x08, 0x64,
+                0xB2, 0x06, 0x02, 0x08, 0x65,
+            ])
+            let decoded = try! Test_MessageA(serializedBytes: rawBytes, extensions: Test_A_Extensions)
             expect(decoded.hasTitle)
             expect(decoded.title == "Hello")
             expect(decoded.hasNestedB)
+            expect(decoded.hasTest_extMessage)
             expect(!decoded.hasNestedC)
+            expect(!decoded.hasTest_extMessageC)
 
             // Re-serializing should preserve the exact original bytes including
-            // the `nested_b` payload.
+            // the `nested_b`, `ext_message`, and `ext_repeated_message` payloads.
             let reserialized = try! decoded.serializedData()
             expect(reserialized == rawBytes)
 
             // Copy-on-write test: copying decoded message and mutating title
             var copy = decoded
             expect(copy.hasNestedB)
+            expect(copy.hasTest_extMessage)
             copy.title = "World"
             expect(copy.title == "World")
             expect(decoded.title == "Hello")
-            // Invoking the hazzer here ensures that the placeholder message is
-            // working as expected. If it returns false but the check of the
+            // Invoking the hazzers here ensures that the placeholder messages are
+            // working as expected. If they return false but the check of the
             // reserialized bytes above succeeded, that means the submessage
             // data was placed in the parent message's unknown fields, which is
             // incorrect.
             //
-            // NOTE: We must ONLY use the hazzer here. Accessing `nestedB`
-            // directly would pull it into the linkage.
+            // NOTE: We must ONLY use the hazzers here. Accessing `nestedB` or
+            // `Test_extMessage` directly would pull `MessageB` into the linkage.
             expect(copy.hasNestedB)
+            expect(copy.hasTest_extMessage)
 
             let copyBytes = try! copy.serializedData()
-            let expectedCopyBytes = Data([0x0A, 0x05, 0x57, 0x6F, 0x72, 0x6C, 0x64, 0x12, 0x02, 0x08, 0x64])
+            let expectedCopyBytes = Data([
+                0x0A, 0x05, 0x57, 0x6F, 0x72, 0x6C, 0x64,
+                0x12, 0x02, 0x08, 0x64,
+                0xA2, 0x06, 0x02, 0x08, 0x64,
+                0xB2, 0x06, 0x02, 0x08, 0x65,
+            ])
             expect(copyBytes == expectedCopyBytes)
         }
 
         do {
             // This test ensures that even without `EnumB` being linked into
             // the binary, decoding, hazzer behavior, and encoding for singular
-            // and repeated enums all round-trip correctly.
+            // and repeated enums (including extensions) all round-trip correctly.
             //
             // Field 1 (title): "Hello" (tag 0x0A, len 5, "Hello")
             // Field 3 (nested_enum): tag 0x18, varint 1 (ENUM_B_FIRST)
             // Field 6 (repeated_enum_b): tag 0x30, varint 1; tag 0x30, varint 2
             // Field 8 (oneof_enum_b): tag 0x40, varint 1
+            // Field 101 (ext_enum): tag [0xA8, 0x06], varint 1
+            // Field 103 (ext_repeated_enum): tag [0xB8, 0x06], varint 1; tag [0xB8, 0x06], varint 2
             let rawBytes = Data([
                 0x0A, 0x05, 0x48, 0x65, 0x6C, 0x6C, 0x6F,
                 0x18, 0x01,
                 0x30, 0x01, 0x30, 0x02,
                 0x40, 0x01,
+                0xA8, 0x06, 0x01,
+                0xB8, 0x06, 0x01, 0xB8, 0x06, 0x02,
             ])
-            let decoded = try! Test_MessageA(serializedBytes: rawBytes)
+            let decoded = try! Test_MessageA(serializedBytes: rawBytes, extensions: Test_A_Extensions)
             expect(decoded.hasTitle)
             expect(decoded.title == "Hello")
             expect(decoded.hasNestedEnum)
+            expect(decoded.hasTest_extEnum)
             expect(!decoded.hasNestedEnumC)
+            expect(!decoded.hasTest_extEnumC)
 
             // Re-serializing should preserve the exact original bytes.
             let reserialized = try! decoded.serializedData()
@@ -210,10 +240,12 @@ struct Main {
             // Copy-on-write test: mutating decoded message
             var copy = decoded
             expect(copy.hasNestedEnum)
+            expect(copy.hasTest_extEnum)
             copy.title = "World"
             expect(copy.title == "World")
             expect(decoded.title == "Hello")
             expect(copy.hasNestedEnum)
+            expect(copy.hasTest_extEnum)
 
             let copyBytes = try! copy.serializedData()
             let expectedCopyBytes = Data([
@@ -221,6 +253,8 @@ struct Main {
                 0x18, 0x01,
                 0x30, 0x01, 0x30, 0x02,
                 0x40, 0x01,
+                0xA8, 0x06, 0x01,
+                0xB8, 0x06, 0x01, 0xB8, 0x06, 0x02,
             ])
             expect(copyBytes == expectedCopyBytes)
         }

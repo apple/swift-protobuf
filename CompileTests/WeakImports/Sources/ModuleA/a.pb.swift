@@ -232,6 +232,16 @@ nonisolated extension Test_MessageA {
   /// Subsequent reads from it will return its default value.
   public mutating func clearTest_extEnum() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum) }
 
+  public var Test_extRepeatedMessage: [ModuleB.Test_MessageB] {
+    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_repeated_message, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_repeated_message, to: newValue) }
+  }
+
+  public var Test_extRepeatedEnum: [ModuleB.Test_EnumB] {
+    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_repeated_enum, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_repeated_enum, to: newValue) }
+  }
+
   public var Test_extMessageC: ModuleC.Test_MessageC {
     get { _protobuf_extensionStorage().messageValue(of: Test_Extensions_ext_message_c) }
     set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_message_c, to: newValue) }
@@ -254,6 +264,16 @@ nonisolated extension Test_MessageA {
   /// Subsequent reads from it will return its default value.
   public mutating func clearTest_extEnumC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_enum_c) }
 
+  public var Test_extRepeatedMessageC: [ModuleC.Test_MessageC] {
+    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_repeated_message_c, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_repeated_message_c, to: newValue) }
+  }
+
+  public var Test_extRepeatedEnumC: [ModuleC.Test_EnumC] {
+    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_repeated_enum_c, default: []) }
+    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_repeated_enum_c, to: newValue) }
+  }
+
 }
 
 // MARK: - File's ExtensionMap: Test_A_Extensions
@@ -264,8 +284,12 @@ nonisolated extension Test_MessageA {
 public nonisolated let Test_A_Extensions: SwiftProtobuf.ExtensionMap = [
   Test_Extensions_ext_message,
   Test_Extensions_ext_enum,
+  Test_Extensions_ext_repeated_message,
+  Test_Extensions_ext_repeated_enum,
   Test_Extensions_ext_message_c,
-  Test_Extensions_ext_enum_c
+  Test_Extensions_ext_enum_c,
+  Test_Extensions_ext_repeated_message_c,
+  Test_Extensions_ext_repeated_enum_c
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -282,13 +306,33 @@ public nonisolated let Test_Extensions_ext_enum = SwiftProtobuf.ExtensionSchema(
   extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
   )
 
+public nonisolated let Test_Extensions_ext_repeated_message = SwiftProtobuf.ExtensionSchema(
+  schema: "\0f\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}\u{19}\0test.ext_repeated_message",
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+  )
+
+public nonisolated let Test_Extensions_ext_repeated_enum = SwiftProtobuf.ExtensionSchema(
+  schema: "\0g\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}\u{16}\0test.ext_repeated_enum",
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+  )
+
 public nonisolated let Test_Extensions_ext_message_c = SwiftProtobuf.ExtensionSchema(
-  schema: "\0f\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{12}\0test.ext_message_c",
+  schema: "\0h\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{12}\0test.ext_message_c",
   extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
   )
 
 public nonisolated let Test_Extensions_ext_enum_c = SwiftProtobuf.ExtensionSchema(
-  schema: "\0g\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{f}\0test.ext_enum_c",
+  schema: "\0i\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{f}\0test.ext_enum_c",
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+  )
+
+public nonisolated let Test_Extensions_ext_repeated_message_c = SwiftProtobuf.ExtensionSchema(
+  schema: "\0j\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0test.ext_repeated_message_c",
+  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+  )
+
+public nonisolated let Test_Extensions_ext_repeated_enum_c = SwiftProtobuf.ExtensionSchema(
+  schema: "\0k\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}\u{18}\0test.ext_repeated_enum_c",
   extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
   )
 
