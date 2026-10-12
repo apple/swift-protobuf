@@ -190,13 +190,6 @@ extension ExtensionStorage {
         return Value(rawValue: Int(stored.value(as: Int32.self)))!
     }
 
-    /// Returns the array value of the given repeated message extension, or the empty array if it is
-    /// not set.
-    @_alwaysEmitIntoClient @inline(__always)
-    public func value<Element>(of ext: ExtensionSchema, default: [Element] = []) -> [Element] {
-        values[ext.field.fieldNumber]?.value(as: [Element].self) ?? `default`
-    }
-
     /// Returns the value of the given message extension, or the default value if it is not set.
     @_alwaysEmitIntoClient @inline(__always)
     public func value<Value>(of ext: ExtensionSchema, default: Value) -> Value {

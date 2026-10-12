@@ -56,16 +56,8 @@ import Foundation
         self.storage = storage
     }
 
-    /// Creates a new extension storage value for the given repeated field value.
-    @_alwaysEmitIntoClient @inline(__always)
-    init<Element>(schema: ExtensionSchema, value: [Element]) {
-        self.schema = schema
-        let typedStorage = UnsafeMutablePointer<[Element]>.allocate(capacity: 1)
-        typedStorage.initialize(to: value)
-        self.storage = UInt64(UInt(bitPattern: typedStorage))
-    }
-
-    /// Creates a new extension storage value for the given non-POD value (string, data).
+    /// Creates a new extension storage value for the given non-POD value (string, data, repeated
+    /// fields).
     @_alwaysEmitIntoClient @inline(__always)
     init<Value>(schema: ExtensionSchema, value: Value) {
         self.schema = schema
@@ -149,12 +141,6 @@ import Foundation
         return withUnsafeBytes(of: &storage) { storageBuffer in
             storageBuffer.load(as: Value.self)
         }
-    }
-
-    /// Returns the array value of the extension field.
-    @_alwaysEmitIntoClient @inline(__always)
-    func value<Element>(as type: [Element].Type) -> [Element] {
-        UnsafePointer<[Element]>(bitPattern: Int(truncatingIfNeeded: Int64(bitPattern: storage)))!.pointee
     }
 
     /// Returns the value of the extension field, assuming it is a heap-allocated non-POD type.
