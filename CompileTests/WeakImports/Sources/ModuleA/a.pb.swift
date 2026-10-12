@@ -222,8 +222,8 @@ nonisolated extension Test_MessageA {
   public mutating func clearTest_extMessage() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message) }
 
   public var Test_extEnum: ModuleB.Test_EnumB {
-    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_enum, default: .unspecified) }
-    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_enum, to: newValue) }
+    get { _protobuf_extensionStorage().enumValue(of: Test_Extensions_ext_enum, default: .unspecified) }
+    set { _protobuf_uniqueExtensionStorage().updateEnumValue(of: Test_Extensions_ext_enum, to: newValue) }
   }
   /// Returns true if extension `Test_Extensions_ext_enum`
   /// has been explicitly set.
@@ -244,8 +244,8 @@ nonisolated extension Test_MessageA {
   public mutating func clearTest_extMessageC() { _protobuf_uniqueExtensionStorage().clearValue(of: Test_Extensions_ext_message_c) }
 
   public var Test_extEnumC: ModuleC.Test_EnumC {
-    get { _protobuf_extensionStorage().value(of: Test_Extensions_ext_enum_c, default: .unspecified) }
-    set { _protobuf_uniqueExtensionStorage().updateValue(of: Test_Extensions_ext_enum_c, to: newValue) }
+    get { _protobuf_extensionStorage().enumValue(of: Test_Extensions_ext_enum_c, default: .unspecified) }
+    set { _protobuf_uniqueExtensionStorage().updateEnumValue(of: Test_Extensions_ext_enum_c, to: newValue) }
   }
   /// Returns true if extension `Test_Extensions_ext_enum_c`
   /// has been explicitly set.

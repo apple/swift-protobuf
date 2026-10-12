@@ -66,9 +66,17 @@ struct Main {
 
             msg.mapC["key"] = msg.nestedC
             expect(msg.mapC["key"]?.id == 12345)
+            msg.Test_extMessageC.id = 67890
+            expect(msg.hasTest_extMessageC)
+            expect(msg.Test_extMessageC.id == 67890)
+            msg.Test_extEnumC = .first
+            expect(msg.hasTest_extEnumC)
+            expect(msg.Test_extEnumC == .first)
             let bytes = try! msg.serializedData()
-            let decoded = try! Test_MessageA(serializedBytes: bytes)
+            let decoded = try! Test_MessageA(serializedBytes: bytes, extensions: Test_A_Extensions)
             expect(decoded.mapC["key"]?.id == 12345)
+            expect(decoded.Test_extMessageC.id == 67890)
+            expect(decoded.Test_extEnumC == .first)
 
             // Test oneof equality
             var msg1 = Test_MessageA()

@@ -222,6 +222,46 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
+    func test_enumExtensions() throws {
+        var m = SwiftProtoTesting_TestAllExtensions()
+        XCTAssertFalse(m.hasSwiftProtoTesting_optionalNestedEnumExtension)
+        XCTAssertEqual(m.SwiftProtoTesting_optionalNestedEnumExtension, .foo)
+
+        m.SwiftProtoTesting_optionalNestedEnumExtension = .baz
+        XCTAssertTrue(m.hasSwiftProtoTesting_optionalNestedEnumExtension)
+        XCTAssertEqual(m.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
+
+        m.SwiftProtoTesting_repeatedNestedEnumExtension = [.foo, .bar, .neg]
+        XCTAssertEqual(m.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+
+        let encoded: [UInt8] = try m.serializedBytes()
+        let decodedFromBytes = try SwiftProtoTesting_TestAllExtensions(
+            serializedBytes: encoded,
+            extensions: extensions
+        )
+        XCTAssertEqual(decodedFromBytes, m)
+        XCTAssertEqual(decodedFromBytes.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
+        XCTAssertEqual(decodedFromBytes.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+
+        let text = m.textFormatString()
+        let decodedFromText = try SwiftProtoTesting_TestAllExtensions(
+            textFormatString: text,
+            extensions: extensions
+        )
+        XCTAssertEqual(decodedFromText, m)
+        XCTAssertEqual(decodedFromText.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
+        XCTAssertEqual(decodedFromText.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+
+        let json = try m.jsonString()
+        let decodedFromJSON = try SwiftProtoTesting_TestAllExtensions(
+            jsonString: json,
+            extensions: extensions
+        )
+        XCTAssertEqual(decodedFromJSON, m)
+        XCTAssertEqual(decodedFromJSON.SwiftProtoTesting_optionalNestedEnumExtension, .baz)
+        XCTAssertEqual(decodedFromJSON.SwiftProtoTesting_repeatedNestedEnumExtension, [.foo, .bar, .neg])
+    }
+
     ///
     /// Verify group extensions and handling of unknown groups
     ///

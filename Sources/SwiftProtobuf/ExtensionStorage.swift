@@ -170,10 +170,50 @@ extension ExtensionStorage {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
     }
 
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: Enum>(of ext: ExtensionSchema, default: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return `default`
+        }
+        return Value(rawValue: Int(stored.value(as: Int32.self)))!
+    }
+
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func value<Value: Enum & BitwiseCopyable>(of ext: ExtensionSchema, default: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return `default`
+        }
+        return Value(rawValue: Int(stored.value(as: Int32.self)))!
+    }
+
     /// Returns the value of the given message extension, or the default value if it is not set.
     @_alwaysEmitIntoClient @inline(__always)
     public func value<Value>(of ext: ExtensionSchema, default: Value) -> Value {
         values[ext.field.fieldNumber]?.value(as: Value.self) ?? `default`
+    }
+
+    /// Returns the protobuf enum value of the given message extension, or the default value if it
+    /// is not set.
+    ///
+    /// This overload is used when weak imports are enabled; it initializes the enum using its
+    /// witness table rather than calling `Value(rawValue:)` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func enumValue<Value: Enum>(of ext: ExtensionSchema, default defaultValue: Value) -> Value {
+        guard let stored = values[ext.field.fieldNumber] else {
+            return defaultValue
+        }
+        let rawValue = stored.value(as: Int32.self)
+        return withUnsafeTemporaryAllocation(of: Value.self, capacity: 1) { buffer in
+            ext.enumSchema.invokeWitness(
+                .enumInitialize(rawValue: rawValue, pointer: buffer.baseAddress!)
+            )
+            return buffer.baseAddress!.move()
+        }
     }
 
     /// Returns the submessage value of the given message extension, or the default value if it is
@@ -212,6 +252,36 @@ extension ExtensionStorage {
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Value: BitwiseCopyable>(of ext: ExtensionSchema, to newValue: Value) {
         values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: newValue)
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: Enum>(of ext: ExtensionSchema, to newValue: Value) {
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateValue<Value: Enum & BitwiseCopyable>(of ext: ExtensionSchema, to newValue: Value) {
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+    }
+
+    /// Updates the protobuf enum value of the given message extension.
+    ///
+    /// This function is used when weak imports are enabled; it extracts the raw value using its
+    /// witness table rather than calling `newValue.rawValue` directly, avoiding strong references to
+    /// weakly imported enum types.
+    @_alwaysEmitIntoClient @inline(__always)
+    public func updateEnumValue<Value: Enum>(of ext: ExtensionSchema, to newValue: Value) {
+        var rawValue: Int32 = 0
+        withUnsafePointer(to: newValue) { pointer in
+            withUnsafeMutablePointer(to: &rawValue) { result in
+                ext.enumSchema.invokeWitness(
+                    .enumGetRawValue(pointer: pointer, result: result)
+                )
+            }
+        }
+        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: rawValue)
     }
 
     /// Updates the value of the given message extension.

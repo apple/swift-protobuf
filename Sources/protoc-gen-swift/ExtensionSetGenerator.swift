@@ -175,15 +175,23 @@ class ExtensionSetGenerator {
             )
             let isSingularMessage =
                 !fieldDescriptor.isRepeated && (fieldDescriptor.type == .message || fieldDescriptor.type == .group)
+            let isSingularEnum =
+                !fieldDescriptor.isRepeated && fieldDescriptor.type == .enum
             let getCall: String
+            let setCall: String
             if isSingularMessage && generatorOptions.experimentalWeakImports {
                 getCall = "messageValue(of: \(swiftFullExtensionName))"
+                setCall = "updateValue(of: \(swiftFullExtensionName), to: newValue)"
+            } else if isSingularEnum && generatorOptions.experimentalWeakImports {
+                getCall = "enumValue(of: \(swiftFullExtensionName), default: \(defaultValue))"
+                setCall = "updateEnumValue(of: \(swiftFullExtensionName), to: newValue)"
             } else {
                 getCall = "value(of: \(swiftFullExtensionName), default: \(defaultValue))"
+                setCall = "updateValue(of: \(swiftFullExtensionName), to: newValue)"
             }
             p.printIndented(
                 "get { _protobuf_extensionStorage().\(getCall) }",
-                "set { _protobuf_uniqueExtensionStorage().updateValue(of: \(swiftFullExtensionName), to: newValue) }"
+                "set { _protobuf_uniqueExtensionStorage().\(setCall) }"
             )
             p.print("}")
 
