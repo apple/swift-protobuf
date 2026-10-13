@@ -43,6 +43,15 @@ struct SwiftGeneratorPlugin: CodeGenerator {
                 throw GenerationError.message(message: fullError)
             }
             try generatorOutputs.add(fileName: fileGenerator.outputFilename, contents: printer.content)
+
+            // If weak imports are enabled, also generate the `.pbschema.swift` files that allow us
+            // to preserve schema information when reflection is used while still stripping the rest
+            // of the type definitions.
+            if options.experimentalWeakImports {
+                var schemaPrinter = CodePrinter(addNewlines: true)
+                fileGenerator.generateOutputSchemaFile(printer: &schemaPrinter)
+                try generatorOutputs.add(fileName: fileGenerator.outputSchemaFilename, contents: schemaPrinter.content)
+            }
         }
     }
 

@@ -24,7 +24,14 @@ class FileGenerator {
     private let namer: SwiftProtobufNamer
 
     var outputFilename: String {
-        let ext = ".pb.swift"
+        outputFilename(withExtension: ".pb.swift")
+    }
+
+    var outputSchemaFilename: String {
+        outputFilename(withExtension: ".pbschema.swift")
+    }
+
+    private func outputFilename(withExtension ext: String) -> String {
         let pathParts = splitPath(pathname: fileDescriptor.name)
         switch generatorOptions.outputNaming {
         case .fullPath:
@@ -50,20 +57,7 @@ class FileGenerator {
         )
     }
 
-    /// Generate, if `errorString` gets filled in, then report error instead of using
-    /// what written into `printer`.
-    func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
-        guard
-            fileDescriptor.options.swiftPrefix.isEmpty
-                || isValidSwiftIdentifier(
-                    fileDescriptor.options.swiftPrefix,
-                    allowQuoted: false
-                )
-        else {
-            errorString =
-                "\(fileDescriptor.name) has an 'swift_prefix' that isn't a valid Swift identifier (\(fileDescriptor.options.swiftPrefix))."
-            return
-        }
+    private func generateFileHeader(printer p: inout CodePrinter) {
         p.print(
             """
             // DO NOT EDIT.
@@ -109,6 +103,24 @@ class FileGenerator {
                 p.print(comments, newlines: !comments.hasSuffix("\n\n"))
             }
         }
+    }
+
+    /// Generate, if `errorString` gets filled in, then report error instead of using
+    /// what written into `printer`.
+    func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
+        guard
+            fileDescriptor.options.swiftPrefix.isEmpty
+                || isValidSwiftIdentifier(
+                    fileDescriptor.options.swiftPrefix,
+                    allowQuoted: false
+                )
+        else {
+            errorString =
+                "\(fileDescriptor.name) has an 'swift_prefix' that isn't a valid Swift identifier (\(fileDescriptor.options.swiftPrefix))."
+            return
+        }
+
+        generateFileHeader(printer: &p)
 
         let fileDefinesTypes =
             !fileDescriptor.enums.isEmpty || !fileDescriptor.messages.isEmpty || !fileDescriptor.extensions.isEmpty
@@ -231,6 +243,99 @@ class FileGenerator {
             for m in messages {
                 m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
             }
+        }
+    }
+
+    func generateOutputSchemaFile(printer p: inout CodePrinter) {
+        // IMPORTANT: This file must only contain top-level constants and functions. It must
+        // never declare any nominal types or protocol conformances (including
+        // `_GeneratedWithProtocGenSwiftVersion`), nor reference the generated Swift types in
+        // `.pb.swift`. Declaring types or conformances causes the Swift compiler to emit
+        // `no_dead_strip` sections (`__swift5_types`, `__swift5_proto`), which would act as
+        // linker roots and prevent `-dead_strip` from stripping unused schemas in binary-only
+        // builds or pulling in `.pb.o` when only schemas are needed.
+        generateFileHeader(printer: &p)
+
+        let fileDefinesSchemas =
+            !fileDescriptor.enums.isEmpty || !fileDescriptor.messages.isEmpty
+
+        if fileDescriptor.isBundledProto {
+            p.print(
+                "// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime."
+            )
+        } else if fileDefinesSchemas {
+            p.print(
+                "@_spi(ForGeneratedCodeOnly) \(generatorOptions.importDirective.snippet) \(namer.swiftProtobufModuleName)"
+            )
+        }
+
+        guard fileDefinesSchemas else {
+            p.print("// This file contained no messages or enums.")
+            return
+        }
+
+        let extensionSet =
+            ExtensionSetGenerator(
+                fileDescriptor: fileDescriptor,
+                generatorOptions: generatorOptions,
+                namer: namer
+            )
+        extensionSet.add(extensionFields: fileDescriptor.extensions)
+
+        let enums = fileDescriptor.enums.map {
+            EnumGenerator.makeEnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
+        }
+
+        let messages = fileDescriptor.messages.map {
+            MessageGenerator(
+                descriptor: $0,
+                generatorOptions: generatorOptions,
+                namer: namer,
+                extensionSet: extensionSet
+            )
+        }
+
+        // Collect all proto full names defined in this file so `live_support` stubs know
+        // whether a referenced submessage/enum reflection thunk is local (`__<sym>`) or
+        // external (`__extern_<sym>`).
+        var definedProtoFullNames = Set<String>()
+        for e in enums {
+            definedProtoFullNames.insert(e.protoFullName)
+        }
+        for m in messages {
+            m.collectDefinedProtoFullNames(into: &definedProtoFullNames)
+        }
+
+        var externalReflectionSymbols = Set<String>()
+
+        // Generate schema strings, reflection data strings, `EnumSchema`/`MessageSchema`
+        // instances, and dynamic lookup / `live_support` thunks for all enums and messages.
+        for e in enums {
+            e.generateSchemaFileContent(printer: &p)
+        }
+        for m in messages {
+            m.generateSchemaFileContent(
+                printer: &p,
+                extensionSet: extensionSet,
+                definedProtoFullNames: definedProtoFullNames,
+                externalReflectionSymbols: &externalReflectionSymbols
+            )
+        }
+
+        // Emit `@_silgen_name` forward declarations for `_getReflection` thunks of types
+        // defined in other files that are referenced by this file's `live_support` stubs.
+        if !externalReflectionSymbols.isEmpty {
+            p.print(
+                "",
+                "#if canImport(Darwin)"
+            )
+            for sym in externalReflectionSymbols.sorted() {
+                p.print(
+                    "@_silgen_name(\"\(sym)\")",
+                    "private func __extern_\(sym)(_ out: UnsafeMutableRawPointer)"
+                )
+            }
+            p.print("#endif")
         }
     }
 

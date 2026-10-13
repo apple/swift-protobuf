@@ -196,6 +196,11 @@ class MessageGenerator {
                 "",
                 "\(visibility)init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }"
             )
+            if descriptor.fullName == "swift_protobuf.ImplicitWeakMessage" {
+                p.print(
+                    "\(visibility)init(schema: SwiftProtobuf.MessageSchema) { self._storage = SwiftProtobuf.MessageStorage(schema: schema) }"
+                )
+            }
 
             p.print(
                 "",
@@ -216,36 +221,50 @@ class MessageGenerator {
         p.print("}")
     }
 
-    func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
-        p.print(
-            "",
-            "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
-        )
-        p.withIndentation { p in
-            generateMessageSchema(printer: &p)
-            p.print(
-                "",
-                "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }",
-                ""
-            )
+    func collectDefinedProtoFullNames(into set: inout Set<String>) {
+        set.insert(descriptor.fullName)
+        for e in enums {
+            set.insert(e.protoFullName)
         }
-        p.print("}")
+        for m in messages {
+            m.collectDefinedProtoFullNames(into: &set)
+        }
+    }
 
+    func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
         if generatorOptions.experimentalWeakImports {
             let getterSymbol = namer.dynamicSymbolName(
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMessageSchema"
+            )
+            let witnessSymbol = namer.dynamicSymbolName(
+                forProtoFullName: descriptor.fullName,
+                suffix: "_getMessageWitness"
             )
             let mapWitnessSymbol = namer.dynamicSymbolName(
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMapWitness"
             )
             let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+
             p.print(
                 "",
-                "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
-                "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
-                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = \(swiftFullName).messageSchema",
+                "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
+            )
+            p.withIndentation { p in
+                p.print(
+                    "\(visibility)static let messageSchema = \(namer.swiftProtobufModulePrefix)MessageSchema.resolveGenerated(getter: __\(getterSymbol), witnessThunk: __\(witnessSymbol), mapWitnessThunk: __\(mapWitnessSymbol))",
+                    "",
+                    "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }",
+                    ""
+                )
+            }
+            p.print(
+                "}",
+                "",
+                "\(spiSnippet)@_silgen_name(\"\(witnessSymbol)\")",
+                "\(visibility)func __\(witnessSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(namer.swiftProtobufModulePrefix)MessageWitnesses<\(swiftFullName)>.perform",
                 "}",
                 "",
                 "\(spiSnippet)@_silgen_name(\"\(mapWitnessSymbol)\")",
@@ -253,6 +272,20 @@ class MessageGenerator {
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
             )
+        } else {
+            p.print(
+                "",
+                "nonisolated extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)GeneratedMessage {"
+            )
+            p.withIndentation { p in
+                generateMessageSchema(printer: &p)
+                p.print(
+                    "",
+                    "\(visibility)func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }",
+                    ""
+                )
+            }
+            p.print("}")
         }
 
         // Nested enums and messages
@@ -264,11 +297,145 @@ class MessageGenerator {
         }
     }
 
+    func generateSchemaFileContent(
+        printer p: inout CodePrinter,
+        extensionSet: ExtensionSetGenerator,
+        definedProtoFullNames: Set<String>,
+        externalReflectionSymbols: inout Set<String>
+    ) {
+        let symbolPrefix = namer.dynamicSymbolName(forProtoFullName: descriptor.fullName, suffix: "")
+        let getterSymbol = "\(symbolPrefix)_getMessageSchema"
+        let witnessSymbol = "\(symbolPrefix)_getMessageWitness"
+        let reflectionSymbol = "\(symbolPrefix)_getReflection"
+        let liveSupportSymbol = "\(symbolPrefix)_liveSupport"
+        let submessageOrEnumFields = messageSchemaCalculator.submessageOrEnumFields
+        let resolverArg =
+            submessageOrEnumFields.isEmpty
+            ? ""
+            : ", submessageOrEnumResolver: __\(symbolPrefix)_resolveSubmessageOrEnum"
+        let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+
+        p.print(
+            "",
+            #"private let __\#(symbolPrefix)_schemaString: Swift.StaticString = "\#(messageSchemaCalculator.schemaLiteral)""#,
+            #"private let __\#(symbolPrefix)_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#,
+            "",
+            "#if canImport(Darwin)",
+            "private let __\(symbolPrefix)_schema = \(namer.swiftProtobufModulePrefix)MessageSchema(schema: __\(symbolPrefix)_schemaString, reflectionSymbol: \"\(reflectionSymbol)\", witnessSymbol: \"\(witnessSymbol)\"\(resolverArg), dynamicLookupThunk: __\(getterSymbol))",
+            "#else",
+            "private let __\(symbolPrefix)_schema = \(namer.swiftProtobufModulePrefix)MessageSchema(schema: __\(symbolPrefix)_schemaString, reflection: __\(symbolPrefix)_reflectionData, witnessSymbol: \"\(witnessSymbol)\"\(resolverArg), dynamicLookupThunk: __\(getterSymbol))",
+            "#endif"
+        )
+
+        if !submessageOrEnumFields.isEmpty {
+            let mapPrefix = "__\(symbolPrefix)_"
+            p.print(
+                "",
+                "private func __\(symbolPrefix)_resolveSubmessageOrEnum(for token: \(namer.swiftProtobufModulePrefix)SubmessageOrEnumToken) -> \(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema? {"
+            )
+            p.withIndentation { p in
+                p.print("switch token.index {")
+                for field in submessageOrEnumFields {
+                    generateWeakSubmessageOrEnumResolverCase(for: field, mapNamePrefix: mapPrefix, printer: &p)
+                }
+                p.print(
+                    "default: preconditionFailure(\"invalid submessage/enum token; this is a generator bug\")",
+                    "}"
+                )
+            }
+            p.print("}")
+
+            for field in submessageOrEnumFields {
+                if case .map(let schemaName, _) = field.kind, let entryGenerator = mapEntries[schemaName] {
+                    p.print()
+                    entryGenerator.generateSchema(into: &p, isTopLevel: true, namePrefix: mapPrefix)
+                }
+            }
+        }
+
+        var referencedProtoFullNames = [String]()
+        var seenProtoFullNames: Set<String> = [descriptor.fullName]
+        func addReferencedProtoFullName(_ name: String) {
+            if seenProtoFullNames.insert(name).inserted {
+                referencedProtoFullNames.append(name)
+            }
+        }
+        for field in submessageOrEnumFields {
+            switch field.kind {
+            case .enum(_, let protoFullName), .message(_, let protoFullName):
+                addReferencedProtoFullName(protoFullName)
+            case .map(let schemaName, _):
+                if let entryGenerator = mapEntries[schemaName],
+                    let valueProtoFullName = entryGenerator.referencedValueProtoFullName
+                {
+                    addReferencedProtoFullName(valueProtoFullName)
+                }
+            }
+        }
+        for extProtoFullName in extensionSet.referencedSubmessageAndEnumProtoFullNames(
+            forContainingTypeProtoFullName: descriptor.fullName
+        ) {
+            addReferencedProtoFullName(extProtoFullName)
+        }
+
+        p.print(
+            "",
+            "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
+            "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = __\(symbolPrefix)_schema",
+            "}",
+            "",
+            "#if canImport(Darwin)",
+            "\(spiSnippet)@_silgen_name(\"\(reflectionSymbol)\")",
+            "\(visibility)func __\(reflectionSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __\(symbolPrefix)_reflectionData",
+            "    _ = __\(symbolPrefix)_schema",
+            "}",
+            "",
+            "\(spiSnippet)@section(\"__TEXT,__pb_refl,regular,pure_instructions+live_support\")",
+            "\(visibility)func __\(liveSupportSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.storeBytes(",
+            "        of: \(namer.swiftProtobufModulePrefix)_protobuf_resolveReflection(named:),",
+            "        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self",
+            "    )",
+            "    let p = out.assumingMemoryBound(to: \(namer.swiftProtobufModulePrefix)MessageSchema.DynamicLookupThunk.self)",
+            "    p[1] = __\(reflectionSymbol)"
+        )
+        for (idx, protoFullName) in referencedProtoFullNames.enumerated() {
+            let targetSym = namer.dynamicSymbolName(forProtoFullName: protoFullName, suffix: "_getReflection")
+            if definedProtoFullNames.contains(protoFullName) {
+                p.print("    p[\(idx + 2)] = __\(targetSym)")
+            } else {
+                externalReflectionSymbols.insert(targetSym)
+                p.print("    p[\(idx + 2)] = __extern_\(targetSym)")
+            }
+        }
+        p.print(
+            "}",
+            "#endif"
+        )
+
+        // Nested enums and messages
+        for e in enums {
+            e.generateSchemaFileContent(printer: &p)
+        }
+        for m in messages {
+            m.generateSchemaFileContent(
+                printer: &p,
+                extensionSet: extensionSet,
+                definedProtoFullNames: definedProtoFullNames,
+                externalReflectionSymbols: &externalReflectionSymbols
+            )
+        }
+    }
+
     private func generateMessageSchema(printer p: inout CodePrinter) {
         p.print(
             #"private static let _protobuf_messageSchemaString: Swift.StaticString = "\#(messageSchemaCalculator.schemaLiteral)""#
         )
-        p.print(#"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#)
+        p.print(
+            #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#
+        )
 
         let submessageOrEnumFields = messageSchemaCalculator.submessageOrEnumFields
         p.print()
@@ -276,23 +443,8 @@ class MessageGenerator {
             "\(visibility)static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform",
             newlines: false
         )
-
         if !submessageOrEnumFields.isEmpty {
             p.print(", submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum", newlines: false)
-        }
-        if generatorOptions.experimentalWeakImports {
-            let getterSymbol = namer.dynamicSymbolName(
-                forProtoFullName: descriptor.fullName,
-                suffix: "_getMessageSchema"
-            )
-            let mapWitnessSymbol = namer.dynamicSymbolName(
-                forProtoFullName: descriptor.fullName,
-                suffix: "_getMapWitness"
-            )
-            p.print(
-                ", dynamicLookupThunk: __\(getterSymbol), dynamicMapWitnessThunk: __\(mapWitnessSymbol)",
-                newlines: false
-            )
         }
         p.print(")")
 
@@ -304,11 +456,7 @@ class MessageGenerator {
             p.withIndentation { p in
                 p.print("switch token.index {")
                 for field in submessageOrEnumFields {
-                    if generatorOptions.experimentalWeakImports {
-                        generateWeakSubmessageOrEnumResolverCase(for: field, printer: &p)
-                    } else {
-                        generateStrongSubmessageOrEnumResolverCase(for: field, printer: &p)
-                    }
+                    generateStrongSubmessageOrEnumResolverCase(for: field, printer: &p)
                 }
                 p.print(
                     "default: preconditionFailure(\"invalid submessage/enum token; this is a generator bug\")",
@@ -344,6 +492,7 @@ class MessageGenerator {
 
     private func generateWeakSubmessageOrEnumResolverCase(
         for field: SubmessageOrEnumField,
+        mapNamePrefix: String,
         printer p: inout CodePrinter
     ) {
         switch field.kind {
@@ -358,13 +507,14 @@ class MessageGenerator {
                 "case \(field.index): return \(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
             )
         case .map(let schemaName, let valueKind):
+            let fullSchemaName = "\(mapNamePrefix)\(schemaName)"
             switch valueKind {
             case .message, .enum:
                 p.print(
-                    "case \(field.index): return \(schemaName).map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
+                    "case \(field.index): return \(fullSchemaName).map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
                 )
             case .other:
-                p.print("case \(field.index): return .message(\(schemaName))")
+                p.print("case \(field.index): return .message(\(fullSchemaName))")
             }
         }
     }
