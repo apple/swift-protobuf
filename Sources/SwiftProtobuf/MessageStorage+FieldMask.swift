@@ -263,18 +263,27 @@ extension MessageStorage {
                     let sourceSubstorage = source.messageStorage(forAssumedPresentSingularMessageField: field)
                     let destinationSubstorage = self.uniqueMessageStorage(forSingularMessageField: field)
 
-                    var subPaths: [String] = []
-                    for f in submessageSchema.fields {
-                        if let name = submessageSchema.textName(forFieldNumber: f.fieldNumber) {
-                            subPaths.append(String(decoding: name.buffer, as: UTF8.self))
+                    if submessageSchema === SwiftProtobuf_ImplicitWeakMessage.messageSchema {
+                        // If the weakly-imported submessage's schema was not linked at all, all of
+                        // its wire data lives in `unknownFields` (`submessageSchema.fields` is empty),
+                        // so merge by concatenating the raw wire bytes.
+                        destinationSubstorage.unknownFields.append(
+                            protobufData: sourceSubstorage.unknownFields.data
+                        )
+                    } else {
+                        var subPaths: [String] = []
+                        for f in submessageSchema.fields {
+                            if let name = submessageSchema.textName(forFieldNumber: f.fieldNumber) {
+                                subPaths.append(String(decoding: name.buffer, as: UTF8.self))
+                            }
                         }
+                        let fullSubMask = Google_Protobuf_FieldMask(protoPaths: subPaths)
+                        try destinationSubstorage.merge(
+                            from: sourceSubstorage,
+                            fieldMask: fullSubMask,
+                            mergeOptions: mergeOptions
+                        )
                     }
-                    let fullSubMask = Google_Protobuf_FieldMask(protoPaths: subPaths)
-                    try destinationSubstorage.merge(
-                        from: sourceSubstorage,
-                        fieldMask: fullSubMask,
-                        mergeOptions: mergeOptions
-                    )
                 } else {
                     // If the destination field is not set, copy the source message into the
                     // destination message.
