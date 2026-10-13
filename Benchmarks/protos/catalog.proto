@@ -1,0 +1,251 @@
+syntax = "proto3";
+package benchmarks;
+
+// A library catalog entry. It has ~80 fields for bibliographic data, physical
+// attributes, acquisition info, circulation state and digital resources.
+message CatalogEntry {
+    // Identity.
+    int64 id = 1;
+    string isbn = 2;
+    string isbn13 = 3;
+    string oclc_number = 4;
+
+    // Classification.
+    MediaType media_type = 5;
+    MediaSubtypes media_subtypes = 6;
+    CatalogStatus catalog_status = 7;
+
+    // Bibliographic metadata.
+    string title = 8;
+    string subtitle = 9;
+    string uniform_title = 10;
+    string summary = 11;
+    string publisher = 12;
+
+    // Timestamps.
+    int64 created_at = 13;
+    int64 modified_at = 14;
+    int64 acquired_at = 15;
+    int64 deaccessioned_at = 16;
+
+    // Publication details.
+    string imprint = 17;
+    string edition_statement = 18;
+    string series_title = 19;
+    bool is_first_edition = 20;
+    BindingType binding_type = 21;
+    PrintMethod print_method = 22;
+    int32 publication_year = 23;
+    double list_price = 24;
+    double replacement_cost = 25;
+    double insurance_value = 26;
+    double weight_kg = 27;
+    double spine_width_mm = 28;
+
+    // Physical dimensions.
+    string language_code = 29;
+    double page_count = 30;
+    double illustration_count = 31;
+    double font_size_pt = 32;
+    double trim_width_mm = 33;
+    double trim_height_mm = 34;
+    int64 word_count = 35;
+    int32 volume_number = 36;
+
+    // Dimensions.
+    PhysicalDimensions shelf_size = 37;
+    PhysicalDimensions shipping_size = 38;
+    double aspect_ratio = 39;
+
+    // Digital resource references.
+    bytes cover_image_ref = 40;
+    bytes preview_pdf_ref = 41;
+    int64 primary_shelf_id = 42;
+    int64 overflow_shelf_id = 43;
+    bool is_digital_only = 44;
+    string primary_format = 45;
+    string alternate_format = 46;
+    uint64 file_size_bytes = 47;
+
+    // Circulation state.
+    bool is_reference_only = 48;
+    Condition condition = 49;
+    CirculationState circulation_state = 50;
+    RetentionPolicy retention_policy = 51;
+
+    // Grouping.
+    string series_id = 52;
+    string collection_id = 53;
+    double sort_order = 54;
+    bool is_series_primary = 55;
+    int64 series_entry_date = 56;
+    string set_id = 57;
+    bool is_set_primary = 58;
+
+    // Digitization state.
+    DigitizationState digitization_state = 59;
+    int64 digitized_at = 60;
+    string digitization_profile_id = 61;
+    bytes digitization_metadata = 62;
+
+    // Location.
+    GeoCoordinate branch_location = 63;
+    GeoCoordinate origin_location = 64;
+
+    // Cataloging assessment.
+    CatalogAssessment assessment = 65;
+
+    // Extended MARC data blob.
+    bytes marc_record = 66;
+
+    // Subject headings and classifications (repeated and map).
+    repeated string subject_headings = 67;
+    repeated int32 dewey_sections = 68;
+    map<string, string> local_call_numbers = 69;
+    map<string, ReviewNote> review_notes = 70;
+
+    // Material flags.
+    bool is_large_print = 71;
+    bool is_illustrated = 72;
+    bool is_graphic_novel = 73;
+    bool is_audiobook = 74;
+    bool has_companion_disc = 75;
+    bool is_bilingual = 76;
+    bool is_braille = 77;
+
+    // Provenance.
+    ProvenanceRecord provenance = 78;
+    string barcode = 79;
+    string checksum = 80;
+}
+
+// --- Nested messages ---
+
+message MediaSubtypes {
+    bool illustrated = 1;
+    bool large_print = 2;
+    bool graphic_novel = 3;
+    bool audiobook = 4;
+    bool companion_disc = 5;
+    bool bilingual = 6;
+    bool braille = 7;
+    bool e_book = 8;
+    bool microform = 9;
+}
+
+message PhysicalDimensions {
+    int32 width_mm = 1;
+    int32 height_mm = 2;
+    int32 depth_mm = 3;
+}
+
+message GeoCoordinate {
+    double latitude = 1;
+    double longitude = 2;
+    double altitude = 3;
+    double accuracy = 4;
+}
+
+message CatalogAssessment {
+    repeated AssessmentFlag flags = 1;
+    bool damaged = 2;
+    bool missing_pages = 3;
+    bool foxing = 4;
+    bool water_damage = 5;
+    bool binding_loose = 6;
+    double condition_score = 7;
+    bytes assessment_photo = 8;
+}
+
+message ReviewNote {
+    string reviewer_id = 1;
+    string body = 2;
+    int64 reviewed_at = 3;
+    GeoCoordinate branch = 4;
+}
+
+message ProvenanceRecord {
+    string donor_id = 1;
+    AcquisitionMethod method = 2;
+    int64 predecessor_item_id = 3;
+}
+
+// --- Enums ---
+
+enum MediaType {
+    MEDIA_TYPE_UNKNOWN = 0;
+    MEDIA_TYPE_BOOK = 1;
+    MEDIA_TYPE_PERIODICAL = 2;
+    MEDIA_TYPE_AV_MATERIAL = 3;
+}
+
+enum CatalogStatus {
+    CATALOG_STATUS_UNKNOWN = 0;
+    CATALOG_STATUS_ACTIVE = 1;
+    CATALOG_STATUS_ON_ORDER = 2;
+    CATALOG_STATUS_IN_PROCESSING = 3;
+    CATALOG_STATUS_WITHDRAWN = 4;
+    CATALOG_STATUS_LOST = 5;
+}
+
+enum BindingType {
+    BINDING_UNKNOWN = 0;
+    BINDING_HARDCOVER = 1;
+    BINDING_PAPERBACK = 2;
+    BINDING_SPIRAL = 3;
+    BINDING_SADDLE_STITCH = 4;
+    BINDING_PERFECT = 5;
+}
+
+enum PrintMethod {
+    PRINT_UNKNOWN = 0;
+    PRINT_OFFSET = 1;
+    PRINT_DIGITAL = 2;
+    PRINT_LETTERPRESS = 3;
+    PRINT_SCREEN = 4;
+    PRINT_RISOGRAPH = 5;
+    PRINT_OTHER = 6;
+}
+
+enum Condition {
+    CONDITION_UNSET = 0;
+    CONDITION_NEW = 1;
+    CONDITION_GOOD = 2;
+    CONDITION_FAIR = 3;
+    CONDITION_POOR = 4;
+    CONDITION_DAMAGED = 5;
+}
+
+enum CirculationState {
+    CIRCULATION_AVAILABLE = 0;
+    CIRCULATION_CHECKED_OUT = 1;
+    CIRCULATION_ON_HOLD = 2;
+}
+
+enum RetentionPolicy {
+    RETENTION_PERMANENT = 0;
+    RETENTION_REVIEW = 1;
+    RETENTION_DEACCESSION = 2;
+}
+
+enum DigitizationState {
+    DIGITIZATION_NONE = 0;
+    DIGITIZATION_QUEUED = 1;
+    DIGITIZATION_COMPLETE = 2;
+}
+
+enum AcquisitionMethod {
+    ACQUISITION_UNKNOWN = 0;
+    ACQUISITION_PURCHASE = 1;
+    ACQUISITION_DONATION = 2;
+    ACQUISITION_TRANSFER = 3;
+}
+
+enum AssessmentFlag {
+    ASSESSMENT_UNKNOWN = 0;
+    ASSESSMENT_FRAGILE = 1;
+    ASSESSMENT_RARE = 2;
+    ASSESSMENT_ARCHIVAL = 3;
+    ASSESSMENT_RESTRICTED = 4;
+    ASSESSMENT_OVERSIZED = 5;
+}
