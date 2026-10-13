@@ -58,7 +58,7 @@ public final class EnumSchema: @unchecked Sendable {
 
     /// Creates a new enum schema from the given values.
     @_spi(ForGeneratedCodeOnly)
-    public init(
+    public convenience init(
         schema: StaticString,
         reflection: StaticString,
         invokeWitness: @escaping InvokeWitnessFunction,
@@ -66,17 +66,93 @@ public final class EnumSchema: @unchecked Sendable {
         dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
     ) {
         precondition(
-            schema.hasPointerRepresentation,
-            "The schema string should have a pointer-based representation; this is a generator bug"
+            reflection.hasPointerRepresentation,
+            "The reflection string should have a pointer-based representation; this is a generator bug"
         )
+        self.init(
+            schema: schema,
+            reflection: .compressed(reflection.rawBufferPointer),
+            invokeWitness: invokeWitness,
+            dynamicLookupThunk: dynamicLookupThunk,
+            dynamicMapWitnessThunk: dynamicMapWitnessThunk
+        )
+    }
+
+    /// Creates a new enum schema from the given values, resolving the reflection table lazily
+    /// by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflectionSymbol: StaticString,
+        invokeWitness: @escaping InvokeWitnessFunction,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .unloaded(reflectionSymbol),
+            invokeWitness: invokeWitness,
+            dynamicLookupThunk: dynamicLookupThunk,
+            dynamicMapWitnessThunk: dynamicMapWitnessThunk
+        )
+    }
+
+    /// Creates a new enum schema from the given values, resolving the witness function
+    /// dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflection: StaticString,
+        witnessSymbol: StaticString,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
         precondition(
             reflection.hasPointerRepresentation,
             "The reflection string should have a pointer-based representation; this is a generator bug"
         )
+        self.init(
+            schema: schema,
+            reflection: .compressed(reflection.rawBufferPointer),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+
+    /// Creates a new enum schema from the given values, resolving the reflection table and
+    /// witness function dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflectionSymbol: StaticString,
+        witnessSymbol: StaticString,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .unloaded(reflectionSymbol),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+
+    private init(
+        schema: StaticString,
+        reflection: ReflectionTable.State,
+        invokeWitness: InvokeWitnessFunction?,
+        dynamicLookupThunk: DynamicLookupThunk? = nil,
+        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
+    ) {
+        precondition(
+            schema.hasPointerRepresentation,
+            "The schema string should have a pointer-based representation; this is a generator bug"
+        )
         let schemaBuffer = schema.rawBufferPointer
         self.schema = schemaBuffer
-        self.reflection = .compressed(reflection.rawBufferPointer)
-        self.invokeWitness = invokeWitness
+        self.reflection = reflection
+        // If this schema belongs to a weakly-imported enum whose concrete Swift type and
+        // witness table (`.pb.o`) were dead-stripped, use `SwiftProtobuf_ImplicitWeakEnum`
+        // as a layout-compatible stand-in.
+        self.invokeWitness = invokeWitness ?? EnumWitnesses<SwiftProtobuf_ImplicitWeakEnum>.perform
 
         // Referencing the thunks forces them to be retained by the compiler if the schema
         // itself is retained; see the comments in `WeakLinkageSupport.swift` for more details.
