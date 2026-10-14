@@ -112,51 +112,41 @@ class EnumGenerator {
         fatalError("Must be implemented by subclass")
     }
 
-    func generateRuntimeSupport(printer p: inout CodePrinter) {
-        p.print(
-            "",
-            "nonisolated extension \(swiftFullName) {"
-        )
-        p.withIndentation { p in
-            p.print(
-                #"private static let _protobuf_enumSchemaString: Swift.StaticString = "\#(enumSchemaCalculator.schemaLiteral)""#,
-                #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#
-            )
-            if generatorOptions.experimentalWeakImports {
-                let getterSymbol = namer.dynamicSymbolName(
-                    forProtoFullName: enumDescriptor.fullName,
-                    suffix: "_getEnumSchema"
-                )
-                let mapWitnessSymbol = namer.dynamicSymbolName(
-                    forProtoFullName: enumDescriptor.fullName,
-                    suffix: "_getMapWitness"
-                )
-                p.print(
-                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform, dynamicLookupThunk: __\(getterSymbol), dynamicMapWitnessThunk: __\(mapWitnessSymbol))"
-                )
-            } else {
-                p.print(
-                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
-                )
-            }
-        }
-        p.print("}")
+    var protoFullName: String {
+        enumDescriptor.fullName
+    }
 
+    func generateRuntimeSupport(printer p: inout CodePrinter) {
         if generatorOptions.experimentalWeakImports {
             let getterSymbol = namer.dynamicSymbolName(
                 forProtoFullName: enumDescriptor.fullName,
                 suffix: "_getEnumSchema"
+            )
+            let witnessSymbol = namer.dynamicSymbolName(
+                forProtoFullName: enumDescriptor.fullName,
+                suffix: "_getEnumWitness"
             )
             let mapWitnessSymbol = namer.dynamicSymbolName(
                 forProtoFullName: enumDescriptor.fullName,
                 suffix: "_getMapWitness"
             )
             let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+
             p.print(
                 "",
-                "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
-                "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
-                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = \(swiftFullName).enumSchema",
+                "nonisolated extension \(swiftFullName) {"
+            )
+            p.withIndentation { p in
+                p.print(
+                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema.resolveGenerated(getter: __\(getterSymbol), witnessThunk: __\(witnessSymbol), mapWitnessThunk: __\(mapWitnessSymbol))"
+                )
+            }
+            p.print(
+                "}",
+                "",
+                "\(spiSnippet)@_silgen_name(\"\(witnessSymbol)\")",
+                "\(visibility)func __\(witnessSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema.InvokeWitnessFunction?).self).pointee = \(namer.swiftProtobufModulePrefix)EnumWitnesses<\(swiftFullName)>.perform",
                 "}",
                 "",
                 "\(spiSnippet)@_silgen_name(\"\(mapWitnessSymbol)\")",
@@ -164,7 +154,64 @@ class EnumGenerator {
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
             )
+        } else {
+            p.print(
+                "",
+                "nonisolated extension \(swiftFullName) {"
+            )
+            p.withIndentation { p in
+                p.print(
+                    #"private static let _protobuf_enumSchemaString: Swift.StaticString = "\#(enumSchemaCalculator.schemaLiteral)""#,
+                    #"private static let _protobuf_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#,
+                    "\(visibility)static let enumSchema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)"
+                )
+            }
+            p.print("}")
         }
+    }
+
+    func generateSchemaFileContent(printer p: inout CodePrinter) {
+        let symbolPrefix = namer.dynamicSymbolName(forProtoFullName: enumDescriptor.fullName, suffix: "")
+        let getterSymbol = "\(symbolPrefix)_getEnumSchema"
+        let witnessSymbol = "\(symbolPrefix)_getEnumWitness"
+        let reflectionSymbol = "\(symbolPrefix)_getReflection"
+        let liveSupportSymbol = "\(symbolPrefix)_liveSupport"
+        let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+
+        p.print(
+            "",
+            #"private let __\#(symbolPrefix)_schemaString: Swift.StaticString = "\#(enumSchemaCalculator.schemaLiteral)""#,
+            #"private let __\#(symbolPrefix)_reflectionData: Swift.StaticString = "\#(compressedReflectionData)""#,
+            "",
+            "#if canImport(Darwin)",
+            "private let __\(symbolPrefix)_schema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: __\(symbolPrefix)_schemaString, reflectionSymbol: \"\(reflectionSymbol)\", witnessSymbol: \"\(witnessSymbol)\", dynamicLookupThunk: __\(getterSymbol))",
+            "#else",
+            "private let __\(symbolPrefix)_schema = \(namer.swiftProtobufModulePrefix)EnumSchema(schema: __\(symbolPrefix)_schemaString, reflection: __\(symbolPrefix)_reflectionData, witnessSymbol: \"\(witnessSymbol)\", dynamicLookupThunk: __\(getterSymbol))",
+            "#endif",
+            "",
+            "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
+            "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)EnumSchema?).self).pointee = __\(symbolPrefix)_schema",
+            "}",
+            "",
+            "#if canImport(Darwin)",
+            "\(spiSnippet)@_silgen_name(\"\(reflectionSymbol)\")",
+            "\(visibility)func __\(reflectionSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __\(symbolPrefix)_reflectionData",
+            "    _ = __\(symbolPrefix)_schema",
+            "}",
+            "",
+            "\(spiSnippet)@section(\"__TEXT,__pb_refl,regular,pure_instructions+live_support\")",
+            "\(visibility)func __\(liveSupportSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "    out.storeBytes(",
+            "        of: \(namer.swiftProtobufModulePrefix)_protobuf_resolveReflection(named:),",
+            "        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self",
+            "    )",
+            "    let p = out.assumingMemoryBound(to: \(namer.swiftProtobufModulePrefix)EnumSchema.DynamicLookupThunk.self)",
+            "    p[1] = __\(reflectionSymbol)",
+            "}",
+            "#endif"
+        )
     }
 
     /// Iterates over the cases in the protobuf enum and generates the appropriate cases or static

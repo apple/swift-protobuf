@@ -145,7 +145,7 @@ public final class MessageSchema: @unchecked Sendable {
     @_spi(ForGeneratedCodeOnly)
     public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
 
-    @_spi(ForGeneratedCodeOnly) public let invokeWitness: InvokeWitnessFunction
+    @_spi(ForGeneratedCodeOnly) public private(set) var invokeWitness: InvokeWitnessFunction
 
     let submessageOrEnumResolver: SubmessageOrEnumResolver
 
@@ -243,6 +243,86 @@ public final class MessageSchema: @unchecked Sendable {
         )
     }
 
+    /// Creates a new message schema and submessage operations from the given values,
+    /// resolving the witness function dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflection: StaticString,
+        witnessSymbol: StaticString,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .compressed(reflection.rawBufferPointer),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            submessageOrEnumResolver: submessageOrEnumResolver,
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+
+    /// Creates a new message schema from the given schema string, resolving the witness function
+    /// dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflection: StaticString,
+        witnessSymbol: StaticString,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .compressed(reflection.rawBufferPointer),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            submessageOrEnumResolver: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+
+    #if canImport(Darwin)
+    /// Creates a new message schema and submessage operations from the given values,
+    /// resolving the reflection table and witness function dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflectionSymbol: StaticString,
+        witnessSymbol: StaticString,
+        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .unloaded(reflectionSymbol),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            submessageOrEnumResolver: submessageOrEnumResolver,
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+
+    /// Creates a new message schema from the given schema string, resolving the reflection table
+    /// and witness function dynamically by symbol name.
+    @_spi(ForGeneratedCodeOnly)
+    public convenience init(
+        schema: StaticString,
+        reflectionSymbol: StaticString,
+        witnessSymbol: StaticString,
+        dynamicLookupThunk: DynamicLookupThunk? = nil
+    ) {
+        self.init(
+            schema: schema,
+            reflection: .unloaded(reflectionSymbol),
+            invokeWitness: Self.resolveLazyWitness(named: witnessSymbol),
+            submessageOrEnumResolver: { _ in
+                preconditionFailure("This should have been unreachable; this is a generator bug")
+            },
+            dynamicLookupThunk: dynamicLookupThunk
+        )
+    }
+    #endif
+
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is neither a message nor an enum.
     @_spi(ForGeneratedCodeOnly)
@@ -323,7 +403,7 @@ public final class MessageSchema: @unchecked Sendable {
     private init(
         schema: StaticString,
         reflection: ReflectionTable.State,
-        invokeWitness: @escaping InvokeWitnessFunction,
+        invokeWitness: InvokeWitnessFunction?,
         submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
         dynamicLookupThunk: DynamicLookupThunk? = nil,
         dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
@@ -335,8 +415,15 @@ public final class MessageSchema: @unchecked Sendable {
         let schemaBuffer = schema.rawBufferPointer
         self.schema = schemaBuffer
         self.reflection = reflection
-        self.invokeWitness = invokeWitness
+        // Use a placeholder if nil so all stored properties are initialized before
+        // `self` is captured by the fallback closure below.
+        self.invokeWitness = invokeWitness ?? { _ in }
         self.submessageOrEnumResolver = submessageOrEnumResolver
+
+        // Referencing the thunks forces them to be retained by the compiler if the schema
+        // itself is retained; see the comments in `WeakLinkageSupport.swift` for more details.
+        _ = dynamicLookupThunk
+        _ = dynamicMapWitnessThunk
 
         let firstNontrivialOffset =
             fixed3ByteBase128(in: schemaBuffer, atByteOffset: 1) & ~(Int(ExtensibilityMode.bitMask) << 14)
@@ -421,6 +508,37 @@ public final class MessageSchema: @unchecked Sendable {
         self.storageSize = computedSize
         self.packedBucketOffsetsLo = packedBucketOffsetsLo
         self.packedBucketOffsetsHi = packedBucketOffsetsHi
+
+        if invokeWitness == nil {
+            // If this schema belongs to a weakly-imported message whose concrete Swift type
+            // and witness table (`.pb.o`) were dead-stripped, use `SwiftProtobuf_ImplicitWeakMessage`
+            // as a layout-compatible wrapper around `MessageStorage`.
+            //
+            // `.messageInitialize` and `.arrayAppendNew` are handled specially so that new
+            // storage instances are bound to `self` (the real message schema and reflection
+            // table) rather than `SwiftProtobuf_ImplicitWeakMessage`'s empty schema; all
+            // other operations act on the existing `MessageStorage` and can delegate directly.
+            self.invokeWitness = { [unowned(unsafe) self] operation in
+                switch operation {
+                case .messageInitialize(let pointer, let result):
+                    let messagePointer = pointer.bindMemory(
+                        to: SwiftProtobuf_ImplicitWeakMessage.self,
+                        capacity: 1
+                    )
+                    messagePointer.initialize(to: SwiftProtobuf_ImplicitWeakMessage(schema: self))
+                    result.pointee = Unmanaged.passUnretained(messagePointer.pointee.storageForRuntime)
+                case .arrayAppendNew(let pointer, let result):
+                    let arrayPointer = pointer.bindMemory(
+                        to: [SwiftProtobuf_ImplicitWeakMessage].self,
+                        capacity: 1
+                    )
+                    arrayPointer.pointee.append(SwiftProtobuf_ImplicitWeakMessage(schema: self))
+                    result.pointee = Unmanaged.passUnretained(arrayPointer.pointee.last!.storageForRuntime)
+                default:
+                    MessageWitnesses<SwiftProtobuf_ImplicitWeakMessage>.perform(operation)
+                }
+            }
+        }
 
         precondition(version == 0, "This runtime only supports version 0 message schemas")
         precondition(

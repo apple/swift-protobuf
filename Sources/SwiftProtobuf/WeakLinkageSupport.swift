@@ -90,6 +90,29 @@ package final class DynamicSymbolCache: @unchecked Sendable {
 }
 
 extension MessageSchema {
+    /// Resolves the message schema for a generated message type via its getter thunk,
+    /// while retaining the concrete witness and map witness thunks when the nominal
+    /// type's `.pb.o` object file is linked.
+    @_spi(ForGeneratedCodeOnly)
+    @inline(never)
+    public static func resolveGenerated(
+        getter: DynamicLookupThunk,
+        witnessThunk: DynamicLookupThunk,
+        mapWitnessThunk: DynamicMapWitnessThunk
+    ) -> MessageSchema {
+        // Packing `witnessThunk` and `mapWitnessThunk` into the stack tuple passed by
+        // pointer to the indirect `getter` call prevents Function Signature Optimization
+        // from stripping those parameters while `getter` writes the resolved schema to
+        // offset 0 (`context.0`).
+        var context: (MessageSchema?, DynamicLookupThunk, DynamicMapWitnessThunk) = (
+            nil, witnessThunk, mapWitnessThunk
+        )
+        withUnsafeMutablePointer(to: &context) { pointer in
+            getter(pointer)
+        }
+        return context.0!
+    }
+
     /// Dynamically looks up a message schema based on the name of a generated
     /// accessor function.
     ///
@@ -102,6 +125,22 @@ extension MessageSchema {
         var schema: MessageSchema? = nil
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema
+    }
+
+    /// Dynamically looks up a message witness function based on the name of a generated
+    /// accessor function.
+    ///
+    /// Returns nil if the symbol is not found (i.e., if it has been dropped by the
+    /// linker).
+    @_spi(ForGeneratedCodeOnly)
+    public static func resolveLazyWitness(named symbolName: StaticString) -> InvokeWitnessFunction? {
+        guard symbolName.utf8CodeUnitCount > 0 else { return nil }
+        let name = symbolName.withUTF8Buffer { String(decoding: $0, as: UTF8.self) }
+        guard let symbol = DynamicSymbolCache.shared.lookup(named: name) else { return nil }
+        let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
+        var witness: InvokeWitnessFunction? = nil
+        withUnsafeMutablePointer(to: &witness) { witnessPointer in resolver(witnessPointer) }
+        return witness
     }
 
     /// Dynamically looks up a map witness function based on the name of a generated
@@ -131,9 +170,14 @@ extension MessageSchema {
         mapWitnessNamed witnessSymbol: String,
         messageSchemaNamed schemaSymbol: String
     ) -> MessageSchema? {
-        forMapEntry(
+        let invokeWitness =
+            resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind)
+            ?? (resolveLazy(named: schemaSymbol) != nil
+                ? SwiftProtobuf_ImplicitWeakMessage._protobuf_mapWitness(for: keyKind)
+                : nil)
+        return forMapEntry(
             schema: schema,
-            invokeWitness: resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind),
+            invokeWitness: invokeWitness,
             submessageOrEnumResolver: { token in
                 guard token.index == 1 else {
                     preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -151,9 +195,14 @@ extension MessageSchema {
         mapWitnessNamed witnessSymbol: String,
         enumSchemaNamed schemaSymbol: String
     ) -> MessageSchema? {
-        forMapEntry(
+        let invokeWitness =
+            resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind)
+            ?? (EnumSchema.resolveLazy(named: schemaSymbol) != nil
+                ? SwiftProtobuf_ImplicitWeakEnum._protobuf_mapWitness(for: keyKind)
+                : nil)
+        return forMapEntry(
             schema: schema,
-            invokeWitness: resolveLazyMapWitness(named: witnessSymbol, keyKind: keyKind),
+            invokeWitness: invokeWitness,
             submessageOrEnumResolver: { token in
                 guard token.index == 1 else {
                     preconditionFailure("This should have been unreachable; this is a generator bug")
@@ -165,6 +214,29 @@ extension MessageSchema {
 }
 
 extension EnumSchema {
+    /// Resolves the enum schema for a generated enum type via its getter thunk,
+    /// while retaining the concrete witness and map witness thunks when the nominal
+    /// type's `.pb.o` object file is linked.
+    @_spi(ForGeneratedCodeOnly)
+    @inline(never)
+    public static func resolveGenerated(
+        getter: DynamicLookupThunk,
+        witnessThunk: DynamicLookupThunk,
+        mapWitnessThunk: DynamicMapWitnessThunk
+    ) -> EnumSchema {
+        // Packing `witnessThunk` and `mapWitnessThunk` into the stack tuple passed by
+        // pointer to the indirect `getter` call prevents Function Signature Optimization
+        // from stripping those parameters while `getter` writes the resolved schema to
+        // offset 0 (`context.0`).
+        var context: (EnumSchema?, DynamicLookupThunk, DynamicMapWitnessThunk) = (
+            nil, witnessThunk, mapWitnessThunk
+        )
+        withUnsafeMutablePointer(to: &context) { pointer in
+            getter(pointer)
+        }
+        return context.0!
+    }
+
     /// Dynamically looks up an enum schema based on the name of a generated
     /// accessor function.
     ///
@@ -178,4 +250,44 @@ extension EnumSchema {
         withUnsafeMutablePointer(to: &schema) { schemaPointer in resolver(schemaPointer) }
         return schema
     }
+
+    /// Dynamically looks up an enum witness function based on the name of a generated
+    /// accessor function.
+    ///
+    /// Returns nil if the symbol is not found (i.e., if it has been dropped by the
+    /// linker).
+    @_spi(ForGeneratedCodeOnly)
+    public static func resolveLazyWitness(named symbolName: StaticString) -> InvokeWitnessFunction? {
+        guard symbolName.utf8CodeUnitCount > 0 else { return nil }
+        let name = symbolName.withUTF8Buffer { String(decoding: $0, as: UTF8.self) }
+        guard let symbol = DynamicSymbolCache.shared.lookup(named: name) else { return nil }
+        let resolver = unsafeBitCast(symbol, to: DynamicLookupThunk.self)
+        var witness: InvokeWitnessFunction? = nil
+        withUnsafeMutablePointer(to: &witness) { witnessPointer in resolver(witnessPointer) }
+        return witness
+    }
 }
+
+#if canImport(Darwin)
+/// Dynamically looks up the compressed reflection data string based on the name of a
+/// generated accessor function.
+///
+/// On Darwin, generated `live_support` stubs in `.pbschema.swift` reference both this
+/// function and their type's `_getReflection` thunk by storing their function pointers
+/// into an output buffer. Under `-dead_strip`, those `live_support` stubs (and the
+/// reflection thunks they reference) are retained if and only if this function is live
+/// in the binary.
+@_spi(ForGeneratedCodeOnly)
+@inline(never)
+public func _protobuf_resolveReflection(named symbolName: StaticString) -> StaticString? {
+    guard symbolName.utf8CodeUnitCount > 0 else { return nil }
+    let name = symbolName.withUTF8Buffer { String(decoding: $0, as: UTF8.self) }
+    guard let symbol = DynamicSymbolCache.shared.lookup(named: name) else { return nil }
+    let resolver = unsafeBitCast(symbol, to: MessageSchema.DynamicLookupThunk.self)
+    var reflection: StaticString? = nil
+    withUnsafeMutablePointer(to: &reflection) { reflectionPointer in
+        resolver(reflectionPointer)
+    }
+    return reflection
+}
+#endif

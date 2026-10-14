@@ -49,7 +49,8 @@ mkdir -p "${BUILD_DIR}"
 
 if [ "${SKIP_BUILD_RUNTIME}" = false ]; then
   echo "==> Building SwiftProtobuf runtime..."
-  "${SWIFT}" build --package-path "${REPO_ROOT}" -c release --product SwiftProtobuf
+  "${SWIFT}" build --package-path "${REPO_ROOT}" -c release --product SwiftProtobuf \
+    -Xswiftc -Xfrontend -Xswiftc -internalize-at-link
 fi
 SWIFT_BIN_DIR="$("${SWIFT}" build --package-path "${REPO_ROOT}" -c release --show-bin-path)"
 
@@ -69,48 +70,41 @@ SWIFT_FRONTEND_FLAGS=(
 
 echo "==> Compiling ModuleB..."
 "${SWIFTC}" -O -parse-as-library \
+  -working-directory "${BUILD_DIR}" \
   -module-name ModuleB \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleB.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
   "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleB/b.pb.swift" \
-  -o "${BUILD_DIR}/ModuleB.o"
-ar cr "${BUILD_DIR}/libModuleB.a" "${BUILD_DIR}/ModuleB.o"
+     "${SCRIPT_DIR}/Sources/ModuleB/b.pbschema.swift"
+ar cr "${BUILD_DIR}/libModuleB.a" "${BUILD_DIR}/b.pb.o" "${BUILD_DIR}/b.pbschema.o"
 ranlib "${BUILD_DIR}/libModuleB.a"
 
 echo "==> Compiling ModuleC..."
 "${SWIFTC}" -O -parse-as-library \
+  -working-directory "${BUILD_DIR}" \
   -module-name ModuleC \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleC.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
   "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleC/c.pb.swift" \
-  -o "${BUILD_DIR}/ModuleC.o"
-ar cr "${BUILD_DIR}/libModuleC.a" "${BUILD_DIR}/ModuleC.o"
+     "${SCRIPT_DIR}/Sources/ModuleC/c.pbschema.swift"
+ar cr "${BUILD_DIR}/libModuleC.a" "${BUILD_DIR}/c.pb.o" "${BUILD_DIR}/c.pbschema.o"
 ranlib "${BUILD_DIR}/libModuleC.a"
 
 echo "==> Compiling ModuleA..."
 "${SWIFTC}" -O -parse-as-library \
+  -working-directory "${BUILD_DIR}" \
   -module-name ModuleA \
   -emit-module -emit-module-path "${BUILD_DIR}/ModuleA.swiftmodule" \
   "${SWIFT_INCLUDES[@]}" \
   -I "${BUILD_DIR}" \
   "${SWIFT_FRONTEND_FLAGS[@]}" \
   -c "${SCRIPT_DIR}/Sources/ModuleA/a.pb.swift" \
-  -o "${BUILD_DIR}/ModuleA.o"
-ar cr "${BUILD_DIR}/libModuleA.a" "${BUILD_DIR}/ModuleA.o"
+     "${SCRIPT_DIR}/Sources/ModuleA/a.pbschema.swift"
+ar cr "${BUILD_DIR}/libModuleA.a" "${BUILD_DIR}/a.pb.o" "${BUILD_DIR}/a.pbschema.o"
 ranlib "${BUILD_DIR}/libModuleA.a"
 
-echo "==> Compiling Client..."
-"${SWIFTC}" -O -parse-as-library \
-  -module-name Client \
-  "${SWIFT_INCLUDES[@]}" \
-  -I "${BUILD_DIR}" \
-  "${SWIFT_FRONTEND_FLAGS[@]}" \
-  -c "${SCRIPT_DIR}/Sources/Client/Client.swift" \
-  -o "${BUILD_DIR}/Client.o"
-
-echo "==> Linking Client..."
 OS="$(uname -s)"
 LINK_FLAGS=()
 if [ "$OS" = "Darwin" ]; then
@@ -158,23 +152,42 @@ LINK_LIBS=(
   "${SWIFT_PROTOBUF_LIB}"
 )
 
-"${SWIFTC}" "${BUILD_DIR}/Client.o" \
-  "${LINK_LIBS[@]}" \
-  "${LINK_FLAGS[@]}" \
-  -o "${BUILD_DIR}/Client"
+CLIENTS=(
+  "Client"
+  "TextFormatClient"
+  "JSONClient"
+  "FieldMaskClient"
+)
 
-echo "==> Running Client..."
-"${BUILD_DIR}/Client"
+for CLIENT in "${CLIENTS[@]}"; do
+  echo "==> Compiling ${CLIENT}..."
+  "${SWIFTC}" -O -parse-as-library \
+    -module-name "${CLIENT}" \
+    "${SWIFT_INCLUDES[@]}" \
+    -I "${BUILD_DIR}" \
+    "${SWIFT_FRONTEND_FLAGS[@]}" \
+    -c "${SCRIPT_DIR}/Sources/${CLIENT}/${CLIENT}.swift" \
+    -o "${BUILD_DIR}/${CLIENT}.o"
 
-echo "==> Verifying symbols..."
-set +e
-python3 "${SCRIPT_DIR}/check_symbols.py" \
-  --binary "${BUILD_DIR}/Client" \
-  --check-file "${SCRIPT_DIR}/Sources/Client/Client.swift"
-SYMBOL_CHECK_STATUS=$?
-set -e
+  echo "==> Linking ${CLIENT}..."
+  "${SWIFTC}" "${BUILD_DIR}/${CLIENT}.o" \
+    "${LINK_LIBS[@]}" \
+    "${LINK_FLAGS[@]}" \
+    -o "${BUILD_DIR}/${CLIENT}"
 
-if [ $SYMBOL_CHECK_STATUS -ne 0 ]; then
-  echo "⚠️ Symbol check exited with status ${SYMBOL_CHECK_STATUS}."
-  exit $SYMBOL_CHECK_STATUS
-fi
+  echo "==> Running ${CLIENT}..."
+  "${BUILD_DIR}/${CLIENT}"
+
+  echo "==> Verifying symbols in ${CLIENT}..."
+  set +e
+  python3 "${SCRIPT_DIR}/check_symbols.py" \
+    --binary "${BUILD_DIR}/${CLIENT}" \
+    --check-file "${SCRIPT_DIR}/Sources/${CLIENT}/${CLIENT}.swift"
+  SYMBOL_CHECK_STATUS=$?
+  set -e
+
+  if [ $SYMBOL_CHECK_STATUS -ne 0 ]; then
+    echo "⚠️ Symbol check for ${CLIENT} exited with status ${SYMBOL_CHECK_STATUS}."
+    exit $SYMBOL_CHECK_STATUS
+  fi
+done

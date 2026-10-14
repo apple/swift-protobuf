@@ -271,6 +271,14 @@ struct Main {
         // of types in ModuleB (in proto package "test", matching functions such as
         // `test_DMessageB_getMessageSchema` and `test_DEnumB_getMapWitness`):
         //   HAS-SYMBOL-NOT: {{_?test_D.*B_.*}}
+        //
+        // Since this client only performs binary serialization and never accesses
+        // reflection tables (TextFormat, JSON, FieldMask, etc.), all reflection
+        // lookup symbols and live_support stubs should be stripped on Darwin (and
+        // are not emitted on ELF):
+        //   HAS-SYMBOL-NOT: {{.*_protobuf_resolveReflection.*}}
+        //   HAS-SYMBOL-NOT: {{_?test_D.*_getReflection.*}}
+        //   HAS-SYMBOL-NOT: {{.*_liveSupport.*}}
 
         print("✅ All tests passed!")
     }

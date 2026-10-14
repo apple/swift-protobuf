@@ -242,6 +242,24 @@ class ExtensionSetGenerator {
         }
     }
 
+    /// Returns the proto full names of all submessage and enum types referenced by extension
+    /// fields in this file that extend `containingType`, so `containingType`'s `.pbschema.swift`
+    /// `live_support` stub can retain their reflection and schema symbols when reflection is used.
+    func referencedSubmessageAndEnumProtoFullNames(
+        forContainingTypeProtoFullName containingType: String
+    ) -> [String] {
+        var result = [String]()
+        for e in extensions where e.fieldDescriptor.containingType.fullName == containingType {
+            switch e.submessageOrEnumReference {
+            case .message(_, let protoFullName), .enum(_, let protoFullName):
+                result.append(protoFullName)
+            case .map, nil:
+                break
+            }
+        }
+        return result
+    }
+
     func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
         guard !extensions.isEmpty else { return }
 

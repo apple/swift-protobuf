@@ -72,9 +72,23 @@ class MapEntryGenerator {
         valueParticipantType = participantTypeName(for: valueDescriptor, namer: namer)
     }
 
-    func generateSchema(into printer: inout CodePrinter) {
+    var referencedValueProtoFullName: String? {
+        let valueDescriptor = descriptor.mapKeyAndValue!.value
+        switch valueDescriptor.type {
+        case .group, .message:
+            return valueDescriptor.messageType!.fullName
+        case .enum:
+            return valueDescriptor.enumType!.fullName
+        default:
+            return nil
+        }
+    }
+
+    func generateSchema(into printer: inout CodePrinter, isTopLevel: Bool = false, namePrefix: String = "") {
+        let declKeyword = isTopLevel ? "private let" : "private static let"
+        let fullSchemaName = "\(namePrefix)\(entrySchemaName)"
         printer.print(
-            #"private static let \#(entrySchemaName)_string: Swift.StaticString = "\#(entrySchemaCalculator.schemaLiteral)""#
+            #"\#(declKeyword) \#(fullSchemaName)_string: Swift.StaticString = "\#(entrySchemaCalculator.schemaLiteral)""#
         )
         let keyDescriptor = descriptor.mapKeyAndValue!.key
         let valueDescriptor = descriptor.mapKeyAndValue!.value
@@ -104,7 +118,7 @@ class MapEntryGenerator {
                         suffix: "_getMessageSchema"
                     )
                     printer.print(
-                        "private static let \(entrySchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(entrySchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", messageSchemaNamed: \"\(schemaSymbol)\")"
+                        "\(declKeyword) \(fullSchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(fullSchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", messageSchemaNamed: \"\(schemaSymbol)\")"
                     )
                     return
 
@@ -119,7 +133,7 @@ class MapEntryGenerator {
                         suffix: "_getEnumSchema"
                     )
                     printer.print(
-                        "private static let \(entrySchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(entrySchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", enumSchemaNamed: \"\(schemaSymbol)\")"
+                        "\(declKeyword) \(fullSchemaName) = \(namer.swiftProtobufModulePrefix)MessageSchema.forLazyMapEntry(schema: \(fullSchemaName)_string, keyKind: \(keyKind), mapWitnessNamed: \"\(witnessSymbol)\", enumSchemaNamed: \"\(schemaSymbol)\")"
                     )
                     return
 
@@ -129,8 +143,13 @@ class MapEntryGenerator {
             }
         }
 
+        let modulePrefix = isTopLevel ? namer.swiftProtobufModulePrefix : "SwiftProtobuf."
+        let qualifiedKeyType =
+            isTopLevel ? "\(namer.swiftProtobufModulePrefix)\(keyParticipantType)" : keyParticipantType
+        let qualifiedValueType =
+            isTopLevel ? "\(namer.swiftProtobufModulePrefix)\(valueParticipantType)" : valueParticipantType
         printer.print(
-            "private static let \(entrySchemaName) = SwiftProtobuf.MessageSchema(schema: \(entrySchemaName)_string, forMapEntryWithKeyType: \(keyParticipantType).self, valueType: \(valueParticipantType).self)"
+            "\(declKeyword) \(fullSchemaName) = \(modulePrefix)MessageSchema(schema: \(fullSchemaName)_string, forMapEntryWithKeyType: \(qualifiedKeyType).self, valueType: \(qualifiedValueType).self)"
         )
     }
 }

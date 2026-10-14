@@ -213,7 +213,7 @@ extension ProtobufMapKey where Base: Comparable {
 /// The proxy type for submessage map values.
 @_spi(ForGeneratedCodeOnly) public struct ProtobufMapMessageField<M: GeneratedMessage>: ProtobufMapParticipant {
     public static func value(at offset: Int, in storage: MessageStorage, hasBit: MessageStorage.HasBit) -> M {
-        storage.value(at: offset, default: M(), hasBit: hasBit)
+        storage.messageValue(atIndex: 0, fieldNumber: Int(KnownField.mapEntryValue.number), hasBit: hasBit)
     }
 
     public static func updateValue(

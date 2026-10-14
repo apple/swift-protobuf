@@ -72,10 +72,10 @@ GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
 	-I Protos/Sources/SwiftProtobufPluginLibrary \
 	-I Protos/Sources/protoc-gen-swift
 
-# Helper to remove existing generated .pb.swift files from a directory:
+# Helper to remove existing generated .pb.swift and .pbschema.swift files from a directory:
 #   $(call clean_pb_swift,<dir>)
 define clean_pb_swift
-find $(1) -name "*.pb.swift" -exec rm -f {} \;
+find $(1) \( -name "*.pb.swift" -o -name "*.pbschema.swift" \) -exec rm -f {} \;
 endef
 
 # Helper to clean and regenerate .pb.swift files for a directory:

@@ -70,6 +70,7 @@ nonisolated struct SwiftProtobuf_ImplicitWeakMessage: @unchecked Swift.Sendable 
   // methods supported on all messages.
 
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
+  init(schema: SwiftProtobuf.MessageSchema) { self._storage = SwiftProtobuf.MessageStorage(schema: schema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
   private mutating func _uniqueStorage() -> SwiftProtobuf.MessageStorage {

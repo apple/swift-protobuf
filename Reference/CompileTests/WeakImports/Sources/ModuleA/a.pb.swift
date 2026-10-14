@@ -339,35 +339,16 @@ public nonisolated let Test_Extensions_ext_repeated_enum_c = SwiftProtobuf.Exten
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0 \u{f}\0\0\0\0\0\u{5}\0\0\u{9}\0\0\u{4}\0\0\u{2}\0\0\u{4}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{3}\0\u{b}\u{3}\0\0\0\0\u{14}\0\0\u{2}\0\u{1}\0\u{e}\u{4}\0\0\0\u{4}\0\0 \u{5}\0\u{5}\0\u{b}\u{5}\0\0\0\u{2}\0\0\u{10}\u{6}\0\u{3}\0\u{b}\u{6}\0\0\0\u{2}\u{1}\0\u{10}\u{7}\0\u{1}\0\u{e}\u{7}\0\0\0\0\u{1}\00{\u{7f}\u{3}\0\u{b}\u{8}\0\0\0\0\u{18}\0\0{\u{7f}\u{1}\0\u{e}\u{a}\0\0\0\0\u{2}\00\u{3}\0\u{4}\0\u{b}\u{b}\0\0\0\0\u{1c}\0\0\u{4}\0\u{2}\0\u{e}\u{c}\0\0\0\u{4}\u{1}\0 \u{8}\0\u{6}\0\u{b}\u{d}\0\0\0\u{2}\u{2}\0\u{10}\u{9}\0\u{4}\0\u{b}\u{e}\0\0\0\u{2}\u{3}\0\u{10}\u{a}\0\u{2}\0\u{e}\u{f}\0\0\0\0\u{3}\00w\u{7f}\u{4}\0\u{b}\u{10}\0\0\0\0 \0\0w\u{7f}\u{2}\0\u{e}\u{d}\0test.MessageA"
-  private static let _protobuf_reflectionData: Swift.StaticString = "4\u{5}\0\0 \u{1f}v749=\u{1b} QV\u{1b}'\tsD 1w>\u{12}U\u{2}G{\u{c}\n\rb\u{15}(>VAwBk ;^adf\u{4}n\u{1a}T8KNYs<\u{1}Q`Z5i?fyX\u{19}h31g8Gz\u{2}\u{1b}\u{16}~:vE_,\0F.\u{1a}\u{10}\u{19}Qj\tW@si##\"B\\-\u{1c}LE\u{4}\u{19}B],B\u{5}a+/*\u{1c}e?\u{7f}-ui7c\u{17}\u{18}\u{4}-l3|\u{18}#y\u{1e}[eR'9(\u{4}\u{2}\u{2}V\t(\u{6}p*yd k\u{5}\u{f}Yt\u{1f}.g2 l?K&V\u{1a}e\u{17}@92gGI8U\u{2}\u{15}\u{c}la!'\u{12}6DX\u{13}\u{1c}F\u{17}\u{7}!4'V!;\u{11}B:T.wl\u{17}T6#q1bk5\u{1d}Ex\tS`\u{3}\u{1d}6QFw.+Ea/\u{e}P\u{15}Z-',+A'V#\u{2}c0@!C\u{2}?3\t]<q?H5X7T79K*i\"\u{6}.\u{12}r\u{5}9_3mj6dH\u{7}\u{e}}w|\u{e}\u{15}od\u{2}1\r\u{5}l#V\u{1c}LsXe\u{1a}9I~t\u{15}$\u{1e}\u{5}UuR`\u{16}\u{19}enp~\"5^&'\u{16}S?\0d\0\0\0"
-
-  public static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform, submessageOrEnumResolver: _protobuf_resolveSubmessageOrEnum, dynamicLookupThunk: __test_DMessageA_getMessageSchema, dynamicMapWitnessThunk: __test_DMessageA_getMapWitness)
-
-  private static func _protobuf_resolveSubmessageOrEnum(for token: SwiftProtobuf.SubmessageOrEnumToken) -> SwiftProtobuf.SubmessageOrEnumSchema? {
-    switch token.index {
-    case 1: return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum)
-    case 2: return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum)
-    case 3: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
-    case 4: return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message)
-    case 5: return _protobuf_mapEntrySchema_MapBEntry.map(SwiftProtobuf.SubmessageOrEnumSchema.message)
-    case 6: return _protobuf_mapEntrySchema_MapCEntry.map(SwiftProtobuf.SubmessageOrEnumSchema.message)
-    default: preconditionFailure("invalid submessage/enum token; this is a generator bug")
-    }
-  }
-  private static let _protobuf_mapEntrySchema_MapBEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{17}\0test.MessageA.MapBEntry"
-  private static let _protobuf_mapEntrySchema_MapBEntry = SwiftProtobuf.MessageSchema.forLazyMapEntry(schema: _protobuf_mapEntrySchema_MapBEntry_string, keyKind: .string, mapWitnessNamed: "test_DMessageB_getMapWitness", messageSchemaNamed: "test_DMessageB_getMessageSchema")
-  private static let _protobuf_mapEntrySchema_MapCEntry_string: Swift.StaticString = "\0\u{1}\0@\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\u{1}\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\0\0@\0\0\0\0\u{9}\u{2}\0\0\0\0\0\00\u{1}\0\u{1}\0\u{b}\u{17}\0test.MessageA.MapCEntry"
-  private static let _protobuf_mapEntrySchema_MapCEntry = SwiftProtobuf.MessageSchema.forLazyMapEntry(schema: _protobuf_mapEntrySchema_MapCEntry_string, keyKind: .string, mapWitnessNamed: "test_DMessageC_getMapWitness", messageSchemaNamed: "test_DMessageC_getMessageSchema")
+  public static let messageSchema = SwiftProtobuf.MessageSchema.resolveGenerated(getter: __test_DMessageA_getMessageSchema, witnessThunk: __test_DMessageA_getMessageWitness, mapWitnessThunk: __test_DMessageA_getMapWitness)
 
   public func _protobuf_messageStorage(accessToken: SwiftProtobuf.MessageStorageToken) -> Swift.AnyObject { _storage }
 
 }
 
 @_spi(ForGeneratedCodeOnly)
-@_silgen_name("test_DMessageA_getMessageSchema")
-public func __test_DMessageA_getMessageSchema(_ out: UnsafeMutableRawPointer) {
-    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = Test_MessageA.messageSchema
+@_silgen_name("test_DMessageA_getMessageWitness")
+public func __test_DMessageA_getMessageWitness(_ out: UnsafeMutableRawPointer) {
+    out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = SwiftProtobuf.MessageWitnesses<Test_MessageA>.perform
 }
 
 @_spi(ForGeneratedCodeOnly)

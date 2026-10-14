@@ -53,5 +53,29 @@ let package = Package(
             swiftSettings: swiftSettings,
             linkerSettings: linkerSettings
         ),
+        .executableTarget(
+            name: "TextFormatClient",
+            dependencies: [
+                .target(name: "ModuleA")
+            ],
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
+        ),
+        .executableTarget(
+            name: "JSONClient",
+            dependencies: [
+                .target(name: "ModuleA")
+            ],
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
+        ),
+        .executableTarget(
+            name: "FieldMaskClient",
+            dependencies: [
+                .target(name: "ModuleA")
+            ],
+            swiftSettings: swiftSettings,
+            linkerSettings: linkerSettings
+        ),
     ]
 )

@@ -426,9 +426,13 @@ extension ReflectionTable {
     /// Guards decompression of reflection tables across all message and enum schemas.
     static let decompressionLock = Lock()
 
-    /// The state of a reflection table reference, which is either a pointer to compressed
-    /// data that will be decompressed on demand, or an uncompressed `ReflectionTable`.
+    /// The state of a reflection table reference, which is either the name of a symbol that can
+    /// be dynamically resolved to obtain the compressed data, a pointer to compressed data that
+    /// will be decompressed on demand, or an uncompressed `ReflectionTable`.
     enum State: @unchecked Sendable {
+        #if canImport(Darwin)
+        case unloaded(StaticString)
+        #endif
         case compressed(UnsafeRawBufferPointer)
         case uncompressed(ReflectionTable)
 
@@ -445,6 +449,28 @@ extension ReflectionTable {
                 )
                 self = .uncompressed(decompressed)
                 return decompressed
+            #if canImport(Darwin)
+            case .unloaded(let symbolName):
+                // This is the only reference to `_protobuf_resolveReflection` in the library. If
+                // reflection is used anywhere (i.e., this type and function are not dead-stripped),
+                // that will transitively keep all of the other reflection support symbols alive so
+                // that there is no risk of data loss if the concrete types are not otherwise used.
+                guard let reflection = _protobuf_resolveReflection(named: symbolName) else {
+                    preconditionFailure(
+                        "Failed to resolve reflection data symbol '\(symbolName)'; this is a linker or generator bug"
+                    )
+                }
+                precondition(
+                    reflection.hasPointerRepresentation,
+                    "The reflection string should have a pointer-based representation; this is a generator bug"
+                )
+                let decompressed = ReflectionTable(
+                    fieldCount: fieldCount,
+                    data: Compression.decompress(reflection.rawBufferPointer)
+                )
+                self = .uncompressed(decompressed)
+                return decompressed
+            #endif
             }
         }
     }
