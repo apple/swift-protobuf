@@ -10,7 +10,9 @@
 #      shallow-clones abseil at that commit.
 #   3. Replaces Sources/protobuf/protobuf and Sources/protobuf/abseil with
 #      the subset of files listed in PROTOBUF_PATHS / ABSEIL_PATHS.
-#   4. Updates Sources/protobuf/VERSIONS.json with the new versions.
+#   4. Replaces Sources/protobuf/include with the include/ directory from the
+#      release's prebuilt protoc archive.
+#   5. Updates Sources/protobuf/VERSIONS.json with the new versions.
 #
 # OPTIONS
 #   --protobuf-tag TAG   Protobuf release tag to vendor (default: latest).
@@ -29,12 +31,15 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import zipfile
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.request import urlopen
-from typing import Optional
+from typing import Any, Optional
 
 PROTOBUF_REMOTE = "https://github.com/protocolbuffers/protobuf.git"
+PROTOBUF_RELEASES_API = "https://api.github.com/repos/protocolbuffers/protobuf/releases"
 ABSEIL_REMOTE = "https://github.com/abseil/abseil-cpp.git"
 PROTOBUF_PREFIX = Path("Sources/protobuf/protobuf")
 ABSEIL_PREFIX = Path("Sources/protobuf/abseil")
@@ -129,13 +134,36 @@ def ensure_clean_worktree(allow_dirty: bool) -> None:
         raise CommandError("Working tree is dirty. Commit/stash first, or use --allow-dirty.")
 
 
-def latest_protobuf_release_tag() -> str:
-    with urlopen("https://api.github.com/repos/protocolbuffers/protobuf/releases/latest") as r:
-        data = json.loads(r.read().decode("utf-8"))
-    tag = data.get("tag_name")
-    if not tag:
-        raise CommandError("Failed to detect latest protobuf release tag from GitHub API")
-    return tag
+def fetch_protobuf_release(tag: str = "") -> dict[str, Any]:
+    url = f"{PROTOBUF_RELEASES_API}/tags/{tag}" if tag else f"{PROTOBUF_RELEASES_API}/latest"
+    try:
+        with urlopen(url) as r:
+            data = json.loads(r.read().decode("utf-8"))
+    except HTTPError as e:
+        target = f"tag '{tag}'" if tag else "latest release"
+        raise CommandError(f"Failed to fetch protobuf {target} from GitHub API ({url}): {e}") from e
+    if not data.get("tag_name"):
+        raise CommandError(f"Failed to detect protobuf release tag from GitHub API ({url})")
+    return data
+
+
+def find_protoc_zip_asset_url(release_data: dict[str, Any]) -> str:
+    assets = release_data.get("assets") or []
+    protoc_zips = [
+        asset for asset in assets
+        if asset.get("name", "").startswith("protoc-")
+        and asset.get("name", "").endswith(".zip")
+        and asset.get("browser_download_url")
+    ]
+    if not protoc_zips:
+        tag = release_data.get("tag_name", "<unknown>")
+        raise CommandError(f"No protoc-*.zip release asset found for protobuf {tag}")
+    # Any platform's protoc archive bundles the same include/ directory; prefer
+    # linux-x86_64 for consistency if present, otherwise use the first match.
+    for asset in protoc_zips:
+        if asset["name"].endswith("-linux-x86_64.zip"):
+            return asset["browser_download_url"]
+    return protoc_zips[0]["browser_download_url"]
 
 
 def checkout_shallow(remote: str, ref: str, out_dir: Path) -> None:
@@ -203,61 +231,37 @@ def prune_vendored(prefix: Path, paths: list[str]) -> None:
             git(["rm", "-f", str(target)])
 
 
-# Proto files bundled with protoc releases, mirroring wkt_protos_files and
-# compiler_plugin_protos_files from protobuf's pkg/BUILD.bazel.
-# Each entry is (source_path_in_checkout, dest_path_under_include).
-INCLUDE_PROTOS: list[tuple[str, str]] = [
-    # Well-known types
-    ("src/google/protobuf/any.proto", "google/protobuf/any.proto"),
-    ("src/google/protobuf/api.proto", "google/protobuf/api.proto"),
-    ("src/google/protobuf/duration.proto", "google/protobuf/duration.proto"),
-    ("src/google/protobuf/empty.proto", "google/protobuf/empty.proto"),
-    ("src/google/protobuf/field_mask.proto", "google/protobuf/field_mask.proto"),
-    ("src/google/protobuf/source_context.proto", "google/protobuf/source_context.proto"),
-    ("src/google/protobuf/struct.proto", "google/protobuf/struct.proto"),
-    ("src/google/protobuf/timestamp.proto", "google/protobuf/timestamp.proto"),
-    ("src/google/protobuf/type.proto", "google/protobuf/type.proto"),
-    ("src/google/protobuf/wrappers.proto", "google/protobuf/wrappers.proto"),
-    # Descriptor
-    ("src/google/protobuf/descriptor.proto", "google/protobuf/descriptor.proto"),
-    # Edition feature protos
-    ("src/google/protobuf/cpp_features.proto", "google/protobuf/cpp_features.proto"),
-    ("csharp/google/protobuf/c_sharp_features.proto", "google/protobuf/c_sharp_features.proto"),
-    ("go/google/protobuf/go_features.proto", "google/protobuf/go_features.proto"),
-    ("java/core/src/main/resources/google/protobuf/java_features.proto", "google/protobuf/java_features.proto"),
-    # Compiler plugin
-    ("src/google/protobuf/compiler/plugin.proto", "google/protobuf/compiler/plugin.proto"),
-]
+def build_include_dir(release_data: dict[str, Any], tmp_dir: Path) -> None:
+    """Populate the include/ directory from the release's prebuilt protoc zip archive."""
+    asset_url = find_protoc_zip_asset_url(release_data)
+    zip_path = tmp_dir / "protoc-release.zip"
+    with urlopen(asset_url) as r, open(zip_path, "wb") as out:
+        shutil.copyfileobj(r, out)
 
-# Proto files that may not exist in older protobuf versions.
-INCLUDE_PROTOS_OPTIONAL: list[tuple[str, str]] = [
-    # New in v36
-    ("src/google/protobuf/cpp_file_options.proto", "google/protobuf/cpp_file_options.proto"),
-    ("src/google/protobuf/cpp_options.proto", "google/protobuf/cpp_options.proto"),
-    ("src/google/protobuf/json_enumvalue_options.proto", "google/protobuf/json_enumvalue_options.proto"),
-    ("src/google/protobuf/json_options.proto", "google/protobuf/json_options.proto"),
-]
-
-
-def build_include_dir(protobuf_checkout: Path) -> None:
-    """Build the include/ directory with proto files that protoc ships."""
     if INCLUDE_PREFIX.exists():
         shutil.rmtree(INCLUDE_PREFIX)
     INCLUDE_PREFIX.mkdir(parents=True, exist_ok=True)
-    for src_rel, dst_rel in INCLUDE_PROTOS:
-        src = protobuf_checkout / src_rel
-        dst = INCLUDE_PREFIX / dst_rel
-        if not src.exists():
-            raise CommandError(f"Expected proto file missing from checkout: {src_rel}")
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
-    for src_rel, dst_rel in INCLUDE_PROTOS_OPTIONAL:
-        src = protobuf_checkout / src_rel
-        if not src.exists():
-            continue
-        dst = INCLUDE_PREFIX / dst_rel
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
+
+    extracted_files = 0
+    with zipfile.ZipFile(zip_path) as zf:
+        for member in zf.infolist():
+            if member.is_dir():
+                continue
+            member_path = Path(member.filename)
+            if not member_path.parts or member_path.parts[0] != "include":
+                continue
+            rel_path = member_path.relative_to("include")
+            if ".." in rel_path.parts:
+                raise CommandError(f"Unexpected path in protoc archive: {member.filename}")
+            dst = INCLUDE_PREFIX / rel_path
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            with zf.open(member) as src_file, open(dst, "wb") as dst_file:
+                shutil.copyfileobj(src_file, dst_file)
+            extracted_files += 1
+
+    if extracted_files == 0:
+        raise CommandError(f"No files found under include/ in {asset_url}")
+
     git(["add", str(INCLUDE_PREFIX)])
 
 
@@ -292,13 +296,15 @@ def main() -> int:
     os.chdir(repo_root)
 
     if args.protobuf_tag:
-        protobuf_tag = args.protobuf_tag
+        release_data = fetch_protobuf_release(args.protobuf_tag)
+        protobuf_tag = release_data["tag_name"]
     else:
         current_tag = ""
         if METADATA_FILE.exists():
             data = json.loads(METADATA_FILE.read_text(encoding="utf-8"))
             current_tag = data.get("protobuf", {}).get("tag", "")
-        protobuf_tag = latest_protobuf_release_tag()
+        release_data = fetch_protobuf_release()
+        protobuf_tag = release_data["tag_name"]
         print(f"Latest: {protobuf_tag}  Current: {current_tag or '<none>'}")
         if protobuf_tag == current_tag:
             print("No update needed")
@@ -332,7 +338,7 @@ def main() -> int:
         prune_vendored(PROTOBUF_PREFIX, PROTOBUF_PRUNE)
         vendor_update(ABSEIL_PREFIX, abseil_checkout, ABSEIL_PATHS)
         prune_vendored(ABSEIL_PREFIX, ABSEIL_PRUNE)
-        build_include_dir(protobuf_checkout)
+        build_include_dir(release_data, tmp_dir)
 
         write_json(METADATA_FILE, {
             "protobuf": {"commit": result.protobuf_commit, "tag": result.protobuf_tag},
