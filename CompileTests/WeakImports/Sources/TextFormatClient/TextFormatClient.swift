@@ -38,8 +38,14 @@ struct Main {
                 $0.detail = "map value"
             }
             msg.repeatedC = [
-                .with { $0.id = 1; $0.detail = "one" },
-                .with { $0.id = 2; $0.detail = "two" },
+                .with {
+                    $0.id = 1
+                    $0.detail = "one"
+                },
+                .with {
+                    $0.id = 2
+                    $0.detail = "two"
+                },
             ]
             msg.repeatedEnumC = [.unspecified, .first]
             msg.oneofMessageC = .with {
@@ -128,7 +134,9 @@ struct Main {
             let roundTrippedText = fromBytes.textFormatString()
             expect(roundTrippedText.contains("nested_b {\n  id: 100\n  detail: \"from b\"\n}"))
             expect(roundTrippedText.contains("nested_enum: ENUM_B_FIRST"))
-            expect(roundTrippedText.contains("map_b {\n  key: \"k\"\n  value {\n    id: 42\n    detail: \"map b\"\n  }\n}"))
+            expect(
+                roundTrippedText.contains("map_b {\n  key: \"k\"\n  value {\n    id: 42\n    detail: \"map b\"\n  }\n}")
+            )
             expect(roundTrippedText.contains("repeated_b {\n  id: 1\n  detail: \"r1\"\n}"))
             expect(roundTrippedText.contains("repeated_enum_b: ENUM_B_UNSPECIFIED"))
             expect(roundTrippedText.contains("repeated_enum_b: ENUM_B_FIRST"))

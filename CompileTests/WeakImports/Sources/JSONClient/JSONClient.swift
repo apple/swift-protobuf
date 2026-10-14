@@ -38,8 +38,14 @@ struct Main {
                 $0.detail = "map value"
             }
             msg.repeatedC = [
-                .with { $0.id = 1; $0.detail = "one" },
-                .with { $0.id = 2; $0.detail = "two" },
+                .with {
+                    $0.id = 1
+                    $0.detail = "one"
+                },
+                .with {
+                    $0.id = 2
+                    $0.detail = "two"
+                },
             ]
             msg.repeatedEnumC = [.unspecified, .first]
             msg.oneofMessageC = .with {

@@ -71,10 +71,12 @@ final class Test_WeakLinkageSupport: XCTestCase {
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 2)
         XCTAssertEqual(providerCallCount, 2)
 
+        #if canImport(Darwin)
         let result7 = _protobuf_resolveReflection(named: "symbol_that_definitely_does_not_exist")
         XCTAssertNil(result7)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 2)
         XCTAssertEqual(providerCallCount, 2)
+        #endif
     }
 
     func testPositiveCaching() {
@@ -84,9 +86,11 @@ final class Test_WeakLinkageSupport: XCTestCase {
         let enumThunk: EnumSchema.DynamicLookupThunk = { out in
             out.assumingMemoryBound(to: (EnumSchema?).self).pointee = Google_Protobuf_Syntax.enumSchema
         }
+        #if canImport(Darwin)
         let reflectionThunk: MessageSchema.DynamicLookupThunk = { out in
             out.assumingMemoryBound(to: (StaticString?).self).pointee = "test_reflection_data"
         }
+        #endif
         nonisolated(unsafe) var providerCallCount = 0
         DynamicSymbolCache.shared.resetForTesting { symbolName in
             providerCallCount += 1
@@ -95,8 +99,10 @@ final class Test_WeakLinkageSupport: XCTestCase {
                 return unsafeBitCast(messageThunk, to: UnsafeMutableRawPointer.self)
             case "test_weak_linkage_enum_schema":
                 return unsafeBitCast(enumThunk, to: UnsafeMutableRawPointer.self)
+            #if canImport(Darwin)
             case "test_weak_linkage_reflection":
                 return unsafeBitCast(reflectionThunk, to: UnsafeMutableRawPointer.self)
+            #endif
             default:
                 return nil
             }
@@ -124,6 +130,7 @@ final class Test_WeakLinkageSupport: XCTestCase {
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 2)
         XCTAssertEqual(providerCallCount, 2)
 
+        #if canImport(Darwin)
         let reflection1 = _protobuf_resolveReflection(named: "test_weak_linkage_reflection")
         XCTAssertNotNil(reflection1)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 3)
@@ -133,6 +140,7 @@ final class Test_WeakLinkageSupport: XCTestCase {
         XCTAssertNotNil(reflection2)
         XCTAssertEqual(DynamicSymbolCache.shared.countForTesting, 3)
         XCTAssertEqual(providerCallCount, 3)
+        #endif
     }
 
     func testResolveGenerated() {

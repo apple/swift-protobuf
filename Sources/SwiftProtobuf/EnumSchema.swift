@@ -78,25 +78,6 @@ public final class EnumSchema: @unchecked Sendable {
         )
     }
 
-    /// Creates a new enum schema from the given values, resolving the reflection table lazily
-    /// by symbol name.
-    @_spi(ForGeneratedCodeOnly)
-    public convenience init(
-        schema: StaticString,
-        reflectionSymbol: StaticString,
-        invokeWitness: @escaping InvokeWitnessFunction,
-        dynamicLookupThunk: DynamicLookupThunk? = nil,
-        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
-    ) {
-        self.init(
-            schema: schema,
-            reflection: .unloaded(reflectionSymbol),
-            invokeWitness: invokeWitness,
-            dynamicLookupThunk: dynamicLookupThunk,
-            dynamicMapWitnessThunk: dynamicMapWitnessThunk
-        )
-    }
-
     /// Creates a new enum schema from the given values, resolving the witness function
     /// dynamically by symbol name.
     @_spi(ForGeneratedCodeOnly)
@@ -118,6 +99,7 @@ public final class EnumSchema: @unchecked Sendable {
         )
     }
 
+    #if canImport(Darwin)
     /// Creates a new enum schema from the given values, resolving the reflection table and
     /// witness function dynamically by symbol name.
     @_spi(ForGeneratedCodeOnly)
@@ -134,6 +116,7 @@ public final class EnumSchema: @unchecked Sendable {
             dynamicLookupThunk: dynamicLookupThunk
         )
     }
+    #endif
 
     private init(
         schema: StaticString,

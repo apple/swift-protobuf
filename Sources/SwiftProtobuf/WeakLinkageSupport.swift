@@ -268,6 +268,7 @@ extension EnumSchema {
     }
 }
 
+#if canImport(Darwin)
 /// Dynamically looks up the compressed reflection data string based on the name of a
 /// generated accessor function.
 ///
@@ -289,3 +290,4 @@ public func _protobuf_resolveReflection(named symbolName: StaticString) -> Stati
     }
     return reflection
 }
+#endif

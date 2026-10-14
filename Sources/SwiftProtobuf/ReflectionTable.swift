@@ -430,7 +430,9 @@ extension ReflectionTable {
     /// be dynamically resolved to obtain the compressed data, a pointer to compressed data that
     /// will be decompressed on demand, or an uncompressed `ReflectionTable`.
     enum State: @unchecked Sendable {
+        #if canImport(Darwin)
         case unloaded(StaticString)
+        #endif
         case compressed(UnsafeRawBufferPointer)
         case uncompressed(ReflectionTable)
 
@@ -447,6 +449,7 @@ extension ReflectionTable {
                 )
                 self = .uncompressed(decompressed)
                 return decompressed
+            #if canImport(Darwin)
             case .unloaded(let symbolName):
                 // This is the only reference to `_protobuf_resolveReflection` in the library. If
                 // reflection is used anywhere (i.e., this type and function are not dead-stripped),
@@ -467,6 +470,7 @@ extension ReflectionTable {
                 )
                 self = .uncompressed(decompressed)
                 return decompressed
+            #endif
             }
         }
     }

@@ -244,52 +244,6 @@ public final class MessageSchema: @unchecked Sendable {
     }
 
     /// Creates a new message schema and submessage operations from the given values,
-    /// resolving the reflection table lazily by symbol name.
-    @_spi(ForGeneratedCodeOnly)
-    public convenience init(
-        schema: StaticString,
-        reflectionSymbol: StaticString,
-        invokeWitness: @escaping InvokeWitnessFunction,
-        submessageOrEnumResolver: @escaping SubmessageOrEnumResolver,
-        dynamicLookupThunk: DynamicLookupThunk? = nil,
-        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
-    ) {
-        self.init(
-            schema: schema,
-            reflection: .unloaded(reflectionSymbol),
-            invokeWitness: invokeWitness,
-            submessageOrEnumResolver: submessageOrEnumResolver,
-            dynamicLookupThunk: dynamicLookupThunk,
-            dynamicMapWitnessThunk: dynamicMapWitnessThunk
-        )
-    }
-
-    /// Creates a new message schema from the given schema string, resolving the reflection table
-    /// lazily by symbol name.
-    ///
-    /// Schemas created with this initializer must have no submessage fields because the invalid
-    /// submessage operation placeholder will be used.
-    @_spi(ForGeneratedCodeOnly)
-    public convenience init(
-        schema: StaticString,
-        reflectionSymbol: StaticString,
-        invokeWitness: @escaping InvokeWitnessFunction,
-        dynamicLookupThunk: DynamicLookupThunk? = nil,
-        dynamicMapWitnessThunk: DynamicMapWitnessThunk? = nil
-    ) {
-        self.init(
-            schema: schema,
-            reflection: .unloaded(reflectionSymbol),
-            invokeWitness: invokeWitness,
-            submessageOrEnumResolver: { _ in
-                preconditionFailure("This should have been unreachable; this is a generator bug")
-            },
-            dynamicLookupThunk: dynamicLookupThunk,
-            dynamicMapWitnessThunk: dynamicMapWitnessThunk
-        )
-    }
-
-    /// Creates a new message schema and submessage operations from the given values,
     /// resolving the witness function dynamically by symbol name.
     @_spi(ForGeneratedCodeOnly)
     public convenience init(
@@ -328,6 +282,7 @@ public final class MessageSchema: @unchecked Sendable {
         )
     }
 
+    #if canImport(Darwin)
     /// Creates a new message schema and submessage operations from the given values,
     /// resolving the reflection table and witness function dynamically by symbol name.
     @_spi(ForGeneratedCodeOnly)
@@ -366,6 +321,7 @@ public final class MessageSchema: @unchecked Sendable {
             dynamicLookupThunk: dynamicLookupThunk
         )
     }
+    #endif
 
     /// Creates a new message schema for the message-like storage used to encode and decode map
     /// entries where the value type is neither a message nor an enum.
