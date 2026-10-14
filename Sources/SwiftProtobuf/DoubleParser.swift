@@ -66,16 +66,8 @@ internal class DoubleParser {
 
         // Fail if strtod() did not consume everything we expected.
         if e != work.baseAddress! + bytes.count {
-            // strtod() obeys the process' C numeric locale. Under a locale
-            // whose decimal separator is not "." (fr_FR, de_DE, ...), it stops
-            // at the "." and the length check fails for every fractional
-            // value. The reference implementation parses numbers
-            // locale-independently (absl::SimpleAtod in json/internal/lexer.cc,
-            // NoLocaleStrtod in io/tokenizer.cc), so retry with Swift's
-            // Double(_:), which always parses with the C locale. In the C
-            // locale this changes nothing: Double(_:) accepts exactly the
-            // fully consumed strtod() forms, so anything rejected here is
-            // also rejected by Double(_:).
+            // strtod() stopped early (maybe because the locale uses a
+            // different decimal point than "."), so retry with Double().
             guard let v = Double(String(decoding: bytes, as: UTF8.self)) else {
                 return nil
             }
