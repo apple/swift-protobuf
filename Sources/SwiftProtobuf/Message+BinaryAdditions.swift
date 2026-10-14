@@ -104,7 +104,6 @@ extension Message {
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
 
-    #if compiler(>=6.2)
     /// Creates a new message by decoding the bytes provided by a `RawSpan`
     /// containing a serialized message in Protocol Buffer binary format.
     ///
@@ -130,7 +129,6 @@ extension Message {
         self.init()
         try merge(serializedBytes: bytes, extensions: extensions, partial: partial, options: options)
     }
-    #endif
 
     /// Updates the message by decoding the given ``SwiftProtobufContiguousBytes`` value
     /// containing a serialized message in Protocol Buffer binary format into the
@@ -163,7 +161,6 @@ extension Message {
         }
     }
 
-    #if compiler(>=6.2)
     /// Updates the message by decoding the bytes provided by a `RawSpan` containing
     /// a serialized message in Protocol Buffer binary format into the receiver.
     ///
@@ -194,7 +191,6 @@ extension Message {
             try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
         }
     }
-    #endif
 
     // Helper for `merge()`s to keep the Decoder internal to SwiftProtobuf while
     // allowing the generic over `SwiftProtobufContiguousBytes` to get better codegen from the

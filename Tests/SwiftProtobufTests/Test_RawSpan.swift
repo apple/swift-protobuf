@@ -2,8 +2,6 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-#if compiler(>=6.2)
-
 final class Test_RawSpan: XCTestCase {
     func testEmptyRawSpan() throws {
         guard #available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *) else {
@@ -80,5 +78,3 @@ final class Test_RawSpan: XCTestCase {
         }
     }
 }
-
-#endif
