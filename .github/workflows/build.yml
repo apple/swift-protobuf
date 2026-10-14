@@ -85,9 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Foundation linkage test
     container:
-      # Looks like 6.4 is failing for some reason.
-      image: swift:6.3
-      #image: swift:latest
+      image: swift:latest
     steps:
     - name: Checkout
       uses: actions/checkout@v6
