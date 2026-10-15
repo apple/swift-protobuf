@@ -284,6 +284,19 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+
+        /// While decoding a `google.protobuf.Any` encountered more than one `@type` key.
+        public static func duplicateAnyTypeURL(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonDecodingError,
+                message: "google.protobuf.Any '@type' must not appear more than once.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
     }
 
     /// Errors arising from JSON encoding of messages.

@@ -1152,6 +1152,38 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_duplicateTypeURL() throws {
+        // Upstream rejects a repeated @type ("repeated @type in Any"), regardless
+        // of where it appears and whether the values match.
+        let inputs = [
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"x\"}",
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\"}",
+            "{\"@type\":\"type.googleapis.com/SomeMessage\",\"\\u0040type\":\"type.googleapis.com/AnotherMessage\"}",
+        ]
+        for json in inputs {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.duplicateAnyTypeURL()
+                    )
+                )
+            }
+        }
+
+        // Also when nested in a message.
+        let nested =
+            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"x\"}}"
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: nested)) { error in
+            XCTAssertTrue(
+                self.isSwiftProtobufErrorEqual(
+                    error as! SwiftProtobufError,
+                    .JSONDecoding.duplicateAnyTypeURL()
+                )
+            )
+        }
+    }
+
     func test_Any_nestedList() throws {
         var start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/Something\",\"x\":"
         for _ in 0...10000 {
