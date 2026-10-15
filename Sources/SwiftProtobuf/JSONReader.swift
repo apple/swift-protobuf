@@ -12,20 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if canImport(Glibc)
-import Glibc
-#elseif canImport(Musl)
-import Musl
-#elseif canImport(Android)
-import Android
-#elseif canImport(WASILibc)
-import WASILibc
-#elseif canImport(Darwin)
-import Darwin
-#elseif os(Windows)
-import CRT
-#endif
-
 #if canImport(FoundationEssentials)
 import FoundationEssentials
 #else
@@ -150,28 +136,12 @@ struct JSONReader: TextualParser {
         precondition(upperBound >= 0, "Upper bound must be non-negative")
 
         var negative = false
-        var upperBound = UInt64(upperBound)
         let unsigned: UInt64
 
         if at(.string, .stringWithEscapes) {
-            var stringValue = try consumeString()[...]
-
-            if stringValue.first == "-" {
-                stringValue = stringValue.dropFirst()
-                negative = true
-                // Two's compliment always allows one more negative integer than positive.
-                upperBound += 1
-            }
-
-            unsigned = try parseUnsignedInteger(from: stringValue, upperBound: UInt64(upperBound))
+            unsigned = try parseQuotedInteger(isSigned: true, negative: &negative, upperBound: UInt64(upperBound))
         } else {
-            if try consumeIfPresent(.minus) {
-                negative = true
-                // Two's compliment always allows one more negative integer than positive.
-                upperBound += 1
-            }
-
-            unsigned = try consumeUnsignedInteger(upperBound: upperBound)
+            unsigned = try consumeSignedMagnitude(negative: &negative, upperBound: UInt64(upperBound))
         }
 
         if negative {
@@ -184,15 +154,27 @@ struct JSONReader: TextualParser {
         }
     }
 
+    private mutating func consumeSignedMagnitude(
+        negative: inout Bool,
+        upperBound: UInt64
+    ) throws -> UInt64 {
+        var upperBound = upperBound
+        if try consumeIfPresent(.minus) {
+            negative = true
+            // Two's compliment always allows one more negative integer than positive.
+            upperBound += 1
+        }
+        return try consumeUnsignedInteger(upperBound: upperBound)
+    }
+
     /// Consumes an unsigned integer from the tokenizer.
     ///
     /// - Parameter upperBound: The maximum value of the integer to consume. If the integer is
     ///   greater than `upperBound`, an error will be thrown.
     mutating func consumeUnsignedInteger(upperBound: UInt64) throws -> UInt64 {
         if at(.string, .stringWithEscapes) {
-            // Strings are allowed.
-            let string = try consumeString()[...]
-            return try parseUnsignedInteger(from: string, upperBound: upperBound)
+            var negative = false
+            return try parseQuotedInteger(isSigned: false, negative: &negative, upperBound: upperBound)
         }
         if at(.float) {
             // Floating-point numbers are allowed as long as they correspond exactly to an integer
@@ -214,113 +196,44 @@ struct JSONReader: TextualParser {
         return value
     }
 
-    /// Parses a string into an unsigned integer.
-    ///
-    /// - Parameters:
-    ///   - string: The string to parse.
-    ///   - upperBound: The maximum value of the integer to consume. If the integer is
-    ///     greater than `upperBound`, an error will be thrown.
-    private mutating func parseUnsignedInteger(from string: Substring, upperBound: UInt64) throws -> UInt64 {
-        func valueError() -> SwiftProtobufError {
-            parsingError(reason: "Expected an integer in 0...\(upperBound)")
-        }
-
-        if string.first == "0" && string.count > 1 {
-            throw parsingError(reason: "Leading zeros are not allowed in integers")
-        }
-
-        if let value = UInt64(string) {
-            guard value <= upperBound else {
-                throw valueError()
+    /// Consumes a double-quoted string, resolving any escapes, and parses it as an integer using
+    /// `Tokenizer` so that quoted and unquoted numbers share the exact same validation.
+    private mutating func parseQuotedInteger(
+        isSigned: Bool,
+        negative: inout Bool,
+        upperBound: UInt64
+    ) throws -> UInt64 {
+        var stringValue = try consumeString()
+        let originalTokenizer = self.tokenizer
+        defer { self.tokenizer = originalTokenizer }
+        return try stringValue.withUTF8 { utf8Bytes in
+            self.tokenizer = try makeQuotedNumberTokenizer(utf8Bytes)
+            let result =
+                isSigned
+                ? try consumeSignedMagnitude(negative: &negative, upperBound: upperBound)
+                : try consumeUnsignedInteger(upperBound: upperBound)
+            guard complete else {
+                throw parsingError(reason: "Invalid number string")
             }
-            return value
-        }
-        // Try to parse it as a Double; e.g., an exact integer in exponential form.
-        let doubleValue = try parseDouble(from: string)
-        if let uint64Value = UInt64(exactly: doubleValue), uint64Value <= upperBound {
-            return uint64Value
-        }
-        throw valueError()
-    }
-
-    /// Parses a string into a double.
-    ///
-    /// - Parameter string: The string to parse.
-    private mutating func parseDouble(from string: Substring) throws -> Double {
-        // The tokenizer handles this for regular numbers, but for numbers represented as strings,
-        // we need to make sure there's at least one digit before and after the decimal point.
-        let stringWithoutMinus = (string.utf8.first == UInt8(ascii: "-")) ? string.dropFirst() : string[...]
-        if let dotIndex = stringWithoutMinus.firstIndex(of: ".") {
-            let beforeDot = stringWithoutMinus.prefix(upTo: dotIndex)
-            guard !beforeDot.isEmpty else {
-                throw parsingError(reason: "Numbers cannot start with a decimal point in JSON")
-            }
-            guard beforeDot.count == 1 || beforeDot.utf8.first != UInt8(ascii: "0") else {
-                throw parsingError(reason: "Leading zeros are not allowed in JSON")
-            }
-            guard !stringWithoutMinus.suffix(from: stringWithoutMinus.index(after: dotIndex)).isEmpty else {
-                throw parsingError(reason: "Decimal point must be followed by digits in JSON")
-            }
-        } else {
-            guard stringWithoutMinus.count == 1 || stringWithoutMinus.utf8.first != UInt8(ascii: "0") else {
-                throw parsingError(reason: "Leading zeros are not allowed in JSON")
-            }
-        }
-
-        switch string {
-        case "NaN":
-            return .nan
-        case "Inf", "Infinity":
-            return .infinity
-        case "-Inf", "-Infinity":
-            return -.infinity
-        default:
-            return try parseDoubleRaw(string)
+            return result
         }
     }
 
-    /// Parses a floating-point number from a string using the system's `strtod` function.
-    ///
-    /// - Parameter string: The string to parse.
-    /// - Throws: `SwiftProtobufError` if the string does not represent a valid floating-point number.
-    private func parseDoubleRaw(_ string: Substring) throws -> Double {
-        func valueError() -> SwiftProtobufError {
-            parsingError(reason: "Invalid floating point value")
-        }
-
-        // Reject unreasonably small or large numbers, or numbers that don't start with a digit or
-        // minus sign (strtod isn't very strict and allows leading whitespace).
-        let capacity = 128
+    /// Creates a `Tokenizer` over the UTF-8 bytes of a quoted number string, validating that it
+    /// starts with a minus sign (immediately followed by a digit) or digit and ends with a digit
+    /// (so leading, internal, and trailing whitespace are rejected).
+    private func makeQuotedNumberTokenizer(_ utf8Bytes: UnsafeBufferPointer<UInt8>) throws -> Tokenizer {
+        let firstDigitIndex = (utf8Bytes.first == UInt8(ascii: "-")) ? 1 : 0
         guard
-            let first = string.utf8.first,
-            string.utf8.count < capacity - 1,
-            first == UInt8(ascii: "-") || Tokenizer.isDigit(first)
+            firstDigitIndex < utf8Bytes.count,
+            Tokenizer.isDigit(utf8Bytes[firstDigitIndex]),
+            Tokenizer.isDigit(utf8Bytes.last!)
         else {
-            throw valueError()
+            throw parsingError(reason: "Invalid number string")
         }
-        return try withUnsafeTemporaryAllocation(of: CChar.self, capacity: capacity) { buffer in
-            var string = string
-            string.withUTF8 { utf8Bytes in
-                utf8Bytes.withMemoryRebound(to: CChar.self) { cChars in
-                    let (_, endIndex) = buffer.initialize(from: cChars)
-                    buffer[endIndex] = 0
-                }
-            }
-
-            let ccharPointer = buffer.baseAddress!
-            var lastConsumed: UnsafeMutablePointer<CChar>? = nil
-            let doubleValue = strtod(ccharPointer, &lastConsumed)
-
-            // Fail if `strtod` did not consume everything we expected or if the value was not
-            // finite (which would happen if it was too large or too small).
-            guard
-                let lastConsumed = lastConsumed,
-                lastConsumed == ccharPointer + string.utf8.count, doubleValue.isFinite
-            else {
-                throw valueError()
-            }
-            return doubleValue
-        }
+        var subTokenizer = Tokenizer(buffer: utf8Bytes, mode: .json, errorCode: .jsonDecodingError)
+        try subTokenizer.next()
+        return subTokenizer
     }
 
     /// Consumes a double-quoted string, resolving any escapes.
@@ -352,7 +265,7 @@ struct JSONReader: TextualParser {
     /// Consumes a 64-bit floating point value from the tokenizer.
     mutating func consumeDouble() throws -> Double {
         if at(.string, .stringWithEscapes) {
-            let stringValue = try consumeString()
+            var stringValue = try consumeString()
             switch stringValue {
             case "NaN":
                 return .nan
@@ -361,7 +274,16 @@ struct JSONReader: TextualParser {
             case "-Inf", "-Infinity":
                 return -.infinity
             default:
-                return try parseDouble(from: stringValue[...])
+                let originalTokenizer = self.tokenizer
+                defer { self.tokenizer = originalTokenizer }
+                return try stringValue.withUTF8 { utf8Bytes in
+                    self.tokenizer = try makeQuotedNumberTokenizer(utf8Bytes)
+                    let result = try consumeDouble()
+                    guard complete else {
+                        throw parsingError(reason: "Invalid number string")
+                    }
+                    return result
+                }
             }
         }
 

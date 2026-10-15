@@ -68,16 +68,25 @@ final class Test_DoubleParser_Locale: XCTestCase {
 
         // Fractional and exponent forms must decode the same as in the C locale.
         XCTAssertEqual(try Google_Protobuf_DoubleValue(jsonString: "1.5").value, 1.5)
+        XCTAssertEqual(try Google_Protobuf_DoubleValue(jsonString: "\"1.5\"").value, 1.5)
         XCTAssertEqual(try Google_Protobuf_FloatValue(jsonString: "2.25").value, 2.25)
+        XCTAssertEqual(try Google_Protobuf_FloatValue(jsonString: "\"2.25\"").value, 2.25)
         XCTAssertEqual(try Google_Protobuf_DoubleValue(jsonString: "6.25e-2").value, 0.0625)
+        XCTAssertEqual(try Google_Protobuf_DoubleValue(jsonString: "\"6.25e-2\"").value, 0.0625)
+        XCTAssertEqual(try Google_Protobuf_UInt64Value(jsonString: "\"1.5e2\"").value, 150)
         XCTAssertEqual(try Google_Protobuf_DoubleValue(textFormatString: "value: 3.75").value, 3.75)
         XCTAssertEqual(try Google_Protobuf_FloatValue(textFormatString: "value: 1.5f").value, 1.5)
 
         // Malformed numbers must still be rejected.
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(textFormatString: "value: 1.2.3"))
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "1.5x"))
+        XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "\"1.5x\""))
+        XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "\"- 1.5\""))
+        XCTAssertThrowsError(try Google_Protobuf_Int64Value(jsonString: "\"- 1\""))
         // Configure the locale impacts of `strtod` don't let invalid input through.
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(textFormatString: "1,5"))
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "1,5"))
+        XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "\"1,5\""))
+        XCTAssertThrowsError(try Google_Protobuf_UInt64Value(jsonString: "\"1,5e2\""))
     }
 }
