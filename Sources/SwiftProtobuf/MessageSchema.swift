@@ -1188,23 +1188,6 @@ package struct StorageBucket: RawRepresentable, Equatable, Hashable, Sendable {
     }
 }
 
-/// Returns the up-to-14-bit unsigned integer that has been base-128 encoded at the given byte
-/// offset in the buffer.
-@_alwaysEmitIntoClient @inline(__always)
-func fixed2ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
-    let rawBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
-    return Int((rawBits & 0x007f) | ((rawBits & 0x7f00) >> 1))
-}
-
-/// Returns the up-to-21-bit unsigned integer that has been base-128 encoded at the given byte
-/// offset in the buffer.
-@_alwaysEmitIntoClient @inline(__always)
-func fixed3ByteBase128(in buffer: UnsafeRawBufferPointer, atByteOffset byteOffset: Int) -> Int {
-    let lowBits = UInt16(littleEndian: buffer.loadUnaligned(fromByteOffset: byteOffset, as: UInt16.self))
-    let highBits = buffer.loadUnaligned(fromByteOffset: byteOffset + 2, as: UInt8.self)
-    return Int((lowBits & 0x7f) | ((lowBits & 0x7f00) >> 1)) | (Int(highBits & 0x7f) << 14)
-}
-
 // Convenience typealiases that hide the fact that we're using an arbitrarily chosen type to
 // represent all fields of the same "shape" when computing bucket sizes.
 @usableFromInline typealias RepeatedFieldForLayout = [Any]

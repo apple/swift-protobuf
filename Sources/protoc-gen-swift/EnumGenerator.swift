@@ -89,6 +89,7 @@ class EnumGenerator {
         self.enumSchemaCalculator = EnumSchemaCalculator(
             fullyQualifiedName: generatorOptions.experimentalHiddenNames.contains(.types)
                 ? "" : enumDescriptor.fullName,
+            isClosed: enumDescriptor.isClosed,
             enumValues: mainEnumValueDescriptorsSorted
         )
         self.compressedReflectionData = ReflectionTableCalculator(

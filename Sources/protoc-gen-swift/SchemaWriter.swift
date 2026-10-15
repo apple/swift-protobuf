@@ -21,10 +21,14 @@ struct SchemaWriter {
     /// source.
     var schemaCode: String = ""
 
+    /// Contains the raw UTF-8 bytes of the encoded schema.
+    var bytes: [UInt8] = []
+
     /// Appends the given integer to the encoded schema literal in base 128 format, using the given
     /// number of bytes to represent it.
     mutating func writeBase128Int(_ value: UInt64, byteWidth: Int) {
         func append(_ value: UInt64) {
+            bytes.append(UInt8(truncatingIfNeeded: value))
             // Print the normal scalar if it's ASCII-printable so that we only use longer `\u{...}`
             // sequences for those that are not.
             if value == 0 {
@@ -47,6 +51,7 @@ struct SchemaWriter {
     /// - Precondition: This method assumes that the string does not contain any nonprintable or
     ///   control characters.
     mutating func writeString(_ value: String) {
+        bytes.append(contentsOf: value.utf8)
         for scalar in value.unicodeScalars {
             append(escapingIfNecessary: scalar)
         }
