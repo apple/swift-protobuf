@@ -62,11 +62,18 @@ internal class DoubleParser {
 
         // Use C library strtod() to parse it
         var e: UnsafeMutablePointer<Int8>? = work.baseAddress
-        let d = strtod(work.baseAddress!, &e)
+        var d = strtod(work.baseAddress!, &e)
 
         // Fail if strtod() did not consume everything we expected.
-        guard e == work.baseAddress! + bytes.count else {
-            return nil
+        if e != work.baseAddress! + bytes.count {
+            // strtod() stopped early (maybe because the locale uses a
+            // different decimal point than "."), so retry with Double().
+            // TODO: Switch to a stdlib Double(_: UTF8Span) initializer once
+            // one exists and we can use it, and drop strtod() entirely.
+            guard let v = Double(String(decoding: bytes, as: UTF8.self)) else {
+                return nil
+            }
+            d = v
         }
 
         // If strtod() thought the number was out of range, it will return
