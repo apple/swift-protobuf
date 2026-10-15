@@ -488,19 +488,21 @@ nonisolated let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.ExtensionMa
 nonisolated let SDTExtensions_ext_str = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}?\u{5}\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_descriptor_test.ext_str",
   extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.messageSchema }
-  )
+)
 
 nonisolated extension SDTScoperForExt {
   enum Extensions {
     static let ext_enum = SwiftProtobuf.ExtensionSchema(
       schema: "\09\u{5}\u{6}\0\u{10}\0\0\0\0\0\u{1}\0\u{e}+\0swift_descriptor_test.ScoperForExt.ext_enum",
-      extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },submessageOrEnumResolver: { .enum(SDTTopLevelEnum.enumSchema) }
-      )
+      extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },
+      submessageOrEnumResolver: { .enum(SDTTopLevelEnum.enumSchema) }
+    )
 
     static let ext_msg = SwiftProtobuf.ExtensionSchema(
       schema: "\0:\u{5}\u{6}\0\u{10}\0\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.ScoperForExt.ext_msg",
-      extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },submessageOrEnumResolver: { .message(SDTTopLevelMessage2.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },
+      submessageOrEnumResolver: { .message(SDTTopLevelMessage2.messageSchema) }
+    )
   }
 }
 

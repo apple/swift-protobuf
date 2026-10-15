@@ -390,34 +390,34 @@ nonisolated let SwiftProtoTesting_UnittestSwiftReserved_Extensions: SwiftProtobu
 nonisolated let SwiftProtoTesting_Extensions_debug_description = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}%\0swift_proto_testing.debug_description",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 /// These are scoped to the file, so the package prefix (or a Swift prefix)
 /// will get added to them to they aren't going to get renamed.
 nonisolated let SwiftProtoTesting_Extensions_as = SwiftProtobuf.ExtensionSchema(
   schema: "\0t\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{16}\0swift_proto_testing.as",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Extensions_var = SwiftProtobuf.ExtensionSchema(
   schema: "\0u\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{17}\0swift_proto_testing.var",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Extensions_try = SwiftProtobuf.ExtensionSchema(
   schema: "\0v\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{17}\0swift_proto_testing.try",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Extensions_do = SwiftProtobuf.ExtensionSchema(
   schema: "\0w\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{16}\0swift_proto_testing.do",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Extensions_nil = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{17}\0swift_proto_testing.nil",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-  )
+)
 
 nonisolated extension SwiftProtoTesting_SwiftReservedTestExt {
   enum Extensions {
@@ -427,34 +427,34 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTestExt {
     static let hash_value = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}3\0swift_proto_testing.SwiftReservedTestExt.hash_value",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
 
     /// Reserved words, since these end up in the "struct Extensions", they
     /// can't just be get their names, and sanitation kicks.
     static let `as` = SwiftProtobuf.ExtensionSchema(
       schema: "\0~\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}+\0swift_proto_testing.SwiftReservedTestExt.as",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
 
     static let `var` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{7f}\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8},\0swift_proto_testing.SwiftReservedTestExt.var",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
 
     static let `try` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8},\0swift_proto_testing.SwiftReservedTestExt.try",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
 
     static let `do` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}+\0swift_proto_testing.SwiftReservedTestExt.do",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
 
     static let `nil` = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8},\0swift_proto_testing.SwiftReservedTestExt.nil",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.classMessage.messageSchema }
-      )
+    )
   }
 }
 

@@ -340,13 +340,15 @@ nonisolated let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.
 
 nonisolated let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\"\0swift_proto_testing.extensiongroup",
-  extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_ExtensionGroup.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_ExtensionGroup.messageSchema) }
+)
 
 nonisolated let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.repeatedextensiongroup",
-  extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_RepeatedExtensionGroup.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_RepeatedExtensionGroup.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

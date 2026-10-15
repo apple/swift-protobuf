@@ -298,43 +298,51 @@ public nonisolated let Test_A_Extensions: SwiftProtobuf.ExtensionMap = [
 
 public nonisolated let Test_Extensions_ext_message = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{10}\0test.ext_message",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+)
 
 public nonisolated let Test_Extensions_ext_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{d}\0test.ext_enum",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+)
 
 public nonisolated let Test_Extensions_ext_repeated_message = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}\u{19}\0test.ext_repeated_message",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageB_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+)
 
 public nonisolated let Test_Extensions_ext_repeated_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}\u{16}\0test.ext_repeated_enum",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumB_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+)
 
 public nonisolated let Test_Extensions_ext_message_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{12}\0test.ext_message_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+)
 
 public nonisolated let Test_Extensions_ext_enum_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}\u{f}\0test.ext_enum_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+)
 
 public nonisolated let Test_Extensions_ext_repeated_message_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0test.ext_repeated_message_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.MessageSchema.resolveLazy(named: "test_DMessageC_getMessageSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.message) }
+)
 
 public nonisolated let Test_Extensions_ext_repeated_enum_c = SwiftProtobuf.ExtensionSchema(
   schema: "\0k\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}\u{18}\0test.ext_repeated_enum_c",
-  extendedMessageResolver: { Test_MessageA.messageSchema },submessageOrEnumResolver: { return SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
-  )
+  extendedMessageResolver: { Test_MessageA.messageSchema },
+  submessageOrEnumResolver: { SwiftProtobuf.EnumSchema.resolveLazy(named: "test_DEnumC_getEnumSchema").map(SwiftProtobuf.SubmessageOrEnumSchema.enum) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

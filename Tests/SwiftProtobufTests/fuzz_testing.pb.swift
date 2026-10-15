@@ -2321,261 +2321,269 @@ nonisolated let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.Ext
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.singular_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{3}+\0swift_proto_testing.fuzz.singular_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{d},\0swift_proto_testing.fuzz.singular_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0l\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{4},\0swift_proto_testing.fuzz.singular_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0m\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{11},\0swift_proto_testing.fuzz.singular_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0n\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{12},\0swift_proto_testing.fuzz.singular_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{7}-\0swift_proto_testing.fuzz.singular_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{6}-\0swift_proto_testing.fuzz.singular_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{f}.\0swift_proto_testing.fuzz.singular_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{10}.\0swift_proto_testing.fuzz.singular_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0s\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{2}+\0swift_proto_testing.fuzz.singular_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0t\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{1},\0swift_proto_testing.fuzz.singular_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0u\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}*\0swift_proto_testing.fuzz.singular_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_string_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0v\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9},\0swift_proto_testing.fuzz.singular_string_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_bytes_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0w\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{c}+\0swift_proto_testing.fuzz.singular_bytes_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}*\0swift_proto_testing.fuzz.singular_enum_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_SingularGroup_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.fuzz.singulargroup_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_SingularGroup_ext.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_SingularGroup_ext.messageSchema) }
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_singular_message_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0{\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}-\0swift_proto_testing.fuzz.singular_message_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
+)
 
 /// Repeated
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{7}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{5}+\0swift_proto_testing.fuzz.repeated_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{8}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{3}+\0swift_proto_testing.fuzz.repeated_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{9}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{d},\0swift_proto_testing.fuzz.repeated_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{a}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{4},\0swift_proto_testing.fuzz.repeated_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{11},\0swift_proto_testing.fuzz.repeated_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{12},\0swift_proto_testing.fuzz.repeated_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{7}-\0swift_proto_testing.fuzz.repeated_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{6}-\0swift_proto_testing.fuzz.repeated_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{f}.\0swift_proto_testing.fuzz.repeated_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{10}.\0swift_proto_testing.fuzz.repeated_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{11}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{2}+\0swift_proto_testing.fuzz.repeated_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{12}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{1},\0swift_proto_testing.fuzz.repeated_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{13}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{8}*\0swift_proto_testing.fuzz.repeated_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_string_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{14}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{9},\0swift_proto_testing.fuzz.repeated_string_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_bytes_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\u{8}\0\0\u{12}\0\0\0\0\0\0\0\u{c}+\0swift_proto_testing.fuzz.repeated_bytes_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}*\0swift_proto_testing.fuzz.repeated_enum_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_RepeatedGroup_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.fuzz.repeatedgroup_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_RepeatedGroup_ext.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_RepeatedGroup_ext.messageSchema) }
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_message_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{19}\u{8}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}-\0swift_proto_testing.fuzz.repeated_message_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_Message.messageSchema) }
+)
 
 /// Repeated Packed
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0%\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{5}2\0swift_proto_testing.fuzz.repeated_packed_int32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_int64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0&\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{3}2\0swift_proto_testing.fuzz.repeated_packed_int64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0'\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{d}3\0swift_proto_testing.fuzz.repeated_packed_uint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_uint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0(\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{4}3\0swift_proto_testing.fuzz.repeated_packed_uint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{11}3\0swift_proto_testing.fuzz.repeated_packed_sint32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sint64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{12}3\0swift_proto_testing.fuzz.repeated_packed_sint64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{7}4\0swift_proto_testing.fuzz.repeated_packed_fixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_fixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{6}4\0swift_proto_testing.fuzz.repeated_packed_fixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed32_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0-\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{f}5\0swift_proto_testing.fuzz.repeated_packed_sfixed32_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_sfixed64_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0.\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{10}5\0swift_proto_testing.fuzz.repeated_packed_sfixed64_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_float_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\0/\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{2}2\0swift_proto_testing.fuzz.repeated_packed_float_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_double_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\00\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{1}3\0swift_proto_testing.fuzz.repeated_packed_double_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_bool_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\01\u{8}\0\0\u{1a}\0\0\0\0\0\0\0\u{8}1\0swift_proto_testing.fuzz.repeated_packed_bool_ext",
   extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Fuzz_Extensions_repeated_packed_enum_ext = SwiftProtobuf.ExtensionSchema(
   schema: "\02\u{8}\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}1\0swift_proto_testing.fuzz.repeated_packed_enum_ext",
-  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Fuzz_Message.messageSchema },
+  submessageOrEnumResolver: { .enum(SwiftProtoTesting_Fuzz_AnEnum.enumSchema) }
+)
 
 nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension1",
-      extendedMessageResolver: { SwiftProtoTesting_Fuzz_AMessageSetMessage.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtoTesting_Fuzz_AMessageSetMessage.messageSchema },
+      submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_AMessageSetMessageExtension1.messageSchema) }
+    )
   }
 }
 
@@ -2583,8 +2591,9 @@ nonisolated extension SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{10}3|\u{1}\u{10}\0\0\0\0\0\u{1}\0\u{b}5\0swift_proto_testing.fuzz.AMessageSetMessageExtension2",
-      extendedMessageResolver: { SwiftProtoTesting_Fuzz_AMessageSetMessage.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtoTesting_Fuzz_AMessageSetMessage.messageSchema },
+      submessageOrEnumResolver: { .message(SwiftProtoTesting_Fuzz_AMessageSetMessageExtension2.messageSchema) }
+    )
   }
 }
 

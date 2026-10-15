@@ -85,8 +85,9 @@ nonisolated extension Proto2Unittest_LateLoadedOption {
   enum Extensions {
     static let ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0l\u{a}.-\u{10}\0\0\0\0\0\u{1}\0\u{b}$\0proto2_unittest.LateLoadedOption.ext",
-      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_LateLoadedOption.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
+      submessageOrEnumResolver: { .message(Proto2Unittest_LateLoadedOption.messageSchema) }
+    )
   }
 }
 

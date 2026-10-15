@@ -201,8 +201,9 @@ nonisolated let Pb_InternalOptions_Extensions: SwiftProtobuf.ExtensionMap = [
 
 nonisolated let Pb_Extensions_internal_field_options = SwiftProtobuf.ExtensionSchema(
   schema: "\0N]>\u{7f}\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{19}\0pb.internal_field_options",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_InternalFieldOptions.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_InternalFieldOptions.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

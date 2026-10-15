@@ -218,25 +218,26 @@ nonisolated let SwiftProtoTesting_DeprecatedFile_UnittestSwiftDeprecatedFile_Ext
 nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_string_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}4\0swift_proto_testing.deprecated_file.string_ext_field",
   extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-  )
+)
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_int_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}1\0swift_proto_testing.deprecated_file.int_ext_field",
   extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-  )
+)
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_fixed_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}3\0swift_proto_testing.deprecated_file.fixed_ext_field",
   extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-  )
+)
 
 /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
 nonisolated let SwiftProtoTesting_DeprecatedFile_Extensions_msg_ext_field = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}1\0swift_proto_testing.deprecated_file.msg_ext_field",
-  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
+)
 
 nonisolated extension SwiftProtoTesting_DeprecatedFile_MsgScope {
   enum Extensions {
@@ -246,25 +247,26 @@ nonisolated extension SwiftProtoTesting_DeprecatedFile_MsgScope {
     static let string_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0I\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}>\0swift_proto_testing.deprecated_file.MsgScope.string_ext2_field",
       extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-      )
+    )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let int_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0J\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{5};\0swift_proto_testing.deprecated_file.MsgScope.int_ext2_field",
       extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-      )
+    )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let fixed_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0K\u{1}\0\0\u{12}\0\0\0\0\0\0\0\u{7}=\0swift_proto_testing.deprecated_file.MsgScope.fixed_ext2_field",
       extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema }
-      )
+    )
 
     /// NOTE: The whole .proto file that defined this extension field was marked as deprecated.
     static let msg_ext2_field = SwiftProtobuf.ExtensionSchema(
       schema: "\0L\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b};\0swift_proto_testing.deprecated_file.MsgScope.msg_ext2_field",
-      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema },
+      submessageOrEnumResolver: { .message(SwiftProtoTesting_DeprecatedFile_MyMsg.messageSchema) }
+    )
   }
 }
 

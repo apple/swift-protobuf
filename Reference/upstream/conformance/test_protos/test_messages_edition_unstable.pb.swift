@@ -272,7 +272,7 @@ nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable
 nonisolated let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}7\0protobuf_test_messages.edition_unstable.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

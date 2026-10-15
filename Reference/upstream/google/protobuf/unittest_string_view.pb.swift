@@ -153,22 +153,22 @@ nonisolated let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.Exte
 nonisolated let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.singular_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.singular_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.repeated_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.repeated_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

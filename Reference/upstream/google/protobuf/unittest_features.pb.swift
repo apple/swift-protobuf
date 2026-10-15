@@ -640,20 +640,23 @@ nonisolated let Pb_UnittestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 
 nonisolated let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.ExtensionSchema(
   schema: "\04\u{1d}X\u{3}\u{10}\0\0\0\0\0\u{1}\0\u{b}\"\0pb.custom_option_lifetimes_message",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_CustomOptionLifetimesMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_CustomOptionLifetimesMessage.messageSchema) }
+)
 
 nonisolated let Pb_Extensions_test = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{7}\0pb.test",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_TestFeatures.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_TestFeatures.messageSchema) }
+)
 
 nonisolated extension Pb_TestMessage {
   enum Extensions {
     static let test_message = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{e}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0pb.TestMessage.test_message",
-      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_TestMessageFeatures.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+      submessageOrEnumResolver: { .message(Pb_TestMessageFeatures.messageSchema) }
+    )
   }
 }
 
@@ -661,8 +664,9 @@ nonisolated extension Pb_TestMessage.Nested {
   enum Extensions {
     static let test_nested = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{d}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}!\0pb.TestMessage.Nested.test_nested",
-      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_TestNestedFeatures.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+      submessageOrEnumResolver: { .message(Pb_TestNestedFeatures.messageSchema) }
+    )
   }
 }
 

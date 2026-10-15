@@ -393,12 +393,12 @@ nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: Swif
 nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
   schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}-\0swift_proto_testing.order.my_extension_string",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
-  )
+)
 
 nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}*\0swift_proto_testing.order.my_extension_int",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
