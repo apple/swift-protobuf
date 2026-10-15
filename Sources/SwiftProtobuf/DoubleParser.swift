@@ -68,6 +68,8 @@ internal class DoubleParser {
         if e != work.baseAddress! + bytes.count {
             // strtod() stopped early (maybe because the locale uses a
             // different decimal point than "."), so retry with Double().
+            // TODO: Switch to a stdlib Double(_: UTF8Span) initializer once
+            // one exists and we can use it, and drop strtod() entirely.
             guard let v = Double(String(decoding: bytes, as: UTF8.self)) else {
                 return nil
             }
