@@ -724,7 +724,7 @@ nonisolated extension SwiftProtoTesting_Message3: SwiftProtobuf.GeneratedMessage
 }
 
 nonisolated extension SwiftProtoTesting_Message3.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0!\0swift_proto_testing.Message3.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0!\0swift_proto_testing.Message3.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9L#5Qy\u{1d}\u{1f}8Q\u{3}Q~oyh#\u{15}L\0\u{1b}cfd=L\u{3}]\u{14}M\u{1f}\u{15}:P?\u{10}\u{e}1\"4\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

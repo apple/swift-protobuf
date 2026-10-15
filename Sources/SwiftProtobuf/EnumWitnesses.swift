@@ -23,9 +23,6 @@
 public enum EnumWitnesses<T: Enum> {
     public static func perform(_ operation: EnumWitnessOperation) {
         switch operation {
-        case .rawValueIsValid(let rawValue, let result):
-            result.pointee = T(rawValue: Int(rawValue)) != nil
-
         case .arrayInitialize(let pointer):
             pointer.bindMemory(to: [T].self, capacity: 1).initialize(to: [])
 
@@ -65,14 +62,6 @@ public enum EnumWitnesses<T: Enum> {
 /// The operations that the runtime requests from generated enum types.
 @_spi(ForGeneratedCodeOnly)
 public enum EnumWitnessOperation {
-    /// Checks if the given raw value is valid for the enum type and populates `result` with the result.
-    ///
-    /// TODO: This is only necessary right now because the only way we have to check that a raw value
-    /// is valid for a protobuf enum is to initialize the Swift type and see if it succeeds. We should
-    /// consider adopting something like upb's sparse representation to check validity without this
-    /// round trip.
-    case rawValueIsValid(rawValue: Int32, result: UnsafeMutablePointer<Bool>)
-
     /// Initializes `pointer` to contain an empty array of the concrete enum type.
     case arrayInitialize(pointer: UnsafeMutableRawPointer)
 

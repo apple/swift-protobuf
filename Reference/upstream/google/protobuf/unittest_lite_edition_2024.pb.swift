@@ -57,7 +57,7 @@ nonisolated enum Proto2Unittest_EnumNameStringView: SwiftProtobuf.Enum, Swift.Ca
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_EnumNameStringView {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\"\0proto2_unittest.EnumNameStringView"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\"\0proto2_unittest.EnumNameStringView"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K(Y\u{2}U'b@\u{f}$_Iv8Qfvk>3\u{17}=\u{1c},\u{5}i\0s\u{4}^P\u{18}Td=\u{4}1[\u{8}jb2\u{8}\u{e}>aI\t$-\u{1f}Xg\u{c}3%mVj|!#\u{4}<\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

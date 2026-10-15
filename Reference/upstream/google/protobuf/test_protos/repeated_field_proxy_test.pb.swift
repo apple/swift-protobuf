@@ -376,7 +376,7 @@ nonisolated extension Proto2Unittest_TestRepeatedEnumProxy: SwiftProtobuf.Genera
 }
 
 nonisolated extension Proto2Unittest_TestRepeatedEnumProxy.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0*\0proto2_unittest.TestRepeatedEnumProxy.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0*\0proto2_unittest.TestRepeatedEnumProxy.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nCO&\u{1d}\tcEaWXu<\u{7f}m;G\u{c}`E]`\r46\u{1c}5*Ii\u{18}F\u{1f}%}*\u{8}\u{13}~\u{7} L\u{8}/<[2\u{8}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

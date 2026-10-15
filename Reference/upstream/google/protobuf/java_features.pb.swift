@@ -220,7 +220,7 @@ nonisolated extension Pb_JavaFeatures: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Pb_JavaFeatures.Utf8Validation {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1e}\0pb.JavaFeatures.Utf8Validation"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\u{1e}\0pb.JavaFeatures.Utf8Validation"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\\"w\u{15}\u{8}1cz@\\:xd>sR\u{7f}z.ms\\.\u{1d}f5XJ\u{14}7Ft6b@(\u{18}:$tk5f\u{11}IuH\u{7}\r^B\u{16}Far>/\u{17}j\u{e}<`,\u{18}\u{7f}E\r\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -236,7 +236,7 @@ nonisolated extension Pb_JavaFeatures.NestInFileClassFeature: SwiftProtobuf.Gene
 }
 
 nonisolated extension Pb_JavaFeatures.NestInFileClassFeature.NestInFileClass {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\06\0pb.JavaFeatures.NestInFileClassFeature.NestInFileClass"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}6\0pb.JavaFeatures.NestInFileClassFeature.NestInFileClass"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK\u{4}[aE'b@\u{f}$_9M\u{1d}C\u{2}O\u{1}*\u{7}Lrda\u{1d}`\u{5}\u{1a}aZt\u{3}1\u{2}\u{e}\u{12}L\\r0\u{1a}EDSKl\r:.\"7\u{f}O3G\u{1c}POy/B')S\u{7}J1+<W.o\u{15}x_Q-\u{11}\u{1a}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

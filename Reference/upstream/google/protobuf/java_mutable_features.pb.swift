@@ -155,7 +155,7 @@ nonisolated extension Pb_JavaMutableFeatures.NestInFileClassFeature: SwiftProtob
 }
 
 nonisolated extension Pb_JavaMutableFeatures.NestInFileClassFeature.NestInFileClass {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0=\0pb.JavaMutableFeatures.NestInFileClassFeature.NestInFileClass"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}=\0pb.JavaMutableFeatures.NestInFileClassFeature.NestInFileClass"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKK\u{4}[aE'b@\u{f}$_9M\u{1d}C\u{2}O\u{1}*\u{7}Lrda\u{1d}`\u{5}\u{1a}aZt\u{3}1\u{2}\u{e}\u{12}L\\r0\u{1a}EDSKl\r:.\"7\u{f}O3G\u{1c}POy/B')S\u{7}J1+<W.o\u{15}x_Q-\u{11}\u{1a}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -209,13 +209,13 @@ nonisolated extension Pb_GoFeatures: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Pb_GoFeatures.APILevel {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{16}\0pb.GoFeatures.APILevel"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}\u{16}\0pb.GoFeatures.APILevel"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{1}\0\0 \u{7f}I8E\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>\u{4}bt7!cw\u{17}\u{1a}rV*~\"6,\u{7f}^gD6q\u{f}CTM#\u{11}(\u{16}\u{5}b|mg3\u{1a}\u{14}-P0EB\u{11}\u{8}\u{c}\u{15}\u{1a}Ob\u{1d}&gD\u{19}p\u{b}\u{13}\u{1b}^5j\u{f}\u{13}\u{1a}TR%&Z\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Pb_GoFeatures.StripEnumPrefix {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{1d}\0pb.GoFeatures.StripEnumPrefix"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}\u{1d}\0pb.GoFeatures.StripEnumPrefix"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{1}\0\00\u{7f}@\u{7f}\r\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nDc|'!cW%Wu=%\u{8}g \u{1c}kD\u{e}wh#l%\u{1f},nsV\"G%\u{1c}ja\u{4}\u{1c}Ju\u{1e}:\"O)+Uqj,\u{6}K}\u{1d}D]j\u{8}o\u{3}\nDo\u{e}\u{5}Q\u{b}\u{14}\u{7}\u{19};-sxns\u{13}1<p1\u{2}\u{19}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -231,7 +231,7 @@ nonisolated extension Pb_GoFeatures.OptimizeModeFeature: SwiftProtobuf.Generated
 }
 
 nonisolated extension Pb_GoFeatures.OptimizeModeFeature.OptimizeMode {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0.\0pb.GoFeatures.OptimizeModeFeature.OptimizeMode"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}.\0pb.GoFeatures.OptimizeModeFeature.OptimizeMode"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}K\\\"w\u{15}\u{8}1cz@\\J>a@sR\u{7f}z.+Jnuz c\u{1}\u{6}r={,=d\u{c}1\u{c}\u{7f}~HdVs\u{16}7N`h\n3=\u{6}o\u{1e}PJ%ut\u{17}\u{b}W\u{1}\u{f}\n\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

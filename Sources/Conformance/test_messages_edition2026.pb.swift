@@ -136,7 +136,7 @@ nonisolated struct ProtobufTestMessages_Editions_TestAllTypesEdition2026: @unche
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2026 {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2026"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2026"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\u{3}\0\00?!]iZO\"\rS2M\u{7}\0\nzx!\u{2}\u{1a}LGe\u{5}&+j\u{7}V7jK|\u{19}(\u{c}tUw=#\u{1c}\u{1d}\u{7}VC\u{1d}E\u{16}\u{5}gX)hlC\u{8}\u{1a}c~g<Ui4s\09\u{e}\u{12}}W\u{1b}i\u{3}YUm\u{2}T<zc|\u{1c}M<h6f\t\u{5}\u{13}K&f0\t|q\u{1b}+A\u{4}!BX#o\u{19}\u{1d}$,c\u{15}\u{13}\nz[}e\u{1f}\u{14}&G50P;h\nTU\u{6}j\u{1b}\u{16}eA\u{16}4\u{18}\u{1f}{TD7FkU\u{f};q\u{7f}f\u{12}\u{1e}@<$\u{1}>T)\u{c}\u{18}3Y4U5lL@UyjFylZJajw\u{2}z|;Fm9\u{3}G\u{1f}\u{1f}\u{e}Apt\u{c}u\u{12}>K\u{15}KD{\"SL?\u{16}!eA\u{2}\u{1e}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

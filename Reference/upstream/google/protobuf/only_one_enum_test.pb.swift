@@ -57,7 +57,7 @@ nonisolated enum Proto2Unittest_OnlyOneEnum: SwiftProtobuf.Enum, Swift.CaseItera
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_OnlyOneEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1b}\0proto2_unittest.OnlyOneEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1b}\0proto2_unittest.OnlyOneEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@x~-\u{19}JdQ_z\u{12}1s\u{8}\u{1}[*rsq>$\u{17}<i\u{7f}=\u{13}hi%bFu\u{1a}A\u{4}S}>Kq!d\u{6}&\u{1}XB.#B\u{b}\u{14}Z\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

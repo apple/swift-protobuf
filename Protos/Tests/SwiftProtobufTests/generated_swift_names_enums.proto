@@ -229,6 +229,7 @@ message GeneratedSwiftReservedEnums {
   enum consumeUnsignedInteger { NONE_consumeUnsignedInteger = 0; }
   enum contains { NONE_contains = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
+  enum context { NONE_context = 0; }
   enum ContiguousBytes { NONE_ContiguousBytes = 0; }
   enum convenience { NONE_convenience = 0; }
   enum convention { NONE_convention = 0; }
@@ -384,6 +385,7 @@ message GeneratedSwiftReservedEnums {
   enum fixed2ByteBase128 { NONE_fixed2ByteBase128 = 0; }
   enum fixed32 { NONE_fixed32 = 0; }
   enum fixed3ByteBase128 { NONE_fixed3ByteBase128 = 0; }
+  enum fixed5ByteBase128 { NONE_fixed5ByteBase128 = 0; }
   enum fixed64 { NONE_fixed64 = 0; }
   enum fixedFeatures { NONE_fixedFeatures = 0; }
   enum Float { NONE_Float = 0; }
@@ -627,6 +629,7 @@ message GeneratedSwiftReservedEnums {
   enum InvokeWitnessFunction { NONE_InvokeWitnessFunction = 0; }
   enum isA { NONE_isA = 0; }
   enum isAlphanumeric { NONE_isAlphanumeric = 0; }
+  enum isClosed { NONE_isClosed = 0; }
   enum isDigit { NONE_isDigit = 0; }
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
@@ -714,6 +717,7 @@ message GeneratedSwiftReservedEnums {
   enum listValueValues { NONE_listValueValues = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
   enum load { NONE_load = 0; }
+  enum localHasher { NONE_localHasher = 0; }
   enum location { NONE_location = 0; }
   enum lock { NONE_lock = 0; }
   enum LockPrimitive { NONE_LockPrimitive = 0; }
@@ -735,6 +739,7 @@ message GeneratedSwiftReservedEnums {
   enum mapEntryWorkingSpace { NONE_mapEntryWorkingSpace = 0; }
   enum mapValue { NONE_mapValue = 0; }
   enum mask { NONE_mask = 0; }
+  enum maskByteCount { NONE_maskByteCount = 0; }
   enum matchCode { NONE_matchCode = 0; }
   enum maximumEdition { NONE_maximumEdition = 0; }
   enum maxMatchLength { NONE_maxMatchLength = 0; }
@@ -883,6 +888,7 @@ message GeneratedSwiftReservedEnums {
   enum protobuf_messageSchemaString { NONE_protobuf_messageSchemaString = 0; }
   enum protobuf_messageStorage { NONE_protobuf_messageStorage = 0; }
   enum protobuf_reflectionData { NONE_protobuf_reflectionData = 0; }
+  enum protobuf_resolveReflection { NONE_protobuf_resolveReflection = 0; }
   enum protobuf_resolveSubmessageOrEnum { NONE_protobuf_resolveSubmessageOrEnum = 0; }
   enum protobuf_uniqueExtensionStorage { NONE_protobuf_uniqueExtensionStorage = 0; }
   enum protocol { NONE_protocol = 0; }
@@ -936,8 +942,10 @@ message GeneratedSwiftReservedEnums {
   enum requiredCount { NONE_requiredCount = 0; }
   enum requiredSize { NONE_requiredSize = 0; }
   enum resetForTesting { NONE_resetForTesting = 0; }
+  enum resolveGenerated { NONE_resolveGenerated = 0; }
   enum resolveLazy { NONE_resolveLazy = 0; }
   enum resolveLazyMapWitness { NONE_resolveLazyMapWitness = 0; }
+  enum resolveLazyWitness { NONE_resolveLazyWitness = 0; }
   enum responseStreaming { NONE_responseStreaming = 0; }
   enum responseTypeURL { NONE_responseTypeURL = 0; }
   enum result { NONE_result = 0; }
@@ -1008,6 +1016,7 @@ message GeneratedSwiftReservedEnums {
   enum sourceFile { NONE_sourceFile = 0; }
   enum SourceLocation { NONE_SourceLocation = 0; }
   enum span { NONE_span = 0; }
+  enum sparseCount { NONE_sparseCount = 0; }
   enum spi { NONE_spi = 0; }
   enum split { NONE_split = 0; }
   enum stable { NONE_stable = 0; }
@@ -1052,6 +1061,7 @@ message GeneratedSwiftReservedEnums {
   enum SwiftProtobufError { NONE_SwiftProtobufError = 0; }
   enum symbol { NONE_symbol = 0; }
   enum symbolName { NONE_symbolName = 0; }
+  enum symbolProvider { NONE_symbolProvider = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }

@@ -561,7 +561,7 @@ nonisolated struct Proto2NofieldpresenceUnittest_ExplicitForeignMessage: @unchec
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2NofieldpresenceUnittest_ForeignEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0+\0proto2_nofieldpresence_unittest.ForeignEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0+\0proto2_nofieldpresence_unittest.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -588,7 +588,7 @@ nonisolated extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.
 }
 
 nonisolated extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\07\0proto2_nofieldpresence_unittest.TestAllTypes.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\07\0proto2_nofieldpresence_unittest.TestAllTypes.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

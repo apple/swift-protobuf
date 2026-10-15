@@ -3325,19 +3325,19 @@ nonisolated extension Proto2Unittest_TestParsingMergeLite {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_ForeignEnumLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1f}\0proto2_unittest.ForeignEnumLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0p\u{1f}\0proto2_unittest.ForeignEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}b)4\u{4}t3^/\u{16}Oi}]Z8y}\u{1a}\u{e},8Kbhp\t\u{16}RaB\u{1d}\u{7f}, X|.\u{1a}3D\u{12}D>lZ\u{4}\u{12}A\u{1a}_\u{18}$r$|(\r\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_V1EnumLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1a}\0proto2_unittest.V1EnumLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}\u{1a}\0proto2_unittest.V1EnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&p\u{1d}-`\u{15}Wp\u{3}_JG\u{1e}\u{12}y9(B!jG\u{e}f7\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_V2EnumLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1a}\0proto2_unittest.V2EnumLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{6}\u{1a}\0proto2_unittest.V2EnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}*(\u{11}$\u{1d}Mo\u{8}HyN\u{7f}|Wa{\u{17}()C\u{17}V\r\u{10}8u38(h8\u{f}\rGgRLj\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3369,7 +3369,7 @@ nonisolated extension Proto2Unittest_TestAllTypesLite: SwiftProtobuf.GeneratedMe
 }
 
 nonisolated extension Proto2Unittest_TestAllTypesLite.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0+\0proto2_unittest.TestAllTypesLite.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}+\0proto2_unittest.TestAllTypesLite.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKTZV{n GMwQys}Inb%=\u{b}xlN\u{1e}[\u{1b}T\nRD F1b\u{1e}#6\"?\u{1a}\u{e}w\u{7}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3797,7 +3797,7 @@ nonisolated extension Proto2Unittest_DupEnum: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Proto2Unittest_DupEnum.TestEnumWithDupValueLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\00\0proto2_unittest.DupEnum.TestEnumWithDupValueLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}0\0proto2_unittest.DupEnum.TestEnumWithDupValueLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K8lU\u{11}d GMwQ\ttA\u{1e}\u{17})rw\nK/>QUXgqta2\u{2}@\\\\\u{11}rdfc3\u{3}>\\0]1)\u{e}*^\u{1f}9\u{6}\u{c}$\u{6}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

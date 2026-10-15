@@ -667,7 +667,7 @@ nonisolated extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Gene
 }
 
 nonisolated extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\03\0swift_proto_testing.TestAllRequiredTypes.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\u{1}\0\0\u{e}\u{7f}\u{7f}\u{7f}\u{7f}\u{f}3\0swift_proto_testing.TestAllRequiredTypes.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}8r\u{17}\u{11}|xa\u{15}\u{8}\t1V|hIP}2)\u{1}\u{1e}a5}B\u{1e}^w!\u{17}j\u{16}V\u{3}\u{2}xTj ^e;mjf\u{6}31D\u{1e}2\u{1f}N\u{8}\u{b}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -710,7 +710,7 @@ nonisolated extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Gen
 }
 
 nonisolated extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\04\0swift_proto_testing.TestSomeRequiredTypes.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}4\0swift_proto_testing.TestSomeRequiredTypes.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpk%+*x\u{1c}H\u{11}3\u{4}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

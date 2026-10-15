@@ -83,7 +83,7 @@ nonisolated struct SwiftProtobuf_ImplicitWeakMessage: @unchecked Swift.Sendable 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtobuf_ImplicitWeakEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1f}\0swift_protobuf.ImplicitWeakEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{1f}\0swift_protobuf.ImplicitWeakEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&pm\u{e}F8\02yO)\u{1f}9*0\u{1a}1\u{4}\u{b}\0"
   static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

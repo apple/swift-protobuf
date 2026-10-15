@@ -159,7 +159,7 @@ nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage
 }
 
 nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0A\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1}A\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -182,7 +182,7 @@ nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage
 }
 
 nonisolated extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0B\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1}B\0swift_proto_testing.extend.EnumOptionalDefault.NestedMessage2.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&pm\u{e}\u{6}8`\u{15}~\u{6}K^L\u{e}\u{1d}s\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

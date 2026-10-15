@@ -217,7 +217,7 @@ nonisolated extension Pb_InternalOptionsForce: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Pb_InternalOptionsForce.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1c}\0pb.InternalOptionsForce.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{1c}\0pb.InternalOptionsForce.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cg'\u{16}7/\u{b}r8\u{16}\"\u{11}G#.gMvh#\r/L3#tC]f\u{18}'2@Ty[p\u{19}`o\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

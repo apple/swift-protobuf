@@ -182,7 +182,7 @@ nonisolated extension UnittestDropUnknownFields_Foo: SwiftProtobuf.GeneratedMess
 }
 
 nonisolated extension UnittestDropUnknownFields_Foo.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0+\0unittest_drop_unknown_fields.Foo.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0+\0unittest_drop_unknown_fields.Foo.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -205,7 +205,7 @@ nonisolated extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobu
 }
 
 nonisolated extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0:\0unittest_drop_unknown_fields.FooWithExtraFields.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0:\0unittest_drop_unknown_fields.FooWithExtraFields.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9DCi\u{16}*/?\u{1b}e6\u{3}\u{1b}\u{1d}\u{10}CMS4Jy\u{5}nk~(Y\u{c}N\u{2}[\u{7}d|\u{1}&(\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

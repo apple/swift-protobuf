@@ -471,13 +471,13 @@ nonisolated extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Generat
 }
 
 nonisolated extension SwiftProtoTesting_SwiftReservedTest.Enum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{6}\0\0\0\0*\0swift_proto_testing.SwiftReservedTest.Enum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0~*\0swift_proto_testing.SwiftReservedTest.Enum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _Qy=\u{6}*\0_ \u{f}\u{11}|xa\u{15}X\",`\u{2}jlI\u{f}I>..\u{11}+*Mall+w\u{1b}hh\"~|m8\u{13},jU{\u{13}\u{6}ETVZ&y'ze#|[q?*0b~U=Aau\u{19}2\n\u{f}\u{6}pZZ\u{7f}\u{2}K)}H@[3\u{12}\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtoTesting_SwiftReservedTest.ProtocolEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0.\0swift_proto_testing.SwiftReservedTest.Protocol"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}.\0swift_proto_testing.SwiftReservedTest.Protocol"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}WpK\u{b}}\u{1d}N%6c'\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

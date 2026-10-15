@@ -174,13 +174,13 @@ nonisolated extension Pb_CppFeatures: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Pb_CppFeatures.StringType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{19}\0pb.CppFeatures.StringType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}\u{19}\0pb.CppFeatures.StringType"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{4}[aE'b@\u{f}$W\txIw\u{2}O\u{1}:t\u{7}Xda\u{1b}H!hwTp:3/hM2\t)\u{15}@X(-\"d\u{b}'V]\0\u{1e}bYhr\ti\u{16}\u{10}7Py,)\u{18}Zy~6\u{13}\u{5}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Pb_CppFeatures.RepeatedType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1b}\0pb.CppFeatures.RepeatedType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\u{1b}\0pb.CppFeatures.RepeatedType"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{4}bt7!cwWlg\u{1f}&\t\nWb\u{8}KN>T\u{18}*\u{14}\u{c}7W\u{1c}7/\u{11}TU(\u{8}MiS\u{18}y UC\"f\u{11}#\u{13} \0A<\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -477,19 +477,19 @@ nonisolated extension Proto2Unittest_TestRequiredLite {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_Proto2MapEnumLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0!\0proto2_unittest.Proto2MapEnumLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}!\0proto2_unittest.Proto2MapEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*Xt\\=6'\u{b}k\u{1d}Ndj\u{17}1!c\u{7f}s#6Kr[\u{c}=Bn8tsE(K\u{17}khwR0)\u{5}\u{13}j|%l+G0vcAo\u{7}QH:e\u{19}\u{7}\u{1}^&+\u{1}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_Proto2MapEnumPlusExtraLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0*\0proto2_unittest.Proto2MapEnumPlusExtraLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}*\0proto2_unittest.Proto2MapEnumPlusExtraLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\u{1}\0\00\u{7f}@\u{7f}\r\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}^\u{4}[Y-!c\u{1f}F>q=%\u{16}\u{1a}`#\0a0iDr^\u{f}T7t7!b+U\u{7f}\u{4}\u{b}v\tHUy\"U)9[\"Q{K.\u{5}F\u{10}3tl\u{1e}\0%/k\u{e}\u{10}QL4(\u{19}7%Br^\u{14}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_MapEnumLite {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1b}\0proto2_unittest.MapEnumLite"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\u{1b}\0proto2_unittest.MapEnumLite"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{14}\u{1a}:m&\u{1}q+\u{7f}lkO:l\\<\u{17}\0\u{14}\u{1}`Z>s4EEMK\u{8}Fm\u{2}\u{19}~W8so&\u{e}\n{gJ7cJ\\|AJ>o8\u{19}\u{1f}\u{18}\u{e}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

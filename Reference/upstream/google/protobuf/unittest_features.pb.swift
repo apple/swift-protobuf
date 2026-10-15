@@ -669,25 +669,25 @@ nonisolated extension Pb_TestMessage.Nested {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Pb_CustomOptionLifetimesEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1c}\0pb.CustomOptionLifetimesEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\u{1c}\0pb.CustomOptionLifetimesEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\u{10}0:,\u{c}\u{16}\u{1e}\u{2}0D\u{2}\u{1}\t:_Jy2Gl\u{10}\nXE-*\u{8}\u{15}\u{1b}.2#\u{1a}x\u{e}\u{14}0c[fC4\u{c}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Pb_EnumFeature {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{10}\0\0\0\0\u{e}\0pb.EnumFeature"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{10}\0\0\u{e}\0pb.EnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{1c}\u{3}\0\0 ?^t.9M\u{14}W+cDhZ\u{c}\u{1d}5B\u{10}s\u{4}wi*\u{1a}\\\u{e}\u{14}ZzSvjNJzBf4Lq\u{5}$pxm\u{b}\u{1b}Q5k%52ad\u{11}\u{1c}. 83 CFoO)\u{4}ac\u{1f}rOt+\u{11}\u{1b}]~Y%2a?IIkt;nd8co\u{6}>yykg{X&\u{b}\u{3};w\u{1d}A\u{e}\u{7f}A^|DA\u{10}H`{Kk\u{1}\\\u{19}\u{10}c\u{2}h5~l)C\t!i\tm&M2Tw/!d\u{1f}w:\u{1d}m5qOB\u{1e}F)6+\u{4}h9G\u{5}}A \u{14}\u{1e}tFuL\"Y\u{12}G<\u{19}\r7cEMP x0\u{1d}Va2HcEnri\0Lt.P\u{15};DC:\u{1f}\u{1b};3W\u{18}Db!\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Pb_UnstableEnumFeature {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{16}\0pb.UnstableEnumFeature"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\u{16}\0pb.UnstableEnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\u{1}\0\0 ?-\u{1d}!\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}\u{e}E\\a\u{1d}!c\u{f}\u{18}Y|!*~\u{8}eU$\u{1}|7Y4oG7\u{e}BtJ;.G\u{4}\"yE\u{16}-\u{7f}(k4Stfer4\u{1e}Pq\u{7f}XI[\u{5} wdPkwTdkN+r.pN@\u{19}\u{18}\u{12}q89E!%\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Pb_ValueLifetimeFeature {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0\u{17}\0pb.ValueLifetimeFeature"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\u{17}\0pb.ValueLifetimeFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{2}\0\0\0\u{1f}tG\u{1a}85-\u{b}ijxDl?=u\u{1f}x$$%m\u{18}rijcW\u{15}iDR_\u{1d}1{{*0gY|\u{1c}\u{10}D5\u{14}*2,F2\u{6}Zp\\<?~I\0\u{c}o\u{1f}5K\u{8}g\"gKmW1>L\u{12}(\nC\u{16}nh0\u{1c}`\u{e}`\u{f}-(N\u{5}akkY)}\u{1a}M\u{1f}T\u{10}\u{1f}!r\u{7f}N\u{b}\u{15}%_\u{f})!+\u{6}\u{1a}\u{17}\u{10}\u{c}(;\u{8}c_d6\u{b}Lc\t5,\u{18}H8\u{4}59q+\u{8}@\u{15}\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -1196,7 +1196,7 @@ nonisolated struct ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Swift.
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension ProtobufTestMessages_Proto3_ForeignEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0)\0protobuf_test_messages.proto3.ForeignEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0)\0protobuf_test_messages.proto3.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -1299,13 +1299,13 @@ nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProto
 }
 
 nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0;\0protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0;\0protobuf_test_messages.proto3.TestAllTypesProto3.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9$\u{14}jJ\u{8}%;$f6\u{3}\u{1b}\u{1d}\u{10}{FN<*\u{7}{0~\u{1d}T+<;1ZiH\u{1a}P\u{12}\u{19}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0<\0protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0<\0protobuf_test_messages.proto3.TestAllTypesProto3.AliasedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}\u{5}XI\u{6}*\0/b06'\u{b}k\u{1d}nc\u{7f}h\u{15}o5!Q\\F\u{3}+X:j06S\nzi\u{b}S\0\u{5}KEbp\u{b}\t\u{12}\u{4}\u{7f}&D#Jl~^\u{17}\u{1f}<^84L7o\u{15}3<~L\u{8} ^g\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -1358,7 +1358,7 @@ nonisolated extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.
 }
 
 nonisolated extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\01\0protobuf_test_messages.proto3.EnumOnlyProto3.Bool"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\01\0protobuf_test_messages.proto3.EnumOnlyProto3.Bool"
   private static let _protobuf_reflectionData: Swift.StaticString = "@\0\0\0\u{10}\u{7f}Bo\r\u{7}*(ae>pNF\u{16}kE.U\0U  %YK\u{1d}&~?r\nEXC\u{10}\u{11}\u{19}]-W\u{18}9\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

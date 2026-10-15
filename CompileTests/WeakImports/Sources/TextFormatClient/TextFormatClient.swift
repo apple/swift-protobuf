@@ -143,6 +143,19 @@ struct Main {
             expect(roundTrippedText.contains("oneof_message_b {\n  id: 7\n  detail: \"oneof b\"\n}"))
             expect(roundTrippedText.contains("[test.ext_message] {\n  id: 88\n  detail: \"ext b\"\n}"))
             expect(roundTrippedText.contains("[test.ext_enum]: ENUM_B_FIRST"))
+
+            // Verify that closed enum validation for `EnumB` works via `EnumSchema`
+            // even though `b.pb.o` (and `EnumB`'s witness table) is dead-stripped:
+            // 1. Valid numeric value is accepted, unrecognized numeric value is rejected.
+            let validFromText = try? Test_MessageA(textFormatString: "nested_enum: 1")
+            expect(validFromText?.hasNestedEnum == true)
+            expect((try? Test_MessageA(textFormatString: "nested_enum: 99")) == nil)
+
+            // 2. Unrecognized numeric value in binary format is routed to unknown fields.
+            let unknownEnumBytes = Data([0x18, 0x63])  // field 3 (nested_enum), varint 99
+            let withUnknownEnum = try! Test_MessageA(serializedBytes: unknownEnumBytes)
+            expect(!withUnknownEnum.hasNestedEnum)
+            expect(try! withUnknownEnum.serializedData() == unknownEnumBytes)
         }
         #endif
 

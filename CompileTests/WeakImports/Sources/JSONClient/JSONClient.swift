@@ -111,6 +111,12 @@ struct Main {
             expect(roundTrippedJSON.contains("\"repeatedB\":[{\"id\":1,\"detail\":\"r1\"}]"))
             expect(roundTrippedJSON.contains("\"repeatedEnumB\":[\"ENUM_B_UNSPECIFIED\",\"ENUM_B_FIRST\"]"))
             expect(roundTrippedJSON.contains("\"oneofMessageB\":{\"id\":7,\"detail\":\"oneof b\"}"))
+
+            // Verify that closed enum validation for `EnumB` works via `EnumSchema`
+            // even though `b.pb.o` (and `EnumB`'s witness table) is dead-stripped.
+            let validFromJSON = try? Test_MessageA(jsonString: "{\"nestedEnum\": 1}")
+            expect(validFromJSON?.hasNestedEnum == true)
+            expect((try? Test_MessageA(jsonString: "{\"nestedEnum\": 99}")) == nil)
         }
         #endif
 

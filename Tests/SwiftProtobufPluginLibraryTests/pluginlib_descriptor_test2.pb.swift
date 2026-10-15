@@ -260,7 +260,7 @@ nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobu
 }
 
 nonisolated extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0swift_descriptor_test.Proto3MessageForPresence.SubEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\06\0swift_descriptor_test.Proto3MessageForPresence.SubEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cog\n%\u{f}^IPsy\u{e} 1\u{17}Pn\u{3}^oc0h\u{10}d_p\u{15}=mG\u{11} \u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
