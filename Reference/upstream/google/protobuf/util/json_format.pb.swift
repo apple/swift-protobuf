@@ -733,7 +733,7 @@ nonisolated extension Proto2Unittest_TestExtension {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_EnumValue {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{19}\0proto2_unittest.EnumValue"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\u{19}\0proto2_unittest.EnumValue"
   private static let _protobuf_reflectionData: Swift.StaticString = "X\0\0\0PVN/\rJT\u{12}wt\u{12}1cz@TJ\n_/sR\u{7f}ZEyC\\\u{14}\tE#(N\u{5}\u{19}Jv\tQ=/\u{17}Elx\u{8}N25)w\u{1e}B\u{1c}#K\u{6}\u{4}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -840,7 +840,7 @@ nonisolated extension Proto2Unittest_TestNumbers: SwiftProtobuf.GeneratedMessage
 }
 
 nonisolated extension Proto2Unittest_TestNumbers.MyType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\"\0proto2_unittest.TestNumbers.MyType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\"\0proto2_unittest.TestNumbers.MyType"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\0\0\0P4^1\u{1}J\0iQ\u{c}B\u{12}\u{7f}\u{7}|N$i_W^0\u{1f}X'4bAeP5*\u{18}1^{m\u{1d}\u{7};\u{1f}\u{8}2GL\u{13}5\u{12}u\r\u{13}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -2984,13 +2984,13 @@ public nonisolated struct Google_Protobuf_GeneratedCodeInfo: @unchecked Swift.Se
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Google_Protobuf_Edition {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{e}\0\0\0\0\u{17}\0google.protobuf.Edition"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\u{b}\0\0\u{7}\u{4}\u{7}\0\0\0f\u{7}\0\0\0g\u{7}\0\0\0h\u{7}\0\0\0i\u{7}\0\0\0j\u{7}\0\0\0\u{f}N\0\0\0\u{1d}\u{d}\u{6}\0\0\u{1e}\u{d}\u{6}\0\0\u{1f}\u{d}\u{6}\0\0\u{7f}\u{7f}\u{7f}\u{7f}\u{7}\u{17}\0google.protobuf.Edition"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\u{3}\0\00?e=f85-\u{1b}KL:Dr?|eUs\u{12}$%mX\u{12}2JI\u{1d}\u{5}\u{10}\u{1f}e:\u{16}mQZ]\u{e}=x\u{14}\u{1a}\u{c}\t\u{1d}jx\u{18}M&\u{11}f\u{5}yIRFR\u{4} R\u{15}[~/jO9C0\u{b}iU\u{2}N/OFYP2kE@f\u{6}\u{1b}\u{5}2Fkq\\F\"h\u{1f}\u{19}x\n\u{13}6T4j\u{11}?\t=\tfv(|WmY_\u{c}qdt:G2n\u{11}\u{3}^\u{8}2SX\tbcg\u{12}o5?\u{18}\"t\u{18}\u{12}h}rbn0\\c\u{18}n\u{1e};d\u{7}i\u{7}\u{11}\u{3}e|g\u{15}\u{10}c(Mka.R\u{e}s'eAX-WI=cL\u{16}'9\u{b}\u{1e}2+\t\u{1}m\u{16}E>C%Jmuz&\u{b}+f\u{f}\u{17}*TC\0G H5.b}L>^\u{3})&(6Zo\u{c}KmR\u{b}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_SymbolVisibility {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0 \0google.protobuf.SymbolVisibility"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7} \0google.protobuf.SymbolVisibility"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}\u{1a}:m&\u{1}q+\u{7f}lkL\u{1c}\u{1}\\HFHU0M\u{1}\u{10}ath*^E\\kitwT=gwI!\u{8}i\u{1b}jH\u{17}:<+c$p-I\u{17}Aai\n\u{4}$\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3107,7 +3107,7 @@ nonisolated extension Google_Protobuf_ExtensionRangeOptions: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_ExtensionRangeOptions.VerificationState {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\07\0google.protobuf.ExtensionRangeOptions.VerificationState"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{3}7\0google.protobuf.ExtensionRangeOptions.VerificationState"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KdQ_z\u{12}1cz@Tj3Eg>$\u{17},q\u{1}lU\u{7f}\u{5}ns@\"\u{1f}+$'\u{2}$dZ\t\u{1}\u{8} 7g\u{7}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3142,13 +3142,13 @@ nonisolated extension Google_Protobuf_FieldDescriptorProto: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_FieldDescriptorProto.TypeEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{12}\0\0\0\0)\0google.protobuf.FieldDescriptorProto.Type"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0@\0\0\0~\u{7f}\u{1f})\0google.protobuf.FieldDescriptorProto.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{4}\0\0\0\u{7f}L\u{2}`\u{16}\u{1f}&My?iI0\t-1\u{4}+-\t7\u{1c}u\u{17}:sW.C<\u{1b}MCm$|\u{12}A?\u{f}\u{1b}R\t\u{b}\u{b}R|J\u{15}SUf\04m\u{13}X\u{15}4\u{16};?2e)+mf'Of\u{1c}4C\u{5}Frm*W\u{15}>R5\u{c}\u{15}\u{1c}h\rR=Ap~s(9j{in_'b7\u{14}rK<\t\u{1e}\u{1e}!bZ1\u{f}\u{1d}bf\"5Q\u{e})\u{1f}CXZCP! O\n`!^\r\u{7f}jM\u{13}{:,~+5\"[~\u{16}+\":\u{16}sc\u{12}!'J&RhMc}\u{12}R\u{1d}AV(wv;>w\u{19}41\u{1d}B\u{4}\u{15}l\u{1b}5GRVyLm\u{1f}^{\u{f}ij\r\u{b}Ojylp&v-\t+O\u{17}b\u{4}#;rt'\u{1e}@iU)\n\u{b}Uk\"\u{f}P\u{1d}#0 =HCK,P\u{10}&\u{e}8\u{12}\u{2}.\u{15}m;\u{19}0HIpT!A.s\u{e}\0\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FieldDescriptorProto.Label {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0*\0google.protobuf.FieldDescriptorProto.Label"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}*\0google.protobuf.FieldDescriptorProto.Label"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\jV\u{1c}d GMwQ\t\u{14}E+3|\u{1}0\"zOc!jK\"\u{e}Ug#C09^2\u{1c}g*y\re|\u{c}s\u{f}KBZ*p'\u{8}0O5Pxypf\u{2}|\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3272,7 +3272,7 @@ nonisolated extension Google_Protobuf_FileOptions: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_FileOptions.OptimizeMode {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0(\0google.protobuf.FileOptions.OptimizeMode"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}(\0google.protobuf.FileOptions.OptimizeMode"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"lYBH\u{18}(v/KC#c\u{1c}\u{4}m&|d@V*[Q\u{1}Co\u{18}{{=\u{13}\u{1e}wK\u{7f}\u{1}O\\4Y?$\u{7}V_X\u{b}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3320,25 +3320,25 @@ nonisolated extension Google_Protobuf_FieldOptions: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_FieldOptions.CType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\"\0google.protobuf.FieldOptions.CType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\"\0google.protobuf.FieldOptions.CType"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@x~-\u{19}JT\u{12}wt\u{12}1cz@T:Db-sR\u{7f}2C|W\\.\u{1d}f5X*\u{f}C\u{e}a\u{15}}4\\#\u{18}\rj&8{\u{15}!\u{2}]Ae^p\u{17}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FieldOptions.JSType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0#\0google.protobuf.FieldOptions.JSType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}#\0google.protobuf.FieldOptions.JSType"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}nc\u{7f}h\u{15}o5!Q|b7P\u{1e}4Cn\u{7f}KeJK\u{b}1gE\nN\u{8}w\u{13}#i\r\u{7f}\u{7f}PFrk\u{19}\u{13}X\u{10}h^\u{c}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FieldOptions.OptionRetention {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0,\0google.protobuf.FieldOptions.OptionRetention"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7},\0google.protobuf.FieldOptions.OptionRetention"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?K\u{14}\u{1a}:m&\u{1}q+\u{7f}lkO:l\\<\u{17}\0\u{14}\u{1}`Z>s4EE\r]:\u{1c}*\u{1}\u{c}\u{15}\\S23L\u{12}5&\u{1}r\\\u{7}\u{16}=Oe|,z\u{7f}N\u{e}]\u{17}kW/X\u{1}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FieldOptions.OptionTargetType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{a}\0\0\0\0-\0google.protobuf.FieldOptions.OptionTargetType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0@\0\0\0\u{7f}\u{7}-\0google.protobuf.FieldOptions.OptionTargetType"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{2}\0\0 J%V|\u{11}YA ))xKD\u{1c}c\u{1c}Ld\u{6}Qi5l\\xsN+m\u{1a}  )\u{3}-\u{8}M\u{6}J\u{12}\u{7f}=<Be.MG\u{19}rSW\u{1d}\"I&d\u{7f}o4{\u{f}2l(\u{c}tp\\F\u{c}\u{f}\u{2}\tw\u{1b}x\u{10}]tvJ(&5_ ).H7.Cd c\u{1c}!o\u{1b}\u{13}O 8M$~.\u{6}\u{1d}\u{e}9*RT~\u{c} \u{4}F2L[\u{1d}\u{7}\u{11}\nut\u{11}S\u{14}q%\u{1b}gv!\u{15}#sKh\u{8}=\u{1d}\u{13}\u{4}\\<MQ\u{3}\u{1c}2zG\u{4}j )IJ6'\u{15}K<Pn|9\0\u{8}\u{10}\u{16}\u{12}\0\0\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3470,7 +3470,7 @@ nonisolated extension Google_Protobuf_MethodOptions: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_MethodOptions.IdempotencyLevel {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0.\0google.protobuf.MethodOptions.IdempotencyLevel"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}.\0google.protobuf.MethodOptions.IdempotencyLevel"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@\\\u{1a}lk:sR\u{3}#QL1\u{f}L\u{b},!FhMO\u{1a}\u{5}|;{>A\u{1e}mzEW2Dyr<\u{16}\t0v\u{13}'@Yd\ttl\u{6}\u{2}\u{6}\u{10}/h\u{4}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3528,43 +3528,43 @@ nonisolated extension Google_Protobuf_FeatureSet: GeneratedMessage {
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.FieldPresence {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0(\0google.protobuf.FeatureSet.FieldPresence"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}(\0google.protobuf.FeatureSet.FieldPresence"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}>$zU5!c\u{7f}\u{7}\u{1}EE9r\u{12}Ef{\u{12}{2~)f\u{16}zQlZy~#\u{6}\u{17}\u{4}SL=V5c~'x,w\u{7f}y/\n\u{16}kYSHi~l$B<f\u{12}V:w&Q=d\u{1c}\u{1b}!\u{2} \u{16}SWI\u{3}"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.EnumType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0#\0google.protobuf.FeatureSet.EnumType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}#\0google.protobuf.FeatureSet.EnumType"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*Xt\\=6'\u{b}k\u{1d}.$Ap\t\tc]1\u{2}m}\t(E&nk]un\u{1f}\u{4}\u{16}m9;(\u{6}\u{1d}.\u{16}YO$.\u{19}\u{1e};+\u{1d}\u{17}Vn6k!NRY\"\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\00\0google.protobuf.FeatureSet.RepeatedFieldEncoding"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}0\0google.protobuf.FeatureSet.RepeatedFieldEncoding"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@dzpVFsR\u{3}{r=gn1\u{7}DmY.qm\":.h^\u{12}k\u{19}b{0\t&hoQ\u{15}RHx=||Kt].\tzD7^%NcW\u{1d}i=Q/\u{1}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.Utf8Validation {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0)\0google.protobuf.FeatureSet.Utf8Validation"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{d})\0google.protobuf.FeatureSet.Utf8Validation"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{15}\u{3}\u{1c}CdRJb\u{1e}\u{c}\u{1f}-}k&q@3\u{f}\u{2}7NI>:\rb^`N\u{e}/g\u{10}\u{11}\u{15}Jw\u{12};\u{e}G%-5}\u{18}%%W\\\u{1}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.MessageEncoding {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0*\0google.protobuf.FeatureSet.MessageEncoding"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}*\0google.protobuf.FeatureSet.MessageEncoding"
   private static let _protobuf_reflectionData: Swift.StaticString = "t\0\0\0pG\u{4}~3K\u{14}\u{1a}:m&\u{1}q+\u{7f}t+\u{5}\u{e}Y\\<\u{17}p\u{16}C~\u{3}<\"Jw\"5@\u{3}\u{8}\0@@\u{18}X\u{2}\u{1f}c*`=X\u{1}=\u{1}\u{1f}\u{7}tK7z{%fI\u{3}\u{e}}Y\r\u{19}$\u{e}y*I\u{12}0\",:\u{4}72\u{1b}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.JsonFormat {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0google.protobuf.FeatureSet.JsonFormat"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}%\0google.protobuf.FeatureSet.JsonFormat"
   private static let _protobuf_reflectionData: Swift.StaticString = "p\0\0\0pE\u{14}\0'K\\\"w\u{15}\u{8}1cz@\\\u{1a}lk:sR\u{7f}B{aQ\\.\u{1d}f5X*A_{\u{1b}'Y\u{15}y?P_\u{1b}-ug B1WAb<f9\n}\u{1b}En\u{10}FDh@S\"&GI\u{6}\rPy\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.EnforceNamingStyle {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0-\0google.protobuf.FeatureSet.EnforceNamingStyle"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{f}-\0google.protobuf.FeatureSet.EnforceNamingStyle"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{1}\0\0 _Qy=\u{6}*\u{10}\u{8}496'\u{b}k\u{1d}nDK\u{1b}s\u{8}cu\u{1}O\u{1a}N<{!u\u{1b}'^r\u{7f}\u{c}\u{12}\u{1b}`2&\u{14}\u{4}\u{12}Ci%\u{1e}\tXfj\u{8}P4\u{17}di\u{1d}\u{3}\u{b}l\u{12}\u{13}Q*<\u{1}1J\r\u{1c};@\u{11}7\u{11}V?\nq z!o\r7\u{5}<Y\u{14}\u{1}"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3580,7 +3580,7 @@ nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature: GeneratedMes
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.VisibilityFeature.DefaultSymbolVisibility {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0D\0google.protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1f}D\0google.protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\u{1}\0\0 \u{1f}q}\u{1d}\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}\u{e}ED\0i \"1$b\u{1c}2\r[\u{19}\u{b}J\u{16}HO3 \t\u{1b}]'C|vLY*\u{1a}\u{17}jw\n\u{4}S\u{7f}\u{7}\u{7}&EP\u{5}|y\02\u{c}Z#\u{15}\u{14}JcY6\u{f}e\t6Za\u{7}\u{16}5;7\u{19}-]~xT!\u{7}O`0:Oo/_{U$/Ae%_nh\u{4}zqI}0\u{1}\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3596,7 +3596,7 @@ nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature: GeneratedMe
 }
 
 nonisolated extension Google_Protobuf_FeatureSet.ProtoLimitsFeature.EnforceProtoLimits {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0@\0google.protobuf.FeatureSet.ProtoLimitsFeature.EnforceProtoLimits"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}@\0google.protobuf.FeatureSet.ProtoLimitsFeature.EnforceProtoLimits"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*Xt\\=6'\u{b}k\u{1d}>\u{4}J\u{13}\u{3}\tc\u{5}2E\u{e}\u{1e}&~\u{1}\u{1d}\\P\r:xz.\u{17};d7R(\u{10}i\u{18}_F\u{1d}0u\u{11}8y\u{3}5q\n#\u{1b}A\u{17}SFrD{Re~@\u{7}^\u{1e}\u{4}+]oG\u{c}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -3699,7 +3699,7 @@ nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation: GeneratedMes
 }
 
 nonisolated extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\05\0google.protobuf.GeneratedCodeInfo.Annotation.Semantic"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}5\0google.protobuf.GeneratedCodeInfo.Annotation.Semantic"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@L*\u{1e}f+sR\u{7f}ZQ$}q\u{7}\n9\r(\"Q@\u{1b}\u{2}qno\u{1e}\u{10}l_,{}6F3\u{16}\0\0"
   public static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

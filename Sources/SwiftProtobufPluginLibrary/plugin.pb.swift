@@ -409,7 +409,7 @@ nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProto
 }
 
 nonisolated extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0google.protobuf.compiler.CodeGeneratorResponse.Feature"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}6\0google.protobuf.compiler.CodeGeneratorResponse.Feature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\0\u{1}\0\0 \u{7f}AwM\u{6}*Xt\\=6'\u{b}k\u{1d}\u{e}DH\u{b}\u{13}\tcuAAl&Ks\u{17}[.7]f7\u{19}13\u{4}RkK\u{2}\u{11}`/L5z\u{4}U|\u{c}anhJb\u{c}-D\u{10}\u{5}M&\u{1f}\0QbwlK\u{18}\u{10}.\u{3}X\n\u{6}\0"
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

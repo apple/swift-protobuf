@@ -912,7 +912,7 @@ nonisolated extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.
 }
 
 nonisolated extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\07\0swift_proto_testing.test3.TestAllTypesProto3.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\07\0swift_proto_testing.test3.TestAllTypesProto3.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9$\u{14}jJ\u{8}%;$f6\u{3}\u{1b}\u{1d}\u{10}{FN<*\u{7}{0~\u{1d}T+<;1ZiH\u{1a}P\u{12}\u{19}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

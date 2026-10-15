@@ -257,7 +257,7 @@ nonisolated struct Google_Protobuf_ListValue: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Google_Protobuf_NullValue {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{19}\0google.protobuf.NullValue"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\u{19}\0google.protobuf.NullValue"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8m\u{7f})\u{18}v\u{1e}ip\"-q\u{19}\u{1}\u{5}1:\0\0\0"
   static let enumSchema = EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

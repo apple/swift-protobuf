@@ -730,7 +730,7 @@ nonisolated struct SwiftProtoTesting_Proto3_TestProto2Required: @unchecked Swift
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_Proto3_ForeignEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0&\0swift_proto_testing.proto3.ForeignEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0&\0swift_proto_testing.proto3.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{4}\u{1}\0\0 \u{7f}\u{5}XI\u{6}*\u{10}\u{8}4yP\u{12}y\u{1d}<\u{b}$\u{14}>\u{b}Y\0@02r=^CH~`4L{Dl0\u{14}J~]\u{14}eq0_\u{1}Q6\u{19}MGb`\u{1d}=M\u{1d}\u{1}{g*'\u{15};t$\u{1}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -758,7 +758,7 @@ nonisolated extension SwiftProtoTesting_Proto3_TestAllTypes: SwiftProtobuf.Gener
 }
 
 nonisolated extension SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\02\0swift_proto_testing.proto3.TestAllTypes.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\02\0swift_proto_testing.proto3.TestAllTypes.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\0\0\0`i4|?Kp\u{13}\u{19}~&\u{1}q/Ko~Q\0ern#WqM!dU:\u{1a}>!\u{1a}C\u{1b}|\u{8}=zYb\u{1b}\u{1a}\u{19}}<dUHk\u{4}<8Jd\u{17}S\u{3}O-y{=fm\r/C<\n#\r\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

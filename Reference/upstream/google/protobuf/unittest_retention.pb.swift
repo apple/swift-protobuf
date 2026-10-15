@@ -476,7 +476,7 @@ nonisolated extension Proto2Unittest_TopLevelMessage {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_TopLevelEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1c}\0proto2_unittest.TopLevelEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1}\u{1c}\0proto2_unittest.TopLevelEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0)x@H1\u{c}q\u{16}e^p{\u{1c}}H\u{7f}J<{be-\n\u{18}\u{8}^\u{18}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -512,7 +512,7 @@ nonisolated extension Proto2Unittest_TopLevelMessage: SwiftProtobuf.GeneratedMes
 }
 
 nonisolated extension Proto2Unittest_TopLevelMessage.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0*\0proto2_unittest.TopLevelMessage.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1}*\0proto2_unittest.TopLevelMessage.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "0\0\0\0\0\u{1f}sm\u{1d}\u{7}&pm\u{e}\u{6}8m=\u{4}\u{7}K^C\u{1c}1\u{17}!*\u{1d}H\u{5}i:\u{19}\u{3}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

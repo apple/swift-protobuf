@@ -169,7 +169,7 @@ nonisolated extension SwiftFeatureTest_TestFeatures: SwiftProtobuf.GeneratedMess
 }
 
 nonisolated extension SwiftFeatureTest_TestFeatures.EnumFeature {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{7}\0\0\0\0+\0swift_feature_test.TestFeatures.EnumFeature"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7f}+\0swift_feature_test.TestFeatures.EnumFeature"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{10}\u{2}\0\0\0_TC:85-\u{b}ijxDl?=5\u{7f}U\u{1b}\u{19}\u{7f}lfQ@#D%y|x\u{11}\u{b}U|euo^\u{14}@\u{e}9\u{1}ovT<D\u{11}[|(_\u{10}x\u{1f}|Vp^DONFz0jb.\u{1f}{0\u{14}M\u{e}J\t0^U\u{c}G@wh1\u{7}M\u{1f}\u{5}0\u{1}\u{18}9\u{4}Uf\\J\u{12}\u{f}\u{f}rgQ\u{6}!lO\u{f}\u{1a}:\u{3}\u{8}#3\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

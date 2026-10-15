@@ -20,37 +20,13 @@ fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobu
   typealias Version = _2
 }
 
-public nonisolated enum Test_EnumB: SwiftProtobuf.Enum, Swift.CaseIterable {
-  public typealias RawValue = Swift.Int
-  case unspecified // = 0
-  case first // = 1
-  case UNRECOGNIZED(Swift.Int)
+public nonisolated enum Test_EnumB: Swift.Int, SwiftProtobuf.Enum, Swift.CaseIterable {
+  case unspecified = 0
+  case first = 1
 
   public init() {
     self = .unspecified
   }
-
-  public init?(rawValue: Swift.Int) {
-    switch rawValue {
-    case 0: self = .unspecified
-    case 1: self = .first
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  public var rawValue: Swift.Int {
-    switch self {
-    case .unspecified: return 0
-    case .first: return 1
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static let allCases: [Test_EnumB] = [
-    .unspecified,
-    .first,
-  ]
 
 }
 
@@ -60,14 +36,22 @@ public nonisolated struct Test_MessageB: @unchecked Swift.Sendable {
   // methods supported on all messages.
 
   public var id: Int32 {
-    get { _storage.value(at: 4, hasBit: (0, 1)) }
-    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: newValue != 0, hasBit: (0, 1)) }
+    get { _storage.value(at: 4, default: 0, hasBit: (0, 1)) }
+    set { _uniqueStorage().updateValue(at: 4, to: newValue, willBeSet: true, hasBit: (0, 1)) }
   }
+  /// Returns true if `id` has been explicitly set.
+  public var hasID: Swift.Bool { _storage.isPresent(hasBit: (0, 1)) }
+  /// Clears the value of `id`. Subsequent reads from it will return its default value.
+  public mutating func clearID() { _uniqueStorage().clearValue(at: 4, type: Int32.self, hasBit: (0, 1)) }
 
   public var detail: String {
-    get { _storage.value(atIndex: 0, hasBit: (0, 2)) }
-    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: !newValue.isEmpty, hasBit: (0, 2)) }
+    get { _storage.value(atIndex: 0, default: String(), hasBit: (0, 2)) }
+    set { _uniqueStorage().updateValue(atIndex: 0, to: newValue, willBeSet: true, hasBit: (0, 2)) }
   }
+  /// Returns true if `detail` has been explicitly set.
+  public var hasDetail: Swift.Bool { _storage.isPresent(hasBit: (0, 2)) }
+  /// Clears the value of `detail`. Subsequent reads from it will return its default value.
+  public mutating func clearDetail() { _uniqueStorage().clearValue(atIndex: 0, type: String.self, hasBit: (0, 2)) }
 
   public init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 

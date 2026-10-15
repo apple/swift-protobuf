@@ -1896,19 +1896,19 @@ nonisolated extension Proto2Unittest_NestedOptionType {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_MethodOpt1 {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{1a}\0proto2_unittest.MethodOpt1"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{6}\u{1a}\0proto2_unittest.MethodOpt1"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKd!?an\u{b}!\u{14}\u{8}HI\u{7}wVo@\u{1a}'2qk\u{8}&C[B\u{18}@u.l\u{5}\u{8} \0kN{\n\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_CustomOptionLifetimesEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0)\0proto2_unittest.CustomOptionLifetimesEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1f})\0proto2_unittest.CustomOptionLifetimesEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "x\u{1}\0\00\u{1f}8FU\u{7}*8\u{1a}3B0FI\u{1}\n\tt\u{1f}\u{f}e [7P7\u{1f}'\u{1}\u{1d}u\u{1a}|CR\nZ\u{8}\0*Igo_7\u{11}Ei\u{16}]!xC)1t,r\u{6}b\u{1}\u{19}p>?aiu\u{11}\u{4}]+;5-!\u{13}b`\0\u{2}Hx\n|\t\"j\u{7f}\0+l[\"RZQ77a%0l\u{13}pK\u{1b}cS\u{8}m6~X!eF\0\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Proto2Unittest_AggregateEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0\u{1d}\0proto2_unittest.AggregateEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}\u{1d}\0proto2_unittest.AggregateEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "(\0\0\0\0?k,%\u{7}&p\u{1d}-`\u{15}Wp\u{7f}^[E-\u{2}n.\u{1}\u{1e}N\01\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -1961,7 +1961,7 @@ nonisolated extension Proto2Unittest_TestMessageWithCustomOptions: SwiftProtobuf
 }
 
 nonisolated extension Proto2Unittest_TestMessageWithCustomOptions.AnEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\03\0proto2_unittest.TestMessageWithCustomOptions.AnEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{6}3\0proto2_unittest.TestMessageWithCustomOptions.AnEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]Kd!?an\u{b}!\u{12}\0oj@\u{7f}#\u{6}&0h\u{1c}r\u{15}\u{14}5KE\u{16}m<(}\u{b}yk\u{7}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2017,7 +2017,7 @@ nonisolated extension Proto2Unittest_DummyMessageContainingEnum: SwiftProtobuf.G
 }
 
 nonisolated extension Proto2Unittest_DummyMessageContainingEnum.TestEnumType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\07\0proto2_unittest.DummyMessageContainingEnum.TestEnumType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0@\u{1}\0\0\0\0\0\u{2}i\u{7f}\u{7f}\u{7f}\u{f}7\0proto2_unittest.DummyMessageContainingEnum.TestEnumType"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*(\u{11}$\u{1d}cGQ\u{15}\u{1e}-\n.j\u{1c}\u{16}J\u{16}P\u{2}ma2i\u{7}Y~V'm\u{18}:!3'O9:&\u{16}<.#x\u{e}Ee\u{8} -k\\<~p,\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2277,7 +2277,7 @@ nonisolated extension Proto2Unittest_NestedOptionType: SwiftProtobuf.GeneratedMe
 }
 
 nonisolated extension Proto2Unittest_NestedOptionType.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0+\0proto2_unittest.NestedOptionType.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}+\0proto2_unittest.NestedOptionType.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "4\0\0\0@\u{1a}o+%J\0qW6M]\u{7}D\u{17}  {{Ulc]e%o=jxw1Z^C\u{14}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2310,7 +2310,7 @@ nonisolated extension Proto2Unittest_OldOptionType: SwiftProtobuf.GeneratedMessa
 }
 
 nonisolated extension Proto2Unittest_OldOptionType.TestEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\0&\0proto2_unittest.OldOptionType.TestEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{1}&\0proto2_unittest.OldOptionType.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8n?o\u{5}694M\u{c}\u{1f}:_$\0[Q\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2333,7 +2333,7 @@ nonisolated extension Proto2Unittest_NewOptionType: SwiftProtobuf.GeneratedMessa
 }
 
 nonisolated extension Proto2Unittest_NewOptionType.TestEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0&\0proto2_unittest.NewOptionType.TestEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{3}&\0proto2_unittest.NewOptionType.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "D\0\0\0\u{10}\u{7f}\u{6}P\t\u{7}*(ae>pNF\u{16}kUN\u{1d}L@hPo`\u{18}\u{1a}\u{16}X}\u{8}?TI @e-[Jp\u{1d}\t\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

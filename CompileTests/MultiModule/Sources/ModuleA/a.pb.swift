@@ -100,7 +100,7 @@ public nonisolated let Extensions_ext_str = SwiftProtobuf.ExtensionSchema(
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension E {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1}\0E"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{7}\u{1}\0E"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@TJg@.sR\u{7f}2C|W\\0;Z'\"(\u{6}Q\u{1e})\\]`QPL\u{18}gwI|\u{11}\u{14}\0"
   public static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

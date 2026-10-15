@@ -248,7 +248,7 @@ nonisolated struct SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Swift.S
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_MapEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{1b}\0swift_proto_testing.MapEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{1b}\0swift_proto_testing.MapEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\\"w\u{15}\u{8}1cz@Tj\u{16}X3sR\u{7f}B{aQ\\0;Z'\"HdQY\u{1d}\u{8},8n]{\u{13}mB\u{e}\u{5}\n5.#Skmv\u{3}6\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

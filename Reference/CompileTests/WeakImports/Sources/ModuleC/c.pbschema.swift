@@ -10,7 +10,7 @@
 
 @_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 
-private let __test_DEnumC_schemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{a}\0test.EnumC"
+private let __test_DEnumC_schemaString: Swift.StaticString = "\0\u{2}\0\0\u{a}\0test.EnumC"
 private let __test_DEnumC_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKdQ_z\u{12}1cz@\\\u{1a}\t\u{e}^Y~vvl<\u{6}xcF\u{c}>5\n(\u{5}NM$W\"6O@\u{1}\u{1a}#2\u{14}>\u{3}\0"
 
 #if canImport(Darwin)

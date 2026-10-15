@@ -46,7 +46,7 @@ nonisolated enum Proto2Unittest_LazyImports_LazyEnum: Swift.Int, SwiftProtobuf.E
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_LazyImports_LazyEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{2}\0\0\0\0%\0proto2_unittest.lazy_imports.LazyEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{3}%\0proto2_unittest.lazy_imports.LazyEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "H\0\0\0`N\r7]KdQ_z\u{12}1cz@Tj3Eg>$\u{17}lG\u{c}h\u{1e}J2BR\u{1a}*z~UpM&\u{11}\u{1a}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

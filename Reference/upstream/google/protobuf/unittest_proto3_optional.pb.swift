@@ -457,7 +457,7 @@ nonisolated extension Proto2Unittest_TestProto3Optional: SwiftProtobuf.Generated
 }
 
 nonisolated extension Proto2Unittest_TestProto3Optional.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0-\0proto2_unittest.TestProto3Optional.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0-\0proto2_unittest.TestProto3Optional.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "|\0\0\0`\u{b}%zKKp\u{13}\u{19}~&\u{1}q+\u{7f}dK=\u{5}j\\<\u{13}8(\u{e}Mm\u{19}\"d9Q%MLoMu#BE\u{1e}]JHwO\u{5}-xwbQqQU\u{1b}?v6 d-RPE*YHg\u{6}ipXe5lw`\u{b}\u{14}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

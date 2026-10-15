@@ -506,13 +506,13 @@ nonisolated struct Conformance_JspbEncodingConfig: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Conformance_WireFormat {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{16}\0conformance.WireFormat"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\u{16}\0conformance.WireFormat"
   private static let _protobuf_reflectionData: Swift.StaticString = "\u{c}\u{1}\0\0 \u{7f}\r\u{19}A\u{6}*H\u{1b}\u{b}56'\u{b}k\u{1d}~#p*K!cg'vsE*~f\\2j_j;@\u{1}ADpqQ\u{7}_\t\t)p<]l,io*c\u{1e}\u{f}@f1=N_\u{7f}\\\u{10}a\u{1d}?}\u{e}>F\u{7}\u{12}gS*y:\u{e}HG#p\u{c}d'J\t|\u{19}\u{6}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension Conformance_TestCategory {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{6}\0\0\0\0\u{18}\0conformance.TestCategory"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{6}\0\0\u{18}\0conformance.TestCategory"
   private static let _protobuf_reflectionData: Swift.StaticString = "T\u{1}\0\00_Tay\u{7}*p\u{1d}Ju0u{0?\u{5}1phe#Ug\u{8}<D(pb*& a\u{1}H\u{2}\u{10}\u{2}_C`FV\u{7f}\u{f}J\u{1c}`f\tg_j>| \u{10},w\u{1d}b{~!u~*I\u{11}\u{e}\u{e}K\u{1e}\twq\0\u{5} Y\u{18}YO\u{17}\u{19}gnm];3i^>WOZ$lA\u{2}qbA0kfx3\u{1e}IB\u{10}.W+g3^\u{11}=\u{18}\\_\u{15}l\u{13}\u{1}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

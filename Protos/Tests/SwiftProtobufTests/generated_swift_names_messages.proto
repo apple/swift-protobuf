@@ -229,6 +229,7 @@ message GeneratedSwiftReservedMessages {
   message consumeUnsignedInteger { int32 consumeUnsignedInteger = 1; }
   message contains { int32 contains = 1; }
   message contentsOf { int32 contentsOf = 1; }
+  message context { int32 context = 1; }
   message ContiguousBytes { int32 ContiguousBytes = 1; }
   message convenience { int32 convenience = 1; }
   message convention { int32 convention = 1; }
@@ -384,6 +385,7 @@ message GeneratedSwiftReservedMessages {
   message fixed2ByteBase128 { int32 fixed2ByteBase128 = 1; }
   message fixed32 { int32 fixed32 = 1; }
   message fixed3ByteBase128 { int32 fixed3ByteBase128 = 1; }
+  message fixed5ByteBase128 { int32 fixed5ByteBase128 = 1; }
   message fixed64 { int32 fixed64 = 1; }
   message fixedFeatures { int32 fixedFeatures = 1; }
   message Float { int32 Float = 1; }
@@ -627,6 +629,7 @@ message GeneratedSwiftReservedMessages {
   message InvokeWitnessFunction { int32 InvokeWitnessFunction = 1; }
   message isA { int32 isA = 1; }
   message isAlphanumeric { int32 isAlphanumeric = 1; }
+  message isClosed { int32 isClosed = 1; }
   message isDigit { int32 isDigit = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
@@ -714,6 +717,7 @@ message GeneratedSwiftReservedMessages {
   message listValueValues { int32 listValueValues = 1; }
   message littleEndian { int32 littleEndian = 1; }
   message load { int32 load = 1; }
+  message localHasher { int32 localHasher = 1; }
   message location { int32 location = 1; }
   message lock { int32 lock = 1; }
   message LockPrimitive { int32 LockPrimitive = 1; }
@@ -735,6 +739,7 @@ message GeneratedSwiftReservedMessages {
   message mapEntryWorkingSpace { int32 mapEntryWorkingSpace = 1; }
   message mapValue { int32 mapValue = 1; }
   message mask { int32 mask = 1; }
+  message maskByteCount { int32 maskByteCount = 1; }
   message matchCode { int32 matchCode = 1; }
   message maximumEdition { int32 maximumEdition = 1; }
   message maxMatchLength { int32 maxMatchLength = 1; }
@@ -883,6 +888,7 @@ message GeneratedSwiftReservedMessages {
   message protobuf_messageSchemaString { int32 protobuf_messageSchemaString = 1; }
   message protobuf_messageStorage { int32 protobuf_messageStorage = 1; }
   message protobuf_reflectionData { int32 protobuf_reflectionData = 1; }
+  message protobuf_resolveReflection { int32 protobuf_resolveReflection = 1; }
   message protobuf_resolveSubmessageOrEnum { int32 protobuf_resolveSubmessageOrEnum = 1; }
   message protobuf_uniqueExtensionStorage { int32 protobuf_uniqueExtensionStorage = 1; }
   message protocol { int32 protocol = 1; }
@@ -936,8 +942,10 @@ message GeneratedSwiftReservedMessages {
   message requiredCount { int32 requiredCount = 1; }
   message requiredSize { int32 requiredSize = 1; }
   message resetForTesting { int32 resetForTesting = 1; }
+  message resolveGenerated { int32 resolveGenerated = 1; }
   message resolveLazy { int32 resolveLazy = 1; }
   message resolveLazyMapWitness { int32 resolveLazyMapWitness = 1; }
+  message resolveLazyWitness { int32 resolveLazyWitness = 1; }
   message responseStreaming { int32 responseStreaming = 1; }
   message responseTypeURL { int32 responseTypeURL = 1; }
   message result { int32 result = 1; }
@@ -1008,6 +1016,7 @@ message GeneratedSwiftReservedMessages {
   message sourceFile { int32 sourceFile = 1; }
   message SourceLocation { int32 SourceLocation = 1; }
   message span { int32 span = 1; }
+  message sparseCount { int32 sparseCount = 1; }
   message spi { int32 spi = 1; }
   message split { int32 split = 1; }
   message stable { int32 stable = 1; }
@@ -1052,6 +1061,7 @@ message GeneratedSwiftReservedMessages {
   message SwiftProtobufError { int32 SwiftProtobufError = 1; }
   message symbol { int32 symbol = 1; }
   message symbolName { int32 symbolName = 1; }
+  message symbolProvider { int32 symbolProvider = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }

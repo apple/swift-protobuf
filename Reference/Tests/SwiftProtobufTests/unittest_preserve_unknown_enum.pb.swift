@@ -272,13 +272,13 @@ nonisolated struct SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: @unc
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0.\0swift_proto_testing.unknown_enum.proto3.MyEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0.\0swift_proto_testing.unknown_enum.proto3.MyEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "L\0\0\0Pp=5iKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\0;Z'\"(II\n\u{1c}f/hPT\u{15}ReG\u{2}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\07\0swift_proto_testing.unknown_enum.proto3.MyEnumPlusExtra"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\07\0swift_proto_testing.unknown_enum.proto3.MyEnumPlusExtra"
   private static let _protobuf_reflectionData: Swift.StaticString = "l\0\0\0p#$\u{2}\u{1b}KHc>\u{10}\u{8}1cz@T:!\u{4}\u{1a}'J\u{3}\u{11}&\u{11}zm\u{19} \\#$Mv\u{1b}\u{f}s,/{jb\"pey\u{19}SH0f\u{1f}jr?%\u{16}p\u{e}'B\0\u{f}Z\u{b}\r\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

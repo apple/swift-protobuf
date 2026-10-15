@@ -10,7 +10,7 @@
 
 @_spi(ForGeneratedCodeOnly) import SwiftProtobuf
 
-private let __test_DEnumB_schemaString: Swift.StaticString = "\0\u{2}\0\0\0\0\u{a}\0test.EnumB"
+private let __test_DEnumB_schemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{3}\u{a}\0test.EnumB"
 private let __test_DEnumB_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKdQ_z\u{12}1cz@\\\u{1a}\t\u{e}^Y~vvl<\u{6}x\"D\u{6}\u{12}a\u{7f}\u{10}.\u{8}Ndege@\u{14} In*\u{1b}_9\0"
 
 #if canImport(Darwin)
@@ -45,7 +45,7 @@ public func __test_DEnumB_liveSupport(_ out: UnsafeMutableRawPointer) {
 }
 #endif
 
-private let __test_DMessageB_schemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\0\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{d}\0test.MessageB"
+private let __test_DMessageB_schemaString: Swift.StaticString = "\0\u{8}\0\0\u{2}\0\0\0\0\0\u{2}\0\0\u{3}\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\0\0@\u{1}\0\0\0\u{9}\u{d}\0test.MessageB"
 private let __test_DMessageB_reflectionData: Swift.StaticString = "<\0\0\0@^O'=Jl1\u{1f}\u{2}d\u{b}!\u{12}P\u{4}\u{5}\u{1e}'\u{18}?\u{f}.\u{18}E\u{1}=\u{16}aL'\u{8}q\u{6}tz\u{17}P\u{1}\0"
 
 #if canImport(Darwin)

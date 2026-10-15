@@ -368,13 +368,13 @@ nonisolated extension SwiftProtoTesting_Deprecated_MsgScope {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension SwiftProtoTesting_Deprecated_MyEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0%\0swift_proto_testing.deprecated.MyEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}%\0swift_proto_testing.deprecated.MyEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*X$\u{1b}\u{1c}\u{11}|xa\u{15}X\"ly!#X\0yfhI``v4Z\u{1b}g#'\u{1f}:Yj%7\u{13}KAS\u{6}Y:G\u{1e}\u{10}\u{1c}\"\u{1d}\u{1d}T!`\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
 
 nonisolated extension SwiftProtoTesting_Deprecated_MyEnum2 {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0&\0swift_proto_testing.deprecated.MyEnum2"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{e}&\0swift_proto_testing.deprecated.MyEnum2"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\jV\u{1c}d GMwQ\t\u{14}\u{3}?fuiL\\\u{8}\u{c}P R~`Xlq*s_\nf:\u{7f}\u{3}\u{4}\nlBhVcmwa5(gl%\u{f}c\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -1038,7 +1038,7 @@ nonisolated let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftPr
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension ProtobufTestMessages_Editions_ForeignEnumEdition2023 {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2023"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\06\0protobuf_test_messages.editions.ForeignEnumEdition2023"
   private static let _protobuf_reflectionData: Swift.StaticString = "d\0\0\0\u{10}?&Ti\u{6}*Xt\\=6'\u{b}k\u{1d}~#p*K!cogJ\u{8}W&\t\nWb\u{8}JgH\u{8}g#\u{6}-v\u{1}^@Bh[\u{12}\u{8}wS64B\u{e}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -1136,7 +1136,7 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023: Swi
 }
 
 nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0B\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0B\0protobuf_test_messages.editions.TestAllTypesEdition2023.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}\u{8}496'\u{b}\u{7}v,Z\u{5}\u{1e}ix9$\u{14}jJ\u{8}%;$f6\u{3}\u{1b}\u{1d}\u{10}{FN<*\u{7}{0~\u{1d}T+<;1ZiH\u{1a}P\u{12}\u{19}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

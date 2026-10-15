@@ -107,7 +107,7 @@ nonisolated let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension =
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_NoGenericServicesTest_TestEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\01\0proto2_unittest.no_generic_services_test.TestEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\0\0\0\u{2}1\0proto2_unittest.no_generic_services_test.TestEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "$\0\0\0\0?'L)\u{7}&p\u{1d}-`\u{15}Wpk%+*x\u{1c}H\u{11}3\u{4}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

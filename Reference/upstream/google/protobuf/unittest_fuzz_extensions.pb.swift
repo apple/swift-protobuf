@@ -2060,7 +2060,7 @@ nonisolated extension FuzzUnittest_TestNestedExtension {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension FuzzUnittest_ForeignEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0\0\0\0\u{19}\0fuzz_unittest.ForeignEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{5}\0@\u{1}\0\0p\0\0\0\u{10}@D\u{7}\0\0\u{19}\0fuzz_unittest.ForeignEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = " \u{1}\0\0 ?a{-\u{6}*HKI\u{13}\u{14}\u{8}1\u{12}\n\tS$S\tn\r%\u{16}\u{19}}TBa\u{1d}:;8W0z\u{3}\u{1d}s\u{1d}2`tey\tN*=;i[co\u{1a}&\u{c}b&M,\u{1c}\u{17}e'E\u{3}\u{3}'\u{1b}Z\u{1b}l\u{7}\u{1e}X0As7\0^;:~&e\u{8}"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2092,7 +2092,7 @@ nonisolated extension FuzzUnittest_FuzzMostTypes: SwiftProtobuf.GeneratedMessage
 }
 
 nonisolated extension FuzzUnittest_FuzzMostTypes.NestedEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0&\0fuzz_unittest.FuzzMostTypes.NestedEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0@\u{1}\0\0\u{e}\u{7f}\u{7f}\u{7f}\u{7f}\u{f}&\0fuzz_unittest.FuzzMostTypes.NestedEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "`\0\0\0\u{10}?bsm\u{6}*\u{10}8r\u{17}\u{11}|xa\u{15}\u{8}\t1V|hIP}2)\u{1}\u{1e}a5}B\u{1e}^w!\u{17}j\u{16}V\u{3}\u{2}xTj ^e;mjf\u{6}31D\u{1e}2\u{1f}N\u{8}\u{b}\u{3}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

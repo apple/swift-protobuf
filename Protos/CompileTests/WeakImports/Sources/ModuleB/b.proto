@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 package test;
 
@@ -8,6 +8,6 @@ enum EnumB {
 }
 
 message MessageB {
-    int32 id = 1;
-    string detail = 2;
+    optional int32 id = 1;
+    optional string detail = 2;
 }

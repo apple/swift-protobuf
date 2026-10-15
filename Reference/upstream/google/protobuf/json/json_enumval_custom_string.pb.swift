@@ -131,7 +131,7 @@ nonisolated struct JsonEnumvalCustomString_Knight: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension JsonEnumvalCustomString_Armor {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{a}\0\0\0\0 \0json_enumval_custom_string.Armor"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{a}\0\0 \0json_enumval_custom_string.Armor"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\u{3}\0\00_\u{11}[yZS\u{2}B\u{4}Snx\"\u{8}zx!B\u{19}\u{8}OG\0&+*Ad/\u{2}U,b\u{17}\u{12}\u{18}YjW\u{18}+|\u{10}P\u{6}wK\u{3}Ee0V\u{1b}\u{18}pFquz\u{3}H\u{6}\u{10}2:phB\u{19}o\u{2}jw\u{1b}b\u{3}eVA1j=\0^\r\u{1e}3YP\u{1f}\u{7f}i\\\u{18}WdVP\u{7}xvyI>(DQ5,=b\u{1a}_PNj \0Dv.\u{1}FG\u{e}E\u{3}\u{1a}7\u{c}\"G{Y=r\u{1d}\u{3}h0W56\u{19}\u{7f}5bk\u{1e}\u{4}aQa\u{6}!+\u{7f}/\u{e}d\u{1b}/\"\"^h\u{13}J'\u{b}9ev\u{1a}l\u{1b}_\u{17}DQ@cB\u{f}\0\u{1}6{bK/\u{2}\u{1}9\0nU\u{11}#1-D\u{7}As/!\u{8}QwdKJ\u{1}Wrttr'\u{1}\u{6}\r\ry/8\u{e}y\u{b},va1\\Z+a\rR\u{5}\u{16}*\t;|y`PU\u{f}\u{2}.:A?]\u{1b}-9#\"rpL?\tL\u{1d}^\u{6}\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

@@ -1735,7 +1735,7 @@ nonisolated struct Proto3_MapM: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto3_EnumType {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{f}\0proto3.EnumType"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{f}\0proto3.EnumType"
   private static let _protobuf_reflectionData: Swift.StaticString = "P\0\0\0P\u{12}.3uKT\u{12}wt\u{12}1cz@L*{G*sR\u{7f}\nA\u{7f}k\\.\u{1d}f5HJ8Gg;?~{FfBx\u{8}R!@kQFT\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -2278,7 +2278,7 @@ nonisolated extension Proto3_Mixed2: SwiftProtobuf.GeneratedMessage {
 }
 
 nonisolated extension Proto3_Mixed2.E {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\0\0\u{f}\0proto3.Mixed2.E"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{4}\0\0\u{f}\0proto3.Mixed2.E"
   private static let _protobuf_reflectionData: Swift.StaticString = "\\\0\0\0@x~-\u{19}J@S\u{1e}o\u{12}1cz@L\u{1a}5K(sR{z\u{f}P\u{6}\u{13}w1\u{5}U\u{e}\u{10}#q;R\u{f}N)|s*x2k#as\u{7f}%b\u{c}?\u{12}\u{5}\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }

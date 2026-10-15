@@ -566,7 +566,7 @@ nonisolated struct Proto2Unittest_TestI32StrMap: @unchecked Swift.Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 nonisolated extension Proto2Unittest_MapEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\0\0\u{17}\0proto2_unittest.MapEnum"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{3}\0\0\u{17}\0proto2_unittest.MapEnum"
   private static let _protobuf_reflectionData: Swift.StaticString = "h\0\0\0p\u{1}4\u{4}\u{f}K\\\"w\u{15}\u{8}1cz@Tj\u{16}X3sR\u{7f}B{aQ\\0;Z'\"HdQY\u{1d}\u{8},8n]{\u{13}mB\u{e}\u{5}\n5.#Skmv\u{3}6\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
@@ -860,7 +860,7 @@ nonisolated extension Proto2Unittest_MessageContainingEnumCalledType: SwiftProto
 }
 
 nonisolated extension Proto2Unittest_MessageContainingEnumCalledType.TypeEnum {
-  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\0\0\04\0proto2_unittest.MessageContainingEnumCalledType.Type"
+  private static let _protobuf_enumSchemaString: Swift.StaticString = "\0\u{1}\0\04\0proto2_unittest.MessageContainingEnumCalledType.Type"
   private static let _protobuf_reflectionData: Swift.StaticString = ",\0\0\0\0?/\r!\u{7}&pm\u{e}\u{6}8wgL&e\u{14} \u{1d}x\u{14}\u{16}\u{7f}=i\u{8}\0\0\0"
   static let enumSchema = SwiftProtobuf.EnumSchema(schema: _protobuf_enumSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.EnumWitnesses<Self>.perform)
 }
