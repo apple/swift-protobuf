@@ -55,7 +55,7 @@ package struct EnumSchemaCalculator {
             // (`Int32.min ... -1` -> `0x8000_0000 ... 0xffff_ffff`).
             let sortedUnsignedValues = Set(rawValues.map { UInt32(bitPattern: $0) }).sorted()
             let totalCount = sortedUnsignedValues.count
-            let nonNegativeCount =
+            let nonNegativeCount: Int =
                 sortedUnsignedValues.firstIndex { $0 >= 0x8000_0000 } ?? totalCount
 
             // Choose the prefix of `0...nonNegativeCount` non-negative values to place in the
