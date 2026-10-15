@@ -57,6 +57,9 @@ internal class DoubleParser {
             return nil
         }
 
+        // NOTE: The callers must prescreen the input to ensure it is a valid JSON style double,
+        // meaning it uses '.', and only that, as the decimal seperator.
+
         UnsafeMutableRawBufferPointer(work).copyMemory(from: bytes)
         work[bytes.count] = 0
 
