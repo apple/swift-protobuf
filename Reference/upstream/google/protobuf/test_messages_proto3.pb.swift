@@ -1096,12 +1096,12 @@ nonisolated struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Se
 
     init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _storage = unsafe _StorageClass.defaultInstance
   }
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct ProtobufTestMessages_Proto3_ForeignMessage: Sendable {
