@@ -76,5 +76,8 @@ final class Test_DoubleParser_Locale: XCTestCase {
         // Malformed numbers must still be rejected.
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(textFormatString: "value: 1.2.3"))
         XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "1.5x"))
+        // Configure the locale impacts of `strtod` don't let invalid input through.
+        XCTAssertThrowsError(try Google_Protobuf_DoubleValue(textFormatString: "1,5"))
+        XCTAssertThrowsError(try Google_Protobuf_DoubleValue(jsonString: "1,5"))
     }
 }
