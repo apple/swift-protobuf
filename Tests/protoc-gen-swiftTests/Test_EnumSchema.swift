@@ -145,6 +145,34 @@ private func withEnumSchema(
     }
 }
 
+@Test func unsortedRawValues() {
+    let unsorted: [Int32] = [1000, -1, 2, 500, -10, 0, 100, 1]
+    let sortedCalculator = EnumSchemaCalculator(
+        fullyQualifiedName: "pkg.MyEnum",
+        isClosed: true,
+        rawValues: unsorted.sorted()
+    )
+    let unsortedCalculator = EnumSchemaCalculator(
+        fullyQualifiedName: "pkg.MyEnum",
+        isClosed: true,
+        rawValues: unsorted
+    )
+    #expect(unsortedCalculator.schemaBytes == sortedCalculator.schemaBytes)
+
+    withEnumSchema(isClosed: true, rawValues: unsorted) { schema in
+        #expect(schema.maskByteCount == 1)
+        #expect(schema.sparseCount == 5)
+        #expect(schema.valueCount == 8)
+
+        for v in unsorted {
+            #expect(schema.isValidValue(v) == true)
+        }
+        for v: Int32 in [-11, -9, -2, 3, 99, 101, 499, 501, 999, 1001] {
+            #expect(schema.isValidValue(v) == false)
+        }
+    }
+}
+
 @Test func openEnumSemantics() {
     withEnumSchema(fullyQualifiedName: "pkg.OpenEnum", isClosed: false, rawValues: [0, 1, 100, -1]) { schema in
         #expect(schema.isClosed == false)

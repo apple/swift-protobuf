@@ -17,55 +17,46 @@ import Foundation
 
 /// Manages the generation of a schema string for a single platform.
 struct SchemaWriter {
-    /// Contains the Swift string literal (without quotes) that encodes the schema in the generated
-    /// source.
-    var schemaCode: String = ""
-
     /// Contains the raw UTF-8 bytes of the encoded schema.
-    var bytes: [UInt8] = []
+    private(set) var bytes: [UInt8] = []
 
-    /// Appends the given integer to the encoded schema literal in base 128 format, using the given
-    /// number of bytes to represent it.
-    mutating func writeBase128Int(_ value: UInt64, byteWidth: Int) {
-        func append(_ value: UInt64) {
-            bytes.append(UInt8(truncatingIfNeeded: value))
+    /// Returns the Swift string literal (without quotes) that encodes the schema in the generated
+    /// source.
+    var schemaCode: String {
+        var result = ""
+        for byte in bytes {
             // Print the normal scalar if it's ASCII-printable so that we only use longer `\u{...}`
             // sequences for those that are not.
-            if value == 0 {
-                schemaCode.append("\\0")
-            } else if isprint(Int32(truncatingIfNeeded: value)) != 0 {
-                self.append(escapingIfNecessary: UnicodeScalar(UInt32(truncatingIfNeeded: value))!)
+            if byte == 0 {
+                result.append("\\0")
+            } else if isprint(Int32(byte)) != 0 {
+                let scalar = Unicode.Scalar(byte)
+                switch scalar {
+                case "\\", "\"":
+                    result.unicodeScalars.append("\\")
+                    result.unicodeScalars.append(scalar)
+                default:
+                    result.unicodeScalars.append(scalar)
+                }
             } else {
-                schemaCode.append(String(format: "\\u{%x}", value))
+                result.append(String(format: "\\u{%x}", byte))
             }
         }
+        return result
+    }
+
+    /// Appends the given integer to the encoded schema in base 128 format, using the given
+    /// number of bytes to represent it.
+    mutating func writeBase128Int(_ value: UInt64, byteWidth: Int) {
         var v = value
         for _ in 0..<byteWidth {
-            append(v & 0x7f)
+            bytes.append(UInt8(truncatingIfNeeded: v & 0x7f))
             v &>>= 7
         }
     }
 
-    /// Appends the given string to the encoded schema literal, escaping any characters as needed.
-    ///
-    /// - Precondition: This method assumes that the string does not contain any nonprintable or
-    ///   control characters.
+    /// Appends the UTF-8 bytes of the given string to the encoded schema.
     mutating func writeString(_ value: String) {
         bytes.append(contentsOf: value.utf8)
-        for scalar in value.unicodeScalars {
-            append(escapingIfNecessary: scalar)
-        }
-    }
-
-    /// Appends the given Unicode scalar to the bytecode literal, escaping it if necessary for use
-    /// in Swift code.
-    private mutating func append(escapingIfNecessary scalar: Unicode.Scalar) {
-        switch scalar {
-        case "\\", "\"":
-            schemaCode.unicodeScalars.append("\\")
-            schemaCode.unicodeScalars.append(scalar)
-        default:
-            schemaCode.unicodeScalars.append(scalar)
-        }
     }
 }
