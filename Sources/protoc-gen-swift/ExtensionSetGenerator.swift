@@ -117,11 +117,11 @@ class ExtensionSetGenerator {
                 // ability to do identical function folding. For example, all extension fields that
                 // extend the same message will generate identical `extendedMessageResolver`
                 // closures, and the compiler/linker can merge them.
-                p.print(#"extendedMessageResolver: { \#(containingTypeSwiftFullName).messageSchema }"#, newlines: false)
-
+                //
                 // Since an extension is just a single field, there will be either zero or one of
                 // these.
                 if let field = extensionSchemaCalculator.submessageOrEnumFields.first {
+                    p.print(#"extendedMessageResolver: { \#(containingTypeSwiftFullName).messageSchema },"#)
                     let resolver: String
                     switch field.kind {
                     case .message(let swiftTypeName, let protoFullName):
@@ -131,7 +131,7 @@ class ExtensionSetGenerator {
                                 suffix: "_getMessageSchema"
                             )
                             resolver =
-                                "return \(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
+                                "\(namer.swiftProtobufModulePrefix)MessageSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.message)"
                         } else {
                             resolver = ".message(\(swiftTypeName).messageSchema)"
                         }
@@ -142,24 +142,19 @@ class ExtensionSetGenerator {
                                 suffix: "_getEnumSchema"
                             )
                             resolver =
-                                "return \(namer.swiftProtobufModulePrefix)EnumSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.enum)"
+                                "\(namer.swiftProtobufModulePrefix)EnumSchema.resolveLazy(named: \"\(symbol)\").map(\(namer.swiftProtobufModulePrefix)SubmessageOrEnumSchema.enum)"
                         } else {
                             resolver = ".enum(\(swiftTypeName).enumSchema)"
                         }
                     case .map:
                         preconditionFailure("unreachable; extensions cannot be map fields")
                     }
-                    p.print(
-                        ",",
-                        "submessageOrEnumResolver: { \(resolver) }",
-                        newlines: false
-                    )
+                    p.print("submessageOrEnumResolver: { \(resolver) }")
+                } else {
+                    p.print(#"extendedMessageResolver: { \#(containingTypeSwiftFullName).messageSchema }"#)
                 }
-                p.print(
-                    "",
-                    ")"
-                )
             }
+            p.print(")")
         }
 
         func generateInterface(printer p: inout CodePrinter) {
