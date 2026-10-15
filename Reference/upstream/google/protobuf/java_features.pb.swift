@@ -196,8 +196,9 @@ nonisolated let Pb_JavaFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
 
 nonisolated let Pb_Extensions_java = SwiftProtobuf.ExtensionSchema(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{7}\0pb.java",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_JavaFeatures.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_JavaFeatures.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

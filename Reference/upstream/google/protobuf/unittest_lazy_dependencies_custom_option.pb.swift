@@ -96,8 +96,9 @@ nonisolated let Proto2Unittest_LazyImports_UnittestLazyDependenciesCustomOption_
 
 nonisolated let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\u{1f}\u{b}B\u{10}\0\0\0\0\0\u{1}\0\u{e}-\0proto2_unittest.lazy_imports.lazy_enum_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },submessageOrEnumResolver: { .enum(Proto2Unittest_LazyImports_LazyEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2Unittest_LazyImports_LazyEnum.enumSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -397,79 +397,89 @@ nonisolated let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.Exten
 nonisolated let Proto2Unittest_Extensions_plain_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0F5lp\u{11}\0\0\0\0\0\0\0\u{5}\u{1c}\0proto2_unittest.plain_option",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_runtime_retention_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1c}\u{12}ip\u{11}\0\0\0\0\0\0\0\u{5}(\0proto2_unittest.runtime_retention_option",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_source_retention_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0T,_p\u{11}\0\0\0\0\0\0\0\u{5}'\0proto2_unittest.source_retention_option",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_file_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0\0r^p\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0proto2_unittest.file_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_repeated_options = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{12}~[p\u{13}\0\0\0\0\0\u{1}\0\u{b} \0proto2_unittest.repeated_options",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_extension_range_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}s[p\u{11}\0\0\0\0\0\u{1}\0\u{b}&\0proto2_unittest.extension_range_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_message_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0Sh[p\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1e}\0proto2_unittest.message_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_field_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0#WMp\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1c}\0proto2_unittest.field_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_oneof_option = SwiftProtobuf.ExtensionSchema(
   schema: "\01{Fp\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1c}\0proto2_unittest.oneof_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_OneofOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_OneofOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_enum_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0o#Ep\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0proto2_unittest.enum_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_enum_entry_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0Z\u{1b}Ep\u{11}\0\0\0\0\0\u{1}\0\u{b}!\0proto2_unittest.enum_entry_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_service_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0}0Ap\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1e}\0proto2_unittest.service_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_ServiceOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_ServiceOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_method_option = SwiftProtobuf.ExtensionSchema(
   schema: "\0l\u{5}?p\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1d}\0proto2_unittest.method_option",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MethodOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MethodOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_OptionsMessage.messageSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_i = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{11}\0proto2_unittest.i",
   extendedMessageResolver: { Proto2Unittest_Extendee.messageSchema }
-  )
+)
 
 nonisolated extension Proto2Unittest_TopLevelMessage {
   enum Extensions {
     static let s = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}!\0proto2_unittest.TopLevelMessage.s",
       extendedMessageResolver: { Proto2Unittest_Extendee.messageSchema }
-      )
+    )
   }
 }
 

@@ -9474,575 +9474,601 @@ nonisolated let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.Extens
 nonisolated let EditionUnittest_Extensions_optional_int32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5})\0edition_unittest.optional_int32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_int64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{3})\0edition_unittest.optional_int64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}*\0edition_unittest.optional_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_uint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{4}*\0edition_unittest.optional_uint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_sint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{11}*\0edition_unittest.optional_sint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_sint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{6}\0\0\0\u{10}\0\0\0\0\0\0\0\u{12}*\0edition_unittest.optional_sint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_fixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{7}\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}+\0edition_unittest.optional_fixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_fixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{8}\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}+\0edition_unittest.optional_fixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{9}\0\0\0\u{10}\0\0\0\0\0\0\0\u{f},\0edition_unittest.optional_sfixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{a}\0\0\0\u{10}\0\0\0\0\0\0\0\u{10},\0edition_unittest.optional_sfixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_float_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}\0\0\0\u{10}\0\0\0\0\0\0\0\u{2})\0edition_unittest.optional_float_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_double_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\0\0\u{1}*\0edition_unittest.optional_double_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_bool_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}(\0edition_unittest.optional_bool_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}*\0edition_unittest.optional_string_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c})\0edition_unittest.optional_bytes_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_OptionalGroup_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{10}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}(\0edition_unittest.optionalgroup_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_OptionalGroup_extension.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_OptionalGroup_extension.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_nested_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{12}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}2\0edition_unittest.optional_nested_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}3\0edition_unittest.optional_foreign_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_ForeignMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_ForeignMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{14}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}2\0edition_unittest.optional_import_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(Proto2UnittestImport_ImportMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2UnittestImport_ImportMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{15}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}/\0edition_unittest.optional_nested_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}0\0edition_unittest.optional_foreign_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{17}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}/\0edition_unittest.optional_import_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{18}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}0\0edition_unittest.optional_string_piece_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 nonisolated let EditionUnittest_Extensions_optional_cord_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{19}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}(\0edition_unittest.optional_cord_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_bytes_cord_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0V\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}.\0edition_unittest.optional_bytes_cord_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1a}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}9\0edition_unittest.optional_public_import_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(Proto2UnittestImport_PublicImportMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2UnittestImport_PublicImportMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1b}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}0\0edition_unittest.optional_lazy_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 /// "unverified_lazy" is copied from the counterpart field in TestAllTypes.
 /// An extension can't be labeled as "unverified_lazy".
 nonisolated let EditionUnittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1c}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b};\0edition_unittest.optional_unverified_lazy_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 /// Repeated
 nonisolated let EditionUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1f}\0\0\0\u{1a}\0\0\0\0\0\0\0\u{5})\0edition_unittest.repeated_int32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_int64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0 \0\0\0\u{1a}\0\0\0\0\0\0\0\u{3})\0edition_unittest.repeated_int64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0!\0\0\0\u{1a}\0\0\0\0\0\0\0\u{d}*\0edition_unittest.repeated_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_uint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\"\0\0\0\u{1a}\0\0\0\0\0\0\0\u{4}*\0edition_unittest.repeated_uint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_sint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0#\0\0\0\u{1a}\0\0\0\0\0\0\0\u{11}*\0edition_unittest.repeated_sint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_sint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0$\0\0\0\u{1a}\0\0\0\0\0\0\0\u{12}*\0edition_unittest.repeated_sint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_fixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0%\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7}+\0edition_unittest.repeated_fixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_fixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0&\0\0\0\u{1a}\0\0\0\0\0\0\0\u{6}+\0edition_unittest.repeated_fixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0'\0\0\0\u{1a}\0\0\0\0\0\0\0\u{f},\0edition_unittest.repeated_sfixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0(\0\0\0\u{1a}\0\0\0\0\0\0\0\u{10},\0edition_unittest.repeated_sfixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_float_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0)\0\0\0\u{1a}\0\0\0\0\0\0\0\u{2})\0edition_unittest.repeated_float_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_double_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0*\0\0\0\u{1a}\0\0\0\0\0\0\0\u{1}*\0edition_unittest.repeated_double_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_bool_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0+\0\0\0\u{1a}\0\0\0\0\0\0\0\u{8}(\0edition_unittest.repeated_bool_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0,\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}*\0edition_unittest.repeated_string_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_bytes_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0-\0\0\0\u{12}\0\0\0\0\0\0\0\u{c})\0edition_unittest.repeated_bytes_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_RepeatedGroup_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0.\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}(\0edition_unittest.repeatedgroup_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_RepeatedGroup_extension.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_RepeatedGroup_extension.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_nested_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\00\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}2\0edition_unittest.repeated_nested_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_foreign_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\01\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}3\0edition_unittest.repeated_foreign_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_ForeignMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_ForeignMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_import_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\02\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}2\0edition_unittest.repeated_import_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(Proto2UnittestImport_ImportMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2UnittestImport_ImportMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\03\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}/\0edition_unittest.repeated_nested_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\04\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}0\0edition_unittest.repeated_foreign_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\05\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}/\0edition_unittest.repeated_import_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_string_piece_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\06\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}0\0edition_unittest.repeated_string_piece_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 nonisolated let EditionUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\07\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}(\0edition_unittest.repeated_cord_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_repeated_lazy_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\09\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}0\0edition_unittest.repeated_lazy_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 /// Singular with defaults
 nonisolated let EditionUnittest_Extensions_default_int32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0=\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}(\0edition_unittest.default_int32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_int64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0>\0\0\0\u{10}\0\0\0\0\0\0\0\u{3}(\0edition_unittest.default_int64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0?\0\0\0\u{10}\0\0\0\0\0\0\0\u{d})\0edition_unittest.default_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_uint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0@\0\0\0\u{10}\0\0\0\0\0\0\0\u{4})\0edition_unittest.default_uint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_sint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0A\0\0\0\u{10}\0\0\0\0\0\0\0\u{11})\0edition_unittest.default_sint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_sint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0B\0\0\0\u{10}\0\0\0\0\0\0\0\u{12})\0edition_unittest.default_sint64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_fixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0C\0\0\0\u{10}\0\0\0\0\0\0\0\u{7}*\0edition_unittest.default_fixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_fixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0D\0\0\0\u{10}\0\0\0\0\0\0\0\u{6}*\0edition_unittest.default_fixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0E\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}+\0edition_unittest.default_sfixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0F\0\0\0\u{10}\0\0\0\0\0\0\0\u{10}+\0edition_unittest.default_sfixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_float_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0G\0\0\0\u{10}\0\0\0\0\0\0\0\u{2}(\0edition_unittest.default_float_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_double_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0H\0\0\0\u{10}\0\0\0\0\0\0\0\u{1})\0edition_unittest.default_double_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_bool_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0I\0\0\0\u{10}\0\0\0\0\0\0\0\u{8}'\0edition_unittest.default_bool_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0J\0\0\0\u{10}\0\0\0\0\0\0\0\u{9})\0edition_unittest.default_string_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_bytes_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0K\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}(\0edition_unittest.default_bytes_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0Q\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}.\0edition_unittest.default_nested_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_TestAllTypes.NestedEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0R\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}/\0edition_unittest.default_foreign_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0S\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}.\0edition_unittest.default_import_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2UnittestImport_ImportEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0T\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}/\0edition_unittest.default_string_piece_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 /// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 nonisolated let EditionUnittest_Extensions_default_cord_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0U\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0edition_unittest.default_cord_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 /// For oneof test
 nonisolated let EditionUnittest_Extensions_oneof_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0o\0\0\0\u{10}\0\0\0\0\0\0\0\u{d}'\0edition_unittest.oneof_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_oneof_nested_message_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0p\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}/\0edition_unittest.oneof_nested_message_extension",
-  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.NestedMessage.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_oneof_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0q\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0edition_unittest.oneof_string_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_oneof_bytes_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0r\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}&\0edition_unittest.oneof_bytes_extension",
   extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
   schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}$\0edition_unittest.my_extension_string",
   extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}!\0edition_unittest.my_extension_int",
   extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_int32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0Z\0\0\0\u{1a}\0\0\0\0\0\0\0\u{5}'\0edition_unittest.packed_int32_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_int64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0[\0\0\0\u{1a}\0\0\0\0\0\0\0\u{3}'\0edition_unittest.packed_int64_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\\\0\0\0\u{1a}\0\0\0\0\0\0\0\u{d}(\0edition_unittest.packed_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_uint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0]\0\0\0\u{1a}\0\0\0\0\0\0\0\u{4}(\0edition_unittest.packed_uint64_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_sint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0^\0\0\0\u{1a}\0\0\0\0\0\0\0\u{11}(\0edition_unittest.packed_sint32_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_sint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0_\0\0\0\u{1a}\0\0\0\0\0\0\0\u{12}(\0edition_unittest.packed_sint64_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_fixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0`\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7})\0edition_unittest.packed_fixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_fixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0a\0\0\0\u{1a}\0\0\0\0\0\0\0\u{6})\0edition_unittest.packed_fixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0b\0\0\0\u{1a}\0\0\0\0\0\0\0\u{f}*\0edition_unittest.packed_sfixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0c\0\0\0\u{1a}\0\0\0\0\0\0\0\u{10}*\0edition_unittest.packed_sfixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_float_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{1a}\0\0\0\0\0\0\0\u{2}'\0edition_unittest.packed_float_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_double_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{1a}\0\0\0\0\0\0\0\u{1}(\0edition_unittest.packed_double_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_bool_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{1a}\0\0\0\0\0\0\0\u{8}&\0edition_unittest.packed_bool_extension",
   extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_packed_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}&\0edition_unittest.packed_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestPackedExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_int32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0Z\0\0\0\u{12}\0\0\0\0\0\0\0\u{5})\0edition_unittest.unpacked_int32_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_int64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0[\0\0\0\u{12}\0\0\0\0\0\0\0\u{3})\0edition_unittest.unpacked_int64_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_uint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\\\0\0\0\u{12}\0\0\0\0\0\0\0\u{d}*\0edition_unittest.unpacked_uint32_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_uint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0]\0\0\0\u{12}\0\0\0\0\0\0\0\u{4}*\0edition_unittest.unpacked_uint64_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_sint32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0^\0\0\0\u{12}\0\0\0\0\0\0\0\u{11}*\0edition_unittest.unpacked_sint32_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_sint64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0_\0\0\0\u{12}\0\0\0\0\0\0\0\u{12}*\0edition_unittest.unpacked_sint64_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_fixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0`\0\0\0\u{12}\0\0\0\0\0\0\0\u{7}+\0edition_unittest.unpacked_fixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_fixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0a\0\0\0\u{12}\0\0\0\0\0\0\0\u{6}+\0edition_unittest.unpacked_fixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_sfixed32_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0b\0\0\0\u{12}\0\0\0\0\0\0\0\u{f},\0edition_unittest.unpacked_sfixed32_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_sfixed64_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0c\0\0\0\u{12}\0\0\0\0\0\0\0\u{10},\0edition_unittest.unpacked_sfixed64_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_float_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{12}\0\0\0\0\0\0\0\u{2})\0edition_unittest.unpacked_float_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_double_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0e\0\0\0\u{12}\0\0\0\0\0\0\0\u{1}*\0edition_unittest.unpacked_double_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_bool_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\0\0\0\u{12}\0\0\0\0\0\0\0\u{8}(\0edition_unittest.unpacked_bool_extension",
   extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_unpacked_enum_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0g\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{e}(\0edition_unittest.unpacked_enum_extension",
-  extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestUnpackedExtensions.messageSchema },
+  submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_test_all_types = SwiftProtobuf.ExtensionSchema(
   schema: "\0`*\u{7f}\u{7f}\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{1f}\0edition_unittest.test_all_types",
-  extendedMessageResolver: { EditionUnittest_TestHugeFieldNumbers.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestHugeFieldNumbers.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
+)
 
 nonisolated let EditionUnittest_Extensions_test_extension_inside_table_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}6\0edition_unittest.test_extension_inside_table_extension",
   extendedMessageResolver: { EditionUnittest_TestExtensionInsideTable.messageSchema }
-  )
+)
 
 nonisolated let EditionUnittest_Extensions_inner = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{3}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{16}\0edition_unittest.inner",
-  extendedMessageResolver: { EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestNestedGroupExtensionInnerExtension.messageSchema) }
-  )
+  extendedMessageResolver: { EditionUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.messageSchema },
+  submessageOrEnumResolver: { .message(EditionUnittest_TestNestedGroupExtensionInnerExtension.messageSchema) }
+)
 
 nonisolated extension EditionUnittest_TestMixedFieldsAndExtensions {
   enum Extensions {
     static let c = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}/\0edition_unittest.TestMixedFieldsAndExtensions.c",
       extendedMessageResolver: { EditionUnittest_TestMixedFieldsAndExtensions.messageSchema }
-      )
+    )
 
     static let d = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{4}\0\0\0\u{1a}\0\0\0\0\0\0\0\u{7}/\0edition_unittest.TestMixedFieldsAndExtensions.d",
       extendedMessageResolver: { EditionUnittest_TestMixedFieldsAndExtensions.messageSchema }
-      )
+    )
   }
 }
 
@@ -10053,24 +10079,26 @@ nonisolated extension EditionUnittest_TestNestedExtension {
     static let test = SwiftProtobuf.ExtensionSchema(
       schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9})\0edition_unittest.TestNestedExtension.test",
       extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-      )
+    )
 
     /// Used to test if generated extension name is correct when there are
     /// underscores.
     static let nested_string_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{9}<\0edition_unittest.TestNestedExtension.nested_string_extension",
       extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema }
-      )
+    )
 
     static let OptionalGroup_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{10}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}<\0edition_unittest.TestNestedExtension.optionalgroup_extension",
-      extendedMessageResolver: { EditionUnittest_TestGroupExtension.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestNestedExtension.OptionalGroup_extension.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestGroupExtension.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestNestedExtension.OptionalGroup_extension.messageSchema) }
+    )
 
     static let optional_foreign_enum_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{16}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}D\0edition_unittest.TestNestedExtension.optional_foreign_enum_extension",
-      extendedMessageResolver: { EditionUnittest_TestGroupExtension.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestGroupExtension.messageSchema },
+      submessageOrEnumResolver: { .enum(EditionUnittest_ForeignEnum.enumSchema) }
+    )
   }
 }
 
@@ -10078,13 +10106,15 @@ nonisolated extension EditionUnittest_TestRequired {
   enum Extensions {
     static let single = SwiftProtobuf.ExtensionSchema(
       schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}$\0edition_unittest.TestRequired.single",
-      extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestRequired.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestRequired.messageSchema) }
+    )
 
     static let multi = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}#\0edition_unittest.TestRequired.multi",
-      extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestRequired.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestAllExtensions.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestRequired.messageSchema) }
+    )
   }
 }
 
@@ -10092,8 +10122,9 @@ nonisolated extension EditionUnittest_TestExtensionOrderings1 {
   enum Extensions {
     static let test_ext_orderings1 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{d}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}<\0edition_unittest.TestExtensionOrderings1.test_ext_orderings1",
-      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings1.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings1.messageSchema) }
+    )
   }
 }
 
@@ -10101,8 +10132,9 @@ nonisolated extension EditionUnittest_TestExtensionOrderings2 {
   enum Extensions {
     static let test_ext_orderings2 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{c}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}<\0edition_unittest.TestExtensionOrderings2.test_ext_orderings2",
-      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings2.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings2.messageSchema) }
+    )
   }
 }
 
@@ -10110,8 +10142,9 @@ nonisolated extension EditionUnittest_TestExtensionOrderings2.TestExtensionOrder
   enum Extensions {
     static let test_ext_orderings3 = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{e}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}T\0edition_unittest.TestExtensionOrderings2.TestExtensionOrderings3.test_ext_orderings3",
-      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestFieldOrderings.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestExtensionOrderings2.TestExtensionOrderings3.messageSchema) }
+    )
   }
 }
 
@@ -10119,13 +10152,15 @@ nonisolated extension EditionUnittest_TestParsingMerge {
   enum Extensions {
     static let optional_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}.\0edition_unittest.TestParsingMerge.optional_ext",
-      extendedMessageResolver: { EditionUnittest_TestParsingMerge.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestParsingMerge.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
+    )
 
     static let repeated_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{12}\0\0\0\0\0\u{1}\0\u{b}.\0edition_unittest.TestParsingMerge.repeated_ext",
-      extendedMessageResolver: { EditionUnittest_TestParsingMerge.messageSchema },submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_TestParsingMerge.messageSchema },
+      submessageOrEnumResolver: { .message(EditionUnittest_TestAllTypes.messageSchema) }
+    )
   }
 }
 
@@ -10134,27 +10169,27 @@ nonisolated extension EditionUnittest_TestExtensionRangeSerialize {
     static let bar_one = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}4\0edition_unittest.TestExtensionRangeSerialize.bar_one",
       extendedMessageResolver: { EditionUnittest_TestExtensionRangeSerialize.messageSchema }
-      )
+    )
 
     static let bar_two = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{4}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}4\0edition_unittest.TestExtensionRangeSerialize.bar_two",
       extendedMessageResolver: { EditionUnittest_TestExtensionRangeSerialize.messageSchema }
-      )
+    )
 
     static let bar_three = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{a}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}6\0edition_unittest.TestExtensionRangeSerialize.bar_three",
       extendedMessageResolver: { EditionUnittest_TestExtensionRangeSerialize.messageSchema }
-      )
+    )
 
     static let bar_four = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{f}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}5\0edition_unittest.TestExtensionRangeSerialize.bar_four",
       extendedMessageResolver: { EditionUnittest_TestExtensionRangeSerialize.messageSchema }
-      )
+    )
 
     static let bar_five = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{13}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}5\0edition_unittest.TestExtensionRangeSerialize.bar_five",
       extendedMessageResolver: { EditionUnittest_TestExtensionRangeSerialize.messageSchema }
-      )
+    )
   }
 }
 
@@ -10162,18 +10197,21 @@ nonisolated extension EditionUnittest_EnumParseTester {
   enum Extensions {
     static let optional_arbitrary_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{9}z\0\u{10}\0\0\0\0\0\u{1}\0\u{e}7\0edition_unittest.EnumParseTester.optional_arbitrary_ext",
-      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },
+      submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
+    )
 
     static let repeated_arbitrary_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{9}z\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}7\0edition_unittest.EnumParseTester.repeated_arbitrary_ext",
-      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },
+      submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
+    )
 
     static let packed_arbitrary_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{9}z\0\u{1a}\0\0\0\0\0\u{1}\0\u{e}5\0edition_unittest.EnumParseTester.packed_arbitrary_ext",
-      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
-      )
+      extendedMessageResolver: { EditionUnittest_EnumParseTester.messageSchema },
+      submessageOrEnumResolver: { .enum(EditionUnittest_EnumParseTester.Arbitrary.enumSchema) }
+    )
   }
 }
 
@@ -10182,17 +10220,17 @@ nonisolated extension EditionUnittest_BoolParseTester {
     static let optional_bool_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{9}z\0\u{10}\0\0\0\0\0\0\0\u{8}2\0edition_unittest.BoolParseTester.optional_bool_ext",
       extendedMessageResolver: { EditionUnittest_BoolParseTester.messageSchema }
-      )
+    )
 
     static let repeated_bool_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{8}2\0edition_unittest.BoolParseTester.repeated_bool_ext",
       extendedMessageResolver: { EditionUnittest_BoolParseTester.messageSchema }
-      )
+    )
 
     static let packed_bool_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{8}0\0edition_unittest.BoolParseTester.packed_bool_ext",
       extendedMessageResolver: { EditionUnittest_BoolParseTester.messageSchema }
-      )
+    )
   }
 }
 
@@ -10201,17 +10239,17 @@ nonisolated extension EditionUnittest_Int32ParseTester {
     static let optional_int32_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{9}z\0\u{10}\0\0\0\0\0\0\0\u{5}4\0edition_unittest.Int32ParseTester.optional_int32_ext",
       extendedMessageResolver: { EditionUnittest_Int32ParseTester.messageSchema }
-      )
+    )
 
     static let repeated_int32_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{5}4\0edition_unittest.Int32ParseTester.repeated_int32_ext",
       extendedMessageResolver: { EditionUnittest_Int32ParseTester.messageSchema }
-      )
+    )
 
     static let packed_int32_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{5}2\0edition_unittest.Int32ParseTester.packed_int32_ext",
       extendedMessageResolver: { EditionUnittest_Int32ParseTester.messageSchema }
-      )
+    )
   }
 }
 
@@ -10220,17 +10258,17 @@ nonisolated extension EditionUnittest_Int64ParseTester {
     static let optional_int64_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{9}z\0\u{10}\0\0\0\0\0\0\0\u{3}4\0edition_unittest.Int64ParseTester.optional_int64_ext",
       extendedMessageResolver: { EditionUnittest_Int64ParseTester.messageSchema }
-      )
+    )
 
     static let repeated_int64_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{3}4\0edition_unittest.Int64ParseTester.repeated_int64_ext",
       extendedMessageResolver: { EditionUnittest_Int64ParseTester.messageSchema }
-      )
+    )
 
     static let packed_int64_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{2}\u{9}z\0\u{1a}\0\0\0\0\0\0\0\u{3}2\0edition_unittest.Int64ParseTester.packed_int64_ext",
       extendedMessageResolver: { EditionUnittest_Int64ParseTester.messageSchema }
-      )
+    )
   }
 }
 
@@ -10239,12 +10277,12 @@ nonisolated extension EditionUnittest_StringParseTester {
     static let optional_string_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\0\u{9}z\0\u{10}\0\0\0\0\0\0\0\u{9}6\0edition_unittest.StringParseTester.optional_string_ext",
       extendedMessageResolver: { EditionUnittest_StringParseTester.messageSchema }
-      )
+    )
 
     static let repeated_string_ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1}\u{9}z\0\u{12}\0\0\0\0\0\0\0\u{9}6\0edition_unittest.StringParseTester.repeated_string_ext",
       extendedMessageResolver: { EditionUnittest_StringParseTester.messageSchema }
-      )
+    )
   }
 }
 

@@ -469,8 +469,9 @@ nonisolated extension Proto2Unittest_TestRequiredLite {
   enum Extensions {
     static let single = SwiftProtobuf.ExtensionSchema(
       schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}'\0proto2_unittest.TestRequiredLite.single",
-      extendedMessageResolver: { Proto2Unittest_TestAllExtensionsLite.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_TestRequiredLite.messageSchema) }
-      )
+      extendedMessageResolver: { Proto2Unittest_TestAllExtensionsLite.messageSchema },
+      submessageOrEnumResolver: { .message(Proto2Unittest_TestRequiredLite.messageSchema) }
+    )
   }
 }
 

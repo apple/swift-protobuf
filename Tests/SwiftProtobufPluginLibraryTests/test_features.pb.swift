@@ -146,8 +146,9 @@ nonisolated let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.Extensio
 
 nonisolated let SwiftFeatureTest_Extensions_test = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{17}\0swift_feature_test.test",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(SwiftFeatureTest_TestFeatures.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+  submessageOrEnumResolver: { .message(SwiftFeatureTest_TestFeatures.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

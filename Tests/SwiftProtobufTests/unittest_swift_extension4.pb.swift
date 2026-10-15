@@ -177,24 +177,26 @@ nonisolated let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.ExtensionM
 nonisolated let Ext4Extensions_b = SwiftProtobuf.ExtensionSchema(
   schema: "\0$\u{3}\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_proto_testing.extend4.b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
-  )
+)
 
 nonisolated let Ext4Extensions_C = SwiftProtobuf.ExtensionSchema(
   schema: "\0%\u{3}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1d}\0swift_proto_testing.extend4.c",
-  extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },submessageOrEnumResolver: { .message(Ext4C.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
+  submessageOrEnumResolver: { .message(Ext4C.messageSchema) }
+)
 
 nonisolated extension Ext4MyMessage {
   enum Extensions {
     static let b = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1a}\u{3}\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0swift_proto_testing.extend4.MyMessage.b",
       extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
-      )
+    )
 
     static let C = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{1b}\u{3}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}'\0swift_proto_testing.extend4.MyMessage.c",
-      extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },submessageOrEnumResolver: { .message(Ext4MyMessage.C.messageSchema) }
-      )
+      extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
+      submessageOrEnumResolver: { .message(Ext4MyMessage.C.messageSchema) }
+    )
   }
 }
 

@@ -93,8 +93,9 @@ nonisolated let Pb_File_CppFileOptions_Extensions: SwiftProtobuf.ExtensionMap = 
 
 nonisolated let Pb_File_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
   schema: "\0^\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{b}\0pb.file.cpp",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_File_CppFileOptions.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_File_CppFileOptions.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

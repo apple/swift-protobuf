@@ -103,14 +103,14 @@ nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions:
 nonisolated let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{f}\u{1d}X\u{3}\u{10}\0\0\0\0\0\0\0\u{4}\"\0proto2_unittest_unlinked.file_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-  )
+)
 
 nonisolated let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1d}-X\u{3}\u{10}\0\0\0\0\0\0\0\u{5}%\0proto2_unittest_unlinked.message_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
-  )
+)
 
 nonisolated let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{9}<X\u{3}\u{10}\0\0\0\0\0\0\0\u{6}#\0proto2_unittest_unlinked.field_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema }
-  )
+)

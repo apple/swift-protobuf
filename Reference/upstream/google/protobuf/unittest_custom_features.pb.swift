@@ -460,8 +460,9 @@ nonisolated let CustomFeatures_UnittestCustomFeatures_Extensions: SwiftProtobuf.
 
 nonisolated let CustomFeatures_Extensions_test = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{b}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{14}\0custom_features.test",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(CustomFeatures_TestCustomFeatures.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+  submessageOrEnumResolver: { .message(CustomFeatures_TestCustomFeatures.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

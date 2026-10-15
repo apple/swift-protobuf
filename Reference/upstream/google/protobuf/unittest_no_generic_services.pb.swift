@@ -102,7 +102,7 @@ nonisolated let Proto2Unittest_NoGenericServicesTest_UnittestNoGenericServices_E
 nonisolated let Proto2Unittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}7\0proto2_unittest.no_generic_services_test.test_extension",
   extendedMessageResolver: { Proto2Unittest_NoGenericServicesTest_TestMessage.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

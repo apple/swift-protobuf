@@ -337,18 +337,21 @@ nonisolated let Proto2Unittest_UnittestRedaction_Extensions: SwiftProtobuf.Exten
 
 nonisolated let Proto2Unittest_Extensions_meta_annotated_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0E\\>\u{7f}\u{11}\0\0\0\0\0\u{1}\0\u{e}#\0proto2_unittest.meta_annotated_enum",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },submessageOrEnumResolver: { .enum(Proto2Unittest_MetaAnnotatedEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2Unittest_MetaAnnotatedEnum.enumSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_repeated_meta_annotated_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0F\\>\u{7f}\u{13}\0\0\0\0\0\u{1}\0\u{e},\0proto2_unittest.repeated_meta_annotated_enum",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },submessageOrEnumResolver: { .enum(Proto2Unittest_MetaAnnotatedEnum.enumSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
+  submessageOrEnumResolver: { .enum(Proto2Unittest_MetaAnnotatedEnum.enumSchema) }
+)
 
 nonisolated let Proto2Unittest_Extensions_test_nested_message_enum = SwiftProtobuf.ExtensionSchema(
   schema: "\0G\\>\u{7f}\u{11}\0\0\0\0\0\u{1}\0\u{b}(\0proto2_unittest.test_nested_message_enum",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_TestNestedMessageEnum.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Proto2Unittest_TestNestedMessageEnum.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

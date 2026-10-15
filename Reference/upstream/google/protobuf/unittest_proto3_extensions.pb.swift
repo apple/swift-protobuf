@@ -84,12 +84,12 @@ nonisolated extension ProtobufUnittest_Proto3FileExtensions {
     static let singular_int = SwiftProtobuf.ExtensionSchema(
       schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}3\0protobuf_unittest.Proto3FileExtensions.singular_int",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-      )
+    )
 
     static let repeated_int = SwiftProtobuf.ExtensionSchema(
       schema: "\0j\u{7}\0\0\u{1a}\0\0\0\0\0\0\0\u{5}3\0protobuf_unittest.Proto3FileExtensions.repeated_int",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
-      )
+    )
   }
 }
 

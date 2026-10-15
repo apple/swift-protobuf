@@ -427,12 +427,12 @@ nonisolated extension Proto2Unittest_Proto3OptionalExtensions {
     static let ext_no_optional = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{8}MY)\u{11}\0\0\0\0\0\0\0\u{5}8\0proto2_unittest.Proto3OptionalExtensions.ext_no_optional",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
-      )
+    )
 
     static let ext_with_optional = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{9}MY)\u{11}\0\0\0\0\0\0\0\u{5}:\0proto2_unittest.Proto3OptionalExtensions.ext_with_optional",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
-      )
+    )
   }
 }
 

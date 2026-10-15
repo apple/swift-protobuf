@@ -81,12 +81,12 @@ nonisolated let Proto2Unittest_UnittestUtf8StringExtensions_Extensions: SwiftPro
 nonisolated let Proto2Unittest_Extensions_optional_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.optional_utf8_string_extension",
   extendedMessageResolver: { Proto2Unittest_TestUtf8ValidationOfExtensions.messageSchema }
-  )
+)
 
 nonisolated let Proto2Unittest_Extensions_repeated_utf8_string_extension = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{2}\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.repeated_utf8_string_extension",
   extendedMessageResolver: { Proto2Unittest_TestUtf8ValidationOfExtensions.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

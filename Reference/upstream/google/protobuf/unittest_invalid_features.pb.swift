@@ -86,8 +86,9 @@ nonisolated let Pb_UnittestInvalidFeatures_Extensions: SwiftProtobuf.ExtensionMa
 
 nonisolated let Pb_Extensions_test_invalid = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{c}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{f}\0pb.test_invalid",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },submessageOrEnumResolver: { .message(Pb_TestInvalidFeatures.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_TestInvalidFeatures.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

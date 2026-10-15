@@ -167,7 +167,7 @@ nonisolated extension Proto2Unittest_AbseilFlagTestProto {
     static let ext = SwiftProtobuf.ExtensionSchema(
       schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{5}'\0proto2_unittest.AbseilFlagTestProto.ext",
       extendedMessageResolver: { Proto2Unittest_AbseilFlagTestProto.messageSchema }
-      )
+    )
   }
 }
 

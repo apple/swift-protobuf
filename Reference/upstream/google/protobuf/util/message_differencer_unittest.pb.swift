@@ -279,8 +279,9 @@ nonisolated extension Proto2Unittest_TestField {
   enum Extensions {
     static let tf = SwiftProtobuf.ExtensionSchema(
       schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{1c}\0proto2_unittest.TestField.tf",
-      extendedMessageResolver: { Proto2Unittest_TestDiffMessage.messageSchema },submessageOrEnumResolver: { .message(Proto2Unittest_TestField.messageSchema) }
-      )
+      extendedMessageResolver: { Proto2Unittest_TestDiffMessage.messageSchema },
+      submessageOrEnumResolver: { .message(Proto2Unittest_TestField.messageSchema) }
+    )
   }
 }
 

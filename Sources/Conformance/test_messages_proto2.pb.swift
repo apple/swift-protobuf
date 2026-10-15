@@ -2337,29 +2337,31 @@ nonisolated let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: Swift
 nonisolated let ProtobufTestMessages_Proto2_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}-\0protobuf_test_messages.proto2.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
-  )
+)
 
 nonisolated let ProtobufTestMessages_Proto2_Extensions_extension_string = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{5}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0protobuf_test_messages.proto2.extension_string",
   extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
-  )
+)
 
 nonisolated let ProtobufTestMessages_Proto2_Extensions_extension_bytes = SwiftProtobuf.ExtensionSchema(
   schema: "\0\u{6}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{c}-\0protobuf_test_messages.proto2.extension_bytes",
   extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema }
-  )
+)
 
 nonisolated let ProtobufTestMessages_Proto2_Extensions_GroupField = SwiftProtobuf.ExtensionSchema(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}(\0protobuf_test_messages.proto2.groupfield",
-  extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_GroupField.messageSchema) }
-  )
+  extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.messageSchema },
+  submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_GroupField.messageSchema) }
+)
 
 nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1 {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension1",
-      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.messageSchema) }
-      )
+      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },
+      submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1.messageSchema) }
+    )
   }
 }
 
@@ -2367,8 +2369,9 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetC
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{10}3|\u{1}\u{10}\0\0\0\0\0\u{1}\0\u{b}L\0protobuf_test_messages.proto2.TestAllTypesProto2.MessageSetCorrectExtension2",
-      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.messageSchema) }
-      )
+      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },
+      submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2.messageSchema) }
+    )
   }
 }
 
@@ -2376,8 +2379,9 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWi
   enum Extensions {
     static let extension_with_oneof = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{15}\u{1a}o:\u{10}\0\0\0\0\0\u{1}\0\u{b}C\0protobuf_test_messages.proto2.TestAllTypesProto2.ExtensionWithOneof",
-      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.messageSchema) }
-      )
+      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect.messageSchema },
+      submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllTypesProto2.ExtensionWithOneof.messageSchema) }
+    )
   }
 }
 
@@ -2385,8 +2389,9 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.Mes
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}T\0protobuf_test_messages.proto2.TestAllRequiredTypesProto2.MessageSetCorrectExtension1",
-      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrect.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.messageSchema) }
-      )
+      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrect.messageSchema },
+      submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1.messageSchema) }
+    )
   }
 }
 
@@ -2394,8 +2399,9 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.Mes
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.ExtensionSchema(
       schema: "\0\u{10}3|\u{1}\u{10}\0\0\0\0\0\u{1}\0\u{b}T\0protobuf_test_messages.proto2.TestAllRequiredTypesProto2.MessageSetCorrectExtension2",
-      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrect.messageSchema },submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.messageSchema) }
-      )
+      extendedMessageResolver: { ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrect.messageSchema },
+      submessageOrEnumResolver: { .message(ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2.messageSchema) }
+    )
   }
 }
 

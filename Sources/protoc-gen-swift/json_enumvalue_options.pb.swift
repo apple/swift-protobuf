@@ -98,8 +98,9 @@ nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.Exte
 
 nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.ExtensionSchema(
   schema: "\0f\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{11}\0pb.enumvalue.json",
-  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },submessageOrEnumResolver: { .message(Pb_Enumvalue_JsonEnumValueOptions.messageSchema) }
-  )
+  extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },
+  submessageOrEnumResolver: { .message(Pb_Enumvalue_JsonEnumValueOptions.messageSchema) }
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

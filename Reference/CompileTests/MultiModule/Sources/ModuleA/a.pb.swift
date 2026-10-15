@@ -95,7 +95,7 @@ public nonisolated let A_Extensions: SwiftProtobuf.ExtensionMap = [
 public nonisolated let Extensions_ext_str = SwiftProtobuf.ExtensionSchema(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{7}\0ext_str",
   extendedMessageResolver: { A.messageSchema }
-  )
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
