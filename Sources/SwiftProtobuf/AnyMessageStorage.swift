@@ -513,10 +513,14 @@ extension AnyMessageStorage {
             let key = try decoder.scanner.nextQuotedString()
             try decoder.scanner.skipRequiredColon()
             if key == "@type" {
+                let typeURL = try decoder.scanner.nextQuotedString()
                 guard _typeURL.isEmpty else {
-                    throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL()
+                    throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL(
+                        type_url: _typeURL,
+                        duplicate_type_url: typeURL
+                    )
                 }
-                _typeURL = try decoder.scanner.nextQuotedString()
+                _typeURL = typeURL
                 guard isTypeURLValid() else {
                     throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: _typeURL)
                 }
