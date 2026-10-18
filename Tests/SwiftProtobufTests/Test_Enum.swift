@@ -85,6 +85,43 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
         XCTAssertEqual(origSerialized, msgSerialized)
     }
 
+    func testUnknownValueOutOfInt32Range() throws {
+        // An enum value is encoded as an int32 on the wire, and binary decoding
+        // truncates to int32. An UNRECOGNIZED case can hold any Int, so an Int
+        // outside the int32 range must still encode as the truncated int32: the
+        // size pass already measures Int32(truncatingIfNeeded:), so a wider write
+        // would overflow the preallocated buffer.
+        let raw = 0x1_0000_0005  // 2^32 + 5, truncates to int32 5
+        let truncated = Int(Int32(truncatingIfNeeded: raw))
+
+        let singular = SwiftProtoTesting_Proto3_TestAllTypes.with {
+            $0.optionalNestedEnum = .UNRECOGNIZED(raw)
+        }
+        let singularBytes: [UInt8] = try singular.serializedBytes()
+        let singularRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: singularBytes)
+        XCTAssertEqual(singularRT.optionalNestedEnum.rawValue, truncated)
+
+        let repeated = SwiftProtoTesting_Proto3_TestAllTypes.with {
+            $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
+        }
+        let repeatedBytes: [UInt8] = try repeated.serializedBytes()
+        let repeatedRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: repeatedBytes)
+        XCTAssertEqual(
+            repeatedRT.repeatedNestedEnum.map { $0.rawValue },
+            [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+        )
+
+        let packed = SwiftProtoTesting_Proto3_TestPackedTypes.with {
+            $0.packedEnum = [.UNRECOGNIZED(raw), .foreignFoo]
+        }
+        let packedBytes: [UInt8] = try packed.serializedBytes()
+        let packedRT = try SwiftProtoTesting_Proto3_TestPackedTypes(serializedBytes: packedBytes)
+        XCTAssertEqual(
+            packedRT.packedEnum.map { $0.rawValue },
+            [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
+        )
+    }
+
     func testEnumPrefixStripping() {
         // This is basicly a compile tests, it is ensuring the expected names were
         // generated, and compile failures mean things didn't generate as expected.

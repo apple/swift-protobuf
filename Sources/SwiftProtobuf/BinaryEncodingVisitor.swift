@@ -104,7 +104,7 @@ internal struct BinaryEncodingVisitor: Visitor {
         fieldNumber: Int
     ) throws {
         try visitSingularUInt64Field(
-            value: UInt64(bitPattern: Int64(value.rawValue)),
+            value: UInt64(bitPattern: Int64(Int32(truncatingIfNeeded: value.rawValue))),
             fieldNumber: fieldNumber
         )
     }
@@ -260,7 +260,7 @@ internal struct BinaryEncodingVisitor: Visitor {
         }
         encoder.putVarInt(value: packedSize)
         for v in value {
-            encoder.putVarInt(value: v.rawValue)
+            encoder.putVarInt(value: Int64(Int32(truncatingIfNeeded: v.rawValue)))
         }
     }
 
