@@ -879,6 +879,7 @@ message GeneratedSwiftReservedEnums {
   enum StringLiteralType { NONE_StringLiteralType = 0; }
   enum stringResult { NONE_stringResult = 0; }
   enum stringValue { NONE_stringValue = 0; }
+  enum strtod { NONE_strtod = 0; }
   enum struct { NONE_struct = 0; }
   enum structValue { NONE_structValue = 0; }
   enum subDecoder { NONE_subDecoder = 0; }

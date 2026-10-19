@@ -10531,6 +10531,18 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: S
     init() {}
   }
 
+  nonisolated struct strtod: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var strtod: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   nonisolated struct structMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -38758,6 +38770,36 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringValue, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringValue) -> Bool {
     if lhs.stringValue != rhs.stringValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.strtod: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".strtod"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}strtod\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.strtod) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.strtod != 0 {
+      try visitor.visitSingularInt32Field(value: self.strtod, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.strtod, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.strtod) -> Bool {
+    if lhs.strtod != rhs.strtod {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
