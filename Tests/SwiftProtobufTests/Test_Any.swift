@@ -1085,6 +1085,53 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_duplicateTypeURL() throws {
+        // Upstream rejects a repeated @type ("repeated @type in Any"), regardless
+        // of where it appears and whether the values match.
+        let inputs: [(String, String, String)] = [
+            (
+                "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"x\"}",
+                "type.googleapis.com/google.protobuf.Int32Value",
+                "type.googleapis.com/google.protobuf.StringValue"
+            ),
+            (
+                "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\"}",
+                "type.googleapis.com/google.protobuf.Int32Value",
+                "type.googleapis.com/google.protobuf.Int32Value"
+            ),
+            (
+                "{\"@type\":\"type.googleapis.com/SomeMessage\",\"\\u0040type\":\"type.googleapis.com/AnotherMessage\"}",
+                "type.googleapis.com/SomeMessage",
+                "type.googleapis.com/AnotherMessage"
+            ),
+        ]
+        for (json, first, second) in inputs {
+            XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json), json) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.duplicateAnyTypeURL(type_url: first, duplicate_type_url: second)
+                    )
+                )
+            }
+        }
+
+        // Also when nested in a message.
+        let nested =
+            "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"@type\":\"type.googleapis.com/google.protobuf.StringValue\",\"value\":\"x\"}}"
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: nested)) { error in
+            XCTAssertTrue(
+                self.isSwiftProtobufErrorEqual(
+                    error as! SwiftProtobufError,
+                    .JSONDecoding.duplicateAnyTypeURL(
+                        type_url: "type.googleapis.com/google.protobuf.Int32Value",
+                        duplicate_type_url: "type.googleapis.com/google.protobuf.StringValue"
+                    )
+                )
+            )
+        }
+    }
+
     func test_IsA() {
         var msg = Google_Protobuf_Any()
 
