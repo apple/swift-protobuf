@@ -879,6 +879,7 @@ message GeneratedSwiftReservedMessages {
   message StringLiteralType { int32 StringLiteralType = 1; }
   message stringResult { int32 stringResult = 1; }
   message stringValue { int32 stringValue = 1; }
+  message strtod { int32 strtod = 1; }
   message struct { int32 struct = 1; }
   message structValue { int32 structValue = 1; }
   message subDecoder { int32 subDecoder = 1; }
