@@ -38,7 +38,9 @@ public enum EnumWitnesses<T: Enum> {
             result.pointee = pointer.bindMemory(to: [T].self, capacity: 1).pointee.count
 
         case .arrayGetElementRawValue(let pointer, let index, let result):
-            result.pointee = Int32(pointer.bindMemory(to: [T].self, capacity: 1).pointee[index].rawValue)
+            result.pointee = Int32(
+                truncatingIfNeeded: pointer.bindMemory(to: [T].self, capacity: 1).pointee[index].rawValue
+            )
 
         case .arrayAppendRawValue(let pointer, let rawValue):
             // The validity of the raw value has already been checked by the caller.
@@ -54,7 +56,7 @@ public enum EnumWitnesses<T: Enum> {
             pointer.bindMemory(to: T.self, capacity: 1).initialize(to: T(rawValue: Int(rawValue))!)
 
         case .enumGetRawValue(let pointer, let result):
-            result.pointee = Int32(pointer.bindMemory(to: T.self, capacity: 1).pointee.rawValue)
+            result.pointee = Int32(truncatingIfNeeded: pointer.bindMemory(to: T.self, capacity: 1).pointee.rawValue)
         }
     }
 }

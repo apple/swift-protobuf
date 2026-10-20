@@ -626,7 +626,7 @@ extension MessageStorage {
     /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<T: Enum>(at offset: Int, to newValue: T, willBeSet: Bool, hasBit: HasBit) {
-        typedPointer(at: offset, as: Int32.self).pointee = Int32(newValue.rawValue)
+        typedPointer(at: offset, as: Int32.self).pointee = Int32(truncatingIfNeeded: newValue.rawValue)
         _ = updatePresence(hasBit: hasBit, willBeSet: willBeSet)
     }
 
@@ -1578,7 +1578,7 @@ extension MessageStorage {
             // We can force-unwrap this because the field must exist or it would be a generator bug.
             deinitializeOneofMember(schema[fieldNumber: oldFieldNumber]!)
         }
-        typedPointer(at: offset, as: Int32.self).initialize(to: Int32(newValue.rawValue))
+        typedPointer(at: offset, as: Int32.self).initialize(to: Int32(truncatingIfNeeded: newValue.rawValue))
     }
 
     /// Updates the protobuf enum value at the given offset in the storage, along with its presence.
