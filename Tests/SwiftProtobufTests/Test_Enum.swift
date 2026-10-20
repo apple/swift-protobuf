@@ -120,6 +120,26 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
             packedRT.packedEnum.map { $0.rawValue },
             [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
         )
+
+        let unpacked = SwiftProtoTesting_Proto3_TestUnpackedTypes.with {
+            $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
+        }
+        let unpackedBytes: [UInt8] = try unpacked.serializedBytes()
+        let unpackedRT = try SwiftProtoTesting_Proto3_TestUnpackedTypes(serializedBytes: unpackedBytes)
+        XCTAssertEqual(
+            unpackedRT.repeatedNestedEnum.map { $0.rawValue },
+            [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+        )
+
+        let map = SwiftProtoTesting_TestMap.with {
+            $0.mapInt32Enum = [1: .UNRECOGNIZED(raw), 2: .bar]
+        }
+        let mapBytes: [UInt8] = try map.serializedBytes()
+        let mapRT = try SwiftProtoTesting_TestMap(serializedBytes: mapBytes)
+        XCTAssertEqual(
+            mapRT.mapInt32Enum.mapValues { $0.rawValue },
+            [1: truncated, 2: SwiftProtoTesting_MapEnum.bar.rawValue]
+        )
     }
 
     func testEnumPrefixStripping() {
