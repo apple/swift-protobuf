@@ -50,7 +50,10 @@ extension Enum {
     /// Internal convenience property representing the name of the enum value (or
     /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
     package var textFormatName: UTF8Name? {
-        Self.enumSchema.textName(forEnumCase: Int32(rawValue))
+        guard let caseValue = Int32(exactly: rawValue) else {
+            return nil
+        }
+        return Self.enumSchema.textName(forEnumCase: caseValue)
     }
 
     /// Internal convenience initializer that returns the enum value with the

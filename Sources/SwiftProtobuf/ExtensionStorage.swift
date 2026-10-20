@@ -257,13 +257,19 @@ extension ExtensionStorage {
     /// Updates the protobuf enum value of the given message extension.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Value: Enum>(of ext: ExtensionSchema, to newValue: Value) {
-        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+        values[ext.field.fieldNumber] = ExtensionValueStorage(
+            schema: ext,
+            value: Int32(truncatingIfNeeded: newValue.rawValue)
+        )
     }
 
     /// Updates the protobuf enum value of the given message extension.
     @_alwaysEmitIntoClient @inline(__always)
     public func updateValue<Value: Enum & BitwiseCopyable>(of ext: ExtensionSchema, to newValue: Value) {
-        values[ext.field.fieldNumber] = ExtensionValueStorage(schema: ext, value: Int32(newValue.rawValue))
+        values[ext.field.fieldNumber] = ExtensionValueStorage(
+            schema: ext,
+            value: Int32(truncatingIfNeeded: newValue.rawValue)
+        )
     }
 
     /// Updates the protobuf enum value of the given message extension.
