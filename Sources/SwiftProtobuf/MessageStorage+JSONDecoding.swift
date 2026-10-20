@@ -495,6 +495,12 @@ extension MessageStorage {
             try reader.consume(.colon)
             if key == "@type" {
                 let scannedURL = try reader.consumeString()
+                if let typeURL {
+                    throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL(
+                        type_url: typeURL,
+                        duplicate_type_url: scannedURL
+                    )
+                }
                 guard isTypeURLValid(scannedURL) else {
                     throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: scannedURL)
                 }
