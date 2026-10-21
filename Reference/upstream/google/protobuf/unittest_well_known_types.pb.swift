@@ -211,7 +211,7 @@ nonisolated struct Proto2Unittest_TestWellKnownTypes: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// A repeated field for each well-known type.
@@ -315,7 +315,7 @@ nonisolated struct Proto2Unittest_RepeatedWellKnownTypes: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto2Unittest_OneofWellKnownTypes: Sendable {
@@ -598,7 +598,7 @@ nonisolated struct Proto2Unittest_MapWellKnownTypes: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

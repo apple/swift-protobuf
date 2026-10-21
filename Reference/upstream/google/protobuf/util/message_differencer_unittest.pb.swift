@@ -89,7 +89,7 @@ nonisolated struct Proto2Unittest_TestField: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto2Unittest_TestDiffMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
