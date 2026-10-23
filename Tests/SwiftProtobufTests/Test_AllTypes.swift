@@ -943,6 +943,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalGroup = g
         }
         assertDecodeFails([131, 1, 136, 1, 159, 141, 6])  // End group missing.
+        assertDecodeFails([131, 1, 131, 1, 132, 1])  // End group missing after unknown group with same number.
         assertDecodeFails([131, 1, 136, 1, 159, 141, 6, 132, 2])  // Wrong end group.
 
         assertDecodeFails([128, 1])  // Bad wire type
