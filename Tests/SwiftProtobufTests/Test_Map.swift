@@ -341,6 +341,27 @@ final class Test_Map: XCTestCase, PBTestHelpers {
         }
     }
 
+    // A key/value field with the wrong wire type is skipped as unknown, its
+    // payload must not be parsed as more fields of the map entry.
+    func test_mapEntryWrongWireType() {
+        // Key as fixed32 whose 4 byte payload looks like `key: 5, value: 7`.
+        assertDecodeSucceeds(inputBytes: [10, 5, 13, 8, 5, 16, 7], recodedBytes: [10, 4, 8, 0, 16, 0]) {
+            $0.mapInt32Int32 == [0: 0]
+        }
+        // Key as varint for a string key, the varint payload looks like a tag.
+        assertDecodeSucceeds(inputBytes: [114, 6, 8, 10, 18, 2, 97, 98], recodedBytes: [114, 6, 10, 0, 18, 2, 97, 98]) {
+            $0.mapStringString == ["": "ab"]
+        }
+        // Enum value as fixed32 whose payload looks like `key: 5, value: .baz`.
+        assertDecodeSucceeds(inputBytes: [130, 1, 5, 21, 8, 5, 16, 2], recodedBytes: [130, 1, 4, 8, 0, 16, 0]) {
+            $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.foo]
+        }
+        // Message value as fixed32 whose payload looks like `key: 5, value: {}`.
+        assertDecodeSucceeds(inputBytes: [138, 1, 5, 21, 8, 5, 18, 0], recodedBytes: [138, 1, 4, 8, 0, 18, 0]) {
+            $0.mapInt32ForeignMessage == [0: SwiftProtoTesting_ForeignMessage()]
+        }
+    }
+
     // Based on TEST(GeneratedMapFieldTest, Proto2UnknownEnum)
     func test_mapEnumUnknowns_Proto2() throws {
         var m1 = SwiftProtoTesting_TestEnumMapPlusExtra()
