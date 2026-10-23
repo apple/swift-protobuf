@@ -970,13 +970,20 @@ internal struct BinaryDecoder: Decoder {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
             }
+            subdecoder.consumed = false
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:
                 try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:
                 try ValueType.decodeSingular(value: &v, from: &subdecoder)
-            default:  // Skip any other fields within the map entry object
+            default:  // Other fields within the map entry object are skipped below
+                break
+            }
+            // Skip any field that wasn't decoded (another field number, or a
+            // key/value with the wrong wire type) so its body isn't parsed as
+            // more fields of the entry.
+            if !subdecoder.consumed {
                 try subdecoder.skip()
             }
         }
@@ -1008,6 +1015,7 @@ internal struct BinaryDecoder: Decoder {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
             }
+            subdecoder.consumed = false
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:  // Keys are basic types
@@ -1022,7 +1030,13 @@ internal struct BinaryDecoder: Decoder {
                     // the map entry.
                     return
                 }
-            default:  // Skip any other fields within the map entry object
+            default:  // Other fields within the map entry object are skipped below
+                break
+            }
+            // Skip any field that wasn't decoded (another field number, or a
+            // key/value with the wrong wire type) so its body isn't parsed as
+            // more fields of the entry.
+            if !subdecoder.consumed {
                 try subdecoder.skip()
             }
         }
@@ -1051,13 +1065,20 @@ internal struct BinaryDecoder: Decoder {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
             }
+            subdecoder.consumed = false
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:  // Keys are basic types
                 try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:  // Value is a message type
                 try subdecoder.decodeSingularMessageField(value: &v)
-            default:  // Skip any other fields within the map entry object
+            default:  // Other fields within the map entry object are skipped below
+                break
+            }
+            // Skip any field that wasn't decoded (another field number, or a
+            // key/value with the wrong wire type) so its body isn't parsed as
+            // more fields of the entry.
+            if !subdecoder.consumed {
                 try subdecoder.skip()
             }
         }
