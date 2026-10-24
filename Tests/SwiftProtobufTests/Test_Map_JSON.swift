@@ -293,6 +293,12 @@ final class Test_Map_JSON: XCTestCase, PBTestHelpers {
 
         let decoded = try MessageTestType(jsonString: json)
         XCTAssertEqual(decoded.mapInt32Enum, [1: .foo, 3: .baz])
+
+        assertJSONDecodeSucceeds("{\"mapInt32Enum\":{\"1\":2147483647}}") {
+            $0.mapInt32Enum == [1: .UNRECOGNIZED(2_147_483_647)]
+        }
+        assertJSONDecodeFails("{\"mapInt32Enum\":{\"1\":2147483648}}")
+        assertJSONDecodeFails("{\"mapInt32Enum\":{\"1\":-2147483649}}")
     }
 
     func testMapInt32Enum_JSONdecodingOptions() {
