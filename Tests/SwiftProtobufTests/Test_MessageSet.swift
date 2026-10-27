@@ -229,7 +229,26 @@ final class Test_MessageSet: XCTestCase {
                 serializedBytes: unterminated,
                 extensions: SwiftProtoTesting_UnittestMset_Extensions
             )
-        )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .truncated)
+        }
+
+        // Same as testParseOrder2, but without the item end group tag. The
+        // payload comes before the type id, so this hits the buffered path
+        // of decodeMessageSetItem.
+        let truncatedReversed = Data([
+            11,
+            26, 2, 120, 123,  // Payload message
+            16, 176, 166, 94,  // Extension ID
+        ])
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: truncatedReversed,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .truncated)
+        }
     }
 
     // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)

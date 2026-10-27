@@ -1825,6 +1825,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.repeatedGroup = [g1, g2]
         }
         assertDecodeFails([243, 2, 248, 2, 1])  // End group missing.
+        assertDecodeFails([243, 2, 248, 2, 1, 243, 2, 244, 2])  // End group missing, followed by another element.
         assertDecodeFails([243, 2, 248, 2, 1, 244, 3])  // Wrong end group.
         assertDecodeFails([240, 2])  // Wire type 0
         assertDecodesAsUnknownFields([240, 2, 0])  // Wrong wire type (varint), valid as an unknown field
