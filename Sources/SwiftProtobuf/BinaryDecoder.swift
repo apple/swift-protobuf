@@ -1022,7 +1022,7 @@ internal struct BinaryDecoder: Decoder {
                 try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:  // Value is an Enum type
                 try subdecoder.decodeSingularEnumField(value: &v)
-                if v == nil && tag.wireFormat == .varint {
+                if !subdecoder.consumed && tag.wireFormat == .varint {
                     // Enum decode fail and wire format was varint, so this had to
                     // have been a proto2 unknown enum value. This whole map entry
                     // into the parent message's unknown fields. If the wire format
