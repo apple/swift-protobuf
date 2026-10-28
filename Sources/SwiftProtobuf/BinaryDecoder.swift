@@ -134,6 +134,10 @@ internal struct BinaryDecoder: Decoder {
 
         // Quit if end of input
         if available == 0 {
+            if groupFieldNumber != nil {
+                // Input ended before the .endGroup tag of the current group.
+                throw BinaryDecodingError.truncated
+            }
             return nil
         }
 
