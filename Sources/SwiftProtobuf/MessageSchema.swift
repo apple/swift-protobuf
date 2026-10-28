@@ -140,10 +140,10 @@ public final class MessageSchema: @unchecked Sendable {
     public typealias SubmessageOrEnumResolver = (SubmessageOrEnumToken) -> SubmessageOrEnumSchema?
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias DynamicLookupThunk = @convention(thin) (UnsafeMutableRawPointer) -> Void
+    public typealias DynamicLookupThunk = @convention(thin) @Sendable (UnsafeMutableRawPointer) -> Void
 
     @_spi(ForGeneratedCodeOnly)
-    public typealias DynamicMapWitnessThunk = @convention(thin) (UInt8, UnsafeMutableRawPointer) -> Void
+    public typealias DynamicMapWitnessThunk = @convention(thin) @Sendable (UInt8, UnsafeMutableRawPointer) -> Void
 
     @_spi(ForGeneratedCodeOnly) public private(set) var invokeWitness: InvokeWitnessFunction
 

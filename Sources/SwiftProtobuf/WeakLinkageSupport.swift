@@ -279,6 +279,7 @@ extension EnumSchema {
 /// in the binary.
 @_spi(ForGeneratedCodeOnly)
 @inline(never)
+@Sendable
 public func _protobuf_resolveReflection(named symbolName: StaticString) -> StaticString? {
     guard symbolName.utf8CodeUnitCount > 0 else { return nil }
     let name = symbolName.withUTF8Buffer { String(decoding: $0, as: UTF8.self) }

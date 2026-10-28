@@ -332,7 +332,7 @@ class FileGenerator {
             for sym in externalReflectionSymbols.sorted() {
                 p.print(
                     "@_silgen_name(\"\(sym)\")",
-                    "private func __extern_\(sym)(_ out: UnsafeMutableRawPointer)"
+                    "@Sendable private func __extern_\(sym)(_ out: UnsafeMutableRawPointer)"
                 )
             }
             p.print("#endif")

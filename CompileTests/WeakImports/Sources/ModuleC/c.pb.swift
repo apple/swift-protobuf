@@ -87,13 +87,13 @@ nonisolated extension Test_EnumC {
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DEnumC_getEnumWitness")
-public func __test_DEnumC_getEnumWitness(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DEnumC_getEnumWitness(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.EnumSchema.InvokeWitnessFunction?).self).pointee = SwiftProtobuf.EnumWitnesses<Test_EnumC>.perform
 }
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DEnumC_getMapWitness")
-public func __test_DEnumC_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DEnumC_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_EnumC._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }
 
@@ -106,12 +106,12 @@ nonisolated extension Test_MessageC: SwiftProtobuf.GeneratedMessage {
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageC_getMessageWitness")
-public func __test_DMessageC_getMessageWitness(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageC_getMessageWitness(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = SwiftProtobuf.MessageWitnesses<Test_MessageC>.perform
 }
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageC_getMapWitness")
-public func __test_DMessageC_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageC_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_MessageC._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }
