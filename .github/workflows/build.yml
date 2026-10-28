@@ -153,9 +153,7 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release.
-      # Looks like 6.4 is failing for some reason.
-      image: swift:6.3
-      #image: swift:latest
+      image: swift:latest
     steps:
     - uses: actions/checkout@v6
 

@@ -654,3 +654,4 @@ pod-lib-lint:
 	@if [ `uname -s` = "Darwin" ] ; then \
 	  pod lib lint SwiftProtobuf.podspec ; \
 	fi
+
