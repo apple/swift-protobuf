@@ -198,7 +198,7 @@ nonisolated struct SwiftProtoTesting_TestMap: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Test embedded message with required fields

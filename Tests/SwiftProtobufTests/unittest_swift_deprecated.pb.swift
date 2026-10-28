@@ -117,7 +117,7 @@ nonisolated struct SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.ExtensibleM
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Marking extension fields (scoped to a message) as deprecated.
@@ -175,7 +175,7 @@ nonisolated struct SwiftProtoTesting_Deprecated_MyMsg2: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_swift_deprecated.proto.
