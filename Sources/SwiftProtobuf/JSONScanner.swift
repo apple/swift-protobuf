@@ -1377,14 +1377,15 @@ internal struct JSONScanner {
             }
         } else {
             let n = try nextSInt()
-            if let i = Int(exactly: n) {
-                if let e = E(rawValue: i) {
-                    return e
-                } else {
-                    return try throwOrIgnore()
-                }
-            } else {
+            // Enum values are int32 on the wire; reject anything outside
+            // that range like the text format decoder does.
+            guard n >= Int64(Int32.min) && n <= Int64(Int32.max) else {
                 throw JSONDecodingError.numberRange
+            }
+            if let e = E(rawValue: Int(n)) {
+                return e
+            } else {
+                return try throwOrIgnore()
             }
         }
     }
