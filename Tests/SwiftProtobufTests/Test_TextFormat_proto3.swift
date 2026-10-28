@@ -114,6 +114,14 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             o.optionalInt32 == -0x8000_0000
         }
         assertTextFormatDecodeFails("optional_int32: -0x80000001\n")
+        assertTextFormatDecodeFails("optional_int32: 0x\n")
+        assertTextFormatDecodeFails("optional_int32: 0x optional_int64: 1\n")
+        assertTextFormatDecodeFails("optional_int32: 1optional_int64: 2\n")
+        assertTextFormatDecodeFails("optional_int32: -1optional_int64: 2\n")
+        assertTextFormatDecodeFails("optional_int32: 0x1foptional_int64: 2\n")
+        assertTextFormatDecodeFails("optional_int32: 017optional_int64: 2\n")
+        assertTextFormatDecodeFails("optional_int32: 0optional_int64: 2\n")
+        assertTextFormatDecodeFails("optional_int32: 1_\n")
     }
 
     func testEncoding_optionalInt64() {
@@ -212,6 +220,8 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_uint64: 999999999999999999999999999999999999\n")
         assertTextFormatDecodeFails("optional_uint64: 7,8")
         assertTextFormatDecodeFails("optional_uint64: [7]")
+        assertTextFormatDecodeFails("optional_uint64: 0x\n")
+        assertTextFormatDecodeFails("optional_uint64: 7optional_int32: 8\n")
     }
 
     func testEncoding_optionalSint32() {
@@ -463,6 +473,12 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_float: 1,2\n")
         assertTextFormatDecodeFails("optional_float: 0xf\n")
         assertTextFormatDecodeFails("optional_float: 012\n")
+        assertTextFormatDecodeFails("optional_float: 1optional_int32: 1\n")
+        assertTextFormatDecodeFails("optional_float: 1e5optional_int32: 1\n")
+        assertTextFormatDecodeFails("optional_float: 1.5foptional_int32: 1\n")
+        assertTextFormatDecodeSucceeds("optional_float: 1.5f optional_int32: 1\n") { (o: MessageTestType) in
+            o.optionalFloat == 1.5 && o.optionalInt32 == 1
+        }
 
         // A wide range of numbers should exactly round-trip
         assertRoundTripText { $0.optionalFloat = 0.1 }
@@ -569,6 +585,11 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_double: 1.2.3\n")
         assertTextFormatDecodeFails("optional_double: 0xf\n")
         assertTextFormatDecodeFails("optional_double: 0123\n")
+        assertTextFormatDecodeFails("optional_double: 1e5optional_int32: 1\n")
+        assertTextFormatDecodeFails("optional_double: 1.5Foptional_int32: 1\n")
+        assertTextFormatDecodeSucceeds("optional_double: 1e5#comment\noptional_int32: 1\n") { (o: MessageTestType) in
+            o.optionalDouble == 100000 && o.optionalInt32 == 1
+        }
 
         // A wide range of numbers should exactly round-trip
         assertRoundTripText { $0.optionalDouble = 0.1 }
@@ -941,6 +962,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         }
         assertTextFormatDecodeFails("optional_nested_enum: a\n")
         assertTextFormatDecodeFails("optional_nested_enum: FOOBAR")
+        assertTextFormatDecodeFails("optional_nested_enum: 1optional_int32: 1\n")
         assertTextFormatDecodeFails("optional_nested_enum: \"BAR\"\n")
 
         // Note: This implementation currently preserves numeric unknown

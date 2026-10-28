@@ -362,6 +362,8 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsFails("int32", "0x1a2g")
         assertDecodeIgnoringUnknownsFails("int32", "-0x1g")
         assertDecodeIgnoringUnknownsFails("int32", "-0x1a2g")
+        assertDecodeIgnoringUnknownsFails("int32", "0x")
+        assertDecodeIgnoringUnknownsFails("int32", "-0x")
         assertDecodeIgnoringUnknownsFails("int32", "09")
         assertDecodeIgnoringUnknownsFails("int32", "-09")
         assertDecodeIgnoringUnknownsFails("int32", "01a")
@@ -626,7 +628,7 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
                 "xyz"
               ]
 
-            an_int:1some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
+            an_int:1 some_bytes:"abc"msg_field:{a:true}repeated:[1]another_int:3
 
             optional_uint32: 2  # !!! real field
             """
