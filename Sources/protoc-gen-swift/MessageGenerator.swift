@@ -245,7 +245,8 @@ class MessageGenerator {
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMapWitness"
             )
-            let spiSnippet = !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet =
+                !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
             p.print(
                 "",
@@ -313,7 +314,8 @@ class MessageGenerator {
             submessageOrEnumFields.isEmpty
             ? ""
             : ", submessageOrEnumResolver: __\(symbolPrefix)_resolveSubmessageOrEnum"
-        let spiSnippet = !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+        let spiSnippet =
+            !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
         p.print(
             "",

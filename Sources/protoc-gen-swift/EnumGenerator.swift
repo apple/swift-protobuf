@@ -131,7 +131,8 @@ class EnumGenerator {
                 forProtoFullName: enumDescriptor.fullName,
                 suffix: "_getMapWitness"
             )
-            let spiSnippet = !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet =
+                !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
             p.print(
                 "",
@@ -177,7 +178,8 @@ class EnumGenerator {
         let witnessSymbol = "\(symbolPrefix)_getEnumWitness"
         let reflectionSymbol = "\(symbolPrefix)_getReflection"
         let liveSupportSymbol = "\(symbolPrefix)_liveSupport"
-        let spiSnippet = !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+        let spiSnippet =
+            !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
         p.print(
             "",
