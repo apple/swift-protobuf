@@ -346,3 +346,24 @@ final class Test_Map_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2,\"2\":3}}") { $0.mapInt32Int32 == [1: 2, 2: 3] }
     }
 }
+
+final class Test_Map_JSON_Proto2Enum: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestEnumMap
+
+    func testMapInt32ClosedEnum() {
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        assertJSONDecodeSucceeds("{\"knownMapField\":{\"1\":1}}") { $0.knownMapField == [1: .bar] }
+
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483647}}")
+        assertJSONDecodeSucceeds("{\"knownMapField\":{\"1\":2147483647,\"2\":2}}", options: options) {
+            $0.knownMapField == [2: .baz]
+        }
+
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483648}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":-2147483649}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483648}}", options: options)
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":-2147483649}}", options: options)
+    }
+}
