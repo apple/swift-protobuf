@@ -12,7 +12,7 @@ on:
 
 jobs:
   core:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     strategy:
       fail-fast: false
       matrix:
@@ -60,7 +60,7 @@ jobs:
       run: make test-spm-plugin
 
   compile_tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     strategy:
       fail-fast: false
       matrix:
@@ -82,7 +82,7 @@ jobs:
       run: make compile-tests
 
   linkage-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     name: Foundation linkage test
     container:
       image: swift:latest
@@ -101,7 +101,7 @@ jobs:
     name: Api Breakage Compared to main branch
     # Only on pull requests
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     container:
       # Test on the latest Swift release. This could run on all the support
       # Swift versions, but that doesn't seem worth it until there are Swift
@@ -122,7 +122,7 @@ jobs:
     name: swift-format Check
     # Only on pull requests
     if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     container:
       # Use use the latest Swift release and that's the version of swift-format
       # people should use.
@@ -144,7 +144,7 @@ jobs:
         git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
 
   sanitizer_testing:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     strategy:
       fail-fast: false
       matrix:
@@ -174,7 +174,7 @@ jobs:
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }}
 
   fuzzing_regressions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     strategy:
       fail-fast: false
       matrix:
