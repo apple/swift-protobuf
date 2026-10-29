@@ -63,6 +63,7 @@ if [ -d "${SWIFT_BIN_DIR}/Modules" ]; then
 fi
 
 SWIFT_FRONTEND_FLAGS=(
+  -swift-version 6
   -Xfrontend -internalize-at-link
   -Xfrontend -disable-reflection-metadata
   -Xfrontend -disable-reflection-names

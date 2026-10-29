@@ -21,14 +21,14 @@ private let __test_DEnumB_schema = SwiftProtobuf.EnumSchema(schema: __test_DEnum
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DEnumB_getEnumSchema")
-public func __test_DEnumB_getEnumSchema(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DEnumB_getEnumSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.EnumSchema?).self).pointee = __test_DEnumB_schema
 }
 
 #if canImport(Darwin)
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DEnumB_getReflection")
-public func __test_DEnumB_getReflection(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DEnumB_getReflection(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __test_DEnumB_reflectionData
     _ = __test_DEnumB_schema
 }
@@ -38,7 +38,7 @@ public func __test_DEnumB_getReflection(_ out: UnsafeMutableRawPointer) {
 public func __test_DEnumB_liveSupport(_ out: UnsafeMutableRawPointer) {
     out.storeBytes(
         of: SwiftProtobuf._protobuf_resolveReflection(named:),
-        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self
+        as: (@convention(thin) @Sendable (Swift.StaticString) -> Swift.StaticString?).self
     )
     let p = out.assumingMemoryBound(to: SwiftProtobuf.EnumSchema.DynamicLookupThunk.self)
     p[1] = __test_DEnumB_getReflection
@@ -56,14 +56,14 @@ private let __test_DMessageB_schema = SwiftProtobuf.MessageSchema(schema: __test
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageB_getMessageSchema")
-public func __test_DMessageB_getMessageSchema(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageB_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = __test_DMessageB_schema
 }
 
 #if canImport(Darwin)
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageB_getReflection")
-public func __test_DMessageB_getReflection(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageB_getReflection(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __test_DMessageB_reflectionData
     _ = __test_DMessageB_schema
 }
@@ -73,7 +73,7 @@ public func __test_DMessageB_getReflection(_ out: UnsafeMutableRawPointer) {
 public func __test_DMessageB_liveSupport(_ out: UnsafeMutableRawPointer) {
     out.storeBytes(
         of: SwiftProtobuf._protobuf_resolveReflection(named:),
-        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self
+        as: (@convention(thin) @Sendable (Swift.StaticString) -> Swift.StaticString?).self
     )
     let p = out.assumingMemoryBound(to: SwiftProtobuf.MessageSchema.DynamicLookupThunk.self)
     p[1] = __test_DMessageB_getReflection

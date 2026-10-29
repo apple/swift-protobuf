@@ -355,12 +355,12 @@ nonisolated extension Test_MessageA: SwiftProtobuf.GeneratedMessage {
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageA_getMessageWitness")
-public func __test_DMessageA_getMessageWitness(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageA_getMessageWitness(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = SwiftProtobuf.MessageWitnesses<Test_MessageA>.perform
 }
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageA_getMapWitness")
-public func __test_DMessageA_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageA_getMapWitness(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema.InvokeWitnessFunction?).self).pointee = Test_MessageA._protobuf_mapWitness(for: SwiftProtobuf.ProtobufMapKeyKind(rawValue: keyKindRaw)!)
 }

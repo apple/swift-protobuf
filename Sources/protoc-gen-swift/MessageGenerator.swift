@@ -245,7 +245,8 @@ class MessageGenerator {
                 forProtoFullName: descriptor.fullName,
                 suffix: "_getMapWitness"
             )
-            let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+            let spiSnippet =
+                !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
             p.print(
                 "",
@@ -263,12 +264,12 @@ class MessageGenerator {
                 "}",
                 "",
                 "\(spiSnippet)@_silgen_name(\"\(witnessSymbol)\")",
-                "\(visibility)func __\(witnessSymbol)(_ out: UnsafeMutableRawPointer) {",
+                "@Sendable \(visibility)func __\(witnessSymbol)(_ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(namer.swiftProtobufModulePrefix)MessageWitnesses<\(swiftFullName)>.perform",
                 "}",
                 "",
                 "\(spiSnippet)@_silgen_name(\"\(mapWitnessSymbol)\")",
-                "\(visibility)func __\(mapWitnessSymbol)(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {",
+                "@Sendable \(visibility)func __\(mapWitnessSymbol)(_ keyKindRaw: UInt8, _ out: UnsafeMutableRawPointer) {",
                 "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema.InvokeWitnessFunction?).self).pointee = \(swiftFullName)._protobuf_mapWitness(for: \(namer.swiftProtobufModulePrefix)ProtobufMapKeyKind(rawValue: keyKindRaw)!)",
                 "}"
             )
@@ -313,7 +314,8 @@ class MessageGenerator {
             submessageOrEnumFields.isEmpty
             ? ""
             : ", submessageOrEnumResolver: __\(symbolPrefix)_resolveSubmessageOrEnum"
-        let spiSnippet = generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
+        let spiSnippet =
+            !visibility.isEmpty && generatorOptions.visibility == .public ? "@_spi(ForGeneratedCodeOnly)\n" : ""
 
         p.print(
             "",
@@ -381,13 +383,13 @@ class MessageGenerator {
         p.print(
             "",
             "\(spiSnippet)@_silgen_name(\"\(getterSymbol)\")",
-            "\(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "@Sendable \(visibility)func __\(getterSymbol)(_ out: UnsafeMutableRawPointer) {",
             "    out.assumingMemoryBound(to: (\(namer.swiftProtobufModulePrefix)MessageSchema?).self).pointee = __\(symbolPrefix)_schema",
             "}",
             "",
             "#if canImport(Darwin)",
             "\(spiSnippet)@_silgen_name(\"\(reflectionSymbol)\")",
-            "\(visibility)func __\(reflectionSymbol)(_ out: UnsafeMutableRawPointer) {",
+            "@Sendable \(visibility)func __\(reflectionSymbol)(_ out: UnsafeMutableRawPointer) {",
             "    out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __\(symbolPrefix)_reflectionData",
             "    _ = __\(symbolPrefix)_schema",
             "}",
@@ -396,7 +398,7 @@ class MessageGenerator {
             "\(visibility)func __\(liveSupportSymbol)(_ out: UnsafeMutableRawPointer) {",
             "    out.storeBytes(",
             "        of: \(namer.swiftProtobufModulePrefix)_protobuf_resolveReflection(named:),",
-            "        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self",
+            "        as: (@convention(thin) @Sendable (Swift.StaticString) -> Swift.StaticString?).self",
             "    )",
             "    let p = out.assumingMemoryBound(to: \(namer.swiftProtobufModulePrefix)MessageSchema.DynamicLookupThunk.self)",
             "    p[1] = __\(reflectionSymbol)"

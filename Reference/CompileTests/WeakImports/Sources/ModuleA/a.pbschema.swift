@@ -39,14 +39,14 @@ private let __test_DMessageA__protobuf_mapEntrySchema_MapCEntry = SwiftProtobuf.
 
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageA_getMessageSchema")
-public func __test_DMessageA_getMessageSchema(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageA_getMessageSchema(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (SwiftProtobuf.MessageSchema?).self).pointee = __test_DMessageA_schema
 }
 
 #if canImport(Darwin)
 @_spi(ForGeneratedCodeOnly)
 @_silgen_name("test_DMessageA_getReflection")
-public func __test_DMessageA_getReflection(_ out: UnsafeMutableRawPointer) {
+@Sendable public func __test_DMessageA_getReflection(_ out: UnsafeMutableRawPointer) {
     out.assumingMemoryBound(to: (Swift.StaticString?).self).pointee = __test_DMessageA_reflectionData
     _ = __test_DMessageA_schema
 }
@@ -56,7 +56,7 @@ public func __test_DMessageA_getReflection(_ out: UnsafeMutableRawPointer) {
 public func __test_DMessageA_liveSupport(_ out: UnsafeMutableRawPointer) {
     out.storeBytes(
         of: SwiftProtobuf._protobuf_resolveReflection(named:),
-        as: (@convention(thin) (Swift.StaticString) -> Swift.StaticString?).self
+        as: (@convention(thin) @Sendable (Swift.StaticString) -> Swift.StaticString?).self
     )
     let p = out.assumingMemoryBound(to: SwiftProtobuf.MessageSchema.DynamicLookupThunk.self)
     p[1] = __test_DMessageA_getReflection
@@ -69,11 +69,11 @@ public func __test_DMessageA_liveSupport(_ out: UnsafeMutableRawPointer) {
 
 #if canImport(Darwin)
 @_silgen_name("test_DEnumB_getReflection")
-private func __extern_test_DEnumB_getReflection(_ out: UnsafeMutableRawPointer)
+@Sendable private func __extern_test_DEnumB_getReflection(_ out: UnsafeMutableRawPointer)
 @_silgen_name("test_DEnumC_getReflection")
-private func __extern_test_DEnumC_getReflection(_ out: UnsafeMutableRawPointer)
+@Sendable private func __extern_test_DEnumC_getReflection(_ out: UnsafeMutableRawPointer)
 @_silgen_name("test_DMessageB_getReflection")
-private func __extern_test_DMessageB_getReflection(_ out: UnsafeMutableRawPointer)
+@Sendable private func __extern_test_DMessageB_getReflection(_ out: UnsafeMutableRawPointer)
 @_silgen_name("test_DMessageC_getReflection")
-private func __extern_test_DMessageC_getReflection(_ out: UnsafeMutableRawPointer)
+@Sendable private func __extern_test_DMessageC_getReflection(_ out: UnsafeMutableRawPointer)
 #endif
