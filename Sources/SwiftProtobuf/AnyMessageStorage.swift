@@ -47,6 +47,40 @@ private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, messa
     visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
+// The verbose text form writes the type URL unquoted between "[" and "]", so it
+// can only be used for a URL that TextFormatScanner.parseComplexFieldName()
+// reads back unchanged. Anything else (e.g. "]", "{" or whitespace) could end
+// the name early and inject fields into the enclosing message.
+private func canUseVerboseTextForm(typeURL: String) -> Bool {
+    func isHexDigit(_ c: UInt8?) -> Bool {
+        guard let c = c else { return false }
+        return (c >= UInt8(ascii: "0") && c <= UInt8(ascii: "9"))
+            || (c >= UInt8(ascii: "a") && c <= UInt8(ascii: "f"))
+            || (c >= UInt8(ascii: "A") && c <= UInt8(ascii: "F"))
+    }
+    guard let first = typeURL.utf8.first, first != UInt8(ascii: "/") else {
+        return false
+    }
+    var bytes = typeURL.utf8.makeIterator()
+    while let c = bytes.next() {
+        switch c {
+        case UInt8(ascii: "a")...UInt8(ascii: "z"),
+            UInt8(ascii: "A")...UInt8(ascii: "Z"),
+            UInt8(ascii: "0")...UInt8(ascii: "9"):
+            continue
+        case UInt8(ascii: "%"):
+            guard isHexDigit(bytes.next()), isHexDigit(bytes.next()) else {
+                return false
+            }
+        default:
+            guard "_.-~!$&()*=+,;/".utf8.contains(c) else {
+                return false
+            }
+        }
+    }
+    return true
+}
+
 private func asJSONObject(body: [UInt8]) -> Data {
     let asciiOpenCurlyBracket = UInt8(ascii: "{")
     let asciiCloseCurlyBracket = UInt8(ascii: "}")
@@ -285,7 +319,9 @@ extension AnyMessageStorage {
     internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
         switch state {
         case .binary(let valueData):
-            if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+            if canUseVerboseTextForm(typeURL: _typeURL),
+                let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL)
+            {
                 // If we can decode it, we can write the readable verbose form:
                 do {
                     let m = try messageType.init(serializedBytes: valueData, partial: true)
@@ -303,11 +339,21 @@ extension AnyMessageStorage {
             }
 
         case .message(let msg):
-            emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+            if _typeURL.isEmpty || canUseVerboseTextForm(typeURL: _typeURL) {
+                emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+            } else {
+                try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+                let valueData = _value
+                if !valueData.isEmpty {
+                    try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
+                }
+            }
 
         case .contentJSON(let contentJSON, let options):
             // If we can decode it, we can write the readable verbose form:
-            if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+            if canUseVerboseTextForm(typeURL: _typeURL),
+                let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL)
+            {
                 do {
                     let m = try unpack(
                         contentJSON: contentJSON,
