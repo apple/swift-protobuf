@@ -144,7 +144,10 @@ jobs:
         git ls-files -z '*.swift' | xargs -0 swift format lint --strict --parallel
 
   sanitizer_testing:
-    runs-on: ubuntu-latest
+    # ubuntu26 seems to have issues, until actions/runner-images#15146 (fixing
+    # actions/runner-images#15108) is in `ubuntu-latest`, use an older runs-on.
+    runs-on: ubuntu-24.04
+    #runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -153,7 +156,9 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release.
-      # Looks like 6.4 is failing for some reason.
+      # 6.4 thread sanitizer fails,
+      # https://github.com/swiftlang/swift-build/issues/1776 isn't in a release
+      # yet.
       image: swift:6.3
       #image: swift:latest
     steps:
