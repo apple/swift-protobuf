@@ -911,6 +911,21 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
             o.optionalNestedEnum = SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo
         }
         assertJSONDecodeSucceeds("{\"optionalNestedEnum\":1}") { $0.optionalNestedEnum == .foo }
+        // Numeric values must fit in an int32, as in the binary and text
+        // format decoders. Out of range is an error even when ignoring
+        // unknown fields.
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":2147483647}") {
+            $0.optionalNestedEnum == .UNRECOGNIZED(2_147_483_647)
+        }
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":-2147483648}") {
+            $0.optionalNestedEnum == .UNRECOGNIZED(-2_147_483_648)
+        }
+        assertJSONDecodeFails("{\"optionalNestedEnum\":2147483648}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":-2147483649}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":4294967296}")
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+        assertJSONDecodeFails("{\"optionalNestedEnum\":2147483648}", options: options)
         // Out-of-range values should be serialized to an int
         assertJSONEncode("{\"optionalNestedEnum\":123}") { (o: inout MessageTestType) in
             o.optionalNestedEnum = .UNRECOGNIZED(123)
@@ -983,6 +998,8 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"repeatedNestedEnum\":[null]}")
         assertJSONDecodeFails("{\"repeatedNestedEnum\":\"FOO\"}")
         assertJSONDecodeFails("{\"repeatedNestedEnum\":0}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[\"FOO\",2147483648]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[-2147483649]}")
         assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":null}") { (o: MessageTestType) in
             o.repeatedNestedEnum == []
         }
@@ -1289,5 +1306,51 @@ final class Test_JSON_EnumValue_CustomString: XCTestCase, PBTestHelpers {
         }
         // And still that the raw number also works (like it normally does)
         assertJSONDecodeSucceeds("{\"testCase\":6}") { $0.testCase == .six }
+    }
+}
+
+final class Test_JSON_Proto2Enum: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestAllTypes
+
+    // Closed enums reject unknown in-range numbers (or drop them when ignoring
+    // unknown fields), but numbers outside int32 are a range error either way.
+
+    func testOptionalNestedEnum() {
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":1}") { $0.optionalNestedEnum == .foo }
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":-1}") { $0.optionalNestedEnum == .neg }
+
+        assertJSONDecodeFails("{\"optionalNestedEnum\":2147483647}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":-2147483648}")
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":2147483647}", options: options) {
+            !$0.hasOptionalNestedEnum
+        }
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":-2147483648}", options: options) {
+            !$0.hasOptionalNestedEnum
+        }
+
+        assertJSONDecodeFails("{\"optionalNestedEnum\":2147483648}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":-2147483649}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":4294967297}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":2147483648}", options: options)
+        assertJSONDecodeFails("{\"optionalNestedEnum\":-2147483649}", options: options)
+        assertJSONDecodeFails("{\"optionalNestedEnum\":4294967297}", options: options)
+    }
+
+    func testRepeatedNestedEnum() {
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[\"FOO\",2147483647]}")
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[\"FOO\",2147483647,-1]}", options: options) {
+            $0.repeatedNestedEnum == [.foo, .neg]
+        }
+
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[\"FOO\",2147483648]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[-2147483649]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[\"FOO\",2147483648]}", options: options)
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[-2147483649]}", options: options)
     }
 }
