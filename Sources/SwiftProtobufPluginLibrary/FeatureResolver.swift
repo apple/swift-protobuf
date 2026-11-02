@@ -54,7 +54,7 @@ package class FeatureResolver {
     /// The detaults to use for this edition.
     package let defaultFeatureSet: Google_Protobuf_FeatureSet
 
-    private let extensionMap: ExtensionMap?
+    private let extensionMap: (any ExtensionMap)?
 
     /// Construct a resolver for a given edition with the correct defaults.
     ///
@@ -102,11 +102,11 @@ package class FeatureResolver {
                 // instead of a `UTF8Name`. That would clean up these usage
                 // sites as well.
                 let extendedMessageName = e.extendedMessage.messageName
-                guard extendedMessageName.utf8CodeUnitsEqual("google.protobuf.FeatureSet") else {
+                guard extendedMessageName == Google_Protobuf_FeatureSet.messageSchema.messageName else {
                     throw Error.invalidExtension(type: String(protobufUTF8Name: extendedMessageName))
                 }
             }
-            var simpleMap = ExtensionMap()
+            var simpleMap = SimpleExtensionMap()
             simpleMap.insert(contentsOf: extensions)
             extensionMap = simpleMap
         }

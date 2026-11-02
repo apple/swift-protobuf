@@ -127,7 +127,7 @@ public enum BinaryDelimited {
     public static func parse<M: Message>(
         messageType: M.Type,
         from stream: InputStream,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws -> M {
         var message = M()
@@ -168,7 +168,7 @@ public enum BinaryDelimited {
     public static func parse<M: Message>(
         messageType: M.Type,
         from stream: InputStream,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws -> M {
@@ -205,7 +205,7 @@ public enum BinaryDelimited {
     public static func merge<M: Message>(
         into message: inout M,
         from stream: InputStream,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         let unsignedLength = try decodeVarint(stream)
@@ -290,7 +290,7 @@ public enum BinaryDelimited {
     public static func merge<M: Message>(
         into message: inout M,
         from stream: InputStream,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {

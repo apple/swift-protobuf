@@ -28,7 +28,7 @@ extension AsyncSequence where Element == UInt8 {
     @inlinable
     public func binaryProtobufDelimitedMessages<M: Message>(
         of messageType: M.Type = M.self,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) -> AsyncMessageSequence<Self, M> {
         AsyncMessageSequence<Self, M>(
@@ -59,7 +59,7 @@ extension AsyncSequence where Element == UInt8 {
     @inlinable
     public func binaryProtobufDelimitedMessages<M: Message>(
         of messageType: M.Type = M.self,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) -> AsyncMessageSequence<Self, M> {
@@ -84,7 +84,7 @@ public struct AsyncMessageSequence<
     public typealias Element = M
 
     private let base: Base
-    private let extensions: ExtensionMap?
+    private let extensions: (any ExtensionMap)?
     private let options: BinaryDecodingOptions
 
     /// Reads size-delimited messages from the given sequence of bytes. Delimited
@@ -99,7 +99,7 @@ public struct AsyncMessageSequence<
     /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
     public init(
         base: Base,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) {
         self.base = base
@@ -123,7 +123,7 @@ public struct AsyncMessageSequence<
     @available(*, deprecated, message: "Use init(base:extensions:options:) with options.allowPartial instead")
     public init(
         base: Base,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) {
@@ -137,13 +137,13 @@ public struct AsyncMessageSequence<
         @usableFromInline
         var iterator: Optional<Base.AsyncIterator>
         @usableFromInline
-        let extensions: ExtensionMap?
+        let extensions: (any ExtensionMap)?
         @usableFromInline
         let options: BinaryDecodingOptions
 
         init(
             iterator: Base.AsyncIterator,
-            extensions: ExtensionMap?,
+            extensions: (any ExtensionMap)?,
             options: BinaryDecodingOptions
         ) {
             self.iterator = iterator

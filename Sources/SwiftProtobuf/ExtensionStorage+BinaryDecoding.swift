@@ -44,7 +44,7 @@ extension ExtensionStorage {
         _ schema: ExtensionSchema,
         from reader: inout WireFormatReader,
         tag: FieldTag,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         unknownFields: inout UnknownStorage,
         isInitializedShallow: inout Bool

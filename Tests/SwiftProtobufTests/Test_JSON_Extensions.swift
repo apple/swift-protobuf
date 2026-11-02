@@ -18,7 +18,7 @@ import XCTest
 
 final class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
-    var extensions = SwiftProtobuf.ExtensionMap()
+    var extensions = SwiftProtobuf.SimpleExtensionMap()
 
     override func setUp() {
         // Start with all the extensions from the unittest.proto file:

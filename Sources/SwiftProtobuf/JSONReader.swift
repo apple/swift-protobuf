@@ -30,7 +30,7 @@ struct JSONReader: TextualParser {
 
     private var messageSchema: MessageSchema
     let options: JSONDecodingOptions
-    let extensions: ExtensionMap?
+    let extensions: (any ExtensionMap)?
 
     var complete: Bool { tokenizer.current.kind == .end }
 
@@ -41,7 +41,7 @@ struct JSONReader: TextualParser {
         buffer: UnsafeBufferPointer<UInt8>,
         messageSchema: MessageSchema,
         options: JSONDecodingOptions,
-        extensions: ExtensionMap?
+        extensions: (any ExtensionMap)?
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 

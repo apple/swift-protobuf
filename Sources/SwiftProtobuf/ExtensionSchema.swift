@@ -113,12 +113,17 @@ extension ExtensionSchema {
     }
 
     /// The field number of the extension field.
-    package var fieldNumber: UInt32 {
-        field.fieldNumber
+    public var fieldNumber: Int {
+        Int(field.fieldNumber)
     }
 
     /// The name of the extension field.
-    var fieldName: UTF8Name {
+    public var fieldName: String {
+        String(protobufUTF8Name: utf8FieldName)
+    }
+
+    /// The UTF-8 name of the extension field.
+    var utf8FieldName: UTF8Name {
         let lengthOffset = 1 + fieldSchemaSize
         let length = fixed2ByteBase128(in: schema, atByteOffset: lengthOffset)
         let nameStart = lengthOffset + 2
@@ -155,3 +160,90 @@ extension ExtensionSchema {
         }
     }
 }
+
+#if !REMOVE_LEGACY_EXTENSION_APIS
+/// Type-erased protocol for extension field descriptors, preserved for source compatibility.
+@preconcurrency
+public protocol AnyMessageExtension: Sendable {
+    /// The protobuf field number of the extension field.
+    var fieldNumber: Int { get }
+
+    /// The protobuf field name of the extension field.
+    var fieldName: String { get }
+}
+
+extension ExtensionSchema: AnyMessageExtension {}
+
+/// Legacy alias for `ExtensionSchema`, preserved for source compatibility.
+public typealias MessageExtension = ExtensionSchema
+
+/// Legacy alias for `Message`, preserved for source compatibility.
+public typealias ExtensibleMessage = Message
+
+extension Message {
+    /// Returns the value of the given extension field on this message, or `nil` if the extension
+    /// is not set.
+    public func getExtensionValue<T: BitwiseCopyable>(ext: ExtensionSchema) -> T? {
+        storageForRuntime.extensionStorage.values[ext.field.fieldNumber]?.value(as: T.self)
+    }
+
+    /// Returns the protobuf enum value of the given extension field on this message, or `nil` if
+    /// the extension is not set.
+    public func getExtensionValue<T: Enum>(ext: ExtensionSchema) -> T? {
+        guard let stored = storageForRuntime.extensionStorage.values[ext.field.fieldNumber] else {
+            return nil
+        }
+        return T(rawValue: Int(stored.value(as: Int32.self)))
+    }
+
+    /// Returns the protobuf enum value of the given extension field on this message, or `nil` if
+    /// the extension is not set.
+    public func getExtensionValue<T: Enum & BitwiseCopyable>(ext: ExtensionSchema) -> T? {
+        guard let stored = storageForRuntime.extensionStorage.values[ext.field.fieldNumber] else {
+            return nil
+        }
+        return T(rawValue: Int(stored.value(as: Int32.self)))
+    }
+
+    /// Returns the value of the given extension field on this message, or `nil` if the extension
+    /// is not set.
+    public func getExtensionValue<T>(ext: ExtensionSchema) -> T? {
+        storageForRuntime.extensionStorage.values[ext.field.fieldNumber]?.value(as: T.self)
+    }
+
+    /// Sets the value of the given extension field on this message.
+    public mutating func setExtensionValue<T: BitwiseCopyable>(ext: ExtensionSchema, value: T) {
+        _protobuf_uniqueExtensionStorage().updateValue(of: ext, to: value)
+    }
+
+    /// Sets the protobuf enum value of the given extension field on this message.
+    public mutating func setExtensionValue<T: Enum>(ext: ExtensionSchema, value: T) {
+        _protobuf_uniqueExtensionStorage().updateValue(of: ext, to: value)
+    }
+
+    /// Sets the protobuf enum value of the given extension field on this message.
+    public mutating func setExtensionValue<T: Enum & BitwiseCopyable>(ext: ExtensionSchema, value: T) {
+        _protobuf_uniqueExtensionStorage().updateValue(of: ext, to: value)
+    }
+
+    /// Sets the repeated value of the given extension field on this message.
+    public mutating func setExtensionValue<Element>(ext: ExtensionSchema, value: [Element]) {
+        _protobuf_uniqueExtensionStorage().updateValue(of: ext, to: value)
+    }
+
+    /// Sets the value of the given extension field on this message.
+    public mutating func setExtensionValue<T>(ext: ExtensionSchema, value: T) {
+        _protobuf_uniqueExtensionStorage().updateValue(of: ext, to: value)
+    }
+
+    /// Returns true if the given extension field is set on this message.
+    public func hasExtensionValue(ext: ExtensionSchema) -> Bool {
+        _protobuf_extensionStorage().hasValue(for: ext)
+    }
+
+    /// Clears the value of the given extension field on this message.
+    public mutating func clearExtensionValue(ext: ExtensionSchema) {
+        _protobuf_uniqueExtensionStorage().clearValue(of: ext)
+    }
+}
+#endif  // !REMOVE_LEGACY_EXTENSION_APIS

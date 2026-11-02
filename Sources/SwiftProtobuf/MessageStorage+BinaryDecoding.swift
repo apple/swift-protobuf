@@ -43,7 +43,7 @@ extension MessageStorage {
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         target: DecodingTarget
     ) throws {
@@ -100,7 +100,7 @@ extension MessageStorage {
     /// - Throws: ``BinaryDecodingError`` if decoding fails.
     func merge(
         byReadingFrom buffer: UnsafeRawBufferPointer,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         isInitializedShallow: inout Bool
     ) throws {
@@ -127,7 +127,7 @@ extension MessageStorage {
     ///     be set to false if any message fails the initialization check while decoding.
     func merge(
         byReadingFrom reader: inout WireFormatReader,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         isInitializedShallow: inout Bool
     ) throws {
@@ -179,7 +179,7 @@ extension MessageStorage {
     private func decodeNextField(
         from reader: inout WireFormatReader,
         tag: FieldTag,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace,
         isInitializedShallow: inout Bool
@@ -743,7 +743,7 @@ extension MessageStorage {
     /// - Tag 3 (length-delimited): message (the extension value)
     private func decodeMessageSetItem(
         from reader: inout WireFormatReader,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         isInitializedShallow: inout Bool
     ) throws -> Bool {

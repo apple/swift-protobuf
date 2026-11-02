@@ -36,7 +36,7 @@ extension ExtensionStorage {
         let field = schema.field
         let fieldType = field.rawFieldType
 
-        encoder.startExtensionField(name: schema.fieldName)
+        encoder.startExtensionField(name: schema.utf8FieldName)
 
         switch field.fieldMode.cardinality {
         case .map:

@@ -47,7 +47,7 @@ extension ExtensionStorage {
                 let values = value.value(as: [Value].self)
                 if isPacked {
                     // Use the shorthand representation, "fieldName: [...]".
-                    encoder.emitExtensionFieldName(name: schema.fieldName)
+                    encoder.emitExtensionFieldName(name: schema.utf8FieldName)
                     encoder.startRegularField()
                     encoder.startArray()
                     var firstItem = true
@@ -63,7 +63,7 @@ extension ExtensionStorage {
                 } else {
                     // Each element is a fully serialized "name: value" pair.
                     for value in values {
-                        encoder.emitExtensionFieldName(name: schema.fieldName)
+                        encoder.emitExtensionFieldName(name: schema.utf8FieldName)
                         encoder.startRegularField()
                         emitValue(value)
                         encoder.endRegularField()
@@ -97,7 +97,7 @@ extension ExtensionStorage {
             case .group, .message:
                 precondition(!isPacked, "a packed group/message field should not be reachable")
                 forEachMessage(inAssumedPresentRepeatedMessageField: schema) {
-                    encoder.emitExtensionFieldName(name: schema.fieldName)
+                    encoder.emitExtensionFieldName(name: schema.utf8FieldName)
                     encoder.startMessageField()
                     $0.serializeText(into: &encoder, options: options)
                     encoder.endMessageField()
@@ -118,7 +118,7 @@ extension ExtensionStorage {
             }
 
         case .scalar:
-            encoder.emitExtensionFieldName(name: schema.fieldName)
+            encoder.emitExtensionFieldName(name: schema.utf8FieldName)
 
             // Handle groups/messages separately since they have different delimiters than regular
             // fields.
@@ -183,7 +183,7 @@ extension ExtensionStorage {
         let enumSchema = schema.enumSchema
         if schema.field.fieldMode.isPacked {
             // Use the shorthand representation, "fieldName: [...]".
-            encoder.emitExtensionFieldName(name: schema.fieldName)
+            encoder.emitExtensionFieldName(name: schema.utf8FieldName)
             encoder.startRegularField()
             encoder.startArray()
             var firstItem = true
@@ -202,7 +202,7 @@ extension ExtensionStorage {
         } else {
             // Each element is a fully serialized "name: value" pair.
             forEachRawValue(inAssumedPresentRepeatedEnumField: schema) { rawValue in
-                encoder.emitExtensionFieldName(name: schema.fieldName)
+                encoder.emitExtensionFieldName(name: schema.utf8FieldName)
                 encoder.startRegularField()
                 encoder.putEnumValue(rawValue: rawValue, enumSchema: enumSchema)
                 encoder.endRegularField()

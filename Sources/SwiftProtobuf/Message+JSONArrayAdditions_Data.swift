@@ -50,7 +50,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public static func array(
         fromJSONUTF8Data jsonUTF8Data: Data,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws -> [Self] {
         try array(
