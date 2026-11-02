@@ -185,10 +185,10 @@ nonisolated extension Proto2Unittest_TestOptimizedForSize {
 
 // MARK: - File's ExtensionMap: Proto2Unittest_UnittestOptimizeFor_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension,
   Proto2Unittest_TestOptimizedForSize.Extensions.test_extension2
 ]

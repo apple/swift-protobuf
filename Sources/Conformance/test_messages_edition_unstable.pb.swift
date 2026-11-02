@@ -258,10 +258,10 @@ nonisolated extension ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUn
 
 // MARK: - File's ExtensionMap: ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_EditionUnstable_Extensions_extension_int32
 ]
 

@@ -137,10 +137,10 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
 // MARK: - File's ExtensionMap: Pb_CppFeatures_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let Pb_CppFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let Pb_CppFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Pb_Extensions_cpp
 ]
 

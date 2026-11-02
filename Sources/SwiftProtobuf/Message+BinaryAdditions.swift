@@ -70,7 +70,7 @@ extension Message {
     @inlinable
     public init<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         self.init()
@@ -101,7 +101,7 @@ extension Message {
     @inlinable
     public init<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -126,7 +126,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
         serializedBytes bytes: RawSpan,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         self.init()
@@ -158,7 +158,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public init(
         serializedBytes bytes: RawSpan,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -187,7 +187,7 @@ extension Message {
     @inlinable
     public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
@@ -222,7 +222,7 @@ extension Message {
     @inlinable
     public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -250,7 +250,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(
         serializedBytes bytes: RawSpan,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
@@ -285,7 +285,7 @@ extension Message {
     @available(macOS 10.14.4, iOS 12.2, watchOS 5.2, tvOS 12.2, visionOS 1.0, *)
     public mutating func merge(
         serializedBytes bytes: RawSpan,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -298,7 +298,7 @@ extension Message {
     @usableFromInline
     mutating func _decode(
         rawBuffer body: UnsafeRawBufferPointer,
-        extensions: ExtensionMap?,
+        extensions: (any ExtensionMap)?,
         options: BinaryDecodingOptions,
         isNewInstance: Bool
     ) throws {

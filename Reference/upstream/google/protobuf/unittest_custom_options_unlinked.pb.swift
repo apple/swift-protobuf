@@ -87,10 +87,10 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
 // MARK: - File's ExtensionMap: Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2UnittestUnlinked_Extensions_file_opt1,
   Proto2UnittestUnlinked_Extensions_message_opt1,
   Proto2UnittestUnlinked_Extensions_field_opt1

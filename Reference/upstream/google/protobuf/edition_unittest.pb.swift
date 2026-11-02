@@ -9318,10 +9318,10 @@ nonisolated extension EditionUnittest_TestUnpackedExtensions {
 
 // MARK: - File's ExtensionMap: EditionUnittest_EditionUnittest_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let EditionUnittest_EditionUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionUnittest_Extensions_optional_int32_extension,
   EditionUnittest_Extensions_optional_int64_extension,
   EditionUnittest_Extensions_optional_uint32_extension,

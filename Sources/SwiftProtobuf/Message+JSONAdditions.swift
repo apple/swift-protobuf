@@ -74,7 +74,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public init(
         jsonString: String,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         if jsonString.isEmpty {
@@ -123,7 +123,7 @@ extension Message {
     /// - Throws: ``SwiftProtobufError`` or ``JSONDecodingError`` if decoding fails.
     public init<Bytes: SwiftProtobufContiguousBytes>(
         jsonUTF8Bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions()
     ) throws {
         self.init()

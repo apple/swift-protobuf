@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 
 extension SwiftProtoTesting_RawMessageSet.Item {
-    fileprivate init(typeID: UInt32, message: Data) {
+    fileprivate init(typeID: Int, message: Data) {
         self.init()
         self.typeID = Int32(typeID)
         self.message = message
@@ -409,13 +409,13 @@ final class Test_MessageSet: XCTestCase {
 
     func assertMessage<M: Message>(
         _ message: M,
-        hasExtensions expectedFieldNumbers: [UInt32],
+        hasExtensions expectedFieldNumbers: [Int],
         expectedUnknowns: Data,
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
         let storage = message._protobuf_extensionStorage()
-        let presentFieldNumbers = Array(storage.values.keys).sorted()
+        let presentFieldNumbers = storage.values.keys.map(Int.init).sorted()
         XCTAssertEqual(
             presentFieldNumbers,
             expectedFieldNumbers.sorted(),

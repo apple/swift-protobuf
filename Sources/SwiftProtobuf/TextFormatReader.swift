@@ -32,7 +32,7 @@ struct TextFormatReader: TextualParser {
 
     private var messageSchema: MessageSchema
     private let options: TextFormatDecodingOptions
-    private let extensions: ExtensionMap?
+    private let extensions: (any ExtensionMap)?
 
     var complete: Bool { tokenizer.current.kind == .end }
 
@@ -43,7 +43,7 @@ struct TextFormatReader: TextualParser {
         buffer: UnsafeBufferPointer<UInt8>,
         messageSchema: MessageSchema,
         options: TextFormatDecodingOptions,
-        extensions: ExtensionMap?
+        extensions: (any ExtensionMap)?
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 

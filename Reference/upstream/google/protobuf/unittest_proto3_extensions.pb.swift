@@ -67,10 +67,10 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FileOptions {
 
 // MARK: - File's ExtensionMap: ProtobufUnittest_UnittestProto3Extensions_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let ProtobufUnittest_UnittestProto3Extensions_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let ProtobufUnittest_UnittestProto3Extensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Proto3FileExtensions.Extensions.singular_int,
   ProtobufUnittest_Proto3FileExtensions.Extensions.repeated_int
 ]

@@ -18,7 +18,68 @@
 ///
 /// An `ExtensionMap` is used during decoding to look up extension schemas corresponding to
 /// serialized data.
-public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
+///
+/// This is a protocol so that applications can implement their own extension lookup if they need
+/// something more complex than the standard `SimpleExtensionMap` implementation.
+@preconcurrency
+public protocol ExtensionMap: Sendable {
+    /// Returns the extension schema for the extension field in a message that has the given
+    /// field number, or `nil` if no such extension was found.
+    subscript(
+        fieldNumber fieldNumber: UInt32,
+        in messageSchema: MessageSchema
+    ) -> ExtensionSchema? { get }
+
+    /// Returns the extension schema for the extension field in a message that has the given
+    /// field name, or `nil` if no such extension was found.
+    subscript(
+        fieldName fieldName: String,
+        in messageSchema: MessageSchema
+    ) -> ExtensionSchema? { get }
+}
+
+#if !REMOVE_LEGACY_EXTENSION_APIS
+extension ExtensionMap {
+    /// Returns the extension schema for the extension field in `messageType` that has the given
+    /// `fieldNumber`, or `nil` if no such extension was found.
+    public subscript(
+        messageType: any Message.Type,
+        fieldNumber: Int
+    ) -> ExtensionSchema? {
+        guard let generatedType = messageType as? any GeneratedMessage.Type else {
+            return nil
+        }
+        return self[
+            fieldNumber: UInt32(fieldNumber),
+            in: generatedType.messageSchema
+        ]
+    }
+
+    /// Returns the field number for a message extension with a specific field name, or `nil` if
+    /// no such extension is registered.
+    public func fieldNumberForProto(
+        messageType: any Message.Type,
+        protoFieldName: String
+    ) -> Int? {
+        guard let generatedType = messageType as? any GeneratedMessage.Type,
+            let schema = self[
+                fieldName: protoFieldName,
+                in: generatedType.messageSchema
+            ]
+        else {
+            return nil
+        }
+        return schema.fieldNumber
+    }
+}
+#endif  // !REMOVE_LEGACY_EXTENSION_APIS
+
+/// A default implementation of `ExtensionMap`.
+///
+/// You can create a `SimpleExtensionMap` using an array literal of extension schemas or by uniting
+/// other `SimpleExtensionMap`s together. The code generator also emits static `SimpleExtensionMap`s
+/// for each file that defines extensions.
+public struct SimpleExtensionMap: ExtensionMap, Sendable, ExpressibleByArrayLiteral {
     /// The hashable key used to look up extension schemas in the registry by their field number.
     private struct FieldNumberKey: Hashable {
         let messageSchemaKey: MessageSchema.Key
@@ -50,6 +111,20 @@ public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
         insert(contentsOf: arrayLiteral)
     }
 
+    /// Creates a new extension map by merging the contents of the given maps.
+    public init(_ others: SimpleExtensionMap...) {
+        self.init()
+        for other in others {
+            formUnion(other)
+        }
+    }
+
+    /// Creates a new extension map containing the given sequence of extension schemas.
+    public init<S: Sequence<ExtensionSchema>>(_ schemas: S) {
+        self.init()
+        insert(contentsOf: schemas)
+    }
+
     /// Returns the extension schema for the extension field in a message that has the given
     /// field number, or `nil` if no such extension was found.
     public subscript(
@@ -75,7 +150,7 @@ public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
         let messageKey = schema.extendedMessage.key
         registryByNumber[FieldNumberKey(messageSchemaKey: messageKey, fieldNumber: schema.field.fieldNumber)] = schema
         registryByName[
-            FieldNameKey(messageSchemaKey: messageKey, fieldName: String(protobufUTF8Name: schema.fieldName))
+            FieldNameKey(messageSchemaKey: messageKey, fieldName: String(protobufUTF8Name: schema.utf8FieldName))
         ] = schema
     }
 
@@ -87,14 +162,14 @@ public struct ExtensionMap: Sendable, ExpressibleByArrayLiteral {
     }
 
     /// Merges the given extension map into the receiver in-place.
-    public mutating func formUnion(_ other: ExtensionMap) {
+    public mutating func formUnion(_ other: SimpleExtensionMap) {
         registryByNumber.merge(other.registryByNumber) { (_, new) in new }
         registryByName.merge(other.registryByName) { (_, new) in new }
     }
 
     /// Returns a new extension map that represents the merging of the receiver and the given
     /// extension map.
-    public func union(_ other: ExtensionMap) -> ExtensionMap {
+    public func union(_ other: SimpleExtensionMap) -> SimpleExtensionMap {
         var result = self
         result.formUnion(other)
         return result

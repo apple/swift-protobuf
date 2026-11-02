@@ -323,10 +323,10 @@ class ExtensionSetGenerator {
 
             // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifier)_Extensions
 
-            /// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+            /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
             /// this .proto file. It can be used in parsing, or it can be combined with other
-            /// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-            \(generatorOptions.visibilitySourceSnippet)nonisolated let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)ExtensionMap = [
+            /// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+            \(generatorOptions.visibilitySourceSnippet)nonisolated let \(filePrefix)\(filenameAsIdentifier)_Extensions: \(namer.swiftProtobufModulePrefix)SimpleExtensionMap = [
             """
         )
         p.withIndentation { p in

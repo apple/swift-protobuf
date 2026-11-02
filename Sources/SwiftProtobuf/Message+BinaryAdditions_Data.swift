@@ -38,7 +38,7 @@ extension Message {
     @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
     public init(
         serializedData data: Data,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -64,7 +64,7 @@ extension Message {
     @available(*, deprecated, renamed: "init(serializedBytes:extensions:partial:options:)")
     public init<Bytes: ContiguousBytes>(
         contiguousBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -95,7 +95,7 @@ extension Message {
     )
     public init<Bytes: ContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -126,7 +126,7 @@ extension Message {
     @available(*, deprecated, renamed: "merge(serializedBytes:extensions:partial:options:)")
     public mutating func merge<Bytes: ContiguousBytes>(
         contiguousBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -165,7 +165,7 @@ extension Message {
     )
     public mutating func merge<Bytes: ContiguousBytes>(
         serializedBytes bytes: Bytes,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool = false,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
@@ -195,7 +195,7 @@ extension Message {
     @inlinable
     public mutating func merge(
         serializedData data: Data,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {
         try merge(serializedBytes: data, extensions: extensions, options: options)
@@ -227,7 +227,7 @@ extension Message {
     @inlinable
     public mutating func merge(
         serializedData data: Data,
-        extensions: ExtensionMap? = nil,
+        extensions: (any ExtensionMap)? = nil,
         partial: Bool,
         options: BinaryDecodingOptions = BinaryDecodingOptions()
     ) throws {

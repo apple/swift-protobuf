@@ -64,7 +64,7 @@ extension Message {
     public init(
         textFormatString: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-        extensions: ExtensionMap? = nil
+        extensions: (any ExtensionMap)? = nil
     ) throws {
         self.init()
         var textFormatString = textFormatString
