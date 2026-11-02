@@ -369,10 +369,10 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_ServiceOptions {
 
 // MARK: - File's ExtensionMap: Proto2Unittest_UnittestRetention_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let Proto2Unittest_UnittestRetention_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Proto2Unittest_Extensions_plain_option,
   Proto2Unittest_Extensions_runtime_retention_option,
   Proto2Unittest_Extensions_source_retention_option,

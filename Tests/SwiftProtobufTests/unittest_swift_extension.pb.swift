@@ -329,10 +329,10 @@ nonisolated extension SwiftProtoTesting_Extend_MsgUsesStorage {
 
 // MARK: - File's ExtensionMap: SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Extend_Extensions_b,
   SwiftProtoTesting_Extend_Extensions_C,
   SwiftProtoTesting_Extend_Extensions_a_b,

@@ -2315,10 +2315,10 @@ nonisolated extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetC
 
 // MARK: - File's ExtensionMap: ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let ProtobufTestMessages_Proto2_TestMessagesProto2_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_Proto2_Extensions_extension_int32,
   ProtobufTestMessages_Proto2_Extensions_extension_string,
   ProtobufTestMessages_Proto2_Extensions_extension_bytes,

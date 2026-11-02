@@ -995,10 +995,10 @@ nonisolated extension ProtobufTestMessages_Editions_TestAllTypesEdition2023 {
 
 // MARK: - File's ExtensionMap: ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufTestMessages_Editions_Extensions_extension_int32,
   ProtobufTestMessages_Editions_Extensions_extension_string,
   ProtobufTestMessages_Editions_Extensions_extension_bytes,

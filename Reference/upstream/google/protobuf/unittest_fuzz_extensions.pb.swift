@@ -1579,10 +1579,10 @@ nonisolated extension FuzzUnittest_FuzzMostExtensions {
 
 // MARK: - File's ExtensionMap: FuzzUnittest_UnittestFuzzExtensions_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let FuzzUnittest_UnittestFuzzExtensions_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let FuzzUnittest_UnittestFuzzExtensions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   FuzzUnittest_Extensions_optional_int32_extension,
   FuzzUnittest_Extensions_optional_int64_extension,
   FuzzUnittest_Extensions_optional_uint32_extension,

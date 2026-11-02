@@ -133,10 +133,10 @@ nonisolated extension SwiftProtobuf.Google_Protobuf_FeatureSet {
 
 // MARK: - File's ExtensionMap: SwiftFeatureTest_TestFeatures_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftFeatureTest_TestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftFeatureTest_Extensions_test
 ]
 

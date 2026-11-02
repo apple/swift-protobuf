@@ -335,10 +335,10 @@ nonisolated extension EditionsUnittest_TestDelimited {
 
 // MARK: - File's ExtensionMap: EditionsUnittest_UnittestDelimited_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   EditionsUnittest_Extensions_lengthprefixed,
   EditionsUnittest_Extensions_GroupLikeFileScope,
   EditionsUnittest_Extensions_not_group_like_scope,

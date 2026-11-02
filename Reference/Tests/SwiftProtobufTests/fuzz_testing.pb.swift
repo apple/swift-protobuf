@@ -2255,10 +2255,10 @@ nonisolated extension SwiftProtoTesting_Fuzz_Message {
 
 // MARK: - File's ExtensionMap: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_Fuzz_FuzzTesting_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Fuzz_Extensions_singular_int32_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_int64_ext,
   SwiftProtoTesting_Fuzz_Extensions_singular_uint32_ext,

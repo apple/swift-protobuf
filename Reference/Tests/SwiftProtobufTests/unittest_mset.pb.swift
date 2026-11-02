@@ -349,10 +349,10 @@ nonisolated extension SwiftProtoTesting_WireFormat_TestMessageSet {
 
 // MARK: - File's ExtensionMap: SwiftProtoTesting_UnittestMset_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftProtoTesting_UnittestMset_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension,
   SwiftProtoTesting_TestMessageSetExtension1.Extensions.doppelganger_message_set_extension,
   SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension,

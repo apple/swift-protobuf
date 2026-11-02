@@ -378,10 +378,10 @@ nonisolated extension SwiftProtoTesting_Order_TestFieldOrderings {
 
 // MARK: - File's ExtensionMap: SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Order_Extensions_my_extension_string,
   SwiftProtoTesting_Order_Extensions_my_extension_int
 ]

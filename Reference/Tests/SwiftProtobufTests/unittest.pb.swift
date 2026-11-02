@@ -3066,10 +3066,10 @@ nonisolated extension SwiftProtoTesting_TestParsingMerge {
 
 // MARK: - File's ExtensionMap: SwiftProtoTesting_Unittest_Extensions
 
-/// A `SwiftProtobuf.ExtensionMap` that includes all of the extensions defined by
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used in parsing, or it can be combined with other
-/// `SwiftProtobuf.ExtensionMap`s to create a larger `SwiftProtobuf.ExtensionMap`.
-nonisolated let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.ExtensionMap = [
+/// `SwiftProtobuf.SimpleExtensionMap`s to create a larger `SwiftProtobuf.SimpleExtensionMap`.
+nonisolated let SwiftProtoTesting_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftProtoTesting_Extensions_optional_int32_extension,
   SwiftProtoTesting_Extensions_optional_int64_extension,
   SwiftProtoTesting_Extensions_optional_uint32_extension,
