@@ -87,6 +87,8 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     private mutating func checkSingularField() throws {
+        // Field number 0 is never a real field; map entries use it to skip this check.
+        guard currentFieldNumber != 0 else { return }
         guard decodedSingularFields.insert(currentFieldNumber).inserted else {
             throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
         }
@@ -586,13 +588,11 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufMap<KeyType, ValueType>.Type,
         value: inout _ProtobufMap<KeyType, ValueType>.BaseType
     ) throws {
+        // Map entries check key/value presence directly, so field number 0
+        // turns off the per-message duplicate tracking while decoding them.
         let savedFieldNumber = currentFieldNumber
-        let savedSingularFields = decodedSingularFields
-        decodedSingularFields = []
-        defer {
-            currentFieldNumber = savedFieldNumber
-            decodedSingularFields = savedSingularFields
-        }
+        currentFieldNumber = 0
+        defer { currentFieldNumber = savedFieldNumber }
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
@@ -609,10 +609,14 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
-                    currentFieldNumber = 1
+                    if keyField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
-                    currentFieldNumber = 2
+                    if valueField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {
@@ -657,13 +661,11 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufEnumMap<KeyType, ValueType>.Type,
         value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
     ) throws where ValueType.RawValue == Int {
+        // Map entries check key/value presence directly, so field number 0
+        // turns off the per-message duplicate tracking while decoding them.
         let savedFieldNumber = currentFieldNumber
-        let savedSingularFields = decodedSingularFields
-        decodedSingularFields = []
-        defer {
-            currentFieldNumber = savedFieldNumber
-            decodedSingularFields = savedSingularFields
-        }
+        currentFieldNumber = 0
+        defer { currentFieldNumber = savedFieldNumber }
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -680,10 +682,14 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
-                    currentFieldNumber = 1
+                    if keyField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
-                    currentFieldNumber = 2
+                    if valueField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try decodeSingularEnumField(value: &valueField)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {
@@ -728,13 +734,11 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufMessageMap<KeyType, ValueType>.Type,
         value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
     ) throws {
+        // Map entries check key/value presence directly, so field number 0
+        // turns off the per-message duplicate tracking while decoding them.
         let savedFieldNumber = currentFieldNumber
-        let savedSingularFields = decodedSingularFields
-        decodedSingularFields = []
-        defer {
-            currentFieldNumber = savedFieldNumber
-            decodedSingularFields = savedSingularFields
-        }
+        currentFieldNumber = 0
+        defer { currentFieldNumber = savedFieldNumber }
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -751,10 +755,14 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
-                    currentFieldNumber = 1
+                    if keyField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
-                    currentFieldNumber = 2
+                    if valueField != nil {
+                        throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                    }
                     try decodeSingularMessageField(value: &valueField)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {
