@@ -132,7 +132,7 @@ internal struct TextFormatEncoder {
         if let name = value.name {
             data.append(contentsOf: name.utf8Buffer)
         } else {
-            appendInt(value: Int64(value.rawValue))
+            appendInt(value: Int64(Int32(truncatingIfNeeded: value.rawValue)))
         }
     }
 
