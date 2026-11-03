@@ -766,6 +766,42 @@ final class Test_Any: XCTestCase {
         )
     }
 
+    func test_Any_OddTypeURL_TextFormat() throws {
+        // The verbose text form writes the type URL unquoted inside "[...]", so a URL
+        // that would end the name early must use the type_url/value fields instead.
+        let url =
+            "x/google.protobuf.Int32Value] {} } int32_value: 666 any_value { [type.googleapis.com/google.protobuf.Int32Value"
+        let expected = "any_value {\n  type_url: \"\(url)\"\n  value: \"\\b\\007\"\n}\n"
+
+        var msg = SwiftProtoTesting_TestAny()
+        msg.anyValue.typeURL = url
+        msg.anyValue.value = Data([8, 7])
+        let fromBinary = try SwiftProtoTesting_TestAny(serializedBytes: try msg.serializedBytes() as [UInt8])
+        XCTAssertEqual(fromBinary.textFormatString(), expected)
+        let redecoded = try SwiftProtoTesting_TestAny(textFormatString: fromBinary.textFormatString())
+        XCTAssertEqual(redecoded.int32Value, 0)
+        XCTAssertEqual(redecoded, fromBinary)
+
+        let fromJSON = try SwiftProtoTesting_TestAny(jsonString: "{\"anyValue\":{\"@type\":\"\(url)\",\"value\":7}}")
+        let redecodedJSON = try SwiftProtoTesting_TestAny(textFormatString: fromJSON.textFormatString())
+        XCTAssertEqual(redecodedJSON.int32Value, 0)
+        XCTAssertEqual(redecodedJSON.anyValue.typeURL, url)
+
+        var packed = SwiftProtoTesting_TestAny()
+        packed.anyValue = try Google_Protobuf_Any(packing: Google_Protobuf_Int32Value(7))
+        packed.anyValue.typeURL = url
+        XCTAssertEqual(packed.textFormatString(), expected)
+
+        // URLs the parser accepts as written still use the verbose form.
+        msg.anyValue.typeURL = "example.com/a%2Fb/google.protobuf.Int32Value"
+        XCTAssertEqual(
+            msg.textFormatString(),
+            "any_value {\n  [example.com/a%2Fb/google.protobuf.Int32Value] {\n    value: 7\n  }\n}\n"
+        )
+        let reparsed = try SwiftProtoTesting_TestAny(textFormatString: msg.textFormatString())
+        XCTAssertEqual(reparsed.anyValue.typeURL, msg.anyValue.typeURL)
+    }
+
     func test_Any_JSON_Extensions() throws {
         var content = SwiftProtoTesting_TestAllExtensions()
         content.SwiftProtoTesting_optionalInt32Extension = 17
