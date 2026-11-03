@@ -31,7 +31,9 @@ final class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
                     extensions: SwiftProtoTesting_Unittest_Extensions
                 )
             ) {
-                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                guard let error = $0 as? SwiftProtobufError,
+                    self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                else {
                     return XCTFail("Unexpected error: \($0)")
                 }
             }

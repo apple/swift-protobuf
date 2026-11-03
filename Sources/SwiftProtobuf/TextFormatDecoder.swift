@@ -88,7 +88,7 @@ internal struct TextFormatDecoder: Decoder {
 
     private mutating func checkSingularField() throws {
         guard decodedSingularFields.insert(currentFieldNumber).inserted else {
-            throw TextFormatDecodingError.duplicateSingularField
+            throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
         }
     }
 

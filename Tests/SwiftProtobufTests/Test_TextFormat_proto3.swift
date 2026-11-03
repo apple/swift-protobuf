@@ -30,7 +30,9 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             XCTAssertThrowsError(
                 try MessageTestType(textFormatString: "\(field); optional_nested_message {}; \(field)")
             ) {
-                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                guard let error = $0 as? SwiftProtobufError,
+                    self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                else {
                     return XCTFail("Unexpected error: \($0)")
                 }
             }

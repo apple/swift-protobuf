@@ -30,7 +30,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
                 "key: \(key) value \(value) 2 \(value)",
             ] {
                 XCTAssertThrowsError(try MessageTestType(textFormatString: "\(field) {\(entry)}")) {
-                    guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                    guard let error = $0 as? SwiftProtobufError,
+                        self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                    else {
                         return XCTFail("Unexpected error: \($0)")
                     }
                 }
@@ -48,7 +50,9 @@ final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
         XCTAssertThrowsError(
             try SwiftProtoTesting_Test3_TestAllTypesProto3(textFormatString: text + " optional_int32: 0")
         ) {
-            guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+            guard let error = $0 as? SwiftProtobufError,
+                self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+            else {
                 return XCTFail("Unexpected error: \($0)")
             }
         }

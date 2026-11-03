@@ -28,7 +28,9 @@ final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             "any_field {[type.googleapis.com/google.protobuf.Duration] {}} any_field {}",
         ] {
             XCTAssertThrowsError(try MessageTestType(textFormatString: text)) {
-                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                guard let error = $0 as? SwiftProtobufError,
+                    self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                else {
                     return XCTFail("Unexpected error: \($0)")
                 }
             }
