@@ -372,7 +372,7 @@ package struct Tokenizer {
             }
         }
 
-        guard !lookingAt(Tokenizer.isLetter) else {
+        guard !lookingAt(Tokenizer.isAlphanumeric) else {
             throw makeError("Need space between number and identifier")
         }
         if currentChar == UInt8(ascii: ".") {
