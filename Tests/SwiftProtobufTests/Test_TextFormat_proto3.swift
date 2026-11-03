@@ -19,6 +19,33 @@ import XCTest
 final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
+    func testDecoding_duplicateSingularFields() {
+        let fields = [
+            "optional_int32: 0", "optional_int64: 0", "optional_uint32: 0", "optional_uint64: 0",
+            "optional_sint32: 0", "optional_sint64: 0", "optional_fixed32: 0", "optional_fixed64: 0",
+            "optional_sfixed32: 0", "optional_sfixed64: 0", "optional_float: 0", "optional_double: 0",
+            "optional_bool: false", "optional_string: \"\"", "optional_bytes: \"\"", "optional_nested_enum: 0",
+        ]
+        for field in fields {
+            XCTAssertThrowsError(
+                try MessageTestType(textFormatString: "\(field); optional_nested_message {}; \(field)")
+            ) {
+                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                    return XCTFail("Unexpected error: \($0)")
+                }
+            }
+        }
+        assertTextFormatDecodeFails("optional_int32: 0, 1: 0")
+        XCTAssertThrowsError(try MessageTestType(textFormatString: "oneof_uint32: 0 oneof_string: \"\"")) {
+            guard case TextFormatDecodingError.conflictingOneOf = $0 else {
+                return XCTFail("Unexpected error: \($0)")
+            }
+        }
+        assertTextFormatDecodeSucceeds("repeated_int32: 0 repeated_int32: [0, 1]") {
+            $0.repeatedInt32 == [0, 0, 1]
+        }
+    }
+
     func testDecoding_comments() {
         assertTextFormatDecodeSucceeds("optional_int32: 41#optional_int32: 42\noptional_int64: 8") {
             (o: MessageTestType) in
@@ -98,10 +125,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             o.optionalInt32 == 41
         }
-        assertTextFormatDecodeSucceeds("optional_int32: 41 optional_int32: 42") {
-            (o: MessageTestType) in
-            o.optionalInt32 == 42
-        }
+        assertTextFormatDecodeFails("optional_int32: 41 optional_int32: 42")
         assertTextFormatDecodeFails("optional_int32: a\n")
         assertTextFormatDecodeFails("optional_int32: 999999999999999999999999999999999999\n")
         assertTextFormatDecodeFails("optional_int32: 1,2\n")

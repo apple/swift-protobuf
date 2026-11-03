@@ -19,6 +19,31 @@ import XCTest
 final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestWellKnownTypes
 
+    func testAny_duplicateSingularFields() throws {
+        for text in [
+            "any_field {type_url: \"\" type_url: \"\"}",
+            "any_field {value: \"\" value: \"\"}",
+            "any_field {[type.googleapis.com/google.protobuf.Duration] {seconds: 0 seconds: 0}}",
+            "any_field {} any_field {type_url: 1}",
+            "any_field {[type.googleapis.com/google.protobuf.Duration] {}} any_field {}",
+        ] {
+            XCTAssertThrowsError(try MessageTestType(textFormatString: text)) {
+                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                    return XCTFail("Unexpected error: \($0)")
+                }
+            }
+        }
+        let message = try SwiftProtoTesting_TestAny(
+            textFormatString:
+                "repeated_any_value {type_url: \"a\"}"
+                + " repeated_any_value {[type.googleapis.com/google.protobuf.Duration] {seconds: 0}}"
+        )
+        XCTAssertEqual(
+            message.repeatedAnyValue.map { $0.typeURL },
+            ["a", "type.googleapis.com/google.protobuf.Duration"]
+        )
+    }
+
     func assertAnyTest<M: Message & Equatable>(
         _ message: M,
         expected: String,

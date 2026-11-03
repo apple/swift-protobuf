@@ -27,6 +27,8 @@ import Foundation
 internal struct TextFormatDecoder: Decoder {
     internal var scanner: TextFormatScanner
     private var fieldCount = 0
+    private var currentFieldNumber = 0
+    private var decodedSingularFields: Set<Int> = []
     private let terminator: UInt8?
     private let fieldNameMap: _NameMap
     private let messageType: any Message.Type
@@ -77,17 +79,26 @@ internal struct TextFormatDecoder: Decoder {
             terminator: terminator
         ) {
             fieldCount += 1
+            currentFieldNumber = fieldNumber
             return fieldNumber
         } else {
             return nil
         }
     }
 
+    private mutating func checkSingularField() throws {
+        guard decodedSingularFields.insert(currentFieldNumber).inserted else {
+            throw TextFormatDecodingError.duplicateSingularField
+        }
+    }
+
     mutating func decodeSingularFloatField(value: inout Float) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextFloat()
     }
     mutating func decodeSingularFloatField(value: inout Float?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextFloat()
     }
@@ -113,10 +124,12 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularDoubleField(value: inout Double) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextDouble()
     }
     mutating func decodeSingularDoubleField(value: inout Double?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextDouble()
     }
@@ -142,6 +155,7 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularInt32Field(value: inout Int32) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
@@ -150,6 +164,7 @@ internal struct TextFormatDecoder: Decoder {
         value = Int32(truncatingIfNeeded: n)
     }
     mutating func decodeSingularInt32Field(value: inout Int32?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let n = try scanner.nextSInt()
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
@@ -185,10 +200,12 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularInt64Field(value: inout Int64) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextSInt()
     }
     mutating func decodeSingularInt64Field(value: inout Int64?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextSInt()
     }
@@ -214,6 +231,7 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
@@ -222,6 +240,7 @@ internal struct TextFormatDecoder: Decoder {
         value = UInt32(truncatingIfNeeded: n)
     }
     mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let n = try scanner.nextUInt()
         if n > UInt64(UInt32.max) {
@@ -257,10 +276,12 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextUInt()
     }
     mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextUInt()
     }
@@ -340,10 +361,12 @@ internal struct TextFormatDecoder: Decoder {
         try decodeRepeatedInt64Field(value: &value)
     }
     mutating func decodeSingularBoolField(value: inout Bool) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextBool()
     }
     mutating func decodeSingularBoolField(value: inout Bool?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextBool()
     }
@@ -369,10 +392,12 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularStringField(value: inout String) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextStringValue()
     }
     mutating func decodeSingularStringField(value: inout String?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextStringValue()
     }
@@ -398,10 +423,12 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
     mutating func decodeSingularBytesField(value: inout Data) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextBytesValue()
     }
     mutating func decodeSingularBytesField(value: inout Data?) throws {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         value = try scanner.nextBytesValue()
     }
@@ -449,12 +476,14 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let e: E = try decodeEnum()
         value = e
     }
 
     mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
+        try checkSingularField()
         try scanner.skipRequiredColon()
         let e: E = try decodeEnum()
         value = e
@@ -483,6 +512,7 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
+        try checkSingularField()
         _ = scanner.skipOptionalColon()
         if value == nil {
             value = M()
@@ -556,6 +586,13 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufMap<KeyType, ValueType>.Type,
         value: inout _ProtobufMap<KeyType, ValueType>.BaseType
     ) throws {
+        let savedFieldNumber = currentFieldNumber
+        let savedSingularFields = decodedSingularFields
+        decodedSingularFields = []
+        defer {
+            currentFieldNumber = savedFieldNumber
+            decodedSingularFields = savedSingularFields
+        }
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
@@ -572,8 +609,10 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
+                    currentFieldNumber = 1
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
+                    currentFieldNumber = 2
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {
@@ -618,6 +657,13 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufEnumMap<KeyType, ValueType>.Type,
         value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
     ) throws where ValueType.RawValue == Int {
+        let savedFieldNumber = currentFieldNumber
+        let savedSingularFields = decodedSingularFields
+        decodedSingularFields = []
+        defer {
+            currentFieldNumber = savedFieldNumber
+            decodedSingularFields = savedSingularFields
+        }
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -634,8 +680,10 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
+                    currentFieldNumber = 1
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
+                    currentFieldNumber = 2
                     try decodeSingularEnumField(value: &valueField)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {
@@ -680,6 +728,13 @@ internal struct TextFormatDecoder: Decoder {
         mapType: _ProtobufMessageMap<KeyType, ValueType>.Type,
         value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
     ) throws {
+        let savedFieldNumber = currentFieldNumber
+        let savedSingularFields = decodedSingularFields
+        decodedSingularFields = []
+        defer {
+            currentFieldNumber = savedFieldNumber
+            decodedSingularFields = savedSingularFields
+        }
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -696,8 +751,10 @@ internal struct TextFormatDecoder: Decoder {
             if let key = try scanner.nextKey(allowExtensions: ignoreExtensionFields) {
                 switch key {
                 case "key", "1":
+                    currentFieldNumber = 1
                     try KeyType.decodeSingular(value: &keyField, from: &self)
                 case "value", "2":
+                    currentFieldNumber = 2
                     try decodeSingularMessageField(value: &valueField)
                 default:
                     if ignoreExtensionFields && key.hasPrefix("[") {

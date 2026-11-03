@@ -31,6 +31,8 @@ public enum TextFormatDecodingError: Error {
     case unknownField
     /// The enum value was not recognized
     case unrecognizedEnumValue
+    /// A singular field occurred more than once in the same message
+    case duplicateSingularField
     /// Text format rejects conflicting values for the same oneof field
     case conflictingOneOf
     /// An internal error happened while decoding.  If this is ever encountered,

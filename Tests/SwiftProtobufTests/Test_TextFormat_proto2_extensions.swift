@@ -19,6 +19,35 @@ import XCTest
 final class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
 
+    func test_duplicateSingularExtensions() throws {
+        for field in [
+            "[swift_proto_testing.optional_int32_extension]: 0",
+            "[swift_proto_testing.optional_nested_message_extension] {}",
+            "[swift_proto_testing.optionalgroup_extension] {}",
+        ] {
+            XCTAssertThrowsError(
+                try MessageTestType(
+                    textFormatString: "\(field) \(field)",
+                    extensions: SwiftProtoTesting_Unittest_Extensions
+                )
+            ) {
+                guard case TextFormatDecodingError.duplicateSingularField = $0 else {
+                    return XCTFail("Unexpected error: \($0)")
+                }
+            }
+        }
+        let message = try MessageTestType(
+            textFormatString:
+                "[swift_proto_testing.repeated_int32_extension]: 1 [swift_proto_testing.repeated_int32_extension]: [2, 3]"
+                + " [swift_proto_testing.repeated_nested_message_extension] {} [swift_proto_testing.repeated_nested_message_extension] [{}]"
+                + " [swift_proto_testing.repeatedgroup_extension] {a: 1} [swift_proto_testing.repeatedgroup_extension] [{a: 2}]",
+            extensions: SwiftProtoTesting_Unittest_Extensions
+        )
+        XCTAssertEqual(message.SwiftProtoTesting_repeatedInt32Extension, [1, 2, 3])
+        XCTAssertEqual(message.SwiftProtoTesting_repeatedNestedMessageExtension.count, 2)
+        XCTAssertEqual(message.SwiftProtoTesting_repeatedGroupExtension.map { $0.a }, [1, 2])
+    }
+
     func test_file_level_extension() {
         assertTextFormatEncode(
             "[swift_proto_testing.optional_int32_extension]: 789\n",
