@@ -608,16 +608,19 @@ internal struct TextFormatScanner {
         return nil  // Unterminated quoted string
     }
 
-    /// A number can't run directly into an identifier; the C++ tokenizer
-    /// rejects that ("Need space between number and identifier.") instead
-    /// of splitting "1foo" into "1" and "foo".
-    private func isLetterNext() -> Bool {
+    /// A number can't run directly into an identifier or another digit; the
+    /// C++ tokenizer rejects "1foo" ("Need space between number and
+    /// identifier.") and "09" ("Numbers starting with leading zero must be
+    /// in octal."). Field numbers are valid keys here, so a leftover digit
+    /// would otherwise be read as the next field ("09: 2", "1.5f9: 2").
+    private func isAlphanumericNext() -> Bool {
         if p == end {
             return false
         }
         let c = p[0]
         return (c >= asciiLowerA && c <= asciiLowerZ)
             || (c >= asciiUpperA && c <= asciiUpperZ)
+            || (c >= asciiZero && c <= asciiNine)
             || c == asciiUnderscore
     }
 
@@ -647,7 +650,7 @@ internal struct TextFormatScanner {
                     case asciiUpperA...asciiUpperF:
                         val = UInt64(digit - asciiUpperA + 10)
                     default:
-                        if p == digitsStart || isLetterNext() {
+                        if p == digitsStart || isAlphanumericNext() {
                             throw TextFormatDecodingError.malformedNumber
                         }
                         skipWhitespace()
@@ -670,7 +673,7 @@ internal struct TextFormatScanner {
                 while p != end {
                     let digit = p[0]
                     if digit < asciiZero || digit > asciiSeven {
-                        if isLetterNext() {
+                        if isAlphanumericNext() {
                             throw TextFormatDecodingError.malformedNumber
                         }
                         skipWhitespace()
@@ -691,7 +694,7 @@ internal struct TextFormatScanner {
             while p != end {
                 let digit = p[0]
                 if digit < asciiZero || digit > asciiNine {
-                    if isLetterNext() {
+                    if isAlphanumericNext() {
                         throw TextFormatDecodingError.malformedNumber
                     }
                     skipWhitespace()
@@ -891,7 +894,7 @@ internal struct TextFormatScanner {
                 )
                 // Just skip the 'f'/'F'
                 p += 1
-                if isLetterNext() {
+                if isAlphanumericNext() {
                     p = start
                     return nil
                 }
@@ -901,7 +904,7 @@ internal struct TextFormatScanner {
                 break loop
             }
         }
-        if isLetterNext() {
+        if isAlphanumericNext() {
             p = start
             return nil
         }

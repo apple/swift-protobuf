@@ -122,6 +122,8 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_int32: 017optional_int64: 2\n")
         assertTextFormatDecodeFails("optional_int32: 0optional_int64: 2\n")
         assertTextFormatDecodeFails("optional_int32: 1_\n")
+        assertTextFormatDecodeFails("optional_int32: 09: 2\n")
+        assertTextFormatDecodeFails("optional_int32: 018: 2\n")
     }
 
     func testEncoding_optionalInt64() {
@@ -476,6 +478,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_float: 1optional_int32: 1\n")
         assertTextFormatDecodeFails("optional_float: 1e5optional_int32: 1\n")
         assertTextFormatDecodeFails("optional_float: 1.5foptional_int32: 1\n")
+        assertTextFormatDecodeFails("optional_float: 1.5f9: 2\n")
         assertTextFormatDecodeSucceeds("optional_float: 1.5f optional_int32: 1\n") { (o: MessageTestType) in
             o.optionalFloat == 1.5 && o.optionalInt32 == 1
         }
@@ -587,6 +590,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_double: 0123\n")
         assertTextFormatDecodeFails("optional_double: 1e5optional_int32: 1\n")
         assertTextFormatDecodeFails("optional_double: 1.5Foptional_int32: 1\n")
+        assertTextFormatDecodeFails("optional_double: 1.5F9: 2\n")
         assertTextFormatDecodeSucceeds("optional_double: 1e5#comment\noptional_int32: 1\n") { (o: MessageTestType) in
             o.optionalDouble == 100000 && o.optionalInt32 == 1
         }
