@@ -14,10 +14,11 @@
 
 /// Describes a single extension field with enough detail for it to be modified in memory and to be
 /// serialized and parsed.
-public struct ExtensionSchema: @unchecked Sendable {
+public final class ExtensionSchema: @unchecked Sendable {
     // Using `UnsafeRawBufferPointer` requires that we declare the `Sendable` conformance as
     // `@unchecked`. Clearly this is safe because the pointer obtained from a `StaticString` is an
-    // immortal compile-time constant and we only read from it.
+    // immortal compile-time constant and we only read from it, and because the resolver functions
+    // do not capture mutable state.
 
     /// The encoded schema of the extension field.
     ///
@@ -67,7 +68,7 @@ public struct ExtensionSchema: @unchecked Sendable {
 
     /// Creates a new extension schema for an extension field that is not a message or enum field.
     @_spi(ForGeneratedCodeOnly)
-    public init(schema: StaticString, extendedMessageResolver: @escaping ExtendedMessageResolver) {
+    public convenience init(schema: StaticString, extendedMessageResolver: @escaping ExtendedMessageResolver) {
         self.init(
             schema: schema,
             extendedMessageResolver: extendedMessageResolver,
