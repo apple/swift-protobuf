@@ -58,9 +58,12 @@ extension MessageStorage {
         let valueField = KnownField.anyValue(in: schema)
         let valueOffset = schema.byteOffset(of: valueField)
 
-        // If we can unpack it, emit the verbose form.
+        // If we can unpack it and the URL prefix is valid for the verbose
+        // `[type_url]` syntax, emit the verbose form.
         let typeURL = value(of: typeURLField) as String
-        if !typeURL.isEmpty, let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) {
+        if canUseVerboseTextForm(typeURL: typeURL),
+            let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL)
+        {
             let messageStorage = MessageStorage(schema: messageSchema)
             let bytes: Data = value(of: valueField)
             do {
@@ -96,6 +99,33 @@ extension MessageStorage {
             encoder.putBytesValue(value: bytes)
             encoder.endRegularField()
         }
+    }
+
+    private func canUseVerboseTextForm(typeURL: String) -> Bool {
+        let utf8 = Array(typeURL.utf8)
+        guard let lastSlash = utf8.lastIndex(of: UInt8(ascii: "/")),
+            lastSlash > 0,
+            utf8[0] != UInt8(ascii: "/")
+        else {
+            return false
+        }
+        var i = 0
+        while i < lastSlash {
+            let c = utf8[i]
+            i += 1
+            if c == UInt8(ascii: "%") {
+                guard i + 1 < lastSlash,
+                    Tokenizer.isHexDigit(utf8[i]),
+                    Tokenizer.isHexDigit(utf8[i + 1])
+                else {
+                    return false
+                }
+                i += 2
+            } else if !Tokenizer.isURLCharacter(c) {
+                return false
+            }
+        }
+        return true
     }
 
     /// Serializes a single field in the storage into the given text format encoder.
