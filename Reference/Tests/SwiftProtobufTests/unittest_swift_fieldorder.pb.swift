@@ -390,12 +390,12 @@ nonisolated let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: Swif
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Order_TestFieldOrderings>(
   schema: "\02\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}-\0swift_proto_testing.order.my_extension_string",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Order_TestFieldOrderings>(
   schema: "\0\u{5}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}*\0swift_proto_testing.order.my_extension_int",
   extendedMessageResolver: { SwiftProtoTesting_Order_TestFieldOrderings.messageSchema }
 )

@@ -227,67 +227,67 @@ nonisolated let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.SimpleExtensi
 
 /// Will get _p added because it has no package/swift prefix to scope and
 /// would otherwise be a problem when added to the message.
-nonisolated let Extensions_debugDescription = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_debugDescription = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{10}\0debugDescription",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
 /// These will get _p added for the same reasoning.
-nonisolated let Extensions_as = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_as = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0t\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{2}\0as",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
-nonisolated let Extensions_var = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_var = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0u\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0var",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
-nonisolated let Extensions_try = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_try = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0v\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0try",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
-nonisolated let Extensions_do = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_do = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0w\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{2}\0do",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
-nonisolated let Extensions_nil = SwiftProtobuf.ExtensionSchema(
+nonisolated let Extensions_nil = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   schema: "\0x\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{3}\0nil",
   extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
 )
 
 nonisolated extension SwiftReservedTestExt2 {
   enum Extensions {
-    static let hashValue_ = SwiftProtobuf.ExtensionSchema(
+    static let hashValue_ = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{1f}\0SwiftReservedTestExt2.hashValue",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )
 
     /// Reserved words, since these end up in the "enum Extensions", they
     /// can't just be get their names, and sanitation kicks.
-    static let `as` = SwiftProtobuf.ExtensionSchema(
+    static let `as` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0~\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{18}\0SwiftReservedTestExt2.as",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )
 
-    static let `var` = SwiftProtobuf.ExtensionSchema(
+    static let `var` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0\u{7f}\u{7}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.var",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )
 
-    static let `try` = SwiftProtobuf.ExtensionSchema(
+    static let `try` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0\0\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.try",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )
 
-    static let `do` = SwiftProtobuf.ExtensionSchema(
+    static let `do` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0\u{1}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{18}\0SwiftReservedTestExt2.do",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )
 
-    static let `nil` = SwiftProtobuf.ExtensionSchema(
+    static let `nil` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       schema: "\0\u{2}\u{8}\0\0\u{10}\0\0\0\0\0\0\0\u{8}\u{19}\0SwiftReservedTestExt2.nil",
       extendedMessageResolver: { SwiftProtoTesting_SwiftReservedTest.TypeMessage.messageSchema }
     )

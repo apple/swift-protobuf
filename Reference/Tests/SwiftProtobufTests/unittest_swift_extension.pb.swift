@@ -348,49 +348,49 @@ nonisolated let SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions: Swif
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1c}\0swift_proto_testing.extend.b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_C = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend_C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1c}\0swift_proto_testing.extend.c",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
   submessageOrEnumResolver: { .message(SwiftProtoTesting_Extend_C.messageSchema) }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_a_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_a_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_Msg1>(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1e}\0swift_proto_testing.extend.a_b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Msg1.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_m2 = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_m2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_Extend_Msg2>, SwiftProtoTesting_Extend_Msg1>(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{1d}\0swift_proto_testing.extend.m2",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Msg1.messageSchema },
   submessageOrEnumResolver: { .message(SwiftProtoTesting_Extend_Msg2.messageSchema) }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_aB = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_aB = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_Msg2>(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}\u{1d}\0swift_proto_testing.extend.aB",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Msg2.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_ext_a = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_ext_a = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_MsgNoStorage>(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{5} \0swift_proto_testing.extend.ext_a",
   extendedMessageResolver: { SwiftProtoTesting_Extend_MsgNoStorage.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_ext_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_ext_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_MsgNoStorage>(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5} \0swift_proto_testing.extend.ext_b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_MsgNoStorage.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_ext_c = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_ext_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_MsgUsesStorage>(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{5} \0swift_proto_testing.extend.ext_c",
   extendedMessageResolver: { SwiftProtoTesting_Extend_MsgUsesStorage.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend_Extensions_ext_d = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend_Extensions_ext_d = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Extend_MsgUsesStorage>(
   schema: "\0e\0\0\0\u{10}\0\0\0\0\0\0\0\u{5} \0swift_proto_testing.extend.ext_d",
   extendedMessageResolver: { SwiftProtoTesting_Extend_MsgUsesStorage.messageSchema }
 )

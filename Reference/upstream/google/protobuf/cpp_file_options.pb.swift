@@ -91,7 +91,7 @@ nonisolated let Pb_File_CppFileOptions_Extensions: SwiftProtobuf.SimpleExtension
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_File_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_File_Extensions_cpp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_File_CppFileOptions>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   schema: "\0^\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{b}\0pb.file.cpp",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema },
   submessageOrEnumResolver: { .message(Pb_File_CppFileOptions.messageSchema) }

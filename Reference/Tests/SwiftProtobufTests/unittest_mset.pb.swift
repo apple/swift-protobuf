@@ -365,13 +365,13 @@ nonisolated let SwiftProtoTesting_UnittestMset_Extensions: SwiftProtobuf.SimpleE
 
 nonisolated extension SwiftProtoTesting_TestMessageSetExtension1 {
   enum Extensions {
-    static let message_set_extension = SwiftProtobuf.ExtensionSchema(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension1>, SwiftProtoTesting_WireFormat_TestMessageSet>(
       schema: "\00&^\0\u{10}\0\0\0\0\0\u{1}\0\u{b},\0swift_proto_testing.TestMessageSetExtension1",
       extendedMessageResolver: { SwiftProtoTesting_WireFormat_TestMessageSet.messageSchema },
       submessageOrEnumResolver: { .message(SwiftProtoTesting_TestMessageSetExtension1.messageSchema) }
     )
 
-    static let doppelganger_message_set_extension = SwiftProtobuf.ExtensionSchema(
+    static let doppelganger_message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension1>, SwiftProtoTesting_MessageEx>(
       schema: "\00&^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}O\0swift_proto_testing.TestMessageSetExtension1.doppelganger_message_set_extension",
       extendedMessageResolver: { SwiftProtoTesting_MessageEx.messageSchema },
       submessageOrEnumResolver: { .message(SwiftProtoTesting_TestMessageSetExtension1.messageSchema) }
@@ -381,7 +381,7 @@ nonisolated extension SwiftProtoTesting_TestMessageSetExtension1 {
 
 nonisolated extension SwiftProtoTesting_TestMessageSetExtension2 {
   enum Extensions {
-    static let message_set_extension = SwiftProtobuf.ExtensionSchema(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension2>, SwiftProtoTesting_WireFormat_TestMessageSet>(
       schema: "\0y;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b},\0swift_proto_testing.TestMessageSetExtension2",
       extendedMessageResolver: { SwiftProtoTesting_WireFormat_TestMessageSet.messageSchema },
       submessageOrEnumResolver: { .message(SwiftProtoTesting_TestMessageSetExtension2.messageSchema) }
@@ -391,7 +391,7 @@ nonisolated extension SwiftProtoTesting_TestMessageSetExtension2 {
 
 nonisolated extension SwiftProtoTesting_TestMessageSetExtension3 {
   enum Extensions {
-    static let doppelganger_message_set_extension = SwiftProtobuf.ExtensionSchema(
+    static let doppelganger_message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SwiftProtoTesting_TestMessageSetExtension3>, SwiftProtoTesting_MessageEx>(
       schema: "\0z;^\0\u{10}\0\0\0\0\0\u{1}\0\u{b}O\0swift_proto_testing.TestMessageSetExtension3.doppelganger_message_set_extension",
       extendedMessageResolver: { SwiftProtoTesting_MessageEx.messageSchema },
       submessageOrEnumResolver: { .message(SwiftProtoTesting_TestMessageSetExtension3.messageSchema) }

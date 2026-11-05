@@ -424,12 +424,12 @@ nonisolated let Proto2Unittest_UnittestProto3Optional_Extensions: SwiftProtobuf.
 
 nonisolated extension Proto2Unittest_Proto3OptionalExtensions {
   enum Extensions {
-    static let ext_no_optional = SwiftProtobuf.ExtensionSchema(
+    static let ext_no_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       schema: "\0\u{8}MY)\u{11}\0\0\0\0\0\0\0\u{5}8\0proto2_unittest.Proto3OptionalExtensions.ext_no_optional",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
     )
 
-    static let ext_with_optional = SwiftProtobuf.ExtensionSchema(
+    static let ext_with_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       schema: "\0\u{9}MY)\u{11}\0\0\0\0\0\0\0\u{5}:\0proto2_unittest.Proto3OptionalExtensions.ext_with_optional",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
     )

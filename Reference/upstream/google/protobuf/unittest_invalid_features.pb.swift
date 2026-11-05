@@ -84,7 +84,7 @@ nonisolated let Pb_UnittestInvalidFeatures_Extensions: SwiftProtobuf.SimpleExten
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_test_invalid = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_test_invalid = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestInvalidFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0\u{c}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{f}\0pb.test_invalid",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(Pb_TestInvalidFeatures.messageSchema) }

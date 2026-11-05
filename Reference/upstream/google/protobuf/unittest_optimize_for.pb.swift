@@ -199,12 +199,12 @@ nonisolated let Proto2Unittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.Sim
 
 nonisolated extension Proto2Unittest_TestOptimizedForSize {
   enum Extensions {
-    static let test_extension = SwiftProtobuf.ExtensionSchema(
+    static let test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Proto2Unittest_TestOptimizedForSize>(
       schema: "\0R\u{9}\0\0\u{10}\0\0\0\0\0\0\0\u{5}3\0proto2_unittest.TestOptimizedForSize.test_extension",
       extendedMessageResolver: { Proto2Unittest_TestOptimizedForSize.messageSchema }
     )
 
-    static let test_extension2 = SwiftProtobuf.ExtensionSchema(
+    static let test_extension2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestRequiredOptimizedForSize>, Proto2Unittest_TestOptimizedForSize>(
       schema: "\0S\u{9}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}4\0proto2_unittest.TestOptimizedForSize.test_extension2",
       extendedMessageResolver: { Proto2Unittest_TestOptimizedForSize.messageSchema },
       submessageOrEnumResolver: { .message(Proto2Unittest_TestRequiredOptimizedForSize.messageSchema) }

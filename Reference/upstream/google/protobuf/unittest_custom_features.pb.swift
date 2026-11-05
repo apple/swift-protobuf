@@ -458,7 +458,7 @@ nonisolated let CustomFeatures_UnittestCustomFeatures_Extensions: SwiftProtobuf.
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let CustomFeatures_Extensions_test = SwiftProtobuf.ExtensionSchema(
+nonisolated let CustomFeatures_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<CustomFeatures_TestCustomFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0\u{b}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{14}\0custom_features.test",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(CustomFeatures_TestCustomFeatures.messageSchema) }
