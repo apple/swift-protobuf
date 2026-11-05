@@ -236,7 +236,7 @@ internal struct JSONEncoder {
 
     /// Write an Enum as an Int.
     internal mutating func putEnumInt(value: Int) {
-        appendInt(value: Int64(value))
+        appendInt(value: Int64(Int32(truncatingIfNeeded: value)))
     }
 
     internal mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema, alwaysPrintEnumsAsInts: Bool) {

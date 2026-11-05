@@ -126,7 +126,7 @@ internal struct TextFormatEncoder {
         if let name = value.textFormatName {
             data.append(contentsOf: name.buffer)
         } else {
-            appendInt(value: Int64(value.rawValue))
+            appendInt(value: Int64(Int32(truncatingIfNeeded: value.rawValue)))
         }
     }
 

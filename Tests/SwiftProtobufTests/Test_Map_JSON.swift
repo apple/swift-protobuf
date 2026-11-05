@@ -327,3 +327,38 @@ final class Test_Map_JSON: XCTestCase, PBTestHelpers {
         }
     }
 }
+
+final class Test_Map_JSON_Proto2Enum: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = SwiftProtoTesting_TestEnumMap
+
+    func testUnknownEnumValues() {
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":\"UNKNOWN_NAME\"}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":999}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483647}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":-2147483648}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483648}}")
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":-2147483649}}")
+
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        assertJSONDecodeSucceeds(
+            "{\"knownMapField\":{\"1\":\"UNKNOWN_NAME\",\"2\":\" PROTOBUF_JSON_FIELD_VALUE_FOO\"}}",
+            options: options
+        ) {
+            $0.knownMapField.isEmpty
+        }
+        assertJSONDecodeSucceeds("{\"knownMapField\":{\"1\":999,\"2\":0}}", options: options) {
+            $0.knownMapField == [2: .foo]
+        }
+        assertJSONDecodeSucceeds("{\"knownMapField\":{\"1\":2147483647,\"2\":0}}", options: options) {
+            $0.knownMapField == [2: .foo]
+        }
+        assertJSONDecodeSucceeds("{\"knownMapField\":{\"1\":-2147483648,\"2\":0}}", options: options) {
+            $0.knownMapField == [2: .foo]
+        }
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":2147483648,\"2\":0}}", options: options)
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":-2147483649,\"2\":0}}", options: options)
+        assertJSONDecodeFails("{\"knownMapField\":{\"1\":99999999999999999999,\"2\":0}}", options: options)
+    }
+}

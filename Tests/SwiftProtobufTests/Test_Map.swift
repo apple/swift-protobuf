@@ -341,6 +341,53 @@ final class Test_Map: XCTestCase, PBTestHelpers {
         }
     }
 
+    // A key/value field with the wrong wire type is skipped as unknown, its
+    // payload must not be parsed as more fields of the map entry.
+    func test_mapEntryWrongWireType() {
+        // Key as fixed32 whose 4 byte payload looks like `key: 5, value: 7`.
+        assertDecodeSucceeds(inputBytes: [10, 5, 13, 8, 5, 16, 7], recodedBytes: [10, 4, 8, 0, 16, 0]) {
+            $0.mapInt32Int32 == [0: 0]
+        }
+        // Key as varint for a string key, the varint payload looks like a tag.
+        assertDecodeSucceeds(inputBytes: [114, 6, 8, 10, 18, 2, 97, 98], recodedBytes: [114, 6, 10, 0, 18, 2, 97, 98]) {
+            $0.mapStringString == ["": "ab"]
+        }
+        // Enum value as fixed32 whose payload looks like `key: 5, value: .baz`.
+        assertDecodeSucceeds(inputBytes: [130, 1, 5, 21, 8, 5, 16, 2], recodedBytes: [130, 1, 4, 8, 0, 16, 0]) {
+            $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.foo]
+        }
+        // Message value as fixed32 whose payload looks like `key: 5, value: {}`.
+        assertDecodeSucceeds(inputBytes: [138, 1, 5, 21, 8, 5, 18, 0], recodedBytes: [138, 1, 4, 8, 0, 18, 0]) {
+            $0.mapInt32ForeignMessage == [0: SwiftProtoTesting_ForeignMessage()]
+        }
+    }
+
+    // Like test_mapEntryWrongWireType, but with a closed (proto2) enum as the
+    // map value, where an unknown enum value moves the whole entry into the
+    // parent's unknown fields.
+    func test_mapEntryWrongWireType_Proto2() throws {
+        // Value as fixed32 whose 4 byte payload looks like `key: 5, value: BAZ`.
+        var m = try SwiftProtoTesting_TestEnumMap(serializedBytes: [170, 6, 5, 21, 8, 5, 16, 2])
+        XCTAssertEqual(m.knownMapField, [0: .foo])
+        XCTAssertTrue(m.unknownFields.data.isEmpty)
+        XCTAssertEqual(try m.serializedBytes(), [170, 6, 4, 8, 0, 16, 0])
+
+        // A known value followed by an unknown enum value (999). The entry
+        // belongs in unknown fields, the earlier known value must not win.
+        let knownThenUnknown: [UInt8] = [170, 6, 7, 8, 1, 16, 1, 16, 231, 7]
+        m = try SwiftProtoTesting_TestEnumMap(serializedBytes: knownThenUnknown)
+        XCTAssertEqual(m.knownMapField.count, 0)
+        XCTAssertEqual(m.unknownFields.data, Data(knownThenUnknown))
+        XCTAssertEqual(try m.serializedBytes(), knownThenUnknown)
+
+        // An unknown enum value followed by a known one goes to unknown fields too.
+        let unknownThenKnown: [UInt8] = [170, 6, 7, 8, 1, 16, 231, 7, 16, 1]
+        m = try SwiftProtoTesting_TestEnumMap(serializedBytes: unknownThenKnown)
+        XCTAssertEqual(m.knownMapField.count, 0)
+        XCTAssertEqual(m.unknownFields.data, Data(unknownThenKnown))
+        XCTAssertEqual(try m.serializedBytes(), unknownThenKnown)
+    }
+
     // Based on TEST(GeneratedMapFieldTest, Proto2UnknownEnum)
     func test_mapEnumUnknowns_Proto2() throws {
         var m1 = SwiftProtoTesting_TestEnumMapPlusExtra()

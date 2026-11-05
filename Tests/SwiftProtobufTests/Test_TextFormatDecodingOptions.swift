@@ -362,6 +362,8 @@ final class Test_TextFormatDecodingOptions: XCTestCase {
         assertDecodeIgnoringUnknownsFails("int32", "0x1a2g")
         assertDecodeIgnoringUnknownsFails("int32", "-0x1g")
         assertDecodeIgnoringUnknownsFails("int32", "-0x1a2g")
+        assertDecodeIgnoringUnknownsFails("int32", "0x")
+        assertDecodeIgnoringUnknownsFails("int32", "-0x")
         assertDecodeIgnoringUnknownsFails("int32", "09")
         assertDecodeIgnoringUnknownsFails("int32", "-09")
         assertDecodeIgnoringUnknownsFails("int32", "01a")
