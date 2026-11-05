@@ -638,13 +638,13 @@ nonisolated let Pb_UnittestFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_custom_option_lifetimes_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CustomOptionLifetimesMessage>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   schema: "\04\u{1d}X\u{3}\u{10}\0\0\0\0\0\u{1}\0\u{b}\"\0pb.custom_option_lifetimes_message",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
   submessageOrEnumResolver: { .message(Pb_CustomOptionLifetimesMessage.messageSchema) }
 )
 
-nonisolated let Pb_Extensions_test = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_test = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0\u{f}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{7}\0pb.test",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(Pb_TestFeatures.messageSchema) }
@@ -652,7 +652,7 @@ nonisolated let Pb_Extensions_test = SwiftProtobuf.ExtensionSchema(
 
 nonisolated extension Pb_TestMessage {
   enum Extensions {
-    static let test_message = SwiftProtobuf.ExtensionSchema(
+    static let test_message = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestMessageFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       schema: "\0\u{e}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{1b}\0pb.TestMessage.test_message",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
       submessageOrEnumResolver: { .message(Pb_TestMessageFeatures.messageSchema) }
@@ -662,7 +662,7 @@ nonisolated extension Pb_TestMessage {
 
 nonisolated extension Pb_TestMessage.Nested {
   enum Extensions {
-    static let test_nested = SwiftProtobuf.ExtensionSchema(
+    static let test_nested = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_TestNestedFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
       schema: "\0\u{d}N\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}!\0pb.TestMessage.Nested.test_nested",
       extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
       submessageOrEnumResolver: { .message(Pb_TestNestedFeatures.messageSchema) }

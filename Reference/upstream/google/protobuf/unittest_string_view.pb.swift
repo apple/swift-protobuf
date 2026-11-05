@@ -150,22 +150,22 @@ nonisolated let Proto2Unittest_UnittestStringView_Extensions: SwiftProtobuf.Simp
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_singular_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   schema: "\0\u{1}\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.singular_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
 )
 
-nonisolated let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_singular_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.singular_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
 )
 
-nonisolated let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_repeated_string_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, Proto2Unittest_TestStringViewExtension>(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\0\0\u{9}.\0proto2_unittest.repeated_string_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
 )
 
-nonisolated let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_Extensions_repeated_bytes_view_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufBytes>, Proto2Unittest_TestStringViewExtension>(
   schema: "\0\u{4}\0\0\0\u{12}\0\0\0\0\0\0\0\u{c}-\0proto2_unittest.repeated_bytes_view_extension",
   extendedMessageResolver: { Proto2Unittest_TestStringViewExtension.messageSchema }
 )

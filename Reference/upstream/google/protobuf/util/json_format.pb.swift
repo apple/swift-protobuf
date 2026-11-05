@@ -718,13 +718,13 @@ nonisolated let Proto2Unittest_JsonFormat_Extensions: SwiftProtobuf.SimpleExtens
 
 nonisolated extension Proto2Unittest_TestExtension {
   enum Extensions {
-    static let ext = SwiftProtobuf.ExtensionSchema(
+    static let ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Proto2Unittest_TestExtension>, Proto2Unittest_TestMessageWithExtension>(
       schema: "\0d\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}!\0proto2_unittest.TestExtension.ext",
       extendedMessageResolver: { Proto2Unittest_TestMessageWithExtension.messageSchema },
       submessageOrEnumResolver: { .message(Proto2Unittest_TestExtension.messageSchema) }
     )
 
-    static let enum_ext = SwiftProtobuf.ExtensionSchema(
+    static let enum_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_EnumValue>, Proto2Unittest_TestMessageWithExtension>(
       schema: "\0e\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{e}&\0proto2_unittest.TestExtension.enum_ext",
       extendedMessageResolver: { Proto2Unittest_TestMessageWithExtension.messageSchema },
       submessageOrEnumResolver: { .enum(Proto2Unittest_EnumValue.enumSchema) }

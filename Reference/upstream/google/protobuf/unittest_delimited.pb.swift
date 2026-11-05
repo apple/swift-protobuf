@@ -351,35 +351,35 @@ nonisolated let EditionsUnittest_UnittestDelimited_Extensions: SwiftProtobuf.Sim
 // accessors for the extension fields on the messages directly.
 
 /// Non-delimited field that otherwise looks group-like.
-nonisolated let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_lengthprefixed = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<EditionsUnittest_LengthPrefixed>, EditionsUnittest_TestDelimited>(
   schema: "\0l\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b} \0editions_unittest.lengthprefixed",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },
   submessageOrEnumResolver: { .message(EditionsUnittest_LengthPrefixed.messageSchema) }
 )
 
 /// Truly group-like extension.
-nonisolated let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_GroupLikeFileScope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_GroupLikeFileScope>, EditionsUnittest_TestDelimited>(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}$\0editions_unittest.grouplikefilescope",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },
   submessageOrEnumResolver: { .message(EditionsUnittest_GroupLikeFileScope.messageSchema) }
 )
 
 /// Delimited extension that isn't group-like because of its name.
-nonisolated let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_not_group_like_scope = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_NotGroupLikeScope>, EditionsUnittest_TestDelimited>(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}&\0editions_unittest.not_group_like_scope",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },
   submessageOrEnumResolver: { .message(EditionsUnittest_NotGroupLikeScope.messageSchema) }
 )
 
 /// Delimited extension that isn't group-like because of the scope of its type.
-nonisolated let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_grouplike = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_TestDelimited.GroupLike>, EditionsUnittest_TestDelimited>(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1b}\0editions_unittest.grouplike",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },
   submessageOrEnumResolver: { .message(EditionsUnittest_TestDelimited.GroupLike.messageSchema) }
 )
 
 /// Delimited extension that's grouplike except that it's an imported type.
-nonisolated let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.ExtensionSchema(
+nonisolated let EditionsUnittest_Extensions_messageimport = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<EditionsUnittest_MessageImport>, EditionsUnittest_TestDelimited>(
   schema: "\0k\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1f}\0editions_unittest.messageimport",
   extendedMessageResolver: { EditionsUnittest_TestDelimited.messageSchema },
   submessageOrEnumResolver: { .message(EditionsUnittest_MessageImport.messageSchema) }

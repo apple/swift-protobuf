@@ -194,7 +194,7 @@ nonisolated let Pb_JavaFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_java = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_java = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_JavaFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0i\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{7}\0pb.java",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(Pb_JavaFeatures.messageSchema) }

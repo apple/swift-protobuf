@@ -182,7 +182,7 @@ nonisolated let Pb_GoFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_go = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_go = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_GoFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0j\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{5}\0pb.go",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(Pb_GoFeatures.messageSchema) }

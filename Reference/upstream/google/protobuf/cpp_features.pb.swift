@@ -148,7 +148,7 @@ nonisolated let Pb_CppFeatures_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_cpp = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_cpp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_CppFeatures>, SwiftProtobuf.Google_Protobuf_FeatureSet>(
   schema: "\0h\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{6}\0pb.cpp",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FeatureSet.messageSchema },
   submessageOrEnumResolver: { .message(Pb_CppFeatures.messageSchema) }

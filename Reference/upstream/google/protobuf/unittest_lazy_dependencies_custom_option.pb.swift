@@ -94,7 +94,7 @@ nonisolated let Proto2Unittest_LazyImports_UnittestLazyDependenciesCustomOption_
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2Unittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<Proto2Unittest_LazyImports_LazyEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   schema: "\0o\u{1f}\u{b}B\u{10}\0\0\0\0\0\u{1}\0\u{e}-\0proto2_unittest.lazy_imports.lazy_enum_option",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema },
   submessageOrEnumResolver: { .enum(Proto2Unittest_LazyImports_LazyEnum.enumSchema) }

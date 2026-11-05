@@ -485,20 +485,20 @@ nonisolated let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExten
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let SDTExtensions_ext_str = SwiftProtobuf.ExtensionSchema(
+nonisolated let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftDescriptorTest_Import_ExtendableOne>(
   schema: "\0\u{10}?\u{5}\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_descriptor_test.ext_str",
   extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.messageSchema }
 )
 
 nonisolated extension SDTScoperForExt {
   enum Extensions {
-    static let ext_enum = SwiftProtobuf.ExtensionSchema(
+    static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo>(
       schema: "\09\u{5}\u{6}\0\u{10}\0\0\0\0\0\u{1}\0\u{e}+\0swift_descriptor_test.ScoperForExt.ext_enum",
       extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },
       submessageOrEnumResolver: { .enum(SDTTopLevelEnum.enumSchema) }
     )
 
-    static let ext_msg = SwiftProtobuf.ExtensionSchema(
+    static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo>(
       schema: "\0:\u{5}\u{6}\0\u{10}\0\0\0\0\0\u{1}\0\u{b}*\0swift_descriptor_test.ScoperForExt.ext_msg",
       extendedMessageResolver: { SwiftDescriptorTest_Import_ExtendableOne.ExtendableTwo.messageSchema },
       submessageOrEnumResolver: { .message(SDTTopLevelMessage2.messageSchema) }

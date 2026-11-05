@@ -174,12 +174,12 @@ nonisolated let SwiftProtoTesting_Extend2_UnittestSwiftExtension2_Extensions: Sw
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let SwiftProtoTesting_Extend2_Extensions_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend2_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0\\\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_proto_testing.extend2.b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
 )
 
-nonisolated let SwiftProtoTesting_Extend2_Extensions_C = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extend2_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend2_C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0]\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1d}\0swift_proto_testing.extend2.c",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
   submessageOrEnumResolver: { .message(SwiftProtoTesting_Extend2_C.messageSchema) }
@@ -187,12 +187,12 @@ nonisolated let SwiftProtoTesting_Extend2_Extensions_C = SwiftProtobuf.Extension
 
 nonisolated extension SwiftProtoTesting_Extend2_MyMessage {
   enum Extensions {
-    static let b = SwiftProtobuf.ExtensionSchema(
+    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       schema: "\0R\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0swift_proto_testing.extend2.MyMessage.b",
       extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
     )
 
-    static let C = SwiftProtobuf.ExtensionSchema(
+    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend2_MyMessage.C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       schema: "\0S\u{1}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}'\0swift_proto_testing.extend2.MyMessage.c",
       extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
       submessageOrEnumResolver: { .message(SwiftProtoTesting_Extend2_MyMessage.C.messageSchema) }

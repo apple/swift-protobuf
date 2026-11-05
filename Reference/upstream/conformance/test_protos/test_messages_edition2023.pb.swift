@@ -1010,28 +1010,28 @@ nonisolated let ProtobufTestMessages_Editions_TestMessagesEdition2023_Extensions
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let ProtobufTestMessages_Editions_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{5}/\0protobuf_test_messages.editions.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
 )
 
-nonisolated let ProtobufTestMessages_Editions_Extensions_extension_string = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   schema: "\0\u{5}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{9}0\0protobuf_test_messages.editions.extension_string",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
 )
 
-nonisolated let ProtobufTestMessages_Editions_Extensions_extension_bytes = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_extension_bytes = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   schema: "\0\u{6}\u{1}\0\0\u{10}\0\0\0\0\0\0\0\u{c}/\0protobuf_test_messages.editions.extension_bytes",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema }
 )
 
-nonisolated let ProtobufTestMessages_Editions_Extensions_GroupLikeType = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_GroupLikeType = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufTestMessages_Editions_GroupLikeType>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   schema: "\0y\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}-\0protobuf_test_messages.editions.groupliketype",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema },
   submessageOrEnumResolver: { .message(ProtobufTestMessages_Editions_GroupLikeType.messageSchema) }
 )
 
-nonisolated let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_Editions_Extensions_delimited_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufTestMessages_Editions_GroupLikeType>, ProtobufTestMessages_Editions_TestAllTypesEdition2023>(
   schema: "\0z\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}-\0protobuf_test_messages.editions.delimited_ext",
   extendedMessageResolver: { ProtobufTestMessages_Editions_TestAllTypesEdition2023.messageSchema },
   submessageOrEnumResolver: { .message(ProtobufTestMessages_Editions_GroupLikeType.messageSchema) }

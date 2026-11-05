@@ -174,12 +174,12 @@ nonisolated let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExte
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Ext4Extensions_b = SwiftProtobuf.ExtensionSchema(
+nonisolated let Ext4Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0$\u{3}\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{1d}\0swift_proto_testing.extend4.b",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
 )
 
-nonisolated let Ext4Extensions_C = SwiftProtobuf.ExtensionSchema(
+nonisolated let Ext4Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   schema: "\0%\u{3}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\u{1d}\0swift_proto_testing.extend4.c",
   extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
   submessageOrEnumResolver: { .message(Ext4C.messageSchema) }
@@ -187,12 +187,12 @@ nonisolated let Ext4Extensions_C = SwiftProtobuf.ExtensionSchema(
 
 nonisolated extension Ext4MyMessage {
   enum Extensions {
-    static let b = SwiftProtobuf.ExtensionSchema(
+    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       schema: "\0\u{1a}\u{3}\0\0\u{10}\0\0\0\0\0\0\0\u{9}'\0swift_proto_testing.extend4.MyMessage.b",
       extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema }
     )
 
-    static let C = SwiftProtobuf.ExtensionSchema(
+    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4MyMessage.C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       schema: "\0\u{1b}\u{3}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}'\0swift_proto_testing.extend4.MyMessage.c",
       extendedMessageResolver: { SwiftProtoTesting_Extend_Foo.Bar.Baz.messageSchema },
       submessageOrEnumResolver: { .message(Ext4MyMessage.C.messageSchema) }

@@ -338,13 +338,13 @@ nonisolated let SwiftProtoTesting_UnittestSwiftGroups_Extensions: SwiftProtobuf.
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_ExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   schema: "\0\u{2}\0\0\0\u{10}\0\0\0\0\0\u{1}\0\u{a}\"\0swift_proto_testing.extensiongroup",
   extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },
   submessageOrEnumResolver: { .message(SwiftProtoTesting_ExtensionGroup.messageSchema) }
 )
 
-nonisolated let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.ExtensionSchema(
+nonisolated let SwiftProtoTesting_Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<SwiftProtoTesting_RepeatedExtensionGroup>, SwiftProtoTesting_GroupExtensions>(
   schema: "\0\u{3}\0\0\0\u{12}\0\0\0\0\0\u{1}\0\u{a}*\0swift_proto_testing.repeatedextensiongroup",
   extendedMessageResolver: { SwiftProtoTesting_GroupExtensions.messageSchema },
   submessageOrEnumResolver: { .message(SwiftProtoTesting_RepeatedExtensionGroup.messageSchema) }

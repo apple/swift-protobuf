@@ -100,17 +100,17 @@ nonisolated let Proto2UnittestUnlinked_UnittestCustomOptionsUnlinked_Extensions:
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_file_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, SwiftProtobuf.Google_Protobuf_FileOptions>(
   schema: "\0\u{f}\u{1d}X\u{3}\u{10}\0\0\0\0\0\0\0\u{4}\"\0proto2_unittest_unlinked.file_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FileOptions.messageSchema }
 )
 
-nonisolated let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_message_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   schema: "\0\u{1d}-X\u{3}\u{10}\0\0\0\0\0\0\0\u{5}%\0proto2_unittest_unlinked.message_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_MessageOptions.messageSchema }
 )
 
-nonisolated let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.ExtensionSchema(
+nonisolated let Proto2UnittestUnlinked_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   schema: "\0\u{9}<X\u{3}\u{10}\0\0\0\0\0\0\0\u{6}#\0proto2_unittest_unlinked.field_opt1",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema }
 )

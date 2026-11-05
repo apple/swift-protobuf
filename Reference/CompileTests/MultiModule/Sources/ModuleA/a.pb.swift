@@ -92,7 +92,7 @@ public nonisolated let A_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-public nonisolated let Extensions_ext_str = SwiftProtobuf.ExtensionSchema(
+public nonisolated let Extensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, A>(
   schema: "\0d\0\0\0\u{10}\0\0\0\0\0\0\0\u{9}\u{7}\0ext_str",
   extendedMessageResolver: { A.messageSchema }
 )

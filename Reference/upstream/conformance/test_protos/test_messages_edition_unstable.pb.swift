@@ -269,7 +269,7 @@ nonisolated let ProtobufTestMessages_EditionUnstable_TestMessagesEditionUnstable
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.ExtensionSchema(
+nonisolated let ProtobufTestMessages_EditionUnstable_Extensions_extension_int32 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable>(
   schema: "\0x\0\0\0\u{10}\0\0\0\0\0\0\0\u{f}7\0protobuf_test_messages.edition_unstable.extension_int32",
   extendedMessageResolver: { ProtobufTestMessages_EditionUnstable_TestAllTypesEditionUnstable.messageSchema }
 )

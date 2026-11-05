@@ -199,7 +199,7 @@ nonisolated let Pb_InternalOptions_Extensions: SwiftProtobuf.SimpleExtensionMap 
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Extensions_internal_field_options = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Extensions_internal_field_options = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_InternalFieldOptions>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   schema: "\0N]>\u{7f}\u{11}\0\0\0\0\0\u{1}\0\u{b}\u{19}\0pb.internal_field_options",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_FieldOptions.messageSchema },
   submessageOrEnumResolver: { .message(Pb_InternalFieldOptions.messageSchema) }

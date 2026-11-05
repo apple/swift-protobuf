@@ -96,7 +96,7 @@ nonisolated let Pb_Enumvalue_JsonEnumvalueOptions_Extensions: SwiftProtobuf.Simp
 // constructing an `ExtensionMap`. Otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.ExtensionSchema(
+nonisolated let Pb_Enumvalue_Extensions_json = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<Pb_Enumvalue_JsonEnumValueOptions>, SwiftProtobuf.Google_Protobuf_EnumValueOptions>(
   schema: "\0f\u{7}\0\0\u{10}\0\0\0\0\0\u{1}\0\u{b}\u{11}\0pb.enumvalue.json",
   extendedMessageResolver: { SwiftProtobuf.Google_Protobuf_EnumValueOptions.messageSchema },
   submessageOrEnumResolver: { .message(Pb_Enumvalue_JsonEnumValueOptions.messageSchema) }
