@@ -148,7 +148,15 @@ public struct SimpleExtensionMap: ExtensionMap, Sendable, ExpressibleByArrayLite
     /// Adds an extension schema into the receiver.
     public mutating func insert(_ schema: ExtensionSchema) {
         let messageKey = schema.extendedMessage.key
-        registryByNumber[FieldNumberKey(messageSchemaKey: messageKey, fieldNumber: schema.field.fieldNumber)] = schema
+        let numberKey = FieldNumberKey(messageSchemaKey: messageKey, fieldNumber: schema.field.fieldNumber)
+        if let existing = registryByNumber.updateValue(schema, forKey: numberKey) {
+            registryByName.removeValue(
+                forKey: FieldNameKey(
+                    messageSchemaKey: messageKey,
+                    fieldName: String(protobufUTF8Name: existing.utf8FieldName)
+                )
+            )
+        }
         registryByName[
             FieldNameKey(messageSchemaKey: messageKey, fieldName: String(protobufUTF8Name: schema.utf8FieldName))
         ] = schema
@@ -163,8 +171,7 @@ public struct SimpleExtensionMap: ExtensionMap, Sendable, ExpressibleByArrayLite
 
     /// Merges the given extension map into the receiver in-place.
     public mutating func formUnion(_ other: SimpleExtensionMap) {
-        registryByNumber.merge(other.registryByNumber) { (_, new) in new }
-        registryByName.merge(other.registryByName) { (_, new) in new }
+        insert(contentsOf: other.registryByNumber.values)
     }
 
     /// Returns a new extension map that represents the merging of the receiver and the given
@@ -175,3 +182,26 @@ public struct SimpleExtensionMap: ExtensionMap, Sendable, ExpressibleByArrayLite
         return result
     }
 }
+
+#if !REMOVE_LEGACY_EXTENSION_APIS
+extension SimpleExtensionMap {
+    /// All extension schemas currently registered in the map, used for testing.
+    package var allExtensions: some Collection<ExtensionSchema> {
+        registryByNumber.values
+    }
+
+    /// Adds an extension into the receiver.
+    public mutating func insert(_ newValue: any AnyMessageExtension) {
+        if let schema = newValue as? ExtensionSchema {
+            insert(schema)
+        }
+    }
+
+    /// Adds a sequence of extensions into the receiver.
+    public mutating func insert(contentsOf: [any AnyMessageExtension]) {
+        for ext in contentsOf {
+            insert(ext)
+        }
+    }
+}
+#endif  // !REMOVE_LEGACY_EXTENSION_APIS

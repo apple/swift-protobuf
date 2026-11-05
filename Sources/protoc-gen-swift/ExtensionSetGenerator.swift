@@ -82,6 +82,27 @@ class ExtensionSetGenerator {
             super.init(descriptor: descriptor)
         }
 
+        var extensionFieldType: String {
+            let label: String
+            if fieldDescriptor.isRequired {
+                label = "Required"
+            } else if fieldDescriptor.isRepeated {
+                label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
+            } else {
+                label = "Optional"
+            }
+
+            let modifier: String
+            switch fieldDescriptor.type {
+            case .group: modifier = "Group"
+            case .message: modifier = "Message"
+            case .enum: modifier = "Enum"
+            default: modifier = ""
+            }
+
+            return "\(namer.swiftProtobufModulePrefix)\(label)\(modifier)ExtensionField"
+        }
+
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
             let extensionName: String
             if fieldDescriptor.containingType.useMessageSetWireFormat && fieldDescriptor.type == .message
@@ -107,8 +128,17 @@ class ExtensionSetGenerator {
             let nonisolated = isFileScope ? "nonisolated " : ""
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
+            let schemaType: String
+            if generatorOptions.experimentalWeakImports {
+                schemaType = "\(namer.swiftProtobufModulePrefix)ExtensionSchema"
+            } else {
+                let traitsType = fieldDescriptor.traitsType(namer: namer)
+                schemaType =
+                    "\(namer.swiftProtobufModulePrefix)MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>"
+            }
+
             p.print(
-                "\(comments)\(visibility)\(nonisolated)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModulePrefix)ExtensionSchema("
+                "\(comments)\(visibility)\(nonisolated)\(scope)let \(swiftRelativeExtensionName) = \(schemaType)("
             )
             p.withIndentation { p in
                 p.print(#"schema: "\#(schemaLiteral)","#)

@@ -534,4 +534,85 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertFalse(msg1.hasSwiftProtoTesting_Extend_extD)
         XCTAssertEqual(msg1.SwiftProtoTesting_Extend_extD, 0)
     }
+
+    #if !REMOVE_LEGACY_EXTENSION_APIS
+    func test_legacyMessageExtensionAPIs() {
+        var msg = SwiftProtoTesting_TestAllExtensions()
+
+        // Singular scalar (Int32)
+        XCTAssertFalse(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension))
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension))
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension, value: 42)
+        XCTAssertTrue(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension))
+        XCTAssertEqual(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension), 42)
+        XCTAssertEqual(msg.SwiftProtoTesting_optionalInt32Extension, 42)
+        msg.clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension)
+        XCTAssertFalse(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension))
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_int32_extension))
+
+        // Singular String
+        XCTAssertFalse(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension))
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension))
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension, value: "hello")
+        XCTAssertTrue(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension))
+        XCTAssertEqual(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension), "hello")
+        msg.clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension)
+        XCTAssertFalse(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_string_extension))
+
+        // Singular Bytes
+        let testData = Data([1, 2, 3])
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension, value: testData)
+        XCTAssertTrue(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension))
+        XCTAssertEqual(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension), testData)
+        msg.clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension)
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_bytes_extension))
+
+        // Singular Enum
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension))
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension, value: .baz)
+        XCTAssertTrue(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension))
+        XCTAssertEqual(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension), .baz)
+        msg.clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension)
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_enum_extension))
+
+        // Singular Message
+        var subMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
+        subMsg.bb = 99
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension, value: subMsg)
+        XCTAssertTrue(msg.hasExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension))
+        XCTAssertEqual(
+            msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension),
+            subMsg
+        )
+        msg.clearExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension)
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_optional_nested_message_extension))
+
+        // Repeated scalar, enum, message (and clearing by setting to [])
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension, value: [10, 20])
+        XCTAssertEqual(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension), [10, 20])
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension, value: [])
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_int32_extension))
+
+        msg.setExtensionValue(
+            ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension,
+            value: [.foo, .bar]
+        )
+        XCTAssertEqual(
+            msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension),
+            [.foo, .bar]
+        )
+        msg.setExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension, value: [])
+        XCTAssertNil(msg.getExtensionValue(ext: SwiftProtoTesting_Extensions_repeated_nested_enum_extension))
+
+        // Packed scalar and enum
+        var packedMsg = SwiftProtoTesting_TestPackedExtensions()
+        packedMsg.setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension, value: [1, 2, 3])
+        XCTAssertEqual(
+            packedMsg.getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension),
+            [1, 2, 3]
+        )
+        packedMsg.setExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension, value: [])
+        XCTAssertNil(packedMsg.getExtensionValue(ext: SwiftProtoTesting_Extensions_packed_int32_extension))
+    }
+    #endif  // !REMOVE_LEGACY_EXTENSION_APIS
 }

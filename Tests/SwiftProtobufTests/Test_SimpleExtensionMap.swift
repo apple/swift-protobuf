@@ -12,53 +12,47 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-import SwiftProtobuf
-import XCTest
+#if !REMOVE_LEGACY_EXTENSION_APIS
 
-/* TODO: Re-enable. We probably just need to use real extension schemas here
-   instead of creating fake fixtures.
+import Foundation
+@_spi(ForGeneratedCodeOnly) import SwiftProtobuf
+import XCTest
 
 extension AnyMessageExtension {
     // Support equality to simplify testing of getting the correct errors.
     func isEqual(_ other: any AnyMessageExtension) -> Bool {
-        (fieldNumber == other.fieldNumber && fieldName == other.fieldName && messageType == other.messageType)
+        (self as AnyObject) === (other as AnyObject)
     }
 }
 
 // Define some extension to use for testing behaviors.
 
 let ext1 = MessageExtension<OptionalExtensionField<ProtobufInt32>, SwiftProtoTesting_TestAllExtensions>(
-    _protobuf_fieldNumber: 1,
-    fieldName: "my_ext1"
+    schema: "\0\u{01}\0\0\0\u{08}\0\0\0\0\0\0\0\u{05}\u{07}\0my_ext1",
+    extendedMessageResolver: { SwiftProtoTesting_TestAllExtensions.messageSchema }
 )
 
 let ext2 = MessageExtension<OptionalExtensionField<ProtobufInt64>, SwiftProtoTesting_TestAllExtensions>(
-    _protobuf_fieldNumber: 2,
-    fieldName: "my_ext2"
+    schema: "\0\u{02}\0\0\0\u{08}\0\0\0\0\0\0\0\u{03}\u{07}\0my_ext2",
+    extendedMessageResolver: { SwiftProtoTesting_TestAllExtensions.messageSchema }
 )
 
 // Same field number as ext1, but different class being extended.
 let ext3 = MessageExtension<OptionalExtensionField<ProtobufDouble>, SwiftProtoTesting_TestPackedExtensions>(
-    _protobuf_fieldNumber: 1,
-    fieldName: "my_ext1b"
+    schema: "\0\u{01}\0\0\0\u{08}\0\0\0\0\0\0\0\u{01}\u{08}\0my_ext1b",
+    extendedMessageResolver: { SwiftProtoTesting_TestPackedExtensions.messageSchema }
 )
 
 // Same field number and message type as ext2, so it will replace it in the mapping.
 let ext4 = MessageExtension<OptionalExtensionField<ProtobufBool>, SwiftProtoTesting_TestAllExtensions>(
-    _protobuf_fieldNumber: 2,
-    fieldName: "my_ext4"
+    schema: "\0\u{02}\0\0\0\u{08}\0\0\0\0\0\0\0\u{08}\u{07}\0my_ext4",
+    extendedMessageResolver: { SwiftProtoTesting_TestAllExtensions.messageSchema }
 )
 
 final class Test_SimpleExtensionMap: XCTestCase {
     func assert(map: SimpleExtensionMap, contains: [any AnyMessageExtension], line: UInt = #line) {
-        // Extact what it constaings.
-        var includes = [any AnyMessageExtension]()
-        for (_, l) in map.fields {
-            for e in l {
-                includes.append(e)
-            }
-        }
+        // Extract what it contains.
+        let includes: [any AnyMessageExtension] = Array(map.allExtensions)
 
         // Check that everything the lists match no matter the orders.
         for c in contains {
@@ -85,7 +79,7 @@ final class Test_SimpleExtensionMap: XCTestCase {
 
     func testInsert() {
         var map = SimpleExtensionMap()
-        XCTAssertEqual(map.fields.count, 0)
+        XCTAssertEqual(map.allExtensions.count, 0)
 
         map.insert(ext1)
         assert(map: map, contains: [ext1])
@@ -103,7 +97,7 @@ final class Test_SimpleExtensionMap: XCTestCase {
 
     func testInsert_contentsOf() {
         var map = SimpleExtensionMap()
-        XCTAssertEqual(map.fields.count, 0)
+        XCTAssertEqual(map.allExtensions.count, 0)
 
         map.insert(contentsOf: [ext1, ext2])
         assert(map: map, contains: [ext1, ext2])
@@ -236,4 +230,5 @@ final class Test_SimpleExtensionMap: XCTestCase {
     }
 
 }
-*/
+
+#endif  // !REMOVE_LEGACY_EXTENSION_APIS
