@@ -277,9 +277,9 @@ public final class FileDescriptor {
             result.dependency = []
             result.publicDependency = []
             result.weakDependency = []
+            result.optionDependency = []
             result.messageType = []
             result.enumType = []
-            result.messageType = []
             result.service = []
             result.extension = []
         }
