@@ -724,6 +724,117 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(headerExtract.publicDependency.isEmpty)
         XCTAssertTrue(headerExtract.weakDependency.isEmpty)
         XCTAssertTrue(headerExtract.optionDependency.isEmpty)
+
+        // Verify non-file descriptor extractProto() and Descriptor.extractProto(options:).
+        let msgProtoFile = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "extract_nonfile.proto"
+                package: "extract.test"
+                edition: EDITION_2024
+                message_type {
+                  name: "RichMessage"
+                  visibility: VISIBILITY_EXPORT
+                  field {
+                    name: "f1"
+                    number: 1
+                    label: LABEL_OPTIONAL
+                    type: TYPE_INT32
+                    oneof_index: 0
+                    json_name: "f1"
+                  }
+                  extension {
+                    name: "nested_ext"
+                    extendee: ".extract.test.RichMessage"
+                    number: 100
+                    label: LABEL_OPTIONAL
+                    type: TYPE_STRING
+                    json_name: "nestedExt"
+                  }
+                  nested_type {
+                    name: "NestedMsg"
+                  }
+                  enum_type {
+                    name: "NestedEnum"
+                    value {
+                      name: "NESTED_ZERO"
+                      number: 0
+                    }
+                  }
+                  extension_range {
+                    start: 100
+                    end: 200
+                  }
+                  oneof_decl {
+                    name: "choice"
+                  }
+                  options {
+                    deprecated: true
+                  }
+                  reserved_range {
+                    start: 50
+                    end: 60
+                  }
+                  reserved_name: "old_field"
+                }
+                service {
+                  name: "RichService"
+                  method {
+                    name: "Call"
+                    input_type: ".extract.test.RichMessage"
+                    output_type: ".extract.test.RichMessage"
+                  }
+                }
+                """
+        )
+        let richSet = DescriptorSet(protos: [msgProtoFile])
+        let richMsg = try XCTUnwrap(richSet.descriptor(named: "extract.test.RichMessage"))
+
+        let fullMsgProto = richMsg.extractProto()
+        XCTAssertEqual(fullMsgProto.name, "RichMessage")
+        XCTAssertEqual(fullMsgProto.visibility, .visibilityExport)
+        XCTAssertTrue(fullMsgProto.options.deprecated)
+        XCTAssertEqual(fullMsgProto.reservedRange.count, 1)
+        XCTAssertEqual(fullMsgProto.reservedName, ["old_field"])
+        XCTAssertEqual(fullMsgProto.field.count, 1)
+        XCTAssertEqual(fullMsgProto.extension.count, 1)
+        XCTAssertEqual(fullMsgProto.nestedType.count, 1)
+        XCTAssertEqual(fullMsgProto.enumType.count, 1)
+        XCTAssertEqual(fullMsgProto.extensionRange.count, 1)
+        XCTAssertEqual(fullMsgProto.oneofDecl.count, 1)
+
+        let headerMsgProto = richMsg.extractProto(options: headerOnlyOptions)
+        XCTAssertEqual(headerMsgProto.name, "RichMessage")
+        XCTAssertEqual(headerMsgProto.visibility, .visibilityExport)
+        XCTAssertTrue(headerMsgProto.options.deprecated)
+        XCTAssertEqual(headerMsgProto.reservedRange.count, 1)
+        XCTAssertEqual(headerMsgProto.reservedName, ["old_field"])
+        XCTAssertTrue(headerMsgProto.field.isEmpty)
+        XCTAssertTrue(headerMsgProto.extension.isEmpty)
+        XCTAssertTrue(headerMsgProto.nestedType.isEmpty)
+        XCTAssertTrue(headerMsgProto.enumType.isEmpty)
+        XCTAssertTrue(headerMsgProto.extensionRange.isEmpty)
+        XCTAssertTrue(headerMsgProto.oneofDecl.isEmpty)
+
+        let extRange = try XCTUnwrap(richMsg.messageExtensionRanges.first)
+        XCTAssertEqual(extRange.extractProto(), fullMsgProto.extensionRange[0])
+
+        let fieldDesc = try XCTUnwrap(richMsg.fields.first)
+        XCTAssertEqual(fieldDesc.extractProto(), fullMsgProto.field[0])
+
+        let oneofDesc = try XCTUnwrap(richMsg.oneofs.first)
+        XCTAssertEqual(oneofDesc.extractProto(), fullMsgProto.oneofDecl[0])
+
+        let enumDesc = try XCTUnwrap(richMsg.enums.first)
+        XCTAssertEqual(enumDesc.extractProto(), fullMsgProto.enumType[0])
+
+        let enumValDesc = try XCTUnwrap(enumDesc.values.first)
+        XCTAssertEqual(enumValDesc.extractProto(), fullMsgProto.enumType[0].value[0])
+
+        let serviceDesc = try XCTUnwrap(richSet.serviceDescriptor(named: "extract.test.RichService"))
+        XCTAssertEqual(serviceDesc.extractProto(), msgProtoFile.service[0])
+
+        let methodDesc = try XCTUnwrap(serviceDesc.methods.first)
+        XCTAssertEqual(methodDesc.extractProto(), msgProtoFile.service[0].method[0])
     }
 
     func testSymbolVisibility() throws {
