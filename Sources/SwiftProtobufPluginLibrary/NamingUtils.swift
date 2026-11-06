@@ -609,4 +609,49 @@ public enum NamingUtils {
         }
         return String(result)
     }
+
+    /// Splits a pathname into directory, base filename, and extension suffix.
+    ///
+    /// - Parameter pathname: The path string to split (for example, `"foo/bar/baz.proto"`).
+    /// - Returns: A tuple of `(dir, base, suffix)` where `dir` includes the trailing `"/"`
+    ///   (or is empty if there is no directory component) and `suffix` includes the leading `"."`
+    ///   (or is empty if there is no file extension).
+    public static func splitPath(pathname: String) -> (dir: String, base: String, suffix: String) {
+        var dir = ""
+        var base = ""
+        var suffix = ""
+        for c in pathname {
+            if c == "/" {
+                dir += base + suffix + String(c)
+                base = ""
+                suffix = ""
+            } else if c == "." {
+                base += suffix
+                suffix = String(c)
+            } else {
+                suffix += String(c)
+            }
+        }
+        let validSuffix = suffix.isEmpty || suffix.first == "."
+        if !validSuffix {
+            base += suffix
+            suffix = ""
+        }
+        return (dir: dir, base: base, suffix: suffix)
+    }
+
+    /// Strips a trailing `".protodevel"` or `".proto"` suffix from a filename,
+    /// leaving other strings unchanged.
+    ///
+    /// - Parameter filename: The filename or path string to strip.
+    /// - Returns: `filename` without a trailing `".protodevel"` or `".proto"` suffix.
+    public static func stripProto(filename: String) -> String {
+        if filename.hasSuffix(".protodevel") {
+            return String(filename.dropLast(11))
+        } else if filename.hasSuffix(".proto") {
+            return String(filename.dropLast(6))
+        } else {
+            return filename
+        }
+    }
 }

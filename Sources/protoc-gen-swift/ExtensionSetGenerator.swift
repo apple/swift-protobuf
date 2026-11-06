@@ -224,7 +224,7 @@ class ExtensionSetGenerator {
     func generateFileProtobufExtensionRegistry(printer p: inout CodePrinter) {
         guard !extensions.isEmpty else { return }
 
-        let pathParts = splitPath(pathname: fileDescriptor.name)
+        let pathParts = NamingUtils.splitPath(pathname: fileDescriptor.name)
         let filenameAsIdentifier = NamingUtils.toUpperCamelCase(pathParts.base)
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
         p.print(
