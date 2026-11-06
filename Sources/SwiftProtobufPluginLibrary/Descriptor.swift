@@ -251,6 +251,51 @@ public final class FileDescriptor {
     /// The service defintions at the file scope level.
     public let services: [ServiceDescriptor]
 
+    /// Finds a top-level message type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level message type.
+    /// - Returns: The matching `Descriptor`, or `nil` if not found.
+    public func message(named name: String) -> Descriptor? {
+        messages.first { $0.name == name }
+    }
+
+    /// Finds a top-level enum type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level enum type.
+    /// - Returns: The matching `EnumDescriptor`, or `nil` if not found.
+    public func enumType(named name: String) -> EnumDescriptor? {
+        enums.first { $0.name == name }
+    }
+
+    /// Finds an enum value by name across all top-level enum types in this file.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if not found.
+    public func enumValue(named name: String) -> EnumValueDescriptor? {
+        for e in enums {
+            if let v = e.value(named: name) {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Finds a service definition by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the service.
+    /// - Returns: The matching `ServiceDescriptor`, or `nil` if not found.
+    public func service(named name: String) -> ServiceDescriptor? {
+        services.first { $0.name == name }
+    }
+
+    /// Finds a top-level extension definition by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level extension field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if not found.
+    public func extensionField(named name: String) -> FieldDescriptor? {
+        extensions.first { $0.name == name }
+    }
+
     /// The `Google_Protobuf_FileOptions` set on this file.
     @available(*, deprecated, renamed: "options")
     public var fileOptions: Google_Protobuf_FileOptions { self.options }
@@ -621,6 +666,67 @@ public final class Descriptor {
     /// The extension field defintions under this message.
     public let extensions: [FieldDescriptor]
 
+    /// Looks up a field by name.
+    ///
+    /// - Parameter name: The unqualified name of the field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such field exists.
+    public func field(named name: String) -> FieldDescriptor? {
+        fields.first { $0.name == name }
+    }
+
+    /// Looks up a field by declared tag number.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such field exists.
+    public func field(numbered number: Int32) -> FieldDescriptor? {
+        fields.first { $0.number == number }
+    }
+
+    /// Looks up a oneof by name.
+    ///
+    /// - Parameter name: The unqualified name of the oneof.
+    /// - Returns: The matching `OneofDescriptor`, or `nil` if no such oneof exists.
+    public func oneof(named name: String) -> OneofDescriptor? {
+        oneofs.first { $0.name == name }
+    }
+
+    /// Looks up a nested message type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested message type.
+    /// - Returns: The matching `Descriptor`, or `nil` if no such nested message exists.
+    public func message(named name: String) -> Descriptor? {
+        messages.first { $0.name == name }
+    }
+
+    /// Looks up a nested enum type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested enum type.
+    /// - Returns: The matching `EnumDescriptor`, or `nil` if no such nested enum exists.
+    public func enumType(named name: String) -> EnumDescriptor? {
+        enums.first { $0.name == name }
+    }
+
+    /// Looks up an enum value by name among all nested enum types in this message.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func enumValue(named name: String) -> EnumValueDescriptor? {
+        for e in enums {
+            if let v = e.value(named: name) {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Looks up an extension defined within this message type's scope by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested extension field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such extension exists.
+    public func extensionField(named name: String) -> FieldDescriptor? {
+        extensions.first { $0.name == name }
+    }
+
     /// The extension ranges declared for this message. They are returned in
     /// the order they are defined in the .proto file.
     public let messageExtensionRanges: [ExtensionRange]
@@ -863,6 +969,23 @@ public final class EnumDescriptor {
     /// one item. These are returned in the order they were defined in the .proto
     /// file.
     public let values: [EnumValueDescriptor]
+
+    /// Looks up an enum value by name.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func value(named name: String) -> EnumValueDescriptor? {
+        values.first { $0.name == name }
+    }
+
+    /// Looks up an enum value by number. If multiple values have this number
+    /// (when `allow_alias` is enabled), the first one defined is returned.
+    ///
+    /// - Parameter number: The numeric value of the enum constant.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func value(numbered number: Int32) -> EnumValueDescriptor? {
+        values.first { $0.number == number }
+    }
 
     /// The `Google_Protobuf_MessageOptions` set on this enum.
     public let options: Google_Protobuf_EnumOptions
@@ -1515,6 +1638,14 @@ public final class ServiceDescriptor {
     /// The methods defined on this service. These are returned in the order they
     /// were defined in the .proto file.
     public let methods: [MethodDescriptor]
+
+    /// Looks up a method by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the method.
+    /// - Returns: The matching `MethodDescriptor`, or `nil` if no such method exists.
+    public func method(named name: String) -> MethodDescriptor? {
+        methods.first { $0.name == name }
+    }
 
     // Storage for `file`, will be set by bind()
     private unowned var _file: FileDescriptor?
