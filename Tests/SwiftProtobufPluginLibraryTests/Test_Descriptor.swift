@@ -190,6 +190,12 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(oneof.fields[1] === topLevelMessage.fields[3])
         XCTAssertTrue(oneof.fields[2] === topLevelMessage.fields[4])
         XCTAssertTrue(oneof.fields[3] === topLevelMessage.fields[5])
+        XCTAssertNil(topLevelMessage.fields[0].indexInOneof)
+        XCTAssertNil(topLevelMessage.fields[1].indexInOneof)
+        XCTAssertEqual(topLevelMessage.fields[2].indexInOneof, 0)
+        XCTAssertEqual(topLevelMessage.fields[3].indexInOneof, 1)
+        XCTAssertEqual(topLevelMessage.fields[4].indexInOneof, 2)
+        XCTAssertEqual(topLevelMessage.fields[5].indexInOneof, 3)
 
         XCTAssertEqual(topLevelMessage2.fields.count, 2)
         XCTAssertEqual(topLevelMessage2.fields[0].name, "left")
@@ -268,6 +274,13 @@ final class Test_Descriptor: XCTestCase {
         for (i, o) in proto2ForPresence.realOneofs.enumerated() {
             XCTAssert(o === proto2ForPresence.oneofs[i])
         }
+        for i in 0..<12 {
+            XCTAssertNil(proto2ForPresence.fields[i].indexInOneof)
+        }
+        XCTAssertEqual(proto2ForPresence.fields[12].indexInOneof, 0)
+        XCTAssertEqual(proto2ForPresence.fields[13].indexInOneof, 1)
+        XCTAssertEqual(proto2ForPresence.fields[14].indexInOneof, 2)
+        XCTAssertEqual(proto2ForPresence.fields[15].indexInOneof, 3)
 
         // Proto3 Presence
 
@@ -331,6 +344,17 @@ final class Test_Descriptor: XCTestCase {
         for (i, o) in proto2ForPresence.realOneofs.enumerated() {
             XCTAssert(o === proto2ForPresence.oneofs[i])
         }
+        for i in [0, 1, 2, 3, 8, 9, 10, 11] {
+            XCTAssertNil(proto3ForPresence.fields[i].indexInOneof)
+        }
+        // Synthetic oneofs for proto3 optional fields each contain a single field at index 0.
+        for i in 4...7 {
+            XCTAssertEqual(proto3ForPresence.fields[i].indexInOneof, 0)
+        }
+        XCTAssertEqual(proto3ForPresence.fields[12].indexInOneof, 0)
+        XCTAssertEqual(proto3ForPresence.fields[13].indexInOneof, 1)
+        XCTAssertEqual(proto3ForPresence.fields[14].indexInOneof, 2)
+        XCTAssertEqual(proto3ForPresence.fields[15].indexInOneof, 3)
     }
 
     func testExtensions() throws {
@@ -364,6 +388,9 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(topLevelExt.file === descriptorTestFile)
         XCTAssertTrue(nestedExt1.file === descriptorTestFile)
         XCTAssertTrue(nestedExt2.file === descriptorTestFile)
+        XCTAssertNil(topLevelExt.indexInOneof)
+        XCTAssertNil(nestedExt1.indexInOneof)
+        XCTAssertNil(nestedExt2.indexInOneof)
     }
 
     func testDelimited() throws {

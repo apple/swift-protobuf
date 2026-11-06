@@ -1297,6 +1297,13 @@ public final class FieldDescriptor {
     /// The index in a oneof this field is in.
     public let oneofIndex: Int32?
 
+    /// If this field is a member of a oneof, the index of the field within
+    /// `containingOneof.fields`; otherwise, `nil`.
+    public var indexInOneof: Int? {
+        guard let containingOneof = containingOneof else { return nil }
+        return containingOneof.fields.firstIndex { $0 === self }
+    }
+
     // This builds basically a union for the storage for `extensionScope`
     // and the value to look it up with.
     private enum ExtensionScopeStorage {
