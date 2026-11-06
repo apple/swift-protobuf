@@ -131,7 +131,12 @@ private func unpack(
             }
         }
     }
-    return try messageType.init(jsonString: value, extensions: extensions, options: options)
+    guard options.messageDepthLimit > 1 else {
+        throw JSONDecodingError.messageDepthLimit
+    }
+    var nestedOptions = options
+    nestedOptions.messageDepthLimit -= 1
+    return try messageType.init(jsonString: value, extensions: extensions, options: nestedOptions)
 }
 
 internal class AnyMessageStorage {

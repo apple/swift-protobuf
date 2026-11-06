@@ -351,6 +351,23 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_JSONUnpackWKTDepthLimit() throws {
+        let json = "{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":[[[[1]]]]}"
+        var options = JSONDecodingOptions()
+        options.messageDepthLimit = 4
+        let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
+        XCTAssertThrowsError(try Google_Protobuf_Value(unpackingAny: decodedAny)) { error in
+            if case .messageDepthLimit? = error as? JSONDecodingError {
+                // Expected
+            } else {
+                XCTFail("Expected JSONDecodingError.messageDepthLimit, got \(error)")
+            }
+        }
+        XCTAssertThrowsError(try decodedAny.serializedBytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? BinaryEncodingError, .anyTranscodeFailure)
+        }
+    }
+
     func test_Any_Duration_transcode() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"
