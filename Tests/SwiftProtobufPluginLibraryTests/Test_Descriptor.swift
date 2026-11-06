@@ -534,4 +534,217 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(headerExtract.weakDependency.isEmpty)
         XCTAssertTrue(headerExtract.optionDependency.isEmpty)
     }
+
+    func testSymbolVisibility() throws {
+        // 1. STRICT default symbol visibility:
+        //    - local message with `reserved 1 to max` is an enum namespace message,
+        //      and its `export enum` is a namespaced enum (while a `local` or unset
+        //      nested enum is not).
+        //    - exported message, message without `1 to max` reserved range, and nested
+        //      message are not enum namespace messages.
+        let strictProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "strict.proto"
+                package: "vis.test"
+                edition: EDITION_2024
+                options {
+                  features {
+                    default_symbol_visibility: STRICT
+                  }
+                }
+                message_type {
+                  name: "EnumNamespaceMessage"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                  enum_type {
+                    name: "UnsetEnum"
+                    value { name: "BAR" number: 0 }
+                  }
+                  enum_type {
+                    name: "LocalEnum"
+                    visibility: VISIBILITY_LOCAL
+                    value { name: "BAZ" number: 0 }
+                  }
+                  nested_type {
+                    name: "NestedNamespaceCandidate"
+                    visibility: VISIBILITY_LOCAL
+                    reserved_range {
+                      start: 1
+                      end: 536870912
+                    }
+                  }
+                }
+                message_type {
+                  name: "ExportedMessageWithReservedMax"
+                  visibility: VISIBILITY_EXPORT
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "LocalMessagePartialReserved"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 10
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "LocalMessageNoReserved"
+                  visibility: VISIBILITY_LOCAL
+                }
+                enum_type {
+                  name: "TopLevelEnum"
+                  visibility: VISIBILITY_EXPORT
+                  value { name: "TOP" number: 0 }
+                }
+                """
+        )
+
+        // 2. LOCAL_ALL default symbol visibility:
+        //    - top-level message with unset visibility defaults to local, so with
+        //      `reserved 1 to max` it is an enum namespace message.
+        let localAllProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "local_all.proto"
+                package: "vis.local_all"
+                edition: EDITION_2024
+                options {
+                  features {
+                    default_symbol_visibility: LOCAL_ALL
+                  }
+                }
+                message_type {
+                  name: "ImplicitLocalNamespaceMessage"
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                """
+        )
+
+        // 3. Default Edition 2024 (EXPORT_TOP_LEVEL):
+        //    - top-level message with unset visibility defaults to export (so NOT an
+        //      enum namespace message), whereas an explicitly `local` message with
+        //      `reserved 1 to max` IS an enum namespace message, and its nested enum
+        //      with unset visibility is considered a namespaced enum (matching C++
+        //      SymbolCheckerTest.IsNamespacedEnumExplicitlyLocalParent).
+        let exportTopLevelProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "export_top_level.proto"
+                package: "vis.export_top"
+                edition: EDITION_2024
+                message_type {
+                  name: "ExplicitLocalNamespaceMessage"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "UnsetNestedEnum"
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "UnsetTopLevelMessage"
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                }
+                """
+        )
+
+        let set = DescriptorSet(protos: [strictProto, localAllProto, exportTopLevelProto])
+
+        let namespaceMsg = try XCTUnwrap(set.descriptor(named: "vis.test.EnumNamespaceMessage"))
+        XCTAssertEqual(namespaceMsg.visibility, .visibilityLocal)
+        XCTAssertTrue(namespaceMsg.isEnumNamespaceMessage)
+
+        let exportedEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.ExportedEnum"))
+        XCTAssertEqual(exportedEnum.visibility, .visibilityExport)
+        XCTAssertTrue(exportedEnum.isNamespacedEnum)
+
+        let unsetEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.UnsetEnum"))
+        XCTAssertEqual(unsetEnum.visibility, .visibilityUnset)
+        XCTAssertFalse(unsetEnum.isNamespacedEnum)
+
+        let localEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.LocalEnum"))
+        XCTAssertEqual(localEnum.visibility, .visibilityLocal)
+        XCTAssertFalse(localEnum.isNamespacedEnum)
+
+        let nestedCandidate = try XCTUnwrap(
+            set.descriptor(named: "vis.test.EnumNamespaceMessage.NestedNamespaceCandidate")
+        )
+        XCTAssertFalse(nestedCandidate.isEnumNamespaceMessage)
+
+        let exportedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.ExportedMessageWithReservedMax"))
+        XCTAssertEqual(exportedMsg.visibility, .visibilityExport)
+        XCTAssertFalse(exportedMsg.isEnumNamespaceMessage)
+        let enumInExportedMsg = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.test.ExportedMessageWithReservedMax.ExportedEnum")
+        )
+        XCTAssertFalse(enumInExportedMsg.isNamespacedEnum)
+
+        let partialReservedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.LocalMessagePartialReserved"))
+        XCTAssertFalse(partialReservedMsg.isEnumNamespaceMessage)
+        let enumInPartialMsg = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.test.LocalMessagePartialReserved.ExportedEnum")
+        )
+        XCTAssertFalse(enumInPartialMsg.isNamespacedEnum)
+
+        let noReservedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.LocalMessageNoReserved"))
+        XCTAssertFalse(noReservedMsg.isEnumNamespaceMessage)
+
+        let topLevelEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.TopLevelEnum"))
+        XCTAssertEqual(topLevelEnum.visibility, .visibilityExport)
+        XCTAssertFalse(topLevelEnum.isNamespacedEnum)
+
+        let implicitLocalMsg = try XCTUnwrap(set.descriptor(named: "vis.local_all.ImplicitLocalNamespaceMessage"))
+        XCTAssertEqual(implicitLocalMsg.visibility, .visibilityUnset)
+        XCTAssertTrue(implicitLocalMsg.isEnumNamespaceMessage)
+        let localAllExportedEnum = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.local_all.ImplicitLocalNamespaceMessage.ExportedEnum")
+        )
+        XCTAssertTrue(localAllExportedEnum.isNamespacedEnum)
+
+        let explicitLocalMsg = try XCTUnwrap(set.descriptor(named: "vis.export_top.ExplicitLocalNamespaceMessage"))
+        XCTAssertEqual(explicitLocalMsg.visibility, .visibilityLocal)
+        XCTAssertTrue(explicitLocalMsg.isEnumNamespaceMessage)
+        let unsetNestedEnum = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.export_top.ExplicitLocalNamespaceMessage.UnsetNestedEnum")
+        )
+        XCTAssertEqual(unsetNestedEnum.visibility, .visibilityUnset)
+        XCTAssertTrue(unsetNestedEnum.isNamespacedEnum)
+
+        let unsetTopLevelMsg = try XCTUnwrap(set.descriptor(named: "vis.export_top.UnsetTopLevelMessage"))
+        XCTAssertEqual(unsetTopLevelMsg.visibility, .visibilityUnset)
+        XCTAssertFalse(unsetTopLevelMsg.isEnumNamespaceMessage)
+    }
 }
