@@ -393,6 +393,109 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertNil(nestedExt2.indexInOneof)
     }
 
+    func testExtensionAndReservedContainment() throws {
+        let rangeTestProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "range_helpers.proto"
+                package: "range.test"
+                syntax: "proto2"
+                message_type {
+                  name: "RangeMessage"
+                  extension_range {
+                    start: 100
+                    end: 200
+                  }
+                  extension_range {
+                    start: 300
+                    end: 301
+                  }
+                  reserved_range {
+                    start: 10
+                    end: 20
+                  }
+                  reserved_range {
+                    start: 50
+                    end: 51
+                  }
+                  reserved_name: "reserved_foo"
+                  reserved_name: "reserved_bar"
+                }
+                enum_type {
+                  name: "RangeEnum"
+                  value {
+                    name: "RANGE_ENUM_ZERO"
+                    number: 0
+                  }
+                  reserved_range {
+                    start: -5
+                    end: -1
+                  }
+                  reserved_range {
+                    start: 10
+                    end: 20
+                  }
+                  reserved_range {
+                    start: 42
+                    end: 42
+                  }
+                  reserved_name: "OLD_VALUE"
+                }
+                """
+        )
+        let set = DescriptorSet(protos: [rangeTestProto])
+        let msg = try XCTUnwrap(set.descriptor(named: "range.test.RangeMessage"))
+        let enm = try XCTUnwrap(set.enumDescriptor(named: "range.test.RangeEnum"))
+
+        // Descriptor extension ranges (half-open: start..<end)
+        XCTAssertFalse(msg.isExtensionNumber(99))
+        XCTAssertNil(msg.extensionRange(containing: 99))
+        XCTAssertTrue(msg.isExtensionNumber(100))
+        XCTAssertTrue(msg.extensionRange(containing: 100) === msg.messageExtensionRanges[0])
+        XCTAssertTrue(msg.isExtensionNumber(199))
+        XCTAssertTrue(msg.extensionRange(containing: 199) === msg.messageExtensionRanges[0])
+        XCTAssertFalse(msg.isExtensionNumber(200))
+        XCTAssertNil(msg.extensionRange(containing: 200))
+        XCTAssertTrue(msg.isExtensionNumber(300))
+        XCTAssertTrue(msg.extensionRange(containing: 300) === msg.messageExtensionRanges[1])
+        XCTAssertFalse(msg.isExtensionNumber(301))
+
+        // Descriptor reserved ranges (half-open: start..<end) & reserved names
+        XCTAssertFalse(msg.isReservedNumber(9))
+        XCTAssertNil(msg.reservedRange(containing: 9))
+        XCTAssertTrue(msg.isReservedNumber(10))
+        XCTAssertEqual(msg.reservedRange(containing: 10), 10..<20)
+        XCTAssertTrue(msg.isReservedNumber(19))
+        XCTAssertEqual(msg.reservedRange(containing: 19), 10..<20)
+        XCTAssertFalse(msg.isReservedNumber(20))
+        XCTAssertNil(msg.reservedRange(containing: 20))
+        XCTAssertTrue(msg.isReservedNumber(50))
+        XCTAssertEqual(msg.reservedRange(containing: 50), 50..<51)
+        XCTAssertFalse(msg.isReservedNumber(51))
+
+        XCTAssertTrue(msg.isReservedName("reserved_foo"))
+        XCTAssertTrue(msg.isReservedName("reserved_bar"))
+        XCTAssertFalse(msg.isReservedName("other_field"))
+
+        // EnumDescriptor reserved ranges (closed: start...end) & reserved names
+        XCTAssertFalse(enm.isReservedNumber(-6))
+        XCTAssertNil(enm.reservedRange(containing: -6))
+        XCTAssertTrue(enm.isReservedNumber(-5))
+        XCTAssertEqual(enm.reservedRange(containing: -5), -5...(-1))
+        XCTAssertTrue(enm.isReservedNumber(-1))
+        XCTAssertEqual(enm.reservedRange(containing: -1), -5...(-1))
+        XCTAssertFalse(enm.isReservedNumber(0))
+        XCTAssertTrue(enm.isReservedNumber(10))
+        XCTAssertEqual(enm.reservedRange(containing: 10), 10...20)
+        XCTAssertTrue(enm.isReservedNumber(20))
+        XCTAssertEqual(enm.reservedRange(containing: 20), 10...20)
+        XCTAssertFalse(enm.isReservedNumber(21))
+        XCTAssertTrue(enm.isReservedNumber(42))
+        XCTAssertEqual(enm.reservedRange(containing: 42), 42...42)
+
+        XCTAssertTrue(enm.isReservedName("OLD_VALUE"))
+        XCTAssertFalse(enm.isReservedName("RANGE_ENUM_ZERO"))
+    }
+
     func testDelimited() throws {
         let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
         let descriptorSet = DescriptorSet(proto: fileSet)

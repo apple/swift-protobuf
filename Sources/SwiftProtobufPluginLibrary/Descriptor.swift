@@ -692,6 +692,50 @@ public final class Descriptor {
     /// order they are defined in the .proto file.
     public let reservedNames: [String]
 
+    /// Returns `true` if the given field number is within any of this message's
+    /// extension ranges.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if `number` is in an extension range; otherwise, `false`.
+    public func isExtensionNumber(_ number: Int32) -> Bool {
+        extensionRange(containing: number) != nil
+    }
+
+    /// Returns the `ExtensionRange` containing the given field number, or `nil`
+    /// if no extension range contains it.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The containing `ExtensionRange`, or `nil`.
+    public func extensionRange(containing number: Int32) -> ExtensionRange? {
+        messageExtensionRanges.first { $0.start <= number && number < $0.end }
+    }
+
+    /// Returns `true` if the given field number is within any of this message's
+    /// reserved ranges.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if `number` is reserved; otherwise, `false`.
+    public func isReservedNumber(_ number: Int32) -> Bool {
+        reservedRange(containing: number) != nil
+    }
+
+    /// Returns the reserved `Range<Int32>` containing the given field number,
+    /// or `nil` if no reserved range contains it.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The containing `Range<Int32>`, or `nil`.
+    public func reservedRange(containing number: Int32) -> Range<Int32>? {
+        reservedRanges.first { $0.contains(number) }
+    }
+
+    /// Returns `true` if the given field name is reserved in this message.
+    ///
+    /// - Parameter name: The field name to check.
+    /// - Returns: `true` if `name` is in `reservedNames`; otherwise, `false`.
+    public func isReservedName(_ name: String) -> Bool {
+        reservedNames.contains(name)
+    }
+
     /// True/False if this Message is just for a `map<>` entry.
     @available(*, deprecated, renamed: "options.mapEntry")
     public var isMapEntry: Bool { options.mapEntry }
@@ -892,6 +936,32 @@ public final class EnumDescriptor {
     /// The reserved value names for this enum. These are returned in the order
     /// they are defined in the .proto file.
     public let reservedNames: [String]
+
+    /// Returns `true` if the given enum value number is within any of this
+    /// enum's reserved ranges.
+    ///
+    /// - Parameter number: The enum value number to check.
+    /// - Returns: `true` if `number` is reserved; otherwise, `false`.
+    public func isReservedNumber(_ number: Int32) -> Bool {
+        reservedRange(containing: number) != nil
+    }
+
+    /// Returns the reserved `ClosedRange<Int32>` containing the given enum value
+    /// number, or `nil` if no reserved range contains it.
+    ///
+    /// - Parameter number: The enum value number to look up.
+    /// - Returns: The containing `ClosedRange<Int32>`, or `nil`.
+    public func reservedRange(containing number: Int32) -> ClosedRange<Int32>? {
+        reservedRanges.first { $0.contains(number) }
+    }
+
+    /// Returns `true` if the given enum value name is reserved in this enum.
+    ///
+    /// - Parameter name: The enum value name to check.
+    /// - Returns: `true` if `name` is in `reservedNames`; otherwise, `false`.
+    public func isReservedName(_ name: String) -> Bool {
+        reservedNames.contains(name)
+    }
 
     /// Returns true whether this is a "closed" enum, meaning that it:
     /// - Has a fixed set of named values.
