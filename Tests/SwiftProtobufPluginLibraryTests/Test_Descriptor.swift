@@ -514,7 +514,11 @@ final class Test_Descriptor: XCTestCase {
                 """
         )
         let depSet = DescriptorSet(protos: [depProto, mainProto])
+        let depFile = try XCTUnwrap(depSet.fileDescriptor(named: "dep.proto"))
         let mainFile = try XCTUnwrap(depSet.fileDescriptor(named: "main.proto"))
+
+        XCTAssertTrue(depFile.optionDependencies.isEmpty)
+        XCTAssertEqual(mainFile.optionDependencies, ["opt.proto"])
 
         let fullExtract = mainFile.extractProto()
         XCTAssertEqual(fullExtract.dependency, ["dep.proto"])

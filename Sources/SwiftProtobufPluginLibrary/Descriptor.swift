@@ -235,6 +235,12 @@ public final class FileDescriptor {
     public let publicDependencies: [FileDescriptor]
     /// The subset of the imports that were declared `weak`.
     public let weakDependencies: [FileDescriptor]
+    /// The imports for this file that were declared `option`.
+    ///
+    /// Unlike `dependencies`, `publicDependencies`, and `weakDependencies`,
+    /// `option` dependencies are not guaranteed to be present in the
+    /// `DescriptorSet`, so only their filenames are provided.
+    public let optionDependencies: [String]
 
     /// The enum defintions at the file scope level.
     public let enums: [EnumDescriptor]
@@ -384,6 +390,7 @@ public final class FileDescriptor {
         self.dependencies = dependencies
         self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
         self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
+        self.optionDependencies = proto.optionDependency
 
         self.sourceCodeInfo = proto.sourceCodeInfo
 
