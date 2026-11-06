@@ -179,10 +179,14 @@ public struct ExtractProtoOptions {
     ///
     /// If embedding the descriptor in a binary for some reason, normally the `SourceCodeInfo`
     /// isn't needed and would just be an increas in binary size.
+    ///
+    /// Only applies to `FileDescriptor.extractProto(options:)`.
     public var includeSourceCodeInfo: Bool = false
 
     /// Copy on the _header_ for the descriptor. This mainly means leave out any of the nested
     /// descriptors (messages, enums, etc.).
+    ///
+    /// Applies to `FileDescriptor.extractProto(options:)` and `Descriptor.extractProto(options:)`.
     public var headerOnly: Bool = false
 
     // NOTE: in the future maybe add toggles to model the behavior of the *Descriptor::Copy*To()
@@ -482,15 +486,37 @@ public final class FileDescriptor {
 /// constructed/fetched via the `DescriptorSet` or they are directly accessed
 /// via a `messageType` property on `FieldDescriptor`s, etc.
 public final class Descriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_DescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Parameters:
+    ///   - options: Controls what information is include/excluded when creating the Proto version.
+    ///
+    /// - Returns: A `Google_Protobuf_DescriptorProto`.
+    public func extractProto(
+        options: ExtractProtoOptions = ExtractProtoOptions()
+    ) -> Google_Protobuf_DescriptorProto {
+        var result = _proto
+
+        if options.headerOnly {
+            // For Descriptor, make `headerOnly` mean the same things as C++
+            // `Descriptor::CopyHeadingTo()`.
+            result.field = []
+            result.extension = []
+            result.nestedType = []
+            result.enumType = []
+            result.extensionRange = []
+            result.oneofDecl = []
+        }
+
+        return result
+    }
+
+    /// The proto version of the descriptor that defines this Message.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_DescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_DescriptorProto
 
     /// The type of this Message.
     public enum WellKnownType: String {
@@ -548,6 +574,14 @@ public final class Descriptor {
         /// The `Google_Protobuf_ExtensionRangeOptions` set on this ExtensionRange.
         public let options: Google_Protobuf_ExtensionRangeOptions
 
+        /// Extract contents of this extension range in Proto form.
+        ///
+        /// - Returns: A `Google_Protobuf_DescriptorProto.ExtensionRange`.
+        public func extractProto() -> Google_Protobuf_DescriptorProto.ExtensionRange {
+            _proto
+        }
+        private let _proto: Google_Protobuf_DescriptorProto.ExtensionRange
+
         /// The name of the containing type, not including its scope.
         public var name: String { containingType.name }
         /// The fully-qualified name of the containing type, scope delimited by
@@ -567,6 +601,7 @@ public final class Descriptor {
             index: Int,
             features: Google_Protobuf_FeatureSet
         ) {
+            self._proto = proto
             self.start = proto.start
             self.end = proto.end
             self.index = index
@@ -983,15 +1018,19 @@ public final class Descriptor {
 /// they are directly accessed via a `EnumType` property on `FieldDescriptor`s,
 /// etc.
 public final class EnumDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_EnumDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_EnumDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_EnumDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Enum.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_EnumDescriptorProto
 
     /// The name of this enum type in the containing scope.
     public let name: String
@@ -1152,15 +1191,19 @@ public final class EnumDescriptor {
 /// `EnumValueDescriptor` for a given enum value, first get the `EnumDescriptor`
 /// for its type.
 public final class EnumValueDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_EnumValueDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_EnumValueDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_EnumValueDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this EnumValue.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumValueDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_EnumValueDescriptorProto
 
     /// Name of this enum constant.
     public let name: String
@@ -1227,15 +1270,19 @@ public final class EnumValueDescriptor {
 
 /// Describes a oneof defined in a message type.
 public final class OneofDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_OneofDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_OneofDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_OneofDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Oneof.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_OneofDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_OneofDescriptorProto
 
     /// Name of this oneof.
     public let name: String
@@ -1299,15 +1346,19 @@ public final class OneofDescriptor {
 /// `Descriptor` or `FileDescriptor` for its containing scope, find the
 /// extension.
 public final class FieldDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_FieldDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_FieldDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_FieldDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Field.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_FieldDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_FieldDescriptorProto
 
     /// Name of this field within the message.
     public let name: String
@@ -1679,15 +1730,19 @@ public final class FieldDescriptor {
 /// they are here to support things that generate based off RPCs defined in
 /// .proto file (gRPC, etc.).
 public final class ServiceDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_ServiceDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_ServiceDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_ServiceDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Service.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_ServiceDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_ServiceDescriptorProto
 
     /// The name of the service, not including its containing scope.
     public let name: String
@@ -1789,12 +1844,15 @@ public final class MethodDescriptor {
     // Whether the server streams multiple responses.
     public let serverStreaming: Bool
 
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_MethodDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_MethodDescriptorProto {
+        _proto
+    }
+
     /// The proto version of the descriptor that defines this method.
-    @available(
-        *,
-        deprecated,
-        message: "Use the properties directly or open a GitHub issue for something missing"
-    )
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_MethodDescriptorProto { _proto }
     private let _proto: Google_Protobuf_MethodDescriptorProto
 
