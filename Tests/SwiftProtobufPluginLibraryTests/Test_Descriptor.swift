@@ -485,7 +485,7 @@ final class Test_Descriptor: XCTestCase {
 
         options.includeSourceCodeInfo = false
         // - includeSourceCodeInfo = false
-        // - headerOnly = false
+        // - headerOnly = true
         do {
             let extract = fileDescriptor.extractProto(options: options)
             XCTAssertFalse(extract.hasSourceCodeInfo, "Included SourceCodeInfo?")
@@ -494,5 +494,40 @@ final class Test_Descriptor: XCTestCase {
             XCTAssertTrue(extract.extension.isEmpty, "Missing extensions?")
             XCTAssertTrue(extract.service.isEmpty, "Missing services?")
         }
+
+        // Verify that dependency, publicDependency, weakDependency, and optionDependency
+        // are preserved by default and cleared when headerOnly is true.
+        let depProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "dep.proto"
+                edition: EDITION_2024
+                """
+        )
+        let mainProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "main.proto"
+                edition: EDITION_2024
+                dependency: "dep.proto"
+                public_dependency: 0
+                weak_dependency: 0
+                option_dependency: "opt.proto"
+                """
+        )
+        let depSet = DescriptorSet(protos: [depProto, mainProto])
+        let mainFile = try XCTUnwrap(depSet.fileDescriptor(named: "main.proto"))
+
+        let fullExtract = mainFile.extractProto()
+        XCTAssertEqual(fullExtract.dependency, ["dep.proto"])
+        XCTAssertEqual(fullExtract.publicDependency, [0])
+        XCTAssertEqual(fullExtract.weakDependency, [0])
+        XCTAssertEqual(fullExtract.optionDependency, ["opt.proto"])
+
+        var headerOnlyOptions = ExtractProtoOptions()
+        headerOnlyOptions.headerOnly = true
+        let headerExtract = mainFile.extractProto(options: headerOnlyOptions)
+        XCTAssertTrue(headerExtract.dependency.isEmpty)
+        XCTAssertTrue(headerExtract.publicDependency.isEmpty)
+        XCTAssertTrue(headerExtract.weakDependency.isEmpty)
+        XCTAssertTrue(headerExtract.optionDependency.isEmpty)
     }
 }
