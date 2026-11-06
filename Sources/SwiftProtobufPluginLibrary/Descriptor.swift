@@ -235,6 +235,12 @@ public final class FileDescriptor {
     public let publicDependencies: [FileDescriptor]
     /// The subset of the imports that were declared `weak`.
     public let weakDependencies: [FileDescriptor]
+    /// The imports for this file that were declared `option`.
+    ///
+    /// Unlike `dependencies`, `publicDependencies`, and `weakDependencies`,
+    /// `option` dependencies are not guaranteed to be present in the
+    /// `DescriptorSet`, so only their filenames are provided.
+    public let optionDependencies: [String]
 
     /// The enum defintions at the file scope level.
     public let enums: [EnumDescriptor]
@@ -384,6 +390,7 @@ public final class FileDescriptor {
         self.dependencies = dependencies
         self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
         self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
+        self.optionDependencies = proto.optionDependency
 
         self.sourceCodeInfo = proto.sourceCodeInfo
 
@@ -551,6 +558,46 @@ public final class Descriptor {
     /// The `Google_Protobuf_MessageOptions` set on this Message.
     public let options: Google_Protobuf_MessageOptions
 
+    /// The visibility declared on this message, or `.visibilityUnset` if none was
+    /// specified.
+    public let visibility: Google_Protobuf_SymbolVisibility
+
+    /// Returns `true` if and only if the message is a pure zero-field message used
+    /// only for enum namespacing. Specifically, it must:
+    /// - be a top-level message
+    /// - have `local` visibility either explicitly or via the file's default
+    /// - have a single reserved range of `1 to max`
+    ///
+    /// For example:
+    /// ```protobuf
+    /// local message Foo {
+    ///   export enum Type {
+    ///     TYPE_UNSPECIFIED = 0;
+    ///   }
+    ///   reserved 1 to max;
+    /// }
+    /// ```
+    public var isEnumNamespaceMessage: Bool {
+        // Implementation comes from C++ SymbolChecker::IsEnumNamespaceMessage().
+        guard containingType == nil else {
+            return false
+        }
+
+        let defaultVisibility = file.features.defaultSymbolVisibility
+        let defaultToLocal = defaultVisibility == .strict || defaultVisibility == .localAll
+        let isContainerLocal =
+            visibility == .visibilityLocal || (visibility == .visibilityUnset && defaultToLocal)
+        guard isContainerLocal else {
+            return false
+        }
+
+        guard reservedRanges.count == 1 else {
+            return false
+        }
+        let range = reservedRanges[0]
+        return range.lowerBound == 1 && range.upperBound == Int32(FieldDescriptor.kMaxNumber + 1)
+    }
+
     // If this descriptor represents a well known type, which type it is.
     public let wellKnownType: WellKnownType?
 
@@ -681,6 +728,7 @@ public final class Descriptor {
         let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
         self.features = resolvedFeatures
         self.options = proto.options
+        self.visibility = proto.visibility
         self.wellKnownType = WellKnownType(rawValue: fullName)
         self.reservedRanges = proto.reservedRange.map { $0.start..<$0.end }
         self.reservedNames = proto.reservedName
@@ -819,6 +867,25 @@ public final class EnumDescriptor {
     /// The `Google_Protobuf_MessageOptions` set on this enum.
     public let options: Google_Protobuf_EnumOptions
 
+    /// The visibility declared on this enum, or `.visibilityUnset` if none was
+    /// specified.
+    public let visibility: Google_Protobuf_SymbolVisibility
+
+    /// Returns `true` if and only if the enum is nested within a message that is
+    /// considered an enum namespace message (`containingType?.isEnumNamespaceMessage == true`)
+    /// and the enum is exported either explicitly or via the file's default.
+    public var isNamespacedEnum: Bool {
+        // Implementation comes from C++ SymbolChecker::IsNamespacedEnum().
+        guard let containingType = containingType else {
+            return false
+        }
+
+        let defaultVisibility = file.features.defaultSymbolVisibility
+        let defaultToLocal = defaultVisibility == .strict || defaultVisibility == .localAll
+        let isExported = !defaultToLocal || visibility == .visibilityExport
+        return isExported && containingType.isEnumNamespaceMessage
+    }
+
     /// The reserved value ranges for this enum. These are returned in the order
     /// they are defined in the .proto file.
     public let reservedRanges: [ClosedRange<Int32>]
@@ -860,6 +927,7 @@ public final class EnumDescriptor {
         let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
         self.features = resolvedFeatures
         self.options = proto.options
+        self.visibility = proto.visibility
         self.reservedRanges = proto.reservedRange.map { $0.start...$0.end }
         self.reservedNames = proto.reservedName
 
@@ -1228,6 +1296,13 @@ public final class FieldDescriptor {
     }
     /// The index in a oneof this field is in.
     public let oneofIndex: Int32?
+
+    /// If this field is a member of a oneof, the index of the field within
+    /// `containingOneof.fields`; otherwise, `nil`.
+    public var indexInOneof: Int? {
+        guard let containingOneof = containingOneof else { return nil }
+        return containingOneof.fields.firstIndex { $0 === self }
+    }
 
     // This builds basically a union for the storage for `extensionScope`
     // and the value to look it up with.
