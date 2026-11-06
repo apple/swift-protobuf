@@ -12,17 +12,6 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import XCTest
 
-extension FileDescriptor {
-    func extensionField(named: String) -> FieldDescriptor? {
-        extensions.first { $0.name == named }
-    }
-}
-extension Descriptor {
-    func field(named: String) -> FieldDescriptor? {
-        fields.first { $0.name == named }
-    }
-}
-
 final class Test_Descriptor: XCTestCase {
 
     func testParsing() throws {
@@ -121,6 +110,78 @@ final class Test_Descriptor: XCTestCase {
             descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService")
                 === descriptorSet.files[1].services[0]
         )
+
+        let testFile = descriptorSet.files[1]
+        let topLevelMsg = testFile.messages[0]
+        let topLevelEnum = testFile.enums[0]
+        let subEnum = topLevelMsg.enums[0]
+        let service = testFile.services[0]
+
+        // FileDescriptor lookups
+        XCTAssertTrue(testFile.message(named: "TopLevelMessage") === topLevelMsg)
+        XCTAssertNil(testFile.message(named: "SubMessage"))
+        XCTAssertNil(testFile.message(named: "DoesNotExist"))
+        XCTAssertTrue(testFile.enumType(named: "TopLevelEnum") === topLevelEnum)
+        XCTAssertNil(testFile.enumType(named: "SubEnum"))
+        XCTAssertTrue(testFile.enumValue(named: "VALUE_ONE") === topLevelEnum.values[1])
+        XCTAssertNil(testFile.enumValue(named: "SUB_VALUE_0"))
+        XCTAssertTrue(testFile.service(named: "SomeService") === service)
+        XCTAssertNil(testFile.service(named: "DoesNotExist"))
+        XCTAssertTrue(testFile.extensionField(named: "ext_str") === testFile.extensions[0])
+        XCTAssertNil(testFile.extensionField(named: "ext_enum"))
+
+        // Descriptor lookups
+        XCTAssertTrue(topLevelMsg.field(named: "field1") === topLevelMsg.fields[0])
+        XCTAssertTrue(topLevelMsg.field(named: "field6") === topLevelMsg.fields[5])
+        XCTAssertNil(topLevelMsg.field(named: "does_not_exist"))
+        XCTAssertTrue(topLevelMsg.field(numbered: 1) === topLevelMsg.fields[0])
+        XCTAssertTrue(topLevelMsg.field(numbered: 6) === topLevelMsg.fields[5])
+        XCTAssertNil(topLevelMsg.field(numbered: 999))
+        XCTAssertTrue(topLevelMsg.oneof(named: "o") === topLevelMsg.oneofs[0])
+        XCTAssertNil(topLevelMsg.oneof(named: "does_not_exist"))
+        XCTAssertTrue(topLevelMsg.message(named: "SubMessage") === topLevelMsg.messages[0])
+        XCTAssertNil(topLevelMsg.message(named: "TopLevelMessage"))
+        XCTAssertTrue(topLevelMsg.enumType(named: "SubEnum") === subEnum)
+        XCTAssertNil(topLevelMsg.enumType(named: "TopLevelEnum"))
+        XCTAssertTrue(topLevelMsg.enumValue(named: "SUB_VALUE_2") === subEnum.values[2])
+        XCTAssertNil(topLevelMsg.enumValue(named: "VALUE_ZERO"))
+
+        let scoperMsg = testFile.messages[3]
+        XCTAssertTrue(scoperMsg.extensionField(named: "ext_enum") === scoperMsg.extensions[0])
+        XCTAssertTrue(scoperMsg.extensionField(named: "ext_msg") === scoperMsg.extensions[1])
+        XCTAssertNil(scoperMsg.extensionField(named: "ext_str"))
+
+        // EnumDescriptor lookups (including allow_alias first-defined behavior)
+        XCTAssertTrue(topLevelEnum.value(named: "VALUE_ZERO") === topLevelEnum.values[0])
+        XCTAssertTrue(topLevelEnum.value(named: "VALUE_TWO") === topLevelEnum.values[2])
+        XCTAssertNil(topLevelEnum.value(named: "DOES_NOT_EXIST"))
+        XCTAssertTrue(topLevelEnum.value(numbered: 0) === topLevelEnum.values[0])
+        XCTAssertTrue(topLevelEnum.value(numbered: 2) === topLevelEnum.values[2])
+        XCTAssertNil(topLevelEnum.value(numbered: 99))
+
+        let aliasFileProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "alias_enum.proto"
+                syntax: "proto3"
+                enum_type {
+                  name: "AliasedEnum"
+                  value { name: "ZERO" number: 0 }
+                  value { name: "PRIMARY_ONE" number: 1 }
+                  value { name: "ALIAS_ONE" number: 1 }
+                  options { allow_alias: true }
+                }
+                """
+        )
+        let aliasSet = DescriptorSet(protos: [aliasFileProto])
+        let aliasedEnum = try XCTUnwrap(aliasSet.enumDescriptor(named: "AliasedEnum"))
+        XCTAssertTrue(aliasedEnum.value(named: "PRIMARY_ONE") === aliasedEnum.values[1])
+        XCTAssertTrue(aliasedEnum.value(named: "ALIAS_ONE") === aliasedEnum.values[2])
+        XCTAssertTrue(aliasedEnum.value(numbered: 1) === aliasedEnum.values[1])
+
+        // ServiceDescriptor lookups
+        XCTAssertTrue(service.method(named: "Foo") === service.methods[0])
+        XCTAssertTrue(service.method(named: "Bar") === service.methods[1])
+        XCTAssertNil(service.method(named: "Baz"))
     }
 
     func testParents() throws {
