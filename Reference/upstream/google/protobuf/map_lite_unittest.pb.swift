@@ -165,7 +165,7 @@ nonisolated struct Proto2Unittest_TestMapLite: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto2Unittest_TestArenaMapLite: @unchecked Sendable {
@@ -262,7 +262,7 @@ nonisolated struct Proto2Unittest_TestArenaMapLite: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Test embedded message with required fields
