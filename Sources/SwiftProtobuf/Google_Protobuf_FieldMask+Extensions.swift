@@ -212,6 +212,21 @@ extension Google_Protobuf_FieldMask {
     }
 }
 
+/// Returns true if `path` or one of its parent paths ("foo" for "foo.bar") is
+/// in `paths`, the same coverage rule `contains(_:)` uses.
+private func isPath(_ path: String, coveredBy paths: Set<String>) -> Bool {
+    var candidate = Substring(path)
+    while true {
+        if paths.contains(String(candidate)) {
+            return true
+        }
+        guard let dot = candidate.lastIndex(of: ".") else {
+            return false
+        }
+        candidate = candidate[..<dot]
+    }
+}
+
 extension Google_Protobuf_FieldMask {
 
     /// Adds a path to FieldMask after checking whether the given path is valid.
@@ -271,15 +286,23 @@ extension Google_Protobuf_FieldMask {
 
     /// Creates an intersection of two FieldMasks.
     ///
+    /// A path is in the intersection if both masks contain it (see
+    /// ``contains(_:)``), so "foo.bar" intersected with "foo" is "foo.bar".
+    ///
     /// - Parameter mask: FieldMask to intersect with.
     /// - Returns: FieldMask with intersection of two path sets.
     public func intersect(
         _ mask: Google_Protobuf_FieldMask
     ) -> Google_Protobuf_FieldMask {
+        let selfSet = Set<String>(self.paths)
         let set = Set<String>(mask.paths)
         var paths: [String] = []
         var buffer = Set<String>()
-        for path in self.paths where set.contains(path) && !buffer.contains(path) {
+        for path in self.paths where isPath(path, coveredBy: set) && !buffer.contains(path) {
+            buffer.insert(path)
+            paths.append(path)
+        }
+        for path in mask.paths where isPath(path, coveredBy: selfSet) && !buffer.contains(path) {
             buffer.insert(path)
             paths.append(path)
         }
@@ -291,6 +314,11 @@ extension Google_Protobuf_FieldMask {
     /// Creates a FieldMasks with paths of the original FieldMask
     /// that does not included in mask.
     ///
+    /// A path is removed if `mask` contains it (see ``contains(_:)``), so
+    /// "foo.bar" minus "foo" is empty. A path that `mask` only covers part of
+    /// is kept as is ("foo" minus "foo.bar" is "foo"), since splitting it into
+    /// the remaining fields needs the message type.
+    ///
     /// - Parameter mask: FieldMask with paths should be substracted.
     /// - Returns: FieldMask with all paths does not included in mask.
     public func subtract(
@@ -299,7 +327,7 @@ extension Google_Protobuf_FieldMask {
         let set = Set<String>(mask.paths)
         var paths: [String] = []
         var buffer = Set<String>()
-        for path in self.paths where !set.contains(path) && !buffer.contains(path) {
+        for path in self.paths where !isPath(path, coveredBy: set) && !buffer.contains(path) {
             buffer.insert(path)
             paths.append(path)
         }

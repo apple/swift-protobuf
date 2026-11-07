@@ -491,6 +491,45 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m9.subtract(m10).paths, ["a"])
     }
 
+    // Checks `intersect` and `subtract` when one path covers another
+    // ("a" covers "a.b", same as `contains`). Cases from upstream
+    // field_mask_util_test.cc TestIntersect and TestSubtract.
+    func testIntersectAndSubtractWithSubPaths() throws {
+        let m1 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar.baz", "quz"])
+        let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar", "bar"])
+        XCTAssertEqual(m1.intersect(m2).paths, ["foo.bar.baz"])
+        XCTAssertEqual(m2.intersect(m1).paths, ["foo.bar.baz"])
+
+        // Upstream regression test for b/72727550.
+        let m3 = Google_Protobuf_FieldMask(protoPaths: ["optional_foreign_message.c"])
+        let m4 = Google_Protobuf_FieldMask(protoPaths: ["optional_foreign_message", "optional_nested_message"])
+        XCTAssertEqual(m3.subtract(m4).paths, [])
+
+        let m5 = Google_Protobuf_FieldMask(protoPaths: ["optional_nested_message"])
+        let m6 = Google_Protobuf_FieldMask(protoPaths: ["optional_nested_message.nonexist_field"])
+        XCTAssertEqual(m5.subtract(m6).paths, ["optional_nested_message"])
+
+        // Only whole path components count.
+        let m7 = Google_Protobuf_FieldMask(protoPaths: ["ab", "a.b"])
+        let m8 = Google_Protobuf_FieldMask(protoPaths: ["a"])
+        XCTAssertEqual(m7.intersect(m8).paths, ["a.b"])
+        XCTAssertEqual(m7.subtract(m8).paths, ["ab"])
+
+        // Removing a field from a mask has to remove its sub-paths too, or
+        // merging with the result still writes into that field.
+        let source = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalInt32 = 1
+            $0.optionalForeignMessage.c = 2
+        }
+        let requested = Google_Protobuf_FieldMask(protoPaths: ["optional_int32", "optional_foreign_message.c"])
+        let allowed = requested.subtract(.init(protoPaths: ["optional_foreign_message"]))
+        XCTAssertEqual(allowed.paths, ["optional_int32"])
+        var message = SwiftProtoTesting_TestAllTypes()
+        try message.merge(from: source, fieldMask: allowed)
+        XCTAssertEqual(message.optionalInt32, 1)
+        XCTAssertFalse(message.hasOptionalForeignMessage)
+    }
+
     // Checks whether all field types could be merged.
     func testMergeAllFields() throws {
         var m1 = SwiftProtoTesting_Fuzz_Message()
