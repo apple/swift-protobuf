@@ -329,11 +329,16 @@ internal struct JSONEncoder {
             case 13: append(staticText: "\\r")
             case 34: append(staticText: "\\\"")
             case 92: append(staticText: "\\\\")
-            case 0...31, 127...159:  // Hex form for C0 control chars
+            case 0...31, 127:  // Hex form for C0 control chars and DEL
                 append(staticText: "\\u00")
                 data.append(hexDigits[Int(b / 16)])
                 data.append(hexDigits[Int(b & 15)])
             default:
+                // This operates on individual UTF-8 bytes, so anything >= 0x80 is
+                // part of a multi-byte sequence and must be copied through verbatim.
+                // (The `string` overload above escapes U+0080...U+009F because it
+                // iterates scalars; a byte here in 0x80...0x9F is a continuation
+                // byte, not a C1 control, and escaping it would corrupt the UTF-8.)
                 data.append(b)
             }
         }
