@@ -276,6 +276,7 @@ message GeneratedSwiftReservedMessages {
   message discardUnknownFields { int32 discardUnknownFields = 1; }
   message Double { int32 Double = 1; }
   message doubleValue { int32 doubleValue = 1; }
+  message duplicateAnyTypeURL { int32 duplicateAnyTypeURL = 1; }
   message duration { int32 duration = 1; }
   message E { int32 E = 1; }
   message edition { int32 edition = 1; }
@@ -569,6 +570,7 @@ message GeneratedSwiftReservedMessages {
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
   message isExtension { int32 isExtension = 1; }
+  message isHexDigit { int32 isHexDigit = 1; }
   message isInitialized { int32 isInitialized = 1; }
   message isNegative { int32 isNegative = 1; }
   message isPathValid { int32 isPathValid = 1; }
