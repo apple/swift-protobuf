@@ -276,6 +276,7 @@ message GeneratedSwiftReservedEnums {
   enum discardUnknownFields { NONE_discardUnknownFields = 0; }
   enum Double { NONE_Double = 0; }
   enum doubleValue { NONE_doubleValue = 0; }
+  enum duplicateAnyTypeURL { NONE_duplicateAnyTypeURL = 0; }
   enum duration { NONE_duration = 0; }
   enum E { NONE_E = 0; }
   enum edition { NONE_edition = 0; }
@@ -569,6 +570,7 @@ message GeneratedSwiftReservedEnums {
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
   enum isExtension { NONE_isExtension = 0; }
+  enum isHexDigit { NONE_isHexDigit = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
   enum isNegative { NONE_isNegative = 0; }
   enum isPathValid { NONE_isPathValid = 0; }
