@@ -742,7 +742,7 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
             var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
                 .edition2023...(.edition2023)
             }
-            var featureExtensions: [any AnyMessageExtension] {
+            var featureExtensions: [ExtensionSchema] {
                 [SwiftFeatureTest_Extensions_test]
             }
 

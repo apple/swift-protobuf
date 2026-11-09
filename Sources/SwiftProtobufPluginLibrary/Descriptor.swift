@@ -47,7 +47,7 @@ public final class DescriptorSet {
     // created by protoc.
     public convenience init(
         proto: Google_Protobuf_FileDescriptorSet,
-        featureExtensions: [any AnyMessageExtension]
+        featureExtensions: [ExtensionSchema]
     ) {
         self.init(protos: proto.file, featureExtensions: featureExtensions)
     }
@@ -82,7 +82,7 @@ public final class DescriptorSet {
     ///     `google.protobuf.FeatureSet` that define custom features.
     public convenience init(
         protos: [Google_Protobuf_FileDescriptorProto],
-        featureExtensions: [any AnyMessageExtension]
+        featureExtensions: [ExtensionSchema]
     ) {
         self.init(
             protos: protos,

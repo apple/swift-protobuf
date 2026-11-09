@@ -60,7 +60,7 @@ public protocol CodeGenerator {
 
     /// A list of extensions that define Custom Features for this generator so
     /// they will be exposed on the `Descriptor` `features`.
-    var featureExtensions: [any AnyMessageExtension] { get }
+    var featureExtensions: [ExtensionSchema] { get }
 
     /// If provided, the argument parsing will support `--version` and report
     /// this value.
@@ -145,9 +145,10 @@ extension CodeGenerator {
         }
         if !featureExtensions.isEmpty {
             for e in featureExtensions {
+                let extendedMessageName = e.extendedMessage.messageName
                 precondition(
-                    e.messageType == Google_Protobuf_FeatureSet.self,
-                    "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(e.messageType)."
+                    extendedMessageName == Google_Protobuf_FeatureSet.messageSchema.messageName,
+                    "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(extendedMessageName)."
                 )
             }
             // Include `featureExtensions` when decoding the request so any custom
@@ -200,7 +201,7 @@ extension CodeGenerator {
         Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
     }
     public var customOptionExtensions: [ExtensionSchema] { [] }
-    public var featureExtensions: [any AnyMessageExtension] { [] }
+    public var featureExtensions: [ExtensionSchema] { [] }
     public var version: String? { nil }
     public var projectURL: String? { nil }
     public var copyrightLine: String? { nil }
@@ -273,9 +274,10 @@ public func generateCode(
     let featureExtensions = generator.featureExtensions
     if !featureExtensions.isEmpty {
         for e in featureExtensions {
+            let extendedMessageName = e.extendedMessage.messageName
             precondition(
-                e.messageType == Google_Protobuf_FeatureSet.self,
-                "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(e.messageType)."
+                extendedMessageName == Google_Protobuf_FeatureSet.messageSchema.messageName,
+                "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(extendedMessageName)."
             )
         }
     }
