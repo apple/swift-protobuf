@@ -94,6 +94,8 @@ nonisolated struct SwiftProtoTesting_TestEvilJson: Sendable {
 
   var lowCodepoint: Int32 = 0
 
+  var nonAscii: Int32 = 0
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -205,7 +207,7 @@ nonisolated extension SwiftProtoTesting_TestMessage: SwiftProtobuf.Message, Swif
 
 nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEvilJson"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{5}regular_value\0regular_name\0\u{5}script\0</script>\0\u{5}quotes\0unbalanced\"quotes\0\u{5}script_and_quotes\0\"<script>alert('hello!);</script>\0\u{5}empty_string\0\0\u{5}backslash\0\\\0\u{5}low_codepoint\0\u{1}\0")
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{5}regular_value\0regular_name\0\u{5}script\0</script>\0\u{5}quotes\0unbalanced\"quotes\0\u{5}script_and_quotes\0\"<script>alert('hello!);</script>\0\u{5}empty_string\0\0\u{5}backslash\0\\\0\u{5}low_codepoint\0\u{1}\0\u{5}non_ascii\0日本語\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -220,6 +222,7 @@ nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, Swi
       case 5: try { try decoder.decodeSingularInt32Field(value: &self.emptyString) }()
       case 6: try { try decoder.decodeSingularInt32Field(value: &self.backslash) }()
       case 7: try { try decoder.decodeSingularInt32Field(value: &self.lowCodepoint) }()
+      case 8: try { try decoder.decodeSingularInt32Field(value: &self.nonAscii) }()
       default: break
       }
     }
@@ -247,6 +250,9 @@ nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, Swi
     if self.lowCodepoint != 0 {
       try visitor.visitSingularInt32Field(value: self.lowCodepoint, fieldNumber: 7)
     }
+    if self.nonAscii != 0 {
+      try visitor.visitSingularInt32Field(value: self.nonAscii, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -258,6 +264,7 @@ nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.Message, Swi
     if lhs.emptyString != rhs.emptyString {return false}
     if lhs.backslash != rhs.backslash {return false}
     if lhs.lowCodepoint != rhs.lowCodepoint {return false}
+    if lhs.nonAscii != rhs.nonAscii {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
