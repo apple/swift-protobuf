@@ -155,6 +155,11 @@ nonisolated struct SwiftProtoTesting_TestEvilJson: @unchecked Swift.Sendable {
     set { _uniqueStorage().updateValue(at: 28, to: newValue, willBeSet: newValue != 0, hasBit: (0, 64)) }
   }
 
+  var nonAscii: Int32 {
+    get { _storage.value(at: 32, hasBit: (0, 128)) }
+    set { _uniqueStorage().updateValue(at: 32, to: newValue, willBeSet: newValue != 0, hasBit: (0, 128)) }
+  }
+
   init() { self._storage = SwiftProtobuf.MessageStorage(schema: Self.messageSchema) }
 
   private var _storage: SwiftProtobuf.MessageStorage
@@ -195,8 +200,8 @@ nonisolated extension SwiftProtoTesting_TestMessage: SwiftProtobuf.GeneratedMess
 }
 
 nonisolated extension SwiftProtoTesting_TestEvilJson: SwiftProtobuf.GeneratedMessage {
-  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0 \0\0\u{7}\0\0\0\0\0\0\0\0\u{8}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
-  private static let _protobuf_reflectionData: Swift.StaticString = "\\\u{2}\0\0\0Yo\u{7}\u{1e}R\u{1d}vf:#\u{1a}\u{c}X|D6\rZq\u{10}I\u{1b}J@6z\\{c}*:D\u{7f}>E\u{1b}+TO\u{b}*\\Q73E\u{1a},@s>P\u{8})\n\u{f}e7\u{e}[\u{14}[/`h{Aq4\u{2}7\n_u>cDRGB[?Z{~v|Dx\u{10}\u{1a}%\u{1a}o9\u{11}m\u{7}j\u{4}|\u{b}g0`$qX)nf,>3\u{1a}$}\u{13}\u{7}\u{f}52\u{5}S\u{1d}A,._Bj'}17)E\u{10}9C\u{1f}\u{14}\u{14}q@w\u{13}^8P\u{1e}u\u{1e}\u{1a}\0EQUDaV,9\u{13}AT\u{7f}\u{15}8\u{12}.jb;m\n)M\t\u{3}@/9e\u{19}LW\u{6}TnRv|\u{6}!\u{15}\u{15}\"c}ebtl,4o7PRe62,~\u{f}Ft=\u{18}\u{2}\0"
+  private static let _protobuf_messageSchemaString: Swift.StaticString = "\0$\0\0\u{8}\0\0\0\0\0\0\0\0\u{9}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\u{1}\0\0\0\0\u{4}\0\0\0\0\0\0\u{5}\u{2}\0\0\0\0\u{8}\0\0\u{1}\0\0\0\u{5}\u{3}\0\0\0\0\u{c}\0\0\u{2}\0\0\0\u{5}\u{4}\0\0\0\0\u{10}\0\0\u{3}\0\0\0\u{5}\u{5}\0\0\0\0\u{14}\0\0\u{4}\0\0\0\u{5}\u{6}\0\0\0\0\u{18}\0\0\u{5}\0\0\0\u{5}\u{7}\0\0\0\0\u{1c}\0\0\u{6}\0\0\0\u{5}\u{8}\0\0\0\0 \0\0\u{7}\0\0\0\u{5} \0swift_proto_testing.TestEvilJson"
+  private static let _protobuf_reflectionData: Swift.StaticString = "\u{8}\u{3}\0\0 \u{7f}\n\u{12}A[S\n2w`LN1,V\"^UB6eep\u{14}\u{8}t\u{1c}>\u{2}5\u{18}a['\0DOZO\u{19}(5%\\z\u{2}\u{13}<\u{1e}\u{5}\u{8}QahF\u{11}6R/F8]s|7p\u{12}Xg\u{4}Y\u{18}L8E0\u{11}\"5so\u{1a}\u{e}9G@\\50\u{f}q\t\u{1f}pe6\u{1}\"\nJ)W\u{17}ui56wV2\u{4}b&d\u{13}\u{1}&8\u{4}\\WZDu1B(\u{15}\u{18}\u{10}&j\u{7}0)+L\u{e}n\u{2}(\u{13}A{E\u{13}L$-}\u{7f}\u{1c}\u{15}\tMk8PMvk\u{1}\\?l(\u{e}QR\u{f}TD!\u{1a}24JFCI6P_UD,= \n1\u{6}Y\u{1a}g\u{c}RVk_u?N(H*\u{1d}^xE`\u{7}<JjZ\u{1f}\n\u{17}it3a&qs?\u{1d}q\u{10}m\u{2}At[\u{1e}\u{1d}\u{4}Rv\nU\u{14}jz\u{15}pH\u{1d}d\u{1a}\n\u{1f}>acB\u{19}\0\0"
 
   static let messageSchema = SwiftProtobuf.MessageSchema(schema: _protobuf_messageSchemaString, reflection: _protobuf_reflectionData, invokeWitness: SwiftProtobuf.MessageWitnesses<Self>.perform)
 

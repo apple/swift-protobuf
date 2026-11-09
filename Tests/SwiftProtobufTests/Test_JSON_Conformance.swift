@@ -364,12 +364,13 @@ final class Test_JSON_Conformance: XCTestCase {
             $0.emptyString = 1
             $0.backslash = 1
             $0.lowCodepoint = 1
+            $0.nonAscii = 1
         }
         do {
             let encoded = try m2.jsonString()
             XCTAssertEqual(
                 encoded,
-                ##"{"regular_name":1,"</script>":1,"unbalanced\"quotes":1,"\"<script>alert('hello!);</script>":1,"":1,"\\":1,"\u0001":1}"##
+                ##"{"regular_name":1,"</script>":1,"unbalanced\"quotes":1,"\"<script>alert('hello!);</script>":1,"":1,"\\":1,"\u0001":1,"日本語":1}"##
             )
             // Reparse it to confirm parsing deals with the escapes and matching things up.
             do {

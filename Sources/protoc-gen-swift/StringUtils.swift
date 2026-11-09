@@ -9,31 +9,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
-
-func splitPath(pathname: String) -> (dir: String, base: String, suffix: String) {
-    var dir = ""
-    var base = ""
-    var suffix = ""
-    for c in pathname {
-        if c == "/" {
-            dir += base + suffix + String(c)
-            base = ""
-            suffix = ""
-        } else if c == "." {
-            base += suffix
-            suffix = String(c)
-        } else {
-            suffix += String(c)
-        }
-    }
-    let validSuffix = suffix.isEmpty || suffix.first == "."
-    if !validSuffix {
-        base += suffix
-        suffix = ""
-    }
-    return (dir: dir, base: base, suffix: suffix)
-}
 
 /// The protoc parser emits byte literals using an escaped C convention.
 /// Fortunately, it uses only a limited subset of the C escapse:
