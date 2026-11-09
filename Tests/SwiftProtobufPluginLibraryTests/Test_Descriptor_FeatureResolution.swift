@@ -732,4 +732,121 @@ final class Test_Descriptor_FeatureResolution: XCTestCase {
         XCTAssertEqual(features.SwiftFeatureTest_test.feature3, .value5)  // Method override
     }
 
+    func testCodeGeneratorFeatureExtensions() throws {
+        final class GeneratorWithFeatureExtensions: CodeGenerator {
+            var capturedFiles: [FileDescriptor] = []
+
+            var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] {
+                [.supportsEditions]
+            }
+            var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
+                .edition2023...(.edition2023)
+            }
+            var featureExtensions: [ExtensionSchema] {
+                [SwiftFeatureTest_Extensions_test]
+            }
+
+            init() {}
+
+            func generate(
+                files: [FileDescriptor],
+                parameter: any CodeGeneratorParameter,
+                protoCompilerContext: any ProtoCompilerContext,
+                generatorOutputs: any GeneratorOutputs
+            ) throws {
+                capturedFiles = files
+            }
+        }
+
+        final class GeneratorWithDefaultFeatureExtensions: CodeGenerator {
+            var capturedFiles: [FileDescriptor] = []
+
+            var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] {
+                [.supportsEditions]
+            }
+            var supportedEditionRange: ClosedRange<Google_Protobuf_Edition> {
+                .edition2023...(.edition2023)
+            }
+
+            init() {}
+
+            func generate(
+                files: [FileDescriptor],
+                parameter: any CodeGeneratorParameter,
+                protoCompilerContext: any ProtoCompilerContext,
+                generatorOutputs: any GeneratorOutputs
+            ) throws {
+                capturedFiles = files
+            }
+        }
+
+        let fileProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "test.proto"
+                syntax: "editions"
+                edition: EDITION_2023
+                options {
+                  features {
+                    [swift_feature_test.test] { feature1: ENUM_FEATURE_VALUE2 }
+                  }
+                }
+                message_type {
+                  name: "Top"
+                  options {
+                    features {
+                      [swift_feature_test.test] { feature2: ENUM_FEATURE_VALUE3 }
+                    }
+                  }
+                  field {
+                    name: "field1"
+                    number: 1
+                    label: LABEL_OPTIONAL
+                    type: TYPE_INT32
+                    json_name: "field1"
+                    options {
+                      features {
+                        [swift_feature_test.test] { feature3: ENUM_FEATURE_VALUE4 }
+                      }
+                    }
+                  }
+                }
+                """,
+            extensions: SwiftFeatureTest_TestFeatures_Extensions
+        )
+
+        var request = Google_Protobuf_Compiler_CodeGeneratorRequest()
+        request.protoFile = [fileProto]
+        request.fileToGenerate = ["test.proto"]
+
+        let generator1 = GeneratorWithFeatureExtensions()
+        let response1 = generateCode(request: request, generator: generator1)
+        XCTAssertFalse(response1.hasError, "Unexpected error: \(response1.error)")
+        XCTAssertEqual(generator1.capturedFiles.count, 1)
+
+        let fileWithExt = generator1.capturedFiles[0]
+        XCTAssertTrue(fileWithExt.features.hasSwiftFeatureTest_test)
+        XCTAssertEqual(fileWithExt.features.SwiftFeatureTest_test.feature1, .value2)
+
+        let msgWithExt = fileWithExt.messages[0]
+        XCTAssertTrue(msgWithExt.features.hasSwiftFeatureTest_test)
+        XCTAssertEqual(msgWithExt.features.SwiftFeatureTest_test.feature1, .value2)
+        XCTAssertEqual(msgWithExt.features.SwiftFeatureTest_test.feature2, .value3)
+
+        let fieldWithExt = msgWithExt.fields[0]
+        XCTAssertTrue(fieldWithExt.features.hasSwiftFeatureTest_test)
+        XCTAssertEqual(fieldWithExt.features.SwiftFeatureTest_test.feature1, .value2)
+        XCTAssertEqual(fieldWithExt.features.SwiftFeatureTest_test.feature2, .value3)
+        XCTAssertEqual(fieldWithExt.features.SwiftFeatureTest_test.feature3, .value4)
+
+        let generator2 = GeneratorWithDefaultFeatureExtensions()
+        let response2 = generateCode(request: request, generator: generator2)
+        XCTAssertFalse(response2.hasError, "Unexpected error: \(response2.error)")
+        XCTAssertEqual(generator2.capturedFiles.count, 1)
+
+        let fileWithoutExt = generator2.capturedFiles[0]
+        XCTAssertFalse(fileWithoutExt.features.hasSwiftFeatureTest_test)
+        XCTAssertFalse(fileWithoutExt.messages[0].features.hasSwiftFeatureTest_test)
+        XCTAssertFalse(fileWithoutExt.messages[0].fields[0].features.hasSwiftFeatureTest_test)
+    }
+
 }

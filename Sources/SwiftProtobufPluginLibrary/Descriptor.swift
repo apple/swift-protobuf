@@ -40,7 +40,16 @@ public final class DescriptorSet {
     // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
     // created by protoc.
     public convenience init(proto: Google_Protobuf_FileDescriptorSet) {
-        self.init(protos: proto.file)
+        self.init(protos: proto.file, featureExtensions: [])
+    }
+
+    // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
+    // created by protoc.
+    public convenience init(
+        proto: Google_Protobuf_FileDescriptorSet,
+        featureExtensions: [ExtensionSchema]
+    ) {
+        self.init(protos: proto.file, featureExtensions: featureExtensions)
     }
 
     /// The bundled in `google.protobuf.FeatureSetDefault` that defines what
@@ -59,9 +68,26 @@ public final class DescriptorSet {
     /// Construct out of a ordered list of
     /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
     public convenience init(protos: [Google_Protobuf_FileDescriptorProto]) {
+        self.init(protos: protos, featureExtensions: [])
+    }
+
+    /// Construct out of a ordered list of
+    /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
+    ///
+    /// - Parameters:
+    ///   - protos: An ordered list of `Google_Protobuf_FileDescriptorProto`.
+    ///     They must be order such that a file is provided before another file
+    ///     that depends on it.
+    ///   - featureExtensions: A list of Protobuf Extension extensions to
+    ///     `google.protobuf.FeatureSet` that define custom features.
+    public convenience init(
+        protos: [Google_Protobuf_FileDescriptorProto],
+        featureExtensions: [ExtensionSchema]
+    ) {
         self.init(
             protos: protos,
-            featureSetDefaults: DescriptorSet.bundledFeatureSetDefaults
+            featureSetDefaults: DescriptorSet.bundledFeatureSetDefaults,
+            featureExtensions: featureExtensions
         )
     }
 
