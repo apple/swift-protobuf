@@ -793,6 +793,9 @@ extension MessageStorage {
                     try decodeUnknownField(from: &subReader, tag: subTag, discard: true)
                 }
             }
+            if subReader.isTrackingGroup {
+                throw BinaryDecodingError.truncated
+            }
             return true
         }
         guard success else {
