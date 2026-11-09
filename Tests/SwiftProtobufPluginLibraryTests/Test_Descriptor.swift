@@ -12,17 +12,6 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import XCTest
 
-extension FileDescriptor {
-    func extensionField(named: String) -> FieldDescriptor? {
-        extensions.first { $0.name == named }
-    }
-}
-extension Descriptor {
-    func field(named: String) -> FieldDescriptor? {
-        fields.first { $0.name == named }
-    }
-}
-
 final class Test_Descriptor: XCTestCase {
 
     func testParsing() throws {
@@ -121,6 +110,78 @@ final class Test_Descriptor: XCTestCase {
             descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService")
                 === descriptorSet.files[1].services[0]
         )
+
+        let testFile = descriptorSet.files[1]
+        let topLevelMsg = testFile.messages[0]
+        let topLevelEnum = testFile.enums[0]
+        let subEnum = topLevelMsg.enums[0]
+        let service = testFile.services[0]
+
+        // FileDescriptor lookups
+        XCTAssertTrue(testFile.message(named: "TopLevelMessage") === topLevelMsg)
+        XCTAssertNil(testFile.message(named: "SubMessage"))
+        XCTAssertNil(testFile.message(named: "DoesNotExist"))
+        XCTAssertTrue(testFile.enumType(named: "TopLevelEnum") === topLevelEnum)
+        XCTAssertNil(testFile.enumType(named: "SubEnum"))
+        XCTAssertTrue(testFile.enumValue(named: "VALUE_ONE") === topLevelEnum.values[1])
+        XCTAssertNil(testFile.enumValue(named: "SUB_VALUE_0"))
+        XCTAssertTrue(testFile.service(named: "SomeService") === service)
+        XCTAssertNil(testFile.service(named: "DoesNotExist"))
+        XCTAssertTrue(testFile.extensionField(named: "ext_str") === testFile.extensions[0])
+        XCTAssertNil(testFile.extensionField(named: "ext_enum"))
+
+        // Descriptor lookups
+        XCTAssertTrue(topLevelMsg.field(named: "field1") === topLevelMsg.fields[0])
+        XCTAssertTrue(topLevelMsg.field(named: "field6") === topLevelMsg.fields[5])
+        XCTAssertNil(topLevelMsg.field(named: "does_not_exist"))
+        XCTAssertTrue(topLevelMsg.field(numbered: 1) === topLevelMsg.fields[0])
+        XCTAssertTrue(topLevelMsg.field(numbered: 6) === topLevelMsg.fields[5])
+        XCTAssertNil(topLevelMsg.field(numbered: 999))
+        XCTAssertTrue(topLevelMsg.oneof(named: "o") === topLevelMsg.oneofs[0])
+        XCTAssertNil(topLevelMsg.oneof(named: "does_not_exist"))
+        XCTAssertTrue(topLevelMsg.message(named: "SubMessage") === topLevelMsg.messages[0])
+        XCTAssertNil(topLevelMsg.message(named: "TopLevelMessage"))
+        XCTAssertTrue(topLevelMsg.enumType(named: "SubEnum") === subEnum)
+        XCTAssertNil(topLevelMsg.enumType(named: "TopLevelEnum"))
+        XCTAssertTrue(topLevelMsg.enumValue(named: "SUB_VALUE_2") === subEnum.values[2])
+        XCTAssertNil(topLevelMsg.enumValue(named: "VALUE_ZERO"))
+
+        let scoperMsg = testFile.messages[3]
+        XCTAssertTrue(scoperMsg.extensionField(named: "ext_enum") === scoperMsg.extensions[0])
+        XCTAssertTrue(scoperMsg.extensionField(named: "ext_msg") === scoperMsg.extensions[1])
+        XCTAssertNil(scoperMsg.extensionField(named: "ext_str"))
+
+        // EnumDescriptor lookups (including allow_alias first-defined behavior)
+        XCTAssertTrue(topLevelEnum.value(named: "VALUE_ZERO") === topLevelEnum.values[0])
+        XCTAssertTrue(topLevelEnum.value(named: "VALUE_TWO") === topLevelEnum.values[2])
+        XCTAssertNil(topLevelEnum.value(named: "DOES_NOT_EXIST"))
+        XCTAssertTrue(topLevelEnum.value(numbered: 0) === topLevelEnum.values[0])
+        XCTAssertTrue(topLevelEnum.value(numbered: 2) === topLevelEnum.values[2])
+        XCTAssertNil(topLevelEnum.value(numbered: 99))
+
+        let aliasFileProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "alias_enum.proto"
+                syntax: "proto3"
+                enum_type {
+                  name: "AliasedEnum"
+                  value { name: "ZERO" number: 0 }
+                  value { name: "PRIMARY_ONE" number: 1 }
+                  value { name: "ALIAS_ONE" number: 1 }
+                  options { allow_alias: true }
+                }
+                """
+        )
+        let aliasSet = DescriptorSet(protos: [aliasFileProto])
+        let aliasedEnum = try XCTUnwrap(aliasSet.enumDescriptor(named: "AliasedEnum"))
+        XCTAssertTrue(aliasedEnum.value(named: "PRIMARY_ONE") === aliasedEnum.values[1])
+        XCTAssertTrue(aliasedEnum.value(named: "ALIAS_ONE") === aliasedEnum.values[2])
+        XCTAssertTrue(aliasedEnum.value(numbered: 1) === aliasedEnum.values[1])
+
+        // ServiceDescriptor lookups
+        XCTAssertTrue(service.method(named: "Foo") === service.methods[0])
+        XCTAssertTrue(service.method(named: "Bar") === service.methods[1])
+        XCTAssertNil(service.method(named: "Baz"))
     }
 
     func testParents() throws {
@@ -190,6 +251,12 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(oneof.fields[1] === topLevelMessage.fields[3])
         XCTAssertTrue(oneof.fields[2] === topLevelMessage.fields[4])
         XCTAssertTrue(oneof.fields[3] === topLevelMessage.fields[5])
+        XCTAssertNil(topLevelMessage.fields[0].indexInOneof)
+        XCTAssertNil(topLevelMessage.fields[1].indexInOneof)
+        XCTAssertEqual(topLevelMessage.fields[2].indexInOneof, 0)
+        XCTAssertEqual(topLevelMessage.fields[3].indexInOneof, 1)
+        XCTAssertEqual(topLevelMessage.fields[4].indexInOneof, 2)
+        XCTAssertEqual(topLevelMessage.fields[5].indexInOneof, 3)
 
         XCTAssertEqual(topLevelMessage2.fields.count, 2)
         XCTAssertEqual(topLevelMessage2.fields[0].name, "left")
@@ -268,6 +335,13 @@ final class Test_Descriptor: XCTestCase {
         for (i, o) in proto2ForPresence.realOneofs.enumerated() {
             XCTAssert(o === proto2ForPresence.oneofs[i])
         }
+        for i in 0..<12 {
+            XCTAssertNil(proto2ForPresence.fields[i].indexInOneof)
+        }
+        XCTAssertEqual(proto2ForPresence.fields[12].indexInOneof, 0)
+        XCTAssertEqual(proto2ForPresence.fields[13].indexInOneof, 1)
+        XCTAssertEqual(proto2ForPresence.fields[14].indexInOneof, 2)
+        XCTAssertEqual(proto2ForPresence.fields[15].indexInOneof, 3)
 
         // Proto3 Presence
 
@@ -331,6 +405,17 @@ final class Test_Descriptor: XCTestCase {
         for (i, o) in proto2ForPresence.realOneofs.enumerated() {
             XCTAssert(o === proto2ForPresence.oneofs[i])
         }
+        for i in [0, 1, 2, 3, 8, 9, 10, 11] {
+            XCTAssertNil(proto3ForPresence.fields[i].indexInOneof)
+        }
+        // Synthetic oneofs for proto3 optional fields each contain a single field at index 0.
+        for i in 4...7 {
+            XCTAssertEqual(proto3ForPresence.fields[i].indexInOneof, 0)
+        }
+        XCTAssertEqual(proto3ForPresence.fields[12].indexInOneof, 0)
+        XCTAssertEqual(proto3ForPresence.fields[13].indexInOneof, 1)
+        XCTAssertEqual(proto3ForPresence.fields[14].indexInOneof, 2)
+        XCTAssertEqual(proto3ForPresence.fields[15].indexInOneof, 3)
     }
 
     func testExtensions() throws {
@@ -364,6 +449,112 @@ final class Test_Descriptor: XCTestCase {
         XCTAssertTrue(topLevelExt.file === descriptorTestFile)
         XCTAssertTrue(nestedExt1.file === descriptorTestFile)
         XCTAssertTrue(nestedExt2.file === descriptorTestFile)
+        XCTAssertNil(topLevelExt.indexInOneof)
+        XCTAssertNil(nestedExt1.indexInOneof)
+        XCTAssertNil(nestedExt2.indexInOneof)
+    }
+
+    func testExtensionAndReservedContainment() throws {
+        let rangeTestProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "range_helpers.proto"
+                package: "range.test"
+                syntax: "proto2"
+                message_type {
+                  name: "RangeMessage"
+                  extension_range {
+                    start: 100
+                    end: 200
+                  }
+                  extension_range {
+                    start: 300
+                    end: 301
+                  }
+                  reserved_range {
+                    start: 10
+                    end: 20
+                  }
+                  reserved_range {
+                    start: 50
+                    end: 51
+                  }
+                  reserved_name: "reserved_foo"
+                  reserved_name: "reserved_bar"
+                }
+                enum_type {
+                  name: "RangeEnum"
+                  value {
+                    name: "RANGE_ENUM_ZERO"
+                    number: 0
+                  }
+                  reserved_range {
+                    start: -5
+                    end: -1
+                  }
+                  reserved_range {
+                    start: 10
+                    end: 20
+                  }
+                  reserved_range {
+                    start: 42
+                    end: 42
+                  }
+                  reserved_name: "OLD_VALUE"
+                }
+                """
+        )
+        let set = DescriptorSet(protos: [rangeTestProto])
+        let msg = try XCTUnwrap(set.descriptor(named: "range.test.RangeMessage"))
+        let enm = try XCTUnwrap(set.enumDescriptor(named: "range.test.RangeEnum"))
+
+        // Descriptor extension ranges (half-open: start..<end)
+        XCTAssertFalse(msg.isExtensionNumber(99))
+        XCTAssertNil(msg.extensionRange(containing: 99))
+        XCTAssertTrue(msg.isExtensionNumber(100))
+        XCTAssertTrue(msg.extensionRange(containing: 100) === msg.messageExtensionRanges[0])
+        XCTAssertTrue(msg.isExtensionNumber(199))
+        XCTAssertTrue(msg.extensionRange(containing: 199) === msg.messageExtensionRanges[0])
+        XCTAssertFalse(msg.isExtensionNumber(200))
+        XCTAssertNil(msg.extensionRange(containing: 200))
+        XCTAssertTrue(msg.isExtensionNumber(300))
+        XCTAssertTrue(msg.extensionRange(containing: 300) === msg.messageExtensionRanges[1])
+        XCTAssertFalse(msg.isExtensionNumber(301))
+
+        // Descriptor reserved ranges (half-open: start..<end) & reserved names
+        XCTAssertFalse(msg.isReservedNumber(9))
+        XCTAssertNil(msg.reservedRange(containing: 9))
+        XCTAssertTrue(msg.isReservedNumber(10))
+        XCTAssertEqual(msg.reservedRange(containing: 10), 10..<20)
+        XCTAssertTrue(msg.isReservedNumber(19))
+        XCTAssertEqual(msg.reservedRange(containing: 19), 10..<20)
+        XCTAssertFalse(msg.isReservedNumber(20))
+        XCTAssertNil(msg.reservedRange(containing: 20))
+        XCTAssertTrue(msg.isReservedNumber(50))
+        XCTAssertEqual(msg.reservedRange(containing: 50), 50..<51)
+        XCTAssertFalse(msg.isReservedNumber(51))
+
+        XCTAssertTrue(msg.isReservedName("reserved_foo"))
+        XCTAssertTrue(msg.isReservedName("reserved_bar"))
+        XCTAssertFalse(msg.isReservedName("other_field"))
+
+        // EnumDescriptor reserved ranges (closed: start...end) & reserved names
+        XCTAssertFalse(enm.isReservedNumber(-6))
+        XCTAssertNil(enm.reservedRange(containing: -6))
+        XCTAssertTrue(enm.isReservedNumber(-5))
+        XCTAssertEqual(enm.reservedRange(containing: -5), -5...(-1))
+        XCTAssertTrue(enm.isReservedNumber(-1))
+        XCTAssertEqual(enm.reservedRange(containing: -1), -5...(-1))
+        XCTAssertFalse(enm.isReservedNumber(0))
+        XCTAssertTrue(enm.isReservedNumber(10))
+        XCTAssertEqual(enm.reservedRange(containing: 10), 10...20)
+        XCTAssertTrue(enm.isReservedNumber(20))
+        XCTAssertEqual(enm.reservedRange(containing: 20), 10...20)
+        XCTAssertFalse(enm.isReservedNumber(21))
+        XCTAssertTrue(enm.isReservedNumber(42))
+        XCTAssertEqual(enm.reservedRange(containing: 42), 42...42)
+
+        XCTAssertTrue(enm.isReservedName("OLD_VALUE"))
+        XCTAssertFalse(enm.isReservedName("RANGE_ENUM_ZERO"))
     }
 
     func testDelimited() throws {
@@ -485,7 +676,7 @@ final class Test_Descriptor: XCTestCase {
 
         options.includeSourceCodeInfo = false
         // - includeSourceCodeInfo = false
-        // - headerOnly = false
+        // - headerOnly = true
         do {
             let extract = fileDescriptor.extractProto(options: options)
             XCTAssertFalse(extract.hasSourceCodeInfo, "Included SourceCodeInfo?")
@@ -494,5 +685,368 @@ final class Test_Descriptor: XCTestCase {
             XCTAssertTrue(extract.extension.isEmpty, "Missing extensions?")
             XCTAssertTrue(extract.service.isEmpty, "Missing services?")
         }
+
+        // Verify that dependency, publicDependency, weakDependency, and optionDependency
+        // are preserved by default and cleared when headerOnly is true.
+        let depProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "dep.proto"
+                edition: EDITION_2024
+                """
+        )
+        let mainProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "main.proto"
+                edition: EDITION_2024
+                dependency: "dep.proto"
+                public_dependency: 0
+                weak_dependency: 0
+                option_dependency: "opt.proto"
+                """
+        )
+        let depSet = DescriptorSet(protos: [depProto, mainProto])
+        let depFile = try XCTUnwrap(depSet.fileDescriptor(named: "dep.proto"))
+        let mainFile = try XCTUnwrap(depSet.fileDescriptor(named: "main.proto"))
+
+        XCTAssertTrue(depFile.optionDependencies.isEmpty)
+        XCTAssertEqual(mainFile.optionDependencies, ["opt.proto"])
+
+        let fullExtract = mainFile.extractProto()
+        XCTAssertEqual(fullExtract.dependency, ["dep.proto"])
+        XCTAssertEqual(fullExtract.publicDependency, [0])
+        XCTAssertEqual(fullExtract.weakDependency, [0])
+        XCTAssertEqual(fullExtract.optionDependency, ["opt.proto"])
+
+        var headerOnlyOptions = ExtractProtoOptions()
+        headerOnlyOptions.headerOnly = true
+        let headerExtract = mainFile.extractProto(options: headerOnlyOptions)
+        XCTAssertTrue(headerExtract.dependency.isEmpty)
+        XCTAssertTrue(headerExtract.publicDependency.isEmpty)
+        XCTAssertTrue(headerExtract.weakDependency.isEmpty)
+        XCTAssertTrue(headerExtract.optionDependency.isEmpty)
+
+        // Verify non-file descriptor extractProto() and Descriptor.extractProto(options:).
+        let msgProtoFile = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "extract_nonfile.proto"
+                package: "extract.test"
+                edition: EDITION_2024
+                message_type {
+                  name: "RichMessage"
+                  visibility: VISIBILITY_EXPORT
+                  field {
+                    name: "f1"
+                    number: 1
+                    label: LABEL_OPTIONAL
+                    type: TYPE_INT32
+                    oneof_index: 0
+                    json_name: "f1"
+                  }
+                  extension {
+                    name: "nested_ext"
+                    extendee: ".extract.test.RichMessage"
+                    number: 100
+                    label: LABEL_OPTIONAL
+                    type: TYPE_STRING
+                    json_name: "nestedExt"
+                  }
+                  nested_type {
+                    name: "NestedMsg"
+                  }
+                  enum_type {
+                    name: "NestedEnum"
+                    value {
+                      name: "NESTED_ZERO"
+                      number: 0
+                    }
+                  }
+                  extension_range {
+                    start: 100
+                    end: 200
+                  }
+                  oneof_decl {
+                    name: "choice"
+                  }
+                  options {
+                    deprecated: true
+                  }
+                  reserved_range {
+                    start: 50
+                    end: 60
+                  }
+                  reserved_name: "old_field"
+                }
+                service {
+                  name: "RichService"
+                  method {
+                    name: "Call"
+                    input_type: ".extract.test.RichMessage"
+                    output_type: ".extract.test.RichMessage"
+                  }
+                }
+                """
+        )
+        let richSet = DescriptorSet(protos: [msgProtoFile])
+        let richMsg = try XCTUnwrap(richSet.descriptor(named: "extract.test.RichMessage"))
+
+        let fullMsgProto = richMsg.extractProto()
+        XCTAssertEqual(fullMsgProto.name, "RichMessage")
+        XCTAssertEqual(fullMsgProto.visibility, .visibilityExport)
+        XCTAssertTrue(fullMsgProto.options.deprecated)
+        XCTAssertEqual(fullMsgProto.reservedRange.count, 1)
+        XCTAssertEqual(fullMsgProto.reservedName, ["old_field"])
+        XCTAssertEqual(fullMsgProto.field.count, 1)
+        XCTAssertEqual(fullMsgProto.extension.count, 1)
+        XCTAssertEqual(fullMsgProto.nestedType.count, 1)
+        XCTAssertEqual(fullMsgProto.enumType.count, 1)
+        XCTAssertEqual(fullMsgProto.extensionRange.count, 1)
+        XCTAssertEqual(fullMsgProto.oneofDecl.count, 1)
+
+        let headerMsgProto = richMsg.extractProto(options: headerOnlyOptions)
+        XCTAssertEqual(headerMsgProto.name, "RichMessage")
+        XCTAssertEqual(headerMsgProto.visibility, .visibilityExport)
+        XCTAssertTrue(headerMsgProto.options.deprecated)
+        XCTAssertEqual(headerMsgProto.reservedRange.count, 1)
+        XCTAssertEqual(headerMsgProto.reservedName, ["old_field"])
+        XCTAssertTrue(headerMsgProto.field.isEmpty)
+        XCTAssertTrue(headerMsgProto.extension.isEmpty)
+        XCTAssertTrue(headerMsgProto.nestedType.isEmpty)
+        XCTAssertTrue(headerMsgProto.enumType.isEmpty)
+        XCTAssertTrue(headerMsgProto.extensionRange.isEmpty)
+        XCTAssertTrue(headerMsgProto.oneofDecl.isEmpty)
+
+        let extRange = try XCTUnwrap(richMsg.messageExtensionRanges.first)
+        XCTAssertEqual(extRange.extractProto(), fullMsgProto.extensionRange[0])
+
+        let fieldDesc = try XCTUnwrap(richMsg.fields.first)
+        XCTAssertEqual(fieldDesc.extractProto(), fullMsgProto.field[0])
+
+        let oneofDesc = try XCTUnwrap(richMsg.oneofs.first)
+        XCTAssertEqual(oneofDesc.extractProto(), fullMsgProto.oneofDecl[0])
+
+        let enumDesc = try XCTUnwrap(richMsg.enums.first)
+        XCTAssertEqual(enumDesc.extractProto(), fullMsgProto.enumType[0])
+
+        let enumValDesc = try XCTUnwrap(enumDesc.values.first)
+        XCTAssertEqual(enumValDesc.extractProto(), fullMsgProto.enumType[0].value[0])
+
+        let serviceDesc = try XCTUnwrap(richSet.serviceDescriptor(named: "extract.test.RichService"))
+        XCTAssertEqual(serviceDesc.extractProto(), msgProtoFile.service[0])
+
+        let methodDesc = try XCTUnwrap(serviceDesc.methods.first)
+        XCTAssertEqual(methodDesc.extractProto(), msgProtoFile.service[0].method[0])
+    }
+
+    func testSymbolVisibility() throws {
+        // 1. STRICT default symbol visibility:
+        //    - local message with `reserved 1 to max` is an enum namespace message,
+        //      and its `export enum` is a namespaced enum (while a `local` or unset
+        //      nested enum is not).
+        //    - exported message, message without `1 to max` reserved range, and nested
+        //      message are not enum namespace messages.
+        let strictProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "strict.proto"
+                package: "vis.test"
+                edition: EDITION_2024
+                options {
+                  features {
+                    default_symbol_visibility: STRICT
+                  }
+                }
+                message_type {
+                  name: "EnumNamespaceMessage"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                  enum_type {
+                    name: "UnsetEnum"
+                    value { name: "BAR" number: 0 }
+                  }
+                  enum_type {
+                    name: "LocalEnum"
+                    visibility: VISIBILITY_LOCAL
+                    value { name: "BAZ" number: 0 }
+                  }
+                  nested_type {
+                    name: "NestedNamespaceCandidate"
+                    visibility: VISIBILITY_LOCAL
+                    reserved_range {
+                      start: 1
+                      end: 536870912
+                    }
+                  }
+                }
+                message_type {
+                  name: "ExportedMessageWithReservedMax"
+                  visibility: VISIBILITY_EXPORT
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "LocalMessagePartialReserved"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 10
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "LocalMessageNoReserved"
+                  visibility: VISIBILITY_LOCAL
+                }
+                enum_type {
+                  name: "TopLevelEnum"
+                  visibility: VISIBILITY_EXPORT
+                  value { name: "TOP" number: 0 }
+                }
+                """
+        )
+
+        // 2. LOCAL_ALL default symbol visibility:
+        //    - top-level message with unset visibility defaults to local, so with
+        //      `reserved 1 to max` it is an enum namespace message.
+        let localAllProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "local_all.proto"
+                package: "vis.local_all"
+                edition: EDITION_2024
+                options {
+                  features {
+                    default_symbol_visibility: LOCAL_ALL
+                  }
+                }
+                message_type {
+                  name: "ImplicitLocalNamespaceMessage"
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "ExportedEnum"
+                    visibility: VISIBILITY_EXPORT
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                """
+        )
+
+        // 3. Default Edition 2024 (EXPORT_TOP_LEVEL):
+        //    - top-level message with unset visibility defaults to export (so NOT an
+        //      enum namespace message), whereas an explicitly `local` message with
+        //      `reserved 1 to max` IS an enum namespace message, and its nested enum
+        //      with unset visibility is considered a namespaced enum (matching C++
+        //      SymbolCheckerTest.IsNamespacedEnumExplicitlyLocalParent).
+        let exportTopLevelProto = try Google_Protobuf_FileDescriptorProto(
+            textFormatString: """
+                name: "export_top_level.proto"
+                package: "vis.export_top"
+                edition: EDITION_2024
+                message_type {
+                  name: "ExplicitLocalNamespaceMessage"
+                  visibility: VISIBILITY_LOCAL
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                  enum_type {
+                    name: "UnsetNestedEnum"
+                    value { name: "FOO" number: 0 }
+                  }
+                }
+                message_type {
+                  name: "UnsetTopLevelMessage"
+                  reserved_range {
+                    start: 1
+                    end: 536870912
+                  }
+                }
+                """
+        )
+
+        let set = DescriptorSet(protos: [strictProto, localAllProto, exportTopLevelProto])
+
+        let namespaceMsg = try XCTUnwrap(set.descriptor(named: "vis.test.EnumNamespaceMessage"))
+        XCTAssertEqual(namespaceMsg.visibility, .visibilityLocal)
+        XCTAssertTrue(namespaceMsg.isEnumNamespaceMessage)
+
+        let exportedEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.ExportedEnum"))
+        XCTAssertEqual(exportedEnum.visibility, .visibilityExport)
+        XCTAssertTrue(exportedEnum.isNamespacedEnum)
+
+        let unsetEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.UnsetEnum"))
+        XCTAssertEqual(unsetEnum.visibility, .visibilityUnset)
+        XCTAssertFalse(unsetEnum.isNamespacedEnum)
+
+        let localEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.EnumNamespaceMessage.LocalEnum"))
+        XCTAssertEqual(localEnum.visibility, .visibilityLocal)
+        XCTAssertFalse(localEnum.isNamespacedEnum)
+
+        let nestedCandidate = try XCTUnwrap(
+            set.descriptor(named: "vis.test.EnumNamespaceMessage.NestedNamespaceCandidate")
+        )
+        XCTAssertFalse(nestedCandidate.isEnumNamespaceMessage)
+
+        let exportedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.ExportedMessageWithReservedMax"))
+        XCTAssertEqual(exportedMsg.visibility, .visibilityExport)
+        XCTAssertFalse(exportedMsg.isEnumNamespaceMessage)
+        let enumInExportedMsg = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.test.ExportedMessageWithReservedMax.ExportedEnum")
+        )
+        XCTAssertFalse(enumInExportedMsg.isNamespacedEnum)
+
+        let partialReservedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.LocalMessagePartialReserved"))
+        XCTAssertFalse(partialReservedMsg.isEnumNamespaceMessage)
+        let enumInPartialMsg = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.test.LocalMessagePartialReserved.ExportedEnum")
+        )
+        XCTAssertFalse(enumInPartialMsg.isNamespacedEnum)
+
+        let noReservedMsg = try XCTUnwrap(set.descriptor(named: "vis.test.LocalMessageNoReserved"))
+        XCTAssertFalse(noReservedMsg.isEnumNamespaceMessage)
+
+        let topLevelEnum = try XCTUnwrap(set.enumDescriptor(named: "vis.test.TopLevelEnum"))
+        XCTAssertEqual(topLevelEnum.visibility, .visibilityExport)
+        XCTAssertFalse(topLevelEnum.isNamespacedEnum)
+
+        let implicitLocalMsg = try XCTUnwrap(set.descriptor(named: "vis.local_all.ImplicitLocalNamespaceMessage"))
+        XCTAssertEqual(implicitLocalMsg.visibility, .visibilityUnset)
+        XCTAssertTrue(implicitLocalMsg.isEnumNamespaceMessage)
+        let localAllExportedEnum = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.local_all.ImplicitLocalNamespaceMessage.ExportedEnum")
+        )
+        XCTAssertTrue(localAllExportedEnum.isNamespacedEnum)
+
+        let explicitLocalMsg = try XCTUnwrap(set.descriptor(named: "vis.export_top.ExplicitLocalNamespaceMessage"))
+        XCTAssertEqual(explicitLocalMsg.visibility, .visibilityLocal)
+        XCTAssertTrue(explicitLocalMsg.isEnumNamespaceMessage)
+        let unsetNestedEnum = try XCTUnwrap(
+            set.enumDescriptor(named: "vis.export_top.ExplicitLocalNamespaceMessage.UnsetNestedEnum")
+        )
+        XCTAssertEqual(unsetNestedEnum.visibility, .visibilityUnset)
+        XCTAssertTrue(unsetNestedEnum.isNamespacedEnum)
+
+        let unsetTopLevelMsg = try XCTUnwrap(set.descriptor(named: "vis.export_top.UnsetTopLevelMessage"))
+        XCTAssertEqual(unsetTopLevelMsg.visibility, .visibilityUnset)
+        XCTAssertFalse(unsetTopLevelMsg.isEnumNamespaceMessage)
     }
 }

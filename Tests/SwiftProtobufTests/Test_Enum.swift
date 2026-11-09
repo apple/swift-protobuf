@@ -86,60 +86,114 @@ final class Test_Enum: XCTestCase, PBTestHelpers {
     }
 
     func testUnknownValueOutOfInt32Range() throws {
-        // An enum value is encoded as an int32 on the wire, and binary decoding
-        // truncates to int32. An UNRECOGNIZED case can hold any Int, so an Int
-        // outside the int32 range must still encode as the truncated int32: the
-        // size pass already measures Int32(truncatingIfNeeded:), so a wider write
-        // would overflow the preallocated buffer.
-        let raw = 0x1_0000_0005  // 2^32 + 5, truncates to int32 5
-        let truncated = Int(Int32(truncatingIfNeeded: raw))
+        // An enum value is encoded as an int32 on the wire, and binary, JSON,
+        // and text format decoding all require or truncate to int32. An
+        // UNRECOGNIZED case can hold any Int, so an Int outside the int32 range
+        // must still encode as the truncated int32 across all formats.
+        for raw in [0x1_0000_0005, -0x1_0000_0005] {
+            let truncated = Int(Int32(truncatingIfNeeded: raw))
 
-        let singular = SwiftProtoTesting_Proto3_TestAllTypes.with {
-            $0.optionalNestedEnum = .UNRECOGNIZED(raw)
-        }
-        let singularBytes: [UInt8] = try singular.serializedBytes()
-        let singularRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: singularBytes)
-        XCTAssertEqual(singularRT.optionalNestedEnum.rawValue, truncated)
+            let singular = SwiftProtoTesting_Proto3_TestAllTypes.with {
+                $0.optionalNestedEnum = .UNRECOGNIZED(raw)
+            }
+            let singularBytes: [UInt8] = try singular.serializedBytes()
+            let singularRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: singularBytes)
+            XCTAssertEqual(singularRT.optionalNestedEnum.rawValue, truncated)
+            let singularJSON = try SwiftProtoTesting_Proto3_TestAllTypes(jsonString: try singular.jsonString())
+            XCTAssertEqual(singularJSON.optionalNestedEnum.rawValue, truncated)
+            let singularText = try SwiftProtoTesting_Proto3_TestAllTypes(
+                textFormatString: singular.textFormatString()
+            )
+            XCTAssertEqual(singularText.optionalNestedEnum.rawValue, truncated)
 
-        let repeated = SwiftProtoTesting_Proto3_TestAllTypes.with {
-            $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
-        }
-        let repeatedBytes: [UInt8] = try repeated.serializedBytes()
-        let repeatedRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: repeatedBytes)
-        XCTAssertEqual(
-            repeatedRT.repeatedNestedEnum.map { $0.rawValue },
-            [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
-        )
+            let repeated = SwiftProtoTesting_Proto3_TestAllTypes.with {
+                $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
+            }
+            let repeatedBytes: [UInt8] = try repeated.serializedBytes()
+            let repeatedRT = try SwiftProtoTesting_Proto3_TestAllTypes(serializedBytes: repeatedBytes)
+            XCTAssertEqual(
+                repeatedRT.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
+            let repeatedJSON = try SwiftProtoTesting_Proto3_TestAllTypes(jsonString: try repeated.jsonString())
+            XCTAssertEqual(
+                repeatedJSON.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
+            let repeatedText = try SwiftProtoTesting_Proto3_TestAllTypes(
+                textFormatString: repeated.textFormatString()
+            )
+            XCTAssertEqual(
+                repeatedText.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
 
-        let packed = SwiftProtoTesting_Proto3_TestPackedTypes.with {
-            $0.packedEnum = [.UNRECOGNIZED(raw), .foreignFoo]
-        }
-        let packedBytes: [UInt8] = try packed.serializedBytes()
-        let packedRT = try SwiftProtoTesting_Proto3_TestPackedTypes(serializedBytes: packedBytes)
-        XCTAssertEqual(
-            packedRT.packedEnum.map { $0.rawValue },
-            [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
-        )
+            let packed = SwiftProtoTesting_Proto3_TestPackedTypes.with {
+                $0.packedEnum = [.UNRECOGNIZED(raw), .foreignFoo]
+            }
+            let packedBytes: [UInt8] = try packed.serializedBytes()
+            let packedRT = try SwiftProtoTesting_Proto3_TestPackedTypes(serializedBytes: packedBytes)
+            XCTAssertEqual(
+                packedRT.packedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
+            )
+            let packedJSON = try SwiftProtoTesting_Proto3_TestPackedTypes(jsonString: try packed.jsonString())
+            XCTAssertEqual(
+                packedJSON.packedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
+            )
+            let packedText = try SwiftProtoTesting_Proto3_TestPackedTypes(
+                textFormatString: packed.textFormatString()
+            )
+            XCTAssertEqual(
+                packedText.packedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_ForeignEnum.foreignFoo.rawValue]
+            )
 
-        let unpacked = SwiftProtoTesting_Proto3_TestUnpackedTypes.with {
-            $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
-        }
-        let unpackedBytes: [UInt8] = try unpacked.serializedBytes()
-        let unpackedRT = try SwiftProtoTesting_Proto3_TestUnpackedTypes(serializedBytes: unpackedBytes)
-        XCTAssertEqual(
-            unpackedRT.repeatedNestedEnum.map { $0.rawValue },
-            [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
-        )
+            let unpacked = SwiftProtoTesting_Proto3_TestUnpackedTypes.with {
+                $0.repeatedNestedEnum = [.UNRECOGNIZED(raw), .foo]
+            }
+            let unpackedBytes: [UInt8] = try unpacked.serializedBytes()
+            let unpackedRT = try SwiftProtoTesting_Proto3_TestUnpackedTypes(serializedBytes: unpackedBytes)
+            XCTAssertEqual(
+                unpackedRT.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
+            let unpackedJSON = try SwiftProtoTesting_Proto3_TestUnpackedTypes(
+                jsonString: try unpacked.jsonString()
+            )
+            XCTAssertEqual(
+                unpackedJSON.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
+            let unpackedText = try SwiftProtoTesting_Proto3_TestUnpackedTypes(
+                textFormatString: unpacked.textFormatString()
+            )
+            XCTAssertEqual(
+                unpackedText.repeatedNestedEnum.map { $0.rawValue },
+                [truncated, SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo.rawValue]
+            )
 
-        let map = SwiftProtoTesting_TestMap.with {
-            $0.mapInt32Enum = [1: .UNRECOGNIZED(raw), 2: .bar]
+            let map = SwiftProtoTesting_TestMap.with {
+                $0.mapInt32Enum = [1: .UNRECOGNIZED(raw), 2: .bar]
+            }
+            let mapBytes: [UInt8] = try map.serializedBytes()
+            let mapRT = try SwiftProtoTesting_TestMap(serializedBytes: mapBytes)
+            XCTAssertEqual(
+                mapRT.mapInt32Enum.mapValues { $0.rawValue },
+                [1: truncated, 2: SwiftProtoTesting_MapEnum.bar.rawValue]
+            )
+            let mapJSON = try SwiftProtoTesting_TestMap(jsonString: try map.jsonString())
+            XCTAssertEqual(
+                mapJSON.mapInt32Enum.mapValues { $0.rawValue },
+                [1: truncated, 2: SwiftProtoTesting_MapEnum.bar.rawValue]
+            )
+            let mapText = try SwiftProtoTesting_TestMap(textFormatString: map.textFormatString())
+            XCTAssertEqual(
+                mapText.mapInt32Enum.mapValues { $0.rawValue },
+                [1: truncated, 2: SwiftProtoTesting_MapEnum.bar.rawValue]
+            )
         }
-        let mapBytes: [UInt8] = try map.serializedBytes()
-        let mapRT = try SwiftProtoTesting_TestMap(serializedBytes: mapBytes)
-        XCTAssertEqual(
-            mapRT.mapInt32Enum.mapValues { $0.rawValue },
-            [1: truncated, 2: SwiftProtoTesting_MapEnum.bar.rawValue]
-        )
     }
 
     func testEnumPrefixStripping() {

@@ -370,4 +370,56 @@ final class Test_NamingUtils: XCTestCase {
             XCTAssertEqual(NamingUtils.toUpperCamelCase(input), expectedUppper)
         }
     }
+
+    func testSplitPath() {
+        let tests: [(String, dir: String, base: String, suffix: String)] = [
+            ("", "", "", ""),
+            ("foo", "", "foo", ""),
+            ("foo.proto", "", "foo", ".proto"),
+            ("foo.bar.proto", "", "foo.bar", ".proto"),
+            (".foo", "", "", ".foo"),
+            (".foo.proto", "", ".foo", ".proto"),
+            ("a/b/c", "a/b/", "c", ""),
+            ("a/b/c.proto", "a/b/", "c", ".proto"),
+            ("a/b/c.d.proto", "a/b/", "c.d", ".proto"),
+            ("a.b/c", "a.b/", "c", ""),
+            ("a.b/c.proto", "a.b/", "c", ".proto"),
+            ("/a/b/c.proto", "/a/b/", "c", ".proto"),
+            ("a/b/", "a/b/", "", ""),
+        ]
+
+        for (pathname, expectedDir, expectedBase, expectedSuffix) in tests {
+            let result = NamingUtils.splitPath(pathname: pathname)
+            XCTAssertEqual(result.dir, expectedDir, "Input: \(pathname)")
+            XCTAssertEqual(result.base, expectedBase, "Input: \(pathname)")
+            XCTAssertEqual(result.suffix, expectedSuffix, "Input: \(pathname)")
+        }
+    }
+
+    func testStripProto() {
+        let tests: [(String, String)] = [
+            ("", ""),
+            ("foo", "foo"),
+            ("foo.txt", "foo.txt"),
+            ("foo.proto", "foo"),
+            ("foo.protodevel", "foo"),
+            ("foo.bar.proto", "foo.bar"),
+            ("foo.bar.protodevel", "foo.bar"),
+            (".proto", ""),
+            (".protodevel", ""),
+            ("a/b/c", "a/b/c"),
+            ("a/b/c.proto", "a/b/c"),
+            ("a/b/c.protodevel", "a/b/c"),
+            ("a/b/c.d.proto", "a/b/c.d"),
+            ("foo.proto.bar", "foo.proto.bar"),
+            ("a.proto/b.txt", "a.proto/b.txt"),
+            ("a.proto/b.proto", "a.proto/b"),
+            ("foo.proto.protodevel", "foo.proto"),
+            ("foo.protodevel.proto", "foo.protodevel"),
+        ]
+
+        for (filename, expected) in tests {
+            XCTAssertEqual(NamingUtils.stripProto(filename: filename), expected, "Input: \(filename)")
+        }
+    }
 }

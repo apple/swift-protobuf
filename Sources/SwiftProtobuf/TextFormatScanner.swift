@@ -608,6 +608,22 @@ internal struct TextFormatScanner {
         return nil  // Unterminated quoted string
     }
 
+    /// A number can't run directly into an identifier or another digit; the
+    /// C++ tokenizer rejects "1foo" ("Need space between number and
+    /// identifier.") and "09" ("Numbers starting with leading zero must be
+    /// in octal."). Field numbers are valid keys here, so a leftover digit
+    /// would otherwise be read as the next field ("09: 2", "1.5f9: 2").
+    private func isAlphanumericNext() -> Bool {
+        if p == end {
+            return false
+        }
+        let c = p[0]
+        return (c >= asciiLowerA && c <= asciiLowerZ)
+            || (c >= asciiUpperA && c <= asciiUpperZ)
+            || (c >= asciiZero && c <= asciiNine)
+            || c == asciiUnderscore
+    }
+
     internal mutating func nextUInt() throws -> UInt64 {
         if p == end {
             throw TextFormatDecodingError.malformedNumber
@@ -621,6 +637,7 @@ internal struct TextFormatScanner {
             }
             if p[0] == asciiLowerX {  // 'x' => hex
                 p += 1
+                let digitsStart = p
                 var n: UInt64 = 0
                 while p != end {
                     let digit = p[0]
@@ -633,6 +650,9 @@ internal struct TextFormatScanner {
                     case asciiUpperA...asciiUpperF:
                         val = UInt64(digit - asciiUpperA + 10)
                     default:
+                        if p == digitsStart || isAlphanumericNext() {
+                            throw TextFormatDecodingError.malformedNumber
+                        }
                         skipWhitespace()
                         return n
                     }
@@ -642,6 +662,10 @@ internal struct TextFormatScanner {
                     p += 1
                     n = n * 16 + val
                 }
+                if p == digitsStart {
+                    // "0x" must be followed by at least one hex digit.
+                    throw TextFormatDecodingError.malformedNumber
+                }
                 skipWhitespace()
                 return n
             } else {  // octal
@@ -649,6 +673,9 @@ internal struct TextFormatScanner {
                 while p != end {
                     let digit = p[0]
                     if digit < asciiZero || digit > asciiSeven {
+                        if isAlphanumericNext() {
+                            throw TextFormatDecodingError.malformedNumber
+                        }
                         skipWhitespace()
                         return n  // not octal digit
                     }
@@ -667,6 +694,9 @@ internal struct TextFormatScanner {
             while p != end {
                 let digit = p[0]
                 if digit < asciiZero || digit > asciiNine {
+                    if isAlphanumericNext() {
+                        throw TextFormatDecodingError.malformedNumber
+                    }
                     skipWhitespace()
                     return n  // not a digit
                 }
@@ -864,11 +894,19 @@ internal struct TextFormatScanner {
                 )
                 // Just skip the 'f'/'F'
                 p += 1
+                if isAlphanumericNext() {
+                    p = start
+                    return nil
+                }
                 skipWhitespace()
                 return d
             default:
                 break loop
             }
+        }
+        if isAlphanumericNext() {
+            p = start
+            return nil
         }
         let d = doubleParser.utf8ToDouble(
             bytes: UnsafeRawBufferPointer(

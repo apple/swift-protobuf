@@ -40,7 +40,16 @@ public final class DescriptorSet {
     // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
     // created by protoc.
     public convenience init(proto: Google_Protobuf_FileDescriptorSet) {
-        self.init(protos: proto.file)
+        self.init(protos: proto.file, featureExtensions: [])
+    }
+
+    // Construct out of a `Google_Protobuf_FileDescriptorSet` likely
+    // created by protoc.
+    public convenience init(
+        proto: Google_Protobuf_FileDescriptorSet,
+        featureExtensions: [any AnyMessageExtension]
+    ) {
+        self.init(protos: proto.file, featureExtensions: featureExtensions)
     }
 
     /// The bundled in `google.protobuf.FeatureSetDefault` that defines what
@@ -59,9 +68,26 @@ public final class DescriptorSet {
     /// Construct out of a ordered list of
     /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
     public convenience init(protos: [Google_Protobuf_FileDescriptorProto]) {
+        self.init(protos: protos, featureExtensions: [])
+    }
+
+    /// Construct out of a ordered list of
+    /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc.
+    ///
+    /// - Parameters:
+    ///   - protos: An ordered list of `Google_Protobuf_FileDescriptorProto`.
+    ///     They must be order such that a file is provided before another file
+    ///     that depends on it.
+    ///   - featureExtensions: A list of Protobuf Extension extensions to
+    ///     `google.protobuf.FeatureSet` that define custom features.
+    public convenience init(
+        protos: [Google_Protobuf_FileDescriptorProto],
+        featureExtensions: [any AnyMessageExtension]
+    ) {
         self.init(
             protos: protos,
-            featureSetDefaults: DescriptorSet.bundledFeatureSetDefaults
+            featureSetDefaults: DescriptorSet.bundledFeatureSetDefaults,
+            featureExtensions: featureExtensions
         )
     }
 
@@ -179,10 +205,14 @@ public struct ExtractProtoOptions {
     ///
     /// If embedding the descriptor in a binary for some reason, normally the `SourceCodeInfo`
     /// isn't needed and would just be an increas in binary size.
+    ///
+    /// Only applies to `FileDescriptor.extractProto(options:)`.
     public var includeSourceCodeInfo: Bool = false
 
     /// Copy on the _header_ for the descriptor. This mainly means leave out any of the nested
     /// descriptors (messages, enums, etc.).
+    ///
+    /// Applies to `FileDescriptor.extractProto(options:)` and `Descriptor.extractProto(options:)`.
     public var headerOnly: Bool = false
 
     // NOTE: in the future maybe add toggles to model the behavior of the *Descriptor::Copy*To()
@@ -235,6 +265,12 @@ public final class FileDescriptor {
     public let publicDependencies: [FileDescriptor]
     /// The subset of the imports that were declared `weak`.
     public let weakDependencies: [FileDescriptor]
+    /// The imports for this file that were declared `option`.
+    ///
+    /// Unlike `dependencies`, `publicDependencies`, and `weakDependencies`,
+    /// `option` dependencies are not guaranteed to be present in the
+    /// `DescriptorSet`, so only their filenames are provided.
+    public let optionDependencies: [String]
 
     /// The enum defintions at the file scope level.
     public let enums: [EnumDescriptor]
@@ -244,6 +280,51 @@ public final class FileDescriptor {
     public let extensions: [FieldDescriptor]
     /// The service defintions at the file scope level.
     public let services: [ServiceDescriptor]
+
+    /// Finds a top-level message type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level message type.
+    /// - Returns: The matching `Descriptor`, or `nil` if not found.
+    public func message(named name: String) -> Descriptor? {
+        messages.first { $0.name == name }
+    }
+
+    /// Finds a top-level enum type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level enum type.
+    /// - Returns: The matching `EnumDescriptor`, or `nil` if not found.
+    public func enumType(named name: String) -> EnumDescriptor? {
+        enums.first { $0.name == name }
+    }
+
+    /// Finds an enum value by name across all top-level enum types in this file.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if not found.
+    public func enumValue(named name: String) -> EnumValueDescriptor? {
+        for e in enums {
+            if let v = e.value(named: name) {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Finds a service definition by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the service.
+    /// - Returns: The matching `ServiceDescriptor`, or `nil` if not found.
+    public func service(named name: String) -> ServiceDescriptor? {
+        services.first { $0.name == name }
+    }
+
+    /// Finds a top-level extension definition by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the top-level extension field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if not found.
+    public func extensionField(named name: String) -> FieldDescriptor? {
+        extensions.first { $0.name == name }
+    }
 
     /// The `Google_Protobuf_FileOptions` set on this file.
     @available(*, deprecated, renamed: "options")
@@ -277,9 +358,9 @@ public final class FileDescriptor {
             result.dependency = []
             result.publicDependency = []
             result.weakDependency = []
+            result.optionDependency = []
             result.messageType = []
             result.enumType = []
-            result.messageType = []
             result.service = []
             result.extension = []
         }
@@ -384,6 +465,7 @@ public final class FileDescriptor {
         self.dependencies = dependencies
         self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
         self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
+        self.optionDependencies = proto.optionDependency
 
         self.sourceCodeInfo = proto.sourceCodeInfo
 
@@ -430,15 +512,37 @@ public final class FileDescriptor {
 /// constructed/fetched via the `DescriptorSet` or they are directly accessed
 /// via a `messageType` property on `FieldDescriptor`s, etc.
 public final class Descriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_DescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Parameters:
+    ///   - options: Controls what information is include/excluded when creating the Proto version.
+    ///
+    /// - Returns: A `Google_Protobuf_DescriptorProto`.
+    public func extractProto(
+        options: ExtractProtoOptions = ExtractProtoOptions()
+    ) -> Google_Protobuf_DescriptorProto {
+        var result = _proto
+
+        if options.headerOnly {
+            // For Descriptor, make `headerOnly` mean the same things as C++
+            // `Descriptor::CopyHeadingTo()`.
+            result.field = []
+            result.extension = []
+            result.nestedType = []
+            result.enumType = []
+            result.extensionRange = []
+            result.oneofDecl = []
+        }
+
+        return result
+    }
+
+    /// The proto version of the descriptor that defines this Message.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_DescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_DescriptorProto
 
     /// The type of this Message.
     public enum WellKnownType: String {
@@ -496,6 +600,14 @@ public final class Descriptor {
         /// The `Google_Protobuf_ExtensionRangeOptions` set on this ExtensionRange.
         public let options: Google_Protobuf_ExtensionRangeOptions
 
+        /// Extract contents of this extension range in Proto form.
+        ///
+        /// - Returns: A `Google_Protobuf_DescriptorProto.ExtensionRange`.
+        public func extractProto() -> Google_Protobuf_DescriptorProto.ExtensionRange {
+            _proto
+        }
+        private let _proto: Google_Protobuf_DescriptorProto.ExtensionRange
+
         /// The name of the containing type, not including its scope.
         public var name: String { containingType.name }
         /// The fully-qualified name of the containing type, scope delimited by
@@ -515,6 +627,7 @@ public final class Descriptor {
             index: Int,
             features: Google_Protobuf_FeatureSet
         ) {
+            self._proto = proto
             self.start = proto.start
             self.end = proto.end
             self.index = index
@@ -551,6 +664,46 @@ public final class Descriptor {
     /// The `Google_Protobuf_MessageOptions` set on this Message.
     public let options: Google_Protobuf_MessageOptions
 
+    /// The visibility declared on this message, or `.visibilityUnset` if none was
+    /// specified.
+    public let visibility: Google_Protobuf_SymbolVisibility
+
+    /// Returns `true` if and only if the message is a pure zero-field message used
+    /// only for enum namespacing. Specifically, it must:
+    /// - be a top-level message
+    /// - have `local` visibility either explicitly or via the file's default
+    /// - have a single reserved range of `1 to max`
+    ///
+    /// For example:
+    /// ```protobuf
+    /// local message Foo {
+    ///   export enum Type {
+    ///     TYPE_UNSPECIFIED = 0;
+    ///   }
+    ///   reserved 1 to max;
+    /// }
+    /// ```
+    public var isEnumNamespaceMessage: Bool {
+        // Implementation comes from C++ SymbolChecker::IsEnumNamespaceMessage().
+        guard containingType == nil else {
+            return false
+        }
+
+        let defaultVisibility = file.features.defaultSymbolVisibility
+        let defaultToLocal = defaultVisibility == .strict || defaultVisibility == .localAll
+        let isContainerLocal =
+            visibility == .visibilityLocal || (visibility == .visibilityUnset && defaultToLocal)
+        guard isContainerLocal else {
+            return false
+        }
+
+        guard reservedRanges.count == 1 else {
+            return false
+        }
+        let range = reservedRanges[0]
+        return range.lowerBound == 1 && range.upperBound == Int32(FieldDescriptor.kMaxNumber + 1)
+    }
+
     // If this descriptor represents a well known type, which type it is.
     public let wellKnownType: WellKnownType?
 
@@ -573,6 +726,67 @@ public final class Descriptor {
     }()
     /// The extension field defintions under this message.
     public let extensions: [FieldDescriptor]
+
+    /// Looks up a field by name.
+    ///
+    /// - Parameter name: The unqualified name of the field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such field exists.
+    public func field(named name: String) -> FieldDescriptor? {
+        fields.first { $0.name == name }
+    }
+
+    /// Looks up a field by declared tag number.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such field exists.
+    public func field(numbered number: Int32) -> FieldDescriptor? {
+        fields.first { $0.number == number }
+    }
+
+    /// Looks up a oneof by name.
+    ///
+    /// - Parameter name: The unqualified name of the oneof.
+    /// - Returns: The matching `OneofDescriptor`, or `nil` if no such oneof exists.
+    public func oneof(named name: String) -> OneofDescriptor? {
+        oneofs.first { $0.name == name }
+    }
+
+    /// Looks up a nested message type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested message type.
+    /// - Returns: The matching `Descriptor`, or `nil` if no such nested message exists.
+    public func message(named name: String) -> Descriptor? {
+        messages.first { $0.name == name }
+    }
+
+    /// Looks up a nested enum type by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested enum type.
+    /// - Returns: The matching `EnumDescriptor`, or `nil` if no such nested enum exists.
+    public func enumType(named name: String) -> EnumDescriptor? {
+        enums.first { $0.name == name }
+    }
+
+    /// Looks up an enum value by name among all nested enum types in this message.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func enumValue(named name: String) -> EnumValueDescriptor? {
+        for e in enums {
+            if let v = e.value(named: name) {
+                return v
+            }
+        }
+        return nil
+    }
+
+    /// Looks up an extension defined within this message type's scope by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the nested extension field.
+    /// - Returns: The matching `FieldDescriptor`, or `nil` if no such extension exists.
+    public func extensionField(named name: String) -> FieldDescriptor? {
+        extensions.first { $0.name == name }
+    }
 
     /// The extension ranges declared for this message. They are returned in
     /// the order they are defined in the .proto file.
@@ -645,6 +859,50 @@ public final class Descriptor {
     /// order they are defined in the .proto file.
     public let reservedNames: [String]
 
+    /// Returns `true` if the given field number is within any of this message's
+    /// extension ranges.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if `number` is in an extension range; otherwise, `false`.
+    public func isExtensionNumber(_ number: Int32) -> Bool {
+        extensionRange(containing: number) != nil
+    }
+
+    /// Returns the `ExtensionRange` containing the given field number, or `nil`
+    /// if no extension range contains it.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The containing `ExtensionRange`, or `nil`.
+    public func extensionRange(containing number: Int32) -> ExtensionRange? {
+        messageExtensionRanges.first { $0.start <= number && number < $0.end }
+    }
+
+    /// Returns `true` if the given field number is within any of this message's
+    /// reserved ranges.
+    ///
+    /// - Parameter number: The field number to check.
+    /// - Returns: `true` if `number` is reserved; otherwise, `false`.
+    public func isReservedNumber(_ number: Int32) -> Bool {
+        reservedRange(containing: number) != nil
+    }
+
+    /// Returns the reserved `Range<Int32>` containing the given field number,
+    /// or `nil` if no reserved range contains it.
+    ///
+    /// - Parameter number: The field number to look up.
+    /// - Returns: The containing `Range<Int32>`, or `nil`.
+    public func reservedRange(containing number: Int32) -> Range<Int32>? {
+        reservedRanges.first { $0.contains(number) }
+    }
+
+    /// Returns `true` if the given field name is reserved in this message.
+    ///
+    /// - Parameter name: The field name to check.
+    /// - Returns: `true` if `name` is in `reservedNames`; otherwise, `false`.
+    public func isReservedName(_ name: String) -> Bool {
+        reservedNames.contains(name)
+    }
+
     /// True/False if this Message is just for a `map<>` entry.
     @available(*, deprecated, renamed: "options.mapEntry")
     public var isMapEntry: Bool { options.mapEntry }
@@ -681,6 +939,7 @@ public final class Descriptor {
         let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
         self.features = resolvedFeatures
         self.options = proto.options
+        self.visibility = proto.visibility
         self.wellKnownType = WellKnownType(rawValue: fullName)
         self.reservedRanges = proto.reservedRange.map { $0.start..<$0.end }
         self.reservedNames = proto.reservedName
@@ -785,15 +1044,19 @@ public final class Descriptor {
 /// they are directly accessed via a `EnumType` property on `FieldDescriptor`s,
 /// etc.
 public final class EnumDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_EnumDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_EnumDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_EnumDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Enum.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_EnumDescriptorProto
 
     /// The name of this enum type in the containing scope.
     public let name: String
@@ -816,8 +1079,44 @@ public final class EnumDescriptor {
     /// file.
     public let values: [EnumValueDescriptor]
 
+    /// Looks up an enum value by name.
+    ///
+    /// - Parameter name: The unqualified name of the enum value.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func value(named name: String) -> EnumValueDescriptor? {
+        values.first { $0.name == name }
+    }
+
+    /// Looks up an enum value by number. If multiple values have this number
+    /// (when `allow_alias` is enabled), the first one defined is returned.
+    ///
+    /// - Parameter number: The numeric value of the enum constant.
+    /// - Returns: The matching `EnumValueDescriptor`, or `nil` if no such value exists.
+    public func value(numbered number: Int32) -> EnumValueDescriptor? {
+        values.first { $0.number == number }
+    }
+
     /// The `Google_Protobuf_MessageOptions` set on this enum.
     public let options: Google_Protobuf_EnumOptions
+
+    /// The visibility declared on this enum, or `.visibilityUnset` if none was
+    /// specified.
+    public let visibility: Google_Protobuf_SymbolVisibility
+
+    /// Returns `true` if and only if the enum is nested within a message that is
+    /// considered an enum namespace message (`containingType?.isEnumNamespaceMessage == true`)
+    /// and the enum is exported either explicitly or via the file's default.
+    public var isNamespacedEnum: Bool {
+        // Implementation comes from C++ SymbolChecker::IsNamespacedEnum().
+        guard let containingType = containingType else {
+            return false
+        }
+
+        let defaultVisibility = file.features.defaultSymbolVisibility
+        let defaultToLocal = defaultVisibility == .strict || defaultVisibility == .localAll
+        let isExported = !defaultToLocal || visibility == .visibilityExport
+        return isExported && containingType.isEnumNamespaceMessage
+    }
 
     /// The reserved value ranges for this enum. These are returned in the order
     /// they are defined in the .proto file.
@@ -825,6 +1124,32 @@ public final class EnumDescriptor {
     /// The reserved value names for this enum. These are returned in the order
     /// they are defined in the .proto file.
     public let reservedNames: [String]
+
+    /// Returns `true` if the given enum value number is within any of this
+    /// enum's reserved ranges.
+    ///
+    /// - Parameter number: The enum value number to check.
+    /// - Returns: `true` if `number` is reserved; otherwise, `false`.
+    public func isReservedNumber(_ number: Int32) -> Bool {
+        reservedRange(containing: number) != nil
+    }
+
+    /// Returns the reserved `ClosedRange<Int32>` containing the given enum value
+    /// number, or `nil` if no reserved range contains it.
+    ///
+    /// - Parameter number: The enum value number to look up.
+    /// - Returns: The containing `ClosedRange<Int32>`, or `nil`.
+    public func reservedRange(containing number: Int32) -> ClosedRange<Int32>? {
+        reservedRanges.first { $0.contains(number) }
+    }
+
+    /// Returns `true` if the given enum value name is reserved in this enum.
+    ///
+    /// - Parameter name: The enum value name to check.
+    /// - Returns: `true` if `name` is in `reservedNames`; otherwise, `false`.
+    public func isReservedName(_ name: String) -> Bool {
+        reservedNames.contains(name)
+    }
 
     /// Returns true whether this is a "closed" enum, meaning that it:
     /// - Has a fixed set of named values.
@@ -860,6 +1185,7 @@ public final class EnumDescriptor {
         let resolvedFeatures = featureResolver.resolve(proto.options, resolvedParent: parentFeatures)
         self.features = resolvedFeatures
         self.options = proto.options
+        self.visibility = proto.visibility
         self.reservedRanges = proto.reservedRange.map { $0.start...$0.end }
         self.reservedNames = proto.reservedName
 
@@ -891,15 +1217,19 @@ public final class EnumDescriptor {
 /// `EnumValueDescriptor` for a given enum value, first get the `EnumDescriptor`
 /// for its type.
 public final class EnumValueDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_EnumValueDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_EnumValueDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_EnumValueDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this EnumValue.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumValueDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_EnumValueDescriptorProto
 
     /// Name of this enum constant.
     public let name: String
@@ -966,15 +1296,19 @@ public final class EnumValueDescriptor {
 
 /// Describes a oneof defined in a message type.
 public final class OneofDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_OneofDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_OneofDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_OneofDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Oneof.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_OneofDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_OneofDescriptorProto
 
     /// Name of this oneof.
     public let name: String
@@ -1038,15 +1372,19 @@ public final class OneofDescriptor {
 /// `Descriptor` or `FileDescriptor` for its containing scope, find the
 /// extension.
 public final class FieldDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_FieldDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_FieldDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_FieldDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Field.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_FieldDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_FieldDescriptorProto
 
     /// Name of this field within the message.
     public let name: String
@@ -1228,6 +1566,13 @@ public final class FieldDescriptor {
     }
     /// The index in a oneof this field is in.
     public let oneofIndex: Int32?
+
+    /// If this field is a member of a oneof, the index of the field within
+    /// `containingOneof.fields`; otherwise, `nil`.
+    public var indexInOneof: Int? {
+        guard let containingOneof = containingOneof else { return nil }
+        return containingOneof.fields.firstIndex { $0 === self }
+    }
 
     // This builds basically a union for the storage for `extensionScope`
     // and the value to look it up with.
@@ -1411,15 +1756,19 @@ public final class FieldDescriptor {
 /// they are here to support things that generate based off RPCs defined in
 /// .proto file (gRPC, etc.).
 public final class ServiceDescriptor {
-    // We can't assign a value directly to `proto` in the init because we get the
-    // deprecation warning. This private prop only exists as a workaround to avoid
-    // this warning and preserve backwards compatibility - it should be removed
-    // when removing `proto`.
-    private let _proto: Google_Protobuf_ServiceDescriptorProto
-    @available(*, deprecated, message: "Please open a GitHub issue if you think functionality is missing.")
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_ServiceDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_ServiceDescriptorProto {
+        _proto
+    }
+
+    /// The proto version of the descriptor that defines this Service.
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_ServiceDescriptorProto {
         _proto
     }
+    private let _proto: Google_Protobuf_ServiceDescriptorProto
 
     /// The name of the service, not including its containing scope.
     public let name: String
@@ -1440,6 +1789,14 @@ public final class ServiceDescriptor {
     /// The methods defined on this service. These are returned in the order they
     /// were defined in the .proto file.
     public let methods: [MethodDescriptor]
+
+    /// Looks up a method by name (not `fullName`).
+    ///
+    /// - Parameter name: The unqualified name of the method.
+    /// - Returns: The matching `MethodDescriptor`, or `nil` if no such method exists.
+    public func method(named name: String) -> MethodDescriptor? {
+        methods.first { $0.name == name }
+    }
 
     // Storage for `file`, will be set by bind()
     private unowned var _file: FileDescriptor?
@@ -1513,12 +1870,15 @@ public final class MethodDescriptor {
     // Whether the server streams multiple responses.
     public let serverStreaming: Bool
 
+    /// Extract contents of this descriptor in Proto form.
+    ///
+    /// - Returns: A `Google_Protobuf_MethodDescriptorProto`.
+    public func extractProto() -> Google_Protobuf_MethodDescriptorProto {
+        _proto
+    }
+
     /// The proto version of the descriptor that defines this method.
-    @available(
-        *,
-        deprecated,
-        message: "Use the properties directly or open a GitHub issue for something missing"
-    )
+    @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_MethodDescriptorProto { _proto }
     private let _proto: Google_Protobuf_MethodDescriptorProto
 

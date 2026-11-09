@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobufPluginLibrary
 
 extension CommandLine {
 
@@ -24,7 +25,7 @@ extension CommandLine {
             return "protoc-gen-swift"
         }
         // Strip it down to just the leaf if it was a path.
-        let parts = splitPath(pathname: base)
+        let parts = NamingUtils.splitPath(pathname: base)
         return parts.base + parts.suffix
     }
 }
