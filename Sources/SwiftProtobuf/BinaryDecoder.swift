@@ -945,6 +945,12 @@ internal struct BinaryDecoder: Decoder {
         // the parent.
         subDecoder.unknownData = nil
         try group.decodeMessage(decoder: &subDecoder)
+        // Since `nextFieldNumber()` throws `.truncated` if input ends while
+        // `groupFieldNumber` is set, it only returns `nil` upon seeing the
+        // matching `.endGroup` tag. This check is therefore redundant for any
+        // `decodeMessage` that drains `subDecoder` until `nil` (and could be
+        // removed), but is kept in case a custom `Message.decodeMessage`
+        // returns early.
         guard subDecoder.fieldNumber == fieldNumber && subDecoder.fieldWireFormat == .endGroup else {
             throw BinaryDecodingError.truncated
         }
