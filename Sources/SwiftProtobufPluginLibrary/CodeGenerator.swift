@@ -58,6 +58,10 @@ public protocol CodeGenerator {
     /// they will be exposed on the `Descriptor` options.
     var customOptionExtensions: [ExtensionSchema] { get }
 
+    /// A list of extensions that define Custom Features for this generator so
+    /// they will be exposed on the `Descriptor` `features`.
+    var featureExtensions: [any AnyMessageExtension] { get }
+
     /// If provided, the argument parsing will support `--version` and report
     /// this value.
     var version: String? { get }
@@ -119,7 +123,7 @@ extension CodeGenerator {
         var extensionMap = SimpleExtensionMap()
         if !customOptionExtensions.isEmpty {
             for e in customOptionExtensions {
-                // Don't include Google_Protobuf_FeatureSet, that will be handing via custom features.
+                // Don't include Google_Protobuf_FeatureSet, that is handled via `featureExtensions`.
                 // TODO: For reflection users, we'll want to expose a `String`
                 // instead of a `UTF8Name`. That would clean up these usage
                 // sites as well.
@@ -138,6 +142,19 @@ extension CodeGenerator {
                 )
             }
             extensionMap.insert(contentsOf: customOptionExtensions)
+        }
+        if !featureExtensions.isEmpty {
+            for e in featureExtensions {
+                precondition(
+                    e.messageType == Google_Protobuf_FeatureSet.self,
+                    "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(e.messageType)."
+                )
+            }
+            // Include `featureExtensions` when decoding the request so any custom
+            // features on the raw `descriptor.options.features` messages are also
+            // decoded (in addition to the resolved `descriptor.features` computed
+            // by `FeatureResolver` in `DescriptorSet`).
+            extensionMap.insert(contentsOf: featureExtensions)
         }
 
         let request: Google_Protobuf_Compiler_CodeGeneratorRequest
@@ -183,6 +200,7 @@ extension CodeGenerator {
         Google_Protobuf_Edition.unknown...Google_Protobuf_Edition.unknown
     }
     public var customOptionExtensions: [ExtensionSchema] { [] }
+    public var featureExtensions: [any AnyMessageExtension] { [] }
     public var version: String? { nil }
     public var projectURL: String? { nil }
     public var copyrightLine: String? { nil }
@@ -252,9 +270,26 @@ public func generateCode(
         response.maximumEdition = Int32(supportedEditions.upperBound.rawValue)
     }
 
-    // TODO: This will need update to language specific features.
+    let featureExtensions = generator.featureExtensions
+    if !featureExtensions.isEmpty {
+        for e in featureExtensions {
+            precondition(
+                e.messageType == Google_Protobuf_FeatureSet.self,
+                "CodeGenerator `featureExtensions` must only extend the descriptor.proto `FeatureSet` message \(e.messageType)."
+            )
+        }
+    }
 
-    let descriptorSet = DescriptorSet(protos: request.protoFile)
+    // Unlike `customOptionExtensions` (which only need to be registered when
+    // decoding `CodeGeneratorRequest` in `main(_:)` because `DescriptorSet`
+    // copies `proto.options` as-is), `featureExtensions` must also be passed
+    // into `DescriptorSet` because `FeatureResolver` resolves inherited
+    // features by serializing `Google_Protobuf_FeatureSet` to bytes and
+    // re-decoding via `merge(serializedBytes:extensions:)`.
+    let descriptorSet = DescriptorSet(
+        protos: request.protoFile,
+        featureExtensions: featureExtensions
+    )
 
     var files = [FileDescriptor]()
     for name in request.fileToGenerate {
