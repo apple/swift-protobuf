@@ -250,7 +250,14 @@ public final class FileDescriptor {
 
     @available(*, deprecated, message: "This property has been deprecated. Use `edition` instead.")
     public var syntax: Syntax {
-        Syntax(rawValue: self._proto.syntax)!
+        switch self.edition {
+        case .proto2:
+            return .proto2
+        case .proto3:
+            return .proto3
+        default:
+            fatalError("protoc provided an unexpected edition (\(self.edition)) for syntax: \(self.name)")
+        }
     }
 
     /// The edition of the file.
@@ -344,25 +351,50 @@ public final class FileDescriptor {
     public func extractProto(
         options: ExtractProtoOptions = ExtractProtoOptions()
     ) -> Google_Protobuf_FileDescriptorProto {
-        // In the future it might make sense to model this like the C++, where the protos is built up
-        // on demand instead of keeping the object around.
-        var result = _proto
-
-        if !options.includeSourceCodeInfo {
-            result.clearSourceCodeInfo()
+        var result = Google_Protobuf_FileDescriptorProto()
+        if !self.name.isEmpty {
+            result.name = self.name
+        }
+        if !self.package.isEmpty {
+            result.package = self.package
         }
 
-        if options.headerOnly {
+        // Match C++ FileDescriptor::CopyHeadingTo(): omit syntax for proto2,
+        // set syntax = "proto3" for proto3, and set syntax = "editions" + edition
+        // for Editions.
+        switch self.edition {
+        case .proto2:
+            break
+        case .proto3:
+            result.syntax = "proto3"
+        default:
+            result.syntax = "editions"
+            result.edition = self.edition
+        }
+
+        if self.options != Google_Protobuf_FileOptions() {
+            result.options = self.options
+        }
+
+        if options.includeSourceCodeInfo && self.sourceCodeInfo != Google_Protobuf_SourceCodeInfo() {
+            result.sourceCodeInfo = self.sourceCodeInfo
+        }
+
+        if !options.headerOnly {
             // For FileDescriptor, make `headerOnly` mean the same things as C++
             // `FileDescriptor::CopyHeaderTo()`.
-            result.dependency = []
-            result.publicDependency = []
-            result.weakDependency = []
-            result.optionDependency = []
-            result.messageType = []
-            result.enumType = []
-            result.service = []
-            result.extension = []
+            result.dependency = self.dependencies.map { $0.name }
+            result.publicDependency = self.publicDependencies.map { pubDep in
+                Int32(self.dependencies.firstIndex(where: { $0 === pubDep })!)
+            }
+            result.weakDependency = self.weakDependencies.map { weakDep in
+                Int32(self.dependencies.firstIndex(where: { $0 === weakDep })!)
+            }
+            result.optionDependency = self.optionDependencies
+            result.messageType = self.messages.map { $0.extractProto() }
+            result.enumType = self.enums.map { $0.extractProto() }
+            result.service = self.services.map { $0.extractProto() }
+            result.extension = self.extensions.map { $0.extractProto() }
         }
 
         return result
@@ -370,11 +402,10 @@ public final class FileDescriptor {
 
     /// The proto version of the descriptor that defines this File.
     @available(*, deprecated, renamed: "extractProto()")
-    public var proto: Google_Protobuf_FileDescriptorProto { _proto }
-    private let _proto: Google_Protobuf_FileDescriptorProto
+    public var proto: Google_Protobuf_FileDescriptorProto { extractProto() }
 
     @available(*, deprecated, message: "Use `fileOptions/deprecated` instead.")
-    public var isDeprecated: Bool { proto.options.deprecated }
+    public var isDeprecated: Bool { options.deprecated }
 
     fileprivate init(
         proto: Google_Protobuf_FileDescriptorProto,
@@ -469,8 +500,6 @@ public final class FileDescriptor {
 
         self.sourceCodeInfo = proto.sourceCodeInfo
 
-        self._proto = proto
-
         // Done initializing, register ourselves.
         registry.register(file: self)
 
@@ -521,17 +550,34 @@ public final class Descriptor {
     public func extractProto(
         options: ExtractProtoOptions = ExtractProtoOptions()
     ) -> Google_Protobuf_DescriptorProto {
-        var result = _proto
+        var result = Google_Protobuf_DescriptorProto()
+        result.name = self.name
 
-        if options.headerOnly {
+        if !options.headerOnly {
             // For Descriptor, make `headerOnly` mean the same things as C++
             // `Descriptor::CopyHeadingTo()`.
-            result.field = []
-            result.extension = []
-            result.nestedType = []
-            result.enumType = []
-            result.extensionRange = []
-            result.oneofDecl = []
+            result.field = self.fields.map { $0.extractProto() }
+            result.extension = self.extensions.map { $0.extractProto() }
+            result.nestedType = self.messages.map { $0.extractProto() }
+            result.enumType = self.enums.map { $0.extractProto() }
+            result.extensionRange = self.messageExtensionRanges.map { $0.extractProto() }
+            result.oneofDecl = self.oneofs.map { $0.extractProto() }
+        }
+
+        if self.options != Google_Protobuf_MessageOptions() {
+            result.options = self.options
+        }
+
+        result.reservedRange = self.reservedRanges.map {
+            var range = Google_Protobuf_DescriptorProto.ReservedRange()
+            range.start = $0.lowerBound
+            range.end = $0.upperBound
+            return range
+        }
+        result.reservedName = self.reservedNames
+
+        if self.visibility != .visibilityUnset {
+            result.visibility = self.visibility
         }
 
         return result
@@ -540,9 +586,8 @@ public final class Descriptor {
     /// The proto version of the descriptor that defines this Message.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_DescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_DescriptorProto
 
     /// The type of this Message.
     public enum WellKnownType: String {
@@ -604,9 +649,14 @@ public final class Descriptor {
         ///
         /// - Returns: A `Google_Protobuf_DescriptorProto.ExtensionRange`.
         public func extractProto() -> Google_Protobuf_DescriptorProto.ExtensionRange {
-            _proto
+            var result = Google_Protobuf_DescriptorProto.ExtensionRange()
+            result.start = self.start
+            result.end = self.end
+            if self.options != Google_Protobuf_ExtensionRangeOptions() {
+                result.options = self.options
+            }
+            return result
         }
-        private let _proto: Google_Protobuf_DescriptorProto.ExtensionRange
 
         /// The name of the containing type, not including its scope.
         public var name: String { containingType.name }
@@ -627,7 +677,6 @@ public final class Descriptor {
             index: Int,
             features: Google_Protobuf_FeatureSet
         ) {
-            self._proto = proto
             self.start = proto.start
             self.end = proto.end
             self.index = index
@@ -796,7 +845,7 @@ public final class Descriptor {
     /// the order they are defined in the .proto file.
     @available(*, deprecated, message: "This property is now deprecated: please use proto.extensionRange instead.")
     public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
-        proto.extensionRange
+        messageExtensionRanges.map { $0.extractProto() }
     }
 
     /// The `extensionRanges` are in the order they appear in the original .proto
@@ -931,7 +980,6 @@ public final class Descriptor {
         registry: Registry,
         scope: String
     ) {
-        self._proto = proto
         self.name = proto.name
         let fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
         self.fullName = fullName
@@ -1048,15 +1096,30 @@ public final class EnumDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_EnumDescriptorProto`.
     public func extractProto() -> Google_Protobuf_EnumDescriptorProto {
-        _proto
+        var result = Google_Protobuf_EnumDescriptorProto()
+        result.name = self.name
+        result.value = self.values.map { $0.extractProto() }
+        if self.options != Google_Protobuf_EnumOptions() {
+            result.options = self.options
+        }
+        result.reservedRange = self.reservedRanges.map {
+            var range = Google_Protobuf_EnumDescriptorProto.EnumReservedRange()
+            range.start = $0.lowerBound
+            range.end = $0.upperBound
+            return range
+        }
+        result.reservedName = self.reservedNames
+        if self.visibility != .visibilityUnset {
+            result.visibility = self.visibility
+        }
+        return result
     }
 
     /// The proto version of the descriptor that defines this Enum.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumDescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_EnumDescriptorProto
 
     /// The name of this enum type in the containing scope.
     public let name: String
@@ -1178,7 +1241,6 @@ public final class EnumDescriptor {
         registry: Registry,
         scope: String
     ) {
-        self._proto = proto
         self.name = proto.name
         self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
         self.index = index
@@ -1221,15 +1283,20 @@ public final class EnumValueDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_EnumValueDescriptorProto`.
     public func extractProto() -> Google_Protobuf_EnumValueDescriptorProto {
-        _proto
+        var result = Google_Protobuf_EnumValueDescriptorProto()
+        result.name = self.name
+        result.number = self.number
+        if self.options != Google_Protobuf_EnumValueOptions() {
+            result.options = self.options
+        }
+        return result
     }
 
     /// The proto version of the descriptor that defines this EnumValue.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_EnumValueDescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_EnumValueDescriptorProto
 
     /// Name of this enum constant.
     public let name: String
@@ -1280,7 +1347,6 @@ public final class EnumValueDescriptor {
         features: Google_Protobuf_FeatureSet,
         scope: String
     ) {
-        self._proto = proto
         self.name = proto.name
         self._fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
         self.index = index
@@ -1300,15 +1366,19 @@ public final class OneofDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_OneofDescriptorProto`.
     public func extractProto() -> Google_Protobuf_OneofDescriptorProto {
-        _proto
+        var result = Google_Protobuf_OneofDescriptorProto()
+        result.name = self.name
+        if self.options != Google_Protobuf_OneofOptions() {
+            result.options = self.options
+        }
+        return result
     }
 
     /// The proto version of the descriptor that defines this Oneof.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_OneofDescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_OneofDescriptorProto
 
     /// Name of this oneof.
     public let name: String
@@ -1354,7 +1424,6 @@ public final class OneofDescriptor {
         features: Google_Protobuf_FeatureSet,
         registry: Registry
     ) {
-        self._proto = proto
         self.name = proto.name
         self.index = index
         self.features = features
@@ -1376,15 +1445,66 @@ public final class FieldDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_FieldDescriptorProto`.
     public func extractProto() -> Google_Protobuf_FieldDescriptorProto {
-        _proto
+        var result = Google_Protobuf_FieldDescriptorProto()
+        result.name = self.name
+        result.number = self.number
+
+        // Reverse the Editions legacyRequired / delimited remapping done in init,
+        // matching C++ FieldDescriptor::CopyTo().
+        let isLegacyEdition = (self.file.edition == .proto2 || self.file.edition == .proto3)
+        if !isLegacyEdition && self._label == .required {
+            result.label = .optional
+        } else {
+            result.label = self._label
+        }
+
+        if !isLegacyEdition && self.type == .group {
+            result.type = .message
+        } else {
+            result.type = self.type
+        }
+
+        switch self.type {
+        case .message, .group:
+            result.typeName = ".\(self.messageType.fullName)"
+        case .enum:
+            result.typeName = ".\(self.enumType.fullName)"
+        default:
+            break
+        }
+
+        if self.isExtension {
+            result.extendee = ".\(self.containingType.fullName)"
+        }
+
+        if let defaultValue = self.defaultValue {
+            result.defaultValue = defaultValue
+        }
+
+        if let oneofIndex = self.oneofIndex {
+            result.oneofIndex = oneofIndex
+        }
+
+        if let jsonName = self.jsonName {
+            result.jsonName = jsonName
+        }
+
+        if self.options != Google_Protobuf_FieldOptions() {
+            result.options = self.options
+        }
+
+        if self.proto3Optional {
+            result.proto3Optional = true
+        }
+
+        return result
     }
 
     /// The proto version of the descriptor that defines this Field.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_FieldDescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_FieldDescriptorProto
 
     /// Name of this field within the message.
     public let name: String
@@ -1679,7 +1799,6 @@ public final class FieldDescriptor {
         registry: Registry,
         isExtension: Bool
     ) {
-        self._proto = proto
         self.name = proto.name
         self.index = index
         self.features = featureResolver.resolve(proto, resolvedParent: parentFeatures)
@@ -1760,15 +1879,20 @@ public final class ServiceDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_ServiceDescriptorProto`.
     public func extractProto() -> Google_Protobuf_ServiceDescriptorProto {
-        _proto
+        var result = Google_Protobuf_ServiceDescriptorProto()
+        result.name = self.name
+        result.method = self.methods.map { $0.extractProto() }
+        if self.options != Google_Protobuf_ServiceOptions() {
+            result.options = self.options
+        }
+        return result
     }
 
     /// The proto version of the descriptor that defines this Service.
     @available(*, deprecated, renamed: "extractProto()")
     public var proto: Google_Protobuf_ServiceDescriptorProto {
-        _proto
+        extractProto()
     }
-    private let _proto: Google_Protobuf_ServiceDescriptorProto
 
     /// The name of the service, not including its containing scope.
     public let name: String
@@ -1809,7 +1933,6 @@ public final class ServiceDescriptor {
         registry: Registry,
         scope: String
     ) {
-        self._proto = proto
         self.name = proto.name
         self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
         self.index = index
@@ -1874,13 +1997,25 @@ public final class MethodDescriptor {
     ///
     /// - Returns: A `Google_Protobuf_MethodDescriptorProto`.
     public func extractProto() -> Google_Protobuf_MethodDescriptorProto {
-        _proto
+        var result = Google_Protobuf_MethodDescriptorProto()
+        result.name = self.name
+        result.inputType = ".\(self.inputType.fullName)"
+        result.outputType = ".\(self.outputType.fullName)"
+        if self.options != Google_Protobuf_MethodOptions() {
+            result.options = self.options
+        }
+        if self.clientStreaming {
+            result.clientStreaming = true
+        }
+        if self.serverStreaming {
+            result.serverStreaming = true
+        }
+        return result
     }
 
     /// The proto version of the descriptor that defines this method.
     @available(*, deprecated, renamed: "extractProto()")
-    public var proto: Google_Protobuf_MethodDescriptorProto { _proto }
-    private let _proto: Google_Protobuf_MethodDescriptorProto
+    public var proto: Google_Protobuf_MethodDescriptorProto { extractProto() }
 
     // Storage for `service`, will be set by bind()
     private unowned var _service: ServiceDescriptor?
@@ -1900,8 +2035,6 @@ public final class MethodDescriptor {
         // Can look these up because all the Descriptors are already registered
         self.inputType = registry.descriptor(named: proto.inputType)!
         self.outputType = registry.descriptor(named: proto.outputType)!
-
-        self._proto = proto
     }
 
     fileprivate func bind(service: ServiceDescriptor, registry: Registry) {

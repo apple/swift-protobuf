@@ -158,19 +158,21 @@ extension CodeGenerator {
             extensionMap.insert(contentsOf: featureExtensions)
         }
 
-        let request: Google_Protobuf_Compiler_CodeGeneratorRequest
+        let response: Google_Protobuf_Compiler_CodeGeneratorResponse
         do {
-            request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
+            let request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
                 serializedBytes: FileHandle.standardInput.readDataToEndOfFile(),
                 extensions: extensionMap
+            )
+            response = generateCode(
+                consumingRequest: consume request,
+                generator: self
             )
         } catch let e {
             var stderr = StandardErrorOutputStream()
             print("\(programName): Received an unparsable request from the compiler: \(e)", to: &stderr)
             return
         }
-
-        let response = generateCode(request: request, generator: self)
         let serializedResponse: Data
         do {
             serializedResponse = try response.serializedBytes()
@@ -240,6 +242,13 @@ public func generateCode(
     request: Google_Protobuf_Compiler_CodeGeneratorRequest,
     generator: any CodeGenerator
 ) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
+    generateCode(consumingRequest: request, generator: generator)
+}
+
+func generateCode(
+    consumingRequest request: consuming Google_Protobuf_Compiler_CodeGeneratorRequest,
+    generator: any CodeGenerator
+) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
 
     var response = Google_Protobuf_Compiler_CodeGeneratorResponse()
 
@@ -307,6 +316,12 @@ public func generateCode(
     let outputs = InternalGeneratorOutputs()
     let parameter = InternalCodeGeneratorParameter(request.parameter)
 
+    // Once `DescriptorSet`, `files`, `context`, and `parameter` have been
+    // constructed, `request` is no longer needed. End its lifetime here so the
+    // raw `FileDescriptorProto` graph is released before `generator.generate`
+    // runs.
+    _ = consume request
+
     do {
         try generator.generate(
             files: files,
@@ -357,7 +372,7 @@ struct InternalCodeGeneratorParameter: CodeGeneratorParameter {
 private struct InternalProtoCompilerContext: ProtoCompilerContext {
     let version: Google_Protobuf_Compiler_Version?
 
-    init(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {
+    init(request: borrowing Google_Protobuf_Compiler_CodeGeneratorRequest) {
         self.version = request.hasCompilerVersion ? request.compilerVersion : nil
     }
 }
