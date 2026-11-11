@@ -544,19 +544,9 @@ struct JSONReader: TextualParser {
         }
 
         // If it's an array in `[...]` form, skip the contents.
-        if try consumeIfPresent(.leftBracket) {
-            if try !consumeIfPresent(.rightBracket) {
-                while true {
-                    if !at(.leftBrace) {
-                        try skipFieldValue()
-                    } else {
-                        try skipFieldMessage()
-                    }
-                    if try consumeIfPresent(.rightBracket) {
-                        break
-                    }
-                    try consume(.comma)
-                }
+        if at(.leftBracket) {
+            try consumeArray(impactsRecursionDepth: true) { reader in
+                try reader.skipFieldValue()
             }
             return
         }
