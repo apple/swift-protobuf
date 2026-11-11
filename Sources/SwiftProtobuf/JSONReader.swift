@@ -41,7 +41,8 @@ struct JSONReader: TextualParser {
         buffer: UnsafeBufferPointer<UInt8>,
         messageSchema: MessageSchema,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?
+        extensions: (any ExtensionMap)?,
+        recursionBudget: Int? = nil
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 
@@ -52,7 +53,7 @@ struct JSONReader: TextualParser {
         self.messageSchema = messageSchema
         self.extensions = extensions
         self.options = options
-        self.recursionBudget = options.messageDepthLimit
+        self.recursionBudget = recursionBudget ?? options.messageDepthLimit
     }
 
     /// Consumes the next field or extension name (the latter including its square brackets) and

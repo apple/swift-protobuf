@@ -333,6 +333,52 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_JSONUnpackWKTDepthLimit() throws {
+        let json = "{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":[[[[1]]]]}"
+        var options = JSONDecodingOptions()
+        options.messageDepthLimit = 4
+        XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
+            if let protobufError = error as? SwiftProtobufError {
+                XCTAssertTrue(
+                    protobufError.message.hasSuffix(": Message is too deep"),
+                    "Unexpected error message: \(protobufError.message)"
+                )
+            } else {
+                XCTFail("Expected SwiftProtobufError, got \(error)")
+            }
+        }
+
+        options.messageDepthLimit = 5
+        let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
+        let unpacked = try Google_Protobuf_Value(unpackingAny: decodedAny)
+        XCTAssertEqual(
+            unpacked,
+            .with {
+                $0.listValue = .with {
+                    $0.values = [
+                        .with {
+                            $0.listValue = .with {
+                                $0.values = [
+                                    .with {
+                                        $0.listValue = .with {
+                                            $0.values = [
+                                                .with {
+                                                    $0.listValue = .with {
+                                                        $0.values = [.with { $0.numberValue = 1 }]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        )
+    }
+
     func test_Any_Duration_transcode() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"

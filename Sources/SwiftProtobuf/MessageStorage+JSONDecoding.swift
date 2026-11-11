@@ -543,7 +543,8 @@ extension MessageStorage {
                 buffer: buffer,
                 messageSchema: messageSchema,
                 options: reader.options,
-                extensions: reader.extensions
+                extensions: reader.extensions,
+                recursionBudget: reader.recursionBudget
             )
             try messageStorage.merge(byParsingJSONFrom: &subReader)
         }
@@ -560,6 +561,8 @@ extension MessageStorage {
             if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {
                 throw AnyUnpackError.malformedWellKnownTypeJSON
             }
+            try reader.decrementRecursionBudget()
+            defer { reader.incrementRecursionBudget() }
             try possibleWKTValueJSON.withUTF8 { buffer in
                 try parseJSONBuffer(buffer)
             }
