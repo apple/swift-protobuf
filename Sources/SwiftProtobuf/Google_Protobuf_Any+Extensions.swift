@@ -63,7 +63,7 @@ extension Google_Protobuf_Any {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    /// - Throws: an instance of ``TextFormatDecodingError`` on failure.
+    /// - Throws: ``SwiftProtobufError`` or ``TextFormatDecodingError`` on failure.
     @_disfavoredOverload
     public init(
         textFormatString: String,
@@ -86,7 +86,7 @@ extension Google_Protobuf_Any {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    /// - Throws: ``TextFormatDecodingError`` on failure.
+    /// - Throws: ``SwiftProtobufError`` or ``TextFormatDecodingError`` on failure.
     public init(
         textFormatString: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
@@ -154,10 +154,8 @@ extension Google_Protobuf_Any {
         } else {
             // This is not using the specialized encoding, so we can use the
             // standard path to decode the binary value.
-            // First, clear the fields so we don't waste time re-serializing
-            // the previous contents as this instances get replaced with a
-            // new value (can happen when a field name/number is repeated in
-            // the TextFormat input).
+            // First, clear any existing fields so stale contents aren't
+            // carried over into the decoded value.
             let remainingBudget = decoder.scanner.recursionBudget
             self.typeURL = ""
             self.value = Data()
