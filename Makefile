@@ -586,7 +586,10 @@ copy-compiletests-nonisolateddeclarations-protos:
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
 # this simply copies those files to the StrictMemorySafety package in case they change.
 copy-compiletests-strictmemorysafety-protos:
-	@cp Protos/CompileTests/StrictMemorySafety/* CompileTests/StrictMemorySafety/Sources/StrictMemorySafety/Protos
+	@for p in Protos/CompileTests/StrictMemorySafety/*; do \
+		dst="CompileTests/StrictMemorySafety/Sources/StrictMemorySafety/Protos/$$(basename "$$p")"; \
+		if [ ! -f "$$dst" ] || ! cmp -s "$$p" "$$dst"; then cp "$$p" "$$dst"; fi; \
+	done
 
 # Regenerate the CompileTests/ExperimentalHiddenNames files.
 #
