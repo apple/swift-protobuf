@@ -899,6 +899,9 @@ internal struct BinaryDecoder: Decoder {
         assert(unknownData == nil)
         try incrementRecursionDepth()
         try message.decodeMessage(decoder: &self)
+        if M.self == Google_Protobuf_Any.self {
+            (message as! Google_Protobuf_Any)._storage.recordDecodedBinaryDepthBudget(recursionBudget)
+        }
         decrementRecursionDepth()
         guard complete else {
             throw BinaryDecodingError.trailingGarbage
