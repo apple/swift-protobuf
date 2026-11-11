@@ -403,5 +403,18 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+
+        /// A singular field occurred more than once in the same message.
+        public static func duplicateSingularField(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .textFormatDecodingError,
+                message: "A singular field occurred more than once in the same message.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
     }
 }
