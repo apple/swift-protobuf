@@ -131,7 +131,12 @@ private func unpack(
             }
         }
     }
-    return try messageType.init(jsonString: value, extensions: extensions, options: options)
+    guard options.messageDepthLimit > 1 else {
+        throw JSONDecodingError.messageDepthLimit
+    }
+    var nestedOptions = options
+    nestedOptions.messageDepthLimit -= 1
+    return try messageType.init(jsonString: value, extensions: extensions, options: nestedOptions)
 }
 
 internal class AnyMessageStorage {
@@ -184,7 +189,19 @@ internal class AnyMessageStorage {
         // parsed JSON with the @type removed and the decoding options.
         case contentJSON([UInt8], JSONDecodingOptions)
     }
-    var state: InternalState = .binary(Data())
+    var state: InternalState = .binary(Data()) {
+        didSet {
+            _binaryRemainingDepth = nil
+        }
+    }
+    var _binaryRemainingDepth: Int?
+
+    internal func recordDecodedBinaryDepthBudget(_ budget: Int) {
+        guard self !== AnyMessageStorage.defaultInstance else { return }
+        if case .binary = state {
+            _binaryRemainingDepth = budget
+        }
+    }
 
     // This property is used as the initial default value for new instances of the type.
     // The type itself is protecting the reference to its storage via CoW semantics.
@@ -197,6 +214,7 @@ internal class AnyMessageStorage {
     init(copying source: AnyMessageStorage) {
         _typeURL = source._typeURL
         state = source.state
+        _binaryRemainingDepth = source._binaryRemainingDepth
     }
 
     func isA<M: Message>(_ type: M.Type) -> Bool {
@@ -220,7 +238,14 @@ internal class AnyMessageStorage {
 
         switch state {
         case .binary(let data):
-            target = try M(serializedBytes: data, extensions: extensions, partial: true, options: options)
+            var unpackOptions = options
+            if let remainingDepth = _binaryRemainingDepth, remainingDepth < unpackOptions.messageDepthLimit {
+                unpackOptions.messageDepthLimit = remainingDepth
+            }
+            guard unpackOptions.messageDepthLimit > 0 else {
+                throw BinaryDecodingError.messageDepthLimit
+            }
+            target = try M(serializedBytes: data, extensions: extensions, partial: true, options: unpackOptions)
 
         case .message(let msg):
             if let message = msg as? M {
@@ -319,13 +344,26 @@ extension AnyMessageStorage {
     internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
         switch state {
         case .binary(let valueData):
-            if canUseVerboseTextForm(typeURL: _typeURL),
+            let effectiveBudget =
+                _binaryRemainingDepth.map { min(visitor.recursionBudget, $0) } ?? visitor.recursionBudget
+            if effectiveBudget > 0,
+                canUseVerboseTextForm(typeURL: _typeURL),
                 let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL)
             {
-                // If we can decode it, we can write the readable verbose form:
+                // If we can decode it within the remaining recursion budget, we can
+                // write the readable verbose form:
                 do {
-                    let m = try messageType.init(serializedBytes: valueData, partial: true)
+                    var binaryOptions = BinaryDecodingOptions()
+                    binaryOptions.messageDepthLimit = effectiveBudget
+                    let m = try messageType.init(
+                        serializedBytes: valueData,
+                        partial: true,
+                        options: binaryOptions
+                    )
+                    let savedBudget = visitor.recursionBudget
+                    visitor.recursionBudget = effectiveBudget
                     emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+                    visitor.recursionBudget = savedBudget
                     return
                 } catch {
                     // Fall through to just print the type and raw binary data.
@@ -339,10 +377,14 @@ extension AnyMessageStorage {
             }
 
         case .message(let msg):
-            if _typeURL.isEmpty || canUseVerboseTextForm(typeURL: _typeURL) {
+            if visitor.recursionBudget > 0 && (_typeURL.isEmpty || canUseVerboseTextForm(typeURL: _typeURL)) {
                 emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
             } else {
-                try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+                let url =
+                    _typeURL.isEmpty ? buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix) : _typeURL
+                if !url.isEmpty {
+                    try! visitor.visitSingularStringField(value: url, fieldNumber: 1)
+                }
                 let valueData = _value
                 if !valueData.isEmpty {
                     try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
@@ -350,18 +392,26 @@ extension AnyMessageStorage {
             }
 
         case .contentJSON(let contentJSON, let options):
-            // If we can decode it, we can write the readable verbose form:
-            if canUseVerboseTextForm(typeURL: _typeURL),
+            // If we can decode it within the remaining recursion budget, we can
+            // write the readable verbose form:
+            let effectiveBudget = min(visitor.recursionBudget, options.messageDepthLimit)
+            if effectiveBudget > 0,
+                canUseVerboseTextForm(typeURL: _typeURL),
                 let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL)
             {
                 do {
+                    var unpackOptions = options
+                    unpackOptions.messageDepthLimit = effectiveBudget
                     let m = try unpack(
                         contentJSON: contentJSON,
                         extensions: SimpleExtensionMap(),
-                        options: options,
+                        options: unpackOptions,
                         as: messageType
                     )
+                    let savedBudget = visitor.recursionBudget
+                    visitor.recursionBudget = effectiveBudget
                     emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+                    visitor.recursionBudget = savedBudget
                     return
                 } catch {
                     // Fall through to just print the raw JSON data
@@ -475,6 +525,9 @@ extension AnyMessageStorage {
     // The last case requires locating the type, deserializing
     // into an object, then reserializing back to JSON.
     func encodedJSONString(options: JSONEncodingOptions) throws -> String {
+        guard options.recursionBudget > 0 else {
+            throw JSONEncodingError.anyTranscodeFailure
+        }
         switch state {
         case .binary(let valueData):
             // Follow the C++ protostream_objectsource.cc's
@@ -505,17 +558,40 @@ extension AnyMessageStorage {
                 // else to decode later.)
                 throw JSONEncodingError.anyTranscodeFailure
             }
-            let m = try messageType.init(serializedBytes: valueData, partial: true)
-            return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
+            var nestedOptions = options
+            nestedOptions.recursionBudget -= 1
+            if let remainingDepth = _binaryRemainingDepth, remainingDepth < nestedOptions.recursionBudget {
+                nestedOptions.recursionBudget = remainingDepth
+            }
+            guard nestedOptions.recursionBudget > 0 else {
+                throw JSONEncodingError.anyTranscodeFailure
+            }
+            var binaryOptions = BinaryDecodingOptions()
+            binaryOptions.messageDepthLimit = nestedOptions.recursionBudget
+            guard
+                let m = try? messageType.init(
+                    serializedBytes: valueData,
+                    partial: true,
+                    options: binaryOptions
+                )
+            else {
+                throw JSONEncodingError.anyTranscodeFailure
+            }
+            return try serializeAnyJSON(for: m, typeURL: _typeURL, options: nestedOptions)
 
         case .message(let msg):
             // We should have been initialized with a typeURL, make sure it is valid.
             if !_typeURL.isEmpty && !isTypeURLValid() {
                 throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: _typeURL)
             }
+            var nestedOptions = options
+            nestedOptions.recursionBudget -= 1
+            guard nestedOptions.recursionBudget > 0 else {
+                throw JSONEncodingError.anyTranscodeFailure
+            }
             // If it was cleared, default it.
             let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
-            return try serializeAnyJSON(for: msg, typeURL: url, options: options)
+            return try serializeAnyJSON(for: msg, typeURL: url, options: nestedOptions)
 
         case .contentJSON(let contentJSON, _):
             guard isTypeURLValid() else {
