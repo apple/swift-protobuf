@@ -158,9 +158,11 @@ extension Google_Protobuf_Any {
             // the previous contents as this instances get replaced with a
             // new value (can happen when a field name/number is repeated in
             // the TextFormat input).
+            let remainingBudget = decoder.scanner.recursionBudget
             self.typeURL = ""
             self.value = Data()
             try decodeMessage(decoder: &decoder)
+            _storage.recordDecodedBinaryDepthBudget(remainingBudget)
         }
     }
 }

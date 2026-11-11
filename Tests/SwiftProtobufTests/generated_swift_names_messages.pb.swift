@@ -3295,6 +3295,18 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: S
     init() {}
   }
 
+  nonisolated struct duplicateAnyTypeURL: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var duplicateAnyTypeURL: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   nonisolated struct duration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -6805,6 +6817,18 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: S
     // methods supported on all messages.
 
     var isExtension: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  nonisolated struct isHexDigit: Sendable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var isHexDigit: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -20685,6 +20709,36 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
   }
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duplicateAnyTypeURL: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".duplicateAnyTypeURL"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}duplicateAnyTypeURL\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.duplicateAnyTypeURL) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.duplicateAnyTypeURL != 0 {
+      try visitor.visitSingularInt32Field(value: self.duplicateAnyTypeURL, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duplicateAnyTypeURL, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duplicateAnyTypeURL) -> Bool {
+    if lhs.duplicateAnyTypeURL != rhs.duplicateAnyTypeURL {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".duration"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}duration\0")
@@ -29470,6 +29524,36 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isExtension, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isExtension) -> Bool {
     if lhs.isExtension != rhs.isExtension {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isHexDigit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".isHexDigit"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}isHexDigit\0")
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.isHexDigit) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.isHexDigit != 0 {
+      try visitor.visitSingularInt32Field(value: self.isHexDigit, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isHexDigit, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isHexDigit) -> Bool {
+    if lhs.isHexDigit != rhs.isHexDigit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

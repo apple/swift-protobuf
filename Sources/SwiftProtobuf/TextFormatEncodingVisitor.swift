@@ -28,6 +28,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
     private var nameResolver: [Int: StaticString]
     private var extensions: ExtensionFieldValueSet?
     private let options: TextFormatEncodingOptions
+    // Since the root message doesn't start with a `visitSingularMessageField`
+    // or `visitAnyVerbose` call, the budget starts with one less depth to cover
+    // that top message (matching `TextFormatScanner`).
+    internal var recursionBudget: Int = 99
 
     /// The protobuf text produced by the visitor.
     var result: String {
@@ -287,11 +291,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
         self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
         // Encode submessage
         encoder.startMessageField()
+        recursionBudget -= 1
         if let any = value as? Google_Protobuf_Any {
             any.textTraverse(visitor: &self)
         } else {
             try! value.traverse(visitor: &self)
         }
+        recursionBudget += 1
         encoder.endMessageField()
         // Restore configuration before returning
         self.extensions = oldExtensions
@@ -315,11 +321,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
         self.nameResolver = [:]
         self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
 
+        recursionBudget -= 1
         if let any = value as? Google_Protobuf_Any {
             any.textTraverse(visitor: &self)
         } else {
             try! value.traverse(visitor: &self)
         }
+        recursionBudget += 1
 
         // Restore configuration before returning
         self.extensions = oldExtensions
@@ -491,11 +499,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
         for v in value {
             encoder.emitFieldName(name: fieldName)
             encoder.startMessageField()
+            recursionBudget -= 1
             if let any = v as? Google_Protobuf_Any {
                 any.textTraverse(visitor: &self)
             } else {
                 try! v.traverse(visitor: &self)
             }
+            recursionBudget += 1
             encoder.endMessageField()
         }
         // Restore state
@@ -635,6 +645,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
             for (k, v) in map.sorted(by: { isOrderedBefore($0.0, $1.0) }) {
                 emitFieldName(lookingUp: fieldNumber)
                 encoder.startMessageField()
+                recursionBudget -= 1
 
                 // Update visitor configuration for map
                 self.nameMap = nil
@@ -648,12 +659,14 @@ internal struct TextFormatEncodingVisitor: Visitor {
                 self.nameResolver = oldNameResolver
                 self.nameMap = oldNameMap
 
+                recursionBudget += 1
                 encoder.endMessageField()
             }
         } else {
             for (k, v) in map {
                 emitFieldName(lookingUp: fieldNumber)
                 encoder.startMessageField()
+                recursionBudget -= 1
 
                 // Update visitor configuration for map
                 self.nameMap = nil
@@ -667,6 +680,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
                 self.nameResolver = oldNameResolver
                 self.nameMap = oldNameMap
 
+                recursionBudget += 1
                 encoder.endMessageField()
             }
         }

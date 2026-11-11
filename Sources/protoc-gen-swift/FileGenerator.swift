@@ -25,7 +25,7 @@ class FileGenerator {
 
     var outputFilename: String {
         let ext = ".pb.swift"
-        let pathParts = splitPath(pathname: fileDescriptor.name)
+        let pathParts = NamingUtils.splitPath(pathname: fileDescriptor.name)
         switch generatorOptions.outputNaming {
         case .fullPath:
             return pathParts.dir + pathParts.base + ext
@@ -195,7 +195,7 @@ class FileGenerator {
         }
 
         if !extensionSet.isEmpty {
-            let pathParts = splitPath(pathname: fileDescriptor.name)
+            let pathParts = NamingUtils.splitPath(pathname: fileDescriptor.name)
             let filename = pathParts.base + pathParts.suffix
             p.print(
                 "",
