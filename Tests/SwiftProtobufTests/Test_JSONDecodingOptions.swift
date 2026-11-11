@@ -25,6 +25,8 @@ final class Test_JSONDecodingOptions: XCTestCase {
             // Wrong names, causes the skipping of values to be trigger, which also should
             // honor depth limits.
             "{ \"x\": { \"x\": { \"z\": 1 } } }",
+            "{ \"x\": [ [ 1 ] ] }",
+            "{ \"x\": [ { \"z\": 1 } ] }",
         ]
 
         let tests: [(Int, Bool)] = [

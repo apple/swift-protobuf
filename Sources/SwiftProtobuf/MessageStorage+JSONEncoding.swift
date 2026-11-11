@@ -398,16 +398,25 @@ extension MessageStorage {
         if isWKT {
             encoder.startField(name: "value")
         }
+        guard encoder.recursionBudget > 0 else {
+            throw JSONEncodingError.anyTranscodeFailure
+        }
         let bytes = assumedPresentValue(at: schema.byteOffset(of: valueField)) as Data
         try bytes.withUnsafeBytes { buffer in
             let messageStorage = MessageStorage(schema: messageSchema)
             // TODO: Should we keep the original behavior of failing for required fields in JSON?
-            try messageStorage.merge(
-                byReadingFrom: buffer,
-                extensions: options.extensions,
-                options: BinaryDecodingOptions(),
-                target: .newInstance
-            )
+            var decodingOptions = BinaryDecodingOptions()
+            decodingOptions.messageDepthLimit = encoder.recursionBudget
+            do {
+                try messageStorage.merge(
+                    byReadingFrom: buffer,
+                    extensions: options.extensions,
+                    options: decodingOptions,
+                    target: .newInstance
+                )
+            } catch is BinaryDecodingError {
+                throw JSONEncodingError.anyTranscodeFailure
+            }
             try messageStorage.serializeJSON(into: &encoder, options: options, shouldInlineFields: !isWKT)
         }
     }
@@ -449,6 +458,8 @@ extension MessageStorage {
     /// - Precondition: The receiver must be the storage for `google.protobuf.ListValue`.
     private func emitAsListValue(into encoder: inout JSONEncoder, options: JSONEncodingOptions) throws {
         encoder.startArray()
+        encoder.recursionBudget -= 1
+        defer { encoder.recursionBudget += 1 }
 
         let valuesField = KnownField.listValueValues(in: schema)
         if isPresent(valuesField) {

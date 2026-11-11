@@ -61,7 +61,8 @@ extension MessageStorage {
         // If we can unpack it and the URL prefix is valid for the verbose
         // `[type_url]` syntax, emit the verbose form.
         let typeURL = value(of: typeURLField) as String
-        if canUseVerboseTextForm(typeURL: typeURL),
+        if encoder.recursionBudget > 0,
+            canUseVerboseTextForm(typeURL: typeURL),
             let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL)
         {
             let messageStorage = MessageStorage(schema: messageSchema)
@@ -71,6 +72,7 @@ extension MessageStorage {
                     // We still want the expanded verbose output even if the submessage is partial.
                     var decodingOptions = BinaryDecodingOptions()
                     decodingOptions.allowPartial = true
+                    decodingOptions.messageDepthLimit = encoder.recursionBudget
                     try messageStorage.merge(
                         byReadingFrom: buffer,
                         extensions: options.extensions,

@@ -70,6 +70,7 @@ private let hexDigits: [UInt8] = {
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
+    internal var recursionBudget: Int = BinaryDecodingOptions().messageDepthLimit
 
     internal init() {}
 
@@ -160,16 +161,19 @@ internal struct JSONEncoder {
         }
         data.append(asciiOpenCurlyBracket)
         separator = nil
+        recursionBudget -= 1
     }
 
     /// Append an open curly brace `{` to the JSON.
     internal mutating func startObject() {
         data.append(asciiOpenCurlyBracket)
         separator = nil
+        recursionBudget -= 1
     }
 
     /// Append a close curly brace `}` to the JSON.
     internal mutating func endObject() {
+        recursionBudget += 1
         data.append(asciiCloseCurlyBracket)
         separator = asciiComma
     }
