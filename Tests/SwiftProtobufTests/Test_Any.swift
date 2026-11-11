@@ -405,6 +405,114 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    private func makeSerializedNestedAnyBytes(wrappers: Int, leafValue: Int32 = 7) throws -> [UInt8] {
+        var currentBytes: [UInt8] = try Google_Protobuf_Int32Value(leafValue).serializedBytes()
+        var currentTypeURL = "type.googleapis.com/google.protobuf.Int32Value"
+        for _ in 0..<wrappers {
+            var outer = Google_Protobuf_Any()
+            outer.typeURL = currentTypeURL
+            outer.value = Data(currentBytes)
+            currentBytes = try outer.serializedBytes()
+            currentTypeURL = "type.googleapis.com/google.protobuf.Any"
+        }
+        return currentBytes
+    }
+
+    func test_Any_JSONTranscodeDepthLimit() throws {
+        // 99 Any wrappers + 1 inner Int32Value = 100 messages total (within default limit of 100).
+        let bytesAtLimit = try makeSerializedNestedAnyBytes(wrappers: 99)
+        let decodedAtLimit = try Google_Protobuf_Any(serializedBytes: bytesAtLimit)
+        let jsonAtLimit = try decodedAtLimit.jsonString()
+        XCTAssertTrue(jsonAtLimit.contains("\"value\":7"))
+        let utf8AtLimit: [UInt8] = try decodedAtLimit.jsonUTF8Bytes()
+        XCTAssertEqual(String(decoding: utf8AtLimit, as: UTF8.self), jsonAtLimit)
+
+        // 100 Any wrappers + 1 inner Int32Value = 101 messages total (exceeds default limit of 100).
+        let bytesOverLimit = try makeSerializedNestedAnyBytes(wrappers: 100)
+        let decodedOverLimit = try Google_Protobuf_Any(serializedBytes: bytesOverLimit)
+        XCTAssertThrowsError(try decodedOverLimit.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertThrowsError(try decodedOverLimit.jsonUTF8Bytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+
+        // Deeply nested binary Any chain also fails cleanly with anyTranscodeFailure.
+        let deepBytes = try makeSerializedNestedAnyBytes(wrappers: 500)
+        let decodedDeep = try Google_Protobuf_Any(serializedBytes: deepBytes)
+        XCTAssertThrowsError(try decodedDeep.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+
+        // In-memory composition of packed Any wrappers also enforces the depth limit.
+        var composed = try Google_Protobuf_Any(packing: Google_Protobuf_Int32Value(7))
+        for _ in 0..<98 {
+            composed = try Google_Protobuf_Any(packing: composed)
+        }
+        // 99 Any wrappers + 1 Int32Value = 100 messages total: succeeds.
+        XCTAssertNoThrow(try composed.jsonString())
+        // 100 Any wrappers + 1 Int32Value = 101 messages total: throws anyTranscodeFailure.
+        let composedOverLimit = try Google_Protobuf_Any(packing: composed)
+        XCTAssertThrowsError(try composedOverLimit.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+
+        // Sibling elements in a repeated message/Any field do not accumulate depth across elements.
+        var repeatedHolder = SwiftProtoTesting_Test3_TestAllTypesProto3()
+        let singleAny = try Google_Protobuf_Any(packing: Google_Protobuf_Int32Value(1))
+        repeatedHolder.repeatedAny = Array(repeating: singleAny, count: 150)
+        XCTAssertNoThrow(try repeatedHolder.jsonString())
+    }
+
+    func test_Any_TextFormatTranscodeDepthLimit() throws {
+        // 99 Any wrappers + 1 Int32Value = 100 messages total (99 verbose "[...]" blocks): all levels use verbose form.
+        let bytesVerbose = try makeSerializedNestedAnyBytes(wrappers: 99)
+        let decodedVerbose = try Google_Protobuf_Any(serializedBytes: bytesVerbose)
+        let textVerbose = decodedVerbose.textFormatString()
+        XCTAssertTrue(textVerbose.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(textVerbose.contains("type_url:"))
+        let reparsedVerbose = try Google_Protobuf_Any(textFormatString: textVerbose)
+        XCTAssertEqual(reparsedVerbose.textFormatString(), textVerbose)
+
+        // Beyond the recursion budget, textFormatString() and debugDescription fall back to raw
+        // type_url and value fields so output remains bounded and round-trips through TextFormatDecoder.
+        let deepBytes = try makeSerializedNestedAnyBytes(wrappers: 500)
+        let decodedDeep = try Google_Protobuf_Any(serializedBytes: deepBytes)
+        let textDeep = decodedDeep.textFormatString()
+        XCTAssertTrue(textDeep.contains("type_url: \"type.googleapis.com/google.protobuf.Any\""))
+        XCTAssertFalse(textDeep.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(decodedDeep.debugDescription.isEmpty)
+        let reparsedDeep = try Google_Protobuf_Any(textFormatString: textDeep)
+        XCTAssertEqual(reparsedDeep.textFormatString(), textDeep)
+
+        // In-memory packed Any composition beyond the recursion budget also falls back to raw fields.
+        var composed = try Google_Protobuf_Any(packing: Google_Protobuf_Int32Value(7))
+        for _ in 0..<99 {
+            composed = try Google_Protobuf_Any(packing: composed)
+        }
+        let composedText = composed.textFormatString()
+        XCTAssertTrue(composedText.contains("type_url: \"type.googleapis.com/google.protobuf.Int32Value\""))
+        XCTAssertFalse(composedText.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        let reparsedComposed = try Google_Protobuf_Any(textFormatString: composedText)
+        XCTAssertEqual(reparsedComposed.textFormatString(), composedText)
+
+        // Decoding a single top-level TextFormat Any with raw `type_url` and `value` carrying a
+        // deep binary Any chain succeeds at decode time and is bounded when re-encoded to JSON or TextFormat.
+        let innerDeepBytes = try makeSerializedNestedAnyBytes(wrappers: 499)
+        let escapedInnerBytes = innerDeepBytes.map { String(format: "\\%03o", $0) }.joined()
+        let rawFieldTextInput =
+            "type_url: \"type.googleapis.com/google.protobuf.Any\"\nvalue: \"\(escapedInnerBytes)\"\n"
+        let decodedFromRawText = try Google_Protobuf_Any(textFormatString: rawFieldTextInput)
+        XCTAssertThrowsError(try decodedFromRawText.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+        let reencodedText = decodedFromRawText.textFormatString()
+        XCTAssertTrue(reencodedText.contains("type_url: \"type.googleapis.com/google.protobuf.Any\""))
+        XCTAssertFalse(reencodedText.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        let reparsedFromReencodedText = try Google_Protobuf_Any(textFormatString: reencodedText)
+        XCTAssertEqual(reparsedFromReencodedText.textFormatString(), reencodedText)
+    }
+
     func test_Any_FieldMask_JSON_roundtrip() throws {
         let start =
             "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.FieldMask\",\"value\":\"foo,bar.bazQuux\"}}"

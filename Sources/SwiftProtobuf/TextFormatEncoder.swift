@@ -39,6 +39,7 @@ private let tab = [UInt8](repeating: asciiSpace, count: tabSize)
 internal struct TextFormatEncoder {
     private var data = [UInt8]()
     private var indentString: [UInt8] = []
+    internal var recursionBudget: Int = BinaryDecodingOptions().messageDepthLimit - 1
 
     var stringResult: String {
         get {
@@ -102,9 +103,11 @@ internal struct TextFormatEncoder {
     mutating func startMessageField() {
         append(staticText: " {\n")
         indentString.append(contentsOf: tab)
+        recursionBudget -= 1
     }
 
     mutating func endMessageField() {
+        recursionBudget += 1
         indentString.removeLast(tabSize)
         indent()
         append(staticText: "}\n")
