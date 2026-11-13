@@ -136,6 +136,11 @@ extension Google_Protobuf_Any {
         _storage.textTraverse(visitor: &visitor)
         try! unknownFields.traverse(visitor: &visitor)
     }
+
+    internal mutating func recordDecodedBinaryDepthBudget(_ budget: Int) {
+        guard _storage !== AnyMessageStorage.defaultInstance else { return }
+        _uniqueStorage().recordDecodedBinaryDepthBudget(budget)
+    }
 }
 
 extension Google_Protobuf_Any {
@@ -160,7 +165,7 @@ extension Google_Protobuf_Any {
             self.typeURL = ""
             self.value = Data()
             try decodeMessage(decoder: &decoder)
-            _storage.recordDecodedBinaryDepthBudget(remainingBudget)
+            recordDecodedBinaryDepthBudget(remainingBudget)
         }
     }
 }

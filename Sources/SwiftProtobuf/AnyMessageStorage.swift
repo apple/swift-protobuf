@@ -394,27 +394,33 @@ extension AnyMessageStorage {
         case .contentJSON(let contentJSON, let options):
             // If we can decode it within the remaining recursion budget, we can
             // write the readable verbose form:
-            let effectiveBudget = min(visitor.recursionBudget, options.messageDepthLimit)
-            if effectiveBudget > 0,
-                canUseVerboseTextForm(typeURL: _typeURL),
+            if canUseVerboseTextForm(typeURL: _typeURL),
                 let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL)
             {
-                do {
-                    var unpackOptions = options
-                    unpackOptions.messageDepthLimit = effectiveBudget
-                    let m = try unpack(
-                        contentJSON: contentJSON,
-                        extensions: SimpleExtensionMap(),
-                        options: unpackOptions,
-                        as: messageType
-                    )
-                    let savedBudget = visitor.recursionBudget
-                    visitor.recursionBudget = effectiveBudget
-                    emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
-                    visitor.recursionBudget = savedBudget
-                    return
-                } catch {
-                    // Fall through to just print the raw JSON data
+                let isCustomCodable = messageType is any _CustomJSONCodable.Type
+                let effectiveBudget = min(
+                    visitor.recursionBudget,
+                    isCustomCodable ? options.messageDepthLimit - 1 : options.messageDepthLimit
+                )
+                if effectiveBudget > 0 {
+                    do {
+                        var unpackOptions = options
+                        unpackOptions.messageDepthLimit =
+                            isCustomCodable ? effectiveBudget + 1 : effectiveBudget
+                        let m = try unpack(
+                            contentJSON: contentJSON,
+                            extensions: SimpleExtensionMap(),
+                            options: unpackOptions,
+                            as: messageType
+                        )
+                        let savedBudget = visitor.recursionBudget
+                        visitor.recursionBudget = effectiveBudget
+                        emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+                        visitor.recursionBudget = savedBudget
+                        return
+                    } catch {
+                        // Fall through to just print the raw JSON data
+                    }
                 }
             }
             if !_typeURL.isEmpty {
