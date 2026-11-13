@@ -35,11 +35,27 @@ extension MessageStorage {
 
         default:
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
+            var seenSingularFields = Set<UInt32>()
             while let fieldOrExtension = try reader.consumeFieldOrExtensionIfPresent() {
                 switch fieldOrExtension {
                 case .field(let field):
+                    if field.fieldMode.cardinality == .scalar {
+                        guard seenSingularFields.insert(field.fieldNumber).inserted else {
+                            throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                        }
+                    }
+                    if case .oneOfMember(let oneOfOffset) = field.presence,
+                        populatedOneofMember(at: oneOfOffset) != 0
+                    {
+                        throw reader.parsingError(reason: "Conflicting oneof values")
+                    }
                     try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
                 case .extension(let ext):
+                    if ext.field.fieldMode.cardinality == .scalar {
+                        guard seenSingularFields.insert(ext.field.fieldNumber).inserted else {
+                            throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
+                        }
+                    }
                     try extensionStorage.decodeNextExtension(ext, from: &reader)
                 case .unknown:
                     try reader.skipField(wasNameAlreadyConsumed: true)
