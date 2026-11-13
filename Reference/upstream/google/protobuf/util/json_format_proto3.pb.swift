@@ -341,7 +341,7 @@ nonisolated struct Proto3_TestMessage: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto3_TestOneof: Sendable {
@@ -647,7 +647,7 @@ nonisolated struct Proto3_TestWrapper: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto3_TestTimestamp: Sendable {

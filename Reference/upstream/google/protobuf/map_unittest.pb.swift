@@ -178,7 +178,7 @@ nonisolated struct Proto2Unittest_TestMap: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 nonisolated struct Proto2Unittest_TestMapWithMessages: Sendable {
@@ -370,7 +370,7 @@ nonisolated struct Proto2Unittest_TestArenaMap: @unchecked Sendable {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 /// Previously, message containing enum called Type cannot be used as value of

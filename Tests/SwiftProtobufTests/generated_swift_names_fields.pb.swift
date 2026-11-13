@@ -5238,7 +5238,7 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @un
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _storage = unsafe _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
