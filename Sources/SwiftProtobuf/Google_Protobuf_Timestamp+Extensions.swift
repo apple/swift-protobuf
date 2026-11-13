@@ -184,7 +184,8 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
         }
         let hourOffset = try fromAscii2(value[pos + 1], value[pos + 2])
         let minuteOffset = try fromAscii2(value[pos + 4], value[pos + 5])
-        if hourOffset > Int(13) || minuteOffset > Int(59) || value[pos + 3] != colon {
+        // RFC 3339 time-numoffset: hours 00-23, minutes 00-59.
+        if hourOffset > Int(23) || minuteOffset > Int(59) || value[pos + 3] != colon {
             throw JSONDecodingError.malformedTimestamp
         }
         var adjusted: Int64 = t
