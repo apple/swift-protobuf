@@ -131,8 +131,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         m2.SwiftProtoTesting_optionalInt32Extension = 18
         XCTAssertNotEqual(m1, m2)
 
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_int32_extension]: 18\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_int32_extension]: 18\n",
             m2
         )
         XCTAssertNotEqual(m1.hashValue, m2.hashValue)
@@ -162,8 +162,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
 
         var m1 = SwiftProtoTesting_TestAllExtensions()
         m1.SwiftProtoTesting_optionalStringExtension = "ab"
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_string_extension]: \"ab\"\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.optional_string_extension]: \"ab\"\n",
             m1
         )
     }
@@ -186,8 +186,8 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 8])
         XCTAssertEqual(m.SwiftProtoTesting_repeatedInt32Extension, [7, 9])
 
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.repeated_int32_extension]: 7\n[swift_proto_testing.repeated_int32_extension]: 9\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.repeated_int32_extension]: 7\n[swift_proto_testing.repeated_int32_extension]: 9\n",
             m
         )
 
@@ -200,20 +200,20 @@ final class Test_Extensions: XCTestCase, PBTestHelpers {
         var m = SwiftProtoTesting_TestAllExtensions()
         XCTAssertEqual(m.SwiftProtoTesting_defaultInt32Extension, 41)
         XCTAssertEqual(try m.serializedBytes(), [])
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllExtensions:\n", m)
         m.SwiftProtoTesting_defaultInt32Extension = 100
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 100])
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 100\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 100\n",
             m
         )
         m.clearSwiftProtoTesting_defaultInt32Extension()
         XCTAssertEqual(try m.serializedBytes(), [])
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllExtensions:\n", m)
         m.SwiftProtoTesting_defaultInt32Extension = 41  // Default value
         XCTAssertEqual(try m.serializedBytes(), [232, 3, 41])
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 41\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllExtensions:\n[swift_proto_testing.default_int32_extension]: 41\n",
             m
         )
 
