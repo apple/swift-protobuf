@@ -835,6 +835,42 @@ final class Test_Descriptor: XCTestCase {
 
         let methodDesc = try XCTUnwrap(serviceDesc.methods.first)
         XCTAssertEqual(methodDesc.extractProto(), msgProtoFile.service[0].method[0])
+
+        // Verify full round-trip equality against all protoc-generated FileDescriptorProtos.
+        var includeSourceInfoOptions = ExtractProtoOptions()
+        includeSourceInfoOptions.includeSourceCodeInfo = true
+        for (rawFileProto, fileDesc) in zip(fileSet.file, descriptorSet.files) {
+            XCTAssertEqual(fileDesc.extractProto(options: includeSourceInfoOptions), rawFileProto)
+        }
+    }
+
+    @available(*, deprecated)
+    func testDeprecatedProtoMatchesExtractProto() throws {
+        let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
+        let descriptorSet = DescriptorSet(proto: fileSet)
+        let fileDesc = try XCTUnwrap(descriptorSet.fileDescriptor(named: "pluginlib_descriptor_test.proto"))
+        XCTAssertEqual(fileDesc.proto, fileDesc.extractProto())
+
+        let msgDesc = try XCTUnwrap(fileDesc.message(named: "TopLevelMessage"))
+        XCTAssertEqual(msgDesc.proto, msgDesc.extractProto())
+
+        let enumDesc = try XCTUnwrap(fileDesc.enumType(named: "TopLevelEnum"))
+        XCTAssertEqual(enumDesc.proto, enumDesc.extractProto())
+
+        let enumValDesc = try XCTUnwrap(enumDesc.values.first)
+        XCTAssertEqual(enumValDesc.proto, enumValDesc.extractProto())
+
+        let oneofDesc = try XCTUnwrap(msgDesc.oneofs.first)
+        XCTAssertEqual(oneofDesc.proto, oneofDesc.extractProto())
+
+        let fieldDesc = try XCTUnwrap(msgDesc.fields.first)
+        XCTAssertEqual(fieldDesc.proto, fieldDesc.extractProto())
+
+        let serviceDesc = try XCTUnwrap(fileDesc.services.first)
+        XCTAssertEqual(serviceDesc.proto, serviceDesc.extractProto())
+
+        let methodDesc = try XCTUnwrap(serviceDesc.methods.first)
+        XCTAssertEqual(methodDesc.proto, methodDesc.extractProto())
     }
 
     func testSymbolVisibility() throws {

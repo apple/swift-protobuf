@@ -189,7 +189,7 @@ final class Test_FuzzTests: XCTestCase {
         ])
 
         // FailCases/TextFormat-ending-zero
-        assertTextFormatSucceeds("    1:0    1:0      1:0")
+        assertTextFormatFails("    1:0    1:0      1:0")
         // FailCases/TextFormat-ending-minus
         assertTextFormatFails("    1:0    1:0      5:-")
 
@@ -198,7 +198,7 @@ final class Test_FuzzTests: XCTestCase {
             0x31, 0x35, 0x3a, 0x27, 0xa9, 0xa9, 0x5c, 0x75, 0x41, 0x62,
         ])
 
-        assertTextFormatSucceeds(
+        assertTextFormatFails(
             "500<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<>>>>>>>>>>>>>>>>500<1:''\n2:''>"
         )
 

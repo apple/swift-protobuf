@@ -511,6 +511,39 @@ final class Test_Any: XCTestCase {
         XCTAssertFalse(reencodedText.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
         let reparsedFromReencodedText = try Google_Protobuf_Any(textFormatString: reencodedText)
         XCTAssertEqual(reparsedFromReencodedText.textFormatString(), reencodedText)
+
+        // A JSON-decoded WKT Any wrapped inside 98 packed Any wrappers (99 Any wrappers + 1 Int32Value
+        // = 100 messages total) uses verbose TextFormat at the leaf, whereas 99 packed Any wrappers
+        // around that JSON-decoded WKT Any (100 Any wrappers + 1 Int32Value = 101 messages total)
+        // exceeds the recursion budget and falls back to raw `type_url:`/`value:` fields.
+        let jsonLeafAny = try Google_Protobuf_Any(
+            jsonString: #"{"@type":"type.googleapis.com/google.protobuf.Int32Value","value":7}"#
+        )
+        var composedWithJSONWKTLeaf = jsonLeafAny
+        for _ in 0..<98 {
+            composedWithJSONWKTLeaf = try Google_Protobuf_Any(packing: composedWithJSONWKTLeaf)
+        }
+        let textWithJSONWKTLeafAtLimit = composedWithJSONWKTLeaf.textFormatString()
+        XCTAssertTrue(textWithJSONWKTLeafAtLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(textWithJSONWKTLeafAtLimit.contains("type_url:"))
+
+        let composedWithJSONWKTLeafOverLimit = try Google_Protobuf_Any(packing: composedWithJSONWKTLeaf)
+        let textWithJSONWKTLeafOverLimit = composedWithJSONWKTLeafOverLimit.textFormatString()
+        XCTAssertFalse(textWithJSONWKTLeafOverLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertTrue(
+            textWithJSONWKTLeafOverLimit.contains("type_url: \"type.googleapis.com/google.protobuf.Int32Value\"")
+        )
+
+        // Nested JSON-decoded Any chain at the 100-message limit (99 Any wrappers + 1 Int32Value)
+        // also expands to verbose TextFormat all the way to the leaf.
+        var nestedJSONString = #"{"@type":"type.googleapis.com/google.protobuf.Int32Value","value":7}"#
+        for _ in 0..<98 {
+            nestedJSONString = #"{"@type":"type.googleapis.com/google.protobuf.Any","value":\#(nestedJSONString)}"#
+        }
+        let decodedNestedJSONAtLimit = try Google_Protobuf_Any(jsonString: nestedJSONString)
+        let textNestedJSONAtLimit = decodedNestedJSONAtLimit.textFormatString()
+        XCTAssertTrue(textNestedJSONAtLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(textNestedJSONAtLimit.contains("type_url:"))
     }
 
     func test_Any_FieldMask_JSON_roundtrip() throws {

@@ -19,6 +19,42 @@ import XCTest
 final class Test_TextFormat_proto2: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
+    func testDecoding_duplicateMessagesAndGroups() {
+        assertTextFormatDecodeFails("optional_nested_message {bb: 1} optional_nested_message {}")
+        assertTextFormatDecodeFails("OptionalGroup {a: 1} optionalgroup {}")
+        assertTextFormatDecodeFails("optional_nested_message {bb: 0 bb: 0}")
+        assertTextFormatDecodeSucceeds("optional_int32: 1 optional_nested_message {bb: 2}") {
+            $0.optionalInt32 == 1 && $0.optionalNestedMessage.bb == 2
+        }
+        assertTextFormatDecodeSucceeds("repeated_nested_message {bb: 1} repeated_nested_message {bb: 2}") {
+            $0.repeatedNestedMessage.map { $0.bb } == [1, 2]
+        }
+    }
+
+    func testDecoding_duplicateSingularFields() {
+        let fields = [
+            "optional_int32: 0", "optional_int64: 0", "optional_uint32: 0", "optional_uint64: 0",
+            "optional_sint32: 0", "optional_sint64: 0", "optional_fixed32: 0", "optional_fixed64: 0",
+            "optional_sfixed32: 0", "optional_sfixed64: 0", "optional_float: 0", "optional_double: 0",
+            "optional_bool: false", "optional_string: \"\"", "optional_bytes: \"\"", "optional_nested_enum: 1",
+        ]
+        for field in fields {
+            XCTAssertThrowsError(
+                try MessageTestType(textFormatString: "\(field); optional_nested_message {}; \(field)")
+            ) {
+                guard let error = $0 as? SwiftProtobufError,
+                    self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                else {
+                    return XCTFail("Unexpected error: \($0)")
+                }
+            }
+        }
+        assertTextFormatDecodeFails("optional_int32: 0, 1: 0")
+        assertTextFormatDecodeSucceeds("repeated_int32: 0 repeated_int32: [0, 1]") {
+            $0.repeatedInt32 == [0, 0, 1]
+        }
+    }
+
     func test_group() {
         assertTextFormatEncode("OptionalGroup {\n  a: 17\n}\n") { (o: inout MessageTestType) in
             o.optionalGroup = SwiftProtoTesting_TestAllTypes.OptionalGroup.with { $0.a = 17 }
