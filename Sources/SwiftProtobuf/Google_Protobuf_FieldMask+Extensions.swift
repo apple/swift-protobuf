@@ -288,6 +288,7 @@ extension Google_Protobuf_FieldMask {
     ///
     /// A path is in the intersection if both masks contain it (see
     /// ``contains(_:)``), so "foo.bar" intersected with "foo" is "foo.bar".
+    /// The result is in canonical form (see ``canonical``).
     ///
     /// - Parameter mask: FieldMask to intersect with.
     /// - Returns: FieldMask with intersection of two path sets.
@@ -306,9 +307,7 @@ extension Google_Protobuf_FieldMask {
             buffer.insert(path)
             paths.append(path)
         }
-        return .with { mask in
-            mask.paths = paths
-        }
+        return Google_Protobuf_FieldMask(protoPaths: paths).canonical
     }
 
     /// Creates a FieldMasks with paths of the original FieldMask

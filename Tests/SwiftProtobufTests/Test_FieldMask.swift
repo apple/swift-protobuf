@@ -515,6 +515,13 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m7.intersect(m8).paths, ["a.b"])
         XCTAssertEqual(m7.subtract(m8).paths, ["ab"])
 
+        // A parent and its sub-path collapse to the parent, even when one
+        // input isn't canonical (matches C++ FieldMaskUtil::Intersect).
+        let m9 = Google_Protobuf_FieldMask(protoPaths: ["foo"])
+        let m10 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar", "foo"])
+        XCTAssertEqual(m9.intersect(m10).paths, ["foo"])
+        XCTAssertEqual(m10.intersect(m9).paths, ["foo"])
+
         // Removing a field from a mask has to remove its sub-paths too, or
         // merging with the result still writes into that field.
         let source = SwiftProtoTesting_TestAllTypes.with {
