@@ -125,14 +125,6 @@ internal struct TextFormatEncoder {
         data.append(asciiCloseSquareBracket)
     }
 
-    mutating func putEnumValue<E: Enum>(value: E) {
-        if let name = value.textFormatName {
-            data.append(contentsOf: name.buffer)
-        } else {
-            appendInt(value: Int64(Int32(truncatingIfNeeded: value.rawValue)))
-        }
-    }
-
     mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema) {
         if let name = enumSchema.textName(forEnumCase: rawValue) {
             data.append(contentsOf: name.buffer)

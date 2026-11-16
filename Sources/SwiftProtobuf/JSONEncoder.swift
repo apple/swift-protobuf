@@ -238,11 +238,6 @@ internal struct JSONEncoder {
         }
     }
 
-    /// Write an Enum as an Int.
-    internal mutating func putEnumInt(value: Int) {
-        appendInt(value: Int64(Int32(truncatingIfNeeded: value)))
-    }
-
     internal mutating func putEnumValue(rawValue: Int32, enumSchema: EnumSchema, alwaysPrintEnumsAsInts: Bool) {
         // When encoding, treat `NULL_VALUE` from the `NullValue` WKT as JSON null.
         if rawValue == 0 && CustomJSONWKTClassification(enumSchema: enumSchema) == .nullValue {
