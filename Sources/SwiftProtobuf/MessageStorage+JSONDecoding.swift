@@ -481,6 +481,8 @@ extension MessageStorage {
         var wasEmpty = false
         var typeURL: String? = nil
         var possibleWKTValueJSON = ""
+        var sawValueKey = false
+        var hadDuplicateValueKey = false
         var hadFieldsOtherThanValue = false
 
         var jsonEncoder = JSONEncoder()
@@ -511,7 +513,12 @@ extension MessageStorage {
                 if key == "value" {
                     // When we encounter the key `value`, we may need to parse this as a well-known
                     // type with a special representation, so keep track of it.
-                    possibleWKTValueJSON = String(data: Data(keyValueJSON), encoding: .utf8) ?? ""
+                    if sawValueKey {
+                        hadDuplicateValueKey = true
+                    } else {
+                        sawValueKey = true
+                        possibleWKTValueJSON = String(data: Data(keyValueJSON), encoding: .utf8) ?? ""
+                    }
                 } else {
                     // Keep track of this because if it's a well-known type, we need to fail later
                     // if we're not ignoring unknown fields.
@@ -556,6 +563,9 @@ extension MessageStorage {
             }
 
         default:
+            if hadDuplicateValueKey {
+                throw reader.parsingError(reason: "Field 'value' specified more than once")
+            }
             // Well-known types in `Any` must *only* have a `value` field, unless we're ignoring
             // unknown fields.
             if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {

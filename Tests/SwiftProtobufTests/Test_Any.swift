@@ -1440,6 +1440,23 @@ final class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_WKT_duplicateValue() throws {
+        let inputs = [
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1,\"value\":2}",
+            "{\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":2}",
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"1s\",\"\\u0076alue\":\"2s\"}",
+        ]
+        for json in inputs {
+            for ignoreUnknown in [false, true] {
+                var options = JSONDecodingOptions()
+                options.ignoreUnknownFields = ignoreUnknown
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options), json) { error in
+                    XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+                }
+            }
+        }
+    }
+
     func test_IsA() {
         var msg = Google_Protobuf_Any()
 
