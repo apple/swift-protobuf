@@ -522,7 +522,7 @@ extension MessageStorage {
         let seconds = value(of: KnownField.timestampSeconds(in: schema)) as Int64
         let nanos = value(of: KnownField.timestampNanos(in: schema)) as Int32
         guard let formatted = formatTimestamp(seconds: seconds, nanos: nanos) else {
-            throw JSONEncodingError.durationRange
+            throw JSONEncodingError.timestampRange
         }
         encoder.putStringValue(value: formatted)
     }

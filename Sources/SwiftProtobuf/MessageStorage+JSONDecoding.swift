@@ -531,7 +531,7 @@ extension MessageStorage {
             return
         }
         guard let typeURL else {
-            throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: "")
+            throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
         }
         guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
             throw SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(type_url: typeURL)
@@ -701,12 +701,12 @@ private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
         switch c {
         case ",":
             if fieldNameCount == 0 {
-                throw JSONEncodingError.fieldMaskConversion
+                throw JSONDecodingError.malformedFieldMask
             }
             if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
                 receive(pbName)
             } else {
-                throw JSONEncodingError.fieldMaskConversion
+                throw JSONDecodingError.malformedFieldMask
             }
             fieldName = String()
             fieldNameCount = 0
@@ -716,12 +716,12 @@ private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
         }
     }
     if fieldNameCount == 0 {  // Last field name can't be empty
-        throw JSONEncodingError.fieldMaskConversion
+        throw JSONDecodingError.malformedFieldMask
     }
     if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
         receive(pbName)
     } else {
-        throw JSONEncodingError.fieldMaskConversion
+        throw JSONDecodingError.malformedFieldMask
     }
 }
 
