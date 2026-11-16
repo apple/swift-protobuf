@@ -535,7 +535,9 @@ extension MessageStorage {
         // It doesn't matter which field number we pass in here, as long as it's valid and a member
         // of the one-of we're interested in.
         let populatedFieldNumber = populatedOneofMember(of: KnownField.valueNullValue(in: schema))
-        let field = schema[fieldNumber: populatedFieldNumber]!
+        guard populatedFieldNumber != 0, let field = schema[fieldNumber: populatedFieldNumber] else {
+            throw JSONEncodingError.missingValue
+        }
         switch populatedFieldNumber {
         case KnownField.valueNullValue.number:
             encoder.putNullValue()

@@ -797,6 +797,7 @@ extension MessageSchema {
     /// Returns the schema for the field with the given number in the message, or nil if the field
     /// is not defined.
     @usableFromInline subscript(fieldNumber number: UInt32) -> Field? {
+        guard number > 0 else { return nil }
         if number < denseBelow {
             let index = messageSchemaHeaderSize + (Int(number) - 1) * fieldSchemaSize
             return Field(slice: schema[index..<(index + fieldSchemaSize)])
