@@ -104,25 +104,23 @@ extension MessageStorage {
     }
 
     private func canUseVerboseTextForm(typeURL: String) -> Bool {
-        let utf8 = Array(typeURL.utf8)
+        let utf8 = typeURL.utf8
         guard let lastSlash = utf8.lastIndex(of: UInt8(ascii: "/")),
-            lastSlash > 0,
-            utf8[0] != UInt8(ascii: "/")
+            lastSlash > utf8.startIndex,
+            utf8[utf8.startIndex] != UInt8(ascii: "/")
         else {
             return false
         }
-        var i = 0
-        while i < lastSlash {
-            let c = utf8[i]
-            i += 1
+        var bytes = utf8[..<lastSlash].makeIterator()
+        while let c = bytes.next() {
             if c == UInt8(ascii: "%") {
-                guard i + 1 < lastSlash,
-                    Tokenizer.isHexDigit(utf8[i]),
-                    Tokenizer.isHexDigit(utf8[i + 1])
+                guard let hex1 = bytes.next(),
+                    let hex2 = bytes.next(),
+                    Tokenizer.isHexDigit(hex1),
+                    Tokenizer.isHexDigit(hex2)
                 else {
                     return false
                 }
-                i += 2
             } else if !Tokenizer.isURLCharacter(c) {
                 return false
             }

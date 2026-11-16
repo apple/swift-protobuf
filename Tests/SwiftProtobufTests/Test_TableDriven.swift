@@ -15,8 +15,9 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobuf
 import XCTest
+
+@testable import SwiftProtobuf
 
 final class Test_TableDriven: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
@@ -397,5 +398,11 @@ final class Test_TableDriven: XCTestCase, PBTestHelpers {
             // And overly encoded varint for the value (extracted from some fuzz testing)
             239, 191, 189, 239, 191, 189, 239, 191, 189, 239, 191, 189, 49,
         ])
+    }
+
+    func testMessageSchemaFieldZero() {
+        XCTAssertNil(MessageTestType.messageSchema[fieldNumber: 0])
+        XCTAssertNil(Google_Protobuf_Empty.messageSchema[fieldNumber: 0])
+        XCTAssertNil(Google_Protobuf_Value.messageSchema[fieldNumber: 0])
     }
 }

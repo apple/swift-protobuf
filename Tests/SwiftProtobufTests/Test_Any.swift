@@ -1264,6 +1264,91 @@ final class Test_Any: XCTestCase {
             }
         }
 
+        // ---- Decoding JSON Any directly:
+
+        do {
+            // Empty, round trips.
+            let json = "{}"
+            let any = try Google_Protobuf_Any(jsonString: json)
+            XCTAssertEqual(json, try any.jsonString())
+
+            // Empty with invalid type_url
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: "{\"@type\":\"not_valid\"}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.invalidAnyTypeURL(type_url: "not_valid")
+                    )
+                )
+            }
+
+            // Unregistered type_url
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: "{\"@type\":\"type.googleapis.com/SomeMessage\"}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.unknownAnyTypeURL(type_url: "type.googleapis.com/SomeMessage")
+                    )
+                )
+            }
+
+            // Field but no type_url won't decode.
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(jsonString: "{\"value\":1}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.emptyAnyTypeURL()
+                    )
+                )
+            }
+        }
+
+        // ---- Decoding TextFormat expanded Any:
+
+        do {
+            // Invalid type_url (no slash)
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(textFormatString: "[not_a_url] {}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .TextFormatDecoding.invalidAnyTypeURL(type_url: "not_a_url")
+                    )
+                )
+            }
+
+            // Invalid type_url (registered message name, but missing URL prefix/slash)
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(textFormatString: "[google.protobuf.Int32Value] { value: 1 }")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .TextFormatDecoding.invalidAnyTypeURL(type_url: "google.protobuf.Int32Value")
+                    )
+                )
+            }
+
+            // Unregistered type_url
+            XCTAssertThrowsError(
+                try Google_Protobuf_Any(textFormatString: "[type.googleapis.com/SomeMessage] {}")
+            ) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .TextFormatDecoding.unknownAnyTypeURL(type_url: "type.googleapis.com/SomeMessage")
+                    )
+                )
+            }
+        }
+
         // ---- These come from the upstream conformace tests:
 
         do {
@@ -1352,6 +1437,23 @@ final class Test_Any: XCTestCase {
                     )
                 )
             )
+        }
+    }
+
+    func test_Any_WKT_duplicateValue() throws {
+        let inputs = [
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1,\"value\":2}",
+            "{\"value\":1,\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":2}",
+            "{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"1s\",\"\\u0076alue\":\"2s\"}",
+        ]
+        for json in inputs {
+            for ignoreUnknown in [false, true] {
+                var options = JSONDecodingOptions()
+                options.ignoreUnknownFields = ignoreUnknown
+                XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options), json) { error in
+                    XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+                }
+            }
         }
     }
 

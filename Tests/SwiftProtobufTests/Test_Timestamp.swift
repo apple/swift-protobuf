@@ -381,17 +381,25 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testSerializationFailure() throws {
         let maxOutOfRange = Google_Protobuf_Timestamp(seconds: -62_135_596_801, nanos: 999_999_999)
-        XCTAssertThrowsError(try maxOutOfRange.jsonString())
+        XCTAssertThrowsError(try maxOutOfRange.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .timestampRange)
+        }
         let minInRange = Google_Protobuf_Timestamp(seconds: -62_135_596_800)
         XCTAssertNotNil(try minInRange.jsonString())
         let maxInRange = Google_Protobuf_Timestamp(seconds: 253_402_300_799, nanos: 999_999_999)
         XCTAssertNotNil(try maxInRange.jsonString())
         let minOutOfRange = Google_Protobuf_Timestamp(seconds: 253_402_300_800)
-        XCTAssertThrowsError(try minOutOfRange.jsonString())
+        XCTAssertThrowsError(try minOutOfRange.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .timestampRange)
+        }
         let negNanos = Google_Protobuf_Timestamp(seconds: 5_000, nanos: -1)
-        XCTAssertThrowsError(try negNanos.jsonString())
+        XCTAssertThrowsError(try negNanos.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .timestampRange)
+        }
         let nansTooLarge = Google_Protobuf_Timestamp(seconds: 5_000, nanos: 1_000_000_000)
-        XCTAssertThrowsError(try nansTooLarge.jsonString())
+        XCTAssertThrowsError(try nansTooLarge.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .timestampRange)
+        }
     }
 
     func testBasicArithmetic() throws {

@@ -98,9 +98,15 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(
-            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}")
-        )
+        for invalid in ["foo,bar_bar", ",foo", "foo,", "foo,,bar"] {
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(
+                    jsonString: "{\"optionalFieldMask\": \"\(invalid)\"}"
+                )
+            ) { error in
+                XCTAssertEqual(error as? JSONDecodingError, .malformedFieldMask)
+            }
+        }
     }
 
     func testSerializationFailure() {
@@ -109,7 +115,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
         for c in cases {
             let m = Google_Protobuf_FieldMask(protoPaths: c)
-            XCTAssertThrowsError(try m.jsonString())
+            XCTAssertThrowsError(try m.jsonString()) { error in
+                XCTAssertEqual(error as? JSONEncodingError, .fieldMaskConversion)
+            }
         }
     }
 

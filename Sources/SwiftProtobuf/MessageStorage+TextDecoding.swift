@@ -230,8 +230,11 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
     private func parseAsExpandedAny(from reader: inout TextFormatReader, typeURL: String) throws {
-        guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+        guard isTypeURLValid(typeURL) else {
             throw SwiftProtobufError.TextFormatDecoding.invalidAnyTypeURL(type_url: typeURL)
+        }
+        guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+            throw SwiftProtobufError.TextFormatDecoding.unknownAnyTypeURL(type_url: typeURL)
         }
 
         let messageStorage = MessageStorage(schema: messageSchema)

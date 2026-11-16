@@ -481,6 +481,8 @@ extension MessageStorage {
         var wasEmpty = false
         var typeURL: String? = nil
         var possibleWKTValueJSON = ""
+        var sawValueKey = false
+        var hadDuplicateValueKey = false
         var hadFieldsOtherThanValue = false
 
         var jsonEncoder = JSONEncoder()
@@ -511,7 +513,12 @@ extension MessageStorage {
                 if key == "value" {
                     // When we encounter the key `value`, we may need to parse this as a well-known
                     // type with a special representation, so keep track of it.
-                    possibleWKTValueJSON = String(data: Data(keyValueJSON), encoding: .utf8) ?? ""
+                    if sawValueKey {
+                        hadDuplicateValueKey = true
+                    } else {
+                        sawValueKey = true
+                        possibleWKTValueJSON = String(data: Data(keyValueJSON), encoding: .utf8) ?? ""
+                    }
                 } else {
                     // Keep track of this because if it's a well-known type, we need to fail later
                     // if we're not ignoring unknown fields.
@@ -531,7 +538,7 @@ extension MessageStorage {
             return
         }
         guard let typeURL else {
-            throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: "")
+            throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
         }
         guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
             throw SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(type_url: typeURL)
@@ -556,6 +563,9 @@ extension MessageStorage {
             }
 
         default:
+            if hadDuplicateValueKey {
+                throw reader.parsingError(reason: "Field 'value' specified more than once")
+            }
             // Well-known types in `Any` must *only* have a `value` field, unless we're ignoring
             // unknown fields.
             if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {
@@ -701,12 +711,12 @@ private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
         switch c {
         case ",":
             if fieldNameCount == 0 {
-                throw JSONEncodingError.fieldMaskConversion
+                throw JSONDecodingError.malformedFieldMask
             }
             if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
                 receive(pbName)
             } else {
-                throw JSONEncodingError.fieldMaskConversion
+                throw JSONDecodingError.malformedFieldMask
             }
             fieldName = String()
             fieldNameCount = 0
@@ -716,12 +726,12 @@ private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
         }
     }
     if fieldNameCount == 0 {  // Last field name can't be empty
-        throw JSONEncodingError.fieldMaskConversion
+        throw JSONDecodingError.malformedFieldMask
     }
     if let pbName = protoName(forJSONFieldMaskPath: fieldName) {
         receive(pbName)
     } else {
-        throw JSONEncodingError.fieldMaskConversion
+        throw JSONDecodingError.malformedFieldMask
     }
 }
 
