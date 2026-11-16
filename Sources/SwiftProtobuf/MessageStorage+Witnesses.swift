@@ -357,13 +357,13 @@ extension MessageStorage {
         }
     }
 
-    /// Inserts a new entry into the map field that has been read into the given working space.
-    ///
-    /// If the field is not yet present, its map value will be initialized first.
+    /// Ensures the dictionary storage for `field` has been initialized and its presence updated,
+    /// returning its raw pointer and map entry schema.
     ///
     /// - Precondition: The field must be a map field.
-    @inline(never)
-    func insertMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) {
+    private func ensureMapInitialized(
+        for field: MessageSchema.Field
+    ) -> (pointer: UnsafeMutableRawPointer, mapSchema: MessageSchema) {
         let pointer = rawPointer(for: field)
         let mapSchema = messageSchema(for: field)
 
@@ -377,7 +377,62 @@ extension MessageStorage {
                 _ = updatePopulatedOneofMember((oneofOffset, field.fieldNumber))
             }
         }
-        mapSchema.invokeWitness(.mapInsertElement(pointer: pointer, workingSpace: workingSpace))
+        return (pointer, mapSchema)
+    }
+
+    /// Inserts a new entry into the map field that has been read into the given working space,
+    /// overwriting any existing value for the same key.
+    ///
+    /// If the field is not yet present, its map value will be initialized first.
+    ///
+    /// - Precondition: The field must be a map field.
+    @inline(never)
+    func insertMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) {
+        let (pointer, mapSchema) = ensureMapInitialized(for: field)
+        mapSchema.invokeWitness(
+            .mapInsertElement(pointer: pointer, workingSpace: workingSpace, wasDuplicate: nil)
+        )
+    }
+
+    /// Inserts a new entry into the map field that has been read into the given working space,
+    /// returning `true` if the key was not already present or `false` if an existing entry with
+    /// the same key was overwritten.
+    ///
+    /// If the field is not yet present, its map value will be initialized first.
+    ///
+    /// - Precondition: The field must be a map field.
+    @inline(never)
+    internal func insertUniqueMapEntry(in field: MessageSchema.Field, from workingSpace: MessageStorage) -> Bool {
+        let (pointer, mapSchema) = ensureMapInitialized(for: field)
+        var wasDuplicate = false
+        withUnsafeMutablePointer(to: &wasDuplicate) { wasDuplicatePointer in
+            mapSchema.invokeWitness(
+                .mapInsertElement(
+                    pointer: pointer,
+                    workingSpace: workingSpace,
+                    wasDuplicate: wasDuplicatePointer
+                )
+            )
+        }
+        return !wasDuplicate
+    }
+
+    /// Returns `true` if the map field is present and contains an entry for the key currently
+    /// stored in `workingSpace`.
+    ///
+    /// - Precondition: The field must be a map field.
+    @inline(never)
+    internal func containsMapKey(in field: MessageSchema.Field, from workingSpace: MessageStorage) -> Bool {
+        guard isPresent(field) else { return false }
+        let pointer = rawPointer(for: field)
+        let mapSchema = messageSchema(for: field)
+        var result = false
+        withUnsafeMutablePointer(to: &result) { resultPointer in
+            mapSchema.invokeWitness(
+                .mapContainsKey(pointer: pointer, workingSpace: workingSpace, result: resultPointer)
+            )
+        }
+        return result
     }
 
     /// Checks equality between two map fields.
