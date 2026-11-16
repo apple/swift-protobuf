@@ -107,7 +107,7 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             }
             success.pointee = false
 
-        case .mapInsertElement(let pointer, let workingSpace):
+        case .mapInsertElement(let pointer, let workingSpace, let wasDuplicate):
             let schema = workingSpace.schema
             let keyField = KnownField.mapEntryKey(in: schema)
             let valueField = KnownField.mapEntryValue(in: schema)
@@ -124,7 +124,23 @@ public enum MapEntryWitnesses<K: ProtobufMapKey, V: ProtobufMapParticipant> {
             let dictionaryPointer = pointer.bindMemory(to: DictType.self, capacity: 1)
             let key = K.value(at: keyOffset, in: workingSpace, hasBit: keyHasBit)
             let value = V.value(at: valueOffset, in: workingSpace, hasBit: valueHasBit)
-            dictionaryPointer.pointee[key] = value
+            if let wasDuplicate {
+                wasDuplicate.pointee = dictionaryPointer.pointee.updateValue(value, forKey: key) != nil
+            } else {
+                dictionaryPointer.pointee[key] = value
+            }
+
+        case .mapContainsKey(let pointer, let workingSpace, let result):
+            let schema = workingSpace.schema
+            let keyField = KnownField.mapEntryKey(in: schema)
+            guard case .hasBit(let keyHasByteOffset, let keyHasBitMask) = keyField.presence else {
+                preconditionFailure("unreachable")
+            }
+            let keyHasBit = (keyHasByteOffset, keyHasBitMask)
+            let keyOffset = schema.byteOffset(of: keyField)
+            let dictionaryPointer = pointer.bindMemory(to: DictType.self, capacity: 1)
+            let key = K.value(at: keyOffset, in: workingSpace, hasBit: keyHasBit)
+            result.pointee = dictionaryPointer.pointee[key] != nil
 
         case .mapCheckEquality(let lhs, let rhs, let result):
             result.pointee =

@@ -181,7 +181,22 @@ public enum MessageWitnessOperation {
     )
 
     /// Inserts the key and value from `workingSpace` into the dictionary located at `pointer`.
-    case mapInsertElement(pointer: UnsafeMutableRawPointer, workingSpace: MessageStorage)
+    ///
+    /// If `wasDuplicate` is non-nil, its pointee is set to `true` if `pointer` already contained
+    /// an entry for that key, or `false` otherwise.
+    case mapInsertElement(
+        pointer: UnsafeMutableRawPointer,
+        workingSpace: MessageStorage,
+        wasDuplicate: UnsafeMutablePointer<Bool>?
+    )
+
+    /// Populates `result` with `true` if the dictionary located at `pointer` already contains an
+    /// entry for the key in `workingSpace`, or `false` otherwise.
+    case mapContainsKey(
+        pointer: UnsafeRawPointer,
+        workingSpace: MessageStorage,
+        result: UnsafeMutablePointer<Bool>
+    )
 
     /// Checks equality between two maps.
     ///

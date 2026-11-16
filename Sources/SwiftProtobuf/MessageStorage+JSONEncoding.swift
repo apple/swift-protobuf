@@ -392,7 +392,11 @@ extension MessageStorage {
         }
 
         guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
-            throw SwiftProtobufError.JSONEncoding.invalidAnyTypeURL(type_url: typeURL)
+            // If the message type is not registered, the binary `value` payload cannot be
+            // transcoded to JSON. Match `main`'s `JSONEncodingError.anyTranscodeFailure` behavior
+            // for now; we may want to consider a dedicated error (similar to
+            // `SwiftProtobufError.JSONDecoding.unknownAnyTypeURL`) in the future.
+            throw JSONEncodingError.anyTranscodeFailure
         }
         let isWKT = CustomJSONWKTClassification(messageSchema: messageSchema) != .notWellKnown
         if isWKT {

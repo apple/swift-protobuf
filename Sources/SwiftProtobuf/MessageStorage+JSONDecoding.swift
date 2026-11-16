@@ -418,19 +418,26 @@ extension MessageStorage {
         from reader: inout JSONReader,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
+        // Lazily allocated only if an unknown enum value is ignored under `ignoreUnknownFields`,
+        // where the entry is not inserted into the underlying `Dictionary` so duplicate keys
+        // involving ignored entries cannot be detected from `Dictionary.updateValue` alone.
+        var ignoredEnumKeys: Set<AnyHashable>? = nil
+
         try reader.consumeObject { reader in
             guard let submessageStorage = mapEntryWorkingSpace.storage(for: field.submessageIndex) else {
                 throw reader.parsingError(reason: "Could not resolve schema for map entry field \(field.fieldNumber)")
             }
             let mapEntrySchema = submessageStorage.schema
+            let keyField = KnownField.mapEntryKey(in: mapEntrySchema)
 
             // The next value must be a double-quoted string, because map keys must always be
             // strings.
             guard reader.at(.string, .stringWithEscapes) else {
                 throw reader.parsingError(expected: "a string map key")
             }
+            let keyToken = reader.tokenizer.current
             try submessageStorage.scanSingularValue(
-                of: KnownField.mapEntryKey(in: mapEntrySchema),
+                of: keyField,
                 from: &reader,
                 requireQuotedBool: true
             )
@@ -441,8 +448,48 @@ extension MessageStorage {
                 from: &reader
             )
             if success {
-                insertMapEntry(in: field, from: submessageStorage)
+                if let ignoredEnumKeys,
+                    ignoredEnumKeys.contains(submessageStorage.mapKeyAnyHashable(of: keyField))
+                {
+                    throw reader.parsingError(reason: "Duplicate key in map", at: keyToken)
+                }
+                if !insertUniqueMapEntry(in: field, from: submessageStorage) {
+                    throw reader.parsingError(reason: "Duplicate key in map", at: keyToken)
+                }
+            } else {
+                if containsMapKey(in: field, from: submessageStorage) {
+                    throw reader.parsingError(reason: "Duplicate key in map", at: keyToken)
+                }
+                let key = submessageStorage.mapKeyAnyHashable(of: keyField)
+                if ignoredEnumKeys == nil {
+                    ignoredEnumKeys = [key]
+                } else if !ignoredEnumKeys!.insert(key).inserted {
+                    throw reader.parsingError(reason: "Duplicate key in map", at: keyToken)
+                }
             }
+        }
+    }
+
+    /// Returns the parsed map entry key stored in `keyField` wrapped in `AnyHashable`.
+    ///
+    /// - Precondition: `self` must be a map-entry `MessageStorage` and `keyField` must be its key
+    ///   field.
+    private func mapKeyAnyHashable(of keyField: MessageSchema.Field) -> AnyHashable {
+        switch keyField.rawFieldType {
+        case .bool:
+            return AnyHashable(value(of: keyField) as Bool)
+        case .int32, .sfixed32, .sint32:
+            return AnyHashable(value(of: keyField) as Int32)
+        case .fixed32, .uint32:
+            return AnyHashable(value(of: keyField) as UInt32)
+        case .int64, .sfixed64, .sint64:
+            return AnyHashable(value(of: keyField) as Int64)
+        case .fixed64, .uint64:
+            return AnyHashable(value(of: keyField) as UInt64)
+        case .string:
+            return AnyHashable(value(of: keyField) as String)
+        default:
+            preconditionFailure("Unreachable")
         }
     }
 
@@ -636,6 +683,7 @@ extension MessageStorage {
             }
             let mapEntrySchema = submessageStorage.schema
 
+            let keyToken = reader.tokenizer.current
             try submessageStorage.scanSingularValue(
                 of: KnownField.mapEntryKey(in: mapEntrySchema),
                 from: &reader,
@@ -648,7 +696,9 @@ extension MessageStorage {
                 from: &reader
             )
             if success {
-                insertMapEntry(in: fieldsField, from: submessageStorage)
+                if !insertUniqueMapEntry(in: fieldsField, from: submessageStorage) {
+                    throw reader.parsingError(reason: "Duplicate key in Struct", at: keyToken)
+                }
             }
         }
     }

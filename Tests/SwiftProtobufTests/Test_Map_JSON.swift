@@ -326,6 +326,50 @@ final class Test_Map_JSON: XCTestCase, PBTestHelpers {
             return $0.mapInt32ForeignMessage == [7: sub7, 8: sub8]
         }
     }
+
+    func testMap_duplicateKeyRejected() throws {
+        // A repeated key in a JSON map is rejected rather than letting the
+        // later entry silently overwrite the earlier one, matching the
+        // reference parser (json/internal/parser.cc ParseMap).
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2,\"1\":3}}")
+        assertJSONDecodeFails("{\"mapStringString\":{\"a\":\"x\",\"a\":\"y\"}}")
+        assertJSONDecodeFails("{\"mapBoolBool\":{\"true\":false,\"true\":true}}")
+        assertJSONDecodeFails("{\"mapInt32Enum\":{\"1\":\"MAP_ENUM_FOO\",\"1\":\"MAP_ENUM_BAZ\"}}")
+        assertJSONDecodeFails("{\"mapInt32ForeignMessage\":{\"1\":{\"c\":7},\"1\":{\"c\":8}}}")
+        // Escaped keys that resolve to the same key are also rejected.
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2,\"\\u0031\":3}}")
+        assertJSONDecodeFails("{\"mapStringString\":{\"a\":\"x\",\"\\u0061\":\"y\"}}")
+        XCTAssertThrowsError(
+            try MessageTestType(jsonString: "{\"mapStringString\":{\"a\":\"x\",\"a\":\"y\"}}")
+        ) { error in
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+        }
+
+        // Duplicate keys involving ignored unknown enum values under ignoreUnknownFields are also rejected.
+        var ignoreUnknownOptions = JSONDecodingOptions()
+        ignoreUnknownOptions.ignoreUnknownFields = true
+        assertJSONDecodeFails(
+            "{\"mapInt32Enum\":{\"1\":\"UNKNOWN_ENUM\",\"1\":\"MAP_ENUM_FOO\"}}",
+            options: ignoreUnknownOptions
+        )
+        assertJSONDecodeFails(
+            "{\"mapInt32Enum\":{\"1\":\"MAP_ENUM_FOO\",\"1\":\"UNKNOWN_ENUM\"}}",
+            options: ignoreUnknownOptions
+        )
+        assertJSONDecodeFails(
+            "{\"mapInt32Enum\":{\"1\":\"UNKNOWN_ENUM_1\",\"1\":\"UNKNOWN_ENUM_2\"}}",
+            options: ignoreUnknownOptions
+        )
+
+        // Distinct keys are still accepted.
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2,\"2\":3}}") { $0.mapInt32Int32 == [1: 2, 2: 3] }
+        assertJSONDecodeSucceeds(
+            "{\"mapInt32Enum\":{\"1\":\"UNKNOWN_ENUM\",\"2\":\"MAP_ENUM_FOO\"}}",
+            options: ignoreUnknownOptions
+        ) {
+            $0.mapInt32Enum == [2: .foo]
+        }
+    }
 }
 
 final class Test_Map_JSON_Proto2Enum: XCTestCase, PBTestHelpers {
