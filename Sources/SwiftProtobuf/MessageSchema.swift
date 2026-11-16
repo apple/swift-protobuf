@@ -599,7 +599,7 @@ extension MessageSchema {
     }
 
     /// The number of non-extension fields defined by the message.
-    var fieldCount: Int {
+    package var fieldCount: Int {
         Self.fieldCount(from: schema)
     }
 
@@ -787,7 +787,7 @@ extension MessageSchema {
 
     /// Returns a sequence that represents the schemas of the fields in the message, in field number
     /// order.
-    var fields: some Sequence<Field> {
+    package var fields: some Sequence<Field> {
         // For ease of iteration, we strip off the message schema header at the beginning and the
         // message name at the end, leaving only the slice containing the fixed-size field schemas.
         let endOffset = messageSchemaHeaderSize + fieldCount * fieldSchemaSize
@@ -796,7 +796,7 @@ extension MessageSchema {
 
     /// Returns the schema for the field with the given number in the message, or nil if the field
     /// is not defined.
-    @usableFromInline subscript(fieldNumber number: UInt32) -> Field? {
+    @usableFromInline package subscript(fieldNumber number: UInt32) -> Field? {
         guard number > 0 else { return nil }
         if number < denseBelow {
             let index = messageSchemaHeaderSize + (Int(number) - 1) * fieldSchemaSize
@@ -821,11 +821,26 @@ extension MessageSchema {
         return nil
     }
 
+    /// Returns the zero-based index of the given field in this message's schema.
+    ///
+    /// - Precondition: `field` must be a non-extension field belonging to this `MessageSchema`.
+    @inline(__always)
+    package func fieldIndex(of field: Field) -> Int {
+        let byteOffset = field.buffer.baseAddress! - schema.baseAddress! - messageSchemaHeaderSize
+        assert(
+            byteOffset >= 0
+                && byteOffset < fieldCount * fieldSchemaSize
+                && byteOffset.isMultiple(of: fieldSchemaSize),
+            "Field does not belong to this MessageSchema"
+        )
+        return byteOffset / fieldSchemaSize
+    }
+
     /// Returns the message schema for the given field.
     ///
     /// - Precondition: The field must be a message, group, or map field.
     @usableFromInline
-    func messageSchema(for field: Field) -> MessageSchema {
+    package func messageSchema(for field: Field) -> MessageSchema {
         switch submessageOrEnumResolver(SubmessageOrEnumToken(index: field.submessageIndex)) {
         case nil:
             // If the resolver returned nil, then the protos must have been
@@ -916,7 +931,7 @@ extension MessageSchema {
     /// Provides access to the properties of a field's schema based on a slice of the raw message
     /// schema string.
     @usableFromInline
-    struct Field {
+    package struct Field {
         /// Describes the presence information of a field, translated from its raw bytecode
         /// representation.
         enum Presence: Sendable, Equatable {
@@ -941,7 +956,7 @@ extension MessageSchema {
         }
 
         /// The rebased slice of `MessageSchema.schema` that describes the schema of this field.
-        private let buffer: UnsafeRawBufferPointer
+        fileprivate let buffer: UnsafeRawBufferPointer
 
         /// The number of the field whose schema is being described.
         @usableFromInline package var fieldNumber: UInt32 {

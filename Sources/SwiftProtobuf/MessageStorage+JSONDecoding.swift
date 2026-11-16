@@ -101,7 +101,7 @@ extension MessageStorage {
         case .notWellKnown:
             // This is the common case.
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-            var seenFields = Set<UInt32>()
+            var seenFields = FieldBitSet()
 
             try reader.consumeObject { reader in
                 try decodeKeyValuePair(
@@ -116,7 +116,7 @@ extension MessageStorage {
     /// Decodes the next key-value pair from a regular JSON object in the reader.
     private func decodeKeyValuePair(
         from reader: inout JSONReader,
-        seenFields: inout Set<UInt32>,
+        seenFields: inout FieldBitSet,
         mapEntryWorkingSpace: inout MapEntryWorkingSpace
     ) throws {
         let fieldOrExtension = try reader.consumeFieldOrExtension()
@@ -124,7 +124,7 @@ extension MessageStorage {
 
         switch fieldOrExtension {
         case .field(let field):
-            guard seenFields.insert(field.fieldNumber).inserted else {
+            guard seenFields.insert(fieldIndex: schema.fieldIndex(of: field)) else {
                 let jsonName = schema.jsonName(forFieldNumber: field.fieldNumber)!
                 throw reader.parsingError(reason: "Field '\(jsonName)' specified more than once")
             }
@@ -143,7 +143,7 @@ extension MessageStorage {
             }
             try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
         case .extension(let ext):
-            guard seenFields.insert(ext.field.fieldNumber).inserted else {
+            guard seenFields.insert(extensionFieldNumber: ext.field.fieldNumber) else {
                 throw reader.parsingError(reason: "Field '\(ext.fieldName)' specified more than once")
             }
             try extensionStorage.decodeNextExtension(ext, from: &reader)

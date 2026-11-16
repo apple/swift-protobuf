@@ -35,12 +35,12 @@ extension MessageStorage {
 
         default:
             var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: schema)
-            var seenSingularFields = Set<UInt32>()
+            var seenSingularFields = FieldBitSet()
             while let fieldOrExtension = try reader.consumeFieldOrExtensionIfPresent() {
                 switch fieldOrExtension {
                 case .field(let field):
                     if field.fieldMode.cardinality == .scalar {
-                        guard seenSingularFields.insert(field.fieldNumber).inserted else {
+                        guard seenSingularFields.insert(fieldIndex: schema.fieldIndex(of: field)) else {
                             throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
                         }
                     }
@@ -52,7 +52,7 @@ extension MessageStorage {
                     try decodeNextFieldValue(from: &reader, field: field, mapEntryWorkingSpace: &mapEntryWorkingSpace)
                 case .extension(let ext):
                     if ext.field.fieldMode.cardinality == .scalar {
-                        guard seenSingularFields.insert(ext.field.fieldNumber).inserted else {
+                        guard seenSingularFields.insert(extensionFieldNumber: ext.field.fieldNumber) else {
                             throw SwiftProtobufError.TextFormatDecoding.duplicateSingularField()
                         }
                     }
