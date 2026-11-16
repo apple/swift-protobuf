@@ -227,8 +227,13 @@ final class Test_Any: XCTestCase {
 
         XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\nvalue: \"\\b\\007\"\n")
 
-        // Protobuf-to-JSON transcoding fails
-        XCTAssertThrowsError(try decoded.jsonString())
+        // Protobuf-to-JSON transcoding fails because the type is not registered
+        XCTAssertThrowsError(try decoded.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertThrowsError(try decoded.jsonUTF8Bytes() as [UInt8]) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
     }
 
     func test_Any_Any() throws {
@@ -1250,6 +1255,13 @@ final class Test_Any: XCTestCase {
                 try any.jsonString(),
                 "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt32\":1}"
             )
+            // Has payload, unregistered type url.
+            any.typeURL = "type.googleapis.com/SomeMessage"
+            XCTAssertThrowsError(
+                try any.jsonString()
+            ) { error in
+                XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+            }
             // Has payload, invalid type url.
             any.typeURL = "not_valid"
             XCTAssertThrowsError(
