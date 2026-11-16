@@ -511,39 +511,29 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertDebugDescription(
-        _ expected: String,
+    /// Checks that the ``debugDescription`` ends with ``expectedSuffix``, mainly useful where
+    /// you want to be agnostic to some preamble like the module name, making the tests less
+    /// sensitive to module names in case things are restructured in the future.
+    func assertDebugDescriptionSuffix(
+        _ expectedSuffix: String,
         file: XCTestFileArgType = #filePath,
         line: UInt = #line,
         configure: (inout MessageTestType) -> Void
     ) {
-        // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
+        // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.
         #if DEBUG
         var m = MessageTestType()
         configure(&m)
         let actual = m.debugDescription
-        XCTAssertEqual(actual, expected, file: file, line: line)
+        XCTAssertTrue(actual.hasSuffix(expectedSuffix), "debugDescription did not match", file: file, line: line)
         #endif
     }
 }
 
 extension XCTestCase {
-    func assertDebugDescription(
-        _ expected: String,
-        _ m: any SwiftProtobuf.Message,
-        fmt: String? = nil,
-        file: XCTestFileArgType = #filePath,
-        line: UInt = #line
-    ) {
-        // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
-        #if DEBUG
-        let actual = m.debugDescription
-        XCTAssertEqual(actual, expected, fmt ?? "debugDescription did not match", file: file, line: line)
-        #endif
-    }
-    /// Like ``assertDebugDescription``, but only checks the the ``debugDescription`` ends with
-    /// ``expectedSuffix``, mainly useful where you want to be agnotics to some preable like
-    /// the module name.
+    /// Checks that the ``debugDescription`` ends with ``expectedSuffix``, mainly useful where
+    /// you want to be agnostic to some preamble like the module name, making the tests less
+    /// sensitive to module names in case things are restructured in the future.
     func assertDebugDescriptionSuffix(
         _ expectedSuffix: String,
         _ m: any SwiftProtobuf.Message,

@@ -24,7 +24,7 @@ internal struct JSONEncodingVisitor: Visitor {
     private var encoder = JSONEncoder()
     private var nameMap: _NameMap
     private var extensions: ExtensionFieldValueSet?
-    private let options: JSONEncodingOptions
+    private var options: JSONEncodingOptions
 
     /// The JSON text produced by the visitor, as raw UTF8 bytes.
     var dataResult: [UInt8] {
@@ -57,15 +57,18 @@ internal struct JSONEncodingVisitor: Visitor {
 
     mutating func startObject(message: any Message) {
         self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
+        options.recursionBudget -= 1
         encoder.startObject()
     }
 
     mutating func startArrayObject(message: any Message) {
         self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
+        options.recursionBudget -= 1
         encoder.startArrayObject()
     }
 
     mutating func endObject() {
+        options.recursionBudget += 1
         encoder.endObject()
     }
 
@@ -343,7 +346,7 @@ internal struct JSONEncodingVisitor: Visitor {
             for v in value {
                 startArrayObject(message: v)
                 try v.traverse(visitor: &self)
-                encoder.endObject()
+                endObject()
             }
             // Restore outer object's name and extension maps before returning
             self.nameMap = oldNameMap

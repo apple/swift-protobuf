@@ -8191,6 +8191,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
 
   }
 
+  nonisolated enum duplicateAnyTypeURL: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneDuplicateAnyTypeURL // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDuplicateAnyTypeURL
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDuplicateAnyTypeURL
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDuplicateAnyTypeURL: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL] = [
+      .noneDuplicateAnyTypeURL,
+    ]
+
+  }
+
   nonisolated enum duration: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
     case noneDuration // = 0
@@ -16977,6 +17007,36 @@ nonisolated struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Send
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isExtension] = [
       .noneIsExtension,
+    ]
+
+  }
+
+  nonisolated enum isHexDigit: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+    case noneIsHexDigit // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIsHexDigit
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIsHexDigit
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIsHexDigit: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isHexDigit] = [
+      .noneIsHexDigit,
     ]
 
   }
@@ -32315,6 +32375,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.do
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_doubleValue\0")
 }
 
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duplicateAnyTypeURL: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_duplicateAnyTypeURL\0")
+}
+
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.duration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_duration\0")
 }
@@ -33485,6 +33549,10 @@ nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.is
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_isExtension\0")
+}
+
+nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isHexDigit: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0NONE_isHexDigit\0")
 }
 
 nonisolated extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {

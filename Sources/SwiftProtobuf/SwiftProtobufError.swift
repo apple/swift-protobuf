@@ -93,6 +93,7 @@ extension SwiftProtobufError {
             case binaryStreamDecodingError
             case jsonDecodingError
             case jsonEncodingError
+            case textFormatDecodingError
 
             var description: String {
                 switch self {
@@ -104,6 +105,8 @@ extension SwiftProtobufError {
                     return "JSON decoding error"
                 case .jsonEncodingError:
                     return "JSON encoding error"
+                case .textFormatDecodingError:
+                    return "TextFormat decoding error"
                 }
             }
         }
@@ -137,6 +140,11 @@ extension SwiftProtobufError {
         /// Errors arising from JSON encoding of messages.
         public static var jsonEncodingError: Self {
             Self(.jsonEncodingError)
+        }
+
+        /// Errors arising from TextFormat decoding of data into protobufs.
+        public static var textFormatDecodingError: Self {
+            Self(.textFormatDecodingError)
         }
     }
 
@@ -327,6 +335,22 @@ extension SwiftProtobufError {
             SwiftProtobufError(
                 code: .jsonEncodingError,
                 message: "google.protobuf.Any 'type_url' was empty, only allowed for empty objects.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
+    }
+
+    /// Errors arising from TextFormat decoding of data into protobufs.
+    public enum TextFormatDecoding {
+        /// A singular field occurred more than once in the same message.
+        public static func duplicateSingularField(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .textFormatDecodingError,
+                message: "A singular field occurred more than once in the same message.",
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }

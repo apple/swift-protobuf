@@ -41,5 +41,9 @@ public struct JSONEncodingOptions: Sendable {
     /// and subject to change.
     public var useDeterministicOrdering: Bool = false
 
+    /// Remaining message nesting depth budget when encoding (used to bound
+    /// recursive `google.protobuf.Any` transcoding).
+    internal var recursionBudget: Int = 100
+
     public init() {}
 }

@@ -72,33 +72,69 @@ GENERATE_PROTOS_SRCS=${PROTOC_INVOKE} \
 	-I Protos/Sources/SwiftProtobufPluginLibrary \
 	-I Protos/Sources/protoc-gen-swift
 
-# Helper to remove existing generated .pb.swift files from a directory:
-#   $(call clean_pb_swift,<dir>)
-define clean_pb_swift
-find $(1) -name "*.pb.swift" -exec rm -f {} \;
+REGEN_TMP_DIR=.build/regen_tmp
+
+# Helper to prepare a clean temporary staging directory before regenerating
+# .pb.swift and .pbschema.swift files for a directory:
+#   $(call prepare_pb_swift_staging,<dir>)
+define prepare_pb_swift_staging
+@rm -rf "${REGEN_TMP_DIR}/$(1)" && mkdir -p "${REGEN_TMP_DIR}/$(1)"
+endef
+
+# Helper to sync generated .pb.swift and .pbschema.swift files from the
+# temporary staging directory into a destination directory (arg 1),
+# only touching destination files whose content actually changed and removing
+# stale generated files no longer present in the staging directory:
+#   $(call sync_pb_swift,<dir>)
+define sync_pb_swift
+@for f in `cd "${REGEN_TMP_DIR}/$(1)" && find . -type f \( -name "*.pb.swift" -o -name "*.pbschema.swift" \)`; do \
+	rel=$${f#./}; \
+	dst="$(1)/$$rel"; \
+	mkdir -p "$$(dirname "$$dst")"; \
+	if [ ! -f "$$dst" ] || ! cmp -s "${REGEN_TMP_DIR}/$(1)/$$rel" "$$dst"; then \
+		cp "${REGEN_TMP_DIR}/$(1)/$$rel" "$$dst"; \
+	fi; \
+done; \
+if [ -d "$(1)" ]; then \
+	for f in `cd "$(1)" && find . -type f \( -name "*.pb.swift" -o -name "*.pbschema.swift" \)`; do \
+		rel=$${f#./}; \
+		if [ ! -f "${REGEN_TMP_DIR}/$(1)/$$rel" ]; then \
+			rm -f "$(1)/$$rel"; \
+		fi; \
+	done; \
+fi; \
+rm -rf "${REGEN_TMP_DIR}/$(1)"
+endef
+
+# Helper to replace a destination file (arg 2) with a temporary file (arg 1)
+# only when the destination does not exist or its contents changed:
+#   $(call replace_if_changed,<tmp_file>,<dst_file>)
+define replace_if_changed
+@if [ ! -f "$(2)" ] || ! cmp -s "$(1)" "$(2)"; then mv "$(1)" "$(2)"; else rm -f "$(1)"; fi
 endef
 
 # Helper to clean and regenerate .pb.swift files for a directory:
 #   $(call regenerate_protos,<dir>[,<extra_protoc_flags>])
 define regenerate_protos
-$(call clean_pb_swift,$(1))
+$(call prepare_pb_swift_staging,$(1))
 ${GENERATE_PROTOS_SRCS} \
 	-I Protos/$(1) \
 	--tfiws_opt=FileNaming=DropPath $(2) \
-	--tfiws_out=$(1) \
+	--tfiws_out=${REGEN_TMP_DIR}/$(1) \
 	`find Protos/$(1) -type f -name "*.proto"`
+$(call sync_pb_swift,$(1))
 endef
 
 # Helper to embed a binary file as a [UInt8] array in a Swift source file:
 #   $(call embed_bytes_in_swift,<bin_file>,<swift_var_name>,<output_swift_file>)
 define embed_bytes_in_swift
-@rm -f $(3)
-@echo '// See Makefile how this is generated.' >> $(3)
-@echo '// swift-format-ignore-file' >> $(3)
-@echo 'import Foundation' >> $(3)
-@echo 'let $(2): [UInt8] = [' >> $(3)
-@xxd -i < $(1) >> $(3)
-@echo ']' >> $(3)
+@echo '// See Makefile how this is generated.' > $(3).tmp
+@echo '// swift-format-ignore-file' >> $(3).tmp
+@echo 'import Foundation' >> $(3).tmp
+@echo 'let $(2): [UInt8] = [' >> $(3).tmp
+@xxd -i < $(1) >> $(3).tmp
+@echo ']' >> $(3).tmp
+$(call replace_if_changed,$(3).tmp,$(3))
 endef
 
 # Where to find the Swift conformance test runner executable.
@@ -385,13 +421,14 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC} Protos/Tests/SwiftPr
 # Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
 # Protos/Tests/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	$(call clean_pb_swift,FuzzTesting/Sources/FuzzCommon)
+	$(call prepare_pb_swift_staging,FuzzTesting/Sources/FuzzCommon)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/Tests/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
-		--tfiws_out=FuzzTesting/Sources/FuzzCommon \
+		--tfiws_out=${REGEN_TMP_DIR}/FuzzTesting/Sources/FuzzCommon \
 		Protos/Tests/SwiftProtobufTests/fuzz_testing.proto
+	$(call sync_pb_swift,FuzzTesting/Sources/FuzzCommon)
 
 SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
 	Protos/Tests/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test.proto \
@@ -451,7 +488,8 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 	sed -e 's/^_//' | \
 	sort -uf | \
 	grep -vE '(reserved)' | \
-	grep '^[a-zA-Z_]' > $@
+	grep '^[a-zA-Z_]' > $@.tmp
+	$(call replace_if_changed,$@.tmp,$@)
 
 # Build some proto files full of landmines
 #
@@ -470,15 +508,15 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 # Helper: $(call generate_swift_names_proto,<decl_header>,<awk_script>,<output_proto_file>)
 define generate_swift_names_proto
 @echo Building $(3)
-@rm -f $(3)
-@echo '// See Makefile for the logic that generates this' >> $(3)
-@echo '// Protoc errors imply this file is being generated incorrectly' >> $(3)
-@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $(3)
-@echo 'syntax = "proto3";' >> $(3)
-@echo 'package swift_proto_testing.generated;' >> $(3)
-@echo '$(1)' >> $(3)
-@cat Protos/mined_words.txt | ${AWK} '$(2)' >> $(3)
-@echo '}' >> $(3)
+@echo '// See Makefile for the logic that generates this' > $(3).tmp
+@echo '// Protoc errors imply this file is being generated incorrectly' >> $(3).tmp
+@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $(3).tmp
+@echo 'syntax = "proto3";' >> $(3).tmp
+@echo 'package swift_proto_testing.generated;' >> $(3).tmp
+@echo '$(1)' >> $(3).tmp
+@cat Protos/mined_words.txt | ${AWK} '$(2)' >> $(3).tmp
+@echo '}' >> $(3).tmp
+$(call replace_if_changed,$(3).tmp,$(3))
 endef
 
 Protos/Tests/SwiftProtobufTests/generated_swift_names_fields.proto: Protos/mined_words.txt
@@ -509,33 +547,39 @@ regenerate-compiletests-protos: \
 # Most of the CompileTests use the plugin, but this feature is Experimental and not
 # currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	$(call clean_pb_swift,CompileTests/MultiModule)
+	$(call prepare_pb_swift_staging,CompileTests/MultiModule)
 	${GENERATE_PROTOS_SRCS} \
 	    -I Protos/CompileTests/MultiModule \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
-		--tfiws_out=CompileTests/MultiModule \
+		--tfiws_out=${REGEN_TMP_DIR}/CompileTests/MultiModule \
 		`find Protos/CompileTests/MultiModule -type f -name "*.proto"`
+	$(call sync_pb_swift,CompileTests/MultiModule)
 
 # We use the plugin for the InternalImportsByDefault test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory),
 # this simply copies those files to the InternalImportsByDefault package in case they change.
 copy-compiletests-internalimportsbydefault-protos:
-	@cp Protos/CompileTests/InternalImportsByDefault/* CompileTests/InternalImportsByDefault/Sources/InternalImportsByDefault/Protos
+	@for p in Protos/CompileTests/InternalImportsByDefault/*; do \
+		dst="CompileTests/InternalImportsByDefault/Sources/InternalImportsByDefault/Protos/$$(basename "$$p")"; \
+		if [ ! -f "$$dst" ] || ! cmp -s "$$p" "$$dst"; then cp "$$p" "$$dst"; fi; \
+	done
 
 # We use the plugin for the NonisolatedDeclarations test, so we don't actually need to regenerate
 # anything. However, to keep the protos centralised in a single place (the Protos directory), this
 # simply copies those files to the NonisolatedDeclarations package in case they change.
 copy-compiletests-nonisolateddeclarations-protos:
-	@cp Protos/CompileTests/NonisolatedDeclarations/* CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos
+	@for p in Protos/CompileTests/NonisolatedDeclarations/*; do \
+		dst="CompileTests/NonisolatedDeclarations/Sources/NonisolatedDeclarations/Protos/$$(basename "$$p")"; \
+		if [ ! -f "$$dst" ] || ! cmp -s "$$p" "$$dst"; then cp "$$p" "$$dst"; fi; \
+	done
 
 # Regenerate the CompileTests/ExperimentalHiddenNames files.
 #
 # Most of the CompileTests use the plugin, but this feature is Experimental and not
 # currently exposed to the plugin, so the generated sources must be checked in.
 regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT} ${PROTOC}
-	$(call clean_pb_swift,CompileTests/ExperimentalHiddenNames)
-	@mkdir -p CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests
+	$(call prepare_pb_swift_staging,CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests)
 	@for p in \
 	    Fields:fields.proto \
 	    EnumValues:enum_values.proto \
@@ -545,9 +589,10 @@ regenerate-compiletests-experimentalhiddennames-protos: build ${PROTOC_GEN_SWIFT
 		${GENERATE_PROTOS_SRCS} \
 		    -I Protos/CompileTests/ExperimentalHiddenNames \
 			--tfiws_opt=ExperimentalHiddenNames=$$opt \
-			--tfiws_out=CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
+			--tfiws_out=${REGEN_TMP_DIR}/CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests \
 			Protos/CompileTests/ExperimentalHiddenNames/$$file || exit 1; \
 	done
+	$(call sync_pb_swift,CompileTests/ExperimentalHiddenNames/Tests/ExperimentalHiddenNamesTests)
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:

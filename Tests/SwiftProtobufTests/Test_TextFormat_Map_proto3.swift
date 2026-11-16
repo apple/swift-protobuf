@@ -19,6 +19,45 @@ import XCTest
 final class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestMap
 
+    func test_duplicateEntryFields() throws {
+        for (field, key, value) in [
+            ("map_int32_int32", "0", ": 0"),
+            ("map_int32_enum", "0", ": MAP_ENUM_FOO"),
+            ("map_string_foreign_message", "\"\"", "{}"),
+        ] {
+            for entry in [
+                "key: \(key) 1: \(key) value \(value)",
+                "key: \(key) value \(value) 2 \(value)",
+            ] {
+                XCTAssertThrowsError(try MessageTestType(textFormatString: "\(field) {\(entry)}")) {
+                    guard let error = $0 as? SwiftProtobufError,
+                        self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+                    else {
+                        return XCTFail("Unexpected error: \($0)")
+                    }
+                }
+            }
+            assertTextFormatDecodeSucceeds(
+                "\(field) [{key: \(key) value \(value)}] \(field) {key: \(key) value \(value)}"
+            ) { _ in true }
+        }
+        assertTextFormatDecodeSucceeds("map_int32_int32 {key: 1 value: 2} map_int32_int32 {key: 1 value: 3}") {
+            $0.mapInt32Int32 == [1: 3]
+        }
+        let text = "optional_int32: 0 map_int32_int32 {key: 0 value: 0} optional_int64: 0"
+        let message = try SwiftProtoTesting_Test3_TestAllTypesProto3(textFormatString: text)
+        XCTAssertEqual(message.mapInt32Int32, [0: 0])
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(textFormatString: text + " optional_int32: 0")
+        ) {
+            guard let error = $0 as? SwiftProtobufError,
+                self.isSwiftProtobufErrorEqual(error, .TextFormatDecoding.duplicateSingularField())
+            else {
+                return XCTFail("Unexpected error: \($0)")
+            }
+        }
+    }
+
     func test_Int32Int32() {
         assertTextFormatEncode("map_int32_int32 {\n  key: 1\n  value: 2\n}\n") { (o: inout MessageTestType) in
             o.mapInt32Int32 = [1: 2]

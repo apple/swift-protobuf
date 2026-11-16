@@ -198,6 +198,59 @@ final class Test_MessageSet: XCTestCase {
         )
     }
 
+    func testParse_MissingItemEnd() {
+        // Same as testParseOrder1, but without the item end group tag.
+        let truncated = Data([
+            11,
+            16, 176, 166, 94,  // Extension ID
+            26, 2, 120, 123,  // Payload message
+        ])
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: truncated,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .truncated)
+        }
+
+        // The missing end tag must not let the item swallow the next item.
+        let unterminated = Data([
+            11,
+            16, 176, 166, 94,  // Extension ID
+            26, 2, 120, 123,  // Payload message
+            11,
+            16, 249, 187, 94,  // Extension ID
+            26, 3, 202, 1, 0,  // Payload message
+            12,
+        ])
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: unterminated,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .truncated)
+        }
+
+        // Same as testParseOrder2, but without the item end group tag. The
+        // payload comes before the type id, so this hits the buffered path
+        // of decodeMessageSetItem.
+        let truncatedReversed = Data([
+            11,
+            26, 2, 120, 123,  // Payload message
+            16, 176, 166, 94,  // Extension ID
+        ])
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_WireFormat_TestMessageSet(
+                serializedBytes: truncatedReversed,
+                extensions: SwiftProtoTesting_UnittestMset_Extensions
+            )
+        ) { error in
+            XCTAssertEqual(error as? BinaryDecodingError, .truncated)
+        }
+    }
+
     // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)
     func testTextFormat_Serialize() {
         let msg = SwiftProtoTesting_TestMessageSetContainer.with {

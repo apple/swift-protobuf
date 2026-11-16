@@ -66,7 +66,7 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    /// - Throws: ``SwiftProtobufError`` on failure.
+    /// - Throws: ``SwiftProtobufError`` or ``TextFormatDecodingError`` on failure.
     // TODO: delete this (and keep the one with the extra param instead) when we break API
     public init(
         textFormatString: String,
@@ -88,7 +88,7 @@ extension Message {
     ///   - extensions: An ``ExtensionMap`` used to look up and decode any
     ///     extensions in this message or messages nested within this message's
     ///     fields.
-    /// - Throws: ``TextFormatDecodingError`` on failure.
+    /// - Throws: ``SwiftProtobufError`` or ``TextFormatDecodingError`` on failure.
     public init(
         textFormatString: String,
         options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
