@@ -13,94 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-private func ProtoToJSON(name: String) -> String? {
-    guard isPrintableASCII(name) else { return nil }
-    var jsonPath = String()
-    var chars = name.makeIterator()
-    while let c = chars.next() {
-        switch c {
-        case "_":
-            if let toupper = chars.next() {
-                switch toupper {
-                case "a"..."z":
-                    jsonPath.append(String(toupper).uppercased())
-                default:
-                    return nil
-                }
-            } else {
-                return nil
-            }
-        case "A"..."Z":
-            return nil
-        case "a"..."z", "0"..."9", ".", "(", ")":
-            jsonPath.append(c)
-        default:
-            // TODO: Change this to `return nil`
-            // once we know everything legal is handled
-            // above.
-            jsonPath.append(c)
-        }
-    }
-    return jsonPath
-}
-
-private func JSONToProto(name: String) -> String? {
-    guard isPrintableASCII(name) else { return nil }
-    var path = String()
-    for c in name {
-        switch c {
-        case "_":
-            return nil
-        case "A"..."Z":
-            path.append(Character("_"))
-            path.append(String(c).lowercased())
-        case "a"..."z", "0"..."9", ".", "(", ")":
-            path.append(c)
-        default:
-            // TODO: Change to `return nil` once
-            // we know everything legal is being
-            // handled above
-            path.append(c)
-        }
-    }
-    return path
-}
-
-private func parseJSONFieldNames(names: String) -> [String]? {
-    // An empty field mask is the empty string (no paths).
-    guard !names.isEmpty else { return [] }
-    var fieldNameCount = 0
-    var fieldName = String()
-    var split = [String]()
-    for c in names {
-        switch c {
-        case ",":
-            if fieldNameCount == 0 {
-                return nil
-            }
-            if let pbName = JSONToProto(name: fieldName) {
-                split.append(pbName)
-            } else {
-                return nil
-            }
-            fieldName = String()
-            fieldNameCount = 0
-        default:
-            fieldName.append(c)
-            fieldNameCount += 1
-        }
-    }
-    if fieldNameCount == 0 {  // Last field name can't be empty
-        return nil
-    }
-    if let pbName = JSONToProto(name: fieldName) {
-        split.append(pbName)
-    } else {
-        return nil
-    }
-    return split
-}
-
 #if FieldMaskUtilities
 extension Google_Protobuf_FieldMask {
     /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
@@ -135,7 +47,7 @@ extension Google_Protobuf_FieldMask {
     ///   defined using the JSON names for the fields.
     public init?(jsonPaths: String...) {
         // TODO: This should fail if any of the conversions from JSON fails
-        self.init(protoPaths: jsonPaths.compactMap(JSONToProto))
+        self.init(protoPaths: jsonPaths.compactMap(protoName(forJSONFieldMaskPath:)))
     }
 
     // It would be nice if to have an initializer that accepted Swift property
@@ -183,6 +95,131 @@ extension Google_Protobuf_FieldMask {
             paths.append(String(decoding: name.buffer, as: UTF8.self))
         }
         self.paths = paths
+    }
+}
+
+/// Compact flat-array prefix trie over dot-separated `FieldMask` path
+/// components, providing linear-time sub-path coverage checks and canonical
+/// intersection without recursion or per-segment `String` allocations.
+private struct FieldMaskPathTrie {
+    private struct Node {
+        fileprivate var terminalPath: String? = nil
+        fileprivate var children: [Substring: Int] = [:]
+    }
+
+    private var nodes: [Node] = [Node()]
+
+    init(_ paths: [String]) {
+        for path in paths {
+            insert(path)
+        }
+    }
+
+    private mutating func insert(_ path: String) {
+        var nodeIndex = 0
+        var remaining = path[...]
+        while true {
+            if nodes[nodeIndex].terminalPath != nil {
+                // Already covered by an ancestor path.
+                return
+            }
+            let component: Substring
+            let nextStart: String.Index?
+            if let dot = remaining.firstIndex(of: ".") {
+                component = remaining[..<dot]
+                nextStart = remaining.index(after: dot)
+            } else {
+                component = remaining
+                nextStart = nil
+            }
+            if let nextIndex = nodes[nodeIndex].children[component] {
+                nodeIndex = nextIndex
+            } else {
+                let newIndex = nodes.count
+                nodes.append(Node())
+                nodes[nodeIndex].children[component] = newIndex
+                nodeIndex = newIndex
+            }
+            if let nextStart {
+                remaining = remaining[nextStart...]
+            } else {
+                break
+            }
+        }
+        nodes[nodeIndex].terminalPath = path
+        nodes[nodeIndex].children.removeAll()
+    }
+
+    /// Returns true if `path` or one of its parent paths ("foo" for "foo.bar")
+    /// is in this trie, matching the coverage rule of `contains(_:)`.
+    fileprivate func covers(_ path: String) -> Bool {
+        var nodeIndex = 0
+        var remaining = path[...]
+        while true {
+            if nodes[nodeIndex].terminalPath != nil {
+                return true
+            }
+            let component: Substring
+            let nextStart: String.Index?
+            if let dot = remaining.firstIndex(of: ".") {
+                component = remaining[..<dot]
+                nextStart = remaining.index(after: dot)
+            } else {
+                component = remaining
+                nextStart = nil
+            }
+            guard let nextIndex = nodes[nodeIndex].children[component] else {
+                return false
+            }
+            nodeIndex = nextIndex
+            if let nextStart {
+                remaining = remaining[nextStart...]
+            } else {
+                return nodes[nodeIndex].terminalPath != nil
+            }
+        }
+    }
+
+    private func collectTerminals(from startIndex: Int, into output: inout [String]) {
+        var stack = [startIndex]
+        while let nodeIndex = stack.popLast() {
+            if let path = nodes[nodeIndex].terminalPath {
+                output.append(path)
+            } else {
+                stack.append(contentsOf: nodes[nodeIndex].children.values)
+            }
+        }
+    }
+
+    /// Returns the sorted canonical intersection of the paths in `self` and `other`.
+    fileprivate func intersect(with other: FieldMaskPathTrie) -> [String] {
+        var output: [String] = []
+        var stack: [(Int, Int)] = [(0, 0)]
+        while let (lhsIndex, rhsIndex) = stack.popLast() {
+            if nodes[lhsIndex].terminalPath != nil {
+                other.collectTerminals(from: rhsIndex, into: &output)
+            } else if other.nodes[rhsIndex].terminalPath != nil {
+                collectTerminals(from: lhsIndex, into: &output)
+            } else {
+                let lhsChildren = nodes[lhsIndex].children
+                let rhsChildren = other.nodes[rhsIndex].children
+                if lhsChildren.count <= rhsChildren.count {
+                    for (component, lhsChild) in lhsChildren {
+                        if let rhsChild = rhsChildren[component] {
+                            stack.append((lhsChild, rhsChild))
+                        }
+                    }
+                } else {
+                    for (component, rhsChild) in rhsChildren {
+                        if let lhsChild = lhsChildren[component] {
+                            stack.append((lhsChild, rhsChild))
+                        }
+                    }
+                }
+            }
+        }
+        output.sort()
+        return output
     }
 }
 
@@ -245,41 +282,53 @@ extension Google_Protobuf_FieldMask {
 
     /// Creates an intersection of two FieldMasks.
     ///
+    /// A path is in the intersection if both masks contain it (see
+    /// ``contains(_:)``), so "foo.bar" intersected with "foo" is "foo.bar".
+    /// The result is in canonical form (see ``canonical``).
+    ///
     /// - Parameter mask: FieldMask to intersect with.
     /// - Returns: FieldMask with intersection of two path sets.
     public func intersect(
         _ mask: Google_Protobuf_FieldMask
     ) -> Google_Protobuf_FieldMask {
-        let set = Set<String>(mask.paths)
-        var paths: [String] = []
-        var buffer = Set<String>()
-        for path in self.paths where set.contains(path) && !buffer.contains(path) {
-            buffer.insert(path)
-            paths.append(path)
+        guard !self.paths.isEmpty && !mask.paths.isEmpty else {
+            return Google_Protobuf_FieldMask()
         }
-        return .with { mask in
-            mask.paths = paths
-        }
+        let selfTrie = FieldMaskPathTrie(self.paths)
+        let otherTrie = FieldMaskPathTrie(mask.paths)
+        return Google_Protobuf_FieldMask(protoPaths: selfTrie.intersect(with: otherTrie))
     }
 
     /// Creates a FieldMasks with paths of the original FieldMask
     /// that does not included in mask.
+    ///
+    /// A path is removed if `mask` contains it (see ``contains(_:)``), so
+    /// "foo.bar" minus "foo" is empty. A path that `mask` only covers part of
+    /// is kept as is ("foo" minus "foo.bar" is "foo"), since splitting it into
+    /// the remaining fields needs the message type.
     ///
     /// - Parameter mask: FieldMask with paths should be substracted.
     /// - Returns: FieldMask with all paths does not included in mask.
     public func subtract(
         _ mask: Google_Protobuf_FieldMask
     ) -> Google_Protobuf_FieldMask {
-        let set = Set<String>(mask.paths)
+        guard !self.paths.isEmpty else {
+            return Google_Protobuf_FieldMask()
+        }
         var paths: [String] = []
         var buffer = Set<String>()
-        for path in self.paths where !set.contains(path) && !buffer.contains(path) {
-            buffer.insert(path)
-            paths.append(path)
+        if mask.paths.isEmpty {
+            paths.reserveCapacity(self.paths.count)
+            for path in self.paths where buffer.insert(path).inserted {
+                paths.append(path)
+            }
+        } else {
+            let otherTrie = FieldMaskPathTrie(mask.paths)
+            for path in self.paths where buffer.insert(path).inserted && !otherTrie.covers(path) {
+                paths.append(path)
+            }
         }
-        return .with { mask in
-            mask.paths = paths
-        }
+        return Google_Protobuf_FieldMask(protoPaths: paths)
     }
 
     /// Returns true if path is covered by the given FieldMask. Note that path

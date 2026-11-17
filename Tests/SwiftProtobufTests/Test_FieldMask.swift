@@ -43,6 +43,14 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("foo,bar\"")
         assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"")  // Reject non-ASCII
         assertJSONDecodeFails("abc_def")  // Reject underscores
+        // Reject characters outside [A-Za-z0-9.] in a path segment, matching the
+        // upstream parser ("unexpected character in FieldMask").
+        assertJSONDecodeFails("\"foo-bar\"")
+        assertJSONDecodeFails("\"foo/bar\"")
+        assertJSONDecodeFails("\"foo!bar\"")
+        assertJSONDecodeFails("\"foo~bar\"")
+        assertJSONDecodeFails("\"foo@bar\"")
+        assertJSONDecodeFails("\"foo bar\"")
     }
 
     func testProtobuf() {
@@ -65,17 +73,24 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
 
         let m1 = Google_Protobuf_FieldMask(protoPaths: "foo", "bar")
         let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo", "bar"])
+        let m3 = Google_Protobuf_FieldMask(jsonPaths: "foo", "bar")
 
         var other = Google_Protobuf_FieldMask()
         other.paths = ["foo", "bar", "baz"]
 
         XCTAssertEqual(m, m1)
         XCTAssertEqual(m, m2)
+        XCTAssertEqual(m, m3)
         XCTAssertEqual(m1, m2)
 
         XCTAssertNotEqual(m, other)
         XCTAssertNotEqual(m1, other)
         XCTAssertNotEqual(m2, other)
+
+        XCTAssertEqual(
+            Google_Protobuf_FieldMask(jsonPaths: "fooBar", "baz.quxQuux"),
+            Google_Protobuf_FieldMask(protoPaths: "foo_bar", "baz.qux_quux")
+        )
     }
 
     // Make sure field mask works correctly when stored in a field
@@ -111,8 +126,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
 
     func testSerializationFailure() {
         // If the proto fieldname can't be converted to a JSON field name,
-        // then JSON serialization should fail:
-        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
+        // then JSON serialization should fail. This includes a path holding the
+        // ',' separator, which otherwise round-trips into two separate paths.
+        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ", "foo,bar", "foo-bar", "foo/bar"]
         for c in cases {
             let m = Google_Protobuf_FieldMask(protoPaths: c)
             XCTAssertThrowsError(try m.jsonString()) { error in
@@ -424,6 +440,80 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let m9 = Google_Protobuf_FieldMask(protoPaths: ["a", "a"])
         let m10 = Google_Protobuf_FieldMask(protoPaths: ["b"])
         XCTAssertEqual(m9.subtract(m10).paths, ["a"])
+    }
+
+    // Checks `intersect` and `subtract` when one path covers another
+    // ("a" covers "a.b", same as `contains`). Cases from upstream
+    // field_mask_util_test.cc TestIntersect and TestSubtract.
+    func testIntersectAndSubtractWithSubPaths() throws {
+        let m1 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar.baz", "quz"])
+        let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar", "bar"])
+        XCTAssertEqual(m1.intersect(m2).paths, ["foo.bar.baz"])
+        XCTAssertEqual(m2.intersect(m1).paths, ["foo.bar.baz"])
+
+        // A path covered by a parent in the subtracted mask is removed.
+        let m3 = Google_Protobuf_FieldMask(protoPaths: ["optional_foreign_message.c"])
+        let m4 = Google_Protobuf_FieldMask(protoPaths: ["optional_foreign_message", "optional_nested_message"])
+        XCTAssertEqual(m3.subtract(m4).paths, [])
+
+        let m5 = Google_Protobuf_FieldMask(protoPaths: ["optional_nested_message"])
+        let m6 = Google_Protobuf_FieldMask(protoPaths: ["optional_nested_message.nonexist_field"])
+        XCTAssertEqual(m5.subtract(m6).paths, ["optional_nested_message"])
+
+        // Only whole path components count.
+        let m7 = Google_Protobuf_FieldMask(protoPaths: ["ab", "a.b"])
+        let m8 = Google_Protobuf_FieldMask(protoPaths: ["a"])
+        XCTAssertEqual(m7.intersect(m8).paths, ["a.b"])
+        XCTAssertEqual(m7.subtract(m8).paths, ["ab"])
+
+        // A parent and its sub-path collapse to the parent, even when one
+        // input isn't canonical (matches C++ FieldMaskUtil::Intersect).
+        let m9 = Google_Protobuf_FieldMask(protoPaths: ["foo"])
+        let m10 = Google_Protobuf_FieldMask(protoPaths: ["foo.bar", "foo"])
+        XCTAssertEqual(m9.intersect(m10).paths, ["foo"])
+        XCTAssertEqual(m10.intersect(m9).paths, ["foo"])
+
+        // Empty-mask fast paths: intersect returns empty; subtract preserves
+        // order and deduplicates without canonicalizing.
+        let empty = Google_Protobuf_FieldMask()
+        XCTAssertEqual(m1.intersect(empty).paths, [])
+        let unordered = Google_Protobuf_FieldMask(protoPaths: ["b", "a", "a.x", "b"])
+        XCTAssertEqual(unordered.subtract(empty).paths, ["b", "a", "a.x"])
+        XCTAssertEqual(empty.subtract(empty).paths, [])
+
+        // Parent/sub-path collapsing in `intersect` still works even when a
+        // sibling path containing characters that sort before `.` (like `(`)
+        // sits between the parent and child lexicographically.
+        let parentMask = Google_Protobuf_FieldMask(protoPaths: ["x"])
+        let parenMask = Google_Protobuf_FieldMask(protoPaths: ["x.a", "x.a(b)", "x.a.c"])
+        XCTAssertEqual(parentMask.intersect(parenMask).paths, ["x.a", "x.a(b)"])
+        XCTAssertEqual(parenMask.intersect(parentMask).paths, ["x.a", "x.a(b)"])
+
+        // Deeply dotted paths (including duplicates) are handled iteratively in
+        // linear time without recursion or quadratic prefix re-hashing.
+        let deepPath = Array(repeating: "a", count: 5_000).joined(separator: ".")
+        let deepMask = Google_Protobuf_FieldMask(protoPaths: [deepPath, deepPath])
+        let rootMask = Google_Protobuf_FieldMask(protoPaths: ["a"])
+        let otherRootMask = Google_Protobuf_FieldMask(protoPaths: ["b"])
+        XCTAssertEqual(deepMask.intersect(rootMask).paths, [deepPath])
+        XCTAssertEqual(rootMask.intersect(deepMask).paths, [deepPath])
+        XCTAssertEqual(deepMask.intersect(otherRootMask).paths, [])
+        XCTAssertEqual(deepMask.subtract(rootMask).paths, [])
+        XCTAssertEqual(deepMask.subtract(otherRootMask).paths, [deepPath])
+
+        // Removing a field from a mask has to remove its sub-paths too, or
+        // merging with the result still writes into that field.
+        let source = SwiftProtoTesting_TestAllTypes.with {
+            $0.optionalInt32 = 1
+            $0.optionalForeignMessage.c = 2
+        }
+        let requested = Google_Protobuf_FieldMask(protoPaths: ["optional_int32", "optional_foreign_message.c"])
+        let allowed = requested.subtract(.init(protoPaths: ["optional_foreign_message"]))
+        XCTAssertEqual(allowed.paths, ["optional_int32"])
+        var message = SwiftProtoTesting_TestAllTypes()
+        try message.merge(from: source, fieldMask: allowed)
+        XCTAssertEqual(message.optionalInt32, 1)
+        XCTAssertFalse(message.hasOptionalForeignMessage)
     }
 
     // Checks whether all field types could be merged.
