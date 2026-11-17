@@ -121,7 +121,21 @@ extension MessageStorage {
     ) throws {
         let fieldOrExtension = try reader.consumeFieldOrExtension()
         try reader.consume(.colon)
+        try decodeFieldOrExtensionValue(
+            fieldOrExtension,
+            from: &reader,
+            seenFields: &seenFields,
+            mapEntryWorkingSpace: &mapEntryWorkingSpace
+        )
+    }
 
+    /// Decodes the value for an already-resolved field or extension after its name and colon have been consumed.
+    private func decodeFieldOrExtensionValue(
+        _ fieldOrExtension: FieldOrExtensionSchema,
+        from reader: inout JSONReader,
+        seenFields: inout FieldBitSet,
+        mapEntryWorkingSpace: inout MapEntryWorkingSpace
+    ) throws {
         switch fieldOrExtension {
         case .field(let field):
             guard seenFields.insert(fieldIndex: schema.fieldIndex(of: field)) else {
@@ -148,7 +162,7 @@ extension MessageStorage {
             }
             try extensionStorage.decodeNextExtension(ext, from: &reader)
         case .unknown:
-            _ = try reader.skipField(wereNameAndColonAlreadyConsumed: true)
+            try reader.skipField(wereNameAndColonAlreadyConsumed: true)
         }
     }
 
@@ -517,111 +531,172 @@ extension MessageStorage {
         }
     }
 
-    /// Parses the next object from the input and interprets it as the JSON representation of a
-    /// well-known type `Any`.
+    /// Consumes a string key and following colon from a `google.protobuf.Any` JSON object.
+    private func consumeAnyKeyAndColon(from reader: inout JSONReader) throws -> String {
+        guard reader.at(.string, .stringWithEscapes) else {
+            throw reader.parsingError(expected: "a field or extension name")
+        }
+        let key = try reader.consumeString()
+        try reader.consume(.colon)
+        return key
+    }
+
+    /// Replays any fields that appeared before `@type` in a `google.protobuf.Any` JSON object and then streams all
+    /// remaining keys after `@type` through `consumeField`.
+    private func replayAndStreamAnyFields(
+        from subReader: inout JSONReader,
+        typeURL: String,
+        preTypeStartTokenizer: Tokenizer?,
+        preTypeEndOffset: Int,
+        consumeField: (_ key: String, _ reader: inout JSONReader) throws -> Void
+    ) throws {
+        if let preTypeStartTokenizer {
+            let postTypeTokenizer = subReader.tokenizer
+            subReader.tokenizer = preTypeStartTokenizer
+            defer { subReader.tokenizer = postTypeTokenizer }
+            while true {
+                let key = try consumeAnyKeyAndColon(from: &subReader)
+                try consumeField(key, &subReader)
+                if subReader.tokenizer.currentOffset >= preTypeEndOffset {
+                    guard subReader.tokenizer.currentOffset == preTypeEndOffset else {
+                        throw subReader.parsingError(reason: "Malformed JSON")
+                    }
+                    break
+                }
+                try subReader.consume(.comma)
+            }
+        }
+
+        while try !subReader.consumeIfPresent(.rightBrace) {
+            try subReader.consume(.comma)
+            let key = try consumeAnyKeyAndColon(from: &subReader)
+            if key == "@type" {
+                let duplicateURL = try subReader.consumeString()
+                throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL(
+                    type_url: typeURL,
+                    duplicate_type_url: duplicateURL
+                )
+            }
+            try consumeField(key, &subReader)
+        }
+    }
+
+    /// Parses the next object from the input and interprets it as the JSON representation of a well-known type `Any`.
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Any`.
     private func parseAsAny(from reader: inout JSONReader) throws {
         let typeURLField = KnownField.anyTypeURL(in: schema)
         let valueField = KnownField.anyValue(in: schema)
 
-        var wasEmpty = false
+        try reader.consume(.leftBrace)
+        try reader.decrementRecursionBudget()
+        defer { reader.incrementRecursionBudget() }
+
+        if try reader.consumeIfPresent(.rightBrace) {
+            clearValue(of: typeURLField, type: String.self)
+            clearValue(of: valueField, type: Data.self)
+            return
+        }
+
+        // Phase 1: Scan forward until `@type` is found. In the common case where `@type` is first,
+        // `preTypeStartTokenizer` remains `nil` and all remaining fields stream directly in a
+        // single pass. If fields appear before `@type`, save a value copy of `reader.tokenizer` at
+        // the first pre-`@type` key token (zero heap copy, preserving original line/column) and
+        // record the offset immediately after the last skipped pre-`@type` value so we can replay
+        // only the pre-`@type` slice once the target schema is known.
         var typeURL: String? = nil
-        var possibleWKTValueJSON = ""
-        var sawValueKey = false
-        var hadDuplicateValueKey = false
-        var hadFieldsOtherThanValue = false
+        var preTypeStartTokenizer: Tokenizer? = nil
+        var preTypeEndOffset = 0
 
-        var jsonEncoder = JSONEncoder()
-        jsonEncoder.startObject()
-
-        try reader.consumeObject { reader in
-            guard reader.at(.string, .stringWithEscapes) else {
-                throw reader.parsingError(expected: "a field or extension name")
-            }
-
-            let key = try reader.consumeString()
-            try reader.consume(.colon)
+        while true {
+            let keyTokenizer = reader.tokenizer
+            let key = try consumeAnyKeyAndColon(from: &reader)
             if key == "@type" {
                 let scannedURL = try reader.consumeString()
-                if let typeURL {
-                    throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL(
-                        type_url: typeURL,
-                        duplicate_type_url: scannedURL
-                    )
-                }
                 guard isTypeURLValid(scannedURL) else {
                     throw SwiftProtobufError.JSONDecoding.invalidAnyTypeURL(type_url: scannedURL)
                 }
                 typeURL = scannedURL
-            } else {
-                jsonEncoder.startField(name: key)
-                let keyValueJSON = try reader.skipField(wereNameAndColonAlreadyConsumed: true)
-                if key == "value" {
-                    // When we encounter the key `value`, we may need to parse this as a well-known
-                    // type with a special representation, so keep track of it.
-                    if sawValueKey {
-                        hadDuplicateValueKey = true
-                    } else {
-                        sawValueKey = true
-                        possibleWKTValueJSON = String(data: Data(keyValueJSON), encoding: .utf8) ?? ""
-                    }
-                } else {
-                    // Keep track of this because if it's a well-known type, we need to fail later
-                    // if we're not ignoring unknown fields.
-                    hadFieldsOtherThanValue = true
-                }
-                jsonEncoder.append(utf8Bytes: Array(keyValueJSON))
+                break
             }
-        } ifEmpty: {
-            clearValue(of: typeURLField, type: String.self)
-            clearValue(of: valueField, type: Data.self)
-            wasEmpty = true
+
+            if preTypeStartTokenizer == nil {
+                preTypeStartTokenizer = keyTokenizer
+            }
+            try reader.skipField(wereNameAndColonAlreadyConsumed: true)
+            preTypeEndOffset = reader.tokenizer.currentOffset
+
+            if try reader.consumeIfPresent(.rightBrace) {
+                break
+            }
+            try reader.consume(.comma)
         }
 
-        jsonEncoder.endObject()
-
-        if wasEmpty {
-            return
-        }
         guard let typeURL else {
             throw SwiftProtobufError.JSONDecoding.emptyAnyTypeURL()
         }
+
         guard let messageSchema = Google_Protobuf_Any.messageSchema(forTypeURL: typeURL) else {
+            // Finish scanning remaining keys before reporting the unregistered type URL so
+            // duplicate `@type` keys and trailing JSON syntax errors are still caught.
+            while try !reader.consumeIfPresent(.rightBrace) {
+                try reader.consume(.comma)
+                let key = try consumeAnyKeyAndColon(from: &reader)
+                if key == "@type" {
+                    let duplicateURL = try reader.consumeString()
+                    throw SwiftProtobufError.JSONDecoding.duplicateAnyTypeURL(
+                        type_url: typeURL,
+                        duplicate_type_url: duplicateURL
+                    )
+                }
+                try reader.skipField(wereNameAndColonAlreadyConsumed: true)
+            }
             throw SwiftProtobufError.JSONDecoding.unknownAnyTypeURL(type_url: typeURL)
         }
 
         let messageStorage = MessageStorage(schema: messageSchema)
-        func parseJSONBuffer(_ buffer: UnsafeBufferPointer<UInt8>) throws {
-            var subReader = try JSONReader(
-                buffer: buffer,
-                messageSchema: messageSchema,
-                options: reader.options,
-                extensions: reader.extensions,
-                recursionBudget: reader.recursionBudget
-            )
-            try messageStorage.merge(byParsingJSONFrom: &subReader)
-        }
+        try reader.withReaderForNextObject(expectedSchema: messageSchema) { subReader in
+            switch CustomJSONWKTClassification(messageSchema: messageSchema) {
+            case .notWellKnown:
+                var mapEntryWorkingSpace = MapEntryWorkingSpace(ownerSchema: messageSchema)
+                var seenFields = FieldBitSet()
+                try replayAndStreamAnyFields(
+                    from: &subReader,
+                    typeURL: typeURL,
+                    preTypeStartTokenizer: preTypeStartTokenizer,
+                    preTypeEndOffset: preTypeEndOffset
+                ) { key, subReader in
+                    let fieldOrExtension = try subReader.resolveFieldOrExtension(named: key)
+                    try messageStorage.decodeFieldOrExtensionValue(
+                        fieldOrExtension,
+                        from: &subReader,
+                        seenFields: &seenFields,
+                        mapEntryWorkingSpace: &mapEntryWorkingSpace
+                    )
+                }
 
-        switch CustomJSONWKTClassification(messageSchema: messageSchema) {
-        case .notWellKnown:
-            try jsonEncoder.bytesResult.withUnsafeBufferPointer { buffer in
-                try parseJSONBuffer(buffer)
-            }
-
-        default:
-            if hadDuplicateValueKey {
-                throw reader.parsingError(reason: "Field 'value' specified more than once")
-            }
-            // Well-known types in `Any` must *only* have a `value` field, unless we're ignoring
-            // unknown fields.
-            if hadFieldsOtherThanValue && !reader.options.ignoreUnknownFields {
-                throw AnyUnpackError.malformedWellKnownTypeJSON
-            }
-            try reader.decrementRecursionBudget()
-            defer { reader.incrementRecursionBudget() }
-            try possibleWKTValueJSON.withUTF8 { buffer in
-                try parseJSONBuffer(buffer)
+            default:
+                var sawValueKey = false
+                try replayAndStreamAnyFields(
+                    from: &subReader,
+                    typeURL: typeURL,
+                    preTypeStartTokenizer: preTypeStartTokenizer,
+                    preTypeEndOffset: preTypeEndOffset
+                ) { key, subReader in
+                    if key == "value" {
+                        guard !sawValueKey else {
+                            throw subReader.parsingError(reason: "Field 'value' specified more than once")
+                        }
+                        sawValueKey = true
+                        // Do not decrement `recursionBudget` again: `parseAsAny` already holds the
+                        // budget for this `{ ... }` object.
+                        try messageStorage.merge(byParsingJSONFrom: &subReader)
+                    } else if subReader.options.ignoreUnknownFields {
+                        try subReader.skipField(wereNameAndColonAlreadyConsumed: true)
+                    } else {
+                        throw AnyUnpackError.malformedWellKnownTypeJSON
+                    }
+                }
             }
         }
 

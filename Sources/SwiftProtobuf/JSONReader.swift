@@ -41,8 +41,7 @@ struct JSONReader: TextualParser {
         buffer: UnsafeBufferPointer<UInt8>,
         messageSchema: MessageSchema,
         options: JSONDecodingOptions,
-        extensions: (any ExtensionMap)?,
-        recursionBudget: Int? = nil
+        extensions: (any ExtensionMap)?
     ) throws {
         precondition(buffer.baseAddress != nil, "buffer.baseAddress must not be nil")
 
@@ -53,17 +52,25 @@ struct JSONReader: TextualParser {
         self.messageSchema = messageSchema
         self.extensions = extensions
         self.options = options
-        self.recursionBudget = recursionBudget ?? options.messageDepthLimit
+        self.recursionBudget = options.messageDepthLimit
     }
 
     /// Consumes the next field or extension name (the latter including its square brackets) and
     /// returns the corresponding field/extension schema.
     ///
-    /// If an unrecognized name or number was parsed, this method will return `.unknown` if the
-    /// `TextFormatDecodingOptions` dictate that unknown fields should be ignored; otherwise it will
-    /// throw a parsing error.
+    /// If an unrecognized name or number was parsed, this method will return `.unknown` if the `JSONDecodingOptions`
+    /// dictate that unknown fields should be ignored; otherwise it will throw a parsing error.
     mutating func consumeFieldOrExtension() throws -> FieldOrExtensionSchema {
         let key = try consumeString()
+        return try resolveFieldOrExtension(named: key)
+    }
+
+    /// Resolves an already-consumed field or extension name (the latter including its square brackets) against the
+    /// current message schema.
+    ///
+    /// If an unrecognized name was provided, this method returns `.unknown` if `JSONDecodingOptions` dictate that
+    /// unknown fields should be ignored (or if the name is reserved); otherwise it throws a parsing error.
+    internal func resolveFieldOrExtension(named key: String) throws -> FieldOrExtensionSchema {
         if key.first == "[" && key.last == "]" {
             let extensionName = String(key.dropFirst().dropLast())
 
@@ -508,25 +515,21 @@ struct JSONReader: TextualParser {
 
     /// Skips the current field in the input.
     ///
-    /// - Parameter wereNameAndColonAlreadyConsumed: Whether the field name and colon have already
-    ///   been consumed (and thus should not be skipped by this function).
-    /// - Returns: The slice of the buffer that was skipped.
-    mutating func skipField(wereNameAndColonAlreadyConsumed: Bool) throws -> UnsafeBufferPointer<UInt8> {
+    /// - Parameter wereNameAndColonAlreadyConsumed: Whether the field name and colon have already been consumed (and
+    ///   thus should not be skipped by this function).
+    mutating func skipField(wereNameAndColonAlreadyConsumed: Bool) throws {
         if !wereNameAndColonAlreadyConsumed {
             try consume(anyOf: .string, .stringWithEscapes)
             try consume(.colon)
         }
 
-        let startOffset = tokenizer.currentOffset
         try skipFieldValue()
-        let endOffset = tokenizer.currentOffset
-        return .init(rebasing: tokenizer.buffer[startOffset..<endOffset])
     }
 
     /// Skips a field value which is a message.
     mutating func skipFieldMessage() throws {
         try consumeObject { reader in
-            _ = try reader.skipField(wereNameAndColonAlreadyConsumed: false)
+            try reader.skipField(wereNameAndColonAlreadyConsumed: false)
         }
     }
 
@@ -552,12 +555,7 @@ struct JSONReader: TextualParser {
             return
         }
 
-        try consumeIfPresent(.minus)
-        if at(.integer) {
-            _ = try consumeUnsignedInteger(upperBound: UInt64.max)
-            return
-        }
-        if at(.float) {
+        if at(.minus, .integer, .float) {
             _ = try consumeDouble()
             return
         }

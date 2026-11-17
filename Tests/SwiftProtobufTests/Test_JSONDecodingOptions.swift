@@ -77,6 +77,8 @@ final class Test_JSONDecodingOptions: XCTestCase {
             (true, "{\"unknown\": -3.04}"),
             (true, "{\"unknown\":  -7.0e-55}"),
             (true, "{\"unknown\":  7.308e+8}"),
+            (true, "{\"unknown\":  18446744073709551616}"),
+            (true, "{\"unknown\":  -18446744073709551616}"),
             (true, "{\"unknown\": \"hi!\"}"),
             (true, "{\"unknown\": []}"),
             (true, "{\"unknown\": [[]]}"),
@@ -93,6 +95,9 @@ final class Test_JSONDecodingOptions: XCTestCase {
             (true, "{\"unknown\": 7, \"zz_unknown\": 8}"),
             // Malformed fields, fails on the field, without trying to parse the value.
             (false, "{\"unknown\":  1e999}"),
+            (false, "{\"unknown\": -null}"),
+            (false, "{\"unknown\": -true}"),
+            (false, "{\"unknown\": -false}"),
             (false, "{\"unknown\": \"hi!\""),
             (false, "{\"unknown\": \"hi!}"),
             (false, "{\"unknown\": qqq }"),
