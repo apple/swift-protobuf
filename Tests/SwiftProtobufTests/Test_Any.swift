@@ -339,9 +339,10 @@ final class Test_Any: XCTestCase {
     }
 
     func test_Any_JSONUnpackWKTDepthLimit() throws {
+        // 1 Any + 1 root Value + 4 nested ListValue + 4 element Values = 10 message levels.
         let json = "{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":[[[[1]]]]}"
         var options = JSONDecodingOptions()
-        options.messageDepthLimit = 4
+        options.messageDepthLimit = 9
         XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
             if let protobufError = error as? SwiftProtobufError {
                 XCTAssertTrue(
@@ -353,7 +354,7 @@ final class Test_Any: XCTestCase {
             }
         }
 
-        options.messageDepthLimit = 5
+        options.messageDepthLimit = 10
         let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
         let unpacked = try Google_Protobuf_Value(unpackingAny: decodedAny)
         XCTAssertEqual(
@@ -1735,11 +1736,12 @@ final class Test_Any: XCTestCase {
     func test_Any_outOfOrderDepthLimits() throws {
         Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
 
-        // WKT Value with "value" before @type enforces the exact same depth limit as @type first.
+        // WKT Value with "value" before @type enforces the exact same depth limit as @type first
+        // (1 Any + 1 root Value + 4 nested ListValue + 4 element Values = 10 message levels).
         do {
             let json = #"{"value":[[[[1]]]],"@type":"type.googleapis.com/google.protobuf.Value"}"#
             var options = JSONDecodingOptions()
-            options.messageDepthLimit = 4
+            options.messageDepthLimit = 9
             XCTAssertThrowsError(try Google_Protobuf_Any(jsonString: json, options: options)) { error in
                 let pbError = error as? SwiftProtobufError
                 XCTAssertTrue(
@@ -1748,7 +1750,7 @@ final class Test_Any: XCTestCase {
                 )
             }
 
-            options.messageDepthLimit = 5
+            options.messageDepthLimit = 10
             let decodedAny = try Google_Protobuf_Any(jsonString: json, options: options)
             let unpacked = try Google_Protobuf_Value(unpackingAny: decodedAny)
             XCTAssertEqual(

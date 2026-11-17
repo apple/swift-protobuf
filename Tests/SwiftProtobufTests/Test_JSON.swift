@@ -753,6 +753,49 @@ final class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testOptionalString_rawControlCharactersRejected() throws {
+        // Unescaped C0 control characters (U+0000...U+001F) are not allowed
+        // inside a JSON string and must be rejected, matching the upstream
+        // protobuf JSON parser. Note the values below are literal control
+        // bytes in the input, not "\u00xx" escapes.
+        for byte: UInt8 in 0x00..<0x20 {
+            let controlChar = String(UnicodeScalar(byte))
+            let json = "{\"optionalString\":\"\(controlChar)\"}"
+            XCTAssertThrowsError(try MessageTestType(jsonString: json), "Expected failure for byte \(byte)") { error in
+                XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+            }
+        }
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{09}b\"}")  // tab
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{0a}b\"}")  // newline
+        assertJSONDecodeFails("{\"optionalString\":\"a\u{0d}b\"}")  // carriage return
+
+        // Object keys (including known keys and unknown keys under ignoreUnknownFields) and map
+        // keys also reject unescaped control characters.
+        XCTAssertThrowsError(try SwiftProtoTesting_TestEvilJson(jsonString: "{\"\u{01}\":1}")) { error in
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+        }
+        var ignoreUnknown = JSONDecodingOptions()
+        ignoreUnknown.ignoreUnknownFields = true
+        XCTAssertThrowsError(
+            try MessageTestType(jsonString: "{\"unknown\u{09}Key\":1}", options: ignoreUnknown)
+        ) { error in
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+        }
+        XCTAssertThrowsError(
+            try SwiftProtoTesting_TestMap(jsonString: "{\"mapStringString\":{\"a\u{01}b\":\"v\"}}")
+        ) { error in
+            XCTAssertEqual((error as? SwiftProtobufError)?.code, .jsonDecodingError)
+        }
+
+        // The escaped forms remain valid and decode to the control character.
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\u0001\"}") { $0.optionalString == "\u{01}" }
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\t\"}") { $0.optionalString == "\u{09}" }
+        let evil = try SwiftProtoTesting_TestEvilJson(jsonString: "{\"\\u0001\":1}")
+        XCTAssertEqual(evil.lowCodepoint, 1)
+        let mapMsg = try SwiftProtoTesting_TestMap(jsonString: "{\"mapStringString\":{\"a\\u0001b\":\"v\"}}")
+        XCTAssertEqual(mapMsg.mapStringString, ["a\u{01}b": "v"])
+    }
+
     func testOptionalBytes() throws {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()

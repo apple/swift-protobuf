@@ -119,6 +119,68 @@ final class Test_Struct: XCTestCase, PBTestHelpers {
         let a2decodedHash = a2decoded.hashValue
         XCTAssertNotEqual(a1literalHash, a2decodedHash)
     }
+
+    func test_JSON_nested_struct() throws {
+        // Every entry in a Struct holds a Value, so the max depth is 1/2 of the limit.
+        let limit = JSONDecodingOptions().messageDepthLimit / 2
+        let depths = [
+            1, 2, 3,
+            limit - 2, limit - 1, limit,
+            limit + 1, limit + 2,
+            1000,
+        ]
+        for depth in depths {
+            let s = String(repeating: "{\"a\":", count: depth - 1) + "{}" + String(repeating: "}", count: depth - 1)
+            if depth <= limit {
+                let decoded = try Google_Protobuf_Struct(jsonString: s)
+                let binary: [UInt8] = try decoded.serializedBytes()
+                let roundTripped = try Google_Protobuf_Struct(serializedBytes: binary)
+                XCTAssertEqual(decoded, roundTripped)
+            } else {
+                assertJSONDecodeFails(s)
+            }
+        }
+
+        // Leaf `null` and non-`null` values in a Struct (or a singular `Value` field) both
+        // materialize a `google.protobuf.Value` submessage and count identically toward the depth
+        // limit.
+        var options = JSONDecodingOptions()
+        options.messageDepthLimit = 1
+        for json in ["{\"a\":null}", "{\"a\":1}"] {
+            XCTAssertThrowsError(try Google_Protobuf_Struct(jsonString: json, options: options), json) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertEqual(pbError?.code, .jsonDecodingError)
+                XCTAssertTrue(pbError?.message.hasSuffix(": Message is too deep") == true, "Unexpected error: \(error)")
+            }
+        }
+        for json in ["{\"optionalValue\":null}", "{\"optionalValue\":1}"] {
+            XCTAssertThrowsError(
+                try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json, options: options),
+                json
+            ) { error in
+                let pbError = error as? SwiftProtobufError
+                XCTAssertEqual(pbError?.code, .jsonDecodingError)
+                XCTAssertTrue(pbError?.message.hasSuffix(": Message is too deep") == true, "Unexpected error: \(error)")
+            }
+        }
+        options.messageDepthLimit = 2
+        let expectedNull: Google_Protobuf_Value = nil
+        XCTAssertEqual(
+            try Google_Protobuf_Struct(jsonString: "{\"a\":null}", options: options).fields["a"],
+            expectedNull
+        )
+        XCTAssertEqual(try Google_Protobuf_Struct(jsonString: "{\"a\":1}", options: options).fields["a"], 1)
+        XCTAssertEqual(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalValue\":null}", options: options)
+                .optionalValue,
+            expectedNull
+        )
+        XCTAssertEqual(
+            try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalValue\":1}", options: options)
+                .optionalValue,
+            1
+        )
+    }
 }
 
 final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
@@ -163,7 +225,8 @@ final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     }
 
     func test_JSON_nested_list() throws {
-        let limit = JSONDecodingOptions().messageDepthLimit
+        // Every element in a List is a Value, so the max depth is 1/2 of the limit.
+        let limit = JSONDecodingOptions().messageDepthLimit / 2
         let depths = [
             // Small lists
             1, 2, 3, 4, 5,
