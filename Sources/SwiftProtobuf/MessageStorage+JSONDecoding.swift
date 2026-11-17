@@ -862,7 +862,7 @@ private func parseFieldMask(_ names: String, receive: (String) -> Void) throws {
 
 /// Returns the protobuf form of the field mask path with the given JSON name, or nil if it was not
 /// possible to convert it to a protobuf form.
-private func protoName(forJSONFieldMaskPath name: String) -> String? {
+internal func protoName(forJSONFieldMaskPath name: String) -> String? {
     guard isPrintableASCII(name) else { return nil }
     var path = String()
     for c in name {
@@ -875,10 +875,7 @@ private func protoName(forJSONFieldMaskPath name: String) -> String? {
         case "a"..."z", "0"..."9", ".", "(", ")":
             path.append(c)
         default:
-            // TODO: Change to `return nil` once
-            // we know everything legal is being
-            // handled above
-            path.append(c)
+            return nil
         }
     }
     return path
