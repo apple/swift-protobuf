@@ -52,10 +52,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalInt32() {
         assertEncode([8, 0]) { (o: inout MessageTestType) in o.optionalInt32 = 0 }
         assertDecodeSucceeds([8, 0]) { $0.hasOptionalInt32 && $0.optionalInt32 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_int32: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_int32: 0\n") {
             (o: inout MessageTestType) in o.optionalInt32 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalInt32 = 0
             o.clearOptionalInt32()
@@ -77,10 +77,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalInt64() {
         assertEncode([16, 0]) { (o: inout MessageTestType) in o.optionalInt64 = 0 }
         assertDecodeSucceeds([16, 0]) { $0.hasOptionalInt64 && $0.optionalInt64 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_int64: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_int64: 0\n") {
             (o: inout MessageTestType) in o.optionalInt64 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalInt64 = 0
             o.clearOptionalInt64()
@@ -115,10 +115,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalUint32() {
         assertEncode([24, 0]) { (o: inout MessageTestType) in o.optionalUint32 = 0 }
         assertDecodeSucceeds([24, 0]) { $0.hasOptionalUint32 && $0.optionalUint32 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_uint32: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_uint32: 0\n") {
             (o: inout MessageTestType) in o.optionalUint32 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalUint32 = 0
             o.clearOptionalUint32()
@@ -153,10 +153,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalUint64() {
         assertEncode([32, 0]) { (o: inout MessageTestType) in o.optionalUint64 = 0 }
         assertDecodeSucceeds([32, 0]) { $0.hasOptionalUint64 && $0.optionalUint64 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_uint64: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_uint64: 0\n") {
             (o: inout MessageTestType) in o.optionalUint64 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalUint64 = 0
             o.clearOptionalUint64()
@@ -191,10 +191,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSint32() {
         assertEncode([40, 0]) { (o: inout MessageTestType) in o.optionalSint32 = 0 }
         assertDecodeSucceeds([40, 0]) { $0.hasOptionalSint32 && $0.optionalSint32 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_sint32: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_sint32: 0\n") {
             (o: inout MessageTestType) in o.optionalSint32 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalSint32 = 0
             o.clearOptionalSint32()
@@ -229,10 +229,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSint64() {
         assertEncode([48, 0]) { (o: inout MessageTestType) in o.optionalSint64 = 0 }
         assertDecodeSucceeds([48, 0]) { $0.hasOptionalSint64 && $0.optionalSint64 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_sint64: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_sint64: 0\n") {
             (o: inout MessageTestType) in o.optionalSint64 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalSint64 = 0
             o.clearOptionalSint64()
@@ -267,10 +267,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalFixed32() {
         assertEncode([61, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFixed32 = 0 }
         assertDecodeSucceeds([61, 0, 0, 0, 0]) { $0.hasOptionalFixed32 && $0.optionalFixed32 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_fixed32: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_fixed32: 0\n") {
             (o: inout MessageTestType) in o.optionalFixed32 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalFixed32 = 0
             o.clearOptionalFixed32()
@@ -305,10 +305,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalFixed64() {
         assertEncode([65, 0, 0, 0, 0, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFixed64 = UInt64.min }
         assertDecodeSucceeds([65, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.hasOptionalFixed64 && $0.optionalFixed64 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_fixed64: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_fixed64: 0\n") {
             (o: inout MessageTestType) in o.optionalFixed64 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalFixed64 = 0
             o.clearOptionalFixed64()
@@ -343,10 +343,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSfixed32() {
         assertEncode([77, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalSfixed32 = 0 }
         assertDecodeSucceeds([77, 0, 0, 0, 0]) { $0.hasOptionalSfixed32 && $0.optionalSfixed32 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_sfixed32: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_sfixed32: 0\n") {
             (o: inout MessageTestType) in o.optionalSfixed32 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalSfixed32 = 0
             o.clearOptionalSfixed32()
@@ -381,10 +381,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalSfixed64() {
         assertEncode([81, 0, 0, 0, 0, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalSfixed64 = 0 }
         assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.hasOptionalSfixed64 && $0.optionalSfixed64 == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_sfixed64: 0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_sfixed64: 0\n") {
             (o: inout MessageTestType) in o.optionalSfixed64 = 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalSfixed64 = 0
             o.clearOptionalSfixed64()
@@ -419,10 +419,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalFloat() {
         assertEncode([93, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFloat = 0.0 }
         assertDecodeSucceeds([93, 0, 0, 0, 0]) { $0.hasOptionalFloat && $0.optionalFloat == 0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_float: 0.0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_float: 0.0\n") {
             (o: inout MessageTestType) in o.optionalFloat = 0.0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalFloat = 1.0
             o.clearOptionalFloat()
@@ -457,10 +457,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalDouble() {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalDouble = 0.0 }
         assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 0, 0]) { $0.hasOptionalDouble && $0.optionalDouble == 0.0 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_double: 0.0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_double: 0.0\n") {
             (o: inout MessageTestType) in o.optionalDouble = 0.0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalDouble = 0.0
             o.clearOptionalDouble()
@@ -495,10 +495,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalBool() {
         assertEncode([104, 0]) { (o: inout MessageTestType) in o.optionalBool = false }
         assertDecodeSucceeds([104, 0]) { $0.hasOptionalBool && $0.optionalBool == false }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_bool: false\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_bool: false\n") {
             (o: inout MessageTestType) in o.optionalBool = false
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalBool = false
             o.clearOptionalBool()
@@ -533,10 +533,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalString() {
         assertEncode([114, 0]) { (o: inout MessageTestType) in o.optionalString = "" }
         assertDecodeSucceeds([114, 0]) { $0.hasOptionalString && $0.optionalString == "" }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_string: \"\"\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_string: \"\"\n") {
             (o: inout MessageTestType) in o.optionalString = ""
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalString = ""
             o.clearOptionalString()
@@ -571,10 +571,10 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     func testEncoding_optionalBytes() {
         assertEncode([122, 0]) { (o: inout MessageTestType) in o.optionalBytes = Data() }
         assertDecodeSucceeds([122, 0]) { $0.hasOptionalBytes && $0.optionalBytes == Data() }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_bytes: \"\"\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\noptional_bytes: \"\"\n") {
             (o: inout MessageTestType) in o.optionalBytes = Data()
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalBytes = Data()
             o.clearOptionalBytes()
@@ -613,12 +613,12 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([146, 1, 0]) {
             $0.hasOptionalNestedMessage && $0.optionalNestedMessage == MessageTestType.NestedMessage()
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_nested_message {\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestProto3Optional:\noptional_nested_message {\n}\n"
         ) { (o: inout MessageTestType) in
             o.optionalNestedMessage = MessageTestType.NestedMessage()
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalNestedMessage = MessageTestType.NestedMessage()
             o.clearOptionalNestedMessage()
@@ -645,12 +645,12 @@ final class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([168, 1, 0]) {
             $0.hasOptionalNestedEnum && $0.optionalNestedEnum == .unspecified
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\noptional_nested_enum: UNSPECIFIED\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestProto3Optional:\noptional_nested_enum: UNSPECIFIED\n"
         ) { (o: inout MessageTestType) in
             o.optionalNestedEnum = .unspecified
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestProto3Optional:\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestProto3Optional:\n") {
             (o: inout MessageTestType) in
             o.optionalNestedEnum = .unspecified
             o.clearOptionalNestedEnum()
