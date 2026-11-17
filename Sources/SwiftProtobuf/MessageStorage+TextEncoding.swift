@@ -146,7 +146,7 @@ extension MessageStorage {
             }
             forEachMapEntry(
                 in: field,
-                useDeterministicOrdering: true,
+                useDeterministicOrdering: options.useDeterministicOrdering,
                 workingSpace: workingSpace
             ) {
                 emitName(ofFieldNumber: fieldNumber, into: &encoder)
