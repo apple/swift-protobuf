@@ -106,7 +106,7 @@ extension SwiftProtobufError {
                 case .jsonEncodingError:
                     return "JSON encoding error"
                 case .textFormatDecodingError:
-                    return "Text format decoding error"
+                    return "TextFormat decoding error"
                 }
             }
         }

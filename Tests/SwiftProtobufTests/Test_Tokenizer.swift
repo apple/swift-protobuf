@@ -258,6 +258,9 @@ func expectThrowsError<T>(
             expectedError: "1:2: A space is required between an identifier and a decimal point"
         ),
         ErrorCase(input: "1.0f foo", expectedError: "1:4: Need space between number and identifier", mode: .json),
+        ErrorCase(input: "\"a\u{00}b\"", expectedError: "1:3: Unescaped control character in JSON string", mode: .json),
+        ErrorCase(input: "\"a\tb\"", expectedError: "1:3: Unescaped control character in JSON string", mode: .json),
+        ErrorCase(input: "\"a\u{1f}b\"", expectedError: "1:3: Unescaped control character in JSON string", mode: .json),
         ErrorCase(input: "\u{8} foo", expectedError: "1:1: Invalid control characters encountered in text"),
         ErrorCase(input: "\u{C0}foo", expectedError: "1:1: Non-UTF-8 code unit 195"),
     ])

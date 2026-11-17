@@ -372,6 +372,12 @@ extension MessageStorage {
             let submessageSchema = messageSchema(for: field)
             switch CustomJSONWKTClassification(messageSchema: submessageSchema) {
             case .value:
+                // Even for JSON `null`, a `google.protobuf.Value` field materializes a submessage
+                // with `nullValue` set, so count it toward the recursion budget just like
+                // `parseAsValue(from:)`.
+                try reader.decrementRecursionBudget()
+                defer { reader.incrementRecursionBudget() }
+
                 // A `null` value for `google.protobuf.Value` decodes to a message whose
                 // `nullValue` field is set to `google.protobuf.NullValue.nullValue`.
                 //
@@ -794,6 +800,11 @@ extension MessageStorage {
     ///
     /// - Precondition: The receiver must be the storage for `google.protobuf.Value`.
     private func parseAsValue(from reader: inout JSONReader) throws {
+        // No matter what was in the JSON, when it becomes a `google.protobuf.Value`, we've added a
+        // message to the depth of messages modeled, so count it toward the recursion budget.
+        try reader.decrementRecursionBudget()
+        defer { reader.incrementRecursionBudget() }
+
         if reader.at(.identifier) {
             if try reader.consumeNullIfPresent() {
                 updateValue(of: KnownField.valueNullValue(in: schema), to: Google_Protobuf_NullValue.nullValue)

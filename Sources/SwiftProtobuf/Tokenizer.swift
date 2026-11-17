@@ -273,6 +273,8 @@ package struct Tokenizer {
             switch c {
             case UInt8(ascii: "\n"):
                 throw makeError("Unexpected newline in string")
+            case 0..<0x20 where mode == .json:
+                throw makeError("Unescaped control character in JSON string")
             case UInt8(ascii: "\\"):
                 hasEscapes = true
                 advance()
