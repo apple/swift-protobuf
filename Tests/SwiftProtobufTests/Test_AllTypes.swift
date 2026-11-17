@@ -71,16 +71,16 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalInt32 = Int32.min
         }
         assertDecodeSucceeds([8, 1]) { $0.optionalInt32 == 1 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_int32: 1\n") {
             (o: inout MessageTestType) in o.optionalInt32 = 1
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int32: -2147483648\noptional_uint32: 4294967295\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_int32: -2147483648\noptional_uint32: 4294967295\n"
         ) { (o: inout MessageTestType) in
             o.optionalInt32 = Int32.min
             o.optionalUint32 = UInt32.max
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\n") { (o: inout MessageTestType) in
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\n") { (o: inout MessageTestType) in
             o.optionalInt32 = 1
             o.clearOptionalInt32()
         }
@@ -145,7 +145,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalInt64 = Int64.min
         }
         assertDecodeSucceeds([16, 184, 156, 195, 145, 203, 1]) { $0.optionalInt64 == 54_529_150_520 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int64: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_int64: 1\n") {
             (o: inout MessageTestType) in o.optionalInt64 = 1
         }
         assertDecodeFails([16])
@@ -188,7 +188,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([24, 255, 255, 255, 255, 15]) { (o: inout MessageTestType) in o.optionalUint32 = UInt32.max }
         assertEncode([24, 0]) { (o: inout MessageTestType) in o.optionalUint32 = UInt32.min }
         assertDecodeSucceeds([24, 149, 88]) { $0.optionalUint32 == 11285 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_uint32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_uint32: 1\n") {
             (o: inout MessageTestType) in o.optionalUint32 = 1
         }
         assertDecodeFails([24])
@@ -233,7 +233,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertEncode([32, 0]) { (o: inout MessageTestType) in o.optionalUint64 = UInt64.min }
         assertDecodeSucceeds([32, 149, 7]) { $0.optionalUint64 == 917 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_uint64: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_uint64: 1\n") {
             (o: inout MessageTestType) in o.optionalUint64 = 1
         }
         assertDecodeFails([32])
@@ -294,7 +294,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([40, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x00]) {
             $0.optionalSint32 == 0
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_sint32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_sint32: 1\n") {
             (o: inout MessageTestType) in o.optionalSint32 = 1
         }
 
@@ -355,7 +355,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalSint64 = Int64.min
         }
         assertDecodeSucceeds([48, 139, 94]) { $0.optionalSint64 == -6022 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_sint64: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_sint64: 1\n") {
             (o: inout MessageTestType) in o.optionalSint64 = 1
         }
         assertDecodeFails([48])
@@ -405,7 +405,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([61, 255, 255, 255, 255]) { (o: inout MessageTestType) in o.optionalFixed32 = UInt32.max }
         assertEncode([61, 0, 0, 0, 0]) { (o: inout MessageTestType) in o.optionalFixed32 = UInt32.min }
         assertDecodeSucceeds([61, 8, 12, 108, 1]) { $0.optionalFixed32 == 23_858_184 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_fixed32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_fixed32: 1\n") {
             (o: inout MessageTestType) in o.optionalFixed32 = 1
         }
         assertDecodeFails([61])
@@ -468,7 +468,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([65, 255, 255, 255, 255, 255, 255, 255, 255]) {
             $0.optionalFixed64 == 18_446_744_073_709_551_615
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_fixed64: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_fixed64: 1\n") {
             (o: inout MessageTestType) in o.optionalFixed64 = 1
         }
         assertDecodeFails([65])
@@ -532,7 +532,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([77, 0, 0, 0, 128]) { (o: inout MessageTestType) in o.optionalSfixed32 = Int32.min }
         assertDecodeSucceeds([77, 0, 0, 0, 0]) { $0.optionalSfixed32 == 0 }
         assertDecodeSucceeds([77, 255, 255, 255, 255]) { $0.optionalSfixed32 == -1 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_sfixed32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_sfixed32: 1\n") {
             (o: inout MessageTestType) in o.optionalSfixed32 = 1
         }
         assertDecodeFails([77])
@@ -594,7 +594,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertEncode([81, 0, 0, 0, 0, 0, 0, 0, 128]) { (o: inout MessageTestType) in o.optionalSfixed64 = Int64.min }
         assertDecodeSucceeds([81, 0, 0, 0, 0, 0, 0, 0, 128]) { $0.optionalSfixed64 == -9_223_372_036_854_775_808 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_sfixed64: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_sfixed64: 1\n") {
             (o: inout MessageTestType) in o.optionalSfixed64 = 1
         }
         assertDecodeFails([81])
@@ -663,7 +663,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_float: 1.0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_float: 1.0\n") {
             (o: inout MessageTestType) in o.optionalFloat = 1.0
         }
         assertDecodeFails([93, 0, 0, 0])
@@ -716,7 +716,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 224, 63]) { (o: inout MessageTestType) in o.optionalDouble = 0.5 }
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 64]) { (o: inout MessageTestType) in o.optionalDouble = 2.0 }
         assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) { $0.optionalDouble == 0.5 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_double: 1.0\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_double: 1.0\n") {
             (o: inout MessageTestType) in o.optionalDouble = 1.0
         }
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
@@ -780,10 +780,10 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_bool: true\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_bool: true\n") {
             (o: inout MessageTestType) in o.optionalBool = true
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_bool: false\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_bool: false\n") {
             (o: inout MessageTestType) in o.optionalBool = false
         }
         assertDecodeFails([104])
@@ -855,10 +855,10 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             $0.optionalString
                 == "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_string: \"abc\"\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_string: \"abc\"\n") {
             (o: inout MessageTestType) in o.optionalString = "abc"
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_string: \"\\b\\t\"\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_string: \"\\b\\t\"\n") {
             (o: inout MessageTestType) in o.optionalString = "\u{08}\u{09}"
         }
         assertDecodeFails([114])
@@ -935,8 +935,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([131, 1, 132, 1]) {
             $0.optionalGroup == MessageTestType.OptionalGroup()
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nOptionalGroup {\n  a: 1\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nOptionalGroup {\n  a: 1\n}\n"
         ) { (o: inout MessageTestType) in
             var g = MessageTestType.OptionalGroup()
             g.a = 1
@@ -988,8 +988,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_bytes: \"\\001\\002\\003\"\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_bytes: \"\\001\\002\\003\"\n"
         ) { (o: inout MessageTestType) in o.optionalBytes = Data([1, 2, 3]) }
         assertDecodeFails([122])
         assertDecodeFails([122, 1])
@@ -1055,8 +1055,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([146, 1, 4, 8, 1, 8, 3]) { $0.optionalNestedMessage.bb == 3 }
         assertDecodeSucceeds([146, 1, 2, 8, 1, 146, 1, 2, 8, 4]) { $0.optionalNestedMessage.bb == 4 }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_nested_message {\n  bb: 1\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_nested_message {\n  bb: 1\n}\n"
         ) { (o: inout MessageTestType) in
             var nested = MessageTestType.NestedMessage()
             nested.bb = 1
@@ -1186,8 +1186,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([154, 1, 4, 8, 1, 8, 3]) { $0.optionalForeignMessage.c == 3 }
         assertDecodeSucceeds([154, 1, 2, 8, 1, 154, 1, 2, 8, 4]) { $0.optionalForeignMessage.c == 4 }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_foreign_message {\n  c: 1\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_foreign_message {\n  c: 1\n}\n"
         ) { (o: inout MessageTestType) in
             var foreign = SwiftProtoTesting_ForeignMessage()
             foreign.c = 1
@@ -1270,7 +1270,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([168, 1])
         assertDecodeSucceeds([168, 1, 128, 1]) { !$0.hasOptionalNestedEnum }
         assertDecodeSucceeds([168, 1, 255, 255, 255, 255, 255, 255, 255, 255, 255, 1]) { $0.optionalNestedEnum == .neg }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_nested_enum: BAR\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_nested_enum: BAR\n") {
             (o: inout MessageTestType) in
             o.optionalNestedEnum = .bar
         }
@@ -1299,8 +1299,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([176, 1, 5]) { (o: inout MessageTestType) in
             o.optionalForeignEnum = .foreignBar
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_foreign_enum: FOREIGN_BAR\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_foreign_enum: FOREIGN_BAR\n"
         ) { (o: inout MessageTestType) in
             o.optionalForeignEnum = .foreignBar
         }
@@ -1323,8 +1323,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([184, 1, 8]) { (o: inout MessageTestType) in
             o.optionalImportEnum = .importBar
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_import_enum: IMPORT_BAR\n")
-        { (o: inout MessageTestType) in
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_import_enum: IMPORT_BAR\n") {
+            (o: inout MessageTestType) in
             o.optionalImportEnum = .importBar
         }
 
@@ -1348,8 +1348,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             sub.e = 12
             o.optionalPublicImportMessage = sub
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_public_import_message {\n  e: 9999\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_public_import_message {\n  e: 9999\n}\n"
         ) { (o: inout MessageTestType) in
             var sub = SwiftProtoTesting_Import_PublicImportMessage()
             sub.e = 9999
@@ -1376,15 +1376,15 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([253, 1, 77])
         assertDecodeFails([254, 1, 78])
         assertDecodeFails([255, 1, 79])
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\n") {
             (o: inout MessageTestType) in
             o.repeatedInt32 = [1]
         }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\n") { (o: inout MessageTestType) in
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\n") { (o: inout MessageTestType) in
             o.repeatedInt32 = []
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\n"
         ) { (o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2]
         }
@@ -1838,8 +1838,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         //   g2.a = 2
         //   o.repeatedGroup = [g1, g2]
         // }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
         ) { (o: inout MessageTestType) in
             var g1 = MessageTestType.RepeatedGroup()
             g1.a = 1
@@ -1847,8 +1847,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             g2.a = 2
             o.repeatedGroup = [g1, g2]
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
         ) { (o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2, 3]
             var g1 = MessageTestType.RepeatedGroup()
@@ -1881,8 +1881,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
             XCTAssertEqual($0 as! BinaryDecodingError, .malformedProtobuf)
         }
 
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n"
         ) { (o: inout MessageTestType) in
             var m1 = MessageTestType.NestedMessage()
             m1.bb = 1
@@ -1937,8 +1937,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([152, 3, 2, 152, 3, 3]) { (o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\nrepeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\nrepeated_nested_enum: BAR\nrepeated_nested_enum: BAZ\n"
         ) { (o: inout MessageTestType) in
             o.repeatedNestedEnum = [.bar, .baz]
         }
@@ -1984,7 +1984,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         let empty = MessageTestType()
         XCTAssertEqual(empty.defaultInt32, 41)
         // Setting explicitly does serialize (even if default)
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\ndefault_int32: 41\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\ndefault_int32: 41\n") {
             (o: inout MessageTestType) in
             o.defaultInt32 = 41
         }
@@ -2007,7 +2007,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         t.defaultInt32 = 4
         t.clearDefaultInt32()
         XCTAssertEqual(t.defaultInt32, 41)
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\n", t)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\n", t)
 
         // The default is still not serialized
         let s: [UInt8] = try t.serializedBytes()
@@ -2015,7 +2015,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         assertDecodeSucceeds([]) { $0.defaultInt32 == 41 }
         assertDecodeSucceeds([232, 3, 4]) { $0.defaultInt32 == 4 }
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\ndefault_int32: 4\n") {
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\ndefault_int32: 4\n") {
             (o: inout MessageTestType) in
             o.defaultInt32 = 4
         }
@@ -2433,7 +2433,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofUint32 = 77
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noneof_uint32: 77\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noneof_uint32: 77\n", m)
         var m2 = MessageTestType()
         m2.oneofUint32 = 78
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2482,8 +2482,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         nested1.bb = 1
         var m = MessageTestType()
         m.oneofNestedMessage = nested1
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n",
             m
         )
         var nested2 = MessageTestType.NestedMessage()
@@ -2567,7 +2567,7 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofString = "abc"
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noneof_string: \"abc\"\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noneof_string: \"abc\"\n", m)
         var m2 = MessageTestType()
         m2.oneofString = "def"
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2641,8 +2641,8 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         m.oneofBytes = Data([1, 2, 3])
 
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n",
             m
         )
         var m2 = MessageTestType()
@@ -2652,12 +2652,12 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     func testDebugDescription() {
         var m = MessageTestType()
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\n", m)
         m.optionalInt32 = 7
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int32: 7\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestAllTypes:\noptional_int32: 7\n", m)
         m.repeatedString = ["a", "b"]
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n",
             m
         )
     }
@@ -2665,32 +2665,32 @@ final class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testDebugDescription2() {
         // Message with only one field
         var m = SwiftProtoTesting_ForeignMessage()
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_ForeignMessage:\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_ForeignMessage:\n", m)
         m.c = 3
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_ForeignMessage:\nc: 3\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_ForeignMessage:\nc: 3\n", m)
     }
 
     func testDebugDescription3() {
         // Message with only a single oneof
         var m = SwiftProtoTesting_TestOneof()
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestOneof:\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestOneof:\n", m)
         m.fooInt = 1
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestOneof:\nfoo_int: 1\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestOneof:\nfoo_int: 1\n", m)
         m.fooString = "a"
-        assertDebugDescription("SwiftProtobufTests.SwiftProtoTesting_TestOneof:\nfoo_string: \"a\"\n", m)
+        assertDebugDescriptionSuffix(".SwiftProtoTesting_TestOneof:\nfoo_string: \"a\"\n", m)
         var g = SwiftProtoTesting_TestOneof.FooGroup()
         g.a = 7
         g.b = "b"
         m.fooGroup = g
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n",
             m
         )
     }
 
     func testDebugDescription4() {
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_TestAllTypes:\noptional_int32: 88\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_TestAllTypes:\noptional_int32: 88\nrepeated_int32: 1\nrepeated_int32: 2\nrepeated_int32: 3\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n"
         ) { (o: inout MessageTestType) in
             o.optionalInt32 = 88
             o.repeatedInt32 = [1, 2, 3]

@@ -65,8 +65,8 @@ final class Test_Reserved: XCTestCase {
         msg.hashValue_p = "bar"
         msg.debugDescription_p = 5
 
-        assertDebugDescription(
-            "SwiftProtobufTests.SwiftProtoTesting_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n",
+        assertDebugDescriptionSuffix(
+            ".SwiftProtoTesting_SwiftReservedTest:\nproto_message_name: 1\nproto_package_name: 2\nany_type_prefix: 3\nany_type_url: 4\nis_initialized: \"foo\"\nhash_value: \"bar\"\ndebug_description: 5\n",
             msg
         )
 

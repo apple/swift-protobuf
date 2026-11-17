@@ -900,7 +900,10 @@ internal struct BinaryDecoder: Decoder {
         try incrementRecursionDepth()
         try message.decodeMessage(decoder: &self)
         if M.self == Google_Protobuf_Any.self {
-            (message as! Google_Protobuf_Any)._storage.recordDecodedBinaryDepthBudget(recursionBudget)
+            var any = message as! Google_Protobuf_Any
+            message = Google_Protobuf_Any() as! M
+            any.recordDecodedBinaryDepthBudget(recursionBudget)
+            message = any as! M
         }
         decrementRecursionDepth()
         guard complete else {

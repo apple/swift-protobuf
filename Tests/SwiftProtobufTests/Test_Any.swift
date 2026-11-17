@@ -466,6 +466,31 @@ final class Test_Any: XCTestCase {
         XCTAssertThrowsError(try decodedDepth6.jsonString()) { error in
             XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
         }
+
+        // Merging into a copied Google_Protobuf_Any with a tighter depth limit does not mutate
+        // the original copy's depth budget, even when only unknown fields or empty bytes are decoded.
+        let sharedOriginal = try Google_Protobuf_Any(serializedBytes: bytesDepth5)
+        var copyWithUnknownOnly = sharedOriginal
+        var tighterBinaryOpts = BinaryDecodingOptions()
+        tighterBinaryOpts.messageDepthLimit = 3
+        try copyWithUnknownOnly.merge(serializedBytes: [24, 1], options: tighterBinaryOpts)
+        XCTAssertThrowsError(try copyWithUnknownOnly.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertNoThrow(try sharedOriginal.jsonString())
+
+        var parentOriginal = SwiftProtoTesting_TestAny()
+        parentOriginal.anyValue = sharedOriginal
+        var parentCopyWithEmptyAny = parentOriginal
+        var tighterParentOpts = BinaryDecodingOptions()
+        tighterParentOpts.messageDepthLimit = 4
+        // Field 2 (any_value) length-delimited with 0 bytes: [18, 0].
+        try parentCopyWithEmptyAny.merge(serializedBytes: [18, 0] as [UInt8], options: tighterParentOpts)
+        XCTAssertThrowsError(try parentCopyWithEmptyAny.anyValue.jsonString()) { error in
+            XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
+        }
+        XCTAssertNoThrow(try parentOriginal.anyValue.jsonString())
+        XCTAssertNoThrow(try sharedOriginal.jsonString())
     }
 
     func test_Any_TextFormatTranscodeDepthLimit() throws {
@@ -536,6 +561,54 @@ final class Test_Any: XCTestCase {
             XCTAssertEqual(error as? JSONEncodingError, .anyTranscodeFailure)
         }
         XCTAssertFalse(decodedRaw4.textFormatString().contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+
+        // JSON-decoded WKT Any (.contentJSON) at the exact textFormatString recursion limit
+        // (99 Any wrappers + 1 Int32Value = 100 messages total, effectiveBudget == 1) still uses
+        // the verbose "[...]" form, and falls back to `#json:` at 100 Any wrappers + 1 Int32Value.
+        let jsonWKTLeaf = "{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":7}"
+        var composedWithJSONWKTLeaf = try Google_Protobuf_Any(jsonString: jsonWKTLeaf)
+        for _ in 0..<98 {
+            composedWithJSONWKTLeaf = try Google_Protobuf_Any(message: composedWithJSONWKTLeaf)
+        }
+        let textWithJSONWKTLeafAtLimit = composedWithJSONWKTLeaf.textFormatString()
+        XCTAssertTrue(textWithJSONWKTLeafAtLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(textWithJSONWKTLeafAtLimit.contains("#json:"))
+
+        let composedWithJSONWKTLeafOverLimit = try Google_Protobuf_Any(message: composedWithJSONWKTLeaf)
+        let textWithJSONWKTLeafOverLimit = composedWithJSONWKTLeafOverLimit.textFormatString()
+        XCTAssertFalse(textWithJSONWKTLeafOverLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertTrue(textWithJSONWKTLeafOverLimit.contains("#json:"))
+
+        // A chain of 99 nested JSON-decoded Any wrappers around Int32Value (100 messages total)
+        // also uses verbose form all the way down to the leaf WKT.
+        var nestedJSONString = jsonWKTLeaf
+        for _ in 0..<98 {
+            nestedJSONString =
+                "{\"@type\":\"type.googleapis.com/google.protobuf.Any\",\"value\":\(nestedJSONString)}"
+        }
+        let decodedNestedJSONAtLimit = try Google_Protobuf_Any(jsonString: nestedJSONString)
+        let textNestedJSONAtLimit = decodedNestedJSONAtLimit.textFormatString()
+        XCTAssertTrue(textNestedJSONAtLimit.contains("[type.googleapis.com/google.protobuf.Int32Value]"))
+        XCTAssertFalse(textNestedJSONAtLimit.contains("#json:"))
+
+        // Remaining depth from incoming JSON decode of a WKT Any is carried into .contentJSON:
+        // 1 Any + 1 Int32Value = 2 messages total succeeds with messageDepthLimit = 2 and
+        // falls back to `#json:` with messageDepthLimit = 1.
+        var jsonOpts2 = JSONDecodingOptions()
+        jsonOpts2.messageDepthLimit = 2
+        let decodedJSONLimit2 = try Google_Protobuf_Any(jsonString: jsonWKTLeaf, options: jsonOpts2)
+        XCTAssertTrue(
+            decodedJSONLimit2.textFormatString().contains("[type.googleapis.com/google.protobuf.Int32Value]")
+        )
+        XCTAssertFalse(decodedJSONLimit2.textFormatString().contains("#json:"))
+
+        var jsonOpts1 = JSONDecodingOptions()
+        jsonOpts1.messageDepthLimit = 1
+        let decodedJSONLimit1 = try Google_Protobuf_Any(jsonString: jsonWKTLeaf, options: jsonOpts1)
+        XCTAssertFalse(
+            decodedJSONLimit1.textFormatString().contains("[type.googleapis.com/google.protobuf.Int32Value]")
+        )
+        XCTAssertTrue(decodedJSONLimit1.textFormatString().contains("#json:"))
     }
 
     func test_Any_FieldMask_JSON_roundtrip() throws {

@@ -299,6 +299,13 @@ final class Test_Timestamp: XCTestCase, PBTestHelpers {
     func testJSON_timezones() {
         assertJSONDecodeSucceeds("\"1970-01-01T08:00:00+08:00\"") { $0.seconds == 0 }
         assertJSONDecodeSucceeds("\"1969-12-31T16:00:00-08:00\"") { $0.seconds == 0 }
+        // RFC 3339 allows offset hours 00-23; real zones go up to +14:00
+        // (e.g. Pacific/Kiritimati).
+        assertJSONDecodeSucceeds("\"1970-01-01T14:00:00+14:00\"") { $0.seconds == 0 }
+        assertJSONDecodeSucceeds("\"1969-12-31T10:00:00-14:00\"") { $0.seconds == 0 }
+        assertJSONDecodeSucceeds("\"1970-01-01T23:59:00+23:59\"") { $0.seconds == 0 }
+        assertJSONDecodeSucceeds("\"1969-12-31T00:01:00-23:59\"") { $0.seconds == 0 }
+        assertJSONDecodeFails("\"1970-01-01T00:00:00+24:00\"")
         assertJSONDecodeFails("\"0001-01-01T00:00:00+23:59\"")
         assertJSONDecodeFails("\"9999-12-31T23:59:59-23:59\"")
     }
