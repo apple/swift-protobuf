@@ -41,6 +41,7 @@ final class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         XCTAssertThrowsError(try MessageTestType(textFormatString: "oneof_uint32: 0 oneof_string: \"\"")) {
             guard let error = $0 as? SwiftProtobufError,
                 error.code == .textFormatDecodingError,
+                error.code.description == "TextFormat decoding error",
                 error.message.hasSuffix(": Conflicting oneof values")
             else {
                 return XCTFail("Unexpected error: \($0)")
