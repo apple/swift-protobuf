@@ -308,6 +308,19 @@ extension SwiftProtobufError {
                 location: SourceLocation(function: function, file: file, line: line)
             )
         }
+
+        /// A field occurred more than once in the same JSON object.
+        public static func duplicateField(
+            function: String = #function,
+            file: String = #fileID,
+            line: Int = #line
+        ) -> SwiftProtobufError {
+            SwiftProtobufError(
+                code: .jsonDecodingError,
+                message: "A field occurred more than once in the same JSON object.",
+                location: SourceLocation(function: function, file: file, line: line)
+            )
+        }
     }
 
     /// Errors arising from JSON encoding of messages.

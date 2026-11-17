@@ -1,4 +1,1 @@
-# Tracking in #1798
-Recommended.*.JsonInput.FieldNameDuplicate # Should have failed to parse or matched expected output but did not.
-Recommended.*.JsonInput.FieldNameDuplicateDifferentCasing1 # Should have failed to parse or matched expected output but did not.
-Recommended.*.JsonInput.FieldNameDuplicateDifferentCasing2 # Should have failed to parse or matched expected output but did not.
+

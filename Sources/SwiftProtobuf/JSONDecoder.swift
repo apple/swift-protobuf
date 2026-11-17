@@ -24,6 +24,13 @@ internal struct JSONDecoder: Decoder {
     private var fieldCount = 0
     private var isMapKey = false
     private var fieldNameMap: _NameMap?
+    // Field numbers already seen in this JSON object. The reference parser
+    // rejects a field that appears more than once in the same object
+    // (json/internal/parser.cc ParseField, RecordAsSeen), including the
+    // same field spelled with its JSON name and its proto name. A 'null'
+    // value counts as an occurrence too, since the field decoders reset the
+    // field on 'null'.
+    private var seenFieldNumbers = Set<Int>()
 
     internal var options: JSONDecodingOptions {
         scanner.options
@@ -65,9 +72,16 @@ internal struct JSONDecoder: Decoder {
         )
         if let fieldNumber = fieldNumber {
             fieldCount += 1
+            try recordFieldSeen(fieldNumber)
             return fieldNumber
         }
         return nil
+    }
+
+    private mutating func recordFieldSeen(_ fieldNumber: Int) throws {
+        guard seenFieldNumbers.insert(fieldNumber).inserted else {
+            throw SwiftProtobufError.JSONDecoding.duplicateField()
+        }
     }
 
     mutating func decodeSingularFloatField(value: inout Float) throws {

@@ -382,4 +382,56 @@ final class Test_JSON_Conformance: XCTestCase {
             XCTFail("JSON encode failed with error: \(e)")
         }
     }
+
+    func testFieldNameDuplicate() {
+        typealias M = SwiftProtoTesting_Test3_TestAllTypesProto3
+        func assertDuplicate(_ json: String, file: XCTestFileArgType = #filePath, line: UInt = #line) {
+            XCTAssertThrowsError(try M(jsonString: json), file: file, line: line) { error in
+                XCTAssertTrue(
+                    self.isSwiftProtobufErrorEqual(
+                        error as! SwiftProtobufError,
+                        .JSONDecoding.duplicateField()
+                    ),
+                    "\(json): \(error)",
+                    file: file,
+                    line: line
+                )
+            }
+        }
+        // Upstream conformance: Recommended.*.JsonInput.FieldNameDuplicate*
+        assertDuplicate(#"{"optionalNestedMessage": {"a": 1}, "optionalNestedMessage": {}}"#)
+        assertDuplicate(#"{"optional_nested_message": {"a": 1}, "optionalNestedMessage": {}}"#)
+        assertDuplicate(#"{"optionalNestedMessage": {"a": 1}, "optional_nested_message": {}}"#)
+        assertDuplicate(#"{"optionalInt32": 1, "optionalInt32": 2}"#)
+        assertDuplicate(#"{"optionalString": "a", "optional_string": "b"}"#)
+        assertDuplicate(#"{"repeatedInt32": [1], "repeatedInt32": [2]}"#)
+        assertDuplicate(#"{"mapInt32Int32": {"1": 1}, "mapInt32Int32": {"2": 2}}"#)
+        assertDuplicate(#"{"optionalValue": 1, "optionalValue": 2}"#)
+        assertDuplicate(#"{"optionalValue": null, "optionalValue": 1}"#)
+        assertDuplicate(#"{"optionalNullValue": null, "optionalNullValue": null}"#)
+        assertDuplicate(#"{"optionalNestedMessage": {"a": 1, "a": 2}}"#)
+
+        // 'null' counts as an occurrence, before or after a value.
+        assertDuplicate(#"{"optionalInt32": null, "optionalInt32": 5}"#)
+        assertDuplicate(#"{"optionalInt32": 5, "optionalInt32": null}"#)
+        assertDuplicate(#"{"optionalInt32": null, "optionalInt32": null}"#)
+        assertDuplicate(#"{"optionalNestedMessage": null, "optionalNestedMessage": {"a": 1}}"#)
+        assertDuplicate(#"{"optionalNestedMessage": {"a": 1}, "optionalNestedMessage": null}"#)
+        assertDuplicate(#"{"repeatedInt32": null, "repeatedInt32": [1]}"#)
+        assertDuplicate(#"{"repeatedInt32": [1], "repeatedInt32": null}"#)
+        assertDuplicate(#"{"mapInt32Int32": null, "mapInt32Int32": {"1": 1}}"#)
+        assertDuplicate(#"{"mapInt32Int32": {"1": 1}, "mapInt32Int32": null}"#)
+        assertDuplicate(#"{"optionalValue": 1, "optionalValue": null}"#)
+
+        // Tracking is per JSON object.
+        do {
+            let decoded = try M(
+                jsonString: #"{"optionalNestedMessage": {"a": 1, "corecursive": {"optionalNestedMessage": {"a": 2}}}}"#
+            )
+            XCTAssertEqual(decoded.optionalNestedMessage.a, 1)
+            XCTAssertEqual(decoded.optionalNestedMessage.corecursive.optionalNestedMessage.a, 2)
+        } catch let e {
+            XCTFail("Decode failed with error \(e)")
+        }
+    }
 }
